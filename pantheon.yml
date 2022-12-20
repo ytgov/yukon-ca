@@ -5,14 +5,16 @@ api_version: 1
 # PHP Version:
 # https://pantheon.io/docs/pantheon-yml#php-version
 # Set site's PHP version to 7.4
-php_version: 7.4
+php_version: 8.1
+
+build_step: false
 
 # Nested Docroot
 # https://pantheon.io/docs/pantheon-yml#nested-docroot
 web_docroot: true
 
 database:
-  version: 10.4
+  version: 10.6
 
 workflows:
   sync_code:

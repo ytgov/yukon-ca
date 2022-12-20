@@ -16,13 +16,17 @@ git:
     name: 'Drupal CI'
     email: 'drupal-ci@ewdev.ca'
   default_branch: master
-  remotes: {  }
+  remotes:
+    - ssh://codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in:2222/~/repository.git
   commit-msg:
     pattern: "/(^refs #[0-9]+(: )[^ ].{15,}\\.)|(Merge branch (.)+)/"
     help_description: "The commit message should start with refs,
                       followed by a # and ticket number, followed by a colon and a space,
                       fifteen characters or more describing the commit, and end with a period."
     example: "refs #123: Update site configuration."
+  command-hooks:
+    post-deploy-build:
+      command: ./vendor/evolvingweb/drupal-ci/pantheon/post-deploy-build && cp ./pantheon.yml deploy
 
 # Drupal Account Credentials. These are used for installing Drupal.
 drupal:
