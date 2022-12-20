@@ -1,11 +1,11 @@
-uuid: 31000e96-dd75-4129-9b8d-a81052377d15
+uuid: 3808f97c-2e8b-4213-b893-8381ee42084c
 langcode: en
 status: true
 dependencies:
   theme:
     - glider
 _core:
-  default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
+  default_config_hash: T0wbI6qVdThbbIqXDZFg_1VZ3_ittXBdEoUH7d7ux_E
 id: glider_local_tasks
 theme: glider
 region: content
@@ -15,8 +15,8 @@ plugin: local_tasks_block
 settings:
   id: local_tasks_block
   label: Tabs
-  provider: core
   label_display: '0'
+  provider: core
   primary: true
   secondary: true
 visibility: {  }

@@ -1,4 +1,4 @@
-uuid: 130e87ab-0429-46c1-b54e-48efd215a789
+uuid: 7d45157d-5c08-4817-85f6-cc7af61815e1
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
   theme:
     - glider
 _core:
-  default_config_hash: OFEDxrButmQ8Vac1kiVr1gtw6vYKuSJPr9cJQZVKCKg
+  default_config_hash: 5MfnyzXbzrDa_OJuFfZfpiBYkMiuRp4mk4GM7HYc8eM
 id: glider_admin
 theme: glider
 region: sidebar_first
@@ -19,8 +19,8 @@ plugin: 'system_menu_block:admin'
 settings:
   id: 'system_menu_block:admin'
   label: Administration
-  provider: system
   label_display: visible
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false

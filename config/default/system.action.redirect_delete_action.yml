@@ -1,12 +1,12 @@
-uuid: abb3c22c-df3d-41de-9328-86c28e77ee10
+uuid: b8607c12-a8f2-4e8d-894a-8b7863ad607a
 langcode: en
 status: true
 dependencies:
+  module:
+    - redirect
   enforced:
     module:
       - redirect
-  module:
-    - redirect
 _core:
   default_config_hash: vcnRZRvBqTbK3nZ2M4_lKPlEGc8GjPzgaqapYUfyX8M
 id: redirect_delete_action

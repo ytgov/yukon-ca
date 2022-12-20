@@ -1,4 +1,4 @@
-uuid: 7b2d23ea-e4ad-42b1-bdbd-4e8c899336ee
+uuid: 36f0d7f9-d7a3-4d1e-9c66-0f38e846678e
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,8 @@ id: marital_status
 label: 'Marital status'
 category: Demographic
 likert: false
-options: "Single: Single\nMarried: Married\nDivorced: Divorced\nWidowed: Widowed\n"
+options: |
+  Single: Single
+  Married: Married
+  Divorced: Divorced
+  Widowed: Widowed

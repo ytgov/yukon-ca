@@ -1,4 +1,4 @@
-uuid: 43e32f74-6073-4358-a4a8-971468f05d39
+uuid: cc8f9233-cf85-4d7f-b07e-7078c8e22c49
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,11 @@ id: days
 label: Days
 category: 'Date and time'
 likert: false
-options: "Sunday: Sunday\nMonday: Monday\nTuesday: Tuesday\nWednesday: Wednesday\nThursday: Thursday\nFriday: Friday\nSaturday: Saturday\n"
+options: |
+  Sunday: Sunday
+  Monday: Monday
+  Tuesday: Tuesday
+  Wednesday: Wednesday
+  Thursday: Thursday
+  Friday: Friday
+  Saturday: Saturday

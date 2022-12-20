@@ -1,24 +1,22 @@
-uuid: 8daf473c-4b3f-42e9-b729-b02dc9efd89b
+uuid: e53d83d3-d481-468b-9c0a-fabb098b4b26
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.webform_default
+  module:
+    - filter
+    - shortcut
+    - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Authenticated user'
-weight: -9
+weight: 1
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
   - 'access shortcuts'
-  - 'post comments'
-  - 'skip comment approval'
-  - 'use text format inline_html'
-  - 'use text format restricted_html'
-  - 'view any unpublished content'
-  - 'view latest version'
-  - 'view media'
-  - 'view own unpublished content'
-  - 'view own unpublished media'
-  - 'view unpublished paragraphs'
+  - 'use text format basic_html'
+  - 'use text format webform_default'

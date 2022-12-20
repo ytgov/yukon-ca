@@ -1,4 +1,4 @@
-uuid: 70964d6d-8fde-4caf-bc26-21a9573b1bf1
+uuid: 14851d23-7c69-46c6-a3b3-521ef535d830
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,9 @@ id: relationship
 label: Relationship
 category: Demographic
 likert: false
-options: "Parent: Parent\n'Significant Other': 'Significant Other'\nSibling: Sibling\nChild: Child\nFriend: Friend\n"
+options: |
+  Parent: Parent
+  'Significant Other': 'Significant Other'
+  Sibling: Sibling
+  Child: Child
+  Friend: Friend

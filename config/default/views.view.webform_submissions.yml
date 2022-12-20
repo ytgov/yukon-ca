@@ -1,13 +1,13 @@
-uuid: f1169684-bf76-466a-8af1-a9267ad09226
+uuid: 92a2a56a-5a79-40b7-886c-ea08bc21a5a9
 langcode: en
 status: true
 dependencies:
-  enforced:
-    module:
-      - webform
   module:
     - user
     - webform
+  enforced:
+    module:
+      - webform
 _core:
   default_config_hash: YPgxGC8TmLtfCOLGCCHJcdH2llA7QksUkdi1abhB7Ro
 id: webform_submissions

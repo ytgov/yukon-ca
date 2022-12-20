@@ -1,4 +1,4 @@
-admin: claro
-default: glider
 _core:
-  default_config_hash: XFGT52OWQGc_qIx2ccisxlOOV1jPizrt50R-taIk0Ac
+  default_config_hash: 6lQ55NXM9ysybMQ6NzJj4dtiQ1dAkOYxdDompa-r_kk
+admin: claro
+default: yukonca_glider

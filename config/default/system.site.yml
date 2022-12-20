@@ -1,5 +1,8 @@
-uuid: af6e636d-e516-484b-8248-cd7de3c82fe3
-name: DESK
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: 41650bf6-b2e8-41ee-beae-5f2a13f23d66
+name: Yukon.ca
 mail: admin@example.com
 slogan: ''
 page:
@@ -8,7 +11,4 @@ page:
   front: /node
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
 default_langcode: en
-_core:
-  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

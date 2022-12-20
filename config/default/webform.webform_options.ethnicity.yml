@@ -1,4 +1,4 @@
-uuid: dddb67f0-7c86-4a80-9733-5db4816002f8
+uuid: 1fd1c281-7c47-4f6a-944b-648f238623a1
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,12 @@ id: ethnicity
 label: Ethnicity
 category: Demographic
 likert: false
-options: "Caucasian: Caucasian\n'Latino/Hispanic': 'Latino/Hispanic'\n'Middle Eastern': 'Middle Eastern'\nAfrican: African\nCaribbean: Caribbean\n'South Asian': 'South Asian'\n'East Asian': 'East Asian'\nMixed: Mixed\n"
+options: |
+  Caucasian: Caucasian
+  'Latino/Hispanic': 'Latino/Hispanic'
+  'Middle Eastern': 'Middle Eastern'
+  African: African
+  Caribbean: Caribbean
+  'South Asian': 'South Asian'
+  'East Asian': 'East Asian'
+  Mixed: Mixed

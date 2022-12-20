@@ -1,4 +1,4 @@
-uuid: 33a4f7e8-8135-445f-ad9e-f9c32e02cb87
+uuid: 2d9d31a3-43b7-403f-a4d6-35e0f472e22a
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,9 @@ id: likert_satisfaction
 label: 'Likert: Satisfaction'
 category: Likert
 likert: true
-options: "1: Very Unsatisfied\n2: Unsatisfied\n3: Neutral\n4: Satisfied\n5: Very Satisfied\n"
+options: |
+  1: Very Unsatisfied
+  2: Unsatisfied
+  3: Neutral
+  4: Satisfied
+  5: Very Satisfied

@@ -1,4 +1,4 @@
-uuid: 220e9608-e18c-44bd-8e2f-f0111ed0e69c
+uuid: 544fc803-24e9-477a-86fa-b8082b2089b1
 langcode: en
 status: true
 dependencies:
@@ -11,4 +11,9 @@ id: likert_quality
 label: 'Likert: Quality'
 category: Likert
 likert: true
-options: "1: Poor\n2: Fair\n3: Good\n4: Very good\n5: Excellent\n"
+options: |
+  1: Poor
+  2: Fair
+  3: Good
+  4: Very good
+  5: Excellent

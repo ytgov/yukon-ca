@@ -1,11 +1,11 @@
-uuid: a2c9a080-75fe-44e7-9f83-416886314132
+uuid: ee74f483-b8cb-42b4-adea-3c179a6f2d50
 langcode: en
 status: true
 dependencies:
   theme:
     - glider
 _core:
-  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+  default_config_hash: ABoKnlk20KHqZRw_2Qr4EvaFvH4lnQ2nuhunHeE1JIU
 id: glider_local_actions
 theme: glider
 region: content
@@ -15,6 +15,6 @@ plugin: local_actions_block
 settings:
   id: local_actions_block
   label: 'Primary admin actions'
-  provider: core
   label_display: '0'
+  provider: core
 visibility: {  }
