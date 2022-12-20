@@ -1,0 +1,29 @@
+$include-font: true;
+@import "core";
+@import "bootstrap";
+
+/* TailwindCSS imports */
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+/*! purgecss start ignore */
+@import "placeholders/index";
+
+/* Icons */
+@import "theme-icons";
+@import "theme-icons-classes";
+
+/* Site styles */
+@import "base/index";
+@import "utils/index";
+@import "animations/index";
+@import "layouts/index";
+@import "drupal/index";
+@import "pages/index";
+@import "components/index";
+
+/* Shame */
+@import "shame";
+
+/*! purgecss end ignore */

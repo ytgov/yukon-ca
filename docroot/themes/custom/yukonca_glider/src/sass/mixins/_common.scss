@@ -1,0 +1,17 @@
+/* Custom mixin for the theme */
+
+/* Example mixins */
+
+@mixin region-spacer($color, $direction: bottom) {
+  border-top: 1px dotted $color;
+
+  @if $direction == top {
+    padding-top: 25px;
+    margin-top: 25px;
+  }
+
+  @else {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+}

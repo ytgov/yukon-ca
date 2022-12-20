@@ -1,0 +1,27 @@
+{% set prefix = 'accordion-item' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set anchor = title|trim|clean_id %}
+
+<div{{ attributes.addClass(classes) }} id="ac--{{ anchor }}">
+  <button class="{{ prefix }}__header collapsed" id="heading__{{ item_id }}" type="button" data-toggle="collapse" data-target="#collapse__{{ item_id }}" aria-expanded="true" aria-controls="collapse__{{ item_id }}">
+    <div class="title">{{ title }}</div>
+    <div class="icon"></div>
+  </button>
+  <div id="collapse__{{ item_id }}" class="collapse {{ prefix }}__content" aria-labelledby="heading" data-parent="#heading__{{ item_id }}">
+    <div class="{{ prefix }}__wrapper">
+      {% if summary %}
+        <div class="summary">{{ summary }}</div>
+      {% endif %}
+
+      <div class="content">{{ content }}</div>
+
+      {% if cta|render %}
+        <div class="cta">{{ cta }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>

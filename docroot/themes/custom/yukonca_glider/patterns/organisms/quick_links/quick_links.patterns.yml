@@ -1,0 +1,55 @@
+quick_links:
+  label: 'Qick Links'
+  description: Quick links.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Quick links title.
+      preview: 'Title'
+    summary:
+      type: text
+      label: Summary
+      description: A summary.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    more_link:
+      type: string
+      label: More Link on top right
+      description: "Markup for More Link."
+    background_color:
+      type: string
+      label: Background Colour
+      description: The background colour.
+    links:
+      type: mixed
+      label: Cards
+      description: Cards for the collection.
+      preview:
+        - title: 'Alpha the first item'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=1'
+          link_url: 'http://example.com/item/alpha'
+          link_text: 'Read more'
+        - title: 'Beta the second item'
+          summary: 'Duis tempus elementum neque. In felis urna, facilisis ac justo nec, fringilla mollis dolor.'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=2'
+          link_url: 'http://example.com/item/beta'
+          link_text: 'Read more'
+  libraries:
+    -
+      quick_links:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }
+        js:
+          dist/js/quicklinks.min.js: { minified: true }

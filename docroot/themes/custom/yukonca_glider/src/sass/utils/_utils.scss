@@ -1,0 +1,13 @@
+@layer utilities {
+  .debug {
+    @apply outline-1 outline-red-500;
+
+    &--green {
+      @apply outline-green-500;
+    }
+
+    &--blue {
+      @apply outline-blue-500;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+timeline_card:
+  label: 'Timeline Card'
+  description: 'Timeline Card.'
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Card title.
+      preview: 'Norman Vorano'
+    date:
+      type: text
+      label: Date
+      description: Event or Milestone date.
+      preview: 'Feb 18, 1997'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    summary:
+      type: text
+      label: Summary
+      description: Summary.
+      preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
+    cta:
+      type: string
+      label: CTA
+      description: "Markup for CTAs."
+  libraries:
+    -
+      timeline_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

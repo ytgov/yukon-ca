@@ -1,0 +1,6 @@
+@use "sass:math";
+
+@function rem($target: 16, $context: 10) {
+  $newTarget: math.div($target, ($target * 0 + 1)); // Tip to remove the unit from target
+  @return (math.div($newTarget, $context)) * 1rem;
+}

@@ -1,0 +1,58 @@
+/*
+* Theme variables.
+* These variables will override bootstrap defaults.
+* To override more variables take a look at @node_modules/bootstrap/scss/_variables.scss
+*/
+
+/* Colors common colors */
+$primary: #1379A7;
+$red: #EE696C;
+$yellow: #E8ED57;
+$black: #000;
+
+/* b&w colors as placeholders */
+$dark-gray: lighten($black, 20%);
+$med-gray: lighten($black, 40%);
+$light-gray: lighten($black, 70%);
+$lighter-gray: lighten($black, 90%);
+$off-white: lighten($black, 97%);
+
+/* Utility color variables */
+$heading: $dark-gray;
+$link-color: $black;
+
+/* Fonts */
+$font-primary: sans-serif;
+$font-secondary: serif;
+$heading_font: $font-primary;
+$body_font: $font-secondary;
+$font-icons: "theme-icons";
+
+$desktop-breakpoint: lg;
+
+/* Grid variables */
+// $grid-columns: 12; /* Add a custom value if needed */
+// $grid-gutter-width: 30px; /* Add a custom value if needed */
+
+/* Custom breakpoints. Verify the current design to identify if all the breakpoint are necessaries or if we can remove some of them */
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 576px,
+  sm: 667px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1600px
+);
+
+$container-max-widths: (
+  xxs: 0,
+  xs: 544px,
+  sm: 644px,
+  md: 720px,
+  lg: 960px,
+  xl: 1168px,
+  xxl: 1408px,
+  xxxl: 1568px
+);

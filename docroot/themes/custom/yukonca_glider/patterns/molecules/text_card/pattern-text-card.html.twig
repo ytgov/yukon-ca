@@ -1,0 +1,48 @@
+{% set prefix = 'text-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  {% if link_url|render %}
+    <a href="{{ link_url }}" class="{{ prefix }}__link" aria-label="{{ 'link to'|t }} {{ title }}">
+      <div class="title">
+        <strong>{{ title }}</strong>
+      </div>
+      {% if content %}
+        <div class="summary">
+          {{ content }}
+        </div>
+      {% endif %}
+      <div class="footer">
+        {% if icon and icon != '/' %}
+          {{ icon }}
+        {% endif %}
+      </div>
+    </a>
+  {% else %}
+    <div class="{{ prefix }}__link">
+      <div class="title">
+        <strong>{{ title }}</strong>
+      </div>
+      {% if content %}
+        <div class="summary">
+          {{ content }}
+        </div>
+      {% endif %}
+      <div class="footer">
+        {% if icon and icon != '/' %}
+          {{ icon }}
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endset %}
+
+{{ pattern('card', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

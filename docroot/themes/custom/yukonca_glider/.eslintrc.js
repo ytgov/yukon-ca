@@ -1,0 +1,47 @@
+module.exports = {
+  root: true,
+  extends: [
+    'airbnb',
+  ],
+  env: {
+    browser: true,
+    es6     : true,
+    node    : true,
+  },
+  globals: {
+    Drupal              : true,
+    drupalSettings      : true,
+    drupalTranslations  : true,
+    domready            : true,
+    jQuery              : true,
+    _                   : true, // Underscore
+    matchMedia          : true,
+    Cookies             : true,
+    Backbone            : true,
+    Modernizr           : true,
+    Popper              : true,
+    Sortable            : true,
+    CKEDITOR            : true,
+  },
+  ignorePatterns: ['**/node_modules/*.js', '**/*.min.js'],
+  rules: {
+    indent: ['error', 2],
+    'key-spacing': ['off'],
+    'no-param-reassign': ['error', { props: false }],
+    'space-before-function-paren': ['error', { named: 'always' }],
+    'no-multi-spaces': ['error', { exceptions: { VariableDeclarator: true, ImportDeclaration: true } }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true, optionalDependencies: false, peerDependencies: false }],
+    'func-names': ['error', 'never'],
+    'no-unused-vars': ['error'],
+    'max-len': ['error', 140, 2, {
+      ignoreUrls: true,
+      ignoreComments: false,
+      ignoreRegExpLiterals: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+    }],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'react/jsx-filename-extension': 0,
+    'react/no-danger': 0,
+  },
+};

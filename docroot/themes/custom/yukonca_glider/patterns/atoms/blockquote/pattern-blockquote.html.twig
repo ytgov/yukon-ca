@@ -1,0 +1,33 @@
+{% set hasAttributionOrCite = variant or cite %}
+
+{% set classes = [
+  'blockquote',
+  variant ? 'blockquote-' ~ variant : '',
+  attribution ? 'has-attribution',
+  cite ? 'has-cite' : '',
+  alignment and alignment != 'left' ? 'text-' ~ alignment : ''
+] %}
+
+
+{% if cite %}
+  {% set attributes = attributes.setAttribute('cite', cite) %}
+{% endif %}
+
+<blockquote{{ attributes.addClass(classes) }}>
+  <div class="content">{{ content }}</div>
+    {% if hasAttributionOrCite %}
+      <footer class="blockquote-footer">
+    {% endif %}
+
+    {% if attribution %}
+      <cite class="attribution">{{ attribution }}</cite>
+    {% endif %}
+
+    {% if cite %}
+      <a href="{{ cite }}" class="cite">Read More</a>
+    {% endif %}
+
+    {% if hasAttributionOrCite %}
+      </footer>
+    {% endif %}
+</blockquote>

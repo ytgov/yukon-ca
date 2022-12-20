@@ -1,0 +1,30 @@
+{% set prefix = 'callout-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes).setAttribute('data-aos', 'fade-up').setAttribute('data-aos-once', 'true') %}
+
+{% set content %}
+  <div class="{{ prefix }}__content">
+    {% if icon %}
+      <div class="icon">
+        {{ icon }}
+      </div>
+    {% endif %}
+
+    <div class="content">
+      <div class="title">{{ title }}</div>
+
+      {% if content %}
+        <div class="text">{{ content }}</div>
+      {% endif %}
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  content     : content,
+  attribs     : attributes,
+}, 'default') }}

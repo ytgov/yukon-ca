@@ -1,0 +1,33 @@
+{# Prepare attributes #}
+{% set attributes = attributes.setAttribute('id', 'header') %}
+{% set classes = [
+  hero.image or hero.image_url ? 'has-hero-image' : 'no-hero-image',
+] %}
+
+{# Render output #}
+<header{{ attributes.addClass(classes) }}>
+  <div id="navbar" class="navbar">
+    <div class="navbar-container container">
+      <div class="row align-items-baseline">
+        <div class="col-12 header__branding">
+          {{ branding }}
+        </div>
+        <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-12 header__menu">
+          {{ menu }}
+        </div>
+        <button class="d-inline-block d-sm-inline-block d-md-inline-block d-lg-inline-block d-xl-none mobile-menu-button" data-toggle="modal" data-target="#mobile-menu">
+          <img src="/{{ active_theme_path() ~ '/images/icon-hamburger.svg' }}" alt="mobile menu button">
+        </button>
+      </div>
+    </div>
+  </div>
+  {% if hero %}
+    {# If the hero is an array of data #}
+    {% if hero.title %}
+      <div class="hero">{{ pattern('hero', hero) }}</div>
+      {# If the hero is a renderable #}
+    {% elseif hero['#theme'] %}
+      {{ hero }}
+    {% endif %}
+  {% endif %}
+</header>

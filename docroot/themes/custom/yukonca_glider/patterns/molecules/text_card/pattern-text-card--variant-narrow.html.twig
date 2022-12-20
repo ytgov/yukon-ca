@@ -1,0 +1,37 @@
+{% set prefix = 'text-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="{{ prefix }}__content">
+    {% if link_url %}
+      <a href="{{ link_url }}" aria-label="{{ 'Link to'|t }} {{ title }}" class="title">{{ title }}</a>
+    {% else %}
+      <div class="title">{{ title }}</div>
+    {% endif %}
+
+    {% if content %}
+      <div class="text">{{ content }}</div>
+    {% endif %}
+  </div>
+  <div class="{{ prefix ~ '--' ~ variant }}__footer">
+    {% if link_url %}
+      <a href="{{ link_url }}" aria-label="{{ 'Link to'|t }} {{ title }}" class="{{ prefix }}__link">
+        <img src="/{{ active_theme_path() ~ '/images/icon-long-arrow-dark.svg' }}" width="50" height="auto" alt=""/>
+      </a>
+    {% endif %}
+
+    {% if icon != '/' %}
+      <img src="{{ icon }}" width="40" height="auto" alt=""/>
+    {% endif %}
+  </div>
+{% endset %}
+
+{{ pattern('card', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

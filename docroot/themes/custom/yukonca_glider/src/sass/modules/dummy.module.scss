@@ -1,0 +1,19 @@
+/*
+* Dummy module name and description should be here
+*
+* Modules should be created as isolated styles and can be loaded by using Drupal libraries
+* The css output will be available on /dist/css/modules/<moduleName>.min.css
+* e.g. Having a module called dummy.module.scss the output will be on /dist/css/modules/dummy.module.min.css
+*/
+
+/* Importing core files */
+@import "../core";
+@import "../placeholders/index";
+
+/* Module styles below */
+
+.my-module {
+  &--dummy {
+    @apply bg-red-100 text-green-500;
+  }
+}

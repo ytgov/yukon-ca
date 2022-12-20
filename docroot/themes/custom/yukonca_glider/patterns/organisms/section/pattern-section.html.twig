@@ -1,0 +1,9 @@
+{% set prefix = 'section' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<section {{ attribs.addClass(classes) }}>
+   {{ content }}
+</section>

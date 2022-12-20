@@ -1,0 +1,34 @@
+{# Prepare attributes #}
+{% set prefix = 'page-title' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  pre_title   ? 'has-pre-title'   : 'no-pre-title',
+  post_title  ? 'has-post-title'  : 'no-post-title',
+  summary     ? 'has-summary'     : 'no-summary',
+] %}
+
+{% set anchor = title|render|striptags("<br>")|trim|raw|clean_id %}
+{% set attributes = attributes.addClass(classes).setAttribute('id','pt--'~ anchor) %}
+
+{% set content %}
+  {% if pre_title %}
+    <div class="pre-title" id="heading">{{ pre_title }}</div>
+  {% endif %}
+
+  <h1 class="title" id="heading">{{ title|render|striptags("<br>")|trim|raw }}</h1>
+
+  {% if post_title %}
+    <div class="post-title" id="heading">{{ post_title }}</div>
+  {% endif %}
+
+  {% if summary %}
+    <div class="summary">{{ summary }}</div>
+  {% endif %}
+{% endset %}
+
+{{ pattern('section', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

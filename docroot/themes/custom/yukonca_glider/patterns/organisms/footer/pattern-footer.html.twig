@@ -1,0 +1,27 @@
+{# Prepare content #}
+
+{% set content = content|render %}
+
+<footer id="footer" class="container">
+  <div class="footer-mobile-logos d-block d-sm-block d-md-block d-lg-none">
+    <a href="/">
+      <img src="/{{ active_theme_path() ~ '/images/logo-pspia-white.svg' }}" alt="Princeton School of Public and International Affairs"/>
+    </a>
+    <a href="https://www.princeton.edu" target="_blank">
+      <img src="/{{ active_theme_path() ~ '/images/logo-princeton-white.svg' }}" alt="Princeton University"/>
+    </a>
+  </div>
+  <div class="footer-light row">
+    <div class="container">
+      {% if content %}
+        <div class="footer__content">{{ content }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="footer-dark row">
+    <div class="container">
+      <div class="footer__menu">{{ menu }}</div>
+      <div class="footer__legal">{{ legal }}</div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,50 @@
+{% set prefix = 'video' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% if transcript_title is iterable %}
+  {% set accordion_title = transcript_title|render|striptags %}
+{% endif %}
+
+{% set attributes = attributes.addClass(classes) %}
+{% set item_id    = accordion_title|trim|clean_id %}
+
+{% set content %}
+  <div class="container">
+    {% if not hide_title %}
+      <div class="title">
+        <h2>{{ title }}</h2>
+      </div>
+    {% endif %}
+
+    {% if summary %}
+      <div class="summary">{{ summary }}</div>
+    {% endif %}
+
+    <div class="video">{{ video }}</div>
+
+    {% if caption|render %}
+      <div class="caption">{{ caption }}</div>
+    {% endif %}
+
+    {% if transcript_title|render %}
+      <div class="transcript accordion-item">
+        <button class="accordion-item__header transcript_title collapsed" id="heading__{{ item_id }}" type="button" data-toggle="collapse" data-target="#collapse__{{ item_id }}" aria-expanded="true" aria-controls="collapse__{{ item_id }}">
+          <div class="title">{{ transcript_title }}</div>
+          <div class="icon"></div>
+        </button>
+        <div id="collapse__{{ item_id }}" class="collapse accordion-item__content transcript_content" aria-labelledby="heading" data-parent="#heading__{{ item_id }}">
+          <div class="content">{{ transcript_content }}</div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

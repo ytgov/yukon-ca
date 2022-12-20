@@ -1,0 +1,45 @@
+video:
+  label: 'Video'
+  description: Video.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Card title.
+      preview: 'Norman Vorano'
+    hide_title:
+      type: string
+      label: Hide Title
+      description: Hide the title.
+      preview: ''
+    video:
+      type: string
+      label: Video
+      description: Markup for an embedded video.
+      preview: '<iframe width="560" height="315" src="https://www.youtube.com/embed/rF1X12PE6PY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    summary:
+      type: text
+      label: Summary
+      description: Summary.
+      preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
+    caption:
+      type: string
+      label: Video caption
+      description: .
+      preview: ''
+    transcript_title:
+      type: text
+      label: Transcript Title
+      description: Transcript Title.
+      preview: 'Lorem Ipsum is not simply random text'
+    transcript_content:
+      type: text
+      label: Transcript Content
+      description: Transcript Content
+      preview: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.'
+  libraries:
+    -
+      video:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

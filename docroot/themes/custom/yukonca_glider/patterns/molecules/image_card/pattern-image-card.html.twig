@@ -1,0 +1,28 @@
+{% set prefix = 'image-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <a href="{{ link }}" aria-label="{{ 'Link to'|t }} {{ title }}">
+    <div class="image">
+      {{ image }}
+    </div>
+    <div class="gradient-overlay"></div>
+    <div class="title">
+      <span>{{ title }}</span>
+    </div>
+
+    {% if summary %}
+      <div class="summary">{{ summary }}</div>
+    {% endif %}
+  </a>
+{% endset %}
+
+{{ pattern('card', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}
