@@ -1,0 +1,17 @@
+uuid: 99b61f9f-3664-4c09-9fd2-5bff90146469
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 9_11_ratio_image_cards_980x1200
+label: '9:11 ratio - image cards - 980x1200'
+effects:
+  0da2f6d0-76d0-4aae-8968-fe6a34d60cb1:
+    uuid: 0da2f6d0-76d0-4aae-8968-fe6a34d60cb1
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 980
+      height: 1200
+      crop_type: focal_point

@@ -1,0 +1,23 @@
+uuid: 8644c0a4-731f-41b2-896d-ff8432a74e59
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: featured_small_xl_1x
+label: 'Featured Small XL 1X (470px x 470px)'
+effects:
+  2cfa769d-c132-4541-92c8-5acc6d42a6e2:
+    uuid: 2cfa769d-c132-4541-92c8-5acc6d42a6e2
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  a08d0207-0a52-4eb5-a9c8-2e08a0896c03:
+    uuid: a08d0207-0a52-4eb5-a9c8-2e08a0896c03
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 470
+      height: 470
+      crop_type: focal_point

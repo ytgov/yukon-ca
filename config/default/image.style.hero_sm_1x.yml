@@ -1,0 +1,23 @@
+uuid: 6bfe89df-d4a0-4ca2-ac26-168b3d21955d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_sm_1x
+label: 'Hero SM 1X (767px x 405px)'
+effects:
+  e0a9f35b-077d-4410-b5d1-cb750f264e2d:
+    uuid: e0a9f35b-077d-4410-b5d1-cb750f264e2d
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  9867218c-e893-40ae-922d-37c4c8241638:
+    uuid: 9867218c-e893-40ae-922d-37c4c8241638
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 767
+      height: 405
+      crop_type: focal_point

@@ -1,0 +1,160 @@
+uuid: 74fec325-d99d-4cc2-a520-9ec4c26b79ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sections
+    - node.type.basic_page
+  module:
+    - entity_reference_revisions
+id: node.basic_page.field_sections
+field_name: field_sections
+entity_type: node
+bundle: basic_page
+label: 'Section Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      accordion: accordion
+      alert: alert
+      block: block
+      callout_card: callout_card
+      carousel: carousel
+      grid: grid
+      list: list
+      from_library: from_library
+      hero_header: hero_header
+      hero_footer: hero_footer
+      two_column_layout: two_column_layout
+      node_post_card: node_post_card
+      page_tabs: page_tabs
+      page_title: page_title
+      post_card: post_card
+      quote: quote
+      quick_links: quick_links
+      tabs: tabs
+      text_section: text_section
+      timeline: timeline
+      2col_text: 2col_text
+      video: video
+      view: view
+    target_bundles_drag_drop:
+      2col_text:
+        enabled: true
+        weight: -55
+      accordion:
+        enabled: true
+        weight: -75
+      accordion_card:
+        weight: -51
+        enabled: false
+      alert:
+        enabled: true
+        weight: -74
+      block:
+        enabled: true
+        weight: -73
+      button:
+        weight: -46
+        enabled: false
+      callout_card:
+        enabled: true
+        weight: -72
+      carousel:
+        enabled: true
+        weight: -71
+      checklist_item:
+        weight: -42
+        enabled: false
+      featured_card:
+        weight: -48
+        enabled: false
+      from_library:
+        enabled: true
+        weight: -68
+      grid:
+        enabled: true
+        weight: -70
+      hero_footer:
+        enabled: true
+        weight: -66
+      hero_header:
+        enabled: true
+        weight: -67
+      image_card:
+        weight: -52
+        enabled: false
+      juicer_feed:
+        weight: -47
+        enabled: false
+      list:
+        enabled: true
+        weight: -69
+      node_card:
+        weight: -45
+        enabled: false
+      node_post_card:
+        enabled: true
+        weight: -64
+      page_tabs:
+        enabled: true
+        weight: -63
+      page_title:
+        enabled: true
+        weight: -62
+      post_card:
+        enabled: true
+        weight: -61
+      profile_card:
+        weight: -50
+        enabled: false
+      quick_links:
+        enabled: true
+        weight: -59
+      quote:
+        enabled: true
+        weight: -60
+      tab:
+        weight: -41
+        enabled: false
+      table:
+        weight: -44
+        enabled: false
+      table_row:
+        weight: -43
+        enabled: false
+      tabs:
+        enabled: true
+        weight: -58
+      team_card:
+        weight: -39
+        enabled: false
+      text_card:
+        weight: -49
+        enabled: false
+      text_section:
+        enabled: true
+        weight: -57
+      timeline:
+        enabled: true
+        weight: -56
+      timeline_card:
+        weight: -40
+        enabled: false
+      two_column_layout:
+        enabled: true
+        weight: -65
+      video:
+        enabled: true
+        weight: -54
+      view:
+        enabled: true
+        weight: -53
+field_type: entity_reference_revisions

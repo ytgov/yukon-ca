@@ -1,0 +1,21 @@
+uuid: 4e772b13-d093-4c3d-91dc-a9262227759b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_post_card__bg_colour
+    - paragraphs.paragraphs_type.post_card
+  module:
+    - options
+id: paragraph.post_card.field_post_card__bg_colour
+field_name: field_post_card__bg_colour
+entity_type: paragraph
+bundle: post_card
+label: 'Background Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

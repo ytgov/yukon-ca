@@ -1,0 +1,19 @@
+uuid: b1bdc7fc-bb84-41ce-b940-07b531135fce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timeline_card__title
+    - paragraphs.paragraphs_type.timeline_card
+id: paragraph.timeline_card.field_timeline_card__title
+field_name: field_timeline_card__title
+entity_type: paragraph
+bundle: timeline_card
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

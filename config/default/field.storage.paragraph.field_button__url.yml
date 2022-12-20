@@ -1,0 +1,23 @@
+uuid: 7c092078-005b-4761-95bf-3c2d20df148d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - link
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_button__url
+field_name: field_button__url
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

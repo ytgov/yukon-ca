@@ -1,0 +1,23 @@
+uuid: aed753e6-1200-4229-9f23-fec5bd50d334
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - link
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_team_card__link
+field_name: field_team_card__link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

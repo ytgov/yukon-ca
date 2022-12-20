@@ -1,0 +1,39 @@
+uuid: f92b97bc-5779-4b1f-9d75-2623ccbcb9f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.image_card
+    - field.field.node.basic_page.field_metadata
+    - field.field.node.basic_page.field_sections
+    - node.type.basic_page
+  module:
+    - entity_reference_revisions
+    - fences
+    - user
+id: node.basic_page.image_card
+targetEntityType: node
+bundle: basic_page
+mode: image_card
+content:
+  field_sections:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  content_moderation_control: true
+  field_metadata: true
+  links: true
+  search_api_excerpt: true

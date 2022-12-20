@@ -1,0 +1,23 @@
+uuid: df0c8024-4ba2-4474-9f4c-3579e3759c29
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: post_card_xs_2x
+label: 'Post Card XS 2X (690px x 560px)'
+effects:
+  3c76ec9f-3d00-4c00-b366-402b9354cbbd:
+    uuid: 3c76ec9f-3d00-4c00-b366-402b9354cbbd
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  103678f0-5393-43e5-8a39-94e2137011d9:
+    uuid: 103678f0-5393-43e5-8a39-94e2137011d9
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 690
+      height: 560
+      crop_type: focal_point

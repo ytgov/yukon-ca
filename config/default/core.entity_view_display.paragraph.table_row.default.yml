@@ -1,0 +1,32 @@
+uuid: d097dd74-9b41-4e51-ae32-a5a1ecbb68b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.table_row.field_table_row__row
+    - paragraphs.paragraphs_type.table_row
+  module:
+    - text
+_core:
+  default_config_hash: BvtYcPclGSA90hkKi4bTzHmlorBJhfIQuF-6mFRT6sc
+id: paragraph.table_row.default
+targetEntityType: paragraph
+bundle: table_row
+mode: default
+content:
+  field_table_row__row:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: 666638ca-f0e4-4c0d-b09e-11577ad4915f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.basic_page.field_metadata
+    - field.field.node.basic_page.field_sections
+    - node.type.basic_page
+  module:
+    - user
+id: node.basic_page.teaser
+targetEntityType: node
+bundle: basic_page
+mode: teaser
+content: {  }
+hidden:
+  content_moderation_control: true
+  field_metadata: true
+  field_sections: true
+  links: true
+  search_api_excerpt: true

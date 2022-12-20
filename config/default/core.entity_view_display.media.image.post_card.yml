@@ -1,0 +1,41 @@
+uuid: 1167054a-00d5-40ba-948b-1d9f4846cd41
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.post_card
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.post_card
+  module:
+    - fences
+    - responsive_image
+_core:
+  default_config_hash: Oy-gHiZ4bqA1W7QZoK_UkewSY4UYWsn8jrlxEJ_MZGg
+id: media.image.post_card
+targetEntityType: media
+bundle: image
+mode: post_card
+content:
+  field_media_image:
+    label: hidden
+    settings:
+      responsive_image_style: post_card
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: responsive_image
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

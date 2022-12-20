@@ -1,0 +1,91 @@
+uuid: 86691481-2901-4239-af29-8f6fb3527050
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.table.field_table__columns
+    - field.field.paragraph.table.field_table__cta
+    - field.field.paragraph.table.field_table__header
+    - field.field.paragraph.table.field_table__rows
+    - field.field.paragraph.table.field_table__show_header
+    - paragraphs.paragraphs_type.table
+  module:
+    - entity_reference_revisions
+    - fences
+    - field_delimiter
+    - link
+    - options
+_core:
+  default_config_hash: TRRv82uz_8obHPJJhBlvlOOBwhxmU7V0d02zWAkYBMI
+id: paragraph.table.preview
+targetEntityType: paragraph
+bundle: table
+mode: preview
+content:
+  field_table__columns:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_table__cta:
+    type: link
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_table__header:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: b
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+      field_delimiter:
+        delimiter: '|'
+    type: string
+    region: content
+  field_table__rows:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+      field_delimiter:
+        delimiter: ''
+    region: content
+  field_table__show_header:
+    weight: 0
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,115 @@
+uuid: 1ea75249-9a99-4cc6-8ff1-5ada18489e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tabs__items
+    - paragraphs.paragraphs_type.tab
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - entity_reference_revisions
+id: paragraph.tabs.field_tabs__items
+field_name: field_tabs__items
+entity_type: paragraph
+bundle: tabs
+label: Tab(s)
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      tab: tab
+    target_bundles_drag_drop:
+      2col_text:
+        weight: 29
+        enabled: false
+      accordion:
+        weight: 30
+        enabled: false
+      accordion_card:
+        weight: 31
+        enabled: false
+      block:
+        weight: 32
+        enabled: false
+      button:
+        weight: 33
+        enabled: false
+      callout_card:
+        weight: 34
+        enabled: false
+      card_collection:
+        weight: 35
+        enabled: false
+      carousel:
+        weight: 36
+        enabled: false
+      featured_card:
+        weight: 37
+        enabled: false
+      from_library:
+        weight: 38
+        enabled: false
+      hero_footer:
+        weight: 39
+        enabled: false
+      hero_header:
+        weight: 40
+        enabled: false
+      image_card:
+        weight: 41
+        enabled: false
+      juicer_feed:
+        weight: 42
+        enabled: false
+      node_card:
+        weight: 43
+        enabled: false
+      node_post_card:
+        weight: 44
+        enabled: false
+      page_tabs:
+        weight: 45
+        enabled: false
+      page_title:
+        weight: 46
+        enabled: false
+      post_card:
+        weight: 47
+        enabled: false
+      profile_card:
+        weight: 48
+        enabled: false
+      quote:
+        weight: 49
+        enabled: false
+      tab:
+        enabled: true
+        weight: 51
+      table:
+        weight: 50
+        enabled: false
+      table_row:
+        weight: 51
+        enabled: false
+      tabs:
+        weight: 52
+        enabled: false
+      text_card:
+        weight: 53
+        enabled: false
+      text_section:
+        weight: 54
+        enabled: false
+      two_column_layout:
+        weight: 55
+        enabled: false
+      view:
+        weight: 56
+        enabled: false
+field_type: entity_reference_revisions

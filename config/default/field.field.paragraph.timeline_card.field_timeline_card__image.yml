@@ -1,0 +1,28 @@
+uuid: fa845495-f809-4ce6-a740-4a24b4994de1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timeline_card__image
+    - media.type.image
+    - paragraphs.paragraphs_type.timeline_card
+id: paragraph.timeline_card.field_timeline_card__image
+field_name: field_timeline_card__image
+entity_type: paragraph
+bundle: timeline_card
+label: Image
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: a6e3b8f5-c418-46de-a841-a046766d7e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid__hide_title
+    - paragraphs.paragraphs_type.grid
+id: paragraph.grid.field_grid__hide_title
+field_name: field_grid__hide_title
+entity_type: paragraph
+bundle: grid
+label: 'Hide Title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

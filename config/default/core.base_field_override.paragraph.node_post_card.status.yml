@@ -1,0 +1,22 @@
+uuid: 0a2e5c77-2c98-4cc3-8251-a4d5b4b96d8e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.node_post_card
+id: paragraph.node_post_card.status
+field_name: status
+entity_type: paragraph
+bundle: node_post_card
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: 89b6e4d4-b4ba-46a6-909e-7663bd36ad10
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: quicklinks_sm_2x
+label: 'Quicklinks SM 2X (1400px x 1400px)'
+effects:
+  fde2522a-043a-4e3a-b4b6-1b88849d1b67:
+    uuid: fde2522a-043a-4e3a-b4b6-1b88849d1b67
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  562d2302-c094-4524-8903-1ede8bcd891d:
+    uuid: 562d2302-c094-4524-8903-1ede8bcd891d
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1400
+      height: 1400
+      crop_type: focal_point

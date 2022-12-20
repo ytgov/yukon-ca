@@ -1,0 +1,42 @@
+uuid: d700d629-1c0a-4cc9-9604-23b2f88607ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.page_tabs.field_page_tabs__tabs
+    - paragraphs.paragraphs_type.page_tabs
+  module:
+    - fences
+    - field_delimiter
+    - link
+_core:
+  default_config_hash: TbCUJ2kdwGpKLDYGk0W9WeM1zfHXvZeLTHOnKSLFu0Q
+id: paragraph.page_tabs.preview
+targetEntityType: paragraph
+bundle: page_tabs
+mode: preview
+content:
+  field_page_tabs__tabs:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+      field_delimiter:
+        delimiter: ' | '
+    type: link
+    region: content
+hidden:
+  search_api_excerpt: true

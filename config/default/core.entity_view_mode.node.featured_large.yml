@@ -1,0 +1,10 @@
+uuid: f91e8e9b-759c-4a44-b147-91a90462f8bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.featured_large
+label: 'Featured Large'
+targetEntityType: node
+cache: true

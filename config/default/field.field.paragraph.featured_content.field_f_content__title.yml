@@ -1,0 +1,19 @@
+uuid: ff196efb-9ff7-40b5-8503-450fdc419f30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_f_content__title
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_f_content__title
+field_name: field_f_content__title
+entity_type: paragraph
+bundle: featured_content
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

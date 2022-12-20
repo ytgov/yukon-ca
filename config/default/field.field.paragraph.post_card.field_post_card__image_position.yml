@@ -1,0 +1,25 @@
+uuid: 09f74f79-6689-4a9b-ba5a-b7cbd5107c73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_post_card__image_position
+    - paragraphs.paragraphs_type.post_card
+  module:
+    - options
+_core:
+  default_config_hash: A85WVvL4eWysRSjajLjsWljKdKx6u5fsqurtBg42CXs
+id: paragraph.post_card.field_post_card__image_position
+field_name: field_post_card__image_position
+entity_type: paragraph
+bundle: post_card
+label: 'Image Position'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

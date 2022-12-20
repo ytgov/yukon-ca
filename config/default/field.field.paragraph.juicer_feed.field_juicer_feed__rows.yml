@@ -1,0 +1,27 @@
+uuid: 7dcb8a91-9d0a-423b-850b-d548b74adfeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_juicer_feed__rows
+    - paragraphs.paragraphs_type.juicer_feed
+_core:
+  default_config_hash: JaSAumbwQ9uFkb6hi2tSyroAUUHoZWU3uCFJwP4gn-k
+id: paragraph.juicer_feed.field_juicer_feed__rows
+field_name: field_juicer_feed__rows
+entity_type: paragraph
+bundle: juicer_feed
+label: 'Number of rows'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

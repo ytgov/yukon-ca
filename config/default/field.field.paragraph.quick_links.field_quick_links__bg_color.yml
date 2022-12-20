@@ -1,0 +1,22 @@
+uuid: 1435af9b-32a6-468e-be47-a01529863553
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quick_links__bg_color
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - color_field
+id: paragraph.quick_links.field_quick_links__bg_color
+field_name: field_quick_links__bg_color
+entity_type: paragraph
+bundle: quick_links
+label: 'Background color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

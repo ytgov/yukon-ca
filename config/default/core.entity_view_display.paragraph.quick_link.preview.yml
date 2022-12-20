@@ -1,0 +1,48 @@
+uuid: 14d33c43-d983-4287-a7de-4673f2f55818
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.quick_link.field_quick_link__icon
+    - field.field.paragraph.quick_link.field_quick_link__link
+    - field.field.paragraph.quick_link.field_quick_link__title
+    - paragraphs.paragraphs_type.quick_link
+  module:
+    - link
+id: paragraph.quick_link.preview
+targetEntityType: paragraph
+bundle: quick_link
+mode: preview
+content:
+  field_quick_link__icon:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_quick_link__link:
+    weight: 1
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_quick_link__title:
+    weight: 2
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

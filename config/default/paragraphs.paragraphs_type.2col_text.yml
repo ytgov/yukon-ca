@@ -1,0 +1,10 @@
+uuid: 443170fc-2d04-49b1-815d-ba501e03aada
+langcode: en
+status: true
+dependencies: {  }
+id: 2col_text
+label: 'Two Column Text Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

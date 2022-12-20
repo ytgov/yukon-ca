@@ -1,0 +1,81 @@
+uuid: 4f445f27-bbba-4d2f-9b3d-91e5c0741b3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table__rows
+    - paragraphs.paragraphs_type.table
+    - paragraphs.paragraphs_type.table_row
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 1Jv8AQubPi0lZp44cvsjYu1Ay3wOAXu2z-QXNhjv024
+id: paragraph.table.field_table__rows
+field_name: field_table__rows
+entity_type: paragraph
+bundle: table
+label: Row(s)
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      table_row: table_row
+    target_bundles_drag_drop:
+      accordion_card:
+        weight: 18
+        enabled: false
+      block:
+        weight: 19
+        enabled: false
+      blog_post_card:
+        weight: 20
+        enabled: false
+      card_collection:
+        weight: 21
+        enabled: false
+      from_library:
+        weight: 22
+        enabled: false
+      hero_footer:
+        weight: 23
+        enabled: false
+      hero_header:
+        weight: 24
+        enabled: false
+      image_card:
+        weight: 25
+        enabled: false
+      page_title:
+        weight: 26
+        enabled: false
+      post_card:
+        weight: 27
+        enabled: false
+      profile_card:
+        weight: 28
+        enabled: false
+      quote:
+        weight: 29
+        enabled: false
+      table:
+        weight: 30
+        enabled: false
+      table_row:
+        enabled: true
+        weight: 31
+      text_card:
+        weight: 32
+        enabled: false
+      text_section:
+        weight: 33
+        enabled: false
+      two_column_layout:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

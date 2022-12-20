@@ -1,0 +1,12 @@
+uuid: ae61ccd1-6b9e-4975-bfc0-d106535bcfb1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WE-Dxh0g68mPu3Ft5J0wmmxRNMOWABhrM0A-sGi7ZSs
+id: node_card
+label: 'Node Card'
+icon_uuid: null
+icon_default: null
+description: 'Display a referenced node as a card.'
+behavior_plugins: {  }

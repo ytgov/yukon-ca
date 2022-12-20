@@ -1,0 +1,38 @@
+uuid: e19fb328-faeb-4326-8c90-f392b9b3d3a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tab.field_tab__content
+    - field.field.paragraph.tab.field_tab__title
+    - paragraphs.paragraphs_type.tab
+  module:
+    - entity_reference_revisions
+    - fences
+    - field_delimiter
+id: paragraph.tab.default
+targetEntityType: paragraph
+bundle: tab
+mode: default
+content:
+  field_tab__content:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+      field_delimiter:
+        delimiter: ''
+    region: content
+hidden:
+  field_tab__title: true
+  search_api_excerpt: true

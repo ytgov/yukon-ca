@@ -1,0 +1,23 @@
+uuid: f9184691-dcb4-42c3-a940-f87ac6b0f121
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: team_card_lg_2x
+label: 'Team Card LG 2X (580px x 470px)'
+effects:
+  f32bdee2-3040-4975-ae61-a4ac62f76e16:
+    uuid: f32bdee2-3040-4975-ae61-a4ac62f76e16
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  a9e1abaa-e268-46c5-91b1-35024217321e:
+    uuid: a9e1abaa-e268-46c5-91b1-35024217321e
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 580
+      height: 470
+      crop_type: focal_point

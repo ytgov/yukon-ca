@@ -1,0 +1,10 @@
+uuid: fc3b6687-e574-4c33-9d7d-19edd39c286b
+langcode: en
+status: true
+dependencies: {  }
+id: timeline_card
+label: 'Timeline Card'
+icon_uuid: null
+icon_default: null
+description: 'A historical event or a milestone.'
+behavior_plugins: {  }

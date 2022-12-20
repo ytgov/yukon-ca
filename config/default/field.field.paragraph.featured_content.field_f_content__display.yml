@@ -1,0 +1,23 @@
+uuid: e33e27ad-11ea-411d-9b7a-23c802ee7efa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_f_content__display
+    - paragraphs.paragraphs_type.featured_content
+  module:
+    - options
+id: paragraph.featured_content.field_f_content__display
+field_name: field_f_content__display
+entity_type: paragraph
+bundle: featured_content
+label: 'Display As'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: featured_small
+default_value_callback: ''
+settings: {  }
+field_type: list_string

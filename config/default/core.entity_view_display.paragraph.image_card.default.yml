@@ -1,0 +1,71 @@
+uuid: c08a8aea-49c2-4213-ace5-144447e9daf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_card.field_image_card__image
+    - field.field.paragraph.image_card.field_image_card__link
+    - field.field.paragraph.image_card.field_image_card__title
+    - paragraphs.paragraphs_type.image_card
+  module:
+    - fences
+    - link
+_core:
+  default_config_hash: 07H78Rtf2UR8yjCidAZPfjxVOgMlP-UqnbxSU5s-o1s
+id: paragraph.image_card.default
+targetEntityType: paragraph
+bundle: image_card
+mode: default
+content:
+  field_image_card__image:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: image_card
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    region: content
+  field_image_card__link:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_image_card__title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

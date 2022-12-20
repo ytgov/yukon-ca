@@ -1,0 +1,41 @@
+uuid: 9d0951cc-7d70-4da1-91a6-9de9f0d85334
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.button.field_button__title
+    - field.field.paragraph.button.field_button__type
+    - field.field.paragraph.button.field_button__url
+    - paragraphs.paragraphs_type.button
+  module:
+    - link
+id: paragraph.button.default
+targetEntityType: paragraph
+bundle: button
+mode: default
+content:
+  field_button__title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: 'Enter Button Title'
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_button__type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_button__url:
+    weight: 1
+    settings:
+      placeholder_url: 'Enter Button Url'
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

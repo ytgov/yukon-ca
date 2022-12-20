@@ -1,0 +1,23 @@
+uuid: 9349bebd-fc94-4c72-b690-d87db33ec80a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: post_card_xs_1x
+label: 'Post Card XS 1X (345px x 280px)'
+effects:
+  ea3666b5-90d1-414f-900d-7db3b0ec69d0:
+    uuid: ea3666b5-90d1-414f-900d-7db3b0ec69d0
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  8311cb2c-be75-4d00-9665-f7f84b776950:
+    uuid: 8311cb2c-be75-4d00-9665-f7f84b776950
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 345
+      height: 280
+      crop_type: focal_point

@@ -1,0 +1,23 @@
+uuid: 559eb361-7251-415b-8ea7-ab5c01da33ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: featured_large_sm_1x
+label: 'Featured Large SM 1X (600px x 600px)'
+effects:
+  2b02d300-29be-40ea-a150-44d12e42f1d9:
+    uuid: 2b02d300-29be-40ea-a150-44d12e42f1d9
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  c6247289-5760-4cc5-8389-7bc46524cbb8:
+    uuid: c6247289-5760-4cc5-8389-7bc46524cbb8
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 600
+      height: 600
+      crop_type: focal_point

@@ -1,0 +1,23 @@
+uuid: 0797f0c9-37c7-41f0-b7a6-25adc14fa020
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_md_2x
+label: 'Hero MD 2X (1980px x 1040px)'
+effects:
+  f4699d59-c669-41eb-85f8-0e901b967e2c:
+    uuid: f4699d59-c669-41eb-85f8-0e901b967e2c
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  ed87805d-16b2-4f77-a0ec-3a05ba681d61:
+    uuid: ed87805d-16b2-4f77-a0ec-3a05ba681d61
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1980
+      height: 1040
+      crop_type: focal_point

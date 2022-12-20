@@ -1,0 +1,17 @@
+uuid: 26427749-d82f-4dae-8cdd-7645a45c818d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _AXF2rlXStlB0N_W_p-R4x5gpCQT6L4q8gnwRrO_054
+name: max_1680x1680
+label: 'Scale 1680x1140'
+effects:
+  f9113365-3593-440a-a9c0-c8170dabc1ea:
+    uuid: f9113365-3593-440a-a9c0-c8170dabc1ea
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1680
+      height: 1140
+      anchor: center-center

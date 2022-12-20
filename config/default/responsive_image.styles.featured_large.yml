@@ -1,0 +1,84 @@
+uuid: 972c5f7d-42d8-4e57-8827-03bd57a70bec
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.featured_large_ld_1x
+    - image.style.featured_large_ld_2x
+    - image.style.featured_large_md_1x
+    - image.style.featured_large_md_2x
+    - image.style.featured_large_sm_1x
+    - image.style.featured_large_sm_2x
+    - image.style.featured_large_xl_1
+    - image.style.featured_large_xl_2x
+    - image.style.featured_large_xs_1x
+    - image.style.featured_large_xs_2x
+    - image.style.featured_large_xxl_1x
+    - image.style.featured_large_xxl_2x
+  theme:
+    - glider
+id: featured_large
+label: 'Featured Large'
+image_style_mappings:
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xxl_1x
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xxl_2x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xl_1
+  -
+    breakpoint_id: glider.xl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xl_2x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_ld_1x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_ld_2x
+  -
+    breakpoint_id: glider.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_md_1x
+  -
+    breakpoint_id: glider.md
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_md_2x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_sm_1x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_sm_2x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xs_1x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: featured_large_xs_2x
+breakpoint_group: glider
+fallback_image_style: featured_large_xs_1x

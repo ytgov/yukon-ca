@@ -1,0 +1,21 @@
+uuid: 817220b4-dc48-4e11-9807-c7d736ec7355
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: tNPDFv4grScFcxqEvrtdYCxuhUkn00lqmiPjlOsubLc
+id: paragraph.field_page_tabs__tabs
+field_name: field_page_tabs__tabs
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,34 @@
+uuid: 5f3a0050-9228-4daf-9dcb-7f6d9a050946
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_2col_text__col_width
+field_name: field_2col_text__col_width
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 30x70
+      label: 'Left 30% and Right 70%'
+    -
+      value: 50x50
+      label: 'Left 50% and Right 50%'
+    -
+      value: 70x30
+      label: 'Left 70% and Right 30%'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

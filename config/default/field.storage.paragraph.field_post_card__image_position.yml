@@ -1,0 +1,29 @@
+uuid: 1201c501-1bfc-4fd7-bde2-3da0c49b3a2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: RHEYkYS4hNvfmkJrZNO8k9cYBPle92nGnonXTG-5LaU
+id: paragraph.field_post_card__image_position
+field_name: field_post_card__image_position
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Left
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

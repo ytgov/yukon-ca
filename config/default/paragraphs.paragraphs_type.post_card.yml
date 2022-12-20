@@ -1,0 +1,12 @@
+uuid: 84c27f22-18a3-43fd-bc71-ae83e17ca28b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: p6o_npLKBzwgI1JemBPbAhr8xeHI74uU-kesaxHLL7E
+id: post_card
+label: 'Post Card'
+icon_uuid: null
+icon_default: null
+description: 'A post card with image, title and CTA.'
+behavior_plugins: {  }

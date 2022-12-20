@@ -1,0 +1,23 @@
+uuid: 33682fb9-d107-4083-adc4-82e6af7d835f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alert__link
+    - paragraphs.paragraphs_type.alert
+  module:
+    - link
+id: paragraph.alert.field_alert__link
+field_name: field_alert__link
+entity_type: paragraph
+bundle: alert
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

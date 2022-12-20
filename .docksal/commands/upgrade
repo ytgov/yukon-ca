@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+## Pull latest changes from main repo.
+##
+## Usage: fin upgrade
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Update global.
+  print_info_message "Updating the docksal global commands and configs."
+  rm -rf /tmp/docksal
+  if git clone -q git@gitlab.ewdev.ca:universe/docksal.git -b master /tmp/docksal; then
+    cd /tmp/docksal && ./scripts/update.sh
+  else
+    print_error_message "Failed to update, ensure you have access to universe/docksal git repo."
+  fi
+
+  # Update project.
+  print_info_message "Updating the docksal application commands and configs."
+  rm -rf /tmp/drupal8-template
+  if git clone -q git@gitlab.ewdev.ca:evolvingweb/drupal8-template.git -b master /tmp/drupal8-template; then
+    cd /tmp/drupal8-template && ./scripts/update.sh "$PROJECT_ROOT"
+  else
+    print_error_message "Failed to update, ensure you have access to evolvingweb/drupal8-template git repo."
+  fi
+}
+
+# Run the command.
+__init__ "$@"

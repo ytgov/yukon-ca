@@ -1,0 +1,22 @@
+uuid: a83a2843-4d94-44e5-b98a-d3659fe2418b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - user
+_core:
+  default_config_hash: 0QaVYyEm6lwsMEVnUUehWtdpvlY2x3XYTQoeQXiARXg
+id: paragraph.field_profile_card__reference
+field_name: field_profile_card__reference
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

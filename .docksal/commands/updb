@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+## Apply any database updates required.
+##
+## Usage: fin updb [params]
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  fin drush updb "$@"
+}
+
+# Run the command.
+__init__ "$@"

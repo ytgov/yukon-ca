@@ -1,0 +1,20 @@
+uuid: a2c9a080-75fe-44e7-9f83-416886314132
+langcode: en
+status: true
+dependencies:
+  theme:
+    - glider
+_core:
+  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+id: glider_local_actions
+theme: glider
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

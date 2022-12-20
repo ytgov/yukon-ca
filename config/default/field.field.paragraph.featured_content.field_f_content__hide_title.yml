@@ -1,0 +1,23 @@
+uuid: 5c19d557-c2c7-4871-b475-42352e83d413
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_f_content__hide_title
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_f_content__hide_title
+field_name: field_f_content__hide_title
+entity_type: paragraph
+bundle: featured_content
+label: 'Hide Title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

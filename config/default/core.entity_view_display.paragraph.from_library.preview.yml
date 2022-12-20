@@ -1,0 +1,16 @@
+uuid: b0561973-e50b-42b8-8f5f-6f344ed3b234
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - paragraphs.paragraphs_type.from_library
+_core:
+  default_config_hash: 2-R29_hgTi-2nMXWwK7wk44yUiioJBIeeYGpotDJKUQ
+id: paragraph.from_library.preview
+targetEntityType: paragraph
+bundle: from_library
+mode: preview
+content: {  }
+hidden:
+  search_api_excerpt: true

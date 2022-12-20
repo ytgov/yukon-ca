@@ -1,0 +1,21 @@
+uuid: 7701d1fb-1d51-4e70-8d99-ffe5c20f3148
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: arq0ErzzdIsCcsBplZZQ_lbcSfo4RLHvD4bDmWXrxP4
+id: paragraph.field_hero_header__cta
+field_name: field_hero_header__cta
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

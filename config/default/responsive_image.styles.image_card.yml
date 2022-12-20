@@ -1,0 +1,70 @@
+uuid: 23b292e5-5cfb-4161-8ceb-32a2361ec94b
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.image_card_lg_1x
+    - image.style.image_card_lg_2x
+    - image.style.image_card_sm_1x
+    - image.style.image_card_sm_2x
+    - image.style.image_card_xl_1x
+    - image.style.image_card_xl_2x
+    - image.style.image_card_xs_1x
+    - image.style.image_card_xs_2x
+  theme:
+    - glider
+id: image_card
+label: 'Image Card'
+image_style_mappings:
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: image_card_xl_1x
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: image_card_xl_2x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: image_card_xl_1x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: image_card_xl_2x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: image_card_lg_1x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: image_card_lg_2x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: image_card_sm_1x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: image_card_sm_2x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: image_card_xs_1x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: image_card_xs_2x
+breakpoint_group: glider
+fallback_image_style: image_card_xs_1x

@@ -1,0 +1,21 @@
+uuid: 04dc3d83-42e2-4866-bb21-eba9de9ed25f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_post_card__title
+    - paragraphs.paragraphs_type.post_card
+_core:
+  default_config_hash: vC_v1Cbf8wg7-nfGD_bUcAjvQoLEM1k2tX5OFbWFaTA
+id: paragraph.post_card.field_post_card__title
+field_name: field_post_card__title
+entity_type: paragraph
+bundle: post_card
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

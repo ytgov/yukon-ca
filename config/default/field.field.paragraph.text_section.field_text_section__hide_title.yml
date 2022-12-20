@@ -1,0 +1,23 @@
+uuid: 7f00c02e-80f6-4bc8-b3e8-f888f436e87b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_section__hide_title
+    - paragraphs.paragraphs_type.text_section
+id: paragraph.text_section.field_text_section__hide_title
+field_name: field_text_section__hide_title
+entity_type: paragraph
+bundle: text_section
+label: 'Hide Title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

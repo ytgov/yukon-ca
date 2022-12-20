@@ -1,0 +1,133 @@
+uuid: 1c09e9a7-348e-40bf-ab9a-c2944df5e25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_post_card__cta
+    - paragraphs.paragraphs_type.button
+    - paragraphs.paragraphs_type.post_card
+  module:
+    - entity_reference_revisions
+id: paragraph.post_card.field_post_card__cta
+field_name: field_post_card__cta
+entity_type: paragraph
+bundle: post_card
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      button: button
+    target_bundles_drag_drop:
+      2col_text:
+        weight: 36
+        enabled: false
+      accordion:
+        weight: 37
+        enabled: false
+      accordion_card:
+        weight: 38
+        enabled: false
+      block:
+        weight: 39
+        enabled: false
+      button:
+        enabled: true
+        weight: 40
+      callout_card:
+        weight: 41
+        enabled: false
+      carousel:
+        weight: 42
+        enabled: false
+      checklist_item:
+        weight: 43
+        enabled: false
+      featured_card:
+        weight: 44
+        enabled: false
+      from_library:
+        weight: 45
+        enabled: false
+      grid:
+        weight: 46
+        enabled: false
+      hero_footer:
+        weight: 47
+        enabled: false
+      hero_header:
+        weight: 48
+        enabled: false
+      image_card:
+        weight: 49
+        enabled: false
+      juicer_feed:
+        weight: 50
+        enabled: false
+      list:
+        weight: 51
+        enabled: false
+      node_card:
+        weight: 52
+        enabled: false
+      node_post_card:
+        weight: 53
+        enabled: false
+      page_tabs:
+        weight: 54
+        enabled: false
+      page_title:
+        weight: 55
+        enabled: false
+      post_card:
+        weight: 56
+        enabled: false
+      profile_card:
+        weight: 57
+        enabled: false
+      quick_links:
+        weight: 58
+        enabled: false
+      quote:
+        weight: 59
+        enabled: false
+      tab:
+        weight: 60
+        enabled: false
+      table:
+        weight: 61
+        enabled: false
+      table_row:
+        weight: 62
+        enabled: false
+      tabs:
+        weight: 63
+        enabled: false
+      text_card:
+        weight: 64
+        enabled: false
+      text_section:
+        weight: 65
+        enabled: false
+      timeline:
+        weight: 66
+        enabled: false
+      timeline_card:
+        weight: 67
+        enabled: false
+      two_column_layout:
+        weight: 68
+        enabled: false
+      video:
+        weight: 69
+        enabled: false
+      view:
+        weight: 70
+        enabled: false
+field_type: entity_reference_revisions

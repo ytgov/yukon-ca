@@ -1,0 +1,40 @@
+uuid: 4be4e6ac-93fe-42b0-8d61-4a7ba01b9906
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.checklist_item.field_checklist_item__summary
+    - field.field.paragraph.checklist_item.field_checklist_item__title
+    - paragraphs.paragraphs_type.checklist_item
+  module:
+    - fences
+id: paragraph.checklist_item.preview
+targetEntityType: paragraph
+bundle: checklist_item
+mode: preview
+content:
+  field_checklist_item__summary:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_checklist_item__title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: strong
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

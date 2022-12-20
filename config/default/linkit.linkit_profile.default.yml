@@ -1,0 +1,33 @@
+uuid: 3a78a1f7-e739-4468-868f-e965a73231b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: tkHTLdSYj3cijPZzzmQ5wGZJsEmzc9oI8PLQ4BwwJKQ
+id: default
+label: Default
+description: ''
+matchers:
+  4f7ea389-a643-4a6b-929f-b93f24c3ccdf:
+    uuid: 4f7ea389-a643-4a6b-929f-b93f24c3ccdf
+    id: 'entity:node'
+    weight: 0
+    settings:
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: false
+      substitution_type: canonical
+      metadata: ''
+      limit: 100
+  818f505f-8f00-435e-a8ef-79be20a75812:
+    uuid: 818f505f-8f00-435e-a8ef-79be20a75812
+    id: 'entity:media'
+    weight: 0
+    settings:
+      bundles: {  }
+      group_by_bundle: true
+      substitution_type: media
+      metadata: ''
+      limit: 100

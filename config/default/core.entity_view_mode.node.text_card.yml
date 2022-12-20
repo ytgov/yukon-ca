@@ -1,0 +1,10 @@
+uuid: 6fab8ded-2ef8-4b43-acbe-949afd79eb72
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.text_card
+label: 'Text Card'
+targetEntityType: node
+cache: true

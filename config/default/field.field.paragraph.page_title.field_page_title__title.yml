@@ -1,0 +1,31 @@
+uuid: f40bbde8-70cf-4697-9b1b-5c1fe822bb73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_title__title
+    - paragraphs.paragraphs_type.page_title
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    inline_html: inline_html
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: TnCLKMv5tlu2B7gAF9t7DeyuL_d_D9BTD3RL4U2bfXc
+id: paragraph.page_title.field_page_title__title
+field_name: field_page_title__title
+entity_type: paragraph
+bundle: page_title
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

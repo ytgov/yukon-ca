@@ -1,0 +1,29 @@
+uuid: 160491ad-6c90-4c8e-84c4-f4e9a5c6571e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block__reference
+    - paragraphs.paragraphs_type.block
+  module:
+    - block_field
+_core:
+  default_config_hash: c33fBnO8bO8BynPAp19PZueYlCORHSc5IbHMK45kV2g
+id: paragraph.block.field_block__reference
+field_name: field_block__reference
+entity_type: paragraph
+bundle: block
+label: Reference
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      page_title_block: page_title_block
+      'system_menu_block:main': 'system_menu_block:main'
+      system_breadcrumb_block: system_breadcrumb_block
+field_type: block_field

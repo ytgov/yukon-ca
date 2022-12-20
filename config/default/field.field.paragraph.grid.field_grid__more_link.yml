@@ -1,0 +1,23 @@
+uuid: 2ae3de61-00dc-454b-a446-a507be670453
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid__more_link
+    - paragraphs.paragraphs_type.grid
+  module:
+    - link
+id: paragraph.grid.field_grid__more_link
+field_name: field_grid__more_link
+entity_type: paragraph
+bundle: grid
+label: 'More Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

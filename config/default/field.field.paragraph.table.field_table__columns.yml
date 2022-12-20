@@ -1,0 +1,25 @@
+uuid: ea9589a0-5034-44a2-8fc8-79d2c3f96bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table__columns
+    - paragraphs.paragraphs_type.table
+  module:
+    - options
+_core:
+  default_config_hash: TgxIATKetioiFY3fr-nlsXLOxaSKbuOBxO-VyKmJP_w
+id: paragraph.table.field_table__columns
+field_name: field_table__columns
+entity_type: paragraph
+bundle: table
+label: Columns
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: '2'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

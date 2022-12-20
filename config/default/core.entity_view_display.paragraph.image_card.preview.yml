@@ -1,0 +1,67 @@
+uuid: 3a26288e-5b20-4d2a-b1bc-61aa8944bb1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.image_card.field_image_card__image
+    - field.field.paragraph.image_card.field_image_card__link
+    - field.field.paragraph.image_card.field_image_card__title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.image_card
+  module:
+    - fences
+    - link
+    - media
+_core:
+  default_config_hash: zKmTKWWLJSSqk0qJCfY5_KHGxjNUgAG9a4DZeMLveF8
+id: paragraph.image_card.preview
+targetEntityType: paragraph
+bundle: image_card
+mode: preview
+content:
+  field_image_card__image:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    region: content
+  field_image_card__link:
+    weight: 2
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    type: link
+    region: content
+  field_image_card__title:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: d6917d4e-1847-4116-820d-1af35427a021
+langcode: fr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.two_column_layout
+id: paragraph.two_column_layout.status
+field_name: status
+entity_type: paragraph
+bundle: two_column_layout
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

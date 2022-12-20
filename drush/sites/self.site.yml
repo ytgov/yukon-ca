@@ -1,0 +1,8 @@
+local:
+  root: /drupal/docroot
+  uri: yukonca.docksal
+  host: localhost
+  user: root
+  ssh:
+    options: '-p 22 -o "AddressFamily inet"'
+    tty: false

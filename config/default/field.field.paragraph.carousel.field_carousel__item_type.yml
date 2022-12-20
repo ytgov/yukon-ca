@@ -1,0 +1,21 @@
+uuid: f7e344d0-ee5a-45a1-aa13-46d85f1defda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel__item_type
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - options
+id: paragraph.carousel.field_carousel__item_type
+field_name: field_carousel__item_type
+entity_type: paragraph
+bundle: carousel
+label: 'Item Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: field_paragraph__default_value
+settings: {  }
+field_type: list_string

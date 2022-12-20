@@ -1,0 +1,84 @@
+uuid: 9c20355b-f81d-454b-a476-b199a8e04333
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.alert.field_alert__content
+    - field.field.paragraph.alert.field_alert__link
+    - field.field.paragraph.alert.field_alert__title
+    - field.field.paragraph.alert.field_alert__type
+    - paragraphs.paragraphs_type.alert
+  module:
+    - fences
+    - link
+    - options
+    - text
+id: paragraph.alert.default
+targetEntityType: paragraph
+bundle: alert
+mode: default
+content:
+  field_alert__content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: text_default
+    region: content
+  field_alert__link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: link
+    region: content
+  field_alert__title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+  field_alert__type:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: list_key
+    region: content
+hidden:
+  search_api_excerpt: true

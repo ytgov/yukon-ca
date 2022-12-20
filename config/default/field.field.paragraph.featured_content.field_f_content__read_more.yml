@@ -1,0 +1,23 @@
+uuid: 6ecda4ae-2cbd-4e91-a0e2-ade001af5655
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_f_content__read_more
+    - paragraphs.paragraphs_type.featured_content
+id: paragraph.featured_content.field_f_content__read_more
+field_name: field_f_content__read_more
+entity_type: paragraph
+bundle: featured_content
+label: 'Add "All content" link?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

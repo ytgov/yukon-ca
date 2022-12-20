@@ -1,0 +1,32 @@
+uuid: f692d0c4-3a5d-41f6-9586-31eb0dd1b08a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.profile_card.field_profile_card__reference
+    - paragraphs.paragraphs_type.profile_card
+_core:
+  default_config_hash: 8_lJsubOQ4ugzH4IZM4-SmfGk8NlKNmyjtZe0c8IhEQ
+id: paragraph.profile_card.default
+targetEntityType: paragraph
+bundle: profile_card
+mode: default
+content:
+  field_profile_card__reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

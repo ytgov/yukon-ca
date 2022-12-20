@@ -1,0 +1,195 @@
+uuid: 36445bc5-37d2-4201-accf-e35ad9c203bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sections
+    - node.type.landing
+    - paragraphs.paragraphs_type.2col_text
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.alert
+    - paragraphs.paragraphs_type.block
+    - paragraphs.paragraphs_type.callout_card
+    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.featured_content
+    - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.grid
+    - paragraphs.paragraphs_type.hero_header
+    - paragraphs.paragraphs_type.list
+    - paragraphs.paragraphs_type.node_post_card
+    - paragraphs.paragraphs_type.page_title
+    - paragraphs.paragraphs_type.post_card
+    - paragraphs.paragraphs_type.quick_links
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.tabs
+    - paragraphs.paragraphs_type.text_section
+    - paragraphs.paragraphs_type.timeline
+    - paragraphs.paragraphs_type.two_column_layout
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.view
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: GC0tAGhjOVP2-Nq69ifKVYRgx4m1iQDH4Ba95AGFZjI
+id: node.landing.field_sections
+field_name: field_sections
+entity_type: node
+bundle: landing
+label: 'Section Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      accordion: accordion
+      alert: alert
+      block: block
+      callout_card: callout_card
+      carousel: carousel
+      grid: grid
+      list: list
+      featured_content: featured_content
+      from_library: from_library
+      hero_header: hero_header
+      two_column_layout: two_column_layout
+      node_post_card: node_post_card
+      page_title: page_title
+      post_card: post_card
+      quote: quote
+      quick_links: quick_links
+      tabs: tabs
+      text_section: text_section
+      timeline: timeline
+      2col_text: 2col_text
+      video: video
+      view: view
+    target_bundles_drag_drop:
+      2col_text:
+        enabled: true
+        weight: -64
+      accordion:
+        enabled: true
+        weight: -85
+      accordion_card:
+        weight: -60
+        enabled: false
+      alert:
+        enabled: true
+        weight: -84
+      block:
+        enabled: true
+        weight: -83
+      button:
+        weight: -55
+        enabled: false
+      callout_card:
+        enabled: true
+        weight: -82
+      carousel:
+        enabled: true
+        weight: -81
+      checklist_item:
+        weight: -51
+        enabled: false
+      featured_card:
+        weight: -57
+        enabled: false
+      featured_content:
+        enabled: true
+        weight: -78
+      from_library:
+        enabled: true
+        weight: -77
+      grid:
+        enabled: true
+        weight: -80
+      hero_footer:
+        weight: -75
+        enabled: false
+      hero_header:
+        enabled: true
+        weight: -76
+      icon_card:
+        weight: -46
+        enabled: false
+      image_card:
+        weight: -61
+        enabled: false
+      juicer_feed:
+        weight: -56
+        enabled: false
+      list:
+        enabled: true
+        weight: -79
+      node_card:
+        weight: -54
+        enabled: false
+      node_post_card:
+        enabled: true
+        weight: -73
+      page_tabs:
+        weight: -72
+        enabled: false
+      page_title:
+        enabled: true
+        weight: -71
+      post_card:
+        enabled: true
+        weight: -70
+      profile_card:
+        weight: -59
+        enabled: false
+      quick_link:
+        weight: -45
+        enabled: false
+      quick_links:
+        enabled: true
+        weight: -68
+      quote:
+        enabled: true
+        weight: -69
+      tab:
+        weight: -50
+        enabled: false
+      table:
+        weight: -53
+        enabled: false
+      table_row:
+        weight: -52
+        enabled: false
+      tabs:
+        enabled: true
+        weight: -67
+      team_card:
+        weight: -48
+        enabled: false
+      text_card:
+        weight: -58
+        enabled: false
+      text_section:
+        enabled: true
+        weight: -66
+      text_section_basic:
+        weight: -44
+        enabled: false
+      timeline:
+        enabled: true
+        weight: -65
+      timeline_card:
+        weight: -49
+        enabled: false
+      two_column_layout:
+        enabled: true
+        weight: -74
+      video:
+        enabled: true
+        weight: -63
+      view:
+        enabled: true
+        weight: -62
+field_type: entity_reference_revisions

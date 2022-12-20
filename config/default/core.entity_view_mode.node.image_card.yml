@@ -1,0 +1,10 @@
+uuid: 0cecf773-e796-4319-85f7-31fdaa0d5c50
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.image_card
+label: 'Image Card'
+targetEntityType: node
+cache: true

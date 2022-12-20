@@ -1,0 +1,25 @@
+uuid: 604fe559-ea54-4696-b46e-d89349bd267e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_node_card__display
+    - paragraphs.paragraphs_type.node_card
+  module:
+    - options
+_core:
+  default_config_hash: DEN3-CofdUvE3gWQDPIOvtI348JrA8KJD0Jcgq1OC7Y
+id: paragraph.node_card.field_node_card__display
+field_name: field_node_card__display
+entity_type: paragraph
+bundle: node_card
+label: 'Display As'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: card
+default_value_callback: ''
+settings: {  }
+field_type: list_string

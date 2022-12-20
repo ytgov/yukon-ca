@@ -1,0 +1,108 @@
+uuid: 101d8efc-d2cf-4dea-918a-42c8ec06a739
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.hero_footer.field_hero_footer__cta
+    - field.field.paragraph.hero_footer.field_hero_footer__image
+    - field.field.paragraph.hero_footer.field_hero_footer__summary
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.hero_footer
+  module:
+    - fences
+    - link
+    - media
+_core:
+  default_config_hash: MI96VQLb4lye5G8AKv_YHfyadljcsEKLssxXhm8Vw3w
+id: paragraph.hero_footer.preview
+targetEntityType: paragraph
+bundle: hero_footer
+mode: preview
+content:
+  field_hero_footer__cta:
+    type: link
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+  field_hero_footer__image:
+    type: media_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+  field_hero_footer__summary:
+    type: basic_string
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_hero_footer_cta:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: ul
+        fences_field_classes: cta
+        fences_field_item_tag: li
+        fences_field_item_classes: item
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: link
+    region: content
+  field_hero_footer_image:
+    type: media_thumbnail
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    region: content
+  field_hero_footer_summary:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  search_api_excerpt: true

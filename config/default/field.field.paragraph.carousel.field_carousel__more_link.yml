@@ -1,0 +1,23 @@
+uuid: 85562196-80e9-486d-b6f4-9ddecd84e65b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel__more_link
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - link
+id: paragraph.carousel.field_carousel__more_link
+field_name: field_carousel__more_link
+entity_type: paragraph
+bundle: carousel
+label: 'More Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

@@ -1,0 +1,23 @@
+uuid: 1f2ab604-2f3b-41ae-b461-b0cce680410d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: node_full_small_2x_1200px_x_900px_
+label: 'Node full small 2X (1200px x 900px)'
+effects:
+  abc473dd-db2c-4230-a494-7a5552790e3f:
+    uuid: abc473dd-db2c-4230-a494-7a5552790e3f
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  4efbcdfb-d1d9-4922-bfba-b121a92aceef:
+    uuid: 4efbcdfb-d1d9-4922-bfba-b121a92aceef
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1200
+      height: 900
+      crop_type: focal_point

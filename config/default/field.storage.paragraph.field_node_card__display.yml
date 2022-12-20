@@ -1,0 +1,38 @@
+uuid: 10233827-87a1-455f-8c36-1f53e45077ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: JEKfLZPWZ2bzE_plw8xtiUG87uvs-P8y4hy3E_5LtOk
+id: paragraph.field_node_card__display
+field_name: field_node_card__display
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: text_card
+      label: 'Text Card'
+    -
+      value: text_link
+      label: 'Text Link'
+    -
+      value: image_card
+      label: 'Image Card'
+    -
+      value: featured_small
+      label: 'Featured Small'
+    -
+      value: featured_large
+      label: 'Featured Large'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

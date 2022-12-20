@@ -1,0 +1,21 @@
+uuid: 05b19bfb-368c-4e13-b6aa-1f6c338612da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table__header
+    - paragraphs.paragraphs_type.table
+_core:
+  default_config_hash: SgGLtskmSay44EL3KdWH3Z4h3nEnHGbO1DBU5YJgSPQ
+id: paragraph.table.field_table__header
+field_name: field_table__header
+entity_type: paragraph
+bundle: table
+label: Header
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 31724c4b-5092-482c-94b6-eedb1f52bde2
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: timeline_card_lg_1x
+label: 'Timeline Card LG 1X (390px x 220px)'
+effects:
+  9c6358a2-39a8-4461-b9ce-df644d88a7de:
+    uuid: 9c6358a2-39a8-4461-b9ce-df644d88a7de
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  188998d3-089e-4324-9ca8-facb7f454a04:
+    uuid: 188998d3-089e-4324-9ca8-facb7f454a04
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 390
+      height: 220
+      crop_type: focal_point

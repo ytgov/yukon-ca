@@ -1,0 +1,23 @@
+uuid: 372f701f-d345-4d62-ab35-9c1678edbcf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_card__link
+    - paragraphs.paragraphs_type.text_card
+  module:
+    - link
+id: paragraph.text_card.field_text_card__link
+field_name: field_text_card__link
+entity_type: paragraph
+bundle: text_card
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

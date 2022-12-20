@@ -1,0 +1,28 @@
+uuid: 7ab9e91e-25dd-42f6-98b0-a4ddb5f18640
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alert__content
+    - paragraphs.paragraphs_type.alert
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.alert.field_alert__content
+field_name: field_alert__content
+entity_type: paragraph
+bundle: alert
+label: Content
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,29 @@
+uuid: bbba8d7e-3900-4f90-929a-a0caddeac49e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_card__icon
+    - media.type.image
+    - paragraphs.paragraphs_type.icon_card
+id: paragraph.icon_card.field_icon_card__icon
+field_name: field_icon_card__icon
+entity_type: paragraph
+bundle: icon_card
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

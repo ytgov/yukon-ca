@@ -1,0 +1,10 @@
+uuid: eae4271d-915c-4400-a01e-220c4b84c485
+langcode: en
+status: true
+dependencies: {  }
+id: checklist_item
+label: 'Checklist Item'
+icon_uuid: null
+icon_default: null
+description: 'Adds an item to checklist.'
+behavior_plugins: {  }

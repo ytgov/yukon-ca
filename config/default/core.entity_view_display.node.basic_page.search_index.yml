@@ -1,0 +1,39 @@
+uuid: 50c2a4cf-e2cd-4b59-b9ea-92c6730474cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.basic_page.field_metadata
+    - field.field.node.basic_page.field_sections
+    - node.type.basic_page
+  module:
+    - entity_reference_revisions
+    - fences
+    - user
+id: node.basic_page.search_index
+targetEntityType: node
+bundle: basic_page
+mode: search_index
+content:
+  field_sections:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  content_moderation_control: true
+  field_metadata: true
+  links: true
+  search_api_excerpt: true

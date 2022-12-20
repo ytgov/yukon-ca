@@ -1,0 +1,23 @@
+uuid: 783548f8-186a-4fe6-9eb2-882449838b15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_node_card__more_link
+    - paragraphs.paragraphs_type.node_card
+id: paragraph.node_card.field_node_card__more_link
+field_name: field_node_card__more_link
+entity_type: paragraph
+bundle: node_card
+label: "Add \"All content\" link?\t"
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

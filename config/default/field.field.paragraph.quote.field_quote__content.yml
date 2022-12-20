@@ -1,0 +1,21 @@
+uuid: b23213c1-2f09-462c-9399-6726db02f680
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote__content
+    - paragraphs.paragraphs_type.quote
+_core:
+  default_config_hash: 4uAlc7NU6019VuccWJtLTP1Ulg3DPuJrXjzCzwTpvnU
+id: paragraph.quote.field_quote__content
+field_name: field_quote__content
+entity_type: paragraph
+bundle: quote
+label: Content
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

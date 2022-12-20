@@ -1,0 +1,67 @@
+uuid: 1c57a2c1-594b-4dce-87cd-a600ee8404d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.view.field_view__bg_color
+    - field.field.paragraph.view.field_view__filters
+    - field.field.paragraph.view.field_view__more_link
+    - field.field.paragraph.view.field_view__title
+    - field.field.paragraph.view.field_view__view
+    - paragraphs.paragraphs_type.view
+  module:
+    - fences
+    - link
+    - viewsreference
+_core:
+  default_config_hash: GP8kP5_X7EE19dBexkH3554g1oNzc4gIO1kJ-KpwHmw
+id: paragraph.view.preview
+targetEntityType: paragraph
+bundle: view
+mode: preview
+content:
+  field_view__more_link:
+    type: link
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_view__title:
+    type: string
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_view__view:
+    weight: 1
+    label: inline
+    settings:
+      plugin_types:
+        block: block
+        default: 0
+        page: 0
+        feed: 0
+        embed: 0
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: viewsreference_formatter
+    region: content
+hidden:
+  field_view__bg_color: true
+  field_view__filters: true
+  search_api_excerpt: true

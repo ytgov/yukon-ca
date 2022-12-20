@@ -1,0 +1,12 @@
+uuid: 45c7b830-3b86-4bd7-b25d-7f1bf3670417
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vuCG4rK_aKNejgXlKZbBY4WrLP298kCNMTDMaWlCYGk
+id: profile_card
+label: 'Profile Card'
+icon_uuid: null
+icon_default: null
+description: 'A user profile card.'
+behavior_plugins: {  }

@@ -1,0 +1,81 @@
+uuid: c5e7a67d-4810-4864-a4e4-2d60164103ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.post_card.field_post_card__bg_colour
+    - field.field.paragraph.post_card.field_post_card__cta
+    - field.field.paragraph.post_card.field_post_card__image
+    - field.field.paragraph.post_card.field_post_card__image_position
+    - field.field.paragraph.post_card.field_post_card__size
+    - field.field.paragraph.post_card.field_post_card__summary
+    - field.field.paragraph.post_card.field_post_card__title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.post_card
+  module:
+    - fences
+    - media
+    - options
+_core:
+  default_config_hash: XrdDBjrq74tlucMpdXasFYzV4pr6rsQ9HmD8iTZEXUM
+id: paragraph.post_card.preview
+targetEntityType: paragraph
+bundle: post_card
+mode: preview
+content:
+  field_post_card__bg_colour:
+    type: list_default
+    weight: 4
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_post_card__image:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    region: content
+  field_post_card__image_position:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_post_card__size:
+    type: list_default
+    weight: 5
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_post_card__summary:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_post_card__title:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_post_card__cta: true
+  search_api_excerpt: true

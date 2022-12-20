@@ -1,0 +1,21 @@
+uuid: 1cf397db-7b32-49ab-8dc4-9e752b1202f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_footer__summary
+    - paragraphs.paragraphs_type.hero_footer
+_core:
+  default_config_hash: toX5DYldzWCRL7EpLJUF67evoSwISVtk7BBqFLPA3SQ
+id: paragraph.hero_footer.field_hero_footer__summary
+field_name: field_hero_footer__summary
+entity_type: paragraph
+bundle: hero_footer
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

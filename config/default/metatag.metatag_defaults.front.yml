@@ -1,0 +1,24 @@
+uuid: 49968e40-e39c-477f-9061-5e80b7c46582
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  robots: 'index, follow'
+  shortlink: '[site:url]'
+  canonical_url: '[site:url]'
+  og_image: '[node:field_image:entity:field_media_image:entity:url]'
+  og_title: '[node:title] | [site:name]'
+  og_description: '[node:field_summary]'
+  og_site_name: '[site:name]'
+  og_type: website
+  og_url: '[site:url]'
+  twitter_cards_page_url: '[node:url]'
+  twitter_cards_description: '[node:field_summary]'
+  twitter_cards_title: '[node:title] | [site:name]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_site: '@innovationca'
+  twitter_cards_image: '[node:field_image:entity:field_media_image:entity:url]'

@@ -1,0 +1,12 @@
+uuid: b32385e4-cf7d-474e-a48b-284b3a39a58a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3NZcvSPQHOsMHTWqtqxEMeQHCEIwnNQ-oWtnjb3htQ4
+id: image_card
+label: 'Image Card'
+icon_uuid: null
+icon_default: null
+description: 'An image card.'
+behavior_plugins: {  }

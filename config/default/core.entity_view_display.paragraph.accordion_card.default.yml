@@ -1,0 +1,70 @@
+uuid: 1720ef82-19f8-4bbb-b40a-2ed9769a1d5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_card.field_accordion_card__content
+    - field.field.paragraph.accordion_card.field_accordion_card__cta
+    - field.field.paragraph.accordion_card.field_accordion_card__title
+    - paragraphs.paragraphs_type.accordion_card
+  module:
+    - fences
+    - link
+    - text
+_core:
+  default_config_hash: c2ZgFrDNykTh66BJ5I1yHWO11hjut54FusRvdf2FeUU
+id: paragraph.accordion_card.default
+targetEntityType: paragraph
+bundle: accordion_card
+mode: default
+content:
+  field_accordion_card__content:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: text_default
+    region: content
+  field_accordion_card__cta:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: link
+    region: content
+  field_accordion_card__title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

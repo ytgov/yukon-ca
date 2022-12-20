@@ -1,0 +1,23 @@
+uuid: 5f853bce-7236-428c-a021-9912af147b20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button__type
+    - paragraphs.paragraphs_type.button
+  module:
+    - options
+id: paragraph.button.field_button__type
+field_name: field_button__type
+entity_type: paragraph
+bundle: button
+label: Type
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: primary
+default_value_callback: ''
+settings: {  }
+field_type: list_string

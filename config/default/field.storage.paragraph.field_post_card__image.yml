@@ -1,0 +1,22 @@
+uuid: aff4d2c6-5825-4320-acf5-d11ced45c346
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+_core:
+  default_config_hash: bbuG0xFEc_CkHqGyAia9JTdbutSQVggmbm46Le8qzu0
+id: paragraph.field_post_card__image
+field_name: field_post_card__image
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

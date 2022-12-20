@@ -1,0 +1,25 @@
+uuid: 362f1636-4c35-4eb8-841b-f70b2fdf1679
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table__cta
+    - paragraphs.paragraphs_type.table
+  module:
+    - link
+_core:
+  default_config_hash: WtHwxDW2Av7r0ZrG7pDlLXLl6TDWirJSPzpHKED5dqY
+id: paragraph.table.field_table__cta
+field_name: field_table__cta
+entity_type: paragraph
+bundle: table
+label: CTA
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

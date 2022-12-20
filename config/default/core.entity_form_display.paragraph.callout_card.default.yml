@@ -1,0 +1,43 @@
+uuid: 49e7b4fc-cf26-4e9c-8756-e156711374e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_card.field_callout_card__content
+    - field.field.paragraph.callout_card.field_callout_card__icon
+    - field.field.paragraph.callout_card.field_callout_card__title
+    - paragraphs.paragraphs_type.callout_card
+  module:
+    - media_library
+    - text
+id: paragraph.callout_card.default
+targetEntityType: paragraph
+bundle: callout_card
+mode: default
+content:
+  field_callout_card__content:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_callout_card__icon:
+    type: media_library_widget
+    weight: 3
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_callout_card__title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

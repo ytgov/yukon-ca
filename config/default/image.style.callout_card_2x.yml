@@ -1,0 +1,21 @@
+uuid: 0f73e875-8753-4e59-a7e2-b45ee8d47d11
+langcode: en
+status: true
+dependencies: {  }
+name: callout_card_2x
+label: 'Callout Card 2X (200px - 200px)'
+effects:
+  92c9a47a-ab79-4ff3-846b-190cb068c6a2:
+    uuid: 92c9a47a-ab79-4ff3-846b-190cb068c6a2
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  88cd55eb-d119-44b3-8086-63ac57b7f51b:
+    uuid: 88cd55eb-d119-44b3-8086-63ac57b7f51b
+    id: image_scale
+    weight: 3
+    data:
+      width: 200
+      height: null
+      upscale: false

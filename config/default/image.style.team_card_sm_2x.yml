@@ -1,0 +1,23 @@
+uuid: dbcfb82e-3b3c-42eb-b67b-b8b60556fd68
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: team_card_sm_2x
+label: 'Team Card SM 2X (1200px x 960px)'
+effects:
+  da87d8aa-09c1-49ba-bb79-9394a2eba224:
+    uuid: da87d8aa-09c1-49ba-bb79-9394a2eba224
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  252ef850-bb02-44d1-b76e-47c386bab65c:
+    uuid: 252ef850-bb02-44d1-b76e-47c386bab65c
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1200
+      height: 960
+      crop_type: focal_point

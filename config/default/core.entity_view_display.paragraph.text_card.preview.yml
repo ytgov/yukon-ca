@@ -1,0 +1,67 @@
+uuid: a275f0ff-c849-4961-8239-724561e0293f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.text_card.field_text_card__content
+    - field.field.paragraph.text_card.field_text_card__icon
+    - field.field.paragraph.text_card.field_text_card__link
+    - field.field.paragraph.text_card.field_text_card__title
+    - paragraphs.paragraphs_type.text_card
+  module:
+    - fences
+    - link
+    - text
+_core:
+  default_config_hash: IAzPgyghPyB0EmIjB_Y3OMRDqittnfuhFI6LmMrgkRU
+id: paragraph.text_card.preview
+targetEntityType: paragraph
+bundle: text_card
+mode: preview
+content:
+  field_text_card__content:
+    type: text_trimmed
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 150
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+  field_text_card__icon:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_text_card__link:
+    type: link
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_text_card__title:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

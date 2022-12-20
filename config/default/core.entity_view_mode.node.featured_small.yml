@@ -1,0 +1,10 @@
+uuid: 852d425a-a889-45e5-8e14-880e3b0365d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.featured_small
+label: 'Featured Small'
+targetEntityType: node
+cache: true

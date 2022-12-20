@@ -1,0 +1,43 @@
+uuid: 9c1bc9b1-c710-481c-889f-227295545858
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_f_content__display
+field_name: field_f_content__display
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: text_card
+      label: 'Text Card'
+    -
+      value: text_link
+      label: 'Text Link'
+    -
+      value: image_card
+      label: 'Image Card'
+    -
+      value: featured_small
+      label: 'Featured Small'
+    -
+      value: featured_large
+      label: 'Featured Large'
+    -
+      value: post_card
+      label: 'Post Card'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

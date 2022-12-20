@@ -1,0 +1,23 @@
+uuid: 4a6ec36c-8280-4c29-bdab-b5da91312463
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: post_card_md_2x
+label: 'Post Card MD 2X (1400px x 680px)'
+effects:
+  98192761-5bd3-471c-8dd3-93adde7b6ee5:
+    uuid: 98192761-5bd3-471c-8dd3-93adde7b6ee5
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  abe9b879-1257-41ee-9140-2d739df8ee40:
+    uuid: abe9b879-1257-41ee-9140-2d739df8ee40
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1400
+      height: 680
+      crop_type: focal_point

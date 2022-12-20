@@ -1,0 +1,25 @@
+uuid: 39cb522f-10ee-46d2-989b-a3c92dafb225
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table__show_header
+    - paragraphs.paragraphs_type.table
+_core:
+  default_config_hash: ha9Q3eylRy3gNsbQ8qviXeFP8tnoXS84kDpUtZnqKqo
+id: paragraph.table.field_table__show_header
+field_name: field_table__show_header
+entity_type: paragraph
+bundle: table
+label: 'Show Header'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

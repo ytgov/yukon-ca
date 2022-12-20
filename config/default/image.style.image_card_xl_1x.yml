@@ -1,0 +1,23 @@
+uuid: e2ab1a70-31f2-4f45-864c-a44305fa0307
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: image_card_xl_1x
+label: 'Image Card XL 1X (440px x 535px)'
+effects:
+  6ed02993-47f6-429a-a667-9b6aadbfa22b:
+    uuid: 6ed02993-47f6-429a-a667-9b6aadbfa22b
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  55a56222-2fb3-4f97-bb41-8b1cb912fd7b:
+    uuid: 55a56222-2fb3-4f97-bb41-8b1cb912fd7b
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 440
+      height: 535
+      crop_type: focal_point

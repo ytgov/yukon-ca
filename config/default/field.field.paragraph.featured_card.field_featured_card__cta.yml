@@ -1,0 +1,25 @@
+uuid: 38122b89-afda-46c9-855d-d4a927fe0840
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featured_card__cta
+    - paragraphs.paragraphs_type.featured_card
+  module:
+    - link
+_core:
+  default_config_hash: vCvVeCJZB9dd1FcjrBPczBetPPE9Y3dK9uy03ioRQYE
+id: paragraph.featured_card.field_featured_card__cta
+field_name: field_featured_card__cta
+entity_type: paragraph
+bundle: featured_card
+label: CTA
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

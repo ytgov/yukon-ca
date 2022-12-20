@@ -1,0 +1,41 @@
+uuid: a1a553f0-8373-4edf-b5da-7e081928442b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.page_tabs.field_page_tabs__tabs
+    - paragraphs.paragraphs_type.page_tabs
+  module:
+    - fences
+    - field_delimiter
+    - link
+_core:
+  default_config_hash: 6U9TCCfJDg8Zk5btoZQevHBu_MzJnXRacyweATYMt14
+id: paragraph.page_tabs.default
+targetEntityType: paragraph
+bundle: page_tabs
+mode: default
+content:
+  field_page_tabs__tabs:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+      field_delimiter:
+        delimiter: ''
+    type: link
+    region: content
+hidden:
+  search_api_excerpt: true

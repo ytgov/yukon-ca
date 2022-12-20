@@ -1,0 +1,29 @@
+uuid: d3540720-a55a-47d1-b2c5-650b6e99de91
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.node_post_card.field_node_post_card__cta
+    - field.field.paragraph.node_post_card.field_node_post_card__link_title
+    - field.field.paragraph.node_post_card.field_node_post_card__reference
+    - paragraphs.paragraphs_type.node_post_card
+_core:
+  default_config_hash: Lvv5BHIK4bGXSgnB0n8O5GzTKQJ_BN8R3amjrdBMXhk
+id: paragraph.node_post_card.preview
+targetEntityType: paragraph
+bundle: node_post_card
+mode: preview
+content:
+  field_node_post_card__reference:
+    weight: 0
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_node_post_card__cta: true
+  field_node_post_card__link_title: true
+  search_api_excerpt: true

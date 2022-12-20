@@ -1,0 +1,41 @@
+uuid: f10d0f58-19a9-4d7e-a8d0-2ddf8f3b648d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.text_card
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.text_card
+  module:
+    - fences
+    - responsive_image
+_core:
+  default_config_hash: Oy-gHiZ4bqA1W7QZoK_UkewSY4UYWsn8jrlxEJ_MZGg
+id: media.image.text_card
+targetEntityType: media
+bundle: image
+mode: text_card
+content:
+  field_media_image:
+    label: hidden
+    settings:
+      responsive_image_style: text_card
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    type: responsive_image
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

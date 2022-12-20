@@ -1,0 +1,19 @@
+uuid: fda233d3-e057-44fc-8127-cee9511661bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_checklist_item__title
+    - paragraphs.paragraphs_type.checklist_item
+id: paragraph.checklist_item.field_checklist_item__title
+field_name: field_checklist_item__title
+entity_type: paragraph
+bundle: checklist_item
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

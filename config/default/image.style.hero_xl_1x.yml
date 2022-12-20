@@ -1,0 +1,23 @@
+uuid: 05363781-7bac-4171-a7c0-a2be2f99b18b
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_xl_1x
+label: 'Hero XL 1X (1440px x 850px)'
+effects:
+  8e1216d6-20a6-4418-b4d3-8caff0344246:
+    uuid: 8e1216d6-20a6-4418-b4d3-8caff0344246
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  0a3d3803-8d1f-48be-b2af-4e924165ea1a:
+    uuid: 0a3d3803-8d1f-48be-b2af-4e924165ea1a
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1440
+      height: 850
+      crop_type: focal_point

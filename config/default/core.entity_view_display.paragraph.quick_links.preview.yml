@@ -1,0 +1,89 @@
+uuid: 2191f223-6a9d-4022-b56f-768a7a33134e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.quick_links.field_quick_links__bg_color
+    - field.field.paragraph.quick_links.field_quick_links__image
+    - field.field.paragraph.quick_links.field_quick_links__items
+    - field.field.paragraph.quick_links.field_quick_links__more_link
+    - field.field.paragraph.quick_links.field_quick_links__summary
+    - field.field.paragraph.quick_links.field_quick_links__title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - color_field
+    - fences
+    - link
+    - media
+id: paragraph.quick_links.preview
+targetEntityType: paragraph
+bundle: quick_links
+mode: preview
+content:
+  field_quick_links__bg_color:
+    type: color_field_formatter_swatch
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      shape: circle
+      width: '20'
+      height: '20'
+      data_attribute: false
+      opacity: true
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+  field_quick_links__image:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    region: content
+  field_quick_links__more_link:
+    weight: 3
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_quick_links__summary:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_quick_links__title:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_quick_links__items: true
+  search_api_excerpt: true

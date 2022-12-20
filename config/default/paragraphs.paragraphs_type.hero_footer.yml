@@ -1,0 +1,12 @@
+uuid: ed95dfeb-7d3b-4cd8-bef5-4d7fb74ecc7a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zAFifEuuBRcLpc8Mt-_12cdWC26GAJrX0Roxdv1O8Sk
+id: hero_footer
+label: 'Hero Footer'
+icon_uuid: null
+icon_default: null
+description: 'A section for creating Hero in footer region.'
+behavior_plugins: {  }

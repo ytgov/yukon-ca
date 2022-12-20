@@ -1,0 +1,52 @@
+uuid: 9cb809e3-4e67-4e0e-8153-3e1fc2aa2693
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.juicer_feed.field_juicer_feed__columns
+    - field.field.paragraph.juicer_feed.field_juicer_feed__rows
+    - field.field.paragraph.juicer_feed.field_juicer_feed__title
+    - paragraphs.paragraphs_type.juicer_feed
+_core:
+  default_config_hash: xMfbT_38uFBR_5-udCV6JHuGOWwa89frSnToRXXv3IQ
+id: paragraph.juicer_feed.preview
+targetEntityType: paragraph
+bundle: juicer_feed
+mode: preview
+content:
+  field_juicer_feed__columns:
+    weight: 1
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    type: number_integer
+    region: content
+  field_juicer_feed__rows:
+    weight: 2
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_juicer_feed__title:
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

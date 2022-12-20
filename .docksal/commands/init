@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+## Spin up the required docker containers.
+##
+## Usage: fin init
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Spin up the application and start the containers.
+  fin project rm -f
+  fin project start
+}
+
+# Run the command.
+__init__ "$@"

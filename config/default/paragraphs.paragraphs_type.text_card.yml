@@ -1,0 +1,12 @@
+uuid: c6b59226-dcd1-4bd5-ae2b-890f3ad6b5c6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OMaOrFrnIeh4xvd74VUwG-BAA8x8ogDeBeJvRd-TGco
+id: text_card
+label: 'Text Card'
+icon_uuid: null
+icon_default: null
+description: 'A simple card with optional icon and link.'
+behavior_plugins: {  }

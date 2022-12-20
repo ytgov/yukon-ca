@@ -1,0 +1,22 @@
+uuid: 0045f105-24d5-4bcc-b4d2-64dbaa1e423c
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: GxUhE1Nol6Vna2wERdFNSyVvaxuy8nZThRdpyLXkRyU
+id: paragraph.field_juicer_feed__columns
+field_name: field_juicer_feed__columns
+entity_type: paragraph
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

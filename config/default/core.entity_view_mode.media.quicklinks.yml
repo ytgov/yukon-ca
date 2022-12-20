@@ -1,0 +1,10 @@
+uuid: 4e8cdf47-8d98-4d9e-9632-594cf7af4f1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.quicklinks
+label: Quicklinks
+targetEntityType: media
+cache: true

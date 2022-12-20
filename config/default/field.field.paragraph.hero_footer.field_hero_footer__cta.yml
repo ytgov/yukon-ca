@@ -1,0 +1,25 @@
+uuid: bb6ef29b-c9a2-4f70-b8e5-b9ebe04d5c5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_footer__cta
+    - paragraphs.paragraphs_type.hero_footer
+  module:
+    - link
+_core:
+  default_config_hash: VMWIB4l7HTI82ZU_V9kPST-7xxAWXNP5ZXYA0cXo4xw
+id: paragraph.hero_footer.field_hero_footer__cta
+field_name: field_hero_footer__cta
+entity_type: paragraph
+bundle: hero_footer
+label: CTA
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

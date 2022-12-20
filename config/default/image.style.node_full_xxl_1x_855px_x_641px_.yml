@@ -1,0 +1,23 @@
+uuid: c5014038-cc80-4ead-b976-524b7d047380
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: node_full_xxl_1x_855px_x_641px_
+label: 'Node full XL 1X (855px x 641px)'
+effects:
+  89b8f179-29e6-4b05-84f3-f7419362b70b:
+    uuid: 89b8f179-29e6-4b05-84f3-f7419362b70b
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  8f9f7b62-1d79-4fcb-b455-b95c7cc4f86c:
+    uuid: 8f9f7b62-1d79-4fcb-b455-b95c7cc4f86c
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 855
+      height: 641
+      crop_type: focal_point

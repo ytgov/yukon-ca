@@ -1,0 +1,23 @@
+uuid: 7fac03cb-e8af-44c5-b3b9-d4266985c578
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: node_full_large_2x_1860px_x_1394px_
+label: 'Node full large 2X (1860px x 1394px)'
+effects:
+  51bf6666-ed5c-4e3d-8786-e9f644a21a00:
+    uuid: 51bf6666-ed5c-4e3d-8786-e9f644a21a00
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  ac27f161-c090-46fa-bb59-73a27ca10f52:
+    uuid: ac27f161-c090-46fa-bb59-73a27ca10f52
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1860
+      height: 1394
+      crop_type: focal_point

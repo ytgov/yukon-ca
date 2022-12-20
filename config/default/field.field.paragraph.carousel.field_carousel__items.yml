@@ -1,0 +1,113 @@
+uuid: 81999958-cea4-47a9-8113-b9584335cd51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel__items
+    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.image_card
+    - paragraphs.paragraphs_type.node_card
+    - paragraphs.paragraphs_type.text_card
+  module:
+    - entity_reference_revisions
+id: paragraph.carousel.field_carousel__items
+field_name: field_carousel__items
+entity_type: paragraph
+bundle: carousel
+label: Item(s)
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_card: image_card
+      node_card: node_card
+      text_card: text_card
+    target_bundles_drag_drop:
+      2col_text:
+        weight: 28
+        enabled: false
+      accordion:
+        weight: 29
+        enabled: false
+      accordion_card:
+        weight: 30
+        enabled: false
+      block:
+        weight: 31
+        enabled: false
+      button:
+        weight: 32
+        enabled: false
+      callout_card:
+        weight: 33
+        enabled: false
+      card_collection:
+        weight: 34
+        enabled: false
+      carousel:
+        weight: 35
+        enabled: false
+      featured_card:
+        weight: 36
+        enabled: false
+      from_library:
+        weight: 37
+        enabled: false
+      hero_footer:
+        weight: 38
+        enabled: false
+      hero_header:
+        weight: 39
+        enabled: false
+      image_card:
+        enabled: true
+        weight: 40
+      juicer_feed:
+        weight: 41
+        enabled: false
+      node_card:
+        enabled: true
+        weight: 42
+      node_post_card:
+        weight: 43
+        enabled: false
+      page_tabs:
+        weight: 44
+        enabled: false
+      page_title:
+        weight: 45
+        enabled: false
+      post_card:
+        weight: 46
+        enabled: false
+      profile_card:
+        weight: 47
+        enabled: false
+      quote:
+        weight: 48
+        enabled: false
+      table:
+        weight: 49
+        enabled: false
+      table_row:
+        weight: 50
+        enabled: false
+      text_card:
+        enabled: true
+        weight: 51
+      text_section:
+        weight: 52
+        enabled: false
+      two_column_layout:
+        weight: 53
+        enabled: false
+      view:
+        weight: 54
+        enabled: false
+field_type: entity_reference_revisions

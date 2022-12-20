@@ -1,0 +1,10 @@
+uuid: eaa311b4-014e-4094-8afd-189291ca9cc5
+langcode: en
+status: true
+dependencies: {  }
+id: grid
+label: 'Collection (Grid)'
+icon_uuid: null
+icon_default: null
+description: 'A bunch on items rendered as grid.'
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: a64d0421-abdc-4a63-90ae-da3e5a4bd92e
+langcode: en
+status: true
+dependencies: {  }
+id: callout_card
+label: 'Callout Card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

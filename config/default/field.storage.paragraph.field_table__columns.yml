@@ -1,0 +1,41 @@
+uuid: 7f87d9c6-3886-44ac-9e2f-9a5ca4d282b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: WyzB_0NCKSK3nNid6ZCG4ufoOOm63IOmvjm1FDrxvWo
+id: paragraph.field_table__columns
+field_name: field_table__columns
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'One Column'
+    -
+      value: '2'
+      label: 'Two Columns'
+    -
+      value: '3'
+      label: 'Three Columns'
+    -
+      value: '4'
+      label: 'Four Columns'
+    -
+      value: '5'
+      label: 'Five Columns'
+    -
+      value: '6'
+      label: 'Six Columns'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,12 @@
+uuid: 325f63b4-3ed1-42de-a41c-e55dffdbb0d2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yuU9BrVJ4LpS4ffCZVknvvp1aJ50vNsr8t4miZygZTY
+id: juicer_feed
+label: 'Juicer Feed'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

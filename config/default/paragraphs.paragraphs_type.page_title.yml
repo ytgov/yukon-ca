@@ -1,0 +1,12 @@
+uuid: c6d40e58-b837-45c4-b9c3-4dbb5267acb5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ne_qygiC2IqC_JwgwRsNDmXoJld4a5QnfqRBz6abTpk
+id: page_title
+label: 'Page Title'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

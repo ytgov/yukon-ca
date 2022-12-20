@@ -1,0 +1,28 @@
+uuid: 8a4b21f5-b237-4091-bd4e-78114fc0a09e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.media.document.field_media_file
+    - media.type.document
+  module:
+    - file
+id: media.document.default
+targetEntityType: media
+bundle: document
+mode: default
+content:
+  field_media_file:
+    label: visually_hidden
+    weight: 0
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

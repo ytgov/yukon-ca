@@ -1,0 +1,52 @@
+uuid: 9a2da822-a11b-4c6f-bb67-d8035a2cecdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.alert.field_alert__content
+    - field.field.paragraph.alert.field_alert__link
+    - field.field.paragraph.alert.field_alert__title
+    - field.field.paragraph.alert.field_alert__type
+    - paragraphs.paragraphs_type.alert
+  module:
+    - link
+    - text
+id: paragraph.alert.default
+targetEntityType: paragraph
+bundle: alert
+mode: default
+content:
+  field_alert__content:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_alert__link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_alert__title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_alert__type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  translation: true

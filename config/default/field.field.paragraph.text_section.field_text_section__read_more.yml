@@ -1,0 +1,23 @@
+uuid: 3a067f2e-a472-4b61-8092-019a5395921f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_section__read_more
+    - paragraphs.paragraphs_type.text_section
+id: paragraph.text_section.field_text_section__read_more
+field_name: field_text_section__read_more
+entity_type: paragraph
+bundle: text_section
+label: 'Add read more button?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,23 @@
+uuid: 9eafcda3-8933-4b4f-a108-0be07629e1b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid__layout
+    - paragraphs.paragraphs_type.grid
+  module:
+    - options
+id: paragraph.grid.field_grid__layout
+field_name: field_grid__layout
+entity_type: paragraph
+bundle: grid
+label: Layout
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: layout-2-col--50-50
+default_value_callback: ''
+settings: {  }
+field_type: list_string

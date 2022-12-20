@@ -1,0 +1,12 @@
+uuid: c07ed730-2c68-4642-be43-13f240541ead
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: T4NyxA8Q24YS9an8q1284zD0qt2dZRl60nzGeFL3dWw
+id: node_post_card
+label: 'Node Post Card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

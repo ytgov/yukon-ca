@@ -1,0 +1,25 @@
+uuid: 32073648-7ef5-438a-baff-43ac78c247a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_two_column_layout__sticky
+    - paragraphs.paragraphs_type.two_column_layout
+_core:
+  default_config_hash: 2QGC3bJVMMtdyGw2YLwcfTI6pYNNGy_zWR_ROtL0BBI
+id: paragraph.two_column_layout.field_two_column_layout__sticky
+field_name: field_two_column_layout__sticky
+entity_type: paragraph
+bundle: two_column_layout
+label: 'Make Left Column Sticky'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

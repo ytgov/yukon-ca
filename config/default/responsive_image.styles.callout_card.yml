@@ -1,0 +1,24 @@
+uuid: 4c3e78e0-9aa9-42ad-bf0a-4d45393391bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.callout_card_1x
+    - image.style.callout_card_2x
+  theme:
+    - glider
+id: callout_card
+label: 'Callout Card'
+image_style_mappings:
+  -
+    breakpoint_id: glider.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: callout_card_1x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: callout_card_2x
+breakpoint_group: glider
+fallback_image_style: callout_card_2x

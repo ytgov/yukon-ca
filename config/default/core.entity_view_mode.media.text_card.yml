@@ -1,0 +1,10 @@
+uuid: d644cd2c-d7a7-4127-8deb-5c798f7bb9dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.text_card
+label: 'Text Card'
+targetEntityType: media
+cache: true

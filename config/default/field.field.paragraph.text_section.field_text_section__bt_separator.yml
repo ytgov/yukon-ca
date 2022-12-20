@@ -1,0 +1,23 @@
+uuid: 20119f93-bbce-492e-b7e9-4f2aef493e68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_section__bt_separator
+    - paragraphs.paragraphs_type.text_section
+id: paragraph.text_section.field_text_section__bt_separator
+field_name: field_text_section__bt_separator
+entity_type: paragraph
+bundle: text_section
+label: 'Add bottom Separator Line?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

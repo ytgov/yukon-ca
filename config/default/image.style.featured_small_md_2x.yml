@@ -1,0 +1,23 @@
+uuid: 90aeb46b-d7b7-48f6-8cd0-f1170ba0ec26
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: featured_small_md_2x
+label: 'Featured Small MD 2X (650px x 650px)'
+effects:
+  11f0506a-a24e-47db-9cd5-2a050e9fce7f:
+    uuid: 11f0506a-a24e-47db-9cd5-2a050e9fce7f
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  40d0f401-7328-40fa-a454-f4573dd1b42c:
+    uuid: 40d0f401-7328-40fa-a454-f4573dd1b42c
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 650
+      height: 650
+      crop_type: focal_point

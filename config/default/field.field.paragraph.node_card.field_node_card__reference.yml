@@ -1,0 +1,27 @@
+uuid: faefa412-0142-418d-9c02-ad3d96b67712
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_node_card__reference
+    - paragraphs.paragraphs_type.node_card
+_core:
+  default_config_hash: npBhW_NObhOTIywayDnIdQY6lP_DO03Ndwvc9wvHeJY
+id: paragraph.node_card.field_node_card__reference
+field_name: field_node_card__reference
+entity_type: paragraph
+bundle: node_card
+label: Reference
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_entity_reference
+      display_name: all
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,84 @@
+uuid: ee1e8c4e-dd97-4646-bbb6-c89d9000c613
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.timeline_card_lg_1x
+    - image.style.timeline_card_lg_2x
+    - image.style.timeline_card_md_1x
+    - image.style.timeline_card_md_2x
+    - image.style.timeline_card_sm_1x
+    - image.style.timeline_card_sm_2x
+    - image.style.timeline_card_xl_1x
+    - image.style.timeline_card_xl_2x
+    - image.style.timeline_card_xs_1x
+    - image.style.timeline_card_xs_2x
+    - image.style.timeline_card_xxl_1x
+    - image.style.timeline_card_xxl_2x
+  theme:
+    - glider
+id: timeline_card
+label: 'Timeline Card'
+image_style_mappings:
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xxl_1x
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xxl_2x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xl_1x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xl_2x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_lg_1x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_lg_2x
+  -
+    breakpoint_id: glider.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_md_1x
+  -
+    breakpoint_id: glider.md
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_md_2x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_sm_1x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_sm_2x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xs_1x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: timeline_card_xs_2x
+breakpoint_group: glider
+fallback_image_style: timeline_card_xs_1x

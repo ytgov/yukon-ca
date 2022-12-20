@@ -1,0 +1,37 @@
+uuid: c05a9a62-84fb-487a-848a-66b527b18c10
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_post_card__bg_colour
+field_name: field_post_card__bg_colour
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: dark-blue
+      label: 'Dark blue'
+    -
+      value: green
+      label: Green
+    -
+      value: grey
+      label: Grey
+    -
+      value: white
+      label: White
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

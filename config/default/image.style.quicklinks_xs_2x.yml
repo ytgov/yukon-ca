@@ -1,0 +1,23 @@
+uuid: db8b0149-f929-40ac-a958-096ac1f42809
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: quicklinks_xs_2x
+label: 'Quicklinks XS 2X (1260px x 1260px)'
+effects:
+  ea44c95e-e31f-4793-a447-78b8b952ec2d:
+    uuid: ea44c95e-e31f-4793-a447-78b8b952ec2d
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  a320a421-4f48-401b-af47-83fd0d34d6fe:
+    uuid: a320a421-4f48-401b-af47-83fd0d34d6fe
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1260
+      height: 1260
+      crop_type: focal_point

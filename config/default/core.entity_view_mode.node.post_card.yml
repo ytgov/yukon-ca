@@ -1,0 +1,10 @@
+uuid: 6c6b412e-5903-407d-8a1f-4ee3a3c0ea8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.post_card
+label: 'Post Card'
+targetEntityType: node
+cache: true

@@ -1,0 +1,84 @@
+uuid: 7ab03b68-a697-4dfa-8d4d-36a66dbd849b
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.hero_lg_1x
+    - image.style.hero_lg_2x
+    - image.style.hero_md_1x
+    - image.style.hero_md_2x
+    - image.style.hero_sm_1x
+    - image.style.hero_sm_2x
+    - image.style.hero_xl_1x
+    - image.style.hero_xl_2x
+    - image.style.hero_xs_1x
+    - image.style.hero_xs_2x
+    - image.style.hero_xxl_1x
+    - image.style.hero_xxl_2x
+  theme:
+    - glider
+id: hero
+label: Hero
+image_style_mappings:
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_xxl_1x
+  -
+    breakpoint_id: glider.xxl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_xxl_2x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_xl_1x
+  -
+    breakpoint_id: glider.xl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_xl_2x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_lg_1x
+  -
+    breakpoint_id: glider.lg
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_lg_2x
+  -
+    breakpoint_id: glider.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_md_1x
+  -
+    breakpoint_id: glider.md
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_md_2x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_sm_1x
+  -
+    breakpoint_id: glider.sm
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_sm_2x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_xs_1x
+  -
+    breakpoint_id: glider.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: hero_xs_2x
+breakpoint_group: glider
+fallback_image_style: hero_xs_1x

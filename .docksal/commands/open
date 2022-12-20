@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+## Open the application in web browser.
+##
+## Options
+##  mail      Open MailHog.
+##  pma       Open DB admin tool PhpMyAdmin.
+##  solr      Open Solr Admin UI.
+##
+## Usage:
+## * fin open         Open Drupal application.
+## * fin open solr    Open Solr admin UI.
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Open browser.
+open_browser() {
+  local URL="$1"
+
+  if is_mac; then
+    echo -e " ${GREEN_BG}Opening application${DEFAULT} ${GREEN}${URL} ...${DEFAULT}"
+    open "${URL}"
+  elif is_linux; then
+    echo -e " ${GREEN_BG}Opening application${DEFAULT} ${GREEN}${URL} ...${DEFAULT}"
+    xdg-open "${URL}"
+  else
+    print_info_message "Not implemented for this OS."
+    print_info_message "URL: ${URL}"
+  fi
+}
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  local URL="http://$VIRTUAL_HOST"
+  if [ -n "$1" ]; then
+    URL="http://$1.$VIRTUAL_HOST"
+  fi
+
+  open_browser "$URL"
+}
+
+# Run the command.
+__init__ "$@"

@@ -1,0 +1,24 @@
+uuid: 44e33acc-a8aa-4e69-aa11-b58a8d0d4f25
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access_unpublished node article'
+  - 'access_unpublished node basic_page'
+  - 'access_unpublished node fund'
+  - 'access_unpublished node landing'
+  - 'access_unpublished node project'
+  - 'access_unpublished node story_article'
+  - 'access_unpublished node story_collection'
+  - 'access_unpublished node story_image_gallery'
+  - 'access_unpublished node story_podcast'
+  - 'access_unpublished node story_video'
+  - 'view media'

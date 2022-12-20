@@ -1,0 +1,24 @@
+uuid: da2e6102-6d3f-4d9c-a5fd-7c2c7766adc7
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_quick_links__bg_color
+field_name: field_quick_links__bg_color
+entity_type: paragraph
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

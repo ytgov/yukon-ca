@@ -1,0 +1,19 @@
+uuid: ae0ed0ef-08d1-4ca8-aba6-e3b669c6b4d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video__transcript_content
+    - paragraphs.paragraphs_type.video
+id: paragraph.video.field_video__transcript_content
+field_name: field_video__transcript_content
+entity_type: paragraph
+bundle: video
+label: 'Transcript Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,36 @@
+uuid: 04006b1d-e126-451b-a37e-078a82911e08
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header
+  module:
+    - block_aria_landmark_roles
+    - block_visibility_groups
+    - system
+  theme:
+    - glider
+third_party_settings:
+  block_aria_landmark_roles:
+    role: ''
+    label: ''
+id: header
+theme: glider
+region: header_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:header'
+settings:
+  id: 'system_menu_block:header'
+  label: Header
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 3
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

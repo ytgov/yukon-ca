@@ -1,0 +1,66 @@
+uuid: efe45f9c-8439-497f-bc1a-86f21b4f5167
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_layout.field_two_column_layout__left
+    - field.field.paragraph.two_column_layout.field_two_column_layout__right
+    - field.field.paragraph.two_column_layout.field_two_column_layout__sticky
+    - paragraphs.paragraphs_type.two_column_layout
+  module:
+    - paragraphs
+_core:
+  default_config_hash: yNaSsyoZwFXjSo2z1PwIIT8XLszI5VX-R2KfnL4KiJI
+id: paragraph.two_column_layout.default
+targetEntityType: paragraph
+bundle: two_column_layout
+mode: default
+content:
+  field_two_column_layout__left:
+    type: paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    region: content
+  field_two_column_layout__right:
+    type: paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: all
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    region: content
+  field_two_column_layout__sticky:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

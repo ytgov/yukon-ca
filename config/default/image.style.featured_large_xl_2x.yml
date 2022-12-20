@@ -1,0 +1,23 @@
+uuid: 6bc55908-0930-4316-831c-096f76c4328a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: featured_large_xl_2x
+label: 'Featured Large XL 2X (940px x 940px)'
+effects:
+  46313a85-17a3-4e63-961f-4c556f1e1e97:
+    uuid: 46313a85-17a3-4e63-961f-4c556f1e1e97
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  e246528b-734f-481d-9e3a-8fef9b9f1102:
+    uuid: e246528b-734f-481d-9e3a-8fef9b9f1102
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 940
+      height: 940
+      crop_type: focal_point

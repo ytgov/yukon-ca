@@ -1,0 +1,103 @@
+uuid: f3a94169-035a-4f22-809f-098fffa9160c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_content.field_f_content__display
+    - field.field.paragraph.featured_content.field_f_content__fallback
+    - field.field.paragraph.featured_content.field_f_content__fallback_count
+    - field.field.paragraph.featured_content.field_f_content__hide_title
+    - field.field.paragraph.featured_content.field_f_content__items
+    - field.field.paragraph.featured_content.field_f_content__read_more
+    - field.field.paragraph.featured_content.field_f_content__title
+    - paragraphs.paragraphs_type.featured_content
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_fallback_content:
+      children:
+        - field_f_content__fallback
+        - field_f_content__display
+        - field_f_content__fallback_count
+        - field_f_content__read_more
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      region: content
+      format_settings:
+        description: 'If the above "Items(s)" field is left blank, the content will be populated based on this field.'
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Fallback Content'
+id: paragraph.featured_content.default
+targetEntityType: paragraph
+bundle: featured_content
+mode: default
+content:
+  field_f_content__display:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_f_content__fallback:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_f_content__fallback_count:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_f_content__hide_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_f_content__items:
+    type: paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: add_above
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    region: content
+  field_f_content__read_more:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_f_content__title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  translation: true

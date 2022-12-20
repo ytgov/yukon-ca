@@ -1,0 +1,23 @@
+uuid: 37d9c6f0-8a39-4478-9162-b1744ffafad8
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_lg_1x
+label: 'Hero LG 1X (1199px x 700px)'
+effects:
+  4b348fde-6980-45c4-8566-bbb60d2197d5:
+    uuid: 4b348fde-6980-45c4-8566-bbb60d2197d5
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  f20c57a9-cb16-49e0-a576-6ff10b3b4bfe:
+    uuid: f20c57a9-cb16-49e0-a576-6ff10b3b4bfe
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1199
+      height: 700
+      crop_type: focal_point

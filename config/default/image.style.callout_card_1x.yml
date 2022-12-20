@@ -1,0 +1,21 @@
+uuid: 03db047b-ac86-4efa-84bc-302fd4e23012
+langcode: en
+status: true
+dependencies: {  }
+name: callout_card_1x
+label: 'Callout Card 1X (100px - 100px)'
+effects:
+  685be656-a96f-4c21-9a29-4dbfd0de80de:
+    uuid: 685be656-a96f-4c21-9a29-4dbfd0de80de
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  a963feb9-24e1-45f7-b2e0-aa83b41c6f50:
+    uuid: a963feb9-24e1-45f7-b2e0-aa83b41c6f50
+    id: image_scale
+    weight: 3
+    data:
+      width: 100
+      height: null
+      upscale: false

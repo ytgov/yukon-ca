@@ -1,0 +1,23 @@
+uuid: 18ef9316-d09b-4a45-ac5c-bdc4bf946897
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: team_card_xxl_2x
+label: 'Team Card XXL 2X (880px x 700px)'
+effects:
+  3e473e1f-e9e1-4d2e-99eb-c801ce45eec4:
+    uuid: 3e473e1f-e9e1-4d2e-99eb-c801ce45eec4
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  dd997fe5-938a-4e4f-a8ce-64322a6c3238:
+    uuid: dd997fe5-938a-4e4f-a8ce-64322a6c3238
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 880
+      height: 700
+      crop_type: focal_point

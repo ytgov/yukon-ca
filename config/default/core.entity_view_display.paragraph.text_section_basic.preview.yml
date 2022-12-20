@@ -1,0 +1,24 @@
+uuid: d14b3f8f-f740-4aff-90e0-376adca003b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.text_section_basic.field_text_sec_basic__content
+    - paragraphs.paragraphs_type.text_section_basic
+  module:
+    - text
+id: paragraph.text_section_basic.preview
+targetEntityType: paragraph
+bundle: text_section_basic
+mode: preview
+content:
+  field_text_sec_basic__content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

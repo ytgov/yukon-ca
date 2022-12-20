@@ -1,0 +1,21 @@
+uuid: cc6051f0-60af-412e-87ba-93f41ce7ce44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featured_card__title
+    - paragraphs.paragraphs_type.featured_card
+_core:
+  default_config_hash: gKGLg5mlxRnnkrrVWZjiRxCE0yH5UT-Jk7zY5LqLBQc
+id: paragraph.featured_card.field_featured_card__title
+field_name: field_featured_card__title
+entity_type: paragraph
+bundle: featured_card
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

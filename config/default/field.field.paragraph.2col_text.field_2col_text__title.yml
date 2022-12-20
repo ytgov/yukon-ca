@@ -1,0 +1,19 @@
+uuid: a05a2338-8d2c-41b2-a46c-a4090213eb35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_2col_text__title
+    - paragraphs.paragraphs_type.2col_text
+id: paragraph.2col_text.field_2col_text__title
+field_name: field_2col_text__title
+entity_type: paragraph
+bundle: 2col_text
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

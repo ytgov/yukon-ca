@@ -1,0 +1,19 @@
+uuid: 4d22e958-e718-4b31-b203-2dcf27ea96a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video__summary
+    - paragraphs.paragraphs_type.video
+id: paragraph.video.field_video__summary
+field_name: field_video__summary
+entity_type: paragraph
+bundle: video
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

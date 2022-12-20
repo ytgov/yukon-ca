@@ -1,0 +1,23 @@
+uuid: 0dca574f-58b6-41d9-86fd-d374209cd8c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: timeline_card_xxl_2x
+label: 'Timeline Card XXL 2X (1140px x 650px)'
+effects:
+  970f499b-4641-423f-9935-ecd9d0223a31:
+    uuid: 970f499b-4641-423f-9935-ecd9d0223a31
+    id: image_convert
+    weight: 1
+    data:
+      extension: jpg
+  fc4f4f8e-da67-491f-ae7f-48c1137c0b7e:
+    uuid: fc4f4f8e-da67-491f-ae7f-48c1137c0b7e
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1140
+      height: 650
+      crop_type: focal_point

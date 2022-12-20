@@ -1,0 +1,23 @@
+uuid: 11771bc0-5a29-4e29-8039-fa5deafe5270
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video__hide_title
+    - paragraphs.paragraphs_type.video
+id: paragraph.video.field_video__hide_title
+field_name: field_video__hide_title
+entity_type: paragraph
+bundle: video
+label: 'Hide Title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,27 @@
+uuid: 08d4057b-f188-4dd1-8fc6-e8ed075c1192
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_juicer_feed__columns
+    - paragraphs.paragraphs_type.juicer_feed
+_core:
+  default_config_hash: jLOr-GmHGHGXpevM-WULO21FaSxvUGXUNYRh54YYTM0
+id: paragraph.juicer_feed.field_juicer_feed__columns
+field_name: field_juicer_feed__columns
+entity_type: paragraph
+bundle: juicer_feed
+label: 'Number of Posts Per Row'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 4
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

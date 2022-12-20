@@ -1,0 +1,25 @@
+uuid: 49ff4450-0efa-4bd2-abbe-f755feda3d3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - glider
+_core:
+  default_config_hash: fRKXNB91UxDvEMkzCR8ZBsawfC6Fqbme2gtobei3gu4
+id: glider_branding
+theme: glider
+region: header_branding
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

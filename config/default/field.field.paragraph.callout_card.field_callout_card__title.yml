@@ -1,0 +1,19 @@
+uuid: 285d4bbf-12ca-476a-b54b-5482863043e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_card__title
+    - paragraphs.paragraphs_type.callout_card
+id: paragraph.callout_card.field_callout_card__title
+field_name: field_callout_card__title
+entity_type: paragraph
+bundle: callout_card
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

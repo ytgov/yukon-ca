@@ -1,0 +1,31 @@
+uuid: 9df4e3ac-a8d8-49a0-8e10-f5d76d88e1cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_card__content
+    - paragraphs.paragraphs_type.text_card
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    inline_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: 7D3GJv9tHQPA_Y0sVrvHEVTU52JS6TJBL2Ch324p6ig
+id: paragraph.text_card.field_text_card__content
+field_name: field_text_card__content
+entity_type: paragraph
+bundle: text_card
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
