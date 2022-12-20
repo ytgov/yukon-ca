@@ -1,4 +1,4 @@
-image: evolvingweb/drupal-fpm:ci-7.4
+image: evolvingweb/drupal-fpm:ci-8.1
 # Uncomment the following lines if you need a full Drupal.
 #services:
 #  - mariadb:10.5
