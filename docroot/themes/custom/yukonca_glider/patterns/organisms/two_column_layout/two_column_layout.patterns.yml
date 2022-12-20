@@ -1,0 +1,29 @@
+two_column_layout:
+  label: "Two Column Layout"
+  description: A generic wrapper for section.
+  fields:
+    left:
+      type: collection
+      label: Content
+      description: Content for the section.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    right:
+      type: collection
+      label: Content
+      description: Content for the section.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    sticky:
+      type: text
+      label: Sticky
+      description: Sticky left side bar
+      preview: ''
+    attribs:
+      type: collection
+      label: Attributes
+      description: Attributes.
+  libraries:
+    -
+      two_column_layout:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

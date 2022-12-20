@@ -1,0 +1,5 @@
+services:
+  glider.commands:
+    class: Drush\Commands\glider\GliderCommands
+    tags:
+      - { name: drush.command }

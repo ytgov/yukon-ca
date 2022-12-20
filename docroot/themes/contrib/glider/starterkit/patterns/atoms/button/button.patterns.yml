@@ -1,0 +1,101 @@
+button:
+  label: Button
+  description: A button.
+  variants:
+    default:
+      label: Default
+      url: 'javascript:;'
+      description: Regular/Default style button.
+      variant : primary
+    primary:
+      label: Primary
+      url: 'javascript:;'
+      description: Primary style button.
+      variant : primary
+    secondary:
+      label: Secondary button
+      url: 'javascript:;'
+      description: Secondary style button.
+      variant : secondary
+    success:
+      label: Success button
+      url: 'javascript:;'
+      description: Success style button.
+      variant : success
+    danger:
+      label: Danger button
+      url: 'javascript:;'
+      description: Danger style button.
+      variant : danger
+    warning:
+      label: Warning button
+      url: 'javascript:;'
+      description: Warning style button.
+      variant : warning
+    info:
+      label: Info button
+      url: 'javascript:;'
+      description: Info style button.
+      variant : info
+    light:
+      label: Light button
+      url: 'javascript:;'
+      description: Light style button.
+      variant : light
+    dark:
+      label: Dark button
+      url: 'javascript:;'
+      description: Dark style button.
+      variant : dark
+    link:
+      label: Link button
+      url: 'javascript:;'
+      description: Link style button.
+      variant : link
+  fields:
+    label:
+      type: string
+      label: Label
+      description: Button label.
+      preview: 'Download v19.0'
+    subject:
+      type: string
+      label: Subject
+      description: A string to be used for accessibility.
+      preview: 'Download the latest version.'
+    url:
+      type: url
+      label: URL
+      description: 'Button URL.'
+      preview: 'http://example.com/'
+    icon_id:
+      type: string
+      label: Icon ID
+      description: 'Icon name. Ex: "download" results in ".icon.icon-download".'
+      preview: ''
+    icon_class:
+      type: string
+      label: Icon Class
+      description: 'Use an icon class instead of a button ID. Ex: "fas fas-download".'
+      preview: 'fas fa-download'
+    icon_position:
+      type: string
+      label: Icon position
+      description: 'Position of the button''s icon. Ex: left|right'
+      preview: left
+    size:
+      type: string
+      label: Size
+      description: 'Bootstrap button size. Ex: sm|md|lg'
+      preview: ''
+    outline:
+      type: boolean
+      label: Outline
+      description: 'Is it an outline button style?'
+      preview: ''
+  libraries:
+    -
+      button:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

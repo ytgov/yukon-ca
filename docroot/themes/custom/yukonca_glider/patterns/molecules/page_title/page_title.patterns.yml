@@ -1,0 +1,34 @@
+page_title:
+  label: Page Title
+  description: Page title with summary.
+  variants:
+    default:
+      label: Default
+      description: Page Title.
+  fields:
+    pre_title:
+      type: text
+      label: Pre Title
+      description: A pre-title.
+      preview: 'Dolor sit amet.'
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Lorem Ipsum'
+    post_title:
+      type: text
+      label: Post-Title
+      description: A Post Title.
+      preview: 'Dolor sit amet.'
+    summary:
+      type: text
+      label: Summary
+      description: Optional text to be displayed with the title.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+  libraries:
+    -
+      page_title:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

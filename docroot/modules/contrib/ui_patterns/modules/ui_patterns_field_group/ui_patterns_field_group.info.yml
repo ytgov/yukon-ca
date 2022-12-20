@@ -1,0 +1,13 @@
+name: 'UI Patterns Field Group'
+type: module
+description: 'Use patterns as field groups templates.'
+core_version_requirement: ^9 || ^10
+package: 'User interface'
+dependencies:
+  - field_group:field_group
+  - ui_patterns:ui_patterns
+
+# Information added by Drupal.org packaging script on 2022-12-13
+version: '8.x-1.4'
+project: 'ui_patterns'
+datestamp: 1670927848

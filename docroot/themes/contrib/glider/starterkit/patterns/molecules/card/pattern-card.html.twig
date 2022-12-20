@@ -1,0 +1,9 @@
+{% set prefix = 'card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attribs.addClass(classes) }}>
+  {{ content }}
+</div>

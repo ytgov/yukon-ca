@@ -1,0 +1,36 @@
+image_card:
+  label: 'Card: Image'
+  description: Card Image.
+  variants:
+    default:
+      label: Default
+      description: The card with linked image and title.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Card title.
+      preview: 'Norman Vorano'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    summary:
+      type: text
+      label: Summary
+      description: Summary.
+      preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
+    link:
+      type: string
+      label: Link URL
+      description: URL to the content.
+      preview: ''
+  libraries:
+    -
+      image_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

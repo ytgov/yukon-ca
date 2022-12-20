@@ -1,0 +1,8 @@
+name: 'Webform Element Properties Example'
+type: module
+description: 'Provides an example that shows how to add custom properties to Webform elements.'
+package: 'Webform example'
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - 'webform:webform'
+  - 'webform:webform_ui'

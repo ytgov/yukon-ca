@@ -1,0 +1,51 @@
+post_card:
+  label: 'Post Card'
+  description: Post Card.
+  variants:
+    default:
+      label: Default
+      description: A post card with similar width media and text elements.
+    narrrow:
+      label: Narrow
+      description: A post card with narrow media element.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Postcard title.
+      preview: 'Title'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    video:
+      type: string
+      label: Video
+      description: Markup for an video.
+      preview: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IPR36uraNwc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    image_position:
+      type: string
+      label: Image Position
+      description: The position of image - right or left.
+    background_colour:
+      type: string
+      label: Background Colour
+      description: The background colour.
+    text_colour:
+      type: string
+      label: Text Colour
+      description: The text colour.
+    content:
+      type: string
+      label: Content
+      description: Content for the card.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+  libraries:
+    -
+      post_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

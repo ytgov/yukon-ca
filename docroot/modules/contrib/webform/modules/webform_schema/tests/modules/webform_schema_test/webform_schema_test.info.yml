@@ -1,0 +1,7 @@
+name: 'Webform Schema test'
+type: module
+description: 'Support module for webform schema testing.'
+package: 'Webform Testing'
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - 'webform:webform_schema'

@@ -1,0 +1,27 @@
+callout_card:
+  label: 'Callout Card'
+  description: Callout Card.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Card title.
+      preview: 'Norman Vorano'
+    content:
+      type: text
+      label: Content
+      description: Text to be displayed with the title.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+    icon:
+      type: string
+      label: Icon
+      description: Icon path.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+  libraries:
+    -
+      callout_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

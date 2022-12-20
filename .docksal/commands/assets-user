@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+## Configure assets username.
+##
+## Options
+##  set     Set the username (default)
+##  get     Get the currently configured username.
+##  reset   Reset the username.
+##
+## Usage:
+## * fin assets-user set      Set username
+## * fin assets-user get      Get the currently set value
+## * fin assets-user reset    Reconfigure the value.
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+readonly DEFAULT_USERNAME="$(whoami)"
+readonly ASSETS_USERNAME_FILE="assets-username"
+
+# Set assets username.
+set_username() {
+  local VALUE
+  VALUE=$(config_get $ASSETS_USERNAME_FILE);
+
+  if [ -n "$VALUE" ]; then
+    print_info_message "Assets username is already configured."
+    print_info_message "current configured value is: $VALUE"
+    print_info_message "If you want to change it, use fin assets-user reset"
+  else
+    # shellcheck disable=SC2162
+    read -p "Enter your assets username[${DEFAULT_USERNAME}] : " USERNAME
+    ASSETS_USERNAME=${USERNAME:-$DEFAULT_USERNAME}
+
+    config_set $ASSETS_USERNAME_FILE "$ASSETS_USERNAME"
+  fi
+}
+
+# Command entry point.
+__init__() {
+  case "$1" in
+  get)
+    local VALUE
+    VALUE=$(config_get $ASSETS_USERNAME_FILE);
+    echo "$VALUE"
+    ;;
+  reset)
+    config_del "$ASSETS_USERNAME_FILE"
+    set_username
+    ;;
+  set)
+    set_username
+    ;;
+  *)
+    set_username
+    ;;
+  esac
+}
+
+# Run the command.
+__init__ "$@"

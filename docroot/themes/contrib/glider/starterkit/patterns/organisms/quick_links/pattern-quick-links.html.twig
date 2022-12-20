@@ -1,0 +1,48 @@
+{% set prefix = 'quick-links' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  background_color ? 'has-background-color' : ''
+] %}
+
+{% if background_color %}
+  {% set attributes = attributes.addClass(classes).setAttribute('style', 'background-color:' ~ background_color) %}
+{% else %}
+  {% set attributes = attributes.addClass(classes) %}
+{% endif %}
+
+{% set content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container">
+        <div class="{{ prefix }}--content">
+          <div class="group-content">
+            <h2>{{ title }}</h2>
+            <div class="summary">{{ summary }}</div>
+            <div class="image d-block d-lg-none">{{ image }}</div>
+            <div class="links">
+              {% for link in links %}
+                {% if link.content %}
+                  {{ link.content }}
+                {% else %}
+                  {{ link }}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="cta">{{ more_link }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="group-image parallax-image d-none d-lg-flex">
+        {{ image }}
+      </div>
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title:  title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

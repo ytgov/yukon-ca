@@ -1,0 +1,148 @@
+<?php
+
+/**
+ * @file
+ * Hooks and callbacks for blinker_core.module.
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function blinker_core_preprocess_html(array &$vars) {
+  _blinker_core_preprocess_html_pagination_pages($vars);
+  _blinker_core_preprocess_html_metadata($vars);
+  _blinker_core_preprocess_html_language_fallback($vars);
+}
+
+/**
+ * Massage generic metadata.
+ *
+ * @param array $vars
+ *   HTML build.
+ */
+function _blinker_core_preprocess_html_metadata(array &$vars) {
+  $html_head =& $vars['page']['#attached']['html_head'];
+  foreach ($html_head as $key => &$entry) {
+    $tag_id = $entry[1];
+
+    // Ignore generator.
+    if ($tag_id === 'system_meta_generator') {
+      unset($html_head[$key]);
+    }
+  }
+}
+
+/**
+ * Preprocesses pages which are part of a pagination.
+ *
+ *   - Adds "noindex" meta tag to prevent indexing of all but the first page.
+ *
+ * @param array &$vars
+ *   HTML build.
+ */
+function _blinker_core_preprocess_html_pagination_pages(array &$vars) {
+  // If a "page" parameter is defined in the Request.
+  $current_page = \Drupal::request()
+    ->get('page');
+  if ($current_page && is_numeric($current_page)) {
+    _blinker_core_preprocess_html_noindex($vars);
+  }
+}
+
+/**
+ * Adds a noindex to a page's HTML renderable.
+ *
+ * @param array &$vars
+ *   HTML build.
+ */
+function _blinker_core_preprocess_html_noindex(array &$vars) {
+  $vars['page']['#attached']['html_head'][] = [
+    [
+      '#tag' => 'meta',
+      '#attributes' => ['name' => 'robots', 'content' => 'noindex'],
+    ],
+    'robots',
+  ];
+}
+
+/**
+ * Displays a language fallback message when applicable.
+ *
+ * @param array &$vars
+ *   HTML build.
+ */
+function _blinker_core_preprocess_html_language_fallback(&$vars) {
+  // If content translation is disabled, this is not relevant.
+  if (!\Drupal::moduleHandler()->moduleExists('content_translation')) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Routing\RouteMatchInterface $route_match */
+  $route_match = \Drupal::routeMatch();
+
+  // TODO: Generalize this for entity.*.canonical pages.
+  if ($route_match->getRouteName() === 'entity.node.canonical') {
+    /** @var \Drupal\Core\Language\LanguageInterface $language */
+    $request_langcode = \Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId();
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $route_match->getParameter('node');
+    $roles = \Drupal::currentUser()->getRoles();
+
+    // If the node doesn't have a translation in the requested language.
+    if (!in_array('anonymous', $roles) && $node && !$node->hasTranslation($request_langcode)) {
+      $message = t('The content of this page is being displayed in %fallback-language because it is not available in %request-language.', [
+        '%fallback-language' => $node->language()->getName(),
+        // Get the native language name with getLanguageName().
+        '%request-language' => \Drupal::languageManager()
+          ->getLanguageName($request_langcode),
+      ]);
+      \Drupal::messenger()->addWarning($message);
+
+      // Unindex this page from search engines.
+      _blinker_core_preprocess_html_noindex($vars);
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function blinker_core_preprocess_block(&$vars) {
+  $attributes =& $vars['attributes'];
+
+  // Add generic classes.
+  $vars['title_attributes']['class'][] = 'block-title';
+
+  // Add an ID to the block heading for use with aria-labelledby.
+  if (isset($attributes['id'])) {
+    $vars['title_attributes']['id'] = $attributes['id'] . '-heading';
+    if ($vars['configuration']['label_display']) {
+      // This might result in both "aria-label" and "aria-labelledby" on some
+      // blocks. Preferably, only one of the two should be displayed in the
+      // twig template.
+      $attributes['aria-labelledby'] = $vars['title_attributes']['id'];
+    }
+  }
+}
+
+/**
+ * Prepares variables for Views UI Pattern templates.
+ *
+ * Default template: views-view-ui-pattern.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *     - view: A View object.
+ */
+function blinker_core_preprocess_views_view_ui_pattern(&$variables) {
+  $handler = $variables['view']->style_plugin;
+
+  // Define the pattern to render.
+  $variables['list']['pattern'] = $handler->options['pattern'];
+  // Define the number of columns.
+  $variables['list']['variant'] = $handler->options['variant'];
+
+  template_preprocess_views_view_unformatted($variables);
+}

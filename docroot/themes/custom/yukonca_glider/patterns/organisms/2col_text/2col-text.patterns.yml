@@ -1,0 +1,49 @@
+2col_text:
+  label: 'Two Column Text'
+  description: The Two column text area.
+  variants:
+    default:
+      label: Default
+      description: Default.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Phonetic alphabets'
+    hide_title:
+      type: string
+      label: Hide Title
+      description: Hide the title.
+      preview: '1'
+    left:
+      type: text
+      label: Text Left
+      description: The left text section.
+      preview: 'This is left text.'
+    bg_color_left:
+      type: text
+      label: Background color Left
+      description: Background color of left column.
+      preview: '#FFF'
+    right:
+      type: text
+      label: Text Right
+      description: The right text section.
+      preview: 'This is right text.'
+    bg_color_right:
+      type: text
+      label: Background color Right
+      description: Background color of right column.
+      preview: '#FFF'
+    width:
+      type: text
+      label: Width
+      description: The colum widths.
+      preview: ''
+  libraries:
+    -
+      2col_text:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

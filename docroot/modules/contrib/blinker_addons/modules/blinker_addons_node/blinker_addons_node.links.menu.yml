@@ -1,0 +1,6 @@
+blinker_addons_node.view_all_links:
+  title: 'Node View all Links'
+  description: 'Configure view all link for each content type'
+  parent: blinker_addons.site_settings
+  route_name: blinker_addons_node.view_all_links
+  weight: 100

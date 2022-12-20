@@ -1,0 +1,33 @@
+{% set attributes = attributes.setAttribute('href', url) %}
+{% set classes = [
+    'btn',
+    variant and not outline ? 'btn-' ~ variant : '',
+    icon_id or icon_class ? 'btn--has-icon' : '',
+    icon_id and icon_position ? 'btn--icon-' ~ icon_position : '',
+    size ? 'btn-' ~ size : '',
+    outline and variant ? 'btn-outline-' ~ variant : '',
+  ]
+%}
+
+{# Icon markup #}
+{% set icon_markup = '' %}
+{% set icon_class = icon_id ? 'icon icon-' ~ icon_id : icon_class %}
+{% if icon_class %}
+    {% set icon_markup %}
+        <span class="button__icon {{ icon_class }}"></span>
+    {% endset %}
+{% endif %}
+
+{# Render the button #}
+{% block content %}
+  <a {{ attributes.addClass(classes) }}>
+    {{ icon_position == 'left' ? icon_markup : ''}}
+    {% if subject %}
+        <span class="title" aria-hidden="true">{{ label }}</span>
+        <span class="sr-only">{{ subject }}</span>
+    {% else %}
+        <span class="title">{{ label }}</span>
+    {% endif %}
+    {{ icon_position == 'right' ? icon_markup : ''}}
+  </a>
+{% endblock %}

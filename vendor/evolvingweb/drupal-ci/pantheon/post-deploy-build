@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -ev
+
+cd deploy
+cd vendor/bin && ln -s ../drush/drush/drush drush9 && cd ../..
+mkdir docroot/private
+cp -r vendor/evolvingweb/drupal-ci/pantheon/quicksilver docroot/private/scripts
+ln -s docroot web
+
+set +v

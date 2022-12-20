@@ -1,0 +1,31 @@
+{% set prefix = 'post-card' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  (background_colour == '#FFFFFF') ? prefix ~ '--' ~ 'white' : '',
+  image_position,
+  video|render|striptags ? 'has-video' : 'no-video',
+] %}
+
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="group-image">
+    {% if video|render is not empty %}
+      <div class="video">{{ video }}</div>
+    {% else %}
+      <div class="image with_object_fit">{{ image }}</div>
+    {% endif %}
+  </div>
+  <div class="group-content" style="background-color: {{ background_colour }};color: {{ text_colour }};">
+    {{ content }}
+  </div>
+  {{ title }}
+{% endset %}
+
+{{ pattern('section', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

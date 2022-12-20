@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Blinker Addons routines.
+ */
+
+function blinker_addons_link_attributes_link_alter(&$variables) {
+  if (!empty($variables['options']['attributes']['button'])) {
+    $button = $variables['options']['attributes']['button'];
+    $variables['options']['attributes']['class'][] = $button;
+  }
+}

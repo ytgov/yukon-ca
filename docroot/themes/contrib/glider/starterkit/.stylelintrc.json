@@ -1,0 +1,60 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "unit-allowed-list": ["px", "rem", "s", "%", "vh", "fr"],
+    "selector-max-empty-lines": 0,
+    "function-max-empty-lines": 0,
+    "value-list-max-empty-lines": 0,
+    "max-empty-lines": 5,
+    "string-quotes": "double",
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "block-closing-brace-newline-after": "always",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-quotes": "always",
+    "selector-list-comma-newline-after": "always",
+    "length-zero-no-unit": true,
+    "color-hex-case": "upper",
+    "color-hex-length": "short",
+    "comment-no-empty": true,
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "declaration-block-semicolon-space-before": "never",
+    "block-opening-brace-newline-after": "always",
+    "block-opening-brace-space-before": "always",
+    "selector-combinator-space-before": "always",
+    "selector-combinator-space-after": "always",
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "comment-whitespace-inside": "always",
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "layer"]
+      }
+    ]
+  },
+  "ignoreFiles": [
+    "node_modules/**/*.css",
+    "css/**/*.css",
+    "patterns/**/*.css"
+  ]
+}

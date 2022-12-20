@@ -1,0 +1,61 @@
+{# Prepare attributes #}
+{% set prefix = 'hero' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+  image ? 'hero--has-image' : 'hero--no-image',
+  video ? 'hero--has-video' : 'hero--no-video',
+  pre_title ? 'hero--has-pre-title' : 'hero--no-pre-title',
+  post_title ? 'hero--has-post-title' : 'hero--no-post-title',
+  summary ? 'hero--has-summary' : 'hero--no-summary',
+  cta ? 'hero--has-cta' : 'hero--no-cta',
+] %}
+
+{% if title %}
+  {% set anchor = title|trim|clean_id %}
+  <div {{ attributes.addClass(classes) }} id="hf--{{ anchor }}">
+  {% else %}
+  <div {{ attributes.addClass(classes) }}>
+{% endif %}
+  <div class="row">
+    {% if image and video %}
+      <div class="image d-block d-md-none" style="background-image: url('{{ image }}')"></div>
+    {% endif %}
+
+    {% if image and video is empty %}
+      <div class="image" style="background-image: url('{{ image }}')"></div>
+    {% endif %}
+
+    {% if video %}
+      <div class="video d-none d-md-block">{{ video }}</div>
+    {% endif %}
+
+    <div class="image-video-mask"></div>
+
+    {% if title or pre_title or post_title or cta or summary %}
+      <div class="content">
+        {% if pre_title %}
+          <div class="pre-title" id="heading">{{ pre_title }}</div>
+        {% endif %}
+
+        {% if title %}
+          <h1 class="title" id="heading">{{ title }}</h1>
+        {% endif %}
+
+        {% if post_title %}
+          <div class="post-title" id="heading">{{ post_title }}</div>
+        {% endif %}
+
+        {% if summary %}
+          <div class="summary">{{ summary }}</div>
+        {% endif %}
+        {% if cta|render %}
+        <div class="cta">{{ cta }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>

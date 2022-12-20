@@ -1,0 +1,33 @@
+/*
+* Import main bootstrap function and theme variables and mixin
+*/
+
+@import "variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// Remove unwanted colors
+$colors: map-remove($colors,
+  "blue",
+  "indigo",
+  "purple",
+  "pink",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "teal",
+  "cyan",
+  "gray",
+  "gray-dark",
+  "success",
+  "info",
+  "warning",
+  "danger",
+  "light",
+  "dark"
+);
+
+
+@import "bootstrap/scss/mixins";
+@import "mixins/index";

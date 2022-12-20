@@ -1,0 +1,42 @@
+{% set prefix = 'two-col-text' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set layout = 'layout' ~ width %}
+
+{%  if bg_color_left == '#A2DBD6' %}
+    {% set bg_color_left_style = 'green-background'  %}
+  {% else %}
+    {% set bg_color_left_style = 'light-background'  %}
+{% endif %}
+
+{%  if bg_color_right == '#A2DBD6' %}
+  {% set bg_color_right_style = 'green-background'  %}
+{% else %}
+  {% set bg_color_right_style = 'light-background'  %}
+{% endif %}
+
+
+{% set content %}
+  <div class="{{ prefix }}__content">
+    {% if not hide_title %}
+      <div class="title">
+        <h2>{{ title }}</h2>
+      </div>
+    {% endif %}
+    <div class="columns {{ layout }}">
+      <div class="{{ prefix }}__column col-left {{ bg_color_left_style }}" style="background-color:{{ bg_color_left }};">{{ left }}</div>
+      <div class="{{ prefix }}__column col-right {{ bg_color_right_style }}" style="background-color:{{ bg_color_right }};">{{ right }}</div>
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title:    title,
+  content:  content,
+  attribs:  attributes,
+}, 'default') }}

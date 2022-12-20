@@ -1,0 +1,7 @@
+name: 'Webform Share'
+type: module
+description: 'Allows webforms to be shared on other websites using an iframe.'
+package: 'Webform'
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - 'webform:webform'

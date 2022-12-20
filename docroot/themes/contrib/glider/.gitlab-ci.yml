@@ -1,0 +1,68 @@
+image: evolvingweb/drupal-fpm:ci-7.3
+services:
+  - mariadb:10.5
+
+stages:
+  - test
+
+variables:
+  DRUPAL_DIR: /root/my_project
+  THEME_DIR: $DRUPAL_DIR/web/themes/custom/glider_subtheme
+  MYSQL_DATABASE: drupal
+  MYSQL_ROOT_PASSWORD: drupal
+  DRUSH: $DRUPAL_DIR/vendor/bin/drush
+
+cache:
+  paths:
+    - $HOME/.npm
+    - $HOME/.nvm
+    - $THEME_DIR/node_modules
+    - $DRUPAL_DIR/vendor
+    - $DRUPAL_DIR/web/core
+    - $DRUPAL_DIR/web/modules/contrib
+
+before_script:
+  - mkdir -p ~/.ssh
+  - eval $(ssh-agent -s)
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  # Use Composer 2.
+  - composer self-update --2
+  # Generate Drupal project, install drush, symlink glider.
+  - cd $HOME
+  - composer create-project "drupal/recommended-project:^8.9.11" $DRUPAL_DIR
+  - cd $DRUPAL_DIR
+  - composer require "drush/drush:^10"
+  - cd $DRUPAL_DIR/web/themes
+  - mkdir -p contrib
+  - cd contrib
+  - ln -s $CI_PROJECT_DIR ./glider
+  - cd $DRUPAL_DIR/web/sites/default
+  # Generate settings files.
+  - cp default.settings.php settings.php
+  - echo "include \$app_root . '/' . \$site_path . '/settings.local.php';" >> settings.php
+  - printf "<?php\n\n// Database.\n\$databases['default']['default'] = [\n  'database' => 'drupal',\n  'username' => 'root',\n  'password' => 'drupal',\n  'host' => 'mariadb',\n  'driver' => 'mysql',\n];\n" > ./settings.local.php
+    
+
+test:
+  stage: test
+  script:
+    # Install Drupal, enable glider.
+    - cd $DRUPAL_DIR
+    - $DRUSH si -y
+    - $DRUSH then -y glider
+    # Generate subtheme, enable subtheme, set subtheme as default theme.
+    - $DRUSH --include=web/themes/contrib/glider glider:subtheme glider_subtheme
+    - $DRUSH then -y glider_subtheme
+    - $DRUSH config-set -y system.theme default glider_subtheme
+    - cd $THEME_DIR
+    # Enable nvm use, install dependencies, build theme.
+    - source ~/.bashrc
+    - nvm install
+    - nvm use
+    - npm install
+    - npm install -g gulp-cli
+    - npm run build
+    # Start drush built-in server, verify subtheme was set as default and it works.
+    - $DRUSH rs 8080 --quiet &
+    - sleep 5
+    - curl http://127.0.0.1:8080 | grep -q block-glider-subtheme-content

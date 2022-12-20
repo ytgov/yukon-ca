@@ -1,0 +1,19 @@
+{# Prepare attributes #}
+{% set prefix = 'two-column-layout' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  sticky ? 'sticky' : ''
+] %}
+
+{% set attribs = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="{{ prefix }}__left">{{ left }}</div>
+  <div class="{{ prefix }}__right">{{ right }}</div>
+{% endset %}
+
+{{ pattern('section', {
+  content: content,
+  attribs: attribs,
+}, 'default') }}

@@ -1,0 +1,52 @@
+{# Prepare attributes #}
+{% set prefix = 'tabs' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  more_link|render ? 'has-more-link' : ''
+] %}
+
+{% set tab_id = title|trim|clean_id %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="container">
+    {# Title #}
+    {% if not hide_title and title %}
+      <div class="title">
+        <h2>{{ title }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="summary important-paragraph">{{ summary }}</div>
+    <div class="nav nav-tabs row no-gutters" id="nav-tab-{{ tab_id }}" role="tablist">
+      {% for item in items %}
+        {% set id = item.title|trim|clean_id %}
+
+        {% if loop.first %}
+          <a class="nav-item nav-link active" id="nav-{{ id }}-tab" data-toggle="tab" href="#nav-{{ id }}" role="tab" aria-controls="nav-{{ id }}" aria-selected="true">{{ item.title }}</a>
+        {% else %}
+          <a class="nav-item nav-link" id="nav-{{ id }}-tab" data-toggle="tab" href="#nav-{{ id }}" role="tab" aria-controls="nav-{{ id }}" aria-selected="false">{{ item.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="tab-content" id="nav-tab-content-{{ tab_id }}">
+      {% for item in items %}
+        {% set id = item.title|trim|clean_id %}
+
+        {% if loop.first %}
+          <div class="tab-pane fade show active" id="nav-{{ id }}" role="tabpanel" aria-labelledby="nav-{{ id }}-tab">{{ item.content }}</div>
+        {% else %}
+          <div class="tab-pane fade show" id="nav-{{ id }}" role="tabpanel" aria-labelledby="nav-{{ id }}-tab">{{ item.content }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

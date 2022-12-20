@@ -1,0 +1,43 @@
+{# Prepare attributes #}
+{% set prefix = 'accordion' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  more_link|render ? 'has-more-link' : ''
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="container">
+    {# Title #}
+    {% if not hide_title and title %}
+      <div class="{{ prefix }}__title">
+        <h2>{{ title }}</h2>
+      </div>
+    {% endif %}
+
+    {# Items #}
+    <div class="content">
+      {% for item in items %}
+        {# For associative arrays #}
+        {% if item.title is not empty %}
+          {{ pattern('card', item) }}
+          {# For views rows #}
+        {% elseif item.content %}
+          {{ item.content }}
+          {# For everything else, simply render #}
+        {% else %}
+          {{ item }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

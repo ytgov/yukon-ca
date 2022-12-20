@@ -1,0 +1,7 @@
+@function getIcon ($name, $icons: $theme-icons-map) {
+  @return map-get($icons, $name);
+}
+
+@mixin getIcon ($name) {
+  content: getIcon($name);
+}

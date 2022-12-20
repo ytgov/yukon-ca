@@ -1,0 +1,55 @@
+{% set prefix = 'card-flexible' %}
+{% set classes = [
+  prefix,
+] %}
+
+{% if title %}
+  {% set titleMarkup %}
+    <h5>{{ title }}</h5>
+  {% endset %}
+{% endif %}
+
+{% set body %}
+  <div class="{{ prefix }}-body">
+    {{titleMarkup}}
+    {{content}}
+  </div>
+{% endset %}
+
+{% if imageUrl %}
+  {% set imagePositionClass = imagePosition ? 'card-img-' ~ imagePosition : 'card-img-top'%}
+  {% set imageMarkup %}
+    <img src="{{ imageUrl }}" class="{{ imagePositionClass }}" alt="{{ title }}" >
+  {% endset %}
+{% endif %}
+
+{% if header %}
+  {% set headerMarkup %}
+    <div class="{{ prefix }}-header">{{ header }}</div>
+  {% endset %}
+{% endif %}
+
+{% if footer %}
+  {% set footerMarkup %}
+    <div class="{{ prefix }}-footer">{{ footer }}</div>
+  {% endset %}
+{% endif %}
+
+
+
+
+{# Final Markup #}
+<div {{ attributes.addClass(classes) }}>
+  {{ headerMarkup }}
+  {% if imagePosition == 'top' %}
+    {{ imageMarkup }}
+  {% endif %}
+
+  {{ body }}
+
+  {% if imagePosition == 'bottom' %}
+    {{ imageMarkup }}
+  {% endif %}
+
+  {{ footerMarkup }}
+</div>

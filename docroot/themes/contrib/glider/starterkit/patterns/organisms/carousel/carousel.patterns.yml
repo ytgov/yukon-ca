@@ -1,0 +1,80 @@
+carousel:
+  label: Card collection
+  description: A collection of cards.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Phonetic alphabets'
+    hide_title:
+      type: string
+      label: Hide Title
+      description: Hide the title.
+      preview: ''
+    paragraph_id:
+      type: text
+      label: Paragraph ID
+      description: Paragraph ID
+      preview: 'Carousel25025'
+    summary:
+      type: text
+      label: Summary
+      description: A summary.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    content:
+      type: text
+      label: Content
+      description: Content.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    more_link:
+      type: string
+      label: More Link on top right
+      description: "Markup for More Link."
+    background_color:
+      type: text
+      label: Background color
+      description: Background color of carousel.
+      preview: '#FFF'
+    items:
+      type: mixed
+      label: Cards
+      description: Cards for the collection.
+      preview:
+        -
+          title: 'Alpha the first item'
+          summary: 'Duis tempus elementum neque. In felis urna, facilisis ac justo nec, fringilla mollis dolor.'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=1'
+          link_url: 'http://example.com/item/alpha'
+          link_text: 'Read more'
+        - title: 'Beta the second item'
+          summary: 'Duis tempus elementum neque. In felis urna, facilisis ac justo nec, fringilla mollis dolor.'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=2'
+          link_url: 'http://example.com/item/beta'
+          link_text: 'Read more'
+        - title: 'Charlie the third item'
+          summary: 'Duis tempus elementum neque. In felis urna, facilisis ac justo nec, fringilla mollis dolor.'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=3'
+          link_url: 'http://example.com/item/charlie'
+          link_text: 'Read more'
+        - title: 'Delta the fourth item'
+          summary: 'Duis tempus elementum neque. In felis urna, facilisis ac justo nec, fringilla mollis dolor.'
+          image:
+            '#theme': image
+            '#uri': 'https://picsum.photos/480/270?random=4'
+          link_url: 'http://example.com/item/delta'
+          link_text: 'Read more'
+  libraries:
+    -
+      carousel:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }
+        js:
+          dist/js/carousel.min.js: { minified: true }

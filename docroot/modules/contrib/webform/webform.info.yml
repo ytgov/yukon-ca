@@ -1,0 +1,10 @@
+name: Webform
+type: module
+description: 'Enables the creation of webforms and questionnaires.'
+package: Webform
+core_version_requirement: ^9.4 || ^10
+configure: entity.webform.collection
+dependencies:
+  - 'drupal:field'
+  - 'drupal:filter'
+  - 'drupal:user'

@@ -1,0 +1,52 @@
+hero:
+  label: Hero
+  description: A hero image with a optional content.
+  variants:
+    default:
+      label: Default
+      description: Hero Header.
+    footer:
+      label: Footer
+      description: Hero Footer.
+  fields:
+    pre_title:
+      type: text
+      label: Pre-title
+      description: A pre-title.
+      preview: 'Dolor sit amet.'
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Lorem Ipsum'
+    post_title:
+      type: text
+      label: Post-Title
+      description: A post-title.
+      preview: 'Dolor sit amet.'
+    summary:
+      type: text
+      label: Summary
+      description: Optional text to be displayed with the title.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    video:
+      type: string
+      label: Video
+      description: Markup of a html5 video.
+    cta:
+      type: string
+      label: CTA
+      description: "Markup for CTAs."
+  libraries:
+    -
+      hero:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

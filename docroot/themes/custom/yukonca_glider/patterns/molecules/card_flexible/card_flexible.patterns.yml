@@ -1,0 +1,59 @@
+card-flexible:
+  label: "Card Flexible"
+  description: A card for a content teaser.
+  variants:
+    default:
+      title: Card Title
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    with_mage:
+      title: Card Title
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      imageUrl: https://picsum.photos/580
+      imagePosition: top
+    with_header:
+      title: Card Title
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      header: This is the header title
+      footer: ''
+    with_footer:
+      title: Card Title
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      footer: This is the footer content
+      header: ''
+  fields:
+    header:
+      type: string
+      label: Header Title
+      description: Card header Title
+      preview: This is the header title
+    title:
+      type: string
+      label: Title
+      description: Card body Title
+      preview: Card Title
+    content:
+      type: collection
+      label: Content
+      description: Content for the section.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    imageUrl:
+      type: string
+      label: Image Url
+      description: Image Url
+      preview: https://picsum.photos/580
+    imagePosition:
+      type: string
+      label: Image Position
+      description: Image Position.e.g. top/bottom. Default top
+      preview:
+    footer:
+      type: string
+      label: Footer
+      description: Footer content
+      preview: This is the footer content
+  libraries:
+    -
+      card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

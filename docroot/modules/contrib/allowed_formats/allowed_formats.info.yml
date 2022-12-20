@@ -1,0 +1,7 @@
+name: Allowed Formats
+description: Limit which text formats are available for each field instance.
+type: module
+core_version_requirement: ^9.2 || ^10
+dependencies:
+  - drupal:field
+  - drupal:filter

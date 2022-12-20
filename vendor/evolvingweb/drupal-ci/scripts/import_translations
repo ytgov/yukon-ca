@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -ev
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+php $SCRIPT_DIR/../pantheon/quicksilver/drush_import_translations.php $1
+
+set +v

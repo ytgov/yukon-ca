@@ -1,0 +1,27 @@
+header:
+  label: Header
+  description: Page header.
+  fields:
+    branding:
+      type: mixed
+      label: Branding
+      description: Site branding.
+      preview: Site branding block
+    menu:
+      type: mixed
+      label: Main menu
+      description: Content for the main navigation.
+      preview: Menu block
+    hero:
+      type: mixed
+      label: Hero
+      description: Hero data. See 'hero' component.
+      preview:
+        title: Page title
+        summary: An optional summary for the page. See the ''hero'' component.
+  libraries:
+    -
+      header:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

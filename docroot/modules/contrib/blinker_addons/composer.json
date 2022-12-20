@@ -1,0 +1,9 @@
+{
+  "name": "evolvingweb/blinker_addons",
+  "description": "Additions to the Drupal Contrib and custom functionality.",
+  "type": "drupal-module",
+  "require": {
+      "drupal/link_attributes": "^1.10",
+      "drupal/paragraphs": "^1.11"
+  }
+}

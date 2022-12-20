@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+## Enable or disable xdebug for this project.
+##
+## Options
+##  enable     Enable xdebug.
+##  disable    Disable xdebug.
+##
+## Usage:
+## * fin xdebug enable      Enable xdebug for this project.
+## * fin xdebug disable     Disable xdebug for this project.
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Enable xdebug.
+xdebug_enable() {
+  fin config set --env=local XDEBUG_ENABLED=1
+  fin restart cli
+
+  # shellcheck disable=SC2143
+  if [ -n "$(fin exec php -v | grep -i xdebug)" ]; then
+    print_success_message "xdebug was enabled successfully."
+  else
+    print_error_message "Failed to enable xdebug."
+  fi
+}
+
+# Disable xdebug.
+xdebug_disable() {
+  fin config set --env=local XDEBUG_ENABLED=0
+  fin restart cli
+
+  # shellcheck disable=SC2143
+  if [ -z "$(fin exec php -v | grep -i xdebug)" ]; then
+    print_success_message "xdebug was disabled successfully."
+  else
+    print_error_message "Failed to disable xdebug."
+  fi
+}
+
+# Command entry point.
+__init__() {
+  case "$1" in
+  enable)
+    xdebug_enable
+    ;;
+  disable)
+    xdebug_disable
+    ;;
+  *)
+    fin help xdebug
+    ;;
+  esac
+}
+
+# Run the command.
+__init__ "$@"

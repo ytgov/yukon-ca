@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+## Install dependencies, sync database and build FE.
+##
+## Usage: fin setup
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  # Set the assets username.
+  fin assets-user
+
+  # Install the packages.
+  fin composer install
+
+  # Setup the local configuration.
+  # Copy local.blt.yml manually.
+  fin exec cp blt/example.local.blt.yml blt/local.blt.yml
+  fin blt blt:telemetry:disable --no-interaction
+  fin blt source:build
+
+  # Build FE stuff.
+  fin gulp
+
+  # Import DB.
+  fin import db
+
+  # Open the app in web browser.
+  fin open
+}
+
+# Run the command.
+__init__ "$@"

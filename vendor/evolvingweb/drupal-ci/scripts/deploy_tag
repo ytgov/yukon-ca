@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -ev
+
+GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${CI_COMMIT_TITLE} - ${CI_COMMIT_SHA})"
+./vendor/bin/blt artifact:deploy --commit-msg "${GIT_COMMIT_MESSAGE}" --tag "${CI_COMMIT_REF_NAME}" --ignore-dirty --no-interaction --verbose
+
+set +v

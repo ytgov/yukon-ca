@@ -1,0 +1,6 @@
+name: 'Blinker Addons: Node'
+type: module
+description: Tweeks for node.
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - node

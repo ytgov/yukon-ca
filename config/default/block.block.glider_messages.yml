@@ -1,0 +1,22 @@
+uuid: 5c83ad5a-7ea5-4985-8fbe-b9b5acd37f89
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - glider
+_core:
+  default_config_hash: aeqlWs7HwctZeZC7ADcbxfqehJzBRfZKmuZz3DsH3_4
+id: glider_messages
+theme: glider
+region: header_branding
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

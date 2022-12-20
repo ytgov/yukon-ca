@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -ev
+
+DRUSH="./vendor/bin/drush"
+$DRUSH @live config-status
+DIFFS=$($DRUSH @live config-status | grep 'No differences between DB and sync directory' | wc -l)
+if [ "$DIFFS" -eq "0" ]; then
+  echo -e "There are un-exported changes on Prod. Aborting..\n";
+  exit 1;
+else
+  echo -e "No un-exported changes, proceed with the build.\n";
+fi
+
+set +v

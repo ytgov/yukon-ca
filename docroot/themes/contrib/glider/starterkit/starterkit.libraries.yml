@@ -1,0 +1,32 @@
+# Bootstrap library should be installed via `composer require npm-asset/bootstrap`
+# Use `bootstrap.bundle.min.js` for bundle import (not require popper.js
+# Or use partial import to bring in the bootstrap component you need. Depends on
+# the component imported, popper.js will be needed.
+
+bootstrap:
+  version: 4.6.2
+  css:
+    theme:
+      dist/css/base.min.css: { minified: true }
+      dist/css/grid-system.min.css: { minified: true }
+  js:
+    dist/js/bootstrap.custom.bundle.min.js: { minified: true}
+  dependencies:
+    - core/jquery
+
+global_styles:
+  css:
+    theme:
+      dist/css/styles.min.css: { minified: true }
+  js:
+    dist/js/theme.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+administrator:
+  css:
+    component:
+      dist/css/modules/administrator.module.min.css: { minified: true }
+  js:
+    dist/js/behaviors/administrator.min.js: { minified: true }

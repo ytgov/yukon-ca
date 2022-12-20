@@ -1,0 +1,14 @@
+%font-icons {
+  font-family: $font-icons;
+}
+
+%icon {
+  @extend %font-icons;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

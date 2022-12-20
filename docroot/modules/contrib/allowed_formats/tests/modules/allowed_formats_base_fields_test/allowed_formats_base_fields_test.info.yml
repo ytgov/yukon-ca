@@ -1,0 +1,7 @@
+name: 'Allowed formats base fields test'
+type: module
+description: 'Support module for allowed formats testing on base fields.'
+package: Testing
+dependencies:
+  drupal:taxonomy
+  drupal:allowed_formats

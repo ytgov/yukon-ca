@@ -1,0 +1,7 @@
+name: 'Webform Templates'
+type: module
+description: 'Provides starter templates that can be used to create new webforms.'
+package: Webform
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - 'webform:webform'

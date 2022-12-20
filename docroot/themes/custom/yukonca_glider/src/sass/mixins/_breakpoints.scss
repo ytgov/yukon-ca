@@ -1,0 +1,11 @@
+@mixin on-desktop() {
+  @include media-breakpoint-up($desktop-breakpoint) {
+    @content
+  }
+}
+
+@mixin media-breakpoint-desktop() {
+  @include on-desktop() {
+    @content
+  }
+}

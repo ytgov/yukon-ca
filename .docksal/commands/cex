@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+## Export Drupal configuration to a directory.
+##
+## Usage: fin cex [params]
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  fin drush cex "$@"
+}
+
+# Run the command.
+__init__ "$@"

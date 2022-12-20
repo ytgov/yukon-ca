@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="60px" viewBox="0 0 64 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-295.000000, -169.000000)" fill-rule="nonzero">
+            <g id="logo" transform="translate(295.000000, 169.000000)">
+                <circle id="Oval" fill="#74B74A" cx="54.5" cy="50.5" r="9.5"></circle>
+                <path d="M42,50.5 C42,55.7467052 37.7467052,60 32.5,60 C27.2532948,60 23,55.7467052 23,50.5 C23,45.2532948 27.2532948,41 32.5,41 C37.7467052,41 42,45.2532948 42,50.5 L42,50.5 Z" id="Path" fill="#979797"></path>
+                <circle id="Oval" fill="#333333" cx="9.5" cy="50.5" r="9.5"></circle>
+                <path d="M64,28.5 C64,33.7467052 59.7467052,38 54.5,38 C49.2532948,38 45,33.7467052 45,28.5 C45,23.2532949 49.2532948,19 54.5,19 C59.7467052,19 64,23.2532949 64,28.5 Z" id="Path" fill="#333333"></path>
+                <path d="M42,9.5 C42,14.7467051 37.7467052,19 32.5,19 C27.2532948,19 23,14.7467051 23,9.5 C23,4.25329487 27.2532948,0 32.5,0 C37.7467052,0 42,4.25329487 42,9.5 L42,9.5 Z" id="Path" fill="#979797"></path>
+            </g>
+        </g>
+    </g>
+</svg>

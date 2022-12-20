@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Abort if anything fails
+set -e
+
+# colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+DEFAULT='\033[0m'
+# shellcheck disable=SC2034
+GREEN_BG='\033[1;97;42m'
+YELLOW='\033[1;33m'
+DEFAULT='\033[0m'
+readonly EVOLVINGWEB_CONFIG_DIR="$HOME/.config/evolvingweb"
+
+# Print info message.
+print_info_message() {
+	echo -e "[INFO] ${YELLOW}$1${DEFAULT}";
+}
+
+# Print error message.
+print_error_message() {
+	echo -e "[ERROR] ${RED}$1${DEFAULT}";
+}
+
+# Print success message.
+print_success_message() {
+	echo -e "[SUCCESS] ${GREEN}$1${DEFAULT}";
+}
+
+# Check if we are on Linux.
+is_linux () {
+	[[ "$OS_TYPE" == "Linux" ]]
+}
+
+# Check if we are on Mac.
+is_mac () {
+	[[ "$OS_TYPE" == "Darwin" ]]
+}
+
+# Get config value.
+config_get() {
+  local NAME=$1;
+  local FILE_PATH="$EVOLVINGWEB_CONFIG_DIR/$NAME";
+
+  if [ -f "$FILE_PATH" ]; then
+    cat "$FILE_PATH";
+  else
+    echo "";
+  fi
+}
+
+# Set config value.
+config_set() {
+  local NAME=$1;
+  local VALUE=$2;
+
+  local FILE_PATH="$EVOLVINGWEB_CONFIG_DIR/$NAME";
+  mkdir -p $EVOLVINGWEB_CONFIG_DIR;
+  echo "$VALUE" >"$FILE_PATH"
+}
+
+# Delete config.
+config_del() {
+  local NAME=$1;
+  local FILE_PATH="$EVOLVINGWEB_CONFIG_DIR/$NAME";
+
+  rm "$FILE_PATH"
+}
+
+# Import downloaded DB dump.
+import_db_dump() {
+  local DB_FILE="$ASSETS_DIR/drupal.sql";
+
+  if [ -f "$DB_FILE.gz" ]; then
+    print_info_message "Importing DB.."
+    gunzip -k "$DB_FILE.gz"
+    fin db import "$DB_FILE"
+    rm -f "$DB_FILE"
+  fi
+}
+
+# Start application.
+start_application() {
+  if [ "$DOCKER_RUNNING" == "true" ]; then
+    # shellcheck disable=SC2143
+    if [ -z "$(fin docker-compose ps | awk '$4 == "Up" {print $1}' | grep cli)" ]; then
+      fin start
+    fi
+  else
+    print_error_message "Docker Desktop is not running. Please start it."
+    return 1;
+  fi
+}

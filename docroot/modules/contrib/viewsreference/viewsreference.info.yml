@@ -1,0 +1,5 @@
+name: 'Views Reference Field'
+description: 'Enables Views to be embedded in an entity reference field'
+core_version_requirement: ^9.3 || ^10
+package: Views
+type: module

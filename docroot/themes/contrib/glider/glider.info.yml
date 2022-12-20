@@ -1,0 +1,19 @@
+name: Glider
+description: 'Evolving Web''s base theme based on classy, powered by Bootstrap.'
+type: theme
+core_version_requirement: ^8 || ^9 || ^10
+
+base theme: classy
+
+regions:
+  header_branding: Header - Branding
+  header_menu: Header - Menu
+  pre_content: 'Pre content'
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  post_content: 'Post content'
+  footer: Footer
+  footer_menu: Footer - Menu
+  footer_legal: Footer - Legal notice
+  disabled: Disabled

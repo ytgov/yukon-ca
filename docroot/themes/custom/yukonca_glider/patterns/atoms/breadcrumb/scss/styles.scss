@@ -1,0 +1,8 @@
+/* Add your code here */
+@import "core";
+@import "bootstrap/scss/breadcrumb";
+
+nav.breadcrumb,
+ol.breadcrumb {
+    background: transparent;
+}

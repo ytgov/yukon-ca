@@ -1,0 +1,16 @@
+{
+    "name": "evolvingweb/glider",
+    "type": "drupal-theme",
+    "autoload": {
+        "psr-4": {
+            "Drush\\Commands\\glider\\": "Commands/glider/"
+        }
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    }
+}

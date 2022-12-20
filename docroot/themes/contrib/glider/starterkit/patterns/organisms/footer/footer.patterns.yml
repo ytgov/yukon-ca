@@ -1,0 +1,23 @@
+footer:
+  label: Footer
+  description: Page footer.
+  fields:
+    content:
+      type: mixed
+      label: Content
+      preview: 'One or more blocks; maximum 3 blocks.'
+    menu:
+      type: mixed
+      label: Footer menu
+      description: A Drupal menu containing footer links.
+      preview: 'Menu block'
+    legal:
+      type: mixed
+      label: Legal notice
+      preview: '&copy; Evolving Web. All rights reserved.'
+  libraries:
+    -
+      footer:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

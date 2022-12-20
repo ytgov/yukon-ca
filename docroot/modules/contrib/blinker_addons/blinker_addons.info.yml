@@ -1,0 +1,6 @@
+name: 'Blinker: Addons'
+type: module
+description: Additions to the Drupal Contrib and custom functionality.
+core_version_requirement: ^8 || ^9 || ^10
+package: Evolving Web
+author: Evolving Web

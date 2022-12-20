@@ -1,0 +1,8 @@
+@each $name, $picto in $theme-icons-map {
+  %icon-#{$name},
+  .icon-#{$name} {
+    &::before {
+      content: "#{$picto}";
+    }
+  }
+}

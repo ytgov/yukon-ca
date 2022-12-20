@@ -1,0 +1,6 @@
+name: 'Blinker Addons: Paragraphs'
+type: module
+description: Tweeks for paragraphs.
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - paragraphs

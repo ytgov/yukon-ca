@@ -1,0 +1,6 @@
+name: 'Blinker: Core'
+type: module
+description: Additions to the Drupal Core which are required on all projects.
+core_version_requirement: ^8 || ^9 || ^10
+package: Evolving Web
+author: Evolving Web

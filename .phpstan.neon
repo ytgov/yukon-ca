@@ -1,0 +1,6 @@
+parameters:
+  excludePaths:
+    - docroot/themes/custom/*/node_modules/*
+  paths:
+    - docroot/themes/custom
+    - docroot/modules/custom

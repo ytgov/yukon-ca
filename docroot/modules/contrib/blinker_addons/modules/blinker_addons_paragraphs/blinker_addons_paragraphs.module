@@ -1,0 +1,319 @@
+<?php
+
+/**
+ * @file
+ * Blinker addons paragraphs module.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function blinker_addons_paragraphs_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  $valid_paragraph = FALSE;
+  $filter_field_name = FALSE;
+  $target_field_name = FALSE;
+
+  // Get the filter and target fields.
+  if (isset($element['#paragraph_type'])) {
+    if ($map = collection_filter_get_fields($element['#paragraph_type'])) {
+      $filter_field_name = $map['filter'];
+      $target_field_name = $map['target'];
+      $valid_paragraph = TRUE;
+    }
+  }
+
+  // The paragraph is not configured as collection.
+  if (!$valid_paragraph) {
+    return;
+  }
+
+  // Ensure the filter and target fields exist on this element.
+  if (empty($element['subform'][$filter_field_name]) || empty($element['subform'][$target_field_name])) {
+    return;
+  }
+
+  // Field widgets.
+  $filter_field_widget = &$element['subform'][$filter_field_name]['widget'];
+  $target_field_widget = &$element['subform'][$target_field_name]['widget'];
+
+  // In translated language, the more buttons are not available
+  // Do nothing.
+  if (empty($target_field_widget['add_more'])) {
+    return;
+  }
+
+  // Get the allowed types.
+  $add_more = [];
+  if (!empty($target_field_widget['add_more']['operations']['#links'])) {
+    $add_more = $target_field_widget['add_more']['operations']['#links'];
+  }
+  else {
+    foreach ($target_field_widget['add_more'] as $key => $item) {
+      if (strpos($key, 'add_more_button') !== FALSE) {
+        $add_more[$key] = $item;
+      }
+    }
+  }
+
+  // Get the default value.
+  $selected_paragraph = '';
+  if (!empty($filter_field_widget['#default_value'][0])) {
+    $selected_paragraph = 'add_more_button_' . $filter_field_widget['#default_value'][0];
+  }
+
+  // Based on default value, set the widget.
+  if (!empty($add_more[$selected_paragraph])) {
+    if (!empty($target_field_widget['add_more']['operations']['#links'])) {
+      $target_field_widget['add_more']['operations']['#links'] = [
+        $selected_paragraph => $add_more[$selected_paragraph],
+      ];
+    }
+    else {
+      foreach ($target_field_widget['add_more'] as $add_more_button => $item) {
+        if (strpos($add_more_button, 'add_more_button') !== FALSE) {
+          if ($add_more_button == $selected_paragraph) {
+            continue;
+          }
+          unset($target_field_widget['add_more'][$add_more_button]);
+        }
+      }
+    }
+  }
+
+  // Disable the card type field.
+  unset($filter_field_widget['#disabled']);
+  //if (!empty($target_field_widget[0])) {
+  //$filter_field_widget['#disabled'] = 'disabled';
+  //}
+
+  // Set the AJAX callback.
+  $element['#attributes']['id'] = 'edit-' . $element['#paragraph_type'] . '-' . $element['#delta'];
+  if (!empty($element['subform']['#parents'])) {
+    $id = 'edit-' . implode('-', $element['subform']['#parents']);
+    $element['#attributes']['id'] = Html::getId($id);
+  }
+  $filter_field_widget['#ajax'] = [
+    'callback' => 'paragraph_ajax_callback',
+    'event' => 'change',
+    'method' => 'replaceWith',
+    'wrapper' => $element['#attributes']['id'],
+    'progress' => [
+      'type' => 'throbber',
+      'message' => 'Loading...',
+    ],
+  ];
+}
+
+/**
+ * @param array $form
+ * @param FormStateInterface $form_state
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ */
+function paragraph_ajax_callback(array &$form, FormStateInterface $form_state) {
+  $response = new \Drupal\Core\Ajax\AjaxResponse();
+
+  $triggeringElement = $form_state->getTriggeringElement();
+  $wrapper_id = $triggeringElement["#ajax"]["wrapper"];
+
+  // Get the form element.
+  $element = $form;
+  $el = $form;
+  foreach ($triggeringElement['#array_parents'] as $parent) {
+    $element = $element[$parent];
+    if ($parent == 'subform') {
+      $el = $element;
+    }
+  }
+
+  $response->addCommand(new \Drupal\Core\Ajax\HtmlCommand('#' . $wrapper_id, $el));
+
+  return $response;
+}
+
+/**
+ * Set the allowed values.
+ *
+ * @param \Drupal\field\Entity\FieldStorageConfig $definition
+ *   The field definition.
+ * @param \Drupal\Core\Entity\ContentEntityInterface|null $entity
+ *   The entity being created if applicable.
+ * @param bool $cacheable
+ *   Boolean indicating if the results are cacheable.
+ *
+ * @return array
+ *   An array of possible key and value options.
+ *
+ * @see options_allowed_values()
+ */
+function field_paragraph__allowed_values(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable = FALSE) {
+  $options = [];
+
+  // Card collection - Card type.
+  foreach (collection_filter_map() as $map) {
+    $filter_field_name = $map['filter'];
+    $target_field_name = $map['target'];
+
+    if ($definition->getName() == $filter_field_name) {
+      $bundles = paragraph_allowed_bundles($entity->bundle(), $target_field_name);
+      foreach ($bundles as $bundle_name => $bundle) {
+        $options[$bundle_name] = $bundle['label'];
+      }
+      break;
+    }
+  }
+
+  return $options;
+}
+
+/**
+ * Set the default value.
+ *
+ * @param ContentEntityInterface $entity
+ *   The entity.
+ * @param FieldDefinitionInterface $definition
+ *   Field definition.
+ * @return array
+ *   Thee default value.
+ */
+function field_paragraph__default_value(ContentEntityInterface $entity, FieldDefinitionInterface $definition) {
+  $default = '';
+
+  foreach (collection_filter_map() as $map) {
+    $filter_field_name = $map['filter'];
+    $target_field_name = $map['target'];
+
+    if ($definition->getName() == $filter_field_name) {
+      $bundles = paragraph_allowed_bundles($entity->bundle(), $target_field_name);
+      $default = array_key_first($bundles);
+      break;
+    }
+  }
+
+  return [['value' => $default]];
+}
+
+/**
+ * Get allowed values for paragraph field.
+ *
+ * @param $bundle
+ *  The paragraph bundle.
+ * @param $field
+ *  The field name.
+ * @return array
+ *   The bundles.
+ */
+function paragraph_allowed_bundles($bundle, $field) {
+  $return_bundles = [];
+
+  /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entityBundleInfo */
+  $entityTypeBundleInfo = \Drupal::service('entity_type.bundle.info');
+  $bundles = $entityTypeBundleInfo->getBundleInfo('paragraph');
+  $fieldDefinition = \Drupal::service('entity_field.manager')
+    ->getFieldDefinitions('paragraph', $bundle);
+  $configuration = $fieldDefinition[$field]->getSettings();
+
+  if (!empty($configuration['handler_settings']['target_bundles'])) {
+    if (isset($configuration['handler_settings']['negate']) && $configuration['handler_settings']['negate'] == '1') {
+      $bundles = array_diff_key($bundles, $configuration['handler_settings']['target_bundles']);
+    }
+    else {
+      $bundles = array_intersect_key($bundles, $configuration['handler_settings']['target_bundles']);
+    }
+  }
+
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $access_control_handler = $entity_type_manager->getAccessControlHandler('paragraph');
+
+  // Support for the paragraphs reference type.
+  if (!empty($configuration['handler_settings']['target_bundles_drag_drop'])) {
+    $drag_drop_settings = $configuration['handler_settings']['target_bundles_drag_drop'];
+    $max_weight = count($bundles);
+
+    foreach ($drag_drop_settings as $bundle_info) {
+      if (isset($bundle_info['weight']) && $bundle_info['weight'] && $bundle_info['weight'] > $max_weight) {
+        $max_weight = $bundle_info['weight'];
+      }
+    }
+
+    // Default weight for new items.
+    $weight = $max_weight + 1;
+    foreach ($bundles as $machine_name => $bundle) {
+      if ($access_control_handler->createAccess($machine_name)) {
+        $return_bundles[$machine_name] = [
+          'label' => $bundle['label'],
+          'weight' => isset($drag_drop_settings[$machine_name]['weight']) ? $drag_drop_settings[$machine_name]['weight'] : $weight,
+        ];
+        $weight++;
+      }
+    }
+  }
+  else {
+    $weight = 0;
+
+    foreach ($bundles as $machine_name => $bundle) {
+      $return_bundles[$machine_name] = [
+        'label' => $bundle['label'],
+        'weight' => $weight,
+      ];
+
+      $weight++;
+    }
+  }
+  uasort($return_bundles, 'Drupal\Component\Utility\SortArray::sortByWeightElement');
+
+  return $return_bundles;
+}
+
+/**
+ * Get paragraph fields map.
+ *
+ * @return \string[][]
+ *   The field map.
+ */
+function collection_filter_map() {
+  // filter paragraph -> [filter -> target] map.
+  return [
+    // Card Collection.
+    'card_collection' => [
+      'filter' => 'field_card_collection__card_type',
+      'target' => 'field_card_collection__cards',
+    ],
+    // Collection - Grid.
+    'grid' => [
+      'filter' => 'field_grid__item_type',
+      'target' => 'field_grid__items',
+    ],
+    // Collection - List.
+    'list' => [
+      'filter' => 'field_list__item_type',
+      'target' => 'field_list__items',
+    ],
+    // Carousel.
+    'carousel' => [
+      'filter' => 'field_carousel__item_type',
+      'target' => 'field_carousel__items',
+    ],
+  ];
+}
+
+/**
+ * @param $paragraph_type
+ *
+ * @return string[]
+ *   The requested paragraph field map if found, empty otherwise.
+ */
+function collection_filter_get_fields($paragraph_type) {
+  $map = collection_filter_map();
+
+  if (!empty($map[$paragraph_type])) {
+    return $map[$paragraph_type];
+  }
+
+  return [];
+}

@@ -1,0 +1,5 @@
+blinker_addons.site_settings:
+  title: Site Settings
+  parent: system.admin_config
+  route_name: system.admin_config
+  weight: 9

@@ -1,0 +1,9 @@
+blinker_addons_node.view_all_links:
+  path: '/admin/config/site-config/node-view-all-links'
+  defaults:
+    _form: '\Drupal\blinker_addons_node\Form\NodeViewAllLinksForm'
+    _title: 'Node View all Links'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

@@ -1,0 +1,7 @@
+name: 'Webform Clientside Validation test'
+type: module
+description: 'Support module for webform clientside validation testing.'
+package: Webform
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - 'webform:webform_clientside_validation'

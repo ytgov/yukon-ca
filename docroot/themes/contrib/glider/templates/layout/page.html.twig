@@ -1,0 +1,117 @@
+<div {{ attributes.setAttribute('id', 'pg__c') }}>
+  {# BEGIN HEADER #}
+  <header id="header" class="header navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      {{ page.header_branding }}
+
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+              aria-controls="navbar-collapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <div class="ml-auto">
+          {{ page.header_menu }}
+        </div>
+      </div>
+    </div>
+  </header>
+  {# END OF HEADER #}
+
+  {% if page.pre_content %}
+    {# BEGIN PRE CONTENT #}
+    <section class="pre-content" id="pre-content">
+      <div class="container jumbotron">
+        {{ page.pre_content }}
+      </div>
+    </section>
+    {# END OF PRE CONTENT #}
+  {% endif %}
+
+  {# BEGIN MAIN #}
+  <main id="main" class="container">
+    <div class="row">
+
+      {# BEGIN SIDEBAR_FIRST #}
+      {% if page.sidebar_first %}
+        <aside class="sidebar-first sidebars" id="sidebar-first">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
+      {# END SIDEBAR_FIRST #}
+
+      {# BEGIN CONTENT #}
+      <section id="content" class="col-md-12">
+
+        {% if breadcrumb or title or messages or tabs or action_links %}
+          <div id="content-header">
+
+            {{ breadcrumb }}
+
+            {% if page.highlighted %}
+              <div id="highlighted">{{ page.highlighted }}</div>
+            {% endif %}
+
+            {{ title_prefix }}
+
+            {% if title %}
+              <h1 class="title">{{ title }}</h1>
+            {% endif %}
+
+            {{ title_suffix }}
+            {{ messages }}
+            {{ page.help }}
+
+            {% if tabs %}
+              <div class="tabs">{{ tabs }}</div>
+            {% endif %}
+
+            {% if action_links %}
+              <ul class="action-links">{{ action_links }}</ul>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+        <div id="content-area">
+          {{ page.content }}
+        </div>
+      </section>
+      {# END CONTENT #}
+
+      {# BEGIN SIDEBAR_SECOND #}
+      {% if page.sidebar_second %}
+        <aside class="sidebar-second sidebars" id="sidebar-second">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
+      {# END SIDEBAR_SECOND #}
+    </div>
+  </main>
+  {# END MAIN #}
+
+  {# BEGIN POST_CONTENT #}
+  {% if page.post_content %}
+    <section class="post-content" id="post-content">
+      <div class="container">
+        {{ page.post_content }}
+      </div>
+    </section>
+  {% endif %}
+  {# END POST_CONTENT #}
+
+  {# BEGIN FOOTER #}
+  <footer id="footer" class="text-muted mt-5">
+    <div class="container border-top">
+      {{ page.footer }}
+      {{ page.footer_extras }}
+      {{ page.footer_legal }}
+    </div>
+  </footer>
+  {# END FOOTER #}
+</div>

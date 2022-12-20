@@ -1,0 +1,16 @@
+{
+    "name": "evolvingweb/drupal-ci",
+    "type": "library",
+    "description": "Evolvingweb Drupal CI configs and scripts.",
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/pantheon.yml": {
+                    "mode": "replace",
+                    "path": "pantheon/pantheon.yml",
+                    "overwrite": false
+                }
+            }
+        }
+    }
+}

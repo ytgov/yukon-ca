@@ -1,0 +1,63 @@
+{# Prepare attributes #}
+{% set prefix = 'carousel' %}
+
+{%  if background_color == '#F7F7F7' %}
+  {% set has_grey_background = 'has-grey-background' %}
+{% endif %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  has_grey_background
+] %}
+
+{{ attach_library('desk_theme/swiper') }}
+
+{% set attributes = attributes.addClass(classes).setAttribute('style', 'background-color:' ~ background_color) %}
+
+{% set content %}
+  <div class="container">
+    <div class="{{ prefix }}__header">
+      {# Title #}
+      {% if not hide_title and title %}
+        <div class="{{ prefix }}__title">
+          <h2>{{ title }}</h2>
+        </div>
+      {% endif %}
+
+      {# More link #}
+      {% if more_link|render %}
+        <div class="more-link">{{ more_link }}</div>
+      {% endif %}
+    </div>
+
+    {# Items #}
+    <div class="content">
+      <div class="carousel-swiper swiper-container" id="carousel-{{ paragraph_id }}">
+        <div class="swiper-wrapper">
+          {% for item in items %}
+            {# For associative arrays #}
+            {% if item.title is not empty %}
+              {{ pattern('card', item) }}
+              {# For views rows #}
+            {% elseif item.content %}
+              {{ item.content }}
+              {# For everything else, simply render #}
+            {% else %}
+              {{ item }}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="carousel-{{ paragraph_id }}-prev swiper-button-prev"></div>
+    <div class="carousel-{{ paragraph_id }}-next swiper-button-next"></div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title:    title,
+  content:  content,
+  attribs:  attributes,
+}, 'default') }}

@@ -1,0 +1,14 @@
+/**
+ * For header animation, base on class .js-did-scroll which is added to <body> via JS.
+ */
+@layer base {
+  .header--main {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+    z-index: $zindex-dropdown - 1;
+
+    body.js-did-scroll & {
+      transform: translateY(-100%);
+    }
+  }
+}

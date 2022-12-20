@@ -1,0 +1,32 @@
+{% set prefix = 'timeline-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+    <div class="content">
+      <div class="group-image">
+        {{ image }}
+      </div>
+      <div class="group-content">
+        <div class="content-wrapper">
+          <div class="date">{{ date }}</div>
+          <div class="title">
+            <h3>{{ title }}</h3>
+          </div>
+          <div class="summary">{{ summary }}</div>
+          {% if cta|render %}
+            <div class="cta">{{ cta }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+{% endset %}
+
+{{ pattern('card', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

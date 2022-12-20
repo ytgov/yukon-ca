@@ -1,0 +1,28 @@
+timeline:
+  label: 'Timeline'
+  description: 'Timeline.'
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Title.
+      preview: 'Norman Vorano'
+    image:
+      type: string
+      label: Image
+      description: Markup for an image.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    more_link:
+      type: string
+      label: More Link below title.
+      description: "Markup for More Link."
+  libraries:
+    -
+      timeline:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }
+        js:
+          dist/js/timeline.min.js: { minified: true }

@@ -1,0 +1,39 @@
+{% set prefix = 'timeline' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="container">
+    <div class="{{ prefix }}__header">
+      <div class="left">
+        <div class="title"><h2>{{ title }}</h2></div>
+        {% if more_link %}
+          <div class="more-link">{{ more_link }}</div>
+        {% endif %}
+      </div>
+      <div class="right">
+        <div class="nav d-none d-lg-flex">
+          <button class="timeline-prev" aria-label="{{ 'Scroll the timeline horizontally to the left'|t }}"></button>
+          <button class="timeline-next" aria-label="{{ 'Scroll the timeline horizontally to the right'|t }}"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="timeline-swiper-wrapper">
+    <div class="gradient-left"></div>
+    <div class="gradient-right"></div>
+    <div class="timeline-swiper" tabindex="0">
+      <div class="image-scroll">{{ image }}</div>
+    </div>
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

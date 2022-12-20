@@ -1,0 +1,78 @@
+{# Prepare attributes #}
+{% set prefix = 'collection' %}
+
+{% set classes = [
+prefix,
+prefix ~ '--' ~ variant,
+prefix ~ '--' ~ card_type|clean_class,
+more_link|render ? 'has-more-link' : ''
+] %}
+
+{% set collection_classes = [
+  'content',
+  'has-1-columns',
+  'columns'
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set coll_attributes = create_attribute() %}
+{% set coll_attributes = coll_attributes.addClass(collection_classes) %}
+
+{% set content %}
+  <div class="container">
+    {# Title #}
+    {% if title %}
+      <div class="{{ prefix }}__title">
+        {% if not hide_title %}
+          <h2>{{ title }}</h2>
+        {% endif %}
+
+        {% if more_link|render %}
+          <div class="more-link d-none d-lg-block">{{ more_link }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {# Summary #}
+    {% if summary %}
+      <div class="{{ prefix }}__summary">{{ summary }}</div>
+    {% endif %}
+
+    {# Content #}
+    {% if content|render %}
+      <div class="{{ prefix }}__content">{{ content }}</div>
+    {% endif %}
+
+    {% if more_link|render %}
+      <div class="more-link d-block d-lg-none">{{ more_link }}</div>
+    {% endif %}
+
+    {# Cards #}
+    <div {{ coll_attributes }}>
+      {% for card in cards %}
+        {# For associative arrays #}
+        {% if card.title is not empty %}
+          {{ pattern('card', item) }}
+          {# For views rows #}
+        {% elseif card.content %}
+          {{ card.content }}
+          {# For everything else, simply render #}
+        {% else %}
+          {{ card }}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {# CTA #}
+    {% if cta|render %}
+      <div class="{{ prefix }}__cta">{{ cta }}</div>
+    {% endif %}
+  </div>
+{% endset %}
+
+{{ pattern('section', {
+  title:    title,
+  content:  content,
+  attribs:  attributes,
+}, 'default') }}

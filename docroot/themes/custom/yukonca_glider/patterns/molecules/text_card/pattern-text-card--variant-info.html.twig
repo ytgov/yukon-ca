@@ -1,0 +1,26 @@
+{% set prefix = 'text-card' %}
+{% set classes = [
+prefix,
+prefix ~ '--' ~ variant,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+  <div class="{{ prefix }}__content">
+    <div class="title">{{ title }}</div>
+
+    {% if content %}
+      <div class="text">{{ content }}</div>
+    {% endif %}
+
+    {% if link %}
+      <div class="link">{{ link }}</div>
+    {% endif %}
+  </div>
+{% endset %}
+
+{{ pattern('card', {
+  content: content,
+  attribs: attributes,
+}, 'default') }}

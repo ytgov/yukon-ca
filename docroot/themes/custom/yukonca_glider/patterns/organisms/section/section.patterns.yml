@@ -1,0 +1,19 @@
+section:
+  label: "Section"
+  description: A generic wrapper for section.
+  fields:
+    content:
+      type: collection
+      label: Content
+      description: Content for the section.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    attribs:
+      type: collection
+      label: Attributes
+      description: Attributes.
+  libraries:
+    -
+      section:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

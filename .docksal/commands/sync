@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+## Download & import from cloud environment.
+##
+## Options
+##  db        Download DB from cloud environment.
+##  files     Download files from cloud environment.
+##
+## Usage:
+## * fin sync db  [env]        Download DB from assets server.
+## * fin sync files [env]      Download files from assets server.
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+terminus_auth_message="Please visit the dashboard to generate a machine token: https://dashboard.pantheon.io/machine-token/create/cli
+
+After you have generated token login using the command
+  fin config set --env=local SECRET_TERMINUS_TOKEN=<generated-machine-token>
+
+After successful login re-run this command.
+"
+
+# Sync Database.
+sync_database() {
+  local alias=$1;
+  shift
+
+  print_info_message "Syncing DB from $alias environment"
+
+  if [ "${HOSTING_PROVIDER}" == "pantheon" ]; then
+    if [ -n "$HOSTING_PROVIDER_SITE_NAME" ]; then
+      # shellcheck disable=SC2143
+      if [ -n "$(fin terminus auth:whoami | grep -i 'not logged')" ]; then
+        print_error_message "You are not logged into the terminus."
+        print_info_message "$terminus_auth_message"
+      else
+        # Cleanup.
+        mkdir -p "$ASSETS_DIR"
+        rm -f "$ASSETS_DIR/drupal.sql.gz"
+
+        # Download database.
+        fin terminus backup:create "$HOSTING_PROVIDER_SITE_NAME.$alias" --element=db
+        fin terminus backup:get "$HOSTING_PROVIDER_SITE_NAME.$alias" --element=db --to="$ASSETS_DIR/drupal.sql.gz"
+
+        # Import downloaded database.
+        import_db_dump
+      fi
+    else
+      print_error_message "The HOSTING_PROVIDER_SITE_NAME variable is not set in docksal.env"
+    fi
+  else
+    fin drush sql:sync "@$alias" @self "$@"
+  fi
+}
+
+# Sync Files.
+sync_files() {
+  local alias="$1"
+  shift
+  print_info_message "Syncing files from $alias environment"
+  fin drush rsync "@$alias":%files @self:%files -v "$@"
+}
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  case "$1" in
+  db)
+    shift
+    alias="$1"
+
+    if [ -z "$alias" ]; then
+      print_error_message "Please provide the env where from to sync DB."
+      fin help sync
+      exit 1
+    fi
+
+    sync_database "$@"
+
+    # Ensure configs are right locally.
+    fin drush cr
+    fin blt drupal:config:import
+    ;;
+  files)
+    shift
+    alias="$1"
+
+    if [ -z "$alias" ]; then
+      print_error_message "Please provide the env where from to sync files."
+      fin help sync
+      exit 1
+    fi
+
+    sync_files "$@"
+    ;;
+  *)
+    fin help sync
+    ;;
+  esac
+}
+
+# Run the command.
+__init__ "$@"

@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Update and install hooks for blinker_core.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_install().
+ */
+function blinker_core_install($is_syncing) {
+  $config_factory = \Drupal::configFactory();
+
+  // Set homepage to /node.
+  $config_factory->getEditable('system.site')->set('page.front', '/node')->save(TRUE);
+
+  // Don't allow user registration. Only administrators can create accounts.
+  $config_factory->getEditable('user.settings')->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // Install some essential modules, which are not enabled in "Minimal" profile.
+  // Commented modules have not yet updated to Drupal 10. Re-add them when they
+  // are ready.
+  $modules = [
+    'taxonomy',
+    'block_content',
+    'ckeditor5',
+    'big_pipe',
+    'toolbar',
+    'config',
+    //'confirm_leave',
+    'contextual',
+    'menu_link_content',
+    'datetime',
+    //'block_aria_landmark_roles',
+    'image',
+    'menu_ui',
+    'options',
+    'path',
+    'field_ui',
+    //'rdf',
+    'views',
+    'views_ui',
+    'inline_form_errors',
+    'ui_patterns',
+    'ui_patterns_library',
+    'ui_patterns_views',
+    'webform',
+    'webform_ui',
+    'responsive_image',
+    'admin_toolbar',
+    'admin_toolbar_tools',
+    'admin_toolbar_links_access_filter',
+    //'adminimal_admin_toolbar',
+    'metatag',
+    'pathauto',
+    'paragraphs',
+    'redirect',
+    'shortcut',
+    //'responsive_table_filter',
+    'twig_tweak',
+    //'views_block_filter_block',
+  ];
+  \Drupal::service('module_installer')->install($modules);
+
+  // Make sure the theme is installed
+  $theme_installer = \Drupal::service('theme_installer');
+  $theme_installer->install(['claro']);
+
+  // Set it as the admin theme
+  $config = \Drupal::service('config.factory')->getEditable('system.theme');
+  $config->set('admin', 'claro')->save();
+
+  // Allow authenticated users to use shortcuts.
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
+
+  // Enable the admin theme for node edit pages.
+  $config_factory->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+}

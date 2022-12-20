@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function starterkit_preprocess_html(&$variables) {
+  $logged_in = \Drupal::currentUser()->isAuthenticated();
+  if ($logged_in) {
+    $variables['#attached']['library'][] = 'starterkit/administrator';
+  }
+}

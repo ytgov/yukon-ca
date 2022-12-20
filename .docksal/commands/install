@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+## Install Drupal.
+##
+## Usage: fin install
+
+# shellcheck source=.docksal/scripts/common
+. "${PROJECT_ROOT}/.docksal/scripts/common"
+
+# Command entry point.
+__init__() {
+  # Start application.
+  start_application
+
+  print_info_message "Installing Drupal.";
+  fin drush site:install minimal --site-name="$PROJECT_NAME_HUMAN" --account-name="admin" -y
+  fin drush en -y file link
+  fin drush en -y blinker_core blinker_addons_paragraphs blinker_addons_link_attributes blinker_addons_node
+}
+
+# Run the command.
+__init__ "$@"

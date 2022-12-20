@@ -1,0 +1,12 @@
+button:
+  title: Button Type
+  type: select
+  options:
+    primary: Primary Dark
+    primary-light: Primary Light
+    secondary: Secondary Dark
+    secondary-light: Secondary Light
+    tertiary: Tertiary Dark
+    tertiary-light: Tertiary Light
+    link: Link Dark
+    link-light: Link Light

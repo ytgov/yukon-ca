@@ -1,0 +1,6 @@
+name: 'Blinker Addons: Link Attributes'
+type: module
+description: Adds additional properties to link.
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - link_attributes

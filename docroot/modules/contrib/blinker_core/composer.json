@@ -1,0 +1,6 @@
+{
+  "name": "evolvingweb/blinker_core",
+  "description": "Additions to the Drupal Core which are required on all projects.",
+  "type": "drupal-module",
+  "require": {}
+}

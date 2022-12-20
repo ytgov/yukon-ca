@@ -1,0 +1,112 @@
+# Project Name.
+project:
+  machine_name: yukonca
+  human_name: 'Yukon.ca'
+  profile:
+    name: minimal
+  theme:
+    name: 'yukonca_glider'
+  local:
+    protocol: http
+    hostname: 'yukonca.docksal'
+
+# Git configuration.
+git:
+  user:
+    name: 'Drupal CI'
+    email: 'drupal-ci@ewdev.ca'
+  default_branch: master
+  remotes:
+    - ssh://codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in:2222/~/repository.git
+  commit-msg:
+    pattern: "/(^refs #[0-9]+(: )[^ ].{15,}\\.)|(Merge branch (.)+)/"
+    help_description: "The commit message should start with refs,
+                      followed by a # and ticket number, followed by a colon and a space,
+                      fifteen characters or more describing the commit, and end with a period."
+    example: "refs #123: Update site configuration."
+  command-hooks:
+    post-deploy-build:
+      command: ./vendor/evolvingweb/drupal-ci/pantheon/post-deploy-build && cp ./pantheon.yml deploy
+
+# Drupal Account Credentials. These are used for installing Drupal.
+drupal:
+  db:
+    database: default
+    username: user
+    password: user
+    host: db
+
+# Deploy.
+deploy:
+  tag_source: false
+  dir: deploy
+
+# Hooks.
+command-hooks:
+  post-deploy-build:
+    dir: ${repo.root}
+    command: ./vendor/evolvingweb/drupal-ci/pantheon/post-deploy-build
+  frontend-reqs:
+    dir: ${docroot}/themes/custom/${project.theme.name}
+    command: 'npm ci && npm run build'
+
+# Drush.
+drush:
+  aliases:
+    remote: '${project.machine_name}.test'
+    local: self
+    ci: self
+  default_alias: '${drush.aliases.local}'
+
+# An array of modules to be enabled or uninstalled automatically in local, ci,
+# and deploy contexts.
+modules:
+  local:
+    enable:
+      - dblog
+      - devel
+      - seckit
+      - views_ui
+    uninstall:
+      - acquia_connector
+      - shield
+  ci:
+    enable: {  }
+    uninstall:
+      - acquia_connector
+      - shield
+  dev:
+    enable:
+      - acquia_connector
+      - shield
+    uninstall: {  }
+  test:
+    enable:
+      - acquia_connector
+      - shield
+    uninstall:
+      - devel
+      - views_ui
+  prod:
+    enable:
+      - acquia_connector
+      - shield
+    uninstall:
+      - devel
+      - views_ui
+
+# Configuration management.
+cm:
+  strategy: config-split
+
+# Linting.
+validate:
+  twig:
+    functions:
+      - pattern
+      - drupal_block
+      - drupal_entity
+    filters:
+      - truncate
+      - image_style
+      - view
