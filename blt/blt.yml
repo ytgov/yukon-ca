@@ -47,8 +47,8 @@ command-hooks:
     dir: ${repo.root}
     command: ./vendor/evolvingweb/drupal-ci/pantheon/post-deploy-build
   frontend-reqs:
-    dir: ${docroot}/themes/custom/
-    command: 'bash -c "if [ -d ${project.theme.name} ] ; then source ~/.profile && cd ${project.theme.name} && nvm install && yarn install --immutable && yarn build ; fi"'
+    dir: ${docroot}/themes/custom/${project.theme.name}
+    command: 'npm ci && npm run build'
 
 # Drush.
 drush:
