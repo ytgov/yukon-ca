@@ -1,10 +1,16 @@
 /*
-* Import main bootstrap function and theme variables and mixin
+* Theme core configuration
 */
 
-@import "variables";
+/* Bootstrap base configuration */
 @import "bootstrap/scss/functions";
+
+/* Theme variables */
+@import "variables";
+
+/* Bootstrap variables */
 @import "bootstrap/scss/variables";
+
 
 // Remove unwanted colors
 $colors: map-remove($colors,
@@ -28,6 +34,11 @@ $colors: map-remove($colors,
   "dark"
 );
 
-
+@import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$utilities: (); /* Removing BS utilities. Remove this line to enable BS utilities */
+
+/* Theme mixins */
 @import "mixins/index";

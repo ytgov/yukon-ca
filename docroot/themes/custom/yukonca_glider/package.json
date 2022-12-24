@@ -13,7 +13,7 @@
     "@storybook/addon-links": "^6.1.14",
     "@storybook/react": "^6.1.14",
     "babel-loader": "^8.2.2",
-    "bootstrap": "^4",
+    "bootstrap": "^5.2.3",
     "browser-sync": "^2.26.13",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
