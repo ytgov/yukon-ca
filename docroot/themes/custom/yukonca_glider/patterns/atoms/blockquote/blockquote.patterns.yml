@@ -3,6 +3,7 @@ blockquote:
   description: A block of text quoted from an external source.
   variants:
     default:
+      label: Default
       content: Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.
       attribution: Steve Jobs
       cite: http://www.example.com
