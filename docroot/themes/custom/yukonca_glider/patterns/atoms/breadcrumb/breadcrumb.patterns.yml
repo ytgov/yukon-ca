@@ -3,6 +3,7 @@ breadcrumb:
   description: Breadcrumb.
   variants:
     default:
+      label: Default
       items:
         -
           text: Home

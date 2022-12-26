@@ -3,19 +3,23 @@ card-flexible:
   description: A card for a content teaser.
   variants:
     default:
+      label: Default
       title: Card Title
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     with_mage:
+      label: With Image
       title: Card Title
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
       imageUrl: https://picsum.photos/580
       imagePosition: top
     with_header:
+      label: With Header
       title: Card Title
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
       header: This is the header title
       footer: ''
     with_footer:
+      label: With Footer
       title: Card Title
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
       footer: This is the footer content
