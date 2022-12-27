@@ -31,6 +31,8 @@ docroot/themes/custom/*/node_modules
 docroot/themes/custom/*/styleguide
 docroot/themes/custom/*/patterns/*/*/css
 docroot/themes/custom/*/css
+docroot/themes/custom/**/dist
+dist/
 
 # Ignore build artifacts
 deployment_identifier
