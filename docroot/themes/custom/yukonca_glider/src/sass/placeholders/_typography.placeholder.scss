@@ -1,3 +1,45 @@
+@import "../variables";
+
+// Rubriques
+
+%h1 {
+  @apply font-base font-medium text-h1-mobile lg:text-h1;
+}
+
+%h2 {
+  @apply font-base font-medium text-h2-mobile lg:text-h2;
+}
+
+%h3 {
+  @apply font-base font-medium text-h3-mobile lg:text-h3;
+}
+
+%h4 {
+  @apply font-base font-medium text-h4-mobile lg:text-h4;
+}
+
+%h5 {
+  @apply font-base font-medium text-h5-mobile lg:text-h5;
+}
+
+/* Paragraphes */
+
+%base {
+  @apply font-base font-normal text-base-mobile lg:text-base;
+}
+
+%grande {
+  @apply font-base font-normal text-grande;
+}
+
+%legendes {
+  @apply font-base font-normal text-legendes;
+}
+
+%mini-titre {
+  @apply font-base font-semibold text-[0.688rem] lg:text-[0.75rem] tracking-[0.031rem] uppercase leading-[1.25rem];
+}
+
 %font-icons {
   font-family: $font-icons;
 }
