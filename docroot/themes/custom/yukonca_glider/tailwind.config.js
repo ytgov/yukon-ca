@@ -6,26 +6,43 @@ module.exports = {
     './patterns/**/*.twig',
   ],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#FFFFFF',
+      black: '#000000',
+      gray: '#747474',
+      purple: '#643F5D',
+      yellow: '#FFCD57',
+      blue: {
+        0: '#0B3442',
+        100: '#0D3E4F',
+        200: '#005A65',
+        300: '#00616D',
+        400: '#00818F',
+        500: '#008392',
+      },
+    },
     extend: {
       fontSize: {
-        xxs   : ['0.625rem', '0.75rem'],
-        // xs    : ['0.75rem', '1rem'], // included in TW code
-        // sm    : ['0.875rem', '1.125rem'], // included in TW code
-        // 15:   ['.9375rem', '1.5rem'], // Custom size
-        md    : ['1rem', '1.5rem'],
-        // lg    : ['1.125rem', '1.5rem'],  // included in TW code
-        // xl    : ['1.25rem', '1.5rem'],  // included in TW code
-        // '2xl' : ['1.5rem', '2rem'],  // included in TW code
-        // '3xl' : ['1.875rem', '2.5rem'],  // included in TW code
-        // '4xl' : ['2.25rem', '2.5rem'],  // included in TW code
-        // '5xl' : ['3rem', '3.5rem'],  // included in TW code
+        'h1-mobile':    ['1.75rem', '2.125rem'],
+        h1:             ['3.5rem', '4.125rem'],
+        'h2-mobile':    ['1.625rem', '2rem'],
+        h2:             ['2.375rem', '2.875rem'],
+        'h3-mobile':    ['1.375rem', '1.625rem'],
+        h3:             ['1.75rem', '2.25rem'],
+        'h4-mobile':    ['1.125rem', '1.438rem'],
+        h4:             ['1.5rem', '1.875rem'],
+        'h5-mobile':    ['0.938rem', '1.375rem'],
+        h5:             ['1.188rem', '1.5rem'],
+        'base-mobile':  ['0.938rem', '1.375rem'],
+        base:           ['1.063rem', '1.625rem'],
+        'default-base': ['1rem', '1.25rem'],
+        'grande':       ['1.25rem', '1.625rem'],
+        'legendes':     ['0.813rem', '1.25rem'],
       },
       fontFamily: {
-        title:  ['Sharp Sans', 'sans-serif'],
-        button: ['Sharp Sans', 'sans-serif'],
-        serif: ['Sharp Sans', 'sans-serif'],
-        sans:   ['Inter', 'sans-serif'],
-        body:   ['Inter', 'sans-serif'],
+        base:  ['Montserrat', 'sans-serif'],
       },
       minWidth: {
       },

@@ -4,35 +4,23 @@
 * To override more variables take a look at @node_modules/bootstrap/scss/_variables.scss
 */
 
-/* Colors common colors */
-$primary: #1379A7;
-$red: #EE696C;
-$yellow: #E8ED57;
-$black: #000;
 
-/* b&w colors as placeholders */
-$dark-gray: lighten($black, 20%);
-$med-gray: lighten($black, 40%);
-$light-gray: lighten($black, 70%);
-$lighter-gray: lighten($black, 90%);
-$off-white: lighten($black, 97%);
+/* Theme paths variables */
+$theme-path: "/themes/custom/yukonca_glider";
+$theme-path-relative: "../../";
+$images-folder-name: "images";
+$DS: "/";
+$image-path: $theme-path + $images-folder-name + $DS;
+$image-path-relative: $theme-path-relative + $images-folder-name + $DS;
 
-/* Utility color variables */
-$heading: $dark-gray;
-$link-color: $black;
-
-/* Fonts */
-$font-primary: sans-serif;
-$font-secondary: serif;
-$heading_font: $font-primary;
-$body_font: $font-secondary;
 $font-icons: "theme-icons";
 
-$desktop-breakpoint: lg;
 
 /* Grid variables */
 // $grid-columns: 12; /* Add a custom value if needed */
 // $grid-gutter-width: 30px; /* Add a custom value if needed */
+
+$desktop-breakpoint: lg;
 
 /* Custom breakpoints. Verify the current design to identify if all the breakpoint are necessaries or if we can remove some of them */
 $grid-breakpoints: (
@@ -56,3 +44,16 @@ $container-max-widths: (
   xxl: 1408px,
   xxxl: 1568px
 );
+
+$color-white: #FFF;
+$color-black: #000;
+$color-gray: #747474;
+$color-purple: #643F5D;
+$color-yellow: #FFCD57;
+
+$color-blue000: #0B3442;
+$color-blue100: #0D3E4F;
+$color-blue200: #005A65;
+$color-blue300: #00616D;
+$color-blue400: #00818F;
+$color-blue500: #008392;
