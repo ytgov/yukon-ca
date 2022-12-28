@@ -1,0 +1,9 @@
+{% set classes = [
+  'alert',
+  type ? 'alert-' ~ type : '',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="title">{{ title }}</div>
+  <div class="content">{{ content }}</div>
+</div>

@@ -1,0 +1,26 @@
+{# Prepare attributes #}
+{% set prefix = 'hero' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+  image ? 'hero--has-image' : 'hero--no-image',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="row">
+    {% if image %}
+      <div class="image" style="background-image: url('{{ image }}')"></div>
+    {% endif %}
+
+    {% if title %}
+      <h1 class="title" id="heading">{{ title }}</h1>
+    {% endif %}
+
+    {% if summary %}
+      <div class="summary">{{ summary }}</div>
+    {% endif %}
+  </div>
+</div>
