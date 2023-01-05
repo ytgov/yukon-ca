@@ -1,0 +1,21 @@
+{
+    "name": "drupal/geophp",
+    "description": "Wraps the geoPHP library: advanced geometry operations in PHP.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/geophp",
+    "authors": [
+        {
+            "name": "Neslee Canil Pinto",
+            "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/geophp",
+        "source": "https://git.drupalcode.org/project/geophp"
+    },
+    "require": {
+        "drupal/core": "^9.3 || ^10"
+    }
+}

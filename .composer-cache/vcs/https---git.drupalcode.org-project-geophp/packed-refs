@@ -1,0 +1,15 @@
+# pack-refs with: peeled fully-peeled sorted 
+9b18e391a4aa4f57327fbc3bd2ae7a5dc0bca8b2 refs/heads/7.x-1.x
+8bd53422b5a410f4214bd9c7a0aba79ba24ed9ca refs/heads/8.x-1.x
+8dc0518f718497039795f11e6be29666948e8662 refs/tags/7.x-1.0
+bbbc0735bafd9cc271e3c54dad13e081073d5c06 refs/tags/7.x-1.1
+7d0a3638036a499be0a1ba114b18fa05d20e3daa refs/tags/7.x-1.2
+260571731b6ff2192f742e47ce620d97420cc250 refs/tags/7.x-1.3
+a9c9500bba13de460e39e0414353f39df5149280 refs/tags/7.x-1.4
+264944dfa7031a2725eed78e6a29b9d348d15474 refs/tags/7.x-1.5
+b39072066a05d3ec5d7567f8eea7aebcc4137d5a refs/tags/7.x-1.6
+b8c3fd126e63a149cd17f247198504ac65f4fbf4 refs/tags/7.x-1.7
+6e97cd1b17fe0e006d85fec7216ef4f37caf1f86 refs/tags/7.x-1.8
+8bd53422b5a410f4214bd9c7a0aba79ba24ed9ca refs/tags/8.x-1.0
+d7d5ebe6140a218e8ef65465f6346c0fd5f9b074 refs/tags/8.x-1.0-beta1
+cb7b8c6b8465e3af41f8f6f8b43c7057c4ca9128 refs/tags/8.x-1.0-beta2

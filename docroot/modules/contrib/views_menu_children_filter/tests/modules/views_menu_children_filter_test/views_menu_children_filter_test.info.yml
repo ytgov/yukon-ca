@@ -1,0 +1,13 @@
+name: 'Views Menu Children Filter Test'
+description: 'Provides test configs for views_menu_children_filter tests.'
+type: module
+package: Testing
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:views
+  - views_menu_children_filter:views_menu_children_filter
+
+# Information added by Drupal.org packaging script on 2022-10-18
+version: '3.0.0-rc1'
+project: 'views_menu_children_filter'
+datestamp: 1666088647

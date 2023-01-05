@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Contains install routines for workbench_email.
+ */
+
+/**
+ * Empty update to trigger config schema cache update.
+ */
+function workbench_email_update_8001() {
+}
+
+/**
+ * Empty update to trigger config schema cache update.
+ */
+function workbench_email_update_8002() {
+}
+
+/**
+ * Empty update to trigger config schema cache update.
+ */
+function workbench_email_update_8003() {
+}
+
+/**
+ * Enable content_moderation module.
+ */
+function workbench_email_update_8301() {
+  \Drupal::service('module_installer')->install(['content_moderation']);
+}

@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a CSHS select element.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the select tag.
+ * - options: The option element children.
+ *
+ * @see cshs_theme()
+ *
+ * @ingroup themeable
+ */
+#}
+<select{{ attributes }}>
+  {% for option in options %}
+    {% if option.type == 'optgroup' %}
+      <optgroup label="{{ option.label }}">
+        {% for sub_option in option.options %}
+          <option value="{{ sub_option.value }}" data-parent="{{ sub_option.parent }}"{{ sub_option.selected ? ' selected="selected"' }}>
+            {{ sub_option.label }}
+          </option>
+        {% endfor %}
+      </optgroup>
+    {% elseif option.type == 'option' %}
+      <option value="{{ option.value }}" data-parent="{{ option.parent }}"{{ option.selected ? ' selected="selected"' }}>
+        {{ option.label }}
+      </option>
+    {% endif %}
+  {% endfor %}
+</select>

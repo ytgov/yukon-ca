@@ -1,0 +1,8 @@
+name: 'Maxlength custom widget test'
+type: module
+description: 'Test support for custom widget settings'
+package: Testing
+dependencies:
+  - maxlength:maxlength
+  - drupal:node
+hidden: true

@@ -1,0 +1,5 @@
+name: geoPHP
+type: module
+description: 'Wraps the geoPHP library: advanced geometry operations in PHP'
+core_version_requirement: ^9.3 || ^10
+package: Location

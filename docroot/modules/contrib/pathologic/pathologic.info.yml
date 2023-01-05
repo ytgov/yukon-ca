@@ -1,0 +1,8 @@
+name: Pathologic
+description: 'Helps avoid broken links and incorrect paths in content.'
+core_version_requirement: ^9 || ^10
+package: 'Input filters'
+dependencies:
+- drupal:filter
+type: module
+configure: pathologic.config_form

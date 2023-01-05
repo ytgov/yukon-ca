@@ -1,0 +1,14 @@
+README:
+  title: 'README'
+  weight: -11
+using-advanced-help:
+  title: 'Using advanced help'
+  weight: -10
+translation:
+    title: 'Translating advanced help'
+yml-file:
+    title: 'Advanced help .help.yml file format'
+    line break: false
+why-advanced-help:
+    title: 'Why advanced help?'
+    line break: true

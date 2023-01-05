@@ -1,0 +1,29 @@
+{
+  "presets": [
+    "@babel/typescript",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "ie": "11"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": false,
+        "regenerator": false
+      }
+    ],
+    [
+      "@babel/plugin-transform-for-of",
+      {
+        "assumeArray": true
+      }
+    ]
+  ]
+}

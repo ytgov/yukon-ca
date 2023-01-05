@@ -1,0 +1,25 @@
+field.widget.settings.cshs:
+  type: mapping
+  label: 'CSHS field widget settings'
+  mapping:
+    save_lineage:
+      type: boolean
+      label: 'Save lineage'
+    force_deepest:
+      type: boolean
+      label: 'Force selection of deepest level'
+    parent:
+      type: string
+      label: 'Parent'
+    level_labels:
+      type: string
+      label: 'Labels per hierarchy-level'
+    hierarchy_depth:
+      type: integer
+      label: 'Hierarchy depth'
+    required_depth:
+      type: integer
+      label: 'Required depth'
+    none_label:
+      type: string
+      label: 'The "no selection" label'

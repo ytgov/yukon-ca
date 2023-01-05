@@ -1,0 +1,6 @@
+name: Advanced Help Example
+type: module
+description: A example help module to demonstrate the advanced help module.
+core_version_requirement: ^8.8
+dependencies:
+  - advanced_help:advanced_help

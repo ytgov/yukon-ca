@@ -1,0 +1,12 @@
+view advanced help index:
+  title: 'View help index'
+  description: 'View the Advanced Help index page.'
+  restrict access: FALSE
+view advanced help topic:
+  title: 'View help topics'
+  description: 'View help topic pages.'
+  restrict access: FALSE
+view advanced help popup:
+  title: 'View help popups'
+  description: 'View context sensitive help popups.'
+  restrict access: FALSE

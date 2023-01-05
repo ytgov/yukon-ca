@@ -45,6 +45,7 @@
     "drupal/entity_print": "~2.0",
     "drupal/hal" : "1 - 2",
     "drupal/jquery_ui": "~1.0",
+    "drupal/jquery_ui_checkboxradio": "~2.0",
     "drupal/jquery_ui_datepicker": "~1.0",
     "drupal/lingotek": "~4.0",
     "drupal/mailsystem": "~4.0",

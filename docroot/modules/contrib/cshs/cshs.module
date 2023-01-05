@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Client-side Hierarchical Select.
+ */
+
+use Drupal\cshs\Element\CshsElement;
+use Drupal\cshs\Plugin\views\filter\CshsTaxonomyIndexTid;
+use Drupal\cshs\Plugin\views\filter\CshsTaxonomyIndexTidDepth;
+
+/**
+ * Implements hook_help().
+ *
+ * @internal
+ */
+function cshs_help(string $route_name): ?array {
+  if ($route_name === 'help.page.cshs') {
+    return [
+      '#theme' => 'cshs_help',
+    ];
+  }
+
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * @internal
+ */
+function cshs_theme(): array {
+  $info = [];
+
+  $info['cshs_help'] = [
+    'render element' => 'element',
+  ];
+
+  $info[CshsElement::ID] = [
+    'variables' => [
+      'attributes' => [],
+      'options' => [],
+    ],
+  ];
+
+  $info['cshs_term_group'] = [
+    'variables' => [
+      'id' => '0',
+      'title' => '',
+      'terms' => [],
+    ],
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ *
+ * @internal
+ */
+function cshs_config_schema_info_alter(array &$definitions): void {
+  $parent = $definitions['views.filter.' . CshsTaxonomyIndexTid::ID]['mapping'] += CshsTaxonomyIndexTid::getConfigSchema();
+  // The `depth` plugin extends the default one and
+  // the `taxonomy.views.schema.yml` does not define
+  // the configuration the parent provides.
+  $definitions['views.filter.' . CshsTaxonomyIndexTidDepth::ID]['mapping'] += $parent + CshsTaxonomyIndexTidDepth::getConfigSchema();
+}

@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * @file
+ * Provides main module functions.
+ */
+
+use Drupal\content_moderation\Entity\ContentModerationState;
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\workbench_email\EventSubscriber\ContentModerationStateChangedEvent;
+
+/**
+ * Implements hook_help().
+ */
+function workbench_email_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'entity.workbench_email_template.collection':
+    case 'help.page.workbench_email':
+      return '<p>' . t("The Workbench Email module keeps track of when a piece of entity transitions from one state to another. Admins can create new templates to manage the contents and recipients of email sent when those transitions happen.") . '</p><p>' . t('Each template can be attached to a transition by editing the template and selecting the transitions to use.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function workbench_email_mail($key, &$message, $params) {
+  if (strpos($key, 'template::') === 0) {
+    // Mailing one of our templates.
+    $message['subject'] = $params['subject'];
+    if ($params['template_format'] == 'html') {
+      $message['headers']['Content-Type'] = 'text/html';
+      $message['params']['convert'] = TRUE;
+      $message['body'][] = $params['body'];
+    }
+    else {
+      // Strip out any HTML.
+      $message['body'][] = MailFormatHelper::htmlToText($params['body']);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function workbench_email_entity_update(EntityInterface $entity) {
+  _workbench_email_process_if_moderated($entity);
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function workbench_email_entity_insert(EntityInterface $entity) {
+  _workbench_email_process_if_moderated($entity);
+}
+
+/**
+ * Determines if an entity is moderated and processes transition.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity being updated.
+ */
+function _workbench_email_process_if_moderated(EntityInterface $entity) {
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+  $moderation_info = \Drupal::service('content_moderation.moderation_information');
+  if ($moderation_info->isModeratedEntity($entity)) {
+    \Drupal::service('workbench_email.processor')->processEntity($entity);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert for content_moderation_state.
+ *
+ * @todo Remove when https://www.drupal.org/project/drupal/issues/2873287 is in.
+ */
+function workbench_email_content_moderation_state_insert(ContentModerationState $entity) {
+  _workbench_email_content_moderation_event_shim($entity);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update for content_moderation_state.
+ *
+ * @todo Remove when https://www.drupal.org/project/drupal/issues/2873287 is in.
+ */
+function workbench_email_content_moderation_state_update(ContentModerationState $entity) {
+  _workbench_email_content_moderation_event_shim($entity);
+}
+
+/**
+ * Shim for content moderation event.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity being updated/inserted.
+ *
+ * @todo Remove when https://www.drupal.org/project/drupal/issues/2873287 is in.
+ *
+ * @see https://www.drupal.org/project/drupal/issues/2873287#comment-12619624
+ *
+ */
+function _workbench_email_content_moderation_event_shim(ContentModerationState $entity) {
+  if (class_exists('\Drupal\content_moderation\Event\ContentModerationStateChangedEvent')) {
+    // https://www.drupal.org/project/drupal/issues/2873287 will add this class
+    // to core.
+    return;
+  }
+  $entityStorage = \Drupal::entityTypeManager()->getStorage($entity->content_entity_type_id->value);
+  $moderationStateStorage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+  $moderated_entity = $entityStorage->loadRevision($entity->content_entity_revision_id->value);
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+  $moderation_info = Drupal::service('content_moderation.moderation_information');
+
+  // Check to see if the content is moderated or not
+  $is_moderated = $moderation_info->isModeratedEntity($moderated_entity);
+  if (!$is_moderated) {
+    return;
+  }
+
+  if (!$entity->getLoadedRevisionId()) {
+    $original_state = FALSE;
+  }
+  else {
+    $original_content_moderation_state = $moderationStateStorage->loadRevision($entity->getLoadedRevisionId());
+    if (!$entity->isDefaultTranslation() && $original_content_moderation_state->hasTranslation($entity->activeLangcode)) {
+      $original_content_moderation_state = $original_content_moderation_state->getTranslation($entity->activeLangcode);
+    }
+    $original_state = $original_content_moderation_state->moderation_state->value;
+  }
+  $new_state = $entity->moderation_state->value;
+  if ($original_state !== $new_state) {
+    $workflow = $entity->workflow->target_id;
+    \Drupal::service('event_dispatcher')->dispatch(new ContentModerationStateChangedEvent($moderated_entity, $new_state, $original_state, $workflow), 'content_moderation.state_changed');
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function workbench_email_module_implements_alter(array &$implementations, string $hook): void {
+  // Move entity_insert and entity_update hook implementations to come after
+  // content_moderation.
+  if ($hook === 'entity_insert' || $hook === 'entity_update') {
+    $group = $implementations['workbench_email'];
+    unset($implementations['workbench_email']);
+    $implementations['workbench_email'] = $group;
+  }
+}

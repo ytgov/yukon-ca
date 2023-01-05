@@ -1,0 +1,12 @@
+name: 'Views Menu Children Filter'
+description: 'Adds filters to Views for limiting results based on menu hierarchy.'
+package: Views
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2022-10-18
+version: '3.0.0-rc1'
+project: 'views_menu_children_filter'
+datestamp: 1666088647

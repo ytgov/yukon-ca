@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Client-side Hierarchical Select: Menu Link.
+ */
+
+use Drupal\cshs\Component\CshsOption;
+use Drupal\cshs\Element\CshsElement;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * @internal
+ * @see \menu_ui_form_node_form_alter()
+ */
+function cshs_menu_link_form_node_form_alter(array &$form): void {
+  if (!empty($form['menu']['link']['menu_parent'])) {
+    $element =& $form['menu']['link']['menu_parent'];
+
+    // Do not attempt to process CSHS elements produced by someone else.
+    /* @link https://www.drupal.org/project/menu_link_weight/issues/3207685 */
+    if ($element['#type'] === CshsElement::ID) {
+      @\trigger_error(
+        'The "cshs_menu_link" functionality suspended because some other application part already transformed the element into the CSHS widget.',
+        \E_USER_WARNING,
+      );
+    }
+    else {
+      $element['#type'] = CshsElement::ID;
+      $element['#attached']['library'][] = 'cshs_menu_link/cshs_menu_link';
+      $element['#none_label'] = \t('- Select -');
+      $element['#description'] = \t('The menu link is created below the selected menu item. Optionally, select additional levels to place the link deeper in the menu structure.');
+      $element['#no_first_level_none'] = TRUE;
+
+      // The first item is always a menu name so the below processing
+      // is relevant only if there is at least one link additionally.
+      if (\count($element['#options']) > 1) {
+        /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $link_manager */
+        $link_manager = \Drupal::service('plugin.manager.menu.link');
+
+        foreach ($element['#options'] as $id => $label) {
+          // Example `$id` values:
+          // - `main:`;
+          // - `main:standard.front_page`;
+          // - `main:menu_link_content:d5517ae1-925f-4385-96a3-ceca5ad7bb61`.
+          [$menu_name, $link_id] = \explode(':', $id, 2);
+          // Assume there is no parent until we know that.
+          $parent = NULL;
+
+          if ($link_id !== '') {
+            if ($link = $link_manager->getDefinition($link_id, FALSE)) {
+              // The `parent` is either an empty string or link ID.
+              // It is ok to have a parent like `$menu_name:` as it means
+              // the link is top-level and its parent is the menu itself.
+              $parent = $menu_name . ':' . $link['parent'];
+            }
+            else {
+              \assert(FALSE, \sprintf('The link with ID "%s" must exist!', $link_id));
+            }
+          }
+
+          $element['#options'][$id] = new CshsOption($label, $parent);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * @internal
+ * @see \taxonomy_menu_ui_form_taxonomy_term_form_alter()
+ */
+function cshs_menu_link_form_taxonomy_term_form_alter(array &$form): void {
+  if (\Drupal::moduleHandler()->moduleExists('taxonomy_menu_ui')) {
+    \cshs_menu_link_form_node_form_alter($form);
+  }
+}

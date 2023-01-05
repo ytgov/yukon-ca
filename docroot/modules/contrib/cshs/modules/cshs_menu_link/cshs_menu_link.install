@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall routines.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * @internal
+ */
+function cshs_menu_link_install(): void {
+  // Core's "Custom Menu Links" module has a weight of 1.
+  \module_set_weight('cshs_menu_link', 5);
+}

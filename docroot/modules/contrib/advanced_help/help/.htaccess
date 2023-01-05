@@ -1,0 +1,3 @@
+<FilesMatch "\.(html|md|txt|)$">
+	Require all denied
+</FilesMatch>

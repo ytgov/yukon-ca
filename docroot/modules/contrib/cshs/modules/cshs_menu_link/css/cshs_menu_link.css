@@ -1,0 +1,7 @@
+.menu-link-form .select-wrapper {
+  display: block;
+  margin: 10px 0;
+}
+.menu-link-form .select-wrapper select {
+  width: 100%;
+}

@@ -1,48 +1,96 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
+  addtoany: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
+  advanced_help: 0
+  ajax_comments: 0
+  better_exposed_filters: 0
   big_pipe: 0
   blinker_addons_link_attributes: 0
   blinker_addons_node: 0
   blinker_addons_paragraphs: 0
   blinker_core: 0
   block: 0
+  block_class: 0
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  color_field: 0
+  comment: 0
   config: 0
+  content_moderation: 0
   contextual: 0
+  cshs: 0
+  ctools: 0
+  date_recur: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
+  diff: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  epp: 0
+  facets: 0
+  feeds: 0
+  feeds_tamper: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
+  fontawesome: 0
+  geofield: 0
+  geophp: 0
   image: 0
   inline_form_errors: 0
+  job_scheduler: 0
+  jquery_ui: 0
+  jquery_ui_datepicker: 0
+  jquery_ui_slider: 0
+  jquery_ui_touch_punch: 0
+  language: 0
+  leaflet: 0
+  libraries: 0
   link: 0
   link_attributes: 0
+  linkchecker: 0
+  linkit: 0
+  maxlength: 0
+  menu_block: 0
+  menu_link_attributes: 0
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
+  module_missing_message_fixer: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
+  page_manager: 0
   pantheon_advanced_page_cache: 0
   path: 0
   path_alias: 0
+  pathologic: 0
   redirect: 0
   redis: 0
   responsive_image: 0
+  responsive_preview: 0
+  scheduler: 0
+  search404: 0
+  search_api: 0
+  search_api_attachments: 0
+  search_api_solr: 0
+  search_api_spellcheck: 0
+  security_review: 0
   shortcut: 0
+  smtp: 0
   system: 0
+  tamper: 0
   taxonomy: 0
   text: 0
   token: 0
@@ -53,10 +101,21 @@ module:
   ui_patterns_views: 0
   update: 0
   user: 0
+  username_enumeration_prevention: 0
+  video_embed_field: 0
+  views_ajax_history: 0
+  views_bootstrap: 0
+  views_menu_children_filter: 0
+  views_tree: 0
   views_ui: 0
   webform: 0
   webform_ui: 0
+  workbench: 0
+  workbench_access: 0
+  workbench_email: 0
+  workflows: 0
   pathauto: 1
+  password_policy: 10
   views: 10
   paragraphs: 11
   minimal: 1000

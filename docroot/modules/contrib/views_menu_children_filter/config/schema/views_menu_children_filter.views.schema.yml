@@ -1,0 +1,14 @@
+views.argument.menu_children:
+  type: views_argument
+  label: 'Menu Children'
+  mapping:
+    target_menus:
+      type: sequence
+      label: 'Target Menus'
+      sequence:
+        type: string
+        label: 'Menu Machine Name'
+
+views.sort.menu_children:
+  type: views_sort
+  label: 'Menu Children'

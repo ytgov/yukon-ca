@@ -1,0 +1,40 @@
+{
+    "name": "drupal/cshs",
+    "description": "A simple client-side hierarchical select widget for taxonomy terms.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/cshs",
+    "keywords": [
+        "module",
+        "select",
+        "hierarchical-select",
+        "taxonomy",
+        "client-side-select"
+    ],
+    "authors": [
+        {
+            "name": "Walter Jenner",
+            "homepage": "https://drupal.org/u/valderama"
+        },
+        {
+            "name": "Sergii Bondarenko",
+            "homepage": "https://drupal.org/u/BR0kEN",
+            "email": "sb@firstvector.org"
+        },
+        {
+            "name": "Daneel Cruz",
+            "homepage": "https://drupal.org/u/daneelcm"
+        },
+        {
+            "name": "Purushotam Rai",
+            "homepage": "https://drupal.org/u/purushotam.rai"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/cshs",
+        "source": "https://git.drupalcode.org/project/cshs"
+    },
+    "require": {
+        "php": ">=8.0"
+    }
+}

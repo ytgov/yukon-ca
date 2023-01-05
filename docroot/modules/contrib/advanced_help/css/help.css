@@ -1,0 +1,98 @@
+.advanced-help-topic h3,
+.advanced-help-topic h4,
+.advanced-help-topic h5,
+.advanced-help-topic h6,
+.advanced-help-topic dt {
+  font-weight: bold;
+}
+
+.advanced-help-topic li h3,
+.advanced-help-topic li h4,
+.advanced-help-topic li h5,
+.advanced-help-topic li h6 {
+  font-weight: normal;
+}
+
+.help-left {
+  display: block;
+  float: left; /* LTR */
+  text-align: left;
+  width: 42%;
+}
+
+.help-up {
+  display: block;
+  float: left; /* LTR */
+  margin: 0 5%;
+  width: 4%;
+}
+
+.help-up-noleft {
+  display: block;
+  float: left; /* LTR */
+  margin: 0 5%;
+  text-align: right;
+  width: 42%;
+}
+
+.help-right {
+  display: block;
+  float: right;
+  text-align: right;
+  width: 42%;
+}
+
+.help-box {
+  margin: .5em;
+}
+
+.help-navigation {
+  border-top: 1px dotted #ccc;
+}
+
+.help-previous {
+  float: left;
+}
+
+.help-next {
+  float: right;
+}
+
+.help-imgpos-left {
+  display: block;
+  padding: 2px;
+  margin: 0 1.25em 0.5em 0;
+  float: left;
+  border: solid 1px #ccc;
+}
+
+.help-imgpos-right {
+  display: block;
+  padding: 2px;
+  margin: 0 0 0.5em 1.25em;
+  float: right;
+  border: solid 1px #ccc;
+}
+
+.help-imgpos-center {
+  margin: 1em auto 1em auto;
+  padding: 2px;
+  border: solid 1px #ccc;
+}
+
+.help-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.help-img-caption {
+  text-align: center;
+  background: #f6f6f6;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Calibri, "Helvetica Neue", Arial, Sans, sans-serif;
+  font-size: 0.9em;
+}
+
+
+

@@ -1,0 +1,127 @@
+<p>The <strong>Advanced help</strong> module provides a framework that
+allows module and theme developers integrate help texts in a Drupal
+site.  Although the <strong>Advanced help</strong> does not provide
+general help by itself, it provides a powerful and easy framework that
+modules and themes may use to provide their own help.</p>
+
+<p>Modules and themes utilizing <strong>Advanced help</strong> should
+create a subdirectory named <code>help</code> inside their own main
+directory. Place the file
+<em>MODULENAME</em>.help.yml (resp. <em>THEMENAME</em>.help.yml) in
+this subdirectory.  formatted similar to the following example:</p>
+
+<pre>
+[about-php]
+title = About PHP
+file = about-php
+weight = -10
+
+[history]
+title = History of PHP
+parent = about-php
+
+[usage]
+title = Usage of PHP
+weight = 1
+
+[security] 
+title = Security of PHP
+weight = 2
+
+[syntax]
+title = PHP syntax
+parent = usage
+</pre>
+
+<p>This file defines five help topics (inside the square brackets),
+and some settings for them.
+See: <a href="&topic:advanced_help/yml-file&">Advanced help .help.yml
+file format</a> for a list of defined settings.</p>
+
+
+<p>All topics are addressed by the module or theme providing the
+topic, and by the topic id. For Drupal 7, one could use the a format
+similar to the following example to produce a themed link to popup
+about a topic:</p>
+
+<!-- D7 -->
+<pre>
+$output = theme('advanced_help_topic', array(
+  'module' => 'help_example',
+  'topic' => 'about-php',
+));
+$output .= '&nbsp;' . t('Click the help icon!');
+</pre>
+
+<!-- D9 -->
+<p><strong>NOTE:</strong> In Drupal 9, the
+function <code>theme()</code> is deprecated. A valid example for
+Drupal 9 has to be created.</p>
+
+
+<p>This produces the following output:</p>
+
+<pre>
+&lt;a class="advanced-help-link" title="About PHP"
+  onclick="var w=window.open(this.href, 'advanced_help_window',
+  'width=500,height=500,scrollbars,resizable');
+  w.focus(); return false;"
+  href="/help/help_example/about-php?popup=1"&gt;
+&lt;span&gt;Help&lt;/span&gt;
+&lt;/a&gt;
+ Click the help icon!
+&lt;/div&gt;
+</pre>
+
+<p>This produces a clickable help icon like the one shown below:</p>
+
+<div class="ta-center">
+<img class="help-img-center" alt="[If you see this, the '&path' token is not expanded.]" src="&path&click_icon.png" width="180" height="90" border="0" />
+</div>
+
+<div class="help-imgpos-center" style="max-width:180px">
+<img class="help-img" alt="pollresult.png" title="Poll result." src="/modules/contrib/advanced_help/help/click_icon.png" width="180" />
+<div class="help-img-caption"  style="max-width: 180px">Question mark help icon</div>
+</div>
+
+<p>Inside your help file, you may link to other help topics using this format:</p>
+<pre>
+&lt;a href="&amp;topic:module/topic&amp;"&gt;topic&lt;/a&gt;
+</pre>
+<p>This format will ensure the popup status remains consistent when
+switching between links.</p>
+
+<p>To reference items within the help directory, such as images you wish to embed  within the help text, use:</p>
+
+<pre>
+&lt;img src="&amp;path&amp;example.png"/&gt;
+&lt;img src="&amp;trans_path&amp;example.png"/&gt;
+</pre>
+
+<p>The <code>trans_path</code> keyword refers to a translated version of the image in the translation directory and may be used it differs from the original.</p>
+
+<p>To reference any normal path in the site, use:</p>
+<pre>
+&lt;a href="&amp;base_url&amp;admin/settings/site-configuration"&gt;anchor text&lt;/a&gt;
+</pre>
+
+<p><strong>NOTE: </strong> In previous versions <strong>Advanced
+help</strong> did not require the &amp;'s to be wrapped around
+<code>topic</code>, <code>path</code>, and <code>base_url</code>.
+This is currently still supported, but will be removed in a future
+version.  By adding the &amp;'s these tokens are now not limited
+to <code>href=""</code> and <code>src=""</code> parameters.</p>
+
+<h2 id="search">Search</h2>
+
+<p>To enable advanced help search, navigate to
+<em>Administration → Configuration → Search and metadata → Search settings</em>.
+Scroll down to <em>Active search modules</em> and tick the box to the
+left of “Advanced help”.  The search form will appear on the top of
+the advanced help index pages.</p>
+
+<p>If the core <strong>Search</strong> module is enabled, the contents
+of the advanced help framework will be indexed on cron. If you enable
+new modules or themes and wish to immediately index their help text,
+navigate to <em>Administration → Reports → Status report</em> and
+click the link “run cron manually”.</p>

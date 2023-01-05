@@ -1,0 +1,12 @@
+name: 'Views tree test views'
+type: module
+description: 'Provides default views for views tree tests.'
+package: Testing
+core_version_requirement: ^8 || ^9
+dependencies:
+ - drupal:views_tree
+
+# Information added by Drupal.org packaging script on 2022-12-21
+version: '8.x-2.0-rc1'
+project: 'views_tree'
+datestamp: 1671654513

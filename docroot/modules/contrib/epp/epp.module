@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Entity Prepopulate
+ */
+
+use Drupal\Core\Config\Entity\ThirdPartySettingsInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Utility\Error;
+use Symfony\Component\Yaml\Exception\ParseException;
+use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_entity_prepare_form().
+ */
+function epp_entity_prepare_form(EntityInterface $entity, $operation, FormStateInterface $form_state) {
+  $tokenService = \Drupal::token();
+  if ($entity instanceof FieldableEntityInterface) {
+    foreach ($entity->getFields(FALSE) as $fieldName => $field) {
+      // Usually this is field config, but we eat anything that carries our TPS.
+      $fieldDefinition = $field->getFieldDefinition();
+      if (
+        $fieldDefinition instanceof ThirdPartySettingsInterface
+        && ($yamlValueWithTokens = $fieldDefinition->getThirdPartySetting('epp', 'value'))
+        && ($field = $entity->get($fieldName))
+        && $field->access('edit')
+        && ($entity->isNew() || $fieldDefinition->getThirdPartySetting('epp', 'on_update'))
+      ) {
+        // @todo Find a way to get better token data, e.g. from contexts.
+        $data = [];
+        $tokenOptions = ['langcode' => $field->getLangcode()];
+        $yamlValueWithUnusedTokensCleared = $tokenService->replace($yamlValueWithTokens, $data, $tokenOptions + ['clear' => TRUE]);
+        $yamlValue = $tokenService->replace($yamlValueWithTokens, $data, $tokenOptions);
+        $allTokensReplaced = $yamlValue === $yamlValueWithUnusedTokensCleared;
+        if ($allTokensReplaced) {
+          try {
+            $value = (new Parser())->parse($yamlValue, Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE);
+          }
+          catch (ParseException $e) {
+            // Log attempts to unserialize an object.
+            // @todo Use Error::DEFAULT_ERROR_MESSAGE once we have
+            //   https://www.drupal.org/project/drupal/issues/2932518
+            \Drupal::logger('epp')->warning('%type: @message in %function (line %line of %file).', Error::decodeException($e));
+          }
+          $formerFieldValue = $entity->get($fieldName)->getValue();
+          $entity->set($fieldName, $value);
+          $violations = $entity->validate()->getByField($fieldName);
+          if ($violations->count()) {
+            $entity->set($fieldName, $formerFieldValue);
+            /** @var \Symfony\Component\Validator\ConstraintViolationInterface $violation */
+            foreach ($violations as $violation) {
+              $args = [
+                '%entity_type' => $entity->getEntityTypeId(),
+                '%property_path' => $violation->getPropertyPath(),
+                '%message' => $violation->getMessage(),
+              ];
+              \Drupal::logger('epp')->notice('Invalid value for %entity_type:%property_path: %message', $args);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function epp_form_alter(&$form, FormStateInterface $form_state, $formId) {
+  if (!($formId === 'field_config_edit_form' || $formId === 'base_field_override_edit_form')) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Entity\EntityFormInterface $formObject */
+  $formObject = $form_state->getFormObject();
+  // See https://www.drupal.org/node/2818877.
+  /** @var \Drupal\field\FieldConfigInterface|\Drupal\Core\Field\FieldConfigInterface $fieldConfig */
+  $fieldConfig = $formObject->getEntity();
+
+  // Field config form already has this, but bas field override ui not.
+  $form['third_party_settings']['#tree'] = TRUE;
+  $form['third_party_settings']['epp']['#type'] = 'fieldset';
+  $form['third_party_settings']['epp']['#title'] = t('Entity Prepopulate');
+
+  $description = t('The values will only be applied if all tokens are replaced. If the value is not valid, no replacement will happen. You can use Yaml syntax to target field properties. You can use tokens.');
+
+  if (!\Drupal::moduleHandler()->moduleExists('token')) {
+    $description .= '<br>' . t('For more tokens and Token browser access, please install the <a href="https://www.drupal.org/project/token">Token</a> module. See the <a href="https://www.drupal.org/docs/contributed-modules/entity-prepopulate">documentation</a> for more information.');
+  }
+
+  $form['third_party_settings']['epp']['value'] = [
+    '#type' => 'textarea',
+    '#title' => t('Value'),
+    '#description' => $description,
+    '#default_value' => $fieldConfig->getThirdPartySetting('epp', 'value'),
+  ];
+  if (\Drupal::moduleHandler()->moduleExists('token')) {
+    $form['third_party_settings']['epp']['token_tree'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => [],
+    ];
+  }
+  $form['third_party_settings']['epp']['on_update'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Also on update'),
+    '#description' => t('Also apply the value on update.'),
+    '#default_value' => $fieldConfig->getThirdPartySetting('epp', 'on_update', FALSE),
+  ];
+}

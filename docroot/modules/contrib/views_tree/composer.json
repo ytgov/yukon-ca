@@ -1,0 +1,8 @@
+{
+  "name": "drupal/views_tree",
+    "description": "A Views style plugin to display a tree of elements using the adjacency model.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
