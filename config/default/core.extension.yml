@@ -21,6 +21,7 @@ module:
   color_field: 0
   comment: 0
   config: 0
+  config_translation: 0
   content_moderation: 0
   contextual: 0
   cshs: 0
@@ -46,6 +47,7 @@ module:
   fontawesome: 0
   geofield: 0
   geophp: 0
+  help: 0
   image: 0
   inline_form_errors: 0
   job_scheduler: 0
@@ -60,6 +62,7 @@ module:
   link_attributes: 0
   linkchecker: 0
   linkit: 0
+  locale: 0
   maxlength: 0
   menu_block: 0
   menu_link_attributes: 0
@@ -115,6 +118,7 @@ module:
   workbench_email: 0
   workflows: 0
   pathauto: 1
+  content_translation: 10
   password_policy: 10
   views: 10
   paragraphs: 11
