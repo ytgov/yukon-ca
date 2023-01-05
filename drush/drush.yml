@@ -11,3 +11,5 @@ drush:
     include:
       - '${env.home}/.drush'
       - /usr/share/drush/commands
+options:
+  uri: 'http://yukonca-d10.docksal.site'
