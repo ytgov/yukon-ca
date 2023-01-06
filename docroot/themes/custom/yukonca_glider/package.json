@@ -14,7 +14,7 @@
     "@storybook/react": "^6.1.14",
     "babel-loader": "^8.2.2",
     "bootstrap": "^5.2.3",
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.27.11",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
     "eslint-config-airbnb": "^18.2.1",
