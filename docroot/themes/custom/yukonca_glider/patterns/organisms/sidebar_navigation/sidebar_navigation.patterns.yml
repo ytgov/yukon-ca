@@ -1,0 +1,20 @@
+sidebar_navigation:
+  label: Sidebar Navigation
+  description: A Sidebar Navigation.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Phonetic alphabets'
+    form:
+      type: mixed
+      label: Menu
+      description: A menu.
+      preview: 'Menu'
+  libraries:
+    -
+      sidebar_navigation:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

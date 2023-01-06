@@ -1,0 +1,19 @@
+{# Prepare attributes #}
+{% set prefix = 'anchor-links' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <ul class="anchor-links">
+    {% for link in links %}
+      <li class="anchor-link">
+        {{ link }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

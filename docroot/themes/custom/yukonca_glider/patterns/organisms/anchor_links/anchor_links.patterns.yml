@@ -1,0 +1,30 @@
+anchor_links:
+  label: Anchor links
+  description: Anchor links section.
+  variants:
+    default:
+      label: Default
+      description: With left image.
+    image:
+      label: With top image
+      description: With top image.
+  fields:
+    links:
+      type: mixed
+      label: Items
+      description: Accordion Items
+      preview:
+        - link_url: 'http://example.com/item/alpha'
+          link_text: 'Alpha'
+        - link_url: 'http://example.com/item/beta'
+          link_text: 'Beta'
+        - link_url: 'http://example.com/item/gamma'
+          link_text: 'Gamma'
+        - link_url: 'http://example.com/item/delta'
+          link_text: 'Delta'
+  libraries:
+    -
+      anchor_links:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

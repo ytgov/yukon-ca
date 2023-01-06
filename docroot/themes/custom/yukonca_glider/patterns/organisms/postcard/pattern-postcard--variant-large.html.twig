@@ -1,5 +1,5 @@
 {# Prepare attributes #}
-{% set prefix = 'hero' %}
+{% set prefix = 'postcard' %}
 
 {% set classes = [
   'section',
@@ -9,17 +9,20 @@
 ] %}
 
 <div {{ attributes.addClass(classes) }}">
-  <div class="row">
-    {% if image %}
-      <div class="image" style="background-image: url('{{ image }}')"></div>
-    {% endif %}
-
+  <div class="image">
+    {{ image }}
+  </div>
+  <div class="data">
     {% if title %}
       <h1 class="title" id="heading">{{ title }}</h1>
     {% endif %}
 
     {% if content %}
-      <div class="content">{{ content }}</div>
+      <div class="summary">{{ content }}</div>
+    {% endif %}
+
+    {% if link|render %}
+      <div class="more-link">{{ link }}</div>
     {% endif %}
   </div>
 </div>

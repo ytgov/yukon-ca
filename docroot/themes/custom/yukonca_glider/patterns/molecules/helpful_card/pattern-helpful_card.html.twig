@@ -1,0 +1,10 @@
+{# Prepare attributes #}
+{% set classes = [
+  'contact-card',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="question">{{ question }}</div>
+  <div class="vote-up">{{ vote_up }}</div>
+  <div class="vote-down">{{ vote_down }}</div>
+</div>

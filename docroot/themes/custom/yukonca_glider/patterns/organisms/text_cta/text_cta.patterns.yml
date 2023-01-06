@@ -1,4 +1,4 @@
-text_section:
+text_cta:
   label: 'Section: Text'
   description: Text Section.
   variants:
@@ -11,11 +11,11 @@ text_section:
       label: Title
       description: A title.
       preview: 'Lorem Ipsum'
-    summary:
+    date:
       type: text
-      label: Summary
-      description: Optional text to be displayed with the title.
-      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+      label: date
+      description: A date.
+      preview: 'December 21, 2022'
     content:
       type: text
       label: Content
@@ -31,7 +31,7 @@ text_section:
       description: has-title-only.
       preview: 'Lorem Ipsum'
   libraries:
-    - section_text:
+    - text_cta:
         css:
           component:
             dist/css/styles.min.css: { minified: true }

@@ -1,4 +1,4 @@
-{% set prefix = 'text-section' %}
+{% set prefix = 'text-cta' %}
 
 {% set classes = [
   prefix,
@@ -20,8 +20,8 @@
     </div>
   {% endif %}
 
-  {% if summary %}
-    <div class="summary">{{ summary }}</div>
+  {% if date %}
+    <div class="date">{{ date }}</div>
   {% endif %}
 
   {% if content|render %}
