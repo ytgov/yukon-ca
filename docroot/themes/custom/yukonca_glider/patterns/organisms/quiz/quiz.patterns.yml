@@ -1,0 +1,53 @@
+quiz:
+  label: Quiz
+  description: A quiz.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Morbi turpis libero, elementum et ultrices ut'
+    question:
+      type: string
+      label: Question
+      description: A question.
+      preview: 'Vivamus sagittis rhoncus posuere?'
+    answers:
+      type: mixed
+      label: Answers
+      description: A list of answers.
+      preview:
+        -
+          text: 'Curabitur ac sem non quam posuere lacinia fringilla id lectus.'
+        -
+          text: 'Mauris tortor arcu, gravida in neque id, congue congue sapien.'
+        -
+          text: 'Cras vel felis pulvinar, euismod nisl vel, feugiat sapien.'
+        -
+          text: 'In porttitor ipsum eu dignissim sodales.'
+    action_yes_url:
+      type: string
+      label: URL in case of "Yes"
+      description: 'An URL in case of "Yes".'
+      preview: 'https://example.com/yes'
+    action_no_url:
+      type: string
+      label: URL in case of "No"
+      description: 'An URL in case of "No".'
+      preview: 'https://example.com/no'
+    prev_question_url:
+      type: string
+      label: Question
+      description: A question.
+      preview: 'https://example.com/prev'
+    start_over_url:
+      type: string
+      label: Question
+      description: A question.
+      preview: 'https://example.com/start-over'
+  libraries:
+    -
+      quiz:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

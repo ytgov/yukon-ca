@@ -1,0 +1,14 @@
+{% set classes = [
+  'column-layout-card',
+] %}
+
+<div {{ attribs.addClass(classes) }}>
+  <div class="main-link">
+    {{ main_link }}
+  </div>
+  {% for link in links %}
+    <div class="link-item">
+      {{ link }}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,27 @@
+{# Prepare attributes #}
+{% set classes = [
+  'text-section-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  {% if title %}
+    <div class="title">
+      {{ title }}
+    </div>
+  {% endif %}
+  {% if author|render %}
+    <div class="author">
+      {{ author }}
+    </div>
+  {% endif %}
+  {% if posted|render %}
+    <div class="posted">
+      {{ posted }}
+    </div>
+  {% endif %}
+  {% if content|render %}
+    <div class="content">
+      {{ content }}
+    </div>
+  {% endif %}
+</div>

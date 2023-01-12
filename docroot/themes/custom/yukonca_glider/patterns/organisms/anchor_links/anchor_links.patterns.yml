@@ -14,14 +14,30 @@ anchor_links:
       label: Items
       description: Accordion Items
       preview:
-        - link_url: 'http://example.com/item/alpha'
-          link_text: 'Alpha'
-        - link_url: 'http://example.com/item/beta'
-          link_text: 'Beta'
-        - link_url: 'http://example.com/item/gamma'
-          link_text: 'Gamma'
-        - link_url: 'http://example.com/item/delta'
-          link_text: 'Delta'
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Alpha'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Beta'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Gamma'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Delta'
+            url: <front>
+            options: [ ]
   libraries:
     -
       anchor_links:
