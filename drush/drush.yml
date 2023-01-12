@@ -12,4 +12,4 @@ drush:
       - '${env.home}/.drush'
       - /usr/share/drush/commands
 options:
-  uri: 'http://yukonca-d10.docksal.site'
+  uri: 'http://yukonca.docksal.site'

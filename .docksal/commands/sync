@@ -28,30 +28,7 @@ sync_database() {
 
   print_info_message "Syncing DB from $alias environment"
 
-  if [ "${HOSTING_PROVIDER}" == "pantheon" ]; then
-    if [ -n "$HOSTING_PROVIDER_SITE_NAME" ]; then
-      # shellcheck disable=SC2143
-      if [ -n "$(fin terminus auth:whoami | grep -i 'not logged')" ]; then
-        print_error_message "You are not logged into the terminus."
-        print_info_message "$terminus_auth_message"
-      else
-        # Cleanup.
-        mkdir -p "$ASSETS_DIR"
-        rm -f "$ASSETS_DIR/drupal.sql.gz"
-
-        # Download database.
-        fin terminus backup:create "$HOSTING_PROVIDER_SITE_NAME.$alias" --element=db
-        fin terminus backup:get "$HOSTING_PROVIDER_SITE_NAME.$alias" --element=db --to="$ASSETS_DIR/drupal.sql.gz"
-
-        # Import downloaded database.
-        import_db_dump
-      fi
-    else
-      print_error_message "The HOSTING_PROVIDER_SITE_NAME variable is not set in docksal.env"
-    fi
-  else
-    fin drush sql:sync "@$alias" @self "$@"
-  fi
+  fin drush sql:sync "@$alias" @self "$@"
 }
 
 # Sync Files.

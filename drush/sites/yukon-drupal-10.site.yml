@@ -1,0 +1,10 @@
+'*':
+  host: appserver.${env-name}.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
+  paths:
+    files: files
+  uri: ${env-name}-yukon-drupal-10.pantheonsite.io
+  user: ${env-name}.18a0e30a-b66a-4c8d-9000-d83a48d55975
+  ssh:
+    options: '-p 2222 -o "AddressFamily inet"'
+    tty: false
+
