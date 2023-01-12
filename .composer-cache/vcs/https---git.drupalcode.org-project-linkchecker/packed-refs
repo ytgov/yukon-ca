@@ -34,8 +34,8 @@ d490b18dc451fefd7f95587362509d4198cca637 refs/merge-requests/21/merge
 58304a416b7061bb227f30c558ca2e4b8a899dad refs/merge-requests/23/merge
 7a5949a170a7a40b6b013415b59d06267eb591e7 refs/merge-requests/24/head
 8c32c89626ea81877dfccad76d0ba9d5474ae3e5 refs/merge-requests/24/merge
-cbf7ce5d7462c58cf38886d44eda2e7235a2f97f refs/merge-requests/25/head
-a9b270fc1bcf5df89867780c22f69447db4e7935 refs/merge-requests/25/merge
+ebabd8aa75f32ad83cd28aabf017699b2e68acf2 refs/merge-requests/25/head
+e8c34228595b415e1a6526a206bf581b98e4f4d7 refs/merge-requests/25/merge
 8d3da2bd80a3732abd0c8aa27090a537c9c99642 refs/merge-requests/26/head
 9b47fd6fd3c900be1357c11995bcf1df43d3a031 refs/merge-requests/26/merge
 8445598863933a1d36a34cb91adfcdda0e626a08 refs/merge-requests/27/head
@@ -53,8 +53,6 @@ d3121eb9b15a55e9d5df0b943c907d3ed86bd65a refs/merge-requests/32/merge
 be2d5605b31dbd800b6ff9aa2cc8b1422c8ebb22 refs/merge-requests/33/merge
 944c3d52db33ee8faa2163cbe3258d4605e66c0d refs/merge-requests/34/head
 c1eb46a53eef163994a12a30d2301dbef17a2106 refs/merge-requests/34/merge
-d2527f932957eb823f542c62a08e3a8ad98aeea1 refs/merge-requests/35/head
-a5e14db55be8124542c3e9777a8ad5e84c28e2aa refs/merge-requests/35/merge
 f1f5eae086ec2da3fbfcb0263d0663fe70f6026d refs/tags/5.x-1.0
 6169266d63bd87205be8dcdb06c2ed089f7158fb refs/tags/5.x-1.1
 dca2951e01a16b4971b0017292933fb9eb9009b4 refs/tags/5.x-1.2

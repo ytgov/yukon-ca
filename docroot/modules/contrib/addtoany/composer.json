@@ -11,6 +11,6 @@
         "source": "https://git.drupalcode.org/project/addtoany"
     },
     "require": {
-        "drupal/core": "^9 || ^10"
+        "drupal/core": "^8 || ^9"
     }
 }
