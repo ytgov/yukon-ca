@@ -198,3 +198,6 @@ if (empty($settings['file_scan_ignore_directories'])) {
     'bower_components',
   ];
 }
+
+$databases['migrate'] = $databases['default'];
+$databases['migrate']['default']['database'] = 'migrate';
