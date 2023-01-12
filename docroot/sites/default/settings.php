@@ -822,3 +822,8 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  *
  * @link https://docs.acquia.com/blt/
  */
+
+ if (!isset($databases['migrate'])) {
+  $databases['migrate'] = $databases['default'];
+  $databases['migrate']['default']['database'] = 'migrate';
+}
