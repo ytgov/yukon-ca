@@ -1,0 +1,8 @@
+uuid: d84b6d1f-1c93-449e-8359-c0599273f148
+langcode: und
+status: true
+dependencies: {  }
+id: menu-wet-terms
+label: Terms
+description: 'Terms Menu.'
+locked: false
