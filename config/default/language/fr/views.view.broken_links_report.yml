@@ -7,13 +7,9 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
@@ -21,34 +17,15 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
-        entity_field:
-          separator: ', '
         entity_langcode:
           label: "Langue de l'entité"
-          separator: ', '
-        url:
-          label: URL
-          separator: ', '
-        last_check:
-          separator: ', '
-        method:
-          separator: ', '
         code:
           label: 'Code du statut'
-          separator: ', '
         error:
           label: Erreur
-          separator: ', '
-        fail_count:
-          separator: ', '
-        status:
-          separator: ', '
         operations:
           label: Actions
       filters:
-        url:
-          expose:
-            label: URL
         code_1:
           expose:
             label: 'Code du statut'
@@ -66,5 +43,3 @@ display:
       footer:
         result:
           content: 'Affichage de @start à @end sur @total'
-  page_1:
-    display_title: Page

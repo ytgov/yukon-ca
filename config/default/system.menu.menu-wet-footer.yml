@@ -1,0 +1,8 @@
+uuid: 826adee2-6d96-4c96-a6d8-fbde53fea1db
+langcode: und
+status: true
+dependencies: {  }
+id: menu-wet-footer
+label: 'Footer menu'
+description: 'Footer Menu.'
+locked: false

@@ -7,8 +7,6 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -23,21 +21,15 @@ display:
       fields:
         title:
           label: Titre
-          separator: ', '
         type:
           label: Type
-          separator: ', '
         status:
           label: Publié
-          separator: ', '
         name:
           label: Auteur
-          separator: ', '
         changed:
           label: 'Dernière mise à jour'
-          separator: ', '
         edit_node:
-          label: Actions
           text: modifier
       filters:
         title:
@@ -59,8 +51,6 @@ display:
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
@@ -74,18 +64,13 @@ display:
       fields:
         title:
           label: Titre
-          separator: ', '
         type:
           label: Type
-          separator: ', '
         name:
           label: Auteur
-          separator: ', '
         changed:
           label: 'Dernière mise à jour'
-          separator: ', '
         edit_node:
-          label: Actions
           text: modifier
   embed_1:
     display_title: 'Page intégrée'

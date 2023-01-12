@@ -1,0 +1,8 @@
+uuid: fc763937-f5cd-434f-843e-9abfa6ec5369
+langcode: und
+status: true
+dependencies: {  }
+id: menu-secondary-footer-menu
+label: 'Secondary Footer Menu'
+description: 'This is the secondary column in the footer menu'
+locked: false

@@ -1,0 +1,14 @@
+uuid: 9f01a84f-5981-40d4-a423-198208175d36
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3mi6sCar3QefxwhhJdoda6ZUFQsaAHJoF6YjJquD11g
+id: legacy
+label: 'Yukon.ca legacy site'
+description: null
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  migration_tags:
+    - 'Drupal 7'
