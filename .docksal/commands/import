@@ -1,77 +1,9 @@
 #!/usr/bin/env bash
 
-## Download & import from assets server.
-##
-## Options
-##  db        Import DB from assets server.
-##  files     Import files from assets server.
-##
-## Usage:
-## * fin download db        Import DB from assets server.
-## * fin download files     Import files from assets server.
+## Download & import from pantheon
 
 # shellcheck source=.docksal/scripts/common
 . "${PROJECT_ROOT}/.docksal/scripts/common"
-
-readonly DOWNLOAD_FAILED_MESSAGE="
-Failed to download the database dump.
-
-Either:
-- your username is wrong or
-- you do not have the required permissions.
-
-If you need any assistance, please contact Chris. If Chris is not available contact Simon or Franz.
-"
-
-# Make sure assets username is configured.
-if [ -z "$(config_get assets-username)" ]; then
-  fin assets-user
-fi
-
-# Get the username.
-readonly ASSETS_USERNAME=$(config_get assets-username)
-
-# Download Database.
-download_database() {
-  if [ -n "${ASSETS_PREFIX}" ] && [ "${ASSETS_DB}" == "yes" ]; then
-    mkdir -p "$ASSETS_DIR"
-    if rsync -azLP "$ASSETS_USERNAME"@assets.tree.ewdev.ca:"$ASSETS_PREFIX/$ASSETS_DB_FILE_NAME" "$ASSETS_DIR/drupal.sql.gz"; then
-      print_info_message "Downloaded the file to ${ASSETS_DIR}/drupal.sql.gz"
-    else
-      print_error_message "$DOWNLOAD_FAILED_MESSAGE"
-      exit 0
-    fi
-  else
-    if [ -z "${ASSETS_PREFIX}" ]; then
-      print_info_message "Skipping database download as ASSETS_PREFIX is not set. See .docksal/docksal.env"
-    else
-      print_info_message "Skipping database download as ASSETS_DB is not set to yes. See .docksal/docksal.env"
-    fi
-  fi
-}
-
-# Download Files.
-download_files() {
-  print_error_message "This method is not implemented yet."
-}
-
-# Import Database.
-import_database() {
-  # Download database.
-  download_database
-
-  # Import downloaded database.
-  import_db_dump
-}
-
-# Import Files.
-import_files() {
-  download_files
-
-  if [ -f "$ASSETS_DIR/files.tar.gz" ]; then
-    print_info_message "Importing files.."
-  fi
-}
 
 # Command entry point.
 __init__() {
@@ -80,14 +12,13 @@ __init__() {
 
   case "$1" in
   db)
-    import_database
+    fin drush sql-sync @dev @self -y
 
     # Ensure configs are right locally.
     fin drush cr
     fin blt drupal:config:import
     ;;
   files)
-    import_files
     ;;
   *)
     fin help import

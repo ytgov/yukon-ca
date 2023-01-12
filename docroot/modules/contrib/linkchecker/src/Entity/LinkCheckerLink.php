@@ -65,7 +65,10 @@ class LinkCheckerLink extends ContentEntityBase implements LinkCheckerLinkInterf
    * {@inheritdoc}
    */
   public function preSave(EntityStorageInterface $storage_controller) {
-    $this->setHash(LinkCheckerLink::generateHash($this->getUrl()));
+    $url = $this->getUrl();
+    if (!is_null($url)) {
+      $this->setHash(LinkCheckerLink::generateHash($url));
+    }
   }
 
   /**

@@ -1,0 +1,8 @@
+uuid: 31be28bf-7451-4e45-ac1d-0162cae3bb99
+langcode: und
+status: true
+dependencies: {  }
+id: menu-wet-mid-footer
+label: 'Mid Footer'
+description: 'Mid Footer Menu.'
+locked: false

@@ -1,0 +1,8 @@
+uuid: cb2ece73-e8a2-4b98-9163-b8d577da1dbf
+langcode: und
+status: true
+dependencies: {  }
+id: megamenu
+label: 'Mega Menu (Insert)'
+description: 'Mega Menu (Insert).'
+locked: false

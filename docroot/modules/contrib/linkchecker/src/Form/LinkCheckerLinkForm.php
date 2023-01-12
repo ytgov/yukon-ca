@@ -51,17 +51,19 @@ class LinkCheckerLinkForm extends ContentEntityForm {
     /** @var \Drupal\linkchecker\Entity\LinkCheckerLink $link */
     $link = $this->entity;
 
+    // Ensure the url passed to t() is not NULL.
+    $url = $link->getUrl() ?? '';
     if ($link->getLastCheckTime() !== NULL) {
       $description = $this->t('The link <a href=":url">:url</a> was last checked on @last_checked and failed @fail_count times.',
         [
-          ':url' => $link->getUrl(),
+          ':url' => $url,
           '@fail_count' => $link->getFailCount(),
           '@last_checked' => $link->getLastCheckTime() !== NULL ? $this->dateFormatter->format($link->getLastCheckTime()) : $this->t('Never'),
         ]);
     }
     else {
       $description = $this->t('The link <a href=":url">:url</a> was never checked before.', [
-        ':url' => $link->getUrl(),
+        ':url' => $url,
       ]);
     }
 

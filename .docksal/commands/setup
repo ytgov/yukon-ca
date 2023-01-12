@@ -12,9 +12,6 @@ __init__() {
   # Start application.
   start_application
 
-  # Set the assets username.
-  fin assets-user
-
   # Install the packages.
   fin composer install
 

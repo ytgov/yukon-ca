@@ -15,6 +15,10 @@ cafb1ccad55640315a4de761bcae898ca367157b	not-for-merge	'refs/merge-requests/2/he
 01c18b4868f8b52115f81bbed9a154298a0a312f	not-for-merge	'refs/merge-requests/5/merge' of https://git.drupalcode.org/project/ajax_comments
 d67044dce8db46d0901e4ae62dd33c1d912896bd	not-for-merge	'refs/merge-requests/6/head' of https://git.drupalcode.org/project/ajax_comments
 c7eff42c98ea3d5904a4ce4c81588d3ceba0ca1e	not-for-merge	'refs/merge-requests/6/merge' of https://git.drupalcode.org/project/ajax_comments
+59156f75b218d26b446a1e735620543bfee0f4c6	not-for-merge	'refs/merge-requests/7/head' of https://git.drupalcode.org/project/ajax_comments
+aa76e2af567e4f2faa7920a011368f49b0848f45	not-for-merge	'refs/merge-requests/7/merge' of https://git.drupalcode.org/project/ajax_comments
+3dfbc2be0650d15c148cb0967d1dc9f7b927d5aa	not-for-merge	'refs/merge-requests/8/head' of https://git.drupalcode.org/project/ajax_comments
+8a0bc6a91dbcaf0e18915cf6d83eb5115f262d37	not-for-merge	'refs/merge-requests/8/merge' of https://git.drupalcode.org/project/ajax_comments
 81da6621ef9cd043ba4f579363cc37041a1656c9	not-for-merge	tag '5.x-1.0' of https://git.drupalcode.org/project/ajax_comments
 16d869690712c37d21a770dc9718f7497f373a9c	not-for-merge	tag '5.x-1.1' of https://git.drupalcode.org/project/ajax_comments
 e83d184ba605541491f4ce31e0d8c11a02e05871	not-for-merge	tag '5.x-1.2' of https://git.drupalcode.org/project/ajax_comments

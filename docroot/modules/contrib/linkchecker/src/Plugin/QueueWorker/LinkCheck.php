@@ -69,7 +69,7 @@ class LinkCheck extends QueueWorkerBase implements ContainerFactoryPluginInterfa
         ->getStorage('linkcheckerlink')
         ->load($id);
 
-      if ($link) {
+      if ($link && !is_null($link->getUrl())) {
         $promises[] = $this->linkChecker->check($link);
       }
     }

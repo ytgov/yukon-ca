@@ -367,10 +367,15 @@ class LinkCheckerService {
    * Helper function to update same links that were found in other entities.
    */
   protected function updateSameLinks(LinkCheckerLinkInterface $link) {
+    $hash = $link->getHash();
+    // If there is no hash, return early.
+    if (is_null($hash)) {
+      return;
+    }
     $storage = $this->entityTypeManager->getStorage($link->getEntityTypeId());
     $query = $storage->getQuery();
     $query->accessCheck();
-    $query->condition('urlhash', $link->getHash());
+    $query->condition('urlhash', $hash);
     $query->condition('lid', $link->id(), '!=');
     $ids = $query->execute();
 

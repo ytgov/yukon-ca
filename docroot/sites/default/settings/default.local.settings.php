@@ -26,6 +26,19 @@ $databases['default']['default'] = [
   'prefix' => '',
 ];
 
+/**
+ * Database configuration.
+ */
+$databases['migrate']['default'] = [
+  'database' => "migrate",
+  'username' => !isset($_ENV['MYSQL_USER']) ? 'user' : $_ENV['MYSQL_USER'],
+  'password' => !isset($_ENV['MYSQL_PASSWORD']) ? 'user' : $_ENV['MYSQL_PASSWORD'],
+  'host' => !isset($_ENV['MYSQL_HOST']) ? '${drupal.db.host}' : $_ENV['MYSQL_HOST'],
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'prefix' => '',
+];
+
 $dir = dirname(DRUPAL_ROOT);
 
 // Use development service parameters.
