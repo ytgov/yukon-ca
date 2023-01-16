@@ -1,0 +1,28 @@
+cta_card:
+  label: 'CTA card'
+  description: Text Section.
+  variants:
+    default:
+      label: Default
+      description: Text with a title and optinoal links.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Lorem Ipsum'
+    content:
+      type: text
+      label: Content
+      description: Content.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    additionalClass:
+      type: text
+      label: Additional class name
+      description: has-title-only.
+      preview: 'Lorem Ipsum'
+  libraries:
+    - cta_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

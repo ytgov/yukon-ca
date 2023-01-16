@@ -2,19 +2,29 @@ footer:
   label: Footer
   description: Page footer.
   fields:
-    content:
+    branding:
       type: mixed
-      label: Content
-      preview: 'One or more blocks; maximum 3 blocks.'
+      label: Branding
+      description: Site branding.
+      preview: Site branding block
     menu:
       type: mixed
       label: Footer menu
       description: A Drupal menu containing footer links.
       preview: 'Menu block'
+    secondary_menu:
+      type: mixed
+      label: Secondary footer menu
+      description: A Drupal secondary menu containing footer links.
+      preview: 'Secondary menu block'
     legal:
       type: mixed
       label: Legal notice
       preview: '&copy; Evolving Web. All rights reserved.'
+    legal_link_title:
+      type: mixed
+      label: Legal link title
+      preview: 'Government of Yukon'
   libraries:
     -
       footer:

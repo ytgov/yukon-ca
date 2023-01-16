@@ -1,0 +1,35 @@
+graph_tables:
+  label: Quicklinks cards
+  description: Quicklinks cards.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Nulla eu magna sit amet mi'
+    items:
+      type: mixed
+      label: Items
+      description: Items
+      preview:
+        -
+          main_link:
+            '#type': 'inline_template'
+            '#template': '{{ drupal_link(title, url, options) }}'
+            '#context':
+              title: 'Mauris justo tellus'
+              url: <front>
+              options: [ ]
+          extra_text: 'Nulla eu'
+          items:
+              - 'Nulla eu magna sit amet mi'
+              - 'Etiam tempor enim urna'
+              - 'Pellentesque nec neque'
+          title: 'Fusce a libero et augue fermentum euismod'
+          graph: 'Graph'
+  libraries:
+    -
+      graph_tables:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

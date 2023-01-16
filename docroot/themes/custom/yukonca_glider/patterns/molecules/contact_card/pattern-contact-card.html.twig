@@ -1,0 +1,61 @@
+{# Prepare attributes #}
+{% set classes = [
+  'section',
+  'container',
+  'postcard'
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <h1 class="title">{{ title }}</h1>
+  <div class="map">
+    {{ map }}
+  </div>
+  <div class="data">
+    <div class="address">
+      {{ address }}
+    </div>
+    <div class="phone">
+      {{ phone }}
+    </div>
+    <div class="phone">
+      {{ phone }}
+    </div>
+    <div class="items">
+      {% for item in items %}
+        <div class="item">
+          {{ item }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="open-hours">
+      {% for open_hour in open_hours %}
+        <div class="open-hours-title">
+          {{ open_hour.title }}
+        </div>
+        <div class="open-hours-value">
+          {{ open_hour.value }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="services">
+      {% for service in services %}
+        <div class="service">
+          {{ service }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="holiday-hours">
+      {% for holiday_hour in holiday_hours %}
+        <div class="holiday-hours-title">
+          {{ holiday_hour.title }}
+        </div>
+        <div class="holiday-hours-value">
+          {{ holiday_hour.value }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="link">
+      {{ link }}
+    </div>
+  </div>
+</div>

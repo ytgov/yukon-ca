@@ -1,0 +1,31 @@
+{# Prepare attributes #}
+{% set attributes = attributes.setAttribute('id', 'hamburger-menu') %}
+{% set classes = ['hamburger-menu'] %}
+
+{# Render output #}
+<div{{ attributes.addClass(classes) }}>
+  <div class="title">
+    {{ title }}
+  </div>
+  <div class="main-items-list">
+    <ul class="main-items">
+      {% for item in main_items %}
+        <li class="main-item">
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="secondary-title">
+    {{ secondary_title }}
+  </div>
+  <div class="secondary-items-list">
+    <ul class="secondary-items">
+      {% for secondary_item in secondary_items %}
+        <li class="secondary-item">
+          <a href="{{ secondary_item.url }}">{{ secondary_item.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+anchor_links:
+  label: Anchor links
+  description: Anchor links section.
+  variants:
+    default:
+      label: Default
+      description: With left image.
+    image:
+      label: With top image
+      description: With top image.
+  fields:
+    links:
+      type: mixed
+      label: Items
+      description: Accordion Items
+      preview:
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Alpha'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Beta'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Gamma'
+            url: <front>
+            options: [ ]
+        - '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Delta'
+            url: <front>
+            options: [ ]
+  libraries:
+    -
+      anchor_links:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

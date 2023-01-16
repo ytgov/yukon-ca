@@ -1,0 +1,25 @@
+{# Prepare attributes #}
+{% set prefix = 'image-card' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="row">
+    {% if image %}
+      <div class="image" style="background-image: url('{{ image }}')"></div>
+    {% endif %}
+
+    {% if title %}
+      <h1 class="title" id="heading">{{ title }}</h1>
+    {% endif %}
+
+    {% if content %}
+      <div class="summary">{{ content }}</div>
+    {% endif %}
+  </div>
+</div>

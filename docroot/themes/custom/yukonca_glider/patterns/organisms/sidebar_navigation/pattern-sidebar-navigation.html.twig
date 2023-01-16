@@ -1,0 +1,13 @@
+{# Prepare attributes #}
+{% set classes = [
+  'sidebar-navigation-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">
+    {{ title }}
+  </div>
+  <div class="menu">
+    {{ menu }}
+  </div>
+</div>

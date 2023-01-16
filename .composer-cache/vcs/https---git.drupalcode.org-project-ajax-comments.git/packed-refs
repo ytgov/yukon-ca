@@ -16,6 +16,10 @@ cafb1ccad55640315a4de761bcae898ca367157b refs/merge-requests/2/head
 01c18b4868f8b52115f81bbed9a154298a0a312f refs/merge-requests/5/merge
 d67044dce8db46d0901e4ae62dd33c1d912896bd refs/merge-requests/6/head
 c7eff42c98ea3d5904a4ce4c81588d3ceba0ca1e refs/merge-requests/6/merge
+59156f75b218d26b446a1e735620543bfee0f4c6 refs/merge-requests/7/head
+aa76e2af567e4f2faa7920a011368f49b0848f45 refs/merge-requests/7/merge
+3dfbc2be0650d15c148cb0967d1dc9f7b927d5aa refs/merge-requests/8/head
+8a0bc6a91dbcaf0e18915cf6d83eb5115f262d37 refs/merge-requests/8/merge
 81da6621ef9cd043ba4f579363cc37041a1656c9 refs/tags/5.x-1.0
 16d869690712c37d21a770dc9718f7497f373a9c refs/tags/5.x-1.1
 e83d184ba605541491f4ce31e0d8c11a02e05871 refs/tags/5.x-1.2

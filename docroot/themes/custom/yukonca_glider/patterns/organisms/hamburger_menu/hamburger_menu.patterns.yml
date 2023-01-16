@@ -1,0 +1,30 @@
+hamburger_menu:
+  label: Hamburger menu
+  description: Hamburger menu pattern.
+  fields:
+    title:
+      type: string
+      label: Main title
+      description: Main title of menu.
+      preview: Government services and information
+    main_items:
+      type: mixed
+      label: Main menu items
+      description: List of main menu items.
+      preview: English
+    secondary_title:
+      type: string
+      label: Secondary title
+      description: Secondary title of menu.
+      preview: More on Yukon.ca
+    secondary_items:
+      type: mixed
+      label: Secondary menu items
+      description: List of secondary menu items.
+      preview: English
+  libraries:
+    -
+      hamburger_menu:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

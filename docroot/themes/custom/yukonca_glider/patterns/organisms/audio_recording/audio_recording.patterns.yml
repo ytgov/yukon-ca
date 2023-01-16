@@ -1,0 +1,30 @@
+video:
+  label: 'Video'
+  description: Video.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: Card title.
+      preview: 'Norman Vorano'
+    hide_title:
+      type: string
+      label: Hide Title
+      description: Hide the title.
+      preview: ''
+    video:
+      type: string
+      label: Video
+      description: Markup for an embedded video.
+      preview: '<iframe width="560" height="315" src="https://www.youtube.com/embed/rF1X12PE6PY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    caption:
+      type: string
+      label: Video caption
+      description: A video caption.
+      preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
+  libraries:
+    -
+      video:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

@@ -1,0 +1,48 @@
+quicklink_card:
+  label: Quicklink Card
+  description: Quicklink Card.
+  variants:
+    default:
+      label: Default
+      description: Without image.
+    top:
+      label: With top image
+      description: With top image.
+    left:
+      label: With top image
+      description: With left image.
+  fields:
+    link_title:
+      type: string
+      label: Title
+      description: The title of the Link.
+      preview: 'Latest Information'
+    link_url:
+      type: string
+      label: URL
+      description: The URL of the Link.
+      preview: 'http://example.com/item/alpha'
+    icon:
+      type: string
+      label: Icon
+      description: Card Icon.
+      preview: 'Aurora-mini.svg'
+    links:
+      type: mixed
+      label: Items
+      description: List of items
+      preview:
+        - url: 'http://example.com/item/alpha'
+          title: 'Alpha'
+        - url: 'http://example.com/item/beta'
+          title: 'Beta'
+        - url: 'http://example.com/item/gamma'
+          title: 'Gamma'
+        - url: 'http://example.com/item/delta'
+          title: 'Delta'
+  libraries:
+    -
+      quicklink_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

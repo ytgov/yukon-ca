@@ -1,0 +1,13 @@
+{# Prepare attributes #}
+{% set classes = [
+  'filters',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">
+    <h1 class="title">{{ title }}</h1>
+  </div>
+  <div class="form">
+    {{ form }}
+  </div>
+</div>
