@@ -1,0 +1,20 @@
+form:
+  label: Form
+  description: A form.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Phonetic alphabets'
+    form:
+      type: mixed
+      label: Form
+      description: A form.
+      preview: 'Form'
+  libraries:
+    -
+      form:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

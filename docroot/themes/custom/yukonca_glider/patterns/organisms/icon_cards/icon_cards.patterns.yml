@@ -1,0 +1,29 @@
+icon_cards:
+  label: Icon cards
+  description: An icon cards.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Morbi turpis libero, elementum et ultrices ut'
+    items:
+      type: mixed
+      label: Items
+      description: List of items
+      preview:
+        -
+          icon: 'Aurora-mini.svg'
+          text: 'Alpha'
+        -
+          icon: 'Aurora-mini.svg'
+          text: 'Beta'
+        -
+          icon: 'Aurora-mini.svg'
+          text: 'Gamma'
+  libraries:
+    -
+      icon_cards:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

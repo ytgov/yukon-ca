@@ -1,0 +1,34 @@
+{# Prepare attributes #}
+{% set classes = [
+  'download-listing-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <h1 class="title">
+    {{ title }}
+  </h1>
+  {% if name|render %}
+    <div class="name">{{ name }}</div>
+  {% endif %}
+  {% if category|render %}
+    <div class="category">{{ category }}</div>
+  {% endif %}
+  {% if last_updated|render %}
+    <div class="last-updated">{{ last_updated }}</div>
+  {% endif %}
+  {% if size|render %}
+    <div class="size">{{ size }}</div>
+  {% endif %}
+  {% if file_type|render %}
+    <div class="file-type">{{ file_type }}</div>
+  {% endif %}
+  {% if number_of_pages|render %}
+    <div class="number-of-pages">{{ number_of_pages }}</div>
+  {% endif %}
+  {% if document_desc|render %}
+    <div class="document-desc">{{ document_desc }}</div>
+  {% endif %}
+  {% if download_url|render %}
+    <a class="download" href="{{ download_url }}">{{ 'Download'|t }}</a>
+  {% endif %}
+</div>

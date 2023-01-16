@@ -1,0 +1,20 @@
+filters:
+  label: Filters
+  description: Filters block.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: Main title.
+      preview: Filter by
+    form:
+      type: mixed
+      label: Form
+      description: A filter form.
+      preview: 'Filter form'
+  libraries:
+    -
+      filters:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

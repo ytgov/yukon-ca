@@ -21,16 +21,7 @@
     {# Items #}
     <div class="content">
       {% for item in items %}
-        {# For associative arrays #}
-        {% if item.title is not empty %}
-          {{ pattern('card', item) }}
-          {# For views rows #}
-        {% elseif item.content %}
-          {{ item.content }}
-          {# For everything else, simply render #}
-        {% else %}
-          {{ item }}
-        {% endif %}
+        {{ item.content }}
       {% endfor %}
     </div>
   </div>

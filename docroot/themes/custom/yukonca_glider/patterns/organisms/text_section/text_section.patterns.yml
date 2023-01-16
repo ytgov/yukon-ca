@@ -1,0 +1,30 @@
+text_section:
+  label: Text Section
+  description: A Text Section.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Phonetic alphabets'
+    author:
+      type: string
+      label: Author
+      description: An author.
+      preview: 'Phonetic alphabets'
+    posted:
+      type: string
+      label: Posted date
+      description: A posted date.
+      preview: 'October 14, 2022'
+    content:
+      type: text
+      label: Content
+      description: A content.
+      preview: 'Praesent sit amet sem sagittis, facilisis nisl id, malesuada mauris. Sed ac velit velit. Donec et justo maximus, pretium felis ac, porttitor orci. In ut fermentum lacus. Cras vel felis pulvinar, euismod nisl vel, feugiat sapien. In hendrerit nulla quam. Sed mollis, est quis scelerisque ornare, diam urna malesuada nibh, sed dapibus lectus mi in arcu. Aenean placerat odio eget malesuada sodales. Donec eget iaculis nisi. Curabitur lectus tortor, mattis eget varius ut, gravida sed urna.'
+  libraries:
+    -
+      text_section:
+        css:
+          component:
+            css/styles.min.css: { minified: true }
