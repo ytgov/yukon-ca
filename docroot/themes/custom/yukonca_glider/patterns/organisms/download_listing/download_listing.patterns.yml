@@ -1,0 +1,55 @@
+download_listing:
+  label: Download Listing
+  description: A download listing.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Vivamus sagittis rhoncus posuere.'
+    name:
+      type: string
+      label: Name
+      description: A name.
+      preview: 'Sed ac velit'
+    category:
+      type: string
+      label: Category
+      description: A category.
+      preview: 'Praesent'
+    last_updated:
+      type: string
+      label: Last updated
+      description: A last updated.
+      preview: 'January 1, 2016'
+    size:
+      type: string
+      label: Size
+      description: A size.
+      preview: '5.21 MB'
+    file_type:
+      type: string
+      label: File type
+      description: A file type.
+      preview: 'PDF'
+    number_of_pages:
+      type: string
+      label: Number of pages
+      description: A number of pages.
+      preview: '46'
+    document_desc:
+      type: string
+      label: Document description
+      description: A document description.
+      preview: 'Curabitur ac sem non quam posuere lacinia fringilla id lectus.'
+    download_url:
+      type: string
+      label: Download URL
+      description: A download URL.
+      preview: 'https://example.com/file.pdf'
+  libraries:
+    -
+      download_listing:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

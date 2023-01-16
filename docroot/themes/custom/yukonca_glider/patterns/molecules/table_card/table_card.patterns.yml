@@ -1,0 +1,20 @@
+table_card:
+  label: Table card
+  description: A table card.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Nulla eu magna sit amet mi'
+    table:
+      type: mixed
+      label: Table
+      description: A table.
+      preview: 'Table'
+  libraries:
+    -
+      table_card:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

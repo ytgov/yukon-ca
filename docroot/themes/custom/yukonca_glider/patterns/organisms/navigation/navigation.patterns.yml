@@ -1,0 +1,20 @@
+navigation:
+  label: Navigation
+  description: Page navigation.
+  fields:
+    branding:
+      type: mixed
+      label: Branding
+      description: Site branding.
+      preview: Site branding block
+    language_switcher:
+      type: mixed
+      label: Language switcher
+      description: Available language switcher.
+      preview: English
+  libraries:
+    -
+      navigation:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

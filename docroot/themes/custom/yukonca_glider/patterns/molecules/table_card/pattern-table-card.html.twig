@@ -1,0 +1,9 @@
+{# Prepare attributes #}
+{% set classes = [
+  'table-card',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">{{ title }}</div>
+  <div class="table">{{ table }}</div>
+</div>

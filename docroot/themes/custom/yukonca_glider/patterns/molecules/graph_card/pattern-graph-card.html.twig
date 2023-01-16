@@ -1,0 +1,23 @@
+{# Prepare attributes #}
+{% set classes = [
+  'graph-card',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="left-wrapper">
+    <div class="main-link">{{ main_link }}</div>
+    <div class="extra-text">{{ extra_text }}</div>
+    <ul class="items">
+      {% for item in items %}
+        <li class="item">
+          {{ item }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="left-wrapper">
+    <div class="title">{{ title }}</div>
+    <div class="graph">{{ graph }}</div>
+  </div>
+
+</div>

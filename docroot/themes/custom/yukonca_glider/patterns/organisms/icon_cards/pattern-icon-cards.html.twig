@@ -1,0 +1,21 @@
+{# Prepare attributes #}
+{% set prefix = 'icon-cards' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  {% for item in items %}
+    <div class="icon-card">
+      <span class="icon">
+        {% include active_theme_path() ~ '/images/svg/' ~ item.icon %}
+      </span>
+      <span class="text">
+        {{ item.text }}
+      </span>
+    </div>
+  {% endfor %}
+</div>

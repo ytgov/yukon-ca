@@ -1,0 +1,33 @@
+pagination:
+  label: Pagination
+  description: A pagination.
+  fields:
+    heading_id:
+      type: string
+      label: Heading Id
+      description: Pagination heading ID.
+      preview: '28463'
+    current:
+      type: string
+      label: Heading Id
+      description: The page number of the current page.
+      preview: '2'
+    ellipses:
+      type: mixed
+      label: Ellipses
+      description: If there are more pages than the quantity allows, then an ellipsis before or after the listed pages may be present.
+    items:
+      type: mixed
+      label: Items
+      description: List of pager items.
+      preview:
+        -
+          first:
+            href: 'http://example.com/item/alpha'
+            text: 'Alpha'
+  libraries:
+    -
+      pagination:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }
