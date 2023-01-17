@@ -7,36 +7,11 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\node\Entity\Node;
 use Drupal\addtoany\Form\AddToAnySettingsForm;
-
-/**
- *  Implements hook_help().
- */
-function addtoany_help($route_name, RouteMatchInterface $route_match){
-    switch ($route_name) {
-      case 'help.page.addtoany':
-        $output = '';
-        $output .= '<h3>' . t('About') . '</h3>';
-        $output .= '<p>' . t('<a href="https://www.drupal.org/project/addtoany">Share Buttons by AddToAny</a> provides a nice suite of share buttons for Drupal.  These include the AddToAny universal share button, Facebook, Twitter, Google+, Pinterest, WhatsApp and many more.') . '</p>';
-
-        $output .= '<p>' . t('AddToAny is a social bookmarking platform that can be integrated into many parts of the website with the use of a web widget. Once installed, visitors to the website can share or save an item using a variety of services, such as Facebook, Twitter, Pinterest, email, and over 100 other services.');
-        $output .= '<p>' . t('AddToAny icons are Scalable Vector Graphics, meaning they load fast, are mathematically precise, scalable to any size, and are stunning on High-PPI screens such as Retina and Retina HD displays.');
-        $output .= '<p>' . t('AddToAny\'s lightweight code follows best practices, and is optimized to load efficiently from locations all around the world. Accessibility, cross-browser fallbacks, graceful degradation are a few AddToAny staples.');
-        $output .= '<p>' . t('More documentation about AddToAny in Drupal 8 can be found in Drupal\'s <a href="https://www.drupal.org/node/2719155">Community Documentation </a>.') . '</p>';
-        $output .= '<h3>' . t('Uses') . '</h3>';
-        $output .= '<p>' . t('AddToAny automatically integrates with Google Analytics\' Social Plugin Analytics to provide sharing statistics within your analytics dashboard. ')  . '</p>';
-        $output .= '<p>' . t('AddToAny just works. No registration, and no user accounts to manage.') . '</p>';
-        $output .= '<p>' . t('Official counts alongside your share buttons. AddToAny counters in the same style show numbers directly from major services.') . '</p>';
-        $output .= '<p>' . t('Encourage visitors to share your content with a special share buttons bar that stays in place as you scroll.') . '</p>';
-        return $output;
-    }
- }
-
 
 /**
  * Implements hook_theme().
