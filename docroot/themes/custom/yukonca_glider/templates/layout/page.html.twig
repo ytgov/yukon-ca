@@ -57,24 +57,26 @@
 
   {{ page.help }}
 
-  <main role="main">
+  <main role="main" class="container-lg">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
+    <div class="row">
+      {% if page.sidebar_first %}
+        <aside class="layout-sidebar-first col-sm-3 col-md-4 px-3.5 lg:pr-20" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
+      <div class="layout-content col-sm-9 col-md-8 px-3.5">
+        {{ page.content }}
+      </div>{# /.layout-content #}
 
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
+      {% if page.sidebar_second %}
+        <aside class="layout-sidebar-second" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
+    </div>
 
   </main>
 
