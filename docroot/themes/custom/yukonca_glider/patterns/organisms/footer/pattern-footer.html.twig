@@ -1,19 +1,17 @@
-<footer id="footer" class="container footer">
-  <div class="footer-left row">
-    <div class="footer-logos">
+<footer id="footer" class="footer bg-eden max-w-none text-white">
+  <div class="footer-left relative overflow-hidden py-0 px-1">
+    <div class="container-lg footer-logos pt-9 pb-9">
       <a href="/">
-        <img src="/{{ active_theme_path() ~ '/images/logo-pspia-white.svg' }}" alt="Yukon logo"/>
+        {{ logo }}
       </a>
     </div>
-    <div class="footer__menu">{{ menu }}</div>
-    <div class="footer__secondary_menu">{{ secondary_menu }}</div>
   </div>
-  <div class="footer-right row">
-    <div class="container">
-      <div class="footer__legal">{{ legal }}</div>
-      <a href="/" target="_blank">
-        {{ legal_link_title }}
-      </a>
+  <div class="footer-right bg-tiber">
+    <div class="container-lg md:flex md:items-start md:justify-between">
+      <div class="footer__menus text-base md:flex md:w-auto pt-4">{{ menus }}</div>
+      <div class="footer__legal font-light md:w-auto text-sm flex leading-12 ml-1">
+        &copy;&nbsp;{{ 'now'|date('Y') }}&nbsp;{{ legal_link }}
+      </div>
     </div>
   </div>
 </footer>

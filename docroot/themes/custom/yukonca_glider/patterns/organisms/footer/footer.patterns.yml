@@ -2,32 +2,23 @@ footer:
   label: Footer
   description: Page footer.
   fields:
-    branding:
+    logo:
       type: mixed
-      label: Branding
-      description: Site branding.
-      preview: Site branding block
-    menu:
+      label: Logo
+      description: Site logo.
+      preview: Site logo block
+    menus:
       type: mixed
-      label: Footer menu
-      description: A Drupal menu containing footer links.
-      preview: 'Menu block'
-    secondary_menu:
+      label: Footer menus
+      description: A Drupal menus containing footer links.
+      preview: 'Menus block'
+    legal_link:
       type: mixed
-      label: Secondary footer menu
-      description: A Drupal secondary menu containing footer links.
-      preview: 'Secondary menu block'
-    legal:
-      type: mixed
-      label: Legal notice
-      preview: '&copy; Evolving Web. All rights reserved.'
-    legal_link_title:
-      type: mixed
-      label: Legal link title
+      label: Legal link
       preview: 'Government of Yukon'
   libraries:
     -
       footer:
         css:
           component:
-            css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: true }

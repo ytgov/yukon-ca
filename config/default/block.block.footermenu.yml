@@ -1,0 +1,31 @@
+uuid: fa169058-2fb4-42ae-9889-ea9b45da271a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-wet-footer
+  module:
+    - menu_block
+  theme:
+    - yukonca_glider
+id: footermenu
+theme: yukonca_glider
+region: footer_menu
+weight: -5
+provider: null
+plugin: 'menu_block:menu-wet-footer'
+settings:
+  id: 'menu_block:menu-wet-footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'menu-wet-footer:'
+  suggestion: menu_wet_footer
+visibility: {  }

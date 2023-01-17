@@ -1,0 +1,7 @@
+name: Yukon Base
+type: module
+description: Store base stuff.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - single_content_sync:single_content_sync
