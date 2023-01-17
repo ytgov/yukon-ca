@@ -1,0 +1,16 @@
+uuid: 99bc378e-6430-4c63-977b-65e73db625a5
+entity_type: block_content
+bundle: image
+base_fields:
+  info: 'Footer Logo'
+  reusable: true
+  langcode: en
+  block_revision_id: '1'
+  enforce_new_revision: true
+custom_fields:
+  field_image:
+    -
+      uri: 'public://2023-01/logo-white.svg'
+      url: 'http://yukonca-d10.docksal/sites/default/files/2023-01/logo-white.svg'
+      alt: 'Yukon logo'
+      title: ''

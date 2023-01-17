@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install/update module.
+ */
+
+/**
+ * Import custom blocks.
+ */
+function yukon_base_update_9001() {
+  \Drupal::service('module_installer')->install(['single_content_sync']);
+
+  $folder_path = \Drupal::service('extension.list.module')->getPath('yukon_base');
+
+  \Drupal::service('single_content_sync.importer')->importFromFile($folder_path . '/assets/block_content-basic-f57e0545-bb31-41d3-8527-706b62cdcef2.yml');
+  \Drupal::service('single_content_sync.importer')->importFromFile($folder_path . '/assets/block_content-image-99bc378e-6430-4c63-977b-65e73db625a5.yml');
+}

@@ -14,6 +14,8 @@ module.exports = {
       gray: '#747474',
       purple: '#643F5D',
       yellow: '#FFCD57',
+      eden: '#0D3E4F',
+      tiber: '#0B3442',
       blue: {
         0: '#0B3442',
         100: '#0D3E4F',
@@ -36,15 +38,23 @@ module.exports = {
         'h5-mobile':    ['0.938rem', '1.375rem'],
         h5:             ['1.188rem', '1.5rem'],
         'base-mobile':  ['0.938rem', '1.375rem'],
-        base:           ['1.063rem', '1.625rem'],
         'default-base': ['1rem', '1.25rem'],
         'grande':       ['1.25rem', '1.625rem'],
         'legendes':     ['0.813rem', '1.25rem'],
       },
       fontFamily: {
-        base:  ['Montserrat', 'sans-serif'],
+        base:  ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+      width: {
+        '8.5/12': '70%',
       },
       minWidth: {
+      },
+      lineHeight: {
+        '12': '3rem',
+      },
+      backgroundSize: {
+        'full': '100%',
       },
       spacing: {
       },

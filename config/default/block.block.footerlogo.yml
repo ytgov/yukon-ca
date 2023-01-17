@@ -1,0 +1,25 @@
+uuid: 8d8f3f55-349c-4da9-9a4c-f45f788968aa
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image:99bc378e-6430-4c63-977b-65e73db625a5'
+  module:
+    - block_content
+  theme:
+    - yukonca_glider
+id: footerlogo
+theme: yukonca_glider
+region: footer_logo
+weight: -5
+provider: null
+plugin: 'block_content:99bc378e-6430-4c63-977b-65e73db625a5'
+settings:
+  id: 'block_content:99bc378e-6430-4c63-977b-65e73db625a5'
+  label: 'Footer Logo'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
