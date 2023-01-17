@@ -1,0 +1,27 @@
+uuid: 972ab644-d69b-4ad3-8f01-a729205c6f1f
+entity_type: block_content
+bundle: icon
+base_fields:
+  info: 'White Logo'
+  reusable: true
+  langcode: en
+  block_revision_id: '3'
+  enforce_new_revision: true
+custom_fields:
+  field_icon:
+    -
+      uuid: aa16e213-d816-4480-a502-45b340f8a7b3
+      entity_type: media
+      bundle: icon
+      base_fields:
+        name: 'White Logo'
+        created: '1673962855'
+        status: true
+        langcode: en
+      custom_fields:
+        field_media_image:
+          -
+            uri: 'public://2023-01/logo-white_0.svg'
+            url: 'http://yukonca-d10.docksal/sites/default/files/2023-01/logo-white_0.svg'
+            alt: 'Yukon Logo'
+            title: ''

@@ -1,8 +1,8 @@
-uuid: 39ab5f80-4d66-4840-b701-6a82218604d8
+uuid: 0724b617-b3e7-4115-897a-063512b83d5e
 langcode: en
 status: true
 dependencies: {  }
-id: image
-label: Image
+id: icon
+label: Icon
 revision: 0
 description: ''

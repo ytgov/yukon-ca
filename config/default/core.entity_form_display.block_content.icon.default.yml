@@ -1,25 +1,23 @@
-uuid: feaa8a08-9006-4272-9bd0-0fcc1b4c314a
+uuid: 606f3460-1931-421b-973f-e57eb5b1f9ad
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image
-    - field.field.block_content.image.field_image
-    - image.style.thumbnail
+    - block_content.type.icon
+    - field.field.block_content.icon.field_icon
   module:
-    - image
-id: block_content.image.default
+    - media_library
+id: block_content.icon.default
 targetEntityType: block_content
-bundle: image
+bundle: icon
 mode: default
 content:
-  field_image:
-    type: image_image
-    weight: 27
+  field_icon:
+    type: media_library_widget
+    weight: 26
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      media_types: {  }
     third_party_settings: {  }
   info:
     type: string_textfield

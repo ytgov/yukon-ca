@@ -1,32 +1,38 @@
-uuid: 51334dd4-403d-42cd-bfd7-1b421ceec42b
+uuid: 4e47749d-2b59-472d-9ec6-dbb5b6fe7ce7
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image
-    - field.storage.block_content.field_image
+    - field.storage.media.field_media_image
+    - media.type.icon
   module:
+    - content_translation
     - epp
     - image
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: block_content.image.field_image
-field_name: field_image
-entity_type: block_content
-bundle: image
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: media.icon.field_media_image
+field_name: field_media_image
+entity_type: media
+bundle: icon
 label: Image
 description: ''
-required: false
-translatable: false
+required: true
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'svg png gif jpg jpeg'
+  file_extensions: 'png gif jpg jpeg svg'
   max_filesize: ''
   max_resolution: ''
   min_resolution: ''
