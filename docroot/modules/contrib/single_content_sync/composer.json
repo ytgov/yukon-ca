@@ -1,0 +1,19 @@
+{
+    "name": "drupal/single_content_sync",
+    "description": "This is a simple way of exporting a single node to yml file with possibility to import it on another environment.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/single_content_sync",
+    "authors": [
+        {
+            "name": "Alex Kuzava (nginex)",
+            "homepage": "https://www.drupal.org/u/nginex",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://drupal.org/project/issues/single_content_sync",
+        "source": "https://cgit.drupalcode.org/single_content_sync"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev"
+}

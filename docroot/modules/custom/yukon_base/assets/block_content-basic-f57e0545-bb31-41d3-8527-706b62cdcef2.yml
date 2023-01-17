@@ -1,0 +1,15 @@
+uuid: f57e0545-bb31-41d3-8527-706b62cdcef2
+entity_type: block_content
+bundle: basic
+base_fields:
+  info: 'Footer Legal'
+  reusable: true
+  langcode: en
+  block_revision_id: '2'
+  enforce_new_revision: true
+custom_fields:
+  body:
+    -
+      value: '<a href="/">Government of Yukon</a>'
+      summary: ''
+      format: basic_html

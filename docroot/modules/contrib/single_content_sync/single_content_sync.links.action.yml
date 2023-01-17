@@ -1,0 +1,5 @@
+single_content_sync.import_content:
+  route_name: single_content_sync.import
+  title: 'Import content'
+  appears_on:
+    - system.admin_content

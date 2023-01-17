@@ -1,0 +1,25 @@
+uuid: e57afa20-f2f8-43ca-b443-87ece599623c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:icon:972ab644-d69b-4ad3-8f01-a729205c6f1f'
+  module:
+    - block_content
+  theme:
+    - yukonca_glider
+id: whitelogo
+theme: yukonca_glider
+region: footer_logo
+weight: 0
+provider: null
+plugin: 'block_content:972ab644-d69b-4ad3-8f01-a729205c6f1f'
+settings:
+  id: 'block_content:972ab644-d69b-4ad3-8f01-a729205c6f1f'
+  label: 'White Logo'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

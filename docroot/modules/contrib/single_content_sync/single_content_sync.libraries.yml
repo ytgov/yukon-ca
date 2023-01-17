@@ -1,0 +1,7 @@
+yaml_editor:
+  js:
+    js/yaml-editor.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

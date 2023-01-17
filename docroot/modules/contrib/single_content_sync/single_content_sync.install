@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Install/update module.
+ */
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Import action config.
+ */
+function single_content_sync_update_9121(&$sandbox) {
+  // Get file storage of optional configs in the module.
+  $config_path = \Drupal::service('extension.list.module')->getPath('single_content_sync') . '/config/install';
+  $source = new FileStorage($config_path);
+
+  /** @var \Drupal\Core\Config\StorageInterface $config_storage */
+  $config_storage = \Drupal::service('config.storage');
+
+  $config_names = [
+    'system.action.content_bulk_export',
+  ];
+
+  foreach ($config_names as $config_name) {
+    $config_storage->write($config_name, $source->read($config_name));
+  }
+}
+
+/**
+ * Init module settings config.
+ */
+function single_content_sync_update_9130(&$sandbox) {
+  // Get file storage of optional configs in the module.
+  $config_path = \Drupal::service('extension.list.module')->getPath('single_content_sync') . '/config/install';
+  $source = new FileStorage($config_path);
+
+  /** @var \Drupal\Core\Config\StorageInterface $config_storage */
+  $config_storage = \Drupal::service('config.storage');
+
+  $config_names = [
+    'single_content_sync.settings',
+  ];
+
+  foreach ($config_names as $config_name) {
+    $config_storage->write($config_name, $source->read($config_name));
+  }
+}

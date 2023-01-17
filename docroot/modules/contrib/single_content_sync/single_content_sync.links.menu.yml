@@ -1,0 +1,11 @@
+single_content_sync.import:
+  title: 'Import content'
+  description: 'Import content from other environment.'
+  parent: system.admin_content
+  route_name: single_content_sync.import
+
+single_content_sync.config_settings:
+  title: 'Single Content Sync'
+  description: 'Administer Single Content Sync settings.'
+  parent: system.admin_config_content
+  route_name: single_content_sync.config_settings

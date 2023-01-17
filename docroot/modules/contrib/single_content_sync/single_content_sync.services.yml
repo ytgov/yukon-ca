@@ -1,0 +1,43 @@
+services:
+  single_content_sync.exporter:
+    class: Drupal\single_content_sync\ContentExporter
+    arguments:
+      - '@entity_type.manager'
+      - '@module_handler'
+      - '@messenger'
+      - '@single_content_sync.store'
+      - '@language_manager'
+
+  single_content_sync.importer:
+    class: Drupal\single_content_sync\ContentImporter
+    arguments:
+      - '@entity_type.manager'
+      - '@entity.repository'
+      - '@module_handler'
+      - '@file_system'
+      - '@file.repository'
+      - '@single_content_sync.helper'
+
+  single_content_sync.file_generator:
+    class: Drupal\single_content_sync\ContentFileGenerator
+    arguments:
+      - '@file_system'
+      - '@single_content_sync.helper'
+      - '@single_content_sync.exporter'
+      - '@single_content_sync.store'
+
+  single_content_sync.helper:
+    class: Drupal\single_content_sync\ContentSyncHelper
+    arguments:
+      - '@uuid'
+      - '@file_system'
+      - '@file.repository'
+      - '@plugin.manager.archiver'
+      - '@entity_type.manager'
+      - '@config.factory'
+      - '@entity.repository'
+
+  single_content_sync.store:
+    class: \Drupal\Core\TempStore\PrivateTempStore
+    factory: ['@tempstore.private', 'get']
+    arguments: [single_content_sync]

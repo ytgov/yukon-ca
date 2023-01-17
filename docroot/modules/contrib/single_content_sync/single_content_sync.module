@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Single Content Sync module functionality.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function single_content_sync_help($route_name, RouteMatchInterface $route_match) {
+  $output = '';
+
+  if ($route_name === 'single_content_sync.config_settings') {
+    $output .= '<p>' . t('Limit the export of certain Entity types by unselecting them below.') . '</p>';
+    $output .= '<p>' . t('For example: if <em>Users</em> should not be allowed to be exported, unselect the appropriate checkbox and press <b>Save configuration</b>') . '</p>';
+    $output .= '<p>' . t('Referenced entities of your exported content are not limited by this form.') . '</p>';
+
+    return $output;
+  }
+
+  if ($route_name === 'single_content_sync.import') {
+    $output .= '<p>' . t('Content is checked by uuid, so existing content is updated, and new content is created.') . '</p>';
+
+    return $output;
+  }
+
+  $entity_types = \Drupal::entityTypeManager()->getDefinitions();
+
+  foreach (array_keys($entity_types) as $entity_type_id) {
+    if ($route_name === "entity.{$entity_type_id}.single_content:export") {
+      $output .= '<p>' . t('Simply copy it and go to the import page on /admin/content/import of another environment to paste it, or use the action buttons below.') . '</p>';
+      $output .= '<br><p>' . t('You can download the results as a zip file with all file assets such as images, documents, videos and etc.') . '</p>';
+      $output .= '<p>' . t('You can also download the results as a single YAML file, in this case, files will be imported by the absolute URL (suitable if your files are hosted externally') . '</p>';
+      $output .= '<br><p>' . t('By using the generated file you can import content on deploy. Refer to the README for information on how to do this.') . '</p>';
+
+      return $output;
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function single_content_sync_entity_type_build(array &$entity_types) {
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  foreach ($entity_types as $entity_type) {
+    // Support only content entities.
+    if (!$entity_type instanceof ContentEntityTypeInterface) {
+      continue;
+    }
+
+    // Depending on the configuration, media might have 2 canonical urls:
+    // /media/{media} or /media/{media}/edit.
+    if ($entity_type->id() === 'media') {
+      $entity_type->setLinkTemplate('single-content:export', '/media/{media}/export');
+    }
+    elseif ($entity_type->hasLinkTemplate('canonical')) {
+      $export_path = $entity_type->getLinkTemplate('canonical') . '/export';
+      $entity_type->setLinkTemplate('single-content:export', $export_path);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function single_content_sync_entity_operation(EntityInterface $entity) {
+  $operations = [];
+
+  if (\Drupal::service('single_content_sync.helper')->access($entity)) {
+    $operations['export'] = [
+      'title' => t('Export'),
+      'weight' => 50,
+      'url' => $entity->toUrl('single-content:export'),
+    ];
+  }
+
+  return $operations;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for links__dropbutton__operations.
+ */
+function single_content_sync_preprocess_links__dropbutton__operations(&$variables) {
+  foreach ($variables['links'] as &$link_data) {
+    if (!isset($link_data['link']['#url'])) {
+      continue;
+    }
+
+    if (empty($link_data['link']['#options']['query']['destination'])) {
+      continue;
+    }
+
+    /** @var \Drupal\Core\Url $url */
+    $url = $link_data['link']['#url'];
+    $entity_type_id = $url->getOption('entity_type');
+
+    if (!$entity_type_id) {
+      continue;
+    }
+
+    $route_name = "entity.{$entity_type_id}.single_content:export";
+
+    // Remove destination parameter from the query of the export link.
+    if ($link_data['link']['#url']->getRouteName() === $route_name) {
+      unset($link_data['link']['#options']['query']['destination']);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_access().
+ */
+function single_content_sync_entity_access($entity, $operation, $account) {
+  if ($operation === 'single-content:export') {
+    return AccessResult::allowedIfHasPermissions($account, [
+      'export single content',
+      "export {$entity->getEntityTypeId()} content",
+    ], 'OR');
+  }
+}

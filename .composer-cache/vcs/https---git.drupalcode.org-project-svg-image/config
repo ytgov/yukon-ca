@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = https://git.drupalcode.org/project/svg_image
+	fetch = +refs/*:refs/*
+	mirror = true

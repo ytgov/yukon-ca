@@ -1,0 +1,34 @@
+single_content_sync.file_download:
+  path: '/content/export/download/file'
+  defaults:
+    _controller: '\Drupal\single_content_sync\Controller\ContentExportController::download'
+    _title: 'Download file'
+  requirements:
+    _permission: 'export single content'
+
+single_content_sync.import:
+  path: '/admin/content/import'
+  defaults:
+    _form: '\Drupal\single_content_sync\Form\ContentImportForm'
+    _title: 'Import content'
+  requirements:
+    _permission: 'import single content'
+
+single_content_sync.bulk_export:
+  path: '/admin/content/bulk-export'
+  defaults:
+    _form: '\Drupal\single_content_sync\Form\ContentBulkExportForm'
+    _title: 'Bulk export content'
+  requirements:
+    _permission: 'export single content'
+
+single_content_sync.config_settings:
+  path: '/admin/config/content/single-content-sync'
+  defaults:
+    _form: '\Drupal\single_content_sync\Form\ContentSyncConfigForm'
+    _title: 'Single Content Sync Settings'
+  requirements:
+    _permission: 'administer single content sync'
+
+route_callbacks:
+  - '\Drupal\single_content_sync\Routing\ContentExportRoutes::routes'

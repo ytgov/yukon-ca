@@ -1,0 +1,8 @@
+single_content_sync.export:
+  deriver: \Drupal\single_content_sync\Plugin\Derivative\ContentExportLocalTasks
+
+single_content_sync.import:
+  route_name: single_content_sync.import
+  base_route: system.admin_content
+  title: 'Import'
+  weight: 10

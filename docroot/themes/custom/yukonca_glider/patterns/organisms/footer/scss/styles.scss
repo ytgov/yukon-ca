@@ -1,1 +1,42 @@
-/* Add your code here */
+.footer-left {
+  @apply after:content-[""] after:top-0 after:absolute after:bg-no-repeat after:w-11/12 after:h-52 after:bg-full after:right-[-40%];
+  @apply md:after:top-[-30px] md:after:w-8.5/12 md:after:right-[-20%];
+
+  &:after {
+    background-image: url("/themes/custom/yukonca_glider/images/svg/Aurora-main.svg");
+  }
+
+  .footer-logos .region-footer-logo {
+    @apply min-h-[75px];
+  }
+}
+
+.footer__legal {
+  a {
+    @apply text-white;
+
+    &:hover {
+      @apply text-white;
+    }
+  }
+}
+
+.footer-right .footer__menus .region-footer-menu {
+  @apply md:flex md:pb-4;
+
+  nav:first-child {
+    @apply md:pr-12;
+  }
+
+  ul {
+    @apply mb-0 leading-[23px];
+
+    &.menu li {
+      @apply pt-0;
+
+      a {
+        @apply text-white leading-[23px];
+      }
+    }
+  }
+}

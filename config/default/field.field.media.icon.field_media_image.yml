@@ -1,0 +1,49 @@
+uuid: 4e47749d-2b59-472d-9ec6-dbb5b6fe7ce7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_image
+    - media.type.icon
+  module:
+    - content_translation
+    - epp
+    - image
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: media.icon.field_media_image
+field_name: field_media_image
+entity_type: media
+bundle: icon
+label: Image
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg svg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

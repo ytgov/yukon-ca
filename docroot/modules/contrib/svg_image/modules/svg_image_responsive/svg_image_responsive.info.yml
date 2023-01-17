@@ -1,0 +1,10 @@
+name: SVG Image Responsive
+description: Overrides the responsive image formatter to support SVG files.
+core: 8.x
+core_version_requirement: ^9.3 || ^10
+type: module
+package: Media
+
+dependencies:
+  - svg_image:svg_image
+  - drupal:responsive_image

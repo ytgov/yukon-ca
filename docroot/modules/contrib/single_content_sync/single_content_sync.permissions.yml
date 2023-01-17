@@ -1,0 +1,11 @@
+export single content:
+  title: 'Allow user to export all content'
+
+import single content:
+  title: 'Allow user to import all content'
+
+permission_callbacks:
+  - \Drupal\single_content_sync\ContentSyncPermissions::permissions
+
+administer single content sync:
+  title: 'Administer Single Content Sync settings'
