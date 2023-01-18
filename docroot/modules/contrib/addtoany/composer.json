@@ -10,7 +10,5 @@
         "issues": "https://www.drupal.org/project/issues/addtoany",
         "source": "https://git.drupalcode.org/project/addtoany"
     },
-    "require": {
-        "drupal/core": "^8 || ^9"
-    }
+    "require": {}
 }
