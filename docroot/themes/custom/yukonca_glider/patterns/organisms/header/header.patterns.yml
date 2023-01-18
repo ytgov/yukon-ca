@@ -1,0 +1,32 @@
+header:
+  label: Header
+  description: Page header.
+  fields:
+    unique_id:
+      type: string
+      label: Unique id
+      preview: 'menu-section'
+    logo:
+      type: mixed
+      label: Logo
+      description: Site logo.
+      preview: Site logo block
+    menus:
+      type: mixed
+      label: Footer menus
+      description: A Drupal menus containing footer links.
+      preview: 'Menus block'
+    languageswitcher:
+      type: mixed
+      label: Language switcher block
+      preview: ''
+    offcanvas_heading:
+      type: text
+      label: Off Canvas Heading text
+      preview: 'Lorem ipsum dolor sit amet.'
+  libraries:
+    -
+      header:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

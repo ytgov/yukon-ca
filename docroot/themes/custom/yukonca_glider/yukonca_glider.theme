@@ -14,3 +14,13 @@ function yukonca_glider_preprocess_html(&$variables) {
     $variables['#attached']['library'][] = 'yukonca_glider/administrator';
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_links__language_block(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // Remove the active language from the list.
+  unset($variables['links'][$language]);
+}
