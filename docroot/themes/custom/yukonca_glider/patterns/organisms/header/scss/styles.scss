@@ -1,0 +1,49 @@
+.header--main {
+  .language-switcher-language-url {
+    @apply h-10 pr-8 border-0 border-r border-solid border-r-gray-light;
+    @apply flex items-center;
+
+    ul {
+      @apply list-none p-0 m-0;
+
+      a {
+        @apply no-underline text-black;
+      }
+    }
+  }
+
+  .offcanvas.offcanvas-end {
+    @apply w-3/5;
+
+
+    .block-menu.menu--main,
+    .block-menu.menu--main-menu-secondary {
+      .menu {
+        @apply md:columns-2 m-0;
+
+        .menu-item {
+          list-style: none;
+
+          a {
+            @apply text-blue-500;
+            @apply py-4 px-3;
+            @apply block;
+
+            &.is-active {
+              @apply font-semibold;
+            }
+          }
+        }
+      }
+    }
+
+
+    .block-menu.menu--main-menu-secondary {
+      .block-title {
+        @apply px-3 my-4;
+
+        @apply text-lg text-black font-medium;
+      }
+    }
+  }
+}

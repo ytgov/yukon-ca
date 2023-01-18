@@ -17,7 +17,6 @@ bootstrap:
 global_styles:
   css:
     theme:
-      https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Helvetica:wght@300;500;600&display=swap: { }
       dist/css/styles.min.css: { minified: true }
   js:
     dist/js/theme.min.js: { minified: true }

@@ -1,27 +1,5 @@
 @import "../variables";
 
-// Rubriques
-
-%h1 {
-  @apply font-base font-medium text-h1-mobile lg:text-h1;
-}
-
-%h2 {
-  @apply font-base font-medium text-h2-mobile lg:text-h2;
-}
-
-%h3 {
-  @apply font-base font-medium text-h3-mobile lg:text-h3;
-}
-
-%h4 {
-  @apply font-base font-medium text-h4-mobile lg:text-h4;
-}
-
-%h5 {
-  @apply font-base font-medium text-h5-mobile lg:text-h5;
-}
-
 /* Paragraphes */
 
 %base {
