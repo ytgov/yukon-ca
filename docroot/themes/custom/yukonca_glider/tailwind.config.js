@@ -1,3 +1,19 @@
+/**
+ * Convert px to rem
+ * @param pixels
+ * @param base
+ * @returns {`${number}rem`}
+ */
+const rem = (pixels, base = 16) => `${pixels / base}rem`;
+
+/**
+ * Get Font size and Line height as an array for Tailwind
+ * @param size Font size
+ * @param lineHeight Line height
+ * @returns {[string,string]}
+ */
+const fontSize = (size, lineHeight = 16) => [rem(size), rem(lineHeight)];
+
 module.exports = {
   content: [
     './src/**/*.js',
@@ -10,8 +26,16 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       white: '#FFFFFF',
-      black: '#000000',
-      gray: '#747474',
+      black: {
+        DEFAULT: '#000000',
+        light: '#333',
+      },
+      gray: {
+        DEFAULT: '#999',
+        light: '#F1F1F1',
+        dark: '#747474',
+        darker: '#595A59',
+      },
       purple: '#643F5D',
       yellow: '#FFCD57',
       eden: '#0D3E4F',
@@ -38,6 +62,7 @@ module.exports = {
         'h5-mobile':    ['0.938rem', '1.375rem'],
         h5:             ['1.188rem', '1.5rem'],
         'base-mobile':  ['0.938rem', '1.375rem'],
+        'heading': fontSize(22, 24),
         'default-base': ['1rem', '1.25rem'],
         'grande':       ['1.25rem', '1.625rem'],
         'legendes':     ['0.813rem', '1.25rem'],

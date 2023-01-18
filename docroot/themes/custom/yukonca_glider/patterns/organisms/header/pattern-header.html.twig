@@ -1,0 +1,49 @@
+{% set prefix = 'header' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--main',
+  variant ? prefix ~ '--' ~ variant,
+  'border-0',
+  'border-b-4',
+  'border-solid',
+  'border-b-yellow'
+] %}
+
+<header {{ attributes.addClass(classes).setAttribute('id', 'header') }}>
+  <div class="container navbar">
+    <div class="row items-center">
+      <div class="site-main-logo col-5 col-sm-4 col-md-3 col-lg-2 py-1">
+        {{ logo }}
+      </div>
+      <div class="site-nav-toggle col-7 col-sm-8 col-md-9 col-lg-10 flex justify-end">
+        {% if languageswitcher %}
+          {{ languageswitcher }}
+        {% endif %}
+        {% if menus %}
+          <button class="bg-transparent border-none gap-x-4 flex px-8 items-baseline" aria-controls="{{ unique_id }}" aria-haspopup="true" id="menu-button"
+                  data-bs-toggle="offcanvas" data-bs-target="#{{ unique_id }}"
+                  title="Search and menus" aria-label="Menu collapsed">
+                  <span class="menu-icon" aria-hidden="true">
+                    <svg class="text-black" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                      <g fill-rule="evenodd">
+                        <rect width="30" height="6" rx="2"></rect>
+                        <rect y="12" width="30" height="6" rx="2"></rect>
+                        <rect y="24" width="30" height="6" rx="2"></rect>
+                      </g>
+                    </svg>
+                  </span>
+            <span class="gov-serv hidden xs:block">{{ 'Menu'|t }}</span>
+          </button>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+
+  {{ pattern('offcanvas', {
+    offcanvas_id: unique_id,
+    heading: offcanvas_heading,
+    content: menus,
+  }) }}
+</header>

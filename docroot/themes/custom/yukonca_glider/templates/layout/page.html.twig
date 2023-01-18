@@ -44,11 +44,19 @@
 #}
 <div class="layout-container">
 
-  <header role="banner">
-    {{ page.header }}
-  </header>
+  {# BEGIN HEADER #}
+  {% set menuSectionId = 'header-main-navigaion' %}
 
-  {{ page.primary_menu }}
+  {{ pattern('header', {
+    logo: page.header_branding,
+    unique_id: menuSectionId,
+    languageswitcher: page.header_menu.languageswitcher,
+    menus: page.header_menu|without('languageswitcher'),
+    offcanvas_heading: 'Government services <br>and information'|t,
+  }) }}
+
+  {# END OF HEADER #}
+
   {{ page.secondary_menu }}
 
   {{ page.breadcrumb }}
