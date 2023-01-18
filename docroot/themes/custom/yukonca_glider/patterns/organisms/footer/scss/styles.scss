@@ -15,6 +15,7 @@
   a {
     @apply text-white;
 
+    &:visited,
     &:hover {
       @apply text-white;
     }
@@ -35,7 +36,7 @@
       @apply pt-0;
 
       a {
-        @apply text-white leading-[23px];
+        @apply text-white leading-[23px] font-medium;
       }
     }
   }
