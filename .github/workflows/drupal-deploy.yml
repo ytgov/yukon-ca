@@ -17,16 +17,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2.5.0
+      with:
+        key: ${{ secrets.DEPLOY_PRIVATE_KEY }} 
+        known_hosts: 'placehoder'
+        if_key_exists: replace
     
     - name: Test Script
       run: |
-        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}"
-        DEPLOY_PRIVATE_KEY=${{ secrets.DEPLOY_PRIVATE_KEY }}
-        mkdir -p ~/.ssh
-        eval $(ssh-agent -s)
-        echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-        echo "$DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
-        ssh-add ~/.ssh/id_rsa
+        ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
       
     - name: Before build
       run: |
@@ -49,6 +50,7 @@ jobs:
   deploy:
     container: evolvingweb/drupal-fpm:ci-8.1
     runs-on: ubuntu-latest
+    needs: [build]
 
     steps:
     - uses: actions/checkout@v3
