@@ -20,6 +20,13 @@ jobs:
 
     - name: Before build
       run: |
+        CI_PROJECT_DIR=$(pwd)
+        echo "$CI_PROJECT_DIR"
+        
+      
+    - name: Before build
+      run: |
+        echo "$CI_PROJECT_DIR"
         composer config -g cache-dir "$(pwd)/.composer-cache"
         composer self-update --2
         composer validate --no-check-all --ansi
