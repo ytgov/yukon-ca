@@ -30,6 +30,7 @@ jobs:
         [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
         cd $THEME_DIR 
         nvm install
+        npm install
 
     - name: Build
       run: |
