@@ -24,8 +24,7 @@ jobs:
         echo "$CI_PROJECT_DIR"
         php --version
         composer --version
-        nvm --version
-        hostnamectl
+        ls -all ~
       
     - name: Before build
       run: |
