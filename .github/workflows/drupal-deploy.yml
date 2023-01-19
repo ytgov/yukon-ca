@@ -1,39 +1,34 @@
 name: Drupal Deploy
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: [ push ]
 
-permissions:
-  contents: read
+env:
+  THEME_DIR: docroot/themes/custom/yukonca_glider
+  BLT: ./vendor/bin/blt
+  BLT_DIR: ./vendor/acquia/blt
+  DRUPAL_CI_DIR: ./vendor/evolvingweb/drupal-ci
+  MYSQL_DATABASE: drupal
+  MYSQL_ROOT_PASSWORD: drupal
 
 jobs:
   build:
-
+    container: evolvingweb/drupal-fpm:ci-8.1
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+    - name: Before build
+      run: |
+        composer config -g cache-dir "$(pwd)/.composer-cache"
+        composer self-update --2
+        composer validate --no-check-all --ansi
+        composer install
+        source ~/.bashrc
+        cd $THEME_DIR && nvm install
+        cd $CI_PROJECT_DIR
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Build
+      run: |
+        $BLT validate
+        $BLT source:build --ansi --verbose --no-interaction
