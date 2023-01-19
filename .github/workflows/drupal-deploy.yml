@@ -17,29 +17,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Before build
-      run: |
-        CI_PROJECT_DIR=$(pwd)
-        echo "$CI_PROJECT_DIR"
-        php --version
-        composer --version
-        ls -all ~
       
     - name: Before build
       run: |
-        ls -all
         echo "$(pwd)"
         composer config -g cache-dir "$(pwd)/.composer-cache"
         composer self-update --2
         composer validate --no-check-all --ansi
-        ls -all
         composer install
-        ls -all
-        cd $THEME_DIR && nvm install
-        cd $CI_PROJECT_DIR
+        
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
+        cd $THEME_DIR 
+        nvm install
 
     - name: Build
       run: |
+        echo "$(pwd)"
         $BLT validate
         $BLT source:build --ansi --verbose --no-interaction
