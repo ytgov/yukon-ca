@@ -26,11 +26,14 @@ jobs:
       
     - name: Before build
       run: |
-        echo "$CI_PROJECT_DIR"
+        ls -all
+        echo "$(pwd)"
         composer config -g cache-dir "$(pwd)/.composer-cache"
         composer self-update --2
         composer validate --no-check-all --ansi
+        ls -all
         composer install
+        ls -all
         source ~/.bashrc
         cd $THEME_DIR && nvm install
         cd $CI_PROJECT_DIR
