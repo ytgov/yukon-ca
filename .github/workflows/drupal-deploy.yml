@@ -17,20 +17,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Test Script
+      run: |
+        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}"
+        DEPLOY_PRIVATE_KEY=${{ secrets.DEPLOY_PRIVATE_KEY }}
+        mkdir -p ~/.ssh
+        eval $(ssh-agent -s)
+        echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+        echo "$DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+        ssh-add ~/.ssh/id_rsa
       
     - name: Before build
       run: |
-        echo "$(pwd)"
         composer config -g cache-dir "$(pwd)/.composer-cache"
         composer self-update --2
         composer validate --no-check-all --ansi
         composer install
-        
-        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
-        cd $THEME_DIR 
-        nvm install
-        npm install
 
     - name: Build
       run: |
@@ -39,7 +42,31 @@ jobs:
         [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
         cd $THEME_DIR 
         nvm install
-        npm install
         cd $CI_PROJECT_DIR 
         $BLT validate
         $BLT source:build --ansi --verbose --no-interaction
+
+  deploy:
+    container: evolvingweb/drupal-fpm:ci-8.1
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Before build
+      run: |
+        composer config -g cache-dir "$(pwd)/.composer-cache"
+        composer self-update --2
+        composer validate --no-check-all --ansi
+        composer install
+
+    - name: Build
+      run: |
+        CI_PROJECT_DIR="$(pwd)"
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
+        cd $THEME_DIR 
+        nvm install
+        cd $CI_PROJECT_DIR 
+        GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${CI_COMMIT_TITLE} - ${CI_COMMIT_SHA})"
+        $BLT artifact:deploy --commit-msg "${GIT_COMMIT_MESSAGE}" --branch "${CI_COMMIT_REF_NAME}" --ignore-dirty --no-interaction --verbose
