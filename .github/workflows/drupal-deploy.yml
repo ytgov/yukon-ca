@@ -22,11 +22,10 @@ jobs:
       run: |
         CI_PROJECT_DIR=$(pwd)
         echo "$CI_PROJECT_DIR"
-        hostnamectl
         php --version
         composer --version
         nvm --version
-        
+        hostnamectl
       
     - name: Before build
       run: |
