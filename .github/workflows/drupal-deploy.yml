@@ -34,7 +34,6 @@ jobs:
         ls -all
         composer install
         ls -all
-        source ~/.bashrc
         cd $THEME_DIR && nvm install
         cd $CI_PROJECT_DIR
 
