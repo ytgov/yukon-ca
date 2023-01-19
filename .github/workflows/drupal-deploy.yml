@@ -18,12 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2.5.0
-      with:
-        key: ${{ secrets.DEPLOY_PRIVATE_KEY }} 
-        known_hosts: 'placehoder'
-        if_key_exists: replace
+    - name: Create SSH key
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
     
     - name: Test Script
       run: |
