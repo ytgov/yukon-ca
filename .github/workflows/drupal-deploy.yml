@@ -34,6 +34,12 @@ jobs:
 
     - name: Build
       run: |
-        echo "$(pwd)"
+        CI_PROJECT_DIR="$(pwd)"
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
+        cd $THEME_DIR 
+        nvm install
+        npm install
+        cd $CI_PROJECT_DIR 
         $BLT validate
         $BLT source:build --ansi --verbose --no-interaction
