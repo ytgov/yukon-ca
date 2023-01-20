@@ -70,5 +70,5 @@ jobs:
         cd $THEME_DIR 
         nvm install
         cd $CI_PROJECT_DIR 
-        GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${{ GITHUB_REF_NAME }} - ${{ GITHUB_REF_NAME })"
-        $BLT artifact:deploy --commit-msg "$GIT_COMMIT_MESSAGE" --branch "${{ GITHUB_REF_NAME }}" --ignore-dirty --no-interaction --verbose
+        GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${{ github.ref_name }} - ${{ github.sha })"
+        $BLT artifact:deploy --commit-msg "$GIT_COMMIT_MESSAGE" --branch "${{ github.ref_name }}" --ignore-dirty --no-interaction --verbose
