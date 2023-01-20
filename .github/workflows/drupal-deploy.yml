@@ -22,11 +22,9 @@ jobs:
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-    
-    - name: Test Script
-      run: |
+        ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > ~/.ssh/known_hosts
         ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
+                
       
     - name: Before build
       run: |
