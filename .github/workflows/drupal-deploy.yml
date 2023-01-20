@@ -18,11 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.DEPLOY_PRIVATE_KEY }} 
+        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      
     - name: Create SSH key
       run: |
-        echo "$DEPLOY_PRIVATE_KEY"
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "$DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa
         cat ~/.ssh/id_rsa
         ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > ~/.ssh/known_hosts
         ls -all ~/.ssh
