@@ -50,15 +50,12 @@ jobs:
         composer self-update --2
         composer validate --no-check-all --ansi
         composer install
-
-    - name: Create SSH key
-      run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
-        eval $(ssh-agent -s)
-        ssh-add ~/.ssh/id_rsa
-      shell: bash
+      
+    - uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        config: ${{ secrets.DEPLOY_SSH_CONFIG }}
+        known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
         
     - name: Build
       run: |
