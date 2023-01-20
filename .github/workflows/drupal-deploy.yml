@@ -9,46 +9,6 @@ env:
   DRUPAL_CI_DIR: ./vendor/evolvingweb/drupal-ci
   MYSQL_DATABASE: drupal
   MYSQL_ROOT_PASSWORD: drupal
-  SSH_PRIVATE_KEY: |
-    -----BEGIN OPENSSH PRIVATE KEY-----
-    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
-    -----END OPENSSH PRIVATE KEY-----
-
 
 jobs:
   build:
@@ -66,14 +26,13 @@ jobs:
       
     - name: Create SSH key
       run: |
-        echo "$SSH_PRIVATE_KEY"
         ls -all /root/.ssh
-        cat /root/.ssh/id_rsa
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
-        ssh -V
         eval $(ssh-agent -s)
-        ssh-add /root/.ssh/id_rsa
-        ssh -p 2222 -i /root/.ssh/id_rsa codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
+        ssh-add ~/.ssh/id_rsa
+        ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
 
       shell: bash
       env:
