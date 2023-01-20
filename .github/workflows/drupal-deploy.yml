@@ -53,13 +53,11 @@ jobs:
 
     - name: Create SSH key
       run: |
-        ls -all /root/.ssh
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
         eval $(ssh-agent -s)
         ssh-add ~/.ssh/id_rsa
-        ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
       shell: bash
         
     - name: Build
