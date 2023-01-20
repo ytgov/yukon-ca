@@ -16,28 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.DEPLOY_PRIVATE_KEY }} 
-        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-      
-    - name: Create SSH key
-      run: |
-        ls -all /root/.ssh
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
-        eval $(ssh-agent -s)
-        ssh-add ~/.ssh/id_rsa
-        ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
-
-      shell: bash
-      env:
-        DEPLOY_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-                
+    - uses: actions/checkout@v3          
       
     - name: Before build
       run: |
@@ -72,6 +51,17 @@ jobs:
         composer validate --no-check-all --ansi
         composer install
 
+    - name: Create SSH key
+      run: |
+        ls -all /root/.ssh
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
+        eval $(ssh-agent -s)
+        ssh-add ~/.ssh/id_rsa
+        ssh -p 2222 codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
+      shell: bash
+        
     - name: Build
       run: |
         CI_PROJECT_DIR="$(pwd)"
@@ -80,5 +70,5 @@ jobs:
         cd $THEME_DIR 
         nvm install
         cd $CI_PROJECT_DIR 
-        GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${CI_COMMIT_TITLE} - ${CI_COMMIT_SHA})"
-        $BLT artifact:deploy --commit-msg "${GIT_COMMIT_MESSAGE}" --branch "${CI_COMMIT_REF_NAME}" --ignore-dirty --no-interaction --verbose
+        GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${{ GITHUB_SHA }} - ${{ GITHUB_SHA })"
+        $BLT artifact:deploy --commit-msg "$GIT_COMMIT_MESSAGE" --branch "${{ GITHUB_REF_NAME }}" --ignore-dirty --no-interaction --verbose
