@@ -25,7 +25,7 @@ jobs:
         composer validate --no-check-all --ansi
         composer install
 
-    - name: Build
+    - name: Source Build
       run: |
         CI_PROJECT_DIR="$(pwd)"
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -57,7 +57,7 @@ jobs:
         config: ${{ secrets.DEPLOY_SSH_CONFIG }}
         known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
         
-    - name: Build
+    - name: Artifact Deploy
       run: |
         CI_PROJECT_DIR="$(pwd)"
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
