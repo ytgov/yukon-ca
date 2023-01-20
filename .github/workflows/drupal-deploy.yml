@@ -70,8 +70,8 @@ jobs:
         ls -all /root/.ssh
         cat /root/.ssh/id_rsa
         ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > /root/.ssh/known_hosts
-        git --version
         ssh -V
+        eval $(ssh-agent -s)
         ssh-add /root/.ssh/id_rsa
         ssh -p 2222 -i /root/.ssh/id_rsa codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
 
