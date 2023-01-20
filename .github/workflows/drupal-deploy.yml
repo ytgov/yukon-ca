@@ -28,12 +28,13 @@ jobs:
       run: |
         ls -all /root/.ssh
         cat /root/.ssh/id_rsa
-        ls -all ~/.ssh
         ssh-keyscan -H codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in > root/.ssh/known_hosts
         ssh -p 2222 -i /root/.ssh/id_rsa codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975@codeserver.dev.18a0e30a-b66a-4c8d-9000-d83a48d55975.drush.in
+        echo "$SSH_PRIVATE_KEY"
       shell: bash
       env:
-        DEPLOY_PRIVATE_KEY: ${{secrets.DEPLOY_PRIVATE_KEY}}
+        DEPLOY_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        SSH_PRIVATE_KEY: ${{ vars.SSH_PRIVATE_KEY }}
                 
       
     - name: Before build
