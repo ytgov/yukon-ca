@@ -24,7 +24,12 @@ process:
     plugin: default_value
     default_value: landing_page
   title: title
-  status: status
+  status:
+    plugin: skip_on_value
+    method: row
+    not_equals: true
+    value: 1
+    source: status
   langcode:
     plugin: default_value
     default_value: fr

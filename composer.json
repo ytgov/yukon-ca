@@ -94,7 +94,8 @@
         "yukon/linkchecker": "8.x-dev",
         "yukon/maxlength": "2.x-dev",
         "yukon/module_missing_message_fixer": "2.x-dev",
-        "yukon/pathologic": "8.x-dev"
+        "yukon/pathologic": "8.x-dev",
+        "yukon/svg_image": "8.x-dev"
     },
     "extra": {
         "enable-patching": true,
@@ -113,6 +114,9 @@
             },
             "yukon/pathologic": {
                 "3289033 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-12-02/3289033-drupal-10-compatibility-14.patch"
+            },
+            "yukon/svg_image": {
+                "3299276 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-01-20/svg_image-3299276-23-d10_compat.patch"
             }
         },
         "installer-paths": {
@@ -281,6 +285,19 @@
                 },
                 "require-dev": {
                     "drupal/redirect": "^1.8"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "yukon/svg_image",
+                "type": "drupal-module",
+                "version": "8.x-dev",
+                "source": {
+                    "url": "https://git.drupalcode.org/project/svg_image",
+                    "type": "git",
+                    "reference": "8.x-1.x"
                 }
             }
         }

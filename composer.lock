@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bd326839c057807cb975f3bfd80bf21",
+    "content-hash": "8549a8da3d43906ee73242ed87d96ced",
     "packages": [
         {
             "name": "acquia/blt",
@@ -13832,6 +13832,16 @@
             "type": "drupal-module"
         },
         {
+            "name": "yukon/svg_image",
+            "version": "8.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/svg_image",
+                "reference": "8.x-1.x"
+            },
+            "type": "drupal-module"
+        },
+        {
             "name": "zumba/amplitude-php",
             "version": "1.0.6",
             "source": {
@@ -14628,7 +14638,8 @@
         "yukon/linkchecker": 20,
         "yukon/maxlength": 20,
         "yukon/module_missing_message_fixer": 20,
-        "yukon/pathologic": 20
+        "yukon/pathologic": 20,
+        "yukon/svg_image": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -14,7 +14,12 @@ destination:
   plugin: entity:node
 process:
   uid: constants/uid_root
-  status: status
+  status:
+    plugin: skip_on_value
+    method: row
+    not_equals: true
+    value: 1
+    source: status
   langcode: language
   created: created
   changed: changed

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.landing_page_level_2.field_yukon_editorial_team
     - node.type.landing_page_level_2
   module:
+    - media_library
     - paragraphs
     - path
     - text
@@ -34,10 +35,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_light_svg_upload:
-    type: options_select
+    type: media_library_widget
     weight: 5
     region: content
-    settings: {  }
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_opener_description:
     type: text_textarea
@@ -81,10 +83,11 @@ content:
       display_label: true
     third_party_settings: {  }
   field_svg_upload:
-    type: options_select
+    type: media_library_widget
     weight: 4
     region: content
-    settings: {  }
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.image_gallery
   module:
     - link
+    - media_library
     - text
 id: paragraph.image_gallery.default
 targetEntityType: paragraph
@@ -33,10 +34,11 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   field_slide_image:
-    type: options_select
+    type: media_library_widget
     weight: 3
     region: content
-    settings: {  }
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_title:
     type: string_textfield
