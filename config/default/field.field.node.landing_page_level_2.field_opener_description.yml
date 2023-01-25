@@ -1,0 +1,26 @@
+uuid: 6d2f1442-9647-4ea2-aecf-e2c04ac8689e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_opener_description
+    - node.type.landing_page_level_2
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_opener_description
+field_name: field_opener_description
+entity_type: node
+bundle: landing_page_level_2
+label: 'Opener description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

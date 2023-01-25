@@ -1,0 +1,18 @@
+uuid: 324256a3-a9dc-4f46-84e5-95bdcaa20b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.teams
+id: taxonomy_term.teams.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: teams
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

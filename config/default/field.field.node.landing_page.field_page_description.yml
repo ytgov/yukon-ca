@@ -1,0 +1,26 @@
+uuid: 7305a309-4a17-4528-8237-22d4f8546a2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_description
+    - node.type.landing_page
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page.field_page_description
+field_name: field_page_description
+entity_type: node
+bundle: landing_page
+label: 'Meta description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

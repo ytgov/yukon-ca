@@ -1,0 +1,18 @@
+uuid: 8dd9b36d-36a8-4726-8563-ccb64000f3ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.department
+id: taxonomy_term.department.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: department
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

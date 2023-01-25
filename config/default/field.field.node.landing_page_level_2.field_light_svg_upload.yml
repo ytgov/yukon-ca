@@ -1,0 +1,35 @@
+uuid: dfd59585-ac75-4690-adf4-9819d4c40689
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_light_svg_upload
+    - media.type.image
+    - node.type.landing_page_level_2
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_light_svg_upload
+field_name: field_light_svg_upload
+entity_type: node
+bundle: landing_page_level_2
+label: 'Light SVG upload'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

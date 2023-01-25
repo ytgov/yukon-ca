@@ -1,0 +1,20 @@
+uuid: da2b7780-6477-4dc1-964b-54e872af4375
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main-menu
+    parent: 'main-menu:0:'
+  scheduler: {  }
+name: Homepage
+type: homepage
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,20 @@
+uuid: 7ca2bc1f-1ca0-4f37-a234-cb3e17a02292
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_yukon_editorial_team
+field_name: field_yukon_editorial_team
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

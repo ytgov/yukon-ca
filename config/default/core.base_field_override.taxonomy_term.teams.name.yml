@@ -1,0 +1,18 @@
+uuid: 5ae4cd6b-cfbd-4007-b470-c6788d345a25
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.teams
+id: taxonomy_term.teams.name
+field_name: name
+entity_type: taxonomy_term
+bundle: teams
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

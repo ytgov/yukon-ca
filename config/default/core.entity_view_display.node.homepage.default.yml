@@ -1,0 +1,85 @@
+uuid: fc27ae09-cdd4-433b-9592-a5801a5c67c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.body
+    - field.field.node.homepage.field_department_term
+    - field.field.node.homepage.field_image_gallery
+    - field.field.node.homepage.field_page_description
+    - field.field.node.homepage.field_primary_item_blocks
+    - field.field.node.homepage.field_secondary_item_blocks
+    - field.field.node.homepage.field_tertiary_item_blocks
+    - field.field.node.homepage.field_yukon_editorial_team
+    - node.type.homepage
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_department_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_image_gallery:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_primary_item_blocks:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_secondary_item_blocks:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_tertiary_item_blocks:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_page_description: true
+  field_yukon_editorial_team: true
+  langcode: true
+  search_api_excerpt: true

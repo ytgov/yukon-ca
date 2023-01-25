@@ -1,0 +1,18 @@
+uuid: cd13e130-77a1-4092-a736-865271d3d4de
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+id: media.image.unpublish_on
+field_name: unpublish_on
+entity_type: media
+bundle: image
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

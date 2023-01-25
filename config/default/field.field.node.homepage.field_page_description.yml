@@ -1,0 +1,26 @@
+uuid: df339e3d-7919-4977-b1fa-a4fa4ca0d66b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_description
+    - node.type.homepage
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.homepage.field_page_description
+field_name: field_page_description
+entity_type: node
+bundle: homepage
+label: 'Meta description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
