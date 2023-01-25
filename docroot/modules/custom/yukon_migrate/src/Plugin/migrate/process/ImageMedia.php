@@ -33,11 +33,8 @@ class ImageMedia extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE) . '</code></pre>');
-    \Drupal::logger('test')->info('<pre><code>' . print_r($destination_property, TRUE) . '</code></pre>');
-    $nodeId = $row->getIdMap()['destid1'];
     $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : NULL;
-    if ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload') {
+    if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload')) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('field_data_' . $destination_property, 'svg')
         ->fields('svg', [

@@ -15,6 +15,7 @@ destination:
   translations: true
   destination_module: content_translation
 process:
+  uid: constants/uid_root
   nid:
     plugin: migration_lookup
     migration: homepage

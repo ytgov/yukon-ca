@@ -33,7 +33,7 @@ class ParagraphImageGallery extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $nodeId = $row->getIdMap()['destid1'];
+    $nodeId = $node['nid'];
     $paragraph = !empty($node['field_image_gallery']) ? $node['field_image_gallery'] : NULL;
     foreach ($paragraph as $item) {
       $connection = Database::getConnection('default', 'migrate');

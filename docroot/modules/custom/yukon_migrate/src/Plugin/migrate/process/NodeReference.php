@@ -46,7 +46,9 @@ class NodeReference extends ProcessPluginBase {
           ]);
         $fieldReferenceNode = reset($fieldReferenceNode);
 
-        $fieldReferenceData[] = ['target_id' => $fieldReferenceNode->id()];
+        if ($fieldReferenceNode) {
+          $fieldReferenceData[] = ['target_id' => $fieldReferenceNode->id()];
+        }
       }
 
       return $fieldReferenceData;

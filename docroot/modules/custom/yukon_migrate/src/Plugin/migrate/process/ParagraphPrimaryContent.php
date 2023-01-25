@@ -34,7 +34,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $nodeId = $row->getIdMap()['destid1'];
+    $nodeId = !empty($node['nid']) ? $node['nid'] : $node['entity_id'];
     $paragraphField = !empty($node['field_primary_content']) ? $node['field_primary_content'] : NULL;
     if (!empty($paragraphField)) {
       foreach ($paragraphField as $paragraph) {
