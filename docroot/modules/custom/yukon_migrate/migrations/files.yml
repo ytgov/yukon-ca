@@ -1,0 +1,37 @@
+id: files
+class: Drupal\migrate\Plugin\Migration
+migration_tags:
+  - 'Drupal 7'
+  - Files
+migration_group: legacy
+label: 'Drupal 7 Public files'
+source:
+  plugin: d7_file
+  scheme: public
+  constants:
+    uid_root: 1
+    source_base_path: 'public://d7'
+destination:
+  plugin: 'entity:file'
+process:
+  fid: fid
+  filename: filename
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - filepath
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - uri
+  filemime: filemime
+  status: status
+  # Drupal 7 didn't keep track of the file's creation or update time -- all it
+  # had was the vague "timestamp" column. So we'll use it for both.
+  created: timestamp
+  changed: timestamp
+  uid: constants/uid_root

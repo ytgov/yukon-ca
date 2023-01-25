@@ -1,0 +1,44 @@
+id: homepage_i18n
+label: Homepage
+migration_tags:
+  - Drupal 7
+  - Content
+  - homepage
+migration_group: legacy
+source:
+  plugin: d7_node_entity_translation
+  node_type: homepage
+  constants:
+    uid_root: 1
+destination:
+  plugin: entity:node
+  translations: true
+  destination_module: content_translation
+process:
+  nid:
+    plugin: migration_lookup
+    migration: homepage
+    source: entity_id
+  type:
+    plugin: default_value
+    default_value: homepage
+  title: title
+  status: status
+  langcode:
+    plugin: default_value
+    default_value: fr
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  body/value: body/0/value
+  body/summary: body/0/summary
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+  content_translation_source: source
+  content_translation_outdated: translate
+migration_dependencies:
+  required:
+    - homepage

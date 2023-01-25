@@ -1,0 +1,56 @@
+id: landing_page_i18n
+label: Landing Page
+migration_tags:
+  - Drupal 7
+  - Content
+  - landing_page
+migration_group: legacy
+source:
+  plugin: d7_node_entity_translation
+  node_type: landing_page
+  constants:
+    uid_root: 1
+destination:
+  plugin: entity:node
+  translations: true
+  destination_module: content_translation
+process:
+  uid: constants/uid_root
+  nid:
+    plugin: migration_lookup
+    migration: landing_page
+    source: entity_id
+  type:
+    plugin: default_value
+    default_value: landing_page
+  title: title
+  status: status
+  langcode:
+    plugin: default_value
+    default_value: fr
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  field_page_description: field_page_description
+  field_opener_description: field_opener_description
+  field_svg_upload:
+    plugin: imagemedia
+  field_light_svg_upload:
+    plugin: imagemedia
+  field_primary_content:
+    plugin: paragraph_primary_content
+  field_secondary_content:
+    plugin: paragraph_secondary_content
+  field_department_term:
+    plugin: department
+  field_yukon_editorial_team:
+    plugin: teams
+  field_redirection: field_redirection
+  field_target_content: field_target_content
+  content_translation_source: source
+  content_translation_outdated: translate
+migration_dependencies:
+  required:
+    - landing_page

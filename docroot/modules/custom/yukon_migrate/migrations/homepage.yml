@@ -1,0 +1,45 @@
+id: homepage
+label: Homepage
+migration_tags:
+  - Drupal 7
+  - Content
+  - homepage
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: homepage
+  constants:
+    uid_root: 1
+destination:
+  plugin: entity:node
+process:
+  uid: constants/uid_root
+  status: status
+  langcode: language
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  type:
+    plugin: default_value
+    default_value: homepage
+  title: title
+  field_page_description: field_page_description
+  body/value: body/0/value
+  body/summary: body/0/summary
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+  field_primary_item_blocks:
+    plugin: node_reference
+  field_secondary_item_blocks:
+    plugin: node_reference
+  field_tertiary_item_blocks:
+    plugin: node_reference
+  field_department_term:
+    plugin: department
+  field_yukon_editorial_team:
+    plugin: teams
+  field_image_gallery:
+    plugin: paragraph_image_gallery

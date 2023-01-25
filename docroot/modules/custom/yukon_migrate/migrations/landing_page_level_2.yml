@@ -1,0 +1,43 @@
+id: landing_page_level_2
+label: Landing Page Level 2
+migration_tags:
+  - Drupal 7
+  - Content
+  - landing_page_level_2
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: landing_page_level_2
+  constants:
+    uid_root: 1
+destination:
+  plugin: entity:node
+process:
+  uid: constants/uid_root
+  nid: nid
+  type:
+    plugin: default_value
+    default_value: landing_page_level_2
+  title: title
+  status: status
+  langcode: language
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  field_page_description: field_page_description
+  field_opener_description: field_opener_description
+  field_svg_upload:
+    plugin: imagemedia
+  field_light_svg_upload:
+    plugin: imagemedia
+  field_primary_content:
+    plugin: paragraph_primary_content
+  field_department_term:
+    plugin: department
+  field_yukon_editorial_team:
+    plugin: teams
+  field_social_sharing: field_social_sharing
+
+
