@@ -5,7 +5,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
-use Drupal\taxonomy\Entity\Term;
 
 /**
  * Adds node content to entity reference fields.

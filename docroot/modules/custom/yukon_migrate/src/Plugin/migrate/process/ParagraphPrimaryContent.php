@@ -6,9 +6,7 @@ use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
-use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\media\Entity\Media;
 
 /**
  * Adds paragraph to node content.
