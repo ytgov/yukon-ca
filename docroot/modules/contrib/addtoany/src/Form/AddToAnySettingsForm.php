@@ -94,6 +94,9 @@ class AddToAnySettingsForm extends ConfigFormBase {
     global $base_path;
 
     $addtoany_settings = $this->config('addtoany.settings');
+    $html_value = $addtoany_settings->get('additional_html');
+    $js_value = $addtoany_settings->get('additional_js');
+    $css_value = $addtoany_settings->get('additional_css');
 
     $button_img = '<img src="' . $base_path . $this->moduleExtensionList->getPath('addtoany') . '/images/%s" width="%d" height="%d"%s />';
 
@@ -130,24 +133,22 @@ class AddToAnySettingsForm extends ConfigFormBase {
       '#required'      => TRUE,
     ];
     $form['addtoany_button_settings']['addtoany_service_button_settings'] = [
-      '#type'         => 'details',
-      '#title'        => $this->t('Service Buttons'),
-      '#collapsible'  => TRUE,
-      '#collapsed'    => TRUE,
+      '#type'  => 'details',
+      '#title' => $this->t('Service Buttons'),
+      '#open'  => ($html_value !== '') ? TRUE : FALSE,
     ];
     $form['addtoany_button_settings']['addtoany_service_button_settings']['addtoany_additional_html'] = [
       '#type'          => 'textarea',
       '#title'         => $this->t('Service Buttons HTML code'),
-      '#default_value' => $addtoany_settings->get('additional_html'),
+      '#default_value' => $html_value,
       '#description'   => $this->t('You can add HTML code to display customized <a href="https://www.addtoany.com/buttons/customize/drupal/standalone_services" target="_blank">standalone service buttons</a> next to each universal share button. For example: <br /> <code>&lt;a class=&quot;a2a_button_facebook&quot;&gt;&lt;/a&gt;<br />&lt;a class=&quot;a2a_button_twitter&quot;&gt;&lt;/a&gt;<br />&lt;a class=&quot;a2a_button_pinterest&quot;&gt;&lt;/a&gt;</code>
       '),
       '#attributes' => $attributes_for_code,
     ];
     $form['addtoany_button_settings']['universal_button'] = [
-      '#type'         => 'details',
-      '#title'        => $this->t('Universal Button'),
-      '#collapsible'  => TRUE,
-      '#collapsed'    => TRUE,
+      '#type'  => 'details',
+      '#title' => $this->t('Universal Button'),
+      '#open'  => FALSE,
       /* #states workaround in addtoany.admin.js */
     ];
     $form['addtoany_button_settings']['universal_button']['addtoany_universal_button'] = [
@@ -186,22 +187,21 @@ class AddToAnySettingsForm extends ConfigFormBase {
     ];
 
     $form['addtoany_additional_settings'] = [
-      '#type'         => 'details',
-      '#title'        => $this->t('Additional options'),
-      '#collapsible'  => TRUE,
-      '#collapsed'    => TRUE,
+      '#type'  => 'details',
+      '#title' => $this->t('Additional options'),
+      '#open'  => ($js_value !== '' || $css_value !== '') ? TRUE : FALSE,
     ];
     $form['addtoany_additional_settings']['addtoany_additional_js'] = [
       '#type'          => 'textarea',
       '#title'         => $this->t('Additional JavaScript'),
-      '#default_value' => $addtoany_settings->get('additional_js'),
+      '#default_value' => $js_value,
       '#description'   => $this->t('You can add special JavaScript code for AddToAny. See <a href="https://www.addtoany.com/buttons/customize/drupal" target="_blank">AddToAny documentation</a>.'),
       '#attributes' => $attributes_for_code,
     ];
     $form['addtoany_additional_settings']['addtoany_additional_css'] = [
       '#type'          => 'textarea',
       '#title'         => $this->t('Additional CSS'),
-      '#default_value' => $addtoany_settings->get('additional_css'),
+      '#default_value' => $css_value,
       '#description'   => $this->t('You can add special CSS code for AddToAny. See <a href="https://www.addtoany.com/buttons/customize/drupal" target="_blank">AddToAny documentation</a>.'),
       '#attributes' => $attributes_for_code,
     ];

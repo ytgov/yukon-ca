@@ -154,7 +154,7 @@ function linkchecker_entity_insert(EntityInterface $entity) {
     return;
   }
 
-  if ($entity instanceof FieldableEntityInterface) {
+  if ($entity instanceof FieldableEntityInterface && !$entity->isNew()) {
     /** @var \Drupal\linkchecker\LinkExtractorService $extractor */
     $extractor = \Drupal::service('linkchecker.extractor');
     $links = $extractor->extractFromEntity($entity);

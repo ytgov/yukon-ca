@@ -56,6 +56,14 @@ function addtoany_theme() {
         'bundle' => '',
       ],
     ],
+    'addtoany_follow' => [
+      'variables' => [
+        'addtoany_html' => FALSE,
+        'buttons_size' => FALSE,
+        'entity_type' => '',
+        'bundle' => '',
+      ],
+    ],
   ];
 }
 
@@ -64,6 +72,26 @@ function addtoany_theme() {
  */
 function addtoany_theme_suggestions_addtoany_standard(array $variables) {
   $suggestion = 'addtoany_standard__';
+  $suggestions = [];
+
+  if (!empty($variables['entity_type'])) {
+    $suggestion .= $variables['entity_type'];
+    $suggestions[] = $suggestion;
+  }
+
+  if (!empty($variables['entity_type']) && !empty($variables['bundle'])) {
+    $suggestion .= '__' . $variables['bundle'];
+    $suggestions[] = $suggestion;
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function addtoany_theme_suggestions_addtoany_follow(array $variables) {
+  $suggestion = 'addtoany_follow__';
   $suggestions = [];
 
   if (!empty($variables['entity_type'])) {
@@ -239,7 +267,7 @@ function addtoany_create_entity_data($node, $config = NULL) {
  *   config data.
  *
  * @return array
- *   The array with url, title, additional_html that will be send to Twig.
+ *   The array with url, title, additional_html that will be sent to Twig.
  */
 function addtoany_create_data($url = NULL, $title = NULL, $config = NULL) {
   if (is_null($config)) {
@@ -251,13 +279,15 @@ function addtoany_create_data($url = NULL, $title = NULL, $config = NULL) {
 
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
 
-  // Default to <front> or the current path.
-  if (!isset($url) || $is_front) {
-    // Use <front> for the front page to avoid '/node' as the final URL,
-    // otherwise use current path.
-    $url = ($is_front) ? Url::fromRoute('<front>')
-      ->setAbsolute()
-      ->toString() : Url::fromRoute('<current>')->setAbsolute()->toString();
+  if ($is_front || is_null($url)) {
+    if ($is_front) {
+      // Use <front> for the front page URL without "/node".
+      $front_url = Url::fromRoute('<front>')->setAbsolute()->toString();
+      // Avoid "/node" in a front page URL.
+      $url = (is_null($url) || $url === $front_url . '/node') ? $front_url : $url;
+    }
+    // Use the current path if the URL is still NULL.
+    $url = (is_null($url)) ? Url::fromRoute('<current>')->setAbsolute()->toString() : $url;
   }
   else {
     // Sanitize and encode URL for HTML output.

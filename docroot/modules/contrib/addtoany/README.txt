@@ -10,7 +10,7 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-The AddToAny module provides share buttons for Drupal. Sharing icons and
+The AddToAny module provides social media buttons for Drupal. Sharing icons and
 features are maintained by AddToAny, the universal sharing platform.
 
 By default, the module places share buttons below node content.
@@ -38,12 +38,14 @@ AddToAny core is optimized to load asynchronously, and many sharing and social
 media features come from AddToAny core including:
 
  * Universal share menus
+ * Share buttons
  * Share counters
  * Share templates
+ * Follow buttons
  * Custom icons
  * Automatic Google Analytics integration
  * Event tracking (useful for integration with other analytics software)
- * Link tracking using bit.ly, goo.gl, and custom URL shorteners
+ * Link tracking using bit.ly and custom URL shorteners
  * Automatic localization (over 50 languages)
 
 MORE INFORMATION

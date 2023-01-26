@@ -23,7 +23,7 @@ class MaxlengthJavascriptTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests that a single maxlength message is displayed to a formatted textarea.
