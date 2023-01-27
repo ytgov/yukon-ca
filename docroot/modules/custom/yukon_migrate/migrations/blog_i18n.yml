@@ -1,4 +1,4 @@
-id: blog
+id: blog_i18n
 label: Blog
 migration_tags:
   - Drupal 7
@@ -6,21 +6,29 @@ migration_tags:
   - blog
 migration_group: legacy
 source:
-  plugin: d7_node
+  plugin: d7_node_entity_translation
   node_type: blog
   constants:
     uid_root: 1
 destination:
   plugin: entity:node
+  translations: true
+  destination_module: content_translation
 process:
   uid: constants/uid_root
+  nid:
+    plugin: migration_lookup
+    migration: blog
+    source: entity_id
   status:
     plugin: skip_on_value
     method: row
     not_equals: true
     value: 1
     source: status
-  langcode: language
+  langcode:
+    plugin: default_value
+    default_value: fr
   created: created
   changed: changed
   promote: promote
@@ -50,3 +58,8 @@ process:
   field_yukon_editorial_team:
     plugin: kellett_taxonomy
   field_social_sharing: field_social_sharing
+  content_translation_source: source
+  content_translation_outdated: translate
+migration_dependencies:
+  required:
+    - blog
