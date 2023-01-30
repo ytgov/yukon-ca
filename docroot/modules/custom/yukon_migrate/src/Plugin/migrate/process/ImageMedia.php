@@ -33,7 +33,7 @@ class ImageMedia extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
     $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : NULL;
-    if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload')) {
+    if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image')) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('field_data_' . $destination_property, 'svg')
         ->fields('svg', [
@@ -53,26 +53,33 @@ class ImageMedia extends ProcessPluginBase {
       $results = $query->execute()->fetchAll();
 
       if (!empty($results)) {
-
         foreach ($results as $result) {
           $fid = $destination_property . '_fid';
           $alt = $destination_property . '_alt';
           $title = $destination_property . '_title';
 
-          // Create Media.
-          $imageMedia = Media::create([
+          $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
             'name' => $result->filename,
-            'bundle' => 'image',
-            'uid' => 1,
-            'langcode' => 'en',
-            'status' => 1,
-            'field_media_image' => [
-              'target_id' => $result->$fid,
-              'alt' => $result->$alt,
-              'title' => $result->$title,
-            ],
+            'field_media_image' => ['target_id' => $result->$fid],
           ]);
-          $imageMedia->save();
+          $imageMedia = reset($imageMedia);
+
+          if (empty($imageMedia)) {
+            // Create Media.
+            $imageMedia = Media::create([
+              'name' => $result->filename,
+              'bundle' => 'image',
+              'uid' => 1,
+              'langcode' => $node['language'],
+              'status' => 1,
+              'field_media_image' => [
+                'target_id' => $result->$fid,
+                'alt' => $result->$alt,
+                'title' => $result->$title,
+              ],
+            ]);
+            $imageMedia->save();
+          }
 
           return $imageMedia->id();
         }
