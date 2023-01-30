@@ -2,6 +2,8 @@
 
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
+use Drupal\Core\Database\Database;
+use Drupal\node\Entity\Node;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -30,6 +32,7 @@ class NodeReference extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
+    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE) . '</code></pre>');
     $fieldReference = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
     if (!empty($fieldReference)) {
       if (!is_array($fieldReference)) {
@@ -47,6 +50,30 @@ class NodeReference extends ProcessPluginBase {
 
         if ($fieldReferenceNode) {
           $fieldReferenceData[] = ['target_id' => $fieldReferenceNode->id()];
+        }
+        else {
+          $connection = Database::getConnection('default', 'migrate');
+          $query = $connection->select('node', 'n')
+            ->fields('n', [
+              'nid',
+              'title',
+              'type',
+              'language'
+            ]);
+          $query->condition('n.nid', $id);
+
+          $result = $query->execute()->fetchObject();
+
+          if ($result) {
+            $node = Node::create([
+              'title' => $result->title,
+              'type' => $result->type,
+              'langcode' => $result->language,
+            ]);
+            $node->save();
+
+            $fieldReferenceData[] = ['target_id' => $node->id()];
+          }
         }
       }
 

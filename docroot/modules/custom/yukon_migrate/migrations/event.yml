@@ -1,25 +1,19 @@
-id: blog
-label: Blog
+id: event
+label: Event
 migration_tags:
   - Drupal 7
   - Content
-  - blog
+  - event
 migration_group: legacy
 source:
   plugin: d7_node
-  node_type: blog
+  node_type: event
   constants:
     uid_root: 1
 destination:
   plugin: entity:node
 process:
   uid: constants/uid_root
-  status:
-    plugin: skip_on_value
-    method: row
-    not_equals: true
-    value: 1
-    source: status
   langcode: language
   created: created
   changed: changed
@@ -28,27 +22,29 @@ process:
   revision_log: log
   type:
     plugin: default_value
-    default_value: blog
+    default_value: event
   title: title
   field_page_description: field_page_description
-  body/value: body/0/value
-  body/summary: body/0/summary
-  body/format:
+  field_contact_name: field_contact_name
+  field_contact_email: field_contact_email
+  field_building_name:
+    plugin: node_reference
+  field_event_street_address: field_event_street_address
+  field_postal_code: field_postal_code
+  field_contact_phone: field_contact_phone
+  field_cost: field_cost
+  field_event_description/value: field_event_description/0/value
+  field_event_description/format:
     plugin: default_value
     default_value: basic_html
-  field_contact: field_contact
-  field_svg_upload:
-    plugin: imagemedia
+  field_featured_event: field_featured_event
   field_featured_image:
     plugin: imagemedia
-  field_blog_type:
+  field_community:
     plugin: kellett_taxonomy
   field_category_term:
-    plugin: kellett_taxonomy
-  field_subcategory:
     plugin: kellett_taxonomy
   field_department_term:
     plugin: kellett_taxonomy
   field_yukon_editorial_team:
     plugin: kellett_taxonomy
-  field_social_sharing: field_social_sharing

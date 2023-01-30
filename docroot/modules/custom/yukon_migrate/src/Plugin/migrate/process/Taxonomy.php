@@ -132,12 +132,15 @@ class Taxonomy extends ProcessPluginBase {
   protected function getVocabulary(string $field): string {
     $vocabulary = '';
 
+    // General.
     if ($field === 'field_yukon_editorial_team') {
       $vocabulary = 'teams';
     }
     if ($field === 'field_department_term') {
       $vocabulary = 'department';
     }
+
+    // Blog.
     if ($field === 'field_blog_type') {
       $vocabulary = 'blog_type';
     }
@@ -146,6 +149,11 @@ class Taxonomy extends ProcessPluginBase {
     }
     if ($field === 'field_subcategory') {
       $vocabulary = 'sub_category';
+    }
+
+    // Event.
+    if ($field === 'field_community') {
+      $vocabulary = 'community';
     }
 
     return $vocabulary;
