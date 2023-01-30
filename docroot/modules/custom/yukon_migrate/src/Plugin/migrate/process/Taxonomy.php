@@ -126,7 +126,7 @@ class Taxonomy extends ProcessPluginBase {
   /**
    * Get vocabulary.
    *
-   * @param  string  $field
+   * @param string $field
    *   The field to get vocabulary for.
    */
   protected function getVocabulary(string $field): string {
@@ -154,9 +154,9 @@ class Taxonomy extends ProcessPluginBase {
   /**
    * Get information about the requested term.
    *
-   * @param  int  $tid
+   * @param int $tid
    *   The term id.
-   * @param  bool  $translationCheck
+   * @param bool $translationCheck
    *   Whether to request translations.
    *
    * @return array
