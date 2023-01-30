@@ -47,4 +47,3 @@ process:
     plugin: kellett_taxonomy
   field_redirection: field_redirection
   field_target_content: field_target_content
-

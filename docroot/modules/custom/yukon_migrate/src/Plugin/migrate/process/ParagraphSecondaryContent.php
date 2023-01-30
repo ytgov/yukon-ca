@@ -3,7 +3,6 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -120,7 +119,7 @@ class ParagraphSecondaryContent extends ProcessPluginBase {
           }
         }
 
-        foreach ($reconfiguredData as $category => $item) {
+        foreach ($reconfiguredData as $item) {
           $paragraph = Paragraph::create([
             'type' => 'secondary_content',
             'parent_id' => $nodeId,

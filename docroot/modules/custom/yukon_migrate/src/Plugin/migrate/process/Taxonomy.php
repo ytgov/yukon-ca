@@ -3,7 +3,6 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -30,11 +29,17 @@ class Taxonomy extends ProcessPluginBase {
 
   /**
    * Taxonomy term with translation.
+   *
+   * @var array
+   *   The taxonomy term with translations.
    */
   protected $taxonomyTermTranslation;
 
   /**
-   * Taxomomy term without translation.
+   * Taxonomy term without translation.
+   *
+   * @var array
+   *   The taxonomy term without translations.
    */
   protected $taxonomyTerm;
 
@@ -122,8 +127,9 @@ class Taxonomy extends ProcessPluginBase {
    * Get vocabulary.
    *
    * @param $field
+   *   The field to get vocabulary for.
    */
-  protected function getVocabulary($field) {
+  protected function getVocabulary($field): string {
     $vocabulary = '';
 
     if ($field === 'field_yukon_editorial_team') {
@@ -146,7 +152,10 @@ class Taxonomy extends ProcessPluginBase {
   }
 
   /**
+   * Get informaiton about the requested term.
+   *
    * @param $tid
+   *   The term id.
    *
    * @return array
    */

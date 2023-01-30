@@ -44,5 +44,3 @@ process:
   field_yukon_editorial_team:
     plugin: kellett_taxonomy
   field_social_sharing: field_social_sharing
-
-
