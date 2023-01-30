@@ -58,7 +58,7 @@ class NodeReference extends ProcessPluginBase {
               'nid',
               'title',
               'type',
-              'language'
+              'language',
             ]);
           $query->condition('n.nid', $id);
 
