@@ -91,7 +91,7 @@ class ParagraphImageGallery extends ProcessPluginBase {
         $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
           'type' => 'image_gallery',
           'parent_id' => $nodeId,
-          'parent_type' => 'node'
+          'parent_type' => 'node',
         ]);
         $paragraph = reset($paragraph);
 
