@@ -33,7 +33,7 @@ class ParagraphImageGallery extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $nodeId = $node['nid'];
+    $nodeId = !empty($node['nid']) ? $node['nid'] : $node['entity_id'];
     $paragraph = !empty($node['field_image_gallery']) ? $node['field_image_gallery'] : NULL;
     foreach ($paragraph as $item) {
       $connection = Database::getConnection('default', 'migrate');
@@ -44,40 +44,44 @@ class ParagraphImageGallery extends ProcessPluginBase {
           'revision_id',
         ]);
 
-        $query->innerJoin('field_data_field_image_gallery', 'fd', 'fd.field_image_gallery_value = fci.item_id');
-        $query->innerJoin('field_data_title_field', 'fdt', 'fdt.entity_id = fci.item_id');
-        $query->innerJoin('field_data_field_description', 'fdd', 'fdd.entity_id = fci.item_id');
-        $query->innerJoin('field_data_field_link', 'fdl', 'fdl.entity_id = fci.item_id');
-        $query->innerJoin('field_data_field_slide_image', 'fdsi', 'fdsi.entity_id = fci.item_id');
-        $query->innerJoin('file_managed', 'fm', 'fm.fid = fdsi.field_slide_image_fid');
-        $query->fields('fd',
-          ['entity_type',
-            'bundle',
-            'entity_id',
-            'field_image_gallery_revision_id',
-          ]);
-        $query->fields('fdt',
-          ['title_field_value']);
-        $query->fields('fdd',
-          ['field_description_value']);
-        $query->fields('fdl',
-          ['field_link_url',
-            'field_link_title',
-          ]);
-        $query->fields('fdsi',
-          ['field_slide_image_fid',
-            'field_slide_image_alt',
-            'field_slide_image_title',
-            'field_slide_image_width',
-            'field_slide_image_height',
-          ]);
+      $query->innerJoin('field_data_field_image_gallery', 'fd', 'fd.field_image_gallery_value = fci.item_id');
+      $query->innerJoin('field_data_title_field', 'fdt', 'fdt.entity_id = fci.item_id');
+      $query->innerJoin('field_data_field_description', 'fdd', 'fdd.entity_id = fci.item_id');
+      $query->innerJoin('field_data_field_link', 'fdl', 'fdl.entity_id = fci.item_id');
+      $query->innerJoin('field_data_field_slide_image', 'fdsi', 'fdsi.entity_id = fci.item_id');
+      $query->innerJoin('file_managed', 'fm', 'fm.fid = fdsi.field_slide_image_fid');
+      $query->fields('fd',
+        [
+          'entity_type',
+          'bundle',
+          'entity_id',
+          'field_image_gallery_revision_id',
+        ]);
+      $query->fields('fdt',
+        ['title_field_value']);
+      $query->fields('fdd',
+        ['field_description_value']);
+      $query->fields('fdl',
+        [
+          'field_link_url',
+          'field_link_title',
+        ]);
+      $query->fields('fdsi',
+        [
+          'field_slide_image_fid',
+          'field_slide_image_alt',
+          'field_slide_image_title',
+          'field_slide_image_width',
+          'field_slide_image_height',
+        ]);
       $query->fields('fm',
-          ['fid',
-            'filename',
-            'uri',
-          ]);
-        $query->condition('fci.item_id', $item['value']);
-        $results = $query->execute()->fetchAll();
+        [
+          'fid',
+          'filename',
+          'uri',
+        ]);
+      $query->condition('fci.item_id', $item['value']);
+      $results = $query->execute()->fetchAll();
     }
 
     if (!empty($results)) {

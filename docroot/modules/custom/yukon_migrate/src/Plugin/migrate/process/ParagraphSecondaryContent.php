@@ -119,7 +119,7 @@ class ParagraphSecondaryContent extends ProcessPluginBase {
           }
         }
 
-        foreach ($reconfiguredData as $category => $item) {
+        foreach ($reconfiguredData as $item) {
           $paragraph = Paragraph::create([
             'type' => 'secondary_content',
             'parent_id' => $nodeId,
@@ -127,7 +127,7 @@ class ParagraphSecondaryContent extends ProcessPluginBase {
           ]);
           $paragraph->save();
 
-          $referencedNode = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+          $referencedNode = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties([
             'title' => $item['title'],
             'type' => $item['type'],
           ]);

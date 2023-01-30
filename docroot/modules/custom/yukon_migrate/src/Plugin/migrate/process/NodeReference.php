@@ -38,7 +38,7 @@ class NodeReference extends ProcessPluginBase {
       $fieldReferenceData = [];
 
       foreach ($fieldReference as $id) {
-        $fieldReferenceNode = \Drupal::entityTypeManager()
+        $fieldReferenceNode = \Drupal::service('entity_type.manager')
           ->getStorage('node')
           ->loadByProperties([
             'nid' => $id,

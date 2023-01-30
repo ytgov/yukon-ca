@@ -79,7 +79,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
             ]);
             $paragraph->save();
 
-            $referencedNode = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+            $referencedNode = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties([
               'title' => $item->title,
               'type' => $item->type,
             ]);
