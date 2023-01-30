@@ -43,8 +43,8 @@ process:
   field_tertiary_item_blocks:
     plugin: node_reference
   field_department_term:
-    plugin: department
+    plugin: kellett_taxonomy
   field_yukon_editorial_team:
-    plugin: teams
+    plugin: kellett_taxonomy
   field_image_gallery:
     plugin: paragraph_image_gallery

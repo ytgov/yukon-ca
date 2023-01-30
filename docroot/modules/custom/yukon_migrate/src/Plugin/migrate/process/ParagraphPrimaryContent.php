@@ -3,6 +3,7 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -79,7 +80,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
             ]);
             $paragraph->save();
 
-            $referencedNode = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+            $referencedNode = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties([
               'title' => $item->title,
               'type' => $item->type,
             ]);

@@ -42,9 +42,9 @@ process:
   field_secondary_content:
     plugin: paragraph_secondary_content
   field_department_term:
-    plugin: department
+    plugin: kellett_taxonomy
   field_yukon_editorial_team:
-    plugin: teams
+    plugin: kellett_taxonomy
   field_redirection: field_redirection
   field_target_content: field_target_content
 

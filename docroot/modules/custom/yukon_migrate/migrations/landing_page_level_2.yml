@@ -40,9 +40,9 @@ process:
   field_primary_content:
     plugin: paragraph_primary_content
   field_department_term:
-    plugin: department
+    plugin: kellett_taxonomy
   field_yukon_editorial_team:
-    plugin: teams
+    plugin: kellett_taxonomy
   field_social_sharing: field_social_sharing
 
 
