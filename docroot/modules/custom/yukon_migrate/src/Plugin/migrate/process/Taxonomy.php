@@ -154,15 +154,15 @@ class Taxonomy extends ProcessPluginBase {
   /**
    * Get information about the requested term.
    *
-   * @param int $tid
+   * @param array $tid
    *   The term id.
    * @param bool $translationCheck
    *   Whether to request translations.
    *
-   * @return array
+   * @return array|object
    *   Return all tid data.
    */
-  protected function getTaxonomyTerm(int $tid, bool $translationCheck = TRUE): array {
+  protected function getTaxonomyTerm(array $tid, bool $translationCheck = TRUE) {
     $connection = Database::getConnection('default', 'migrate');
     $query = $connection->select('taxonomy_term_data', 'ttd')
       ->fields('ttd', [
