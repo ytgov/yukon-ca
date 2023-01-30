@@ -1,8 +1,9 @@
-uuid: 5e120ad5-90af-4409-998e-89e52c8bbe47
+uuid: 5f0656f8-34ff-4e95-8b60-96fe9d83cd9f
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.tertiary_item_blocks
     - field.field.node.landing_page.field_department_term
     - field.field.node.landing_page.field_light_svg_upload
     - field.field.node.landing_page.field_opener_description
@@ -17,10 +18,10 @@ dependencies:
   module:
     - entity_reference_revisions
     - user
-id: node.landing_page.default
+id: node.landing_page.tertiary_item_blocks
 targetEntityType: node
 bundle: landing_page
-mode: default
+mode: tertiary_item_blocks
 content:
   field_light_svg_upload:
     type: entity_reference_entity_view
@@ -29,7 +30,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
@@ -38,25 +39,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_secondary_content:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_svg_upload:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   addtoany: true
@@ -64,6 +47,8 @@ hidden:
   field_opener_description: true
   field_page_description: true
   field_redirection: true
+  field_secondary_content: true
+  field_svg_upload: true
   field_target_content: true
   field_yukon_editorial_team: true
   langcode: true
