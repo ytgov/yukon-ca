@@ -27,12 +27,7 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   addtoany: true
@@ -44,4 +39,5 @@ hidden:
   field_tertiary_item_blocks: true
   field_yukon_editorial_team: true
   langcode: true
+  links: true
   search_api_excerpt: true
