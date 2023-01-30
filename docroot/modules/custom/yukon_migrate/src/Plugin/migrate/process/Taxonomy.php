@@ -126,10 +126,10 @@ class Taxonomy extends ProcessPluginBase {
   /**
    * Get vocabulary.
    *
-   * @param $field
+   * @param  string  $field
    *   The field to get vocabulary for.
    */
-  protected function getVocabulary($field): string {
+  protected function getVocabulary(string $field): string {
     $vocabulary = '';
 
     if ($field === 'field_yukon_editorial_team') {
@@ -152,14 +152,17 @@ class Taxonomy extends ProcessPluginBase {
   }
 
   /**
-   * Get informaiton about the requested term.
+   * Get information about the requested term.
    *
-   * @param $tid
+   * @param  int  $tid
    *   The term id.
+   * @param  bool  $translationCheck
+   *   Whether to request translations.
    *
    * @return array
+   *   Return all tid data.
    */
-  protected function getTaxonomyTerm($tid, $translationCheck = TRUE) {
+  protected function getTaxonomyTerm(int $tid, bool $translationCheck = TRUE): array {
     $connection = Database::getConnection('default', 'migrate');
     $query = $connection->select('taxonomy_term_data', 'ttd')
       ->fields('ttd', [
