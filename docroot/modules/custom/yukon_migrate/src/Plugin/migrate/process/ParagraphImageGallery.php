@@ -88,27 +88,44 @@ class ParagraphImageGallery extends ProcessPluginBase {
       $paragraphs = [];
 
       foreach ($results as $result) {
-        $paragraph = Paragraph::create([
+        $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
           'type' => 'image_gallery',
           'parent_id' => $nodeId,
-          'parent_type' => 'node',
+          'parent_type' => 'node'
         ]);
-        $paragraph->save();
+        $paragraph = reset($paragraph);
 
-        // Create Media.
-        $imageMedia = Media::create([
+        if (empty($paragraph)) {
+          $paragraph = Paragraph::create([
+            'type' => 'image_gallery',
+            'parent_id' => $nodeId,
+            'parent_type' => 'node',
+          ]);
+          $paragraph->save();
+        }
+
+        $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
           'name' => $result->filename,
-          'bundle' => 'image',
-          'uid' => 1,
-          'langcode' => 'en',
-          'status' => 1,
-          'field_media_image' => [
-            'target_id' => $result->field_slide_image_fid,
-            'alt' => $result->field_slide_image_alt,
-            'title' => $result->field_slide_image_title,
-          ],
+          'field_media_image' => ['target_id' => $result->field_slide_image_fid],
         ]);
-        $imageMedia->save();
+        $imageMedia = reset($imageMedia);
+
+        if (empty($imageMedia)) {
+          // Create Media.
+          $imageMedia = Media::create([
+            'name' => $result->filename,
+            'bundle' => 'image',
+            'uid' => 1,
+            'langcode' => $node['language'],
+            'status' => 1,
+            'field_media_image' => [
+              'target_id' => $result->field_slide_image_fid,
+              'alt' => $result->field_slide_image_alt,
+              'title' => $result->field_slide_image_title,
+            ],
+          ]);
+          $imageMedia->save();
+        }
 
         // Populate fields.
         $paragraph->field_title->value = $result->title_field_value;
