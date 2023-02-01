@@ -50,7 +50,7 @@ class Taxonomy extends ProcessPluginBase {
     $node = $row->getSource();
     $taxonomyField = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
     $vocabulary = $this->getVocabulary($destination_property);
-    if (!empty($taxonomyField)) {
+    if (!empty($vocabulary) && !empty($taxonomyField)) {
       if (!is_array($taxonomyField)) {
         $taxonomyField = explode(',', $taxonomyField);
       }

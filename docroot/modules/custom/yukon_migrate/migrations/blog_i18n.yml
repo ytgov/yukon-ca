@@ -8,14 +8,13 @@ migration_group: legacy
 source:
   plugin: d7_node_entity_translation
   node_type: blog
-  constants:
-    uid_root: 1
 destination:
   plugin: entity:node
   translations: true
   destination_module: content_translation
 process:
-  uid: constants/uid_root
+  uid:
+    plugin: kellett_author
   nid:
     plugin: migration_lookup
     migration: blog

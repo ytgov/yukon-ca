@@ -32,7 +32,6 @@ class NodeReference extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE) . '</code></pre>');
     $fieldReference = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
     if (!empty($fieldReference)) {
       if (!is_array($fieldReference)) {

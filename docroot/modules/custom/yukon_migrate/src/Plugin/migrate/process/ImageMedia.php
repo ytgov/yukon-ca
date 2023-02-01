@@ -33,7 +33,11 @@ class ImageMedia extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
     $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : NULL;
-    if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image')) {
+    if ($node['type'] === 'event' && $destination_property === 'field_featured_image') {
+      $imageField = !empty($node['field_feature_image']) ? $node['field_feature_image'][0] : NULL;
+      $destination_property = 'field_feature_image';
+    }
+    if (!empty($imageField) && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image' || $destination_property === 'field_feature_image')) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('field_data_' . $destination_property, 'svg')
         ->fields('svg', [
