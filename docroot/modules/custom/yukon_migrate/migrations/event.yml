@@ -1,4 +1,4 @@
-id: event_1
+id: event
 label: Event
 migration_tags:
   - Drupal 7
@@ -53,12 +53,12 @@ process:
            source: rrule
   field_contact_name: field_contact_name
   field_contact_email: field_contact_email
+  field_postal_code: field_postal_code
+  field_contact_phone: field_contact_phone
   field_building_name:
     plugin: node_reference
   field_event_street_address: field_event_street_address/0/value
   field_event_locality_town: field_event_locality_town/0/value
-  field_postal_code: field_postal_code
-  field_contact_phone: field_contact_phone
   field_cost: field_cost
   field_event_description/value: field_event_description/0/value
   field_event_description/format:
