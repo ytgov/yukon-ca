@@ -1,32 +1,24 @@
-uuid: 6f60dbb7-b2af-417d-ab82-dd669e9a3a57
+uuid: e946da4a-c23c-4ba3-95b3-aeec63c5bcb7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.icon.field_media_image
-    - image.style.thumbnail
-    - media.type.icon
+    - taxonomy.vocabulary.teams
   module:
     - path
-    - svg_image
-id: media.icon.default
-targetEntityType: media
-bundle: icon
+    - text
+id: taxonomy_term.teams.default
+targetEntityType: taxonomy_term
+bundle: teams
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_media_image:
-    type: image_image
+  description:
+    type: text_textfield
     weight: 0
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -55,16 +47,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
 hidden:
   publish_on: true

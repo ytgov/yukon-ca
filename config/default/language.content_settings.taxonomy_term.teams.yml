@@ -1,0 +1,11 @@
+uuid: e4f51fa6-5cf0-43ef-917e-53b4d76ff35f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.teams
+id: taxonomy_term.teams
+target_entity_type_id: taxonomy_term
+target_bundle: teams
+default_langcode: site_default
+language_alterable: false

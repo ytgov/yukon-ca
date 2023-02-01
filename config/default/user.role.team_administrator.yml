@@ -1,0 +1,33 @@
+uuid: a56cab3a-05bd-4ea2-a584-61ebfc84d307
+langcode: en
+status: true
+dependencies:
+  module:
+    - contextual
+    - linkchecker
+    - node
+    - system
+    - taxonomy
+    - toolbar
+    - workbench_access
+id: team_administrator
+label: 'Team Administrator'
+weight: 8
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access broken links report'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access own broken links report'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'administer taxonomy'
+  - 'administer users'
+  - 'administer workbench access'
+  - 'assign workbench access'
+  - 'batch update workbench access'
+  - 'use workbench access'
+  - 'view own unpublished content'
+  - 'view the administration theme'
+  - 'view workbench access information'

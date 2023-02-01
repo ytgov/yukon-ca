@@ -1,4 +1,4 @@
-uuid: 21298e9b-6a58-4a03-9cc1-3e05ad06e0ff
+uuid: af555d80-b48f-4414-80d1-db726d877bf4
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - workflows.workflow.content
   module:
     - content_moderation
+    - content_translation
     - contextual
-    - linkchecker
     - media
     - node
     - path
@@ -15,34 +15,31 @@ dependencies:
     - toolbar
     - workbench
     - workbench_access
-_core:
-  default_config_hash: H8MY_pPcZMyZXWNSTIM6k6mFVBBC4NzSivjPuHhNYXo
-id: editor
-label: Editor
-weight: 4
+id: blog_author
+label: 'Blog Author'
+weight: 13
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
-  - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'administer menu'
   - 'administer nodes'
   - 'create media'
   - 'create url aliases'
+  - 'translate any entity'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'
-  - 'view any unpublished content'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view workbench access information'
