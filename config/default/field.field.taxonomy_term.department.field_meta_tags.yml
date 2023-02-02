@@ -1,0 +1,26 @@
+uuid: 5a0d3913-08c1-44ad-9cd9-4b777937363b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_meta_tags
+    - taxonomy.vocabulary.department
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.department.field_meta_tags
+field_name: field_meta_tags
+entity_type: taxonomy_term
+bundle: department
+label: 'Meta tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

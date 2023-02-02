@@ -1,0 +1,14 @@
+entity_type_groups:
+  taxonomy_term:
+    department:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+tag_trim_method: beforeValue
+tag_trim_maxlength:
+  metatag_maxlength_title: null
+  metatag_maxlength_description: null
+  metatag_maxlength_abstract: null
+  metatag_maxlength_dcterms_title: null
+  metatag_maxlength_dcterms_description: null
+tag_scroll_max_height: ''

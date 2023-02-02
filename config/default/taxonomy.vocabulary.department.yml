@@ -1,4 +1,4 @@
-uuid: a2a4c6fa-5cb7-4786-a21a-e5fe8676999c
+uuid: 3a764432-063a-4a83-8cb0-5ccc0816ff6a
 langcode: en
 status: true
 dependencies:
@@ -18,7 +18,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: Teams
-vid: teams
+name: Department
+vid: department
 description: ''
 weight: 0
