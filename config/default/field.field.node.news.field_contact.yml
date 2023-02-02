@@ -1,0 +1,26 @@
+uuid: d8233cef-7361-48e8-a1a7-6d8199536335
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.news
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_contact
+field_name: field_contact
+entity_type: node
+bundle: news
+label: Contact
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

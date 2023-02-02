@@ -4,8 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.node.blog.body
+    - field.field.node.blog.field_blog_type
+    - field.field.node.blog.field_category_term
+    - field.field.node.blog.field_contact
+    - field.field.node.blog.field_department_term
+    - field.field.node.blog.field_featured_image
+    - field.field.node.blog.field_page_description
+    - field.field.node.blog.field_social_sharing
+    - field.field.node.blog.field_subcategory
+    - field.field.node.blog.field_svg_upload
+    - field.field.node.blog.field_yukon_editorial_team
     - node.type.blog
   module:
+    - media_library
     - path
     - text
 id: node.blog.default
@@ -15,7 +26,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -25,20 +36,91 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_blog_type:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_category_term:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_department_term:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_page_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_social_sharing:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_subcategory:
+    type: entity_reference_autocomplete_tags
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_svg_upload:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_yukon_editorial_team:
+    type: options_select
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 12
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -51,7 +133,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 19
     region: content
     settings:
       display_label: true
@@ -65,7 +147,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -73,7 +155,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -82,7 +164,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }

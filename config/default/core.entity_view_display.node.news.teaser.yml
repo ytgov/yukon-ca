@@ -1,0 +1,61 @@
+uuid: a937a5d4-b07d-44d2-bd5d-6e82cceffd81
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news.body
+    - field.field.node.news.field_backgrounder
+    - field.field.node.news.field_category_term
+    - field.field.node.news.field_charts
+    - field.field.node.news.field_contact
+    - field.field.node.news.field_department_term
+    - field.field.node.news.field_featured_image
+    - field.field.node.news.field_featured_news_item
+    - field.field.node.news.field_featured_to_homepage
+    - field.field.node.news.field_news_quote
+    - field.field.node.news.field_news_release
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_page_description
+    - field.field.node.news.field_quick_facts
+    - field.field.node.news.field_related_link
+    - field.field.node.news.field_social_sharing
+    - field.field.node.news.field_yukon_editorial_team
+    - node.type.news
+  module:
+    - text
+    - user
+id: node.news.teaser
+targetEntityType: node
+bundle: news
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_backgrounder: true
+  field_category_term: true
+  field_charts: true
+  field_contact: true
+  field_department_term: true
+  field_featured_image: true
+  field_featured_news_item: true
+  field_featured_to_homepage: true
+  field_news_quote: true
+  field_news_release: true
+  field_news_type: true
+  field_page_description: true
+  field_quick_facts: true
+  field_related_link: true
+  field_social_sharing: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

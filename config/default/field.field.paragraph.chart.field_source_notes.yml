@@ -1,0 +1,28 @@
+uuid: f877d7f2-abad-4f26-858a-1819423fde1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_source_notes
+    - paragraphs.paragraphs_type.chart
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.chart.field_source_notes
+field_name: field_source_notes
+entity_type: paragraph
+bundle: chart
+label: 'Source and notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

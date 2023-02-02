@@ -1,0 +1,25 @@
+uuid: e564ef41-7663-4202-81f7-4ee29a661e60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_highlighted_stat
+    - paragraphs.paragraphs_type.chart
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.chart.field_highlighted_stat
+field_name: field_highlighted_stat
+entity_type: paragraph
+bundle: chart
+label: 'Highlighted stat'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

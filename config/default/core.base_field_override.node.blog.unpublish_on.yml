@@ -1,0 +1,18 @@
+uuid: fcfa75bd-3c7e-4271-b002-f2cc17962a80
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.blog
+id: node.blog.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: blog
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

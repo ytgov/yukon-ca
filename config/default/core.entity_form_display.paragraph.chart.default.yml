@@ -1,0 +1,56 @@
+uuid: 8083650d-f7c2-4de4-8b40-9f6d0a117479
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.chart.field_chart_data
+    - field.field.paragraph.chart.field_chart_description
+    - field.field.paragraph.chart.field_highlighted_stat
+    - field.field.paragraph.chart.field_source_notes
+    - paragraphs.paragraphs_type.chart
+  module:
+    - text
+id: paragraph.chart.default
+targetEntityType: paragraph
+bundle: chart
+mode: default
+content:
+  field_chart_data:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_chart_description:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_highlighted_stat:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_source_notes:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
