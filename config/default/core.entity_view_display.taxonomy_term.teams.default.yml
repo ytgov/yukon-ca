@@ -1,0 +1,32 @@
+uuid: eccc30a0-61ce-4860-a2eb-897ca1756968
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.teams.field_meta_tags
+    - taxonomy.vocabulary.teams
+  module:
+    - metatag
+    - text
+id: taxonomy_term.teams.default
+targetEntityType: taxonomy_term
+bundle: teams
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
