@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "211f46ace879c85326e69c757025ae35",
+    "content-hash": "f23903c7e036becbc061c99fb450eaf8",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4804,6 +4804,72 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/link_attributes",
                 "issues": "https://www.drupal.org/project/issues/link_attributes"
+            }
+        },
+        {
+            "name": "drupal/linkchecker",
+            "version": "2.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/linkchecker.git",
+                "reference": "2.0.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/linkchecker-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "ee0a058ca14a776284fdc3f784f5edac01a5ded3"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10.0",
+                "drupal/dynamic_entity_reference": "^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "drupal/redirect": "^1.8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1674444668",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/u/hass"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/243795/committers"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "Periodically checks for broken links in node types, blocks and fields and reports the results.",
+            "homepage": "https://www.drupal.org/project/linkchecker",
+            "support": {
+                "source": "https://git.drupal.org/project/linkchecker.git",
+                "issues": "https://www.drupal.org/project/issues/linkchecker"
             }
         },
         {
@@ -13840,22 +13906,6 @@
             "type": "drupal-module"
         },
         {
-            "name": "yukon/linkchecker",
-            "version": "8.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/linkchecker",
-                "reference": "8.x-1.x"
-            },
-            "require": {
-                "drupal/dynamic_entity_reference": "^3.0 || ^4.0"
-            },
-            "require-dev": {
-                "drupal/redirect": "^1.8"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "yukon/maxlength",
             "version": "2.x-dev",
             "source": {
@@ -14680,6 +14730,7 @@
         "drupal/feeds": 10,
         "drupal/feeds_tamper": 10,
         "drupal/focal_point": 15,
+        "drupal/linkchecker": 15,
         "drupal/linkit": 20,
         "drupal/page_manager": 5,
         "drupal/scheduler": 5,
@@ -14689,7 +14740,6 @@
         "drupal/workbench_access": 20,
         "yukon/conditional_fields": 20,
         "yukon/geophp": 20,
-        "yukon/linkchecker": 20,
         "yukon/maxlength": 20,
         "yukon/module_missing_message_fixer": 20,
         "yukon/pathologic": 20
