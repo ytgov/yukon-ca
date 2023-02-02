@@ -191,10 +191,10 @@ function webform_jqueryui_datepicker_webform_element_alter(array &$element, Form
   }
 
   // DateTime element.
-  if ($element_plugin instanceof DateTime) {
-    if (($element['#date_date_element']) == 'datepicker') {
-      $element['#attached']['library'][] = 'webform_jqueryui_datepicker/webform_jqueryui_datepicker.element';
-    }
+  if ($element_plugin instanceof DateTime
+    && isset($element['#date_date_element'])
+    && $element['#date_date_element'] === 'datepicker') {
+    $element['#attached']['library'][] = 'webform_jqueryui_datepicker/webform_jqueryui_datepicker.element';
   }
 }
 

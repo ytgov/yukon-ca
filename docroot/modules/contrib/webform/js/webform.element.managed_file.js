@@ -70,7 +70,8 @@
     },
     detach: function detach(context, settings, trigger) {
       if (trigger === 'unload') {
-        $(context).find('input[type="file"]').removeOnce('webform-auto-file-upload').each(function () {
+        const removedElements = once.remove('webform-auto-file-upload', 'input[type="file"]', context);
+        $(removedElements).each(function () {
           if ($(this).data('webform-auto-file-upload')) {
             // Remove file upload tracking.
             $(this).removeData('webform-auto-file-upload');

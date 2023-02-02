@@ -34,6 +34,13 @@ class WebformElementTest extends WebformElementBrowserTestBase {
     $assert_session->fieldValueEquals('subject', '');
     $assert_session->fieldValueEquals('message', '');
 
+    // Check webform lazy render.
+    $this->drupalGet('/webform_test_element', ['query' => ['lazy' => TRUE]]);
+    $assert_session->fieldValueEquals('email', '');
+    $assert_session->fieldValueEquals('name', '');
+    $assert_session->fieldValueEquals('subject', '');
+    $assert_session->fieldValueEquals('message', '');
+
     // Check webform default data.
     $this->drupalGet('/webform_test_element', ['query' => ['default_data' => 'email: test']]);
     $assert_session->fieldValueEquals('email', 'test');

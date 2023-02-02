@@ -1,6 +1,6 @@
 (function($, Drupal, drupalSettings) {
 
-  Drupal.behaviors.leaflet = {
+    Drupal.behaviors.leaflet = {
     attach: function(context, settings) {
 
       // For each Leaflet Map/id defined process with Leaflet Map and Features
@@ -10,7 +10,11 @@
           let map_container = $(this);
           let mapid = data.mapid;
 
-          // If the attached context contains any leaflet maps, make sure we have a Drupal.leaflet_widget object.
+          // Process a new Leaflet Map only if the map container is empty.
+          // Avoid reprocessing a Leaflet Mao already initialised.
+          // This could happen with Big Pipe that triggers Drupal Behaviours
+          // more than once
+          // @see https://www.drupal.org/project/leaflet/issues/3337537
           if (map_container.data('leaflet') === undefined) {
             map_container.data('leaflet', new Drupal.Leaflet(L.DomUtil.get(mapid), mapid, data.map));
             if (data.features.length > 0) {
@@ -27,117 +31,110 @@
 
             // Set initial Map position to wrap its defined bounds.
             map_container.data('leaflet').fitBounds();
-          }
 
-          else {
-            // If we already had a map instance, add new features.
-            // @TODO Does this work? Needs testing.
-            if (data.features !== undefined) {
-              map_container.data('leaflet').add_features(data.features);
-            }
-          }
-
-          // Set the start center and the start zoom.
-          if (!map_container.data('leaflet').start_center && !map_container.data('leaflet').start_zoom) {
-            map_container.data('leaflet').start_center = map_container.data('leaflet').lMap.getCenter();
-            map_container.data('leaflet').start_zoom = map_container.data('leaflet').lMap.getZoom();
-          }
-
-          // Define the global Drupal.Leaflet[mapid] object to be accessible
-          // from outside - NOTE: This should always be created after setting
-          // the (above) start center.
-          Drupal.Leaflet[mapid] = map_container.data('leaflet');
-
-          // Add the Map Geocoder Control if requested.
-          if (!Drupal.Leaflet[mapid].geocoder_control && Drupal.Leaflet.prototype.map_geocoder_control) {
-            let mapGeocoderControlDiv = document.createElement('div');
-            Drupal.Leaflet[mapid].geocoder_control = Drupal.Leaflet.prototype.map_geocoder_control(mapGeocoderControlDiv, mapid).addTo(Drupal.Leaflet[mapid].lMap);
-            let geocoder_settings = drupalSettings.leaflet[mapid].map.settings.geocoder.settings;
-            Drupal.Leaflet.prototype.map_geocoder_control.autocomplete(mapid, geocoder_settings);
-          }
-
-          // Add the Layers Control, if initialised/existing.
-          if (Drupal.Leaflet[mapid].layer_control) {
-            Drupal.Leaflet[mapid].lMap.addControl(Drupal.Leaflet[mapid].layer_control);
-          }
-
-          // Add and Initialise the Map Reset View Control if requested.
-          if (!Drupal.Leaflet[mapid].reset_view_control && map_container.data('leaflet').map_settings.reset_map && map_container.data('leaflet').map_settings.reset_map.control) {
-            let map_reset_view_options = map_container.data('leaflet').map_settings.reset_map.options ? JSON.parse(map_container.data('leaflet').map_settings.reset_map.options) : {};
-            map_reset_view_options.latlng = map_container.data('leaflet').start_center;
-            map_reset_view_options.zoom = map_container.data('leaflet').start_zoom;
-            Drupal.Leaflet[mapid].reset_view_control = L.control.resetView(map_reset_view_options).addTo(map_container.data('leaflet').lMap);
-          }
-
-          // Add the Locate Control if requested.
-          if (!Drupal.Leaflet[mapid].locate_control && map_container.data('leaflet').map_settings.locate && map_container.data('leaflet').map_settings.locate.control) {
-            let locate_options = map_container.data('leaflet').map_settings.locate.options ? JSON.parse(map_container.data('leaflet').map_settings.locate.options) : {};
-            Drupal.Leaflet[mapid].locate_control = L.control.locate(locate_options).addTo(map_container.data('leaflet').lMap);
-
-            // In case this Leaflet Map is not in a Widget Context, eventually perform the Automatic User Locate, if requested.
-            if (!data.hasOwnProperty('leaflet_widget') && map_container.data('leaflet').map_settings.hasOwnProperty('locate') && map_container.data('leaflet').map_settings.locate.automatic) {
-              Drupal.Leaflet[mapid].locate_control.start();
-            }
-          }
-
-          // Add Fullscreen Control, if requested.
-          if (!Drupal.Leaflet[mapid].fullscreen_control &&  map_container.data('leaflet').map_settings.fullscreen && map_container.data('leaflet').map_settings.fullscreen.control) {
-            let map_fullscreen_options = map_container.data('leaflet').map_settings.fullscreen.options ? JSON.parse(map_container.data('leaflet').map_settings.fullscreen.options) : {};
-            Drupal.Leaflet[mapid].fullscreen_control = L.control.fullscreen(
-              map_fullscreen_options
-            ).addTo(map_container.data('leaflet').lMap);
-          }
-
-          // Attach Leaflet Map listeners On Popup Open.
-          data.lMap.on('popupopen', function(e) {
-
-            // On leaflet-ajax-popup selector, fetch and set Ajax content.
-            let element = e.popup._contentNode;
-            let content = $('[data-leaflet-ajax-popup]', element);
-            if (content.length) {
-              let url = content.data('leaflet-ajax-popup');
-              Drupal.ajax({url: url}).execute().done(function () {
-
-                // Copy the html we received via AJAX to the popup, so we won't
-                // have to make another AJAX call (#see 3258780).
-                e.popup.setContent(element.innerHTML);
-
-                // Attach drupal behaviors on new content.
-                Drupal.attachBehaviors(element, drupalSettings);
-              }).
-              // In case of failing fetching data.
-              fail(function() {
-                e.popup.close();
-              });
+            // Set the start center and the start zoom.
+            if (!map_container.data('leaflet').start_center && !map_container.data('leaflet').start_zoom) {
+              map_container.data('leaflet').start_center = map_container.data('leaflet').lMap.getCenter();
+              map_container.data('leaflet').start_zoom = map_container.data('leaflet').lMap.getZoom();
             }
 
-            // Make the (eventually present) Tooltip disappear on Popup Open
-            // in case the Popup is generated from a _source.
-            if (e.popup._source) {
-              let tooltip = e.popup._source.getTooltip();
-              // not all features will have tooltips!
-              if (tooltip) {
-                // use opacity to make the tooltip disappear.
-                e.popup._source.getTooltip().setOpacity(0);
+            // Define the global Drupal.Leaflet[mapid] object to be accessible
+            // from outside - NOTE: This should always be created after setting
+            // the (above) start center.
+            Drupal.Leaflet[mapid] = map_container.data('leaflet');
+
+            // Add the Map Geocoder Control if requested.
+            if (!Drupal.Leaflet[mapid].geocoder_control && Drupal.Leaflet.prototype.map_geocoder_control) {
+              let mapGeocoderControlDiv = document.createElement('div');
+              Drupal.Leaflet[mapid].geocoder_control = Drupal.Leaflet.prototype.map_geocoder_control(mapGeocoderControlDiv, mapid);
+              Drupal.Leaflet[mapid].geocoder_control.addTo(Drupal.Leaflet[mapid].lMap)
+              let geocoder_settings = drupalSettings.leaflet[mapid].map.settings.geocoder.settings;
+              Drupal.Leaflet.prototype.map_geocoder_control.autocomplete(mapid, geocoder_settings);
+            }
+
+            // Add the Layers Control, if initialised/existing.
+            if (Drupal.Leaflet[mapid].layer_control) {
+              Drupal.Leaflet[mapid].lMap.addControl(Drupal.Leaflet[mapid].layer_control);
+            }
+
+            // Add and Initialise the Map Reset View Control if requested.
+            if (!Drupal.Leaflet[mapid].reset_view_control && map_container.data('leaflet').map_settings.reset_map && map_container.data('leaflet').map_settings.reset_map.control) {
+              let map_reset_view_options = map_container.data('leaflet').map_settings.reset_map.options ? JSON.parse(map_container.data('leaflet').map_settings.reset_map.options) : {};
+              map_reset_view_options.latlng = map_container.data('leaflet').start_center;
+              map_reset_view_options.zoom = map_container.data('leaflet').start_zoom;
+              Drupal.Leaflet[mapid].reset_view_control = L.control.resetView(map_reset_view_options).addTo(map_container.data('leaflet').lMap);
+            }
+
+            // Add the Locate Control if requested.
+            if (!Drupal.Leaflet[mapid].locate_control && map_container.data('leaflet').map_settings.locate && map_container.data('leaflet').map_settings.locate.control) {
+              let locate_options = map_container.data('leaflet').map_settings.locate.options ? JSON.parse(map_container.data('leaflet').map_settings.locate.options) : {};
+              Drupal.Leaflet[mapid].locate_control = L.control.locate(locate_options).addTo(map_container.data('leaflet').lMap);
+
+              // In case this Leaflet Map is not in a Widget Context, eventually perform the Automatic User Locate, if requested.
+              if (!data.hasOwnProperty('leaflet_widget') && map_container.data('leaflet').map_settings.hasOwnProperty('locate') && map_container.data('leaflet').map_settings.locate.automatic) {
+                Drupal.Leaflet[mapid].locate_control.start();
               }
             }
-          });
 
-          // Attach Leaflet Map listeners On Popup Close.
-          data.lMap.on('popupclose', function (e) {
-            // Make the (eventually present) Tooltip re-appear on Popup Close.
-            // in case the Popup is generated from a _source.
-            if (e.popup._source) {
-              let tooltip = e.popup._source.getTooltip();
-              if (tooltip) tooltip.setOpacity(0.9);
+            // Add Fullscreen Control, if requested.
+            if (!Drupal.Leaflet[mapid].fullscreen_control &&  map_container.data('leaflet').map_settings.fullscreen && map_container.data('leaflet').map_settings.fullscreen.control) {
+              let map_fullscreen_options = map_container.data('leaflet').map_settings.fullscreen.options ? JSON.parse(map_container.data('leaflet').map_settings.fullscreen.options) : {};
+              Drupal.Leaflet[mapid].fullscreen_control = L.control.fullscreen(
+                map_fullscreen_options
+              ).addTo(map_container.data('leaflet').lMap);
             }
-          });
 
-          // NOTE: don't change this trigger arguments print, for back porting
-          // compatibility.
-          $(document).trigger('leafletMapInit', [data.map, data.lMap, mapid, data.markers]);
-          // (Keep also the pre-existing event for back port compatibility)
-          $(document).trigger('leaflet.map', [data.map, data.lMap, mapid, data.markers]);
+            // Attach Leaflet Map listeners On Popup Open.
+            data.lMap.on('popupopen', function(e) {
+
+              // On leaflet-ajax-popup selector, fetch and set Ajax content.
+              let element = e.popup._contentNode;
+              let content = $('[data-leaflet-ajax-popup]', element);
+              if (content.length) {
+                let url = content.data('leaflet-ajax-popup');
+                Drupal.ajax({url: url}).execute().done(function () {
+
+                  // Copy the html we received via AJAX to the popup, so we won't
+                  // have to make another AJAX call (#see 3258780).
+                  e.popup.setContent(element.innerHTML);
+
+                  // Attach drupal behaviors on new content.
+                  Drupal.attachBehaviors(element, drupalSettings);
+                }).
+                  // In case of failing fetching data.
+                  fail(function() {
+                    e.popup.close();
+                  });
+              }
+
+              // Make the (eventually present) Tooltip disappear on Popup Open
+              // in case the Popup is generated from a _source.
+              if (e.popup._source) {
+                let tooltip = e.popup._source.getTooltip();
+                // not all features will have tooltips!
+                if (tooltip) {
+                  // use opacity to make the tooltip disappear.
+                  e.popup._source.getTooltip().setOpacity(0);
+                }
+              }
+            });
+
+            // Attach Leaflet Map listeners On Popup Close.
+            data.lMap.on('popupclose', function (e) {
+              // Make the (eventually present) Tooltip re-appear on Popup Close.
+              // in case the Popup is generated from a _source.
+              if (e.popup._source) {
+                let tooltip = e.popup._source.getTooltip();
+                if (tooltip) tooltip.setOpacity(0.9);
+              }
+            });
+
+            // NOTE: don't change this trigger arguments print, for back porting
+            // compatibility.
+            $(document).trigger('leafletMapInit', [data.map, data.lMap, mapid, data.markers]);
+            // (Keep also the pre-existing event for back port compatibility)
+            $(document).trigger('leaflet.map', [data.map, data.lMap, mapid, data.markers]);
+          }
         });
       });
     }
@@ -417,7 +414,7 @@
     if (feature.type === 'point') {
       this.bounds.push([feature.lat, feature.lon]);
     } else {
-     this.bounds.push(lFeature.getBounds().getSouthWest(), lFeature.getBounds().getNorthEast());
+      this.bounds.push(lFeature.getBounds().getSouthWest(), lFeature.getBounds().getNorthEast());
     }
   };
 

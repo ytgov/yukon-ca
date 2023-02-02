@@ -154,26 +154,42 @@ class LibraryDeriver extends AbstractYamlPatternsDeriver {
   /**
    * Create a list of all directories to scan.
    *
-   * This includes all module directories and directories of the default theme
-   * and all of its possible base themes.
+   * This includes all module and theme directories.
    *
    * @return array
    *   An array containing directory paths keyed by their extension name.
    */
   protected function getDirectories() {
-    $default_theme = $this->themeHandler->getDefault();
-    $base_themes = $this->themeHandler->getBaseThemes($this->themeHandler->listInfo(), $default_theme);
-    $theme_directories = $this->themeHandler->getThemeDirectories();
+    // Sort modules list.
+    $module_list = $this->moduleHandler->getModuleList();
+    $module_list = $this->moduleHandler->buildModuleDependencies($module_list);
+    $module_list = $this->sortExtensionList($module_list);
 
-    $directories = [];
-    if (isset($theme_directories[$default_theme])) {
-      $directories[$default_theme] = $theme_directories[$default_theme];
-      foreach (array_keys($base_themes) as $name) {
-        $directories[$name] = $theme_directories[$name];
-      }
-    }
+    // Sort themes list.
+    $theme_list = $this->themeHandler->listInfo();
+    $theme_list = $this->sortExtensionList($theme_list);
 
-    return $directories + $this->moduleHandler->getModuleDirectories();
+    $module_dirs = array_replace($module_list, $this->moduleHandler->getModuleDirectories());
+    $theme_dirs = array_replace($theme_list, $this->themeHandler->getThemeDirectories());
+
+    return $module_dirs + $theme_dirs;
+  }
+
+  /**
+   * Sort an extension list.
+   *
+   * @param \Drupal\Core\Extension\Extension[] $extensions
+   *   The extension list.
+   *
+   * @return string[]
+   *
+   */
+  protected function sortExtensionList(array $extensions) {
+    $extensions_sort = array_map(function ($extension) {
+      return $extension->sort;
+    }, $extensions);
+    arsort($extensions_sort);
+    return array_replace($extensions_sort, $extensions);
   }
 
   /**

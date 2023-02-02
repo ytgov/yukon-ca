@@ -8,9 +8,9 @@ A user may be granted editorial rights to a section specific to their account or
 
 ## Current versions
 
-* Current development is in the 2.x branch, and the next release will be 2.0.0 from that branch. 2.x is Drupal 10 compatible.
-* The stable release is 8.x-1.0. However, this release will no longer receive any development or bugfixes, only support for configuration questions. The 8.x-1.x branch is closed.
-* The 7.x-1.x branch is likewise closed, and release 7.x-1.6 is the final release for Drupal 7.
+* Current development is in the 2.x branch and is Drupal 9 and 10 compatible.
+* 8.x-1.0 still supports Drupal 8, if needed. However, this release will no longer receive any development or bugfixes, only support for configuration questions. The 8.x-1.x branch is closed.
+* The 7.x-1.x branch is likewise closed to new development, and release 7.x-1.6 is the final release for Drupal 7.
 
 
 ## Table of Contents
@@ -260,6 +260,7 @@ parameters:
     - "#Drupal calls should be avoided in classes, use dependency injection instead#"
     # Ignore PHPUnit Prophecy class reflection errors.
     - "#^Call to an undefined method Prophecy#"
+    - "#^Call to deprecated method prophesize#"
   drupal:
     entityMapping:
       access_scheme:

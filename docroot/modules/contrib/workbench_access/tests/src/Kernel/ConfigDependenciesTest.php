@@ -68,7 +68,7 @@ class ConfigDependenciesTest extends KernelTestBase {
     $this->installConfig(['filter', 'node', 'workbench_access', 'system']);
     $this->installEntitySchema('user');
     $this->installEntitySchema('taxonomy_term');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $node_type = $this->createContentType(['type' => 'page']);
     $node_type2 = $this->createContentType(['type' => 'article']);
     $this->vocabulary = $this->setUpVocabulary();

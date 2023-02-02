@@ -81,6 +81,13 @@ class ContentExporter implements ContentExporterInterface {
   protected $languageManager;
 
   /**
+   * The content sync helper.
+   *
+   * @var \Drupal\single_content_sync\ContentSyncHelperInterface
+   */
+  protected $contentSyncHelper;
+
+  /**
    * ContentExporter constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -91,13 +98,16 @@ class ContentExporter implements ContentExporterInterface {
    *   The messenger.
    * @param \Drupal\Core\TempStore\PrivateTempStore $store
    *   The private temp store of the module.
+   * @param \Drupal\single_content_sync\ContentSyncHelperInterface $content_sync_helper
+   *   The configuration factory.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, MessengerInterface $messenger, PrivateTempStore $store, LanguageManagerInterface $language_manager) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, MessengerInterface $messenger, PrivateTempStore $store, LanguageManagerInterface $language_manager, ContentSyncHelperInterface $content_sync_helper) {
     $this->entityTypeManager = $entity_type_manager;
     $this->moduleHandler = $module_handler;
     $this->messenger = $messenger;
     $this->privateTempStore = $store;
     $this->languageManager = $language_manager;
+    $this->contentSyncHelper = $content_sync_helper;
   }
 
   /**
@@ -110,7 +120,8 @@ class ContentExporter implements ContentExporterInterface {
    *   A string representing the entity's cache key.
    */
   protected function generateCacheKey(FieldableEntityInterface $entity): string {
-    return implode('-', [$entity->getEntityTypeId(), $entity->uuid()]);
+    $hasTranslations = $this->extractTranslationsMode ? 'has_trans' : 'no_trans';
+    return implode('-', [$entity->getEntityTypeId(), $entity->uuid(), $hasTranslations]);
   }
 
   /**
@@ -228,7 +239,8 @@ class ContentExporter implements ContentExporterInterface {
     $this->extractTranslationsMode = (bool) $extract_translations;
 
     // Export content to array first.
-    $output = $this->doExportToArray($entity);
+    $output['site_uuid'] = $this->contentSyncHelper->getSiteUuid();
+    $output += $this->doExportToArray($entity);
 
     return Yaml::encode($output);
   }
@@ -346,9 +358,13 @@ class ContentExporter implements ContentExporterInterface {
 
     switch ($field_type) {
       case 'boolean':
+      case 'address':
+      case 'daterange':
       case 'datetime':
       case 'email':
+      case 'geolocation':
       case 'link':
+      case 'telephone':
       case 'timestamp':
       case 'decimal':
       case 'float':
@@ -361,6 +377,7 @@ class ContentExporter implements ContentExporterInterface {
       case 'text_with_summary':
       case 'string':
       case 'string_long':
+      case 'yearonly':
         $value = $field->getValue();
         break;
 

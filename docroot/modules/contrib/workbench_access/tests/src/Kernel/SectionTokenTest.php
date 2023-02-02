@@ -91,7 +91,7 @@ class SectionTokenTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('menu_link_content');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $this->vocabulary = $this->setUpVocabulary();
     $node_type = $this->setUpContentType();
     // Set a field on the node type.

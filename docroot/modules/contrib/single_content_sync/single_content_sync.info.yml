@@ -3,11 +3,11 @@ type: module
 description: 'Export/import a single content between different environments.'
 core_version_requirement: ^9.3 || ^10
 package: Content
-configure: single_content_sync.settings
+configure: single_content_sync.config_settings
 dependencies:
   - drupal:file
 
-# Information added by Drupal.org packaging script on 2022-10-03
-version: '1.3.7'
+# Information added by Drupal.org packaging script on 2023-01-29
+version: '1.3.8'
 project: 'single_content_sync'
-datestamp: 1664786529
+datestamp: 1675022504

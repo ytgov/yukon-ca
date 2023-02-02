@@ -494,7 +494,22 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
     if (isset($this->dataHash)) {
       return $this->dataHash;
     }
-    $this->dataHash = Crypt::hmacBase64(serialize($this->getRawData()), Settings::getHashSalt());
+
+    // Anonymous recursive data massaging function.
+    $massage_data = function (array $array) use (&$massage_data) {
+      foreach ($array as $key => $value) {
+        if (is_object($value)) {
+          unset($array[$key]);
+        }
+        elseif (is_array($value)) {
+          $array[$key] = $massage_data($value);
+        }
+      }
+      return $array;
+    };
+
+    $data = $massage_data($this->getRawData());
+    $this->dataHash = Crypt::hmacBase64(serialize($data), Settings::getHashSalt());
     return $this->dataHash;
   }
 

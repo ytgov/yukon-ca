@@ -62,20 +62,35 @@ class GeofieldLatLonWidget extends GeofieldBaseWidget {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $latlon_value = [];
+    $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
-    foreach ($this->components as $component) {
-      $latlon_value[$component] = isset($items[$delta]->{$component}) ? floatval($items[$delta]->{$component}) : '';
+    /* @var \Drupal\geofield\Plugin\Field\FieldType\GeofieldItem $geofield_item */
+    $geofield_item = $items->getValue()[$delta];
+    if (empty($geofield_item) || $geofield_item['geo_type'] == 'Point') {
+      $latlon_value = [];
+
+      foreach ($this->components as $component) {
+        $latlon_value[$component] = isset($items[$delta]->{$component}) ? floatval($items[$delta]->{$component}) : '';
+      }
+
+      $element['value'] += [
+        '#type' => 'geofield_latlon',
+        '#default_value' => $latlon_value,
+        '#geolocation' => $this->getSetting('html5_geolocation'),
+        '#error_label' => !empty($element['#title']) ? $element['#title'] : $this->fieldDefinition->getLabel(),
+      ];
     }
-
-    $element += [
-      '#type' => 'geofield_latlon',
-      '#default_value' => $latlon_value,
-      '#geolocation' => $this->getSetting('html5_geolocation'),
-      '#error_label' => !empty($element['#title']) ? $element['#title'] : $this->fieldDefinition->getLabel(),
-    ];
-
-    return ['value' => $element];
+    else {
+      $widget_label = $this->getPluginDefinition()['label']->render();
+      $element['value'] += [
+        '#prefix' => '<div class="geofield-warning">' . $this->t('The "@widget_label" widget cannot be applied because it doesn\'t support Geometries (Polylines, Polygons, etc.).', [
+          '@widget_label' => $widget_label,
+        ]) . '</div>',
+        '#type' => 'textarea',
+        '#default_value' => $items[$delta]->value ?: NULL,
+      ];
+    }
+    return $element;
   }
 
   /**

@@ -94,6 +94,7 @@ class UserSectionStorage implements UserSectionStorageInterface {
     $query = $this->sectionStorage()->getAggregateQuery()
       ->condition('access_scheme', $scheme->id())
       ->condition('user_id', $account->id())
+      ->accessCheck(FALSE)
       ->groupBy('section_id')->execute();
     $list = array_column($query, 'section_id');
     return $list;
@@ -161,6 +162,7 @@ class UserSectionStorage implements UserSectionStorageInterface {
     $query = $this->sectionStorage()->getAggregateQuery()
       ->condition('access_scheme', $scheme->id())
       ->condition('section_id', $id)
+      ->accessCheck(FALSE)
       ->groupBy('user_id.target_id')
       ->groupBy('user_id.entity.name');
     $data = $query->execute();
@@ -186,7 +188,7 @@ class UserSectionStorage implements UserSectionStorageInterface {
       return [];
     }
 
-    $query = $this->userStorage()->getQuery();
+    $query = $this->userStorage()->getQuery()->accessCheck(FALSE);
     $query->condition('status', 1)->sort('name');
     if (!in_array(AccountInterface::AUTHENTICATED_ROLE, $rids, TRUE)) {
       $query->condition('roles', $rids, 'IN');

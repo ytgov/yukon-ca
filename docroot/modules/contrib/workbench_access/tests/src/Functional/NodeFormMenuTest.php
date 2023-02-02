@@ -20,12 +20,12 @@ class NodeFormMenuTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'menu_ui',
@@ -120,10 +120,18 @@ class NodeFormMenuTest extends BrowserTestBase {
 
     // Check form handling.
     $web_assert = $this->assertSession();
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
+    $select = $web_assert->elementExists('named',
+      ['select', 'menu[menu_parent]']);
+    // Throughout this test we use ::elementExists' and ::elementNotExists for
+    // testing the presence/absence of options instead of ::optionExists and
+    // ::optionNotExists because the later uses the 'named_exact' selector type,
+    // which requires us to include the '--' prefix used in the menu parent
+    // selector to signify depth.
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
     // Assert we can't see the other options yet.
-    $web_assert->optionNotExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionNotExists('menu[menu_parent]', $super_staff_link->label());
+    $web_assert->elementNotExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementNotExists('named',
+      ['option', $super_staff_link->label()], $select);
 
     // Add the staff role and check the option exists.
     $editor->addRole($staff_rid);
@@ -139,9 +147,10 @@ class NodeFormMenuTest extends BrowserTestBase {
     $this->assertEquals($expected, $existing);
 
     $this->drupalGet('node/add/page');
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionNotExists('menu[menu_parent]', $super_staff_link->label());
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementNotExists('named',
+      ['option', $super_staff_link->label()], $select);
 
     // Add the super staff role and check both options exist.
     $editor->addRole($super_staff_rid);
@@ -157,9 +166,9 @@ class NodeFormMenuTest extends BrowserTestBase {
     $this->assertEquals($expected, $existing);
 
     $this->drupalGet('node/add/page');
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $super_staff_link->label());
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $super_staff_link->label()], $select);
 
     // Add the user to the account menu section.
     $user_storage->addUser($scheme, $editor, ['account']);
@@ -173,7 +182,7 @@ class NodeFormMenuTest extends BrowserTestBase {
     $this->assertEquals(sort($expected2), sort($existing2));
 
     $this->drupalGet('node/add/page');
-    $web_assert->optionExists('menu[menu_parent]', 'account:');
+    $web_assert->elementExists('named', ['option', 'account:'], $select);
 
     // Explicit testing for issue
     // https://www.drupal.org/project/workbench_access/issues/3024159
@@ -181,10 +190,10 @@ class NodeFormMenuTest extends BrowserTestBase {
     // Add the user to the root menu section.
     $user_storage->addUser($scheme, $editor, ['main']);
     $this->drupalGet('node/add/page');
-    $web_assert->optionExists('menu[menu_parent]', 'main:');
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $super_staff_link->label());
+    $web_assert->elementExists('named', ['option', 'main:'], $select);
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $super_staff_link->label()], $select);
 
     // Save the node.
     $edit['title[0][value]'] = 'Test node';
@@ -194,12 +203,12 @@ class NodeFormMenuTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
 
     $this->drupalGet('node/1/edit');
-    $web_assert->optionExists('menu[menu_parent]', 'main:');
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $super_staff_link->label());
+    $web_assert->elementExists('named', ['option', 'main:'], $select);
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $super_staff_link->label()], $select);
     // May not declare self as parent.
-    $web_assert->optionNotExists('menu[menu_parent]', 'Test node');
+    $web_assert->elementNotExists('named', ['option', 'Test node'], $select);
 
     // Explicit test for menu default value not being available.
     // https://www.drupal.org/project/workbench_access/issues/2988119.
@@ -223,11 +232,11 @@ class NodeFormMenuTest extends BrowserTestBase {
     $this->assertEquals(sort($expected3), sort($existing3));
 
     $this->drupalGet('node/add/page');
-    $web_assert->optionNotExists('menu[menu_parent]', 'main:');
-    $web_assert->optionExists('menu[menu_parent]', $base_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $staff_link->label());
-    $web_assert->optionExists('menu[menu_parent]', $super_staff_link->label());
-    $web_assert->optionNotExists('menu[menu_parent]', $deny_link->label());
+    $web_assert->elementNotExists('named', ['option', 'main:'], $select);
+    $web_assert->elementExists('named', ['option', $base_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $staff_link->label()], $select);
+    $web_assert->elementExists('named', ['option', $super_staff_link->label()], $select);
+    $web_assert->elementNotExists('named', ['option', $deny_link->label()], $select);
     $web_assert->responseContains('selected="selected">-- ' . $staff_link->label() . '</option>');
   }
 

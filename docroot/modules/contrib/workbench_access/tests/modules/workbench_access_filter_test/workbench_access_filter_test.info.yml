@@ -5,3 +5,8 @@ type: module
 core_version_requirement: ^8.7.7 || ^9 || ^10
 dependencies:
   - workbench_access
+
+# Information added by Drupal.org packaging script on 2023-01-03
+version: '2.0.0'
+project: 'workbench_access'
+datestamp: 1672771980

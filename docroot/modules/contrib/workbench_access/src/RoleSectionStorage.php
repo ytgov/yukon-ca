@@ -156,6 +156,7 @@ class RoleSectionStorage implements RoleSectionStorageInterface {
     $query = $this->sectionStorage()->getAggregateQuery()
       ->condition('access_scheme', $scheme->id())
       ->condition('section_id', $id)
+      ->accessCheck(FALSE)
       ->groupBy('role_id.target_id')->execute();
     $rids = array_column($query, 'role_id_target_id');
     if (!empty(current($rids))) {

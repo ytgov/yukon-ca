@@ -21,7 +21,7 @@ class MenuSchemeUITest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Admin user.
@@ -33,7 +33,7 @@ class MenuSchemeUITest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'menu_link_content',

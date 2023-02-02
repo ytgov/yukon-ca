@@ -19,7 +19,7 @@ class ViewsFieldMenuTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Test links.

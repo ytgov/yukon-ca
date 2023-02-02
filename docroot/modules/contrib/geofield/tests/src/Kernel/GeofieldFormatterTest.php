@@ -33,7 +33,7 @@ class GeofieldFormatterTest extends EntityKernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['geofield'];
+  protected static $modules = ['geofield'];
 
   /**
    * {@inheritdoc}

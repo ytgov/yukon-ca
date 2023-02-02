@@ -62,7 +62,7 @@ class FlushTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('taxonomy_term');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $node_type = $this->createContentType(['type' => 'page']);
     $this->createContentType(['type' => 'article']);
     $this->vocabulary = $this->setUpVocabulary();

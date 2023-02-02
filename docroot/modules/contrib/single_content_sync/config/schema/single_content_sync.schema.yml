@@ -8,6 +8,11 @@ single_content_sync.settings:
   mapping:
     allowed_entity_types:
       type: sequence
+      label: 'Allowed entity types to export'
       sequence:
-        type: string
-        label: 'Allowed entity types to export'
+        type: sequence
+        sequence:
+          type: boolean
+    site_uuid_check:
+      type: boolean
+      label: 'Site UUID check'

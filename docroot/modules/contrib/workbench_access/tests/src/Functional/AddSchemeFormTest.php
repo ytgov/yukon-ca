@@ -19,7 +19,7 @@ class AddSchemeFormTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Admin user.
@@ -31,7 +31,7 @@ class AddSchemeFormTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'workbench_access_test',
     'menu_link_content',

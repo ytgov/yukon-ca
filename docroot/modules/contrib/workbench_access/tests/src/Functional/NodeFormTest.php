@@ -22,12 +22,12 @@ class NodeFormTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'taxonomy',

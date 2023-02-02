@@ -110,7 +110,10 @@ class Geofield extends FieldTargetBase implements ContainerFactoryPluginInterfac
     if (!empty($coordinates)) {
       $count_of_coordinates = count($coordinates['lat']);
       for ($i = 0; $i < $count_of_coordinates; $i++) {
-        $results[]['value'] = "POINT (" . $coordinates['lon'][$i] . " " . $coordinates['lat'][$i] . ")";
+        // If either Latitude or Longitude is not null/zero then set a POINT.
+        if (!empty($coordinates['lon'][$i]) || !empty($coordinates['lon'][$i])) {
+          $results[]['value'] = "POINT (" . $coordinates['lon'][$i] . " " . $coordinates['lat'][$i] . ")";
+        }
       }
     }
     return $results;

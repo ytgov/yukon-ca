@@ -21,12 +21,12 @@ class DeleteRoleTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'menu_ui',
@@ -114,6 +114,7 @@ class DeleteRoleTest extends BrowserTestBase {
     $query = \Drupal::entityTypeManager()->getStorage('section_association')->getAggregateQuery()
       ->condition('access_scheme', $scheme->id())
       ->condition('section_id', $id)
+      ->accessCheck(FALSE)
       ->groupBy('role_id.target_id')->execute();
     $rids = array_column($query, 'role_id_target_id');
     return array_keys($rids);

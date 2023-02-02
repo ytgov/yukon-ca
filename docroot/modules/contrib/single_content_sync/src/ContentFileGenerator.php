@@ -81,7 +81,7 @@ class ContentFileGenerator implements ContentFileGeneratorInterface {
     $zip_file = $this->generateEmptyZipFile($zip_name);
 
     $zip_file_path = $this->fileSystem->realpath($zip_file->getFileUri());
-    $zip = $this->contentSyncHelper->createZipInstance($zip_file_path);
+    $zip = $this->contentSyncHelper->createZipInstance($zip_file_path, \ZipArchive::OVERWRITE);
 
     // Add exported content to the zip file.
     $content_file_path = $this->fileSystem->realpath($export_file->getFileUri());
@@ -102,7 +102,7 @@ class ContentFileGenerator implements ContentFileGeneratorInterface {
     $zip_file = $this->generateEmptyZipFile($zip_name);
 
     $zip_file_path = $this->fileSystem->realpath($zip_file->getFileUri());
-    $zip = $this->contentSyncHelper->createZipInstance($zip_file_path);
+    $zip = $this->contentSyncHelper->createZipInstance($zip_file_path, \ZipArchive::OVERWRITE);
 
     // Clean up storage with assets before we start exporting a content.
     $this->privateTempStore->delete('export.assets');
@@ -151,6 +151,12 @@ class ContentFileGenerator implements ContentFileGeneratorInterface {
     foreach ($assets as $file_uri) {
       // Add file to the zip.
       $file_full_path = $this->fileSystem->realpath($file_uri);
+
+      // Don't add external files as it can be imported by absolute url.
+      if (!$file_full_path) {
+        continue;
+      }
+
       $file_relative_path = explode('://', $file_uri)[1];
       $zip->getArchive()->addFile($file_full_path, "assets/{$file_relative_path}");
     }

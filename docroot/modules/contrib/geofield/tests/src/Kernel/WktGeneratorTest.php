@@ -63,7 +63,7 @@ class WktGeneratorTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'geofield',
   ];
 

@@ -21,7 +21,7 @@ class GeofieldItemTest extends FieldKernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['geofield'];
+  protected static $modules = ['geofield'];
 
   /**
    * Field storage entity.

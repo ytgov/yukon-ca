@@ -144,17 +144,19 @@ class ContentBulkExportForm extends ConfirmFormBase {
 
     if ($form_state->getValue('confirm')) {
       $allowed_entity_types = $this->configFactory->get('single_content_sync.settings')->get('allowed_entity_types');
-      $entity_types = [];
 
       // Fill an array with entity types to be exported.
+      $disallowed = FALSE;
       foreach ($entities as $entity) {
-        if (!in_array($entity->getEntityTypeId(), $entity_types)) {
-          $entity_types[$entity->getEntityTypeId()] = $entity->getEntityTypeId();
+        $entity_type_id = $entity->getEntityTypeId();
+        if (!isset($allowed_entity_types[$entity_type_id]) || ($allowed_entity_types[$entity_type_id] && !isset($allowed_entity_types[$entity_type_id][$entity->bundle()]))) {
+          $disallowed = TRUE;
+          break;
         }
       }
       // If not all entity types to be exported are part of
       // $allowed_entity_types, abort the export operation.
-      if (array_intersect_assoc($entity_types, $allowed_entity_types) !== $entity_types) {
+      if ($disallowed) {
         $this->messenger()->addError($this->t("The export couldn't be completed since it contains disallowed content. Please check the configuration of the Single Content Sync module, or select only allowed content."));
         $form_state->setRedirect('system.admin_content');
         return;

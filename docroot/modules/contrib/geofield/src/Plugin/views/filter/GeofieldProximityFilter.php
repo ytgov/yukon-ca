@@ -93,6 +93,10 @@ class GeofieldProximityFilter extends NumericFilter {
 
     $options['units'] = ['default' => 'GEOFIELD_KILOMETERS'];
 
+    $options['exposed_units'] = [
+      'default' => FALSE
+    ];
+
     // Default Data sources Info.
     $options['source'] = ['default' => 'geofield_manual_origin'];
     $options['source_configuration'] = [
@@ -285,7 +289,7 @@ class GeofieldProximityFilter extends NumericFilter {
     $source_plugin_id = isset($user_input['options']['source']) ? $user_input['options']['source'] : $this->options['source'];
     $source_plugin_configuration = isset($user_input['options']['source_configuration']) ? $user_input['options']['source_configuration'] : $this->options['source_configuration'];
 
-    $this->proximitySourceManager->buildCommonFormElements($form, $form_state, $context, $this->options['exposed']);
+    $this->proximitySourceManager->buildCommonFormElements($form, $form_state, $this->options, $context);
 
     $form['units']['#default_value'] = isset($user_input['options']['units']) ? $user_input['options']['units'] : $this->options['units'];
     $form['source']['#default_value'] = $source_plugin_id;
@@ -340,6 +344,11 @@ class GeofieldProximityFilter extends NumericFilter {
     $identifier = $this->options['expose']['identifier'];
     $identifier_operator = $form_values[$identifier . '_op'] ?? NULL;
     $which = isset($identifier_operator) && in_array($identifier_operator, $this->operatorValues(2)) ? 'minmax' : 'value';
+
+    // Set/alter the Unit value, if present in the form option.
+    if (isset($form_values["field_geofield_proximity"]["unit"]) ) {
+      $this->options["units"] = $form_values["field_geofield_proximity"]["unit"];
+    }
 
     // Validate the Distance field.
     if ($which !== 'minmax' && isset($form_values[$identifier]['value']) && (!empty($form_values[$identifier]['value']) && !is_numeric($form_values[$identifier]['value']))) {
@@ -439,9 +448,12 @@ class GeofieldProximityFilter extends NumericFilter {
       if (!isset($user_input[$identifier]) || !is_array($user_input[$identifier])) {
         $user_input[$identifier] = [];
       }
-      $units_description = $this->t('Units: @units', [
-        '@units' => isset($user_input['options']['units']) ? $this->geofieldRadiusOptions[$user_input['options']['units']] : $this->geofieldRadiusOptions[$this->options['units']],
-      ]);
+
+      if (isset($this->options["exposed_units"]) && !$this->options["exposed_units"]) {
+        $units_description = $this->t('Units: @units', [
+          '@units' => isset($user_input['options']['units']) ? $this->geofieldRadiusOptions[$user_input['options']['units']] : $this->geofieldRadiusOptions[$this->options['units']],
+        ]);
+      }
 
       if (empty($this->options['expose']['use_operator']) || empty($this->options['expose']['operator_id'])) {
         // Exposed and locked.
@@ -482,7 +494,7 @@ class GeofieldProximityFilter extends NumericFilter {
     if ($which == 'all' || $which == 'minmax') {
       $form['value']['min'] = [
         '#type' => 'textfield',
-        '#title' => $exposed && empty($source) ? $this->valueLabel . ' ' . $this->operator . ' ' . $this->minLabel : (!$exposed ? $this->minLabel : ''),
+        '#title' => $exposed && empty($source) ? $this->valueLabel . ' ' . $this->operator . ' ' . $this->minLabel : (!$exposed ? $this->minLabel : $this->minLabel),
         '#size' => 30,
         '#default_value' => $this->value['min'],
         '#description' => $exposed ? $units_description : '',
@@ -535,6 +547,16 @@ class GeofieldProximityFilter extends NumericFilter {
 
     // Build the specific Geofield Proximity Form Elements.
     if ($exposed && isset($identifier)) {
+
+      // Expose the Units selector, if required.
+      if (isset($this->options["exposed_units"]) && $this->options["exposed_units"]) {
+        $form['value']['unit'] = [
+          '#type' => 'select',
+          '#options' => geofield_radius_options(),
+          '#default_value' => isset($user_input['options']['units']) ? $user_input['options']['units'] : $this->options['units'],
+        ];
+      }
+
       $form['value']['source_configuration'] = [
         '#type' => 'container',
       ];

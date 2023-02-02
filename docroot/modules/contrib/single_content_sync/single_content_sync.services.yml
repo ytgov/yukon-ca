@@ -7,6 +7,7 @@ services:
       - '@messenger'
       - '@single_content_sync.store'
       - '@language_manager'
+      - '@single_content_sync.helper'
 
   single_content_sync.importer:
     class: Drupal\single_content_sync\ContentImporter
@@ -15,7 +16,6 @@ services:
       - '@entity.repository'
       - '@module_handler'
       - '@file_system'
-      - '@file.repository'
       - '@single_content_sync.helper'
 
   single_content_sync.file_generator:
@@ -36,6 +36,7 @@ services:
       - '@entity_type.manager'
       - '@config.factory'
       - '@entity.repository'
+      - '@entity_type.bundle.info'
 
   single_content_sync.store:
     class: \Drupal\Core\TempStore\PrivateTempStore

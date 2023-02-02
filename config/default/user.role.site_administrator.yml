@@ -1,0 +1,116 @@
+uuid: 4e7826bd-54c8-4a43-b0df-6d4118e22bf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.content
+  module:
+    - block
+    - comment
+    - content_moderation
+    - content_translation
+    - contextual
+    - field_ui
+    - filter
+    - image
+    - language
+    - linkchecker
+    - linkit
+    - media
+    - menu_link_attributes
+    - metatag
+    - node
+    - page_manager
+    - paragraphs
+    - path
+    - pathauto
+    - search_api
+    - smtp
+    - system
+    - taxonomy
+    - toolbar
+    - views_ui
+    - webform
+    - workbench
+    - workbench_access
+    - workbench_email
+id: site_administrator
+label: 'Site Administrator'
+weight: 9
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access broken links report'
+  - 'access comments'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access own broken links report'
+  - 'access site in maintenance mode'
+  - 'access site reports'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'access workbench'
+  - 'administer blocks'
+  - 'administer comments'
+  - 'administer content translation'
+  - 'administer display modes'
+  - 'administer filters'
+  - 'administer image styles'
+  - 'administer languages'
+  - 'administer languages'
+  - 'administer linkchecker'
+  - 'administer linkit profiles'
+  - 'administer media'
+  - 'administer menu'
+  - 'administer menu link attributes'
+  - 'administer meta tags'
+  - 'administer nodes'
+  - 'administer pages'
+  - 'administer paragraphs types'
+  - 'administer pathauto'
+  - 'administer search_api'
+  - 'administer site configuration'
+  - 'administer smtp module'
+  - 'administer taxonomy'
+  - 'administer url aliases'
+  - 'administer users'
+  - 'administer views'
+  - 'administer webform'
+  - 'administer workbench'
+  - 'administer workbench access'
+  - 'administer workbench_email templates'
+  - 'assign workbench access'
+  - 'batch update workbench access'
+  - 'bypass node access'
+  - 'create content translations'
+  - 'create media'
+  - 'create url aliases'
+  - 'delete any webform submission'
+  - 'delete own webform submission'
+  - 'edit any webform submission'
+  - 'edit linkchecker link settings'
+  - 'edit own comments'
+  - 'edit own webform submission'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'translate any entity'
+  - 'translate any entity'
+  - 'translate editable entities'
+  - 'translate editable entities'
+  - 'translate editable entities'
+  - 'use content transition archived'
+  - 'use content transition create_new_draft'
+  - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition submit_for_publish'
+  - 'use content transition submit_for_review'
+  - 'use workbench access'
+  - 'view all revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view own unpublished content'
+  - 'view own webform submission'
+  - 'view the administration theme'
+  - 'view workbench access information'

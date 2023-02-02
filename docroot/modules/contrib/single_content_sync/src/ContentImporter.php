@@ -12,7 +12,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\TypedData\TranslatableInterface;
-use Drupal\file\FileRepositoryInterface;
+use Drupal\file\FileInterface;
 use Drupal\layout_builder\Plugin\Block\InlineBlock;
 
 class ContentImporter implements ContentImporterInterface {
@@ -48,13 +48,6 @@ class ContentImporter implements ContentImporterInterface {
   protected $fileSystem;
 
   /**
-   * The file repository.
-   *
-   * @var \Drupal\file\FileRepositoryInterface
-   */
-  protected $fileRepository;
-
-  /**
    * The content sync helper.
    *
    * @var \Drupal\single_content_sync\ContentSyncHelperInterface
@@ -79,17 +72,14 @@ class ContentImporter implements ContentImporterInterface {
    *   The module handler.
    * @param \Drupal\Core\File\FileSystemInterface $file_system
    *   The file system.
-   * @param \Drupal\file\FileRepositoryInterface $file_repository
-   *   The file repository.
    * @param \Drupal\single_content_sync\ContentSyncHelperInterface $content_sync_helper
    *   The content sync helper.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityRepositoryInterface $entity_repository, ModuleHandlerInterface $module_handler, FileSystemInterface $file_system, FileRepositoryInterface $file_repository, ContentSyncHelperInterface $content_sync_helper) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityRepositoryInterface $entity_repository, ModuleHandlerInterface $module_handler, FileSystemInterface $file_system, ContentSyncHelperInterface $content_sync_helper) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityRepository = $entity_repository;
     $this->moduleHandler = $module_handler;
     $this->fileSystem = $file_system;
-    $this->fileRepository = $file_repository;
     $this->contentSyncHelper = $content_sync_helper;
   }
 
@@ -180,6 +170,7 @@ class ContentImporter implements ContentImporterInterface {
         $this->importBaseValues($translated_entity, $translation_content['base_fields']);
         $this->importCustomValues($translated_entity, $translation_content['custom_fields']);
 
+        $translated_entity->set('content_translation_source', $entity->language()->getId());
         $translated_entity->save();
       }
     }
@@ -250,9 +241,13 @@ class ContentImporter implements ContentImporterInterface {
 
     switch ($field_definition->getType()) {
       case 'boolean':
+      case 'address':
+      case 'daterange':
       case 'datetime':
       case 'email':
+      case 'geolocation':
       case 'link':
+      case 'telephone':
       case 'timestamp':
       case 'decimal':
       case 'float':
@@ -265,6 +260,7 @@ class ContentImporter implements ContentImporterInterface {
       case 'text_with_summary':
       case 'string':
       case 'string_long':
+      case 'yearonly':
         $entity->set($field_name, $field_value);
         break;
 
@@ -335,34 +331,30 @@ class ContentImporter implements ContentImporterInterface {
             $file = reset($files);
           }
           else {
-            $filename = NULL;
+            $file_path = NULL;
 
             // Check if we have a file on the server. This is a case when you do
             // import content with assets from a zip file.
             if (file_exists($file_item['uri'])) {
-              $filename = $file_item['uri'];
+              $file_path = $file_item['uri'];
             }
             elseif (file($file_item['url']) !== FALSE) {
-              $filename = $file_item['url'];
+              $file_path = $file_item['url'];
             }
 
-            if (!$filename) {
+            if (!$file_path) {
               continue;
             }
 
-            $content = file_get_contents($filename);
-            $directory = $this->fileSystem->dirname($file_item['uri']);
-            $this->contentSyncHelper->prepareFilesDirectory($directory);
-
-            if ($file = $this->fileRepository->writeData($content, $file_item['uri'], FileSystemInterface::EXISTS_REPLACE)) {
-              $file->setOwnerId(1);
-              $file->setPermanent();
-              $file->save();
-            }
-          }
-
-          if (!$file) {
-            continue;
+            // Create a file entity with the given uri as the file was already
+            // imported in the proper directory. If the file is external then
+            // we don't need to store file locally.
+            $file = $file_storage->create([
+              'uid' => 1,
+              'status' => FileInterface::STATUS_PERMANENT,
+              'uri' => $file_item['uri'],
+            ]);
+            $file->save();
           }
 
           $file_value = [

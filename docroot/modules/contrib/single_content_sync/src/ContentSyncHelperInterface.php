@@ -51,11 +51,14 @@ interface ContentSyncHelperInterface {
    *
    * @param string $file_real_path
    *   The real path to the local file.
+   * @param int $flags
+   *   The mode to open the archive with \ZipArchive::open().
+   *   Depends on https://www.drupal.org/project/drupal/issues/2850794.
    *
    * @return \Drupal\Core\Archiver\ArchiverInterface
    *   The zip object.
    */
-  public function createZipInstance(string $file_real_path): ArchiverInterface;
+  public function createZipInstance(string $file_real_path, int $flags = 0): ArchiverInterface;
 
   /**
    * Generates a file name based on an entity.
@@ -112,5 +115,21 @@ interface ContentSyncHelperInterface {
    *   else returns FALSE.
    */
   public function access(EntityInterface $entity): bool;
+
+  /**
+   * Get Site UUID check enabled status.
+   *
+   * @return bool
+   *   Boolean indicator for the status of Site UUID check.
+   */
+  public function siteUuidCheckEnabled(): bool;
+
+  /**
+   * Get site UUID value.
+   *
+   * @return string
+   *   Site UUID value.
+   */
+  public function getSiteUuid(): string;
 
 }

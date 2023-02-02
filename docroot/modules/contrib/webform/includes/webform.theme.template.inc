@@ -346,10 +346,10 @@ function template_preprocess_webform_submission_information(array &$variables) {
   }
   elseif ($source_entity) {
     $entity_type = $source_entity->getEntityTypeId();
-    if (\Drupal::currentUser()->hasPermission("view webform node submissions any $entity_type")) {
+    if (\Drupal::currentUser()->hasPermission("view webform submissions any $entity_type")) {
       $variables['submissions_view'] = TRUE;
     }
-    elseif (\Drupal::currentUser()->hasPermission("view webform node submissions own $entity_type")
+    elseif (\Drupal::currentUser()->hasPermission("view webform submissions own $entity_type")
       && method_exists($source_entity, 'getOwnerId')
       && (int) $source_entity->getOwnerId() === (int) \Drupal::currentUser()->id()
     ) {

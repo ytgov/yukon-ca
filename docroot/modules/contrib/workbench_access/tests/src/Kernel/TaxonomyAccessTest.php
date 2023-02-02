@@ -116,7 +116,7 @@ class TaxonomyAccessTest extends KernelTestBase {
     $this->scheme->save();
     $this->installEntitySchema('user');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $this->vocabulary = $this->setUpVocabulary();
     $this->accessHandler = $this->container->get('entity_type.manager')
       ->getAccessControlHandler('taxonomy_term');

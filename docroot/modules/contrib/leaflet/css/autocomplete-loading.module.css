@@ -1,22 +1,16 @@
-/**
- * @file
- * Visual styles for animated throbber.
- *
- * @see autocomplete.js
- */
-
-.js input.form-autocomplete {
+/* line 1, ../sass/autocomplete-loading.module.scss */
+.ui-autocomplete-input {
   background-image: url(../assets/throbber-inactive.png);
   background-repeat: no-repeat;
-  background-position: 100% center; /* LTR */
+  background-position: 100% center;
 }
-.js[dir="rtl"] input.form-autocomplete {
-  background-position: 0% center;
+/* line 5, ../sass/autocomplete-loading.module.scss */
+.ui-autocomplete-input .ui-menu-item {
+  font-size: 0.95em;
 }
-.js input.form-autocomplete.ui-autocomplete-loading {
+/* line 8, ../sass/autocomplete-loading.module.scss */
+.ui-autocomplete-input.ui-autocomplete-loading {
   background-image: url(../assets/throbber-active.gif);
-  background-position: 100% center; /* LTR */
-}
-.js[dir="rtl"] input.form-autocomplete.ui-autocomplete-loading {
-  background-position: 0% center;
+  background-position: 100% center;
+  /* LTR */
 }

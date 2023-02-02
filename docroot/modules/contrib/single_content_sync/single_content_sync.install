@@ -46,3 +46,25 @@ function single_content_sync_update_9130(&$sandbox) {
     $config_storage->write($config_name, $source->read($config_name));
   }
 }
+
+/**
+ * Update configuration to support bundles.
+ */
+function single_content_sync_update_9131() {
+  $config = \Drupal::configFactory()
+    ->getEditable('single_content_sync.settings');
+  $allowed_entity_types = $config->get('allowed_entity_types');
+  foreach ($allowed_entity_types as &$allowed_type) {
+    $allowed_type = [];
+  }
+  $config->set('allowed_entity_types', $allowed_entity_types)->save();
+}
+
+/**
+ * Update module configuration with 'Site UUID check' setting.
+ */
+function single_content_sync_update_9132(&$sandbox) {
+  \Drupal::configFactory()->getEditable('single_content_sync.settings')
+    ->set('site_uuid_check', TRUE)
+    ->save();
+}

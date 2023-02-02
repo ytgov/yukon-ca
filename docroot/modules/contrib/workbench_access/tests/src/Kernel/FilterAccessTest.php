@@ -83,7 +83,7 @@ class FilterAccessTest extends KernelTestBase {
     $this->scheme->save();
     $this->installEntitySchema('user');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $this->accessHandler = $this->container->get('entity_type.manager')->getAccessControlHandler('filter_format');
 
     $this->filterFormat1 = FilterFormat::create([

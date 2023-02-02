@@ -51,11 +51,12 @@
   };
 
   Drupal.Leaflet.prototype.map_geocoder_control.autocomplete = function(mapid, geocoder_settings) {
-    let providers = geocoder_settings['providers'].toString();
-    let options = geocoder_settings.options;
-    let map = Drupal.Leaflet[mapid].lMap;
-    let zoom = geocoder_settings.zoom || 14;
-    $('#' + mapid + '--leaflet--geocoder-control').autocomplete({
+    const providers = geocoder_settings['providers'].toString();
+    const options = geocoder_settings.options;
+    const map = Drupal.Leaflet[mapid].lMap;
+    const zoom = geocoder_settings.zoom || 14;
+    const selector = $('#' + mapid + '--leaflet--geocoder-control');
+    selector.autocomplete({
       autoFocus: true,
       minLength: geocoder_settings['min_terms'] || 4,
       delay: geocoder_settings.delay || 800,
@@ -99,7 +100,7 @@
             .openOn(map);
         }
       }
-    }).addClass('form-autocomplete');
+    });
   }
 
 })(jQuery, Drupal, drupalSettings);

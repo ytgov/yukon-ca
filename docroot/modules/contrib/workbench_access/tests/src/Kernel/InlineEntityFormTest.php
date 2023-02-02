@@ -55,7 +55,7 @@ class InlineEntityFormTest extends KernelTestBase implements FormInterface {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'entity_test',
     'taxonomy',
@@ -79,7 +79,7 @@ class InlineEntityFormTest extends KernelTestBase implements FormInterface {
     $this->installEntitySchema('user');
     $this->installEntitySchema('taxonomy_term');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $node_type = $this->createContentType(['type' => 'page']);
     $this->createContentType(['type' => 'article']);
     $this->vocabulary = $this->setUpVocabulary();

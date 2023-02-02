@@ -7,9 +7,6 @@
 
 use Drupal\views\Plugin\views\ViewsPluginInterface;
 use Drupal\views\ResultRow;
-use Drupal\views\Plugin\views\row\RowPluginBase;
-use Drupal\leaflet_views\Plugin\views\style\MarkerDefault;
-use Drupal\leaflet_views\Plugin\views\style\LeafletMap;
 
 /**
  * Allow other modules to add/alter the $geofield_value.
@@ -78,4 +75,3 @@ function hook_leaflet_map_view_style_alter(array &$map_settings, ViewsPluginInte
   // Make custom alterations to $map_settings, eventually using the $view_style
   // context.
 }
-

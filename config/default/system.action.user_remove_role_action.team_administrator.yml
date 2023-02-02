@@ -1,0 +1,14 @@
+uuid: 5c77e3d8-36e8-4466-8587-2186555dba68
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_administrator
+  module:
+    - user
+id: user_remove_role_action.team_administrator
+label: 'Remove the Team Administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: team_administrator

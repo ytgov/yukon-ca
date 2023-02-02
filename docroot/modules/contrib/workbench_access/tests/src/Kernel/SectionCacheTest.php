@@ -72,7 +72,7 @@ class SectionCacheTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('taxonomy_term');
     $this->installEntitySchema('section_association');
-    $this->installSchema('system', ['key_value', 'sequences']);
+    $this->installSchema('system', ['sequences']);
     $this->vocabulary = $this->setUpVocabulary();
     // The user section storage service.
     $this->userSectionStorage = \Drupal::getContainer()->get('workbench_access.user_section_storage');

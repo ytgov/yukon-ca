@@ -1,0 +1,26 @@
+uuid: fad6f2a3-5d8d-4724-8a6d-b83d45a7f75b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_meta_tags
+    - taxonomy.vocabulary.teams
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.teams.field_meta_tags
+field_name: field_meta_tags
+entity_type: taxonomy_term
+bundle: teams
+label: 'Meta tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

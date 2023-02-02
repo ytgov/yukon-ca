@@ -1,0 +1,10 @@
+name: 'UI Patterns library sub-theme test'
+type: theme
+description: 'Test sub-theme for UI Patterns.'
+package: 'Testing'
+base theme: ui_patterns_library_theme_test
+
+# Information added by Drupal.org packaging script on 2023-01-19
+version: '8.x-1.5'
+project: 'ui_patterns'
+datestamp: 1674137432

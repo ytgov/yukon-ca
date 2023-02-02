@@ -128,7 +128,7 @@ class LeafletMarker extends RowPluginBase implements ContainerFactoryPluginInter
    *   The plugin implementation definition.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
    *   The entity manager.
-   * @param LanguageManagerInterface $language_manager
+   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The entity field manager.

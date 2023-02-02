@@ -38,6 +38,7 @@ class UserSectionStorageUnitTest extends UnitTestCase {
     $query->condition('access_scheme', 'editorial_section')->willReturn($query->reveal());
     $query->condition('user_id', 37)->willReturn($query->reveal());
     $query->groupBy('section_id')->willReturn($query->reveal());
+    $query->accessCheck(FALSE)->willReturn($query->reveal());
     $query->execute()->willReturn([37 => ['section_id' => 3]])->shouldBeCalledTimes(1);
     $entity_type_manager->getStorage('section_association')->willReturn($section_storage->reveal());
     $scheme = $this->prophesize(AccessSchemeInterface::class);

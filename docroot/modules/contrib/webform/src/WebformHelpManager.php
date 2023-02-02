@@ -1783,15 +1783,26 @@ class WebformHelpManager implements WebformHelpManagerInterface {
 
     // Configuration: Libraries.
     $t_args = [
-      ':href_6x' => 'https://git.drupalcode.org/sandbox/jrockowitz-2941983/-/raw/6.x/libraries.zip',
+      ':href_62x' => 'https://git.drupalcode.org/sandbox/jrockowitz-2941983/-/raw/6.2.x/libraries.zip',
+      ':href_61x' => 'https://git.drupalcode.org/sandbox/jrockowitz-2941983/-/raw/6.1.x/libraries.zip',
+      '@webform-libraries-composer' => 'webform-libraries-composer',
+      '@webform-libraries-download' => 'webform-libraries-download',
+      '@webform-composer-update' => 'webform-composer-update',
     ];
+    // phpcs:ignore Drupal.Classes.FullyQualifiedNamespace.UseStatementMissing
+    $drush_version = (class_exists('\Drush\Drush')) ? \Drush\Drush::getMajorVersion() : 8;
+    if ($drush_version >= 9) {
+      foreach ($t_args as $command_name => $command) {
+        $t_args[$command_name] = str_replace('-', ':', $command);
+      }
+    }
     $help['config_libraries_help'] = [
       'group' => 'configuration',
       'title' => $this->t('Configuration: Libraries: Help'),
       'content' => '<p>' . $this->t('The Webform module utilizes third-party Open Source libraries to enhance webform elements and to provide additional functionality.') . ' ' .
         $this->t("It is recommended that these libraries are installed in your Drupal installation's /libraries or /web/libraries directory.") . ' ' .
         $this->t('If these libraries are not installed, they will be automatically loaded from a CDN.') . ' ' .
-        $this->t('All libraries are optional and can be excluded via the admin settings form.') .
+        $this->t('All libraries are optional and can be excluded via the admin settings form.') . ' ' .
         '</p>' .
         '<p>' . $this->t('There are several ways to download the needed third-party libraries.') . '</p>' .
         '<p><strong>' . $this->t('Recommended') . '</strong></p>' .
@@ -1801,9 +1812,9 @@ class WebformHelpManager implements WebformHelpManagerInterface {
         '<p><strong>' . $this->t('Alternatives') . '</strong></p>' .
         '<ul>' .
         '<li>' . $this->t('Generate a composer.json file using <code>drush @webform-libraries-composer</code>.', $t_args) . '</li>' .
-        '<li>' . $this->t('Execute <code>drush webform:libraries:download</code>, to download third-party libraries required by the Webform module. (OSX/Linux)', $t_args) . '</li>' .
-        '<li>' . $this->t("Execute <code>drush webform:composer:update</code>, to update your Drupal installation's composer.json to include the Webform module's selected libraries as repositories.", $t_args) . '</li>' .
-        '<li>' . $this->t('Download and extract a zipped archive containing all webform libraries (<a href=":href_6x">6.x</a>) and extract the directories and files to /libraries or /web/libraries', $t_args) . '</li>' .
+        '<li>' . $this->t('Execute <code>drush @webform-libraries-download</code>, to download third-party libraries required by the Webform module. (OSX/Linux)', $t_args) . '</li>' .
+        '<li>' . $this->t("Execute <code>drush @webform-composer-update</code>, to update your Drupal installation's composer.json to include the Webform module's selected libraries as repositories.", $t_args) . '</li>' .
+        '<li>' . $this->t('Download and extract a zipped archive containing all webform libraries (<a href=":href_61x">6.1.x</a> or <a href=":href_62x">6.2.x</a>) and extract the directories and files to /libraries or /web/libraries', $t_args) . '</li>' .
         '</ul>',
       'message_type' => 'info',
       'message_close' => TRUE,

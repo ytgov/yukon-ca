@@ -5,7 +5,7 @@
 
 **Leaflet module**  provides integration with
 [Leaflet JS library](http://leafletjs.com).
-It is dependant on the Drupal [Geofield](https://www.drupal.org/project/geofield) Module.
+It is dependent on the Drupal [Geofield](https://www.drupal.org/project/geofield) Module.
 
 ### Featured options and functionalities.
 

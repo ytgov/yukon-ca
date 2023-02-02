@@ -22,7 +22,7 @@ class ViewsUserOutputTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Test terms.

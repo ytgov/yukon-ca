@@ -448,7 +448,7 @@ class LeafletDefaultWidget extends GeofieldDefaultWidget {
     $json_element_name = 'leaflet-widget-input';
     $element['value']['#attributes']['class'][] = $json_element_name;
     // Set the readonly for styling, if readonly.
-    if (isset($settings['input']["readonly"]) &&  $settings['input']["readonly"]) {
+    if (isset($input_settings['input']["readonly"]) &&  $input_settings['input']["readonly"]) {
       $element['value']['#attributes']['class'][] = "readonly";
     }
 

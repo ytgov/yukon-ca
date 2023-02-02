@@ -19,7 +19,7 @@ class ConstraintsTest extends KernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['geofield'];
+  protected static $modules = ['geofield'];
 
   /**
    * Tests GeoType constraint.

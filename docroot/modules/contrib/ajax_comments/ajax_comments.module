@@ -331,6 +331,9 @@ function ajax_comments_preprocess_pager(&$variables) {
 function ajax_comments_preprocess_status_messages(&$variables) {
   $request = \Drupal::request();
   $route_name = RouteMatch::createFromRequest($request)->getRouteName();
+  if (!$route_name) {
+    return;
+  }
   if (strpos($route_name, 'ajax_comments') !== FALSE) {
     $variables['attributes']['class'][] = 'js-ajax-comments-messages';
   }

@@ -22,7 +22,7 @@ class AccessCacheTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'taxonomy',
@@ -36,7 +36,7 @@ class AccessCacheTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Tests that the user can edit the node when allowed.

@@ -21,7 +21,7 @@ class NodeFormMultipleTest extends BrowserTestBase {
    *
    * @var string
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Simple array of terms.
@@ -33,7 +33,7 @@ class NodeFormMultipleTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'workbench_access',
     'node',
     'taxonomy',

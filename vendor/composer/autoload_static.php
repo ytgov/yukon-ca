@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit11d181b76939c230549ef7c3c8128a9e
+class ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -1376,6 +1376,7 @@ class ComposerStaticInit11d181b76939c230549ef7c3c8128a9e
         'Drupal\\Component\\DependencyInjection\\Dumper\\OptimizedPhpArrayDumper' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/DependencyInjection/Dumper/OptimizedPhpArrayDumper.php',
         'Drupal\\Component\\DependencyInjection\\Dumper\\PhpArrayDumper' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/DependencyInjection/Dumper/PhpArrayDumper.php',
         'Drupal\\Component\\DependencyInjection\\PhpArrayContainer' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/DependencyInjection/PhpArrayContainer.php',
+        'Drupal\\Component\\DependencyInjection\\ReverseContainer' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/DependencyInjection/ReverseContainer.php',
         'Drupal\\Component\\DependencyInjection\\ServiceIdHashTrait' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/DependencyInjection/ServiceIdHashTrait.php',
         'Drupal\\Component\\Diff\\Diff' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Diff/Diff.php',
         'Drupal\\Component\\Diff\\DiffFormatter' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Diff/DiffFormatter.php',
@@ -4091,6 +4092,7 @@ class ComposerStaticInit11d181b76939c230549ef7c3c8128a9e
         'PhpParser\\Lexer\\TokenEmulator\\MatchTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/MatchTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\NullsafeTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/NullsafeTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\NumericLiteralSeparatorEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/NumericLiteralSeparatorEmulator.php',
+        'PhpParser\\Lexer\\TokenEmulator\\ReadonlyFunctionTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/ReadonlyFunctionTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\ReadonlyTokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/ReadonlyTokenEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\ReverseEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/ReverseEmulator.php',
         'PhpParser\\Lexer\\TokenEmulator\\TokenEmulator' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/TokenEmulator.php',
@@ -6598,6 +6600,8 @@ class ComposerStaticInit11d181b76939c230549ef7c3c8128a9e
         'Twig\\Node\\Expression\\Binary\\FloorDivBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/FloorDivBinary.php',
         'Twig\\Node\\Expression\\Binary\\GreaterBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/GreaterBinary.php',
         'Twig\\Node\\Expression\\Binary\\GreaterEqualBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/GreaterEqualBinary.php',
+        'Twig\\Node\\Expression\\Binary\\HasEveryBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/HasEveryBinary.php',
+        'Twig\\Node\\Expression\\Binary\\HasSomeBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/HasSomeBinary.php',
         'Twig\\Node\\Expression\\Binary\\InBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/InBinary.php',
         'Twig\\Node\\Expression\\Binary\\LessBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/LessBinary.php',
         'Twig\\Node\\Expression\\Binary\\LessEqualBinary' => __DIR__ . '/..' . '/twig/twig/src/Node/Expression/Binary/LessEqualBinary.php',
@@ -6812,11 +6816,11 @@ class ComposerStaticInit11d181b76939c230549ef7c3c8128a9e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit11d181b76939c230549ef7c3c8128a9e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit11d181b76939c230549ef7c3c8128a9e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit11d181b76939c230549ef7c3c8128a9e::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit11d181b76939c230549ef7c3c8128a9e::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit11d181b76939c230549ef7c3c8128a9e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInitd9a50badcce8669a15cd4cfce092a3fb::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -2,10 +2,12 @@
 
 namespace Drupal\leaflet;
 
+use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\File\Exception\InvalidStreamWrapperException;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StreamWrapper\StreamWrapperManager;
 use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\geofield\GeoPHP\GeoPHPInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Component\Utility\Html;
@@ -19,6 +21,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * Provides a  LeafletService class.
  */
 class LeafletService {
+
+  use StringTranslationTrait;
 
   /**
    * Current user service.
@@ -61,6 +65,13 @@ class LeafletService {
    * @var \Symfony\Component\HttpFoundation\RequestStack
    */
   protected $requestStack;
+
+  /**
+   * The cache backend default service..
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
+  protected $cache;
 
   /**
    * Static cache for icon sizes.
@@ -172,6 +183,8 @@ class LeafletService {
    *   The stream wrapper manager.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The stream wrapper manager.
+   * @param \Drupal\Core\Cache\CacheBackendInterface $cache
+   *   The cache backend default service.
    */
   public function __construct(
     AccountInterface $current_user,
@@ -179,7 +192,8 @@ class LeafletService {
     ModuleHandlerInterface $module_handler,
     LinkGeneratorInterface $link_generator,
     StreamWrapperManagerInterface $stream_wrapper_manager,
-    RequestStack $request_stack
+    RequestStack $request_stack,
+    CacheBackendInterface $cache
   ) {
     $this->currentUser = $current_user;
     $this->geoPhpWrapper = $geophp_wrapper;
@@ -187,6 +201,7 @@ class LeafletService {
     $this->link = $link_generator;
     $this->streamWrapperManager = $stream_wrapper_manager;
     $this->requestStack = $request_stack;
+    $this->cache = $cache;
   }
 
   /**
@@ -276,7 +291,7 @@ class LeafletService {
     $map_info = &$drupal_static_fast['leaflet_map_info'];
 
     if (empty($map_info)) {
-      if ($cached = \Drupal::cache()->get('leaflet_map_info')) {
+      if ($cached = $this->cache->get('leaflet_map_info')) {
         $map_info = $cached->data;
       }
       else {
@@ -285,7 +300,7 @@ class LeafletService {
         // Let other modules alter the map info.
         $this->moduleHandler->alter('leaflet_map_info', $map_info);
 
-        \Drupal::cache()->set('leaflet_map_info', $map_info);
+        $this->cache->set('leaflet_map_info', $map_info);
       }
     }
 
@@ -404,9 +419,9 @@ class LeafletService {
         /* @var \GeometryCollection $geom */
         $tmp = $geom->getComponents();
         /* @var \GeometryCollection $polygon */
-        foreach ($tmp as $delta => $polygon) {
+        foreach ($tmp as $polygon) {
           $polygon_component = $polygon->getComponents();
-          foreach ($polygon_component as $k => $linestring) {
+          foreach ($polygon_component as $linestring) {
             $components[] = $linestring;
           }
         }
@@ -442,7 +457,7 @@ class LeafletService {
    *   The Leaflet Icon Documentation Link.
    */
   public function leafletIconDocumentationLink() {
-    return $this->link->generate(t('Leaflet Icon Documentation'), Url::fromUri('https://leafletjs.com/reference-1.3.0.html#icon', [
+    return $this->link->generate($this->t('Leaflet Icon Documentation'), Url::fromUri('https://leafletjs.com/reference-1.3.0.html#icon', [
       'absolute' => TRUE,
       'attributes' => ['target' => 'blank'],
     ]));

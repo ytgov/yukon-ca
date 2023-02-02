@@ -23,7 +23,7 @@ class GeofieldWidgetTest extends FieldTestBase {
    *
    * @var array
    */
-  public static $modules = ['geofield', 'entity_test'];
+  protected static $modules = ['geofield', 'entity_test'];
 
   /**
    * {@inheritdoc}

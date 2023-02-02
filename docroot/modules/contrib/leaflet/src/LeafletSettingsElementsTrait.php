@@ -54,11 +54,10 @@ trait LeafletSettingsElementsTrait {
       'hide_empty_map' => FALSE,
       'disable_wheel' => FALSE,
       'gesture_handling' => FALSE,
-      // @TODO Keep this for backword compatibility with Leaflet < 2.x.
+      // @todo Keep this for backword compatibility with Leaflet < 2.x.
       'popup' => FALSE,
-      // @TODO Keep this for backword compatibility with Leaflet < 2.x.
+      // @todo Keep this for backword compatibility with Leaflet < 2.x.
       'popup_content' => '',
-      // ...
       'leaflet_popup' => [
         'value' => '',
         'options' => '{"maxWidth":"300","minWidth":"50", "autoPan": true}',
@@ -246,7 +245,8 @@ trait LeafletSettingsElementsTrait {
       'html_tag' => [
         '#type' => 'html_tag',
         '#tag' => 'div',
-        '#value' => $this->t('These settings will be applied in case of single Marker Map (otherwise the Zoom will be set to Fit Elements bounds).'),
+        '#value' => $this->t('These settings are be applied in case of single Marker/Feature on the Map, otherwise the Zoom will be set to Fit Elements bounds, and respecting the Min Zoom.<br>
+<b>Note:</b> It is possible to remove the Zoom Control making Min and Max Zoom coincident (the initial Zoom value will be forced to those).'),
       ],
       '#states' => [
         'invisible' => isset($force_checkbox_selector_widget) ? [
@@ -750,6 +750,12 @@ trait LeafletSettingsElementsTrait {
     $map['settings']['zoomFiner'] = isset($options['map_position']['zoomFiner']) ? (int) $options['map_position']['zoomFiner'] : $default_settings['map_position']['zoomFiner'];
     $map['settings']['minZoom'] = isset($options['map_position']['minZoom']) ? (int) $options['map_position']['minZoom'] : $default_settings['map_position']['minZoom'];
     $map['settings']['maxZoom'] = isset($options['map_position']['maxZoom']) ? (int) $options['map_position']['maxZoom'] : $default_settings['map_position']['maxZoom'];
+
+    // Disable zoom control if the minimum and maximum are the same.
+    if ($map['settings']['minZoom'] === $map['settings']['maxZoom']) {
+      $map['settings']['zoomControl'] = FALSE;
+    }
+
     $map['settings']['center'] = (isset($options['map_position']['center']['lat']) && isset($options['map_position']['center']['lon'])) ? [
       'lat' => floatval($options['map_position']['center']['lat']),
       'lon' => floatval($options['map_position']['center']['lon']),
@@ -1029,8 +1035,6 @@ trait LeafletSettingsElementsTrait {
         '#element_validate' => [[get_class($this), 'jsonValidate']],
         '#states' => $leaflet_markercluster_visibility,
       ];
-
-
 
       $element['leaflet_markercluster']['include_path'] = [
         '#type' => 'checkbox',
@@ -1410,9 +1414,16 @@ trait LeafletSettingsElementsTrait {
     $zoom = $element['#value'];
     $min_zoom = $values['minZoom'];
     $max_zoom = $values['maxZoom'];
-    if ($zoom < $min_zoom || $zoom > $max_zoom) {
+    if ($min_zoom !== $max_zoom && ($zoom < $min_zoom || $zoom > $max_zoom)) {
       $form_state->setError($element, t('The @zoom_field should be between the Minimum and the Maximum Zoom levels.', ['@zoom_field' => $element['#title']]));
     }
+
+    // If coincident, force the Zoom value to be the same of Max and Min Zoom.
+    if ($max_zoom && $max_zoom === $min_zoom) {
+      $form_state->setValueForElement($element, $max_zoom);
+    }
+
+
   }
 
   /**
@@ -1430,7 +1441,7 @@ trait LeafletSettingsElementsTrait {
     // Check the max zoom level.
     $min_zoom = $values['minZoom'];
     $max_zoom = $element['#value'];
-    if ($max_zoom && $max_zoom <= $min_zoom) {
+    if ($max_zoom && $max_zoom < $min_zoom) {
       $form_state->setError($element, t('The Max Zoom level should be above the Minimum Zoom level.'));
     }
   }

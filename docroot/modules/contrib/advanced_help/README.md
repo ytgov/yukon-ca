@@ -1,6 +1,15 @@
 # Advanced Help
 
-## INTRODUCTION
+## Table of contents
+
+- Introduction
+- Requirements
+- Installation
+- Configuration
+- Maintainers
+
+
+## Introduction
 
 The Advanced Help module allows module developers to store their help outside
 the module system, in pure .html or .md (MarkDown) files. It provides a
@@ -16,19 +25,19 @@ administrative interface.
   [issue queue](https://www.drupal.org/project/issues/advanced_help).
 
 
-## REQUIREMENTS
+## Requirements
 
 The project's requirements can be found in the project's `composer.json`.
 
 
-## INSTALLATION
+## Installation
 
 You must use composer to install the 8.x-1.x branch of the
 project. The exact command line is displayed on the project page,
 along with the release.
 
 
-## CONFIGURATION
+## Configuration
 
 By itself, this module doesn't do much. It assists other modules and
 themes in showing help texts. Nothing will show up until you enable at
@@ -36,7 +45,7 @@ least one other module that makes use of the Advanced Help framework
 or comes with a file named README.md or README.txt.
 
 
-## MAINTAINERS
+## Maintainers
 
 - Gisle Hannemyr - [gisle](https://www.drupal.org/u/gisle)
 - David Valdez - [gnuget](https://www.drupal.org/u/gnuget)

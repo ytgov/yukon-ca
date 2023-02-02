@@ -8,6 +8,7 @@ use Drupal\Core\Archiver\ArchiverManager;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
+use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Serialization\Yaml;
@@ -70,6 +71,13 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
   protected $entityRepository;
 
   /**
+   * The entity type bundle info service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
+   */
+  protected $entityTypeBundleInfo;
+
+  /**
    * ContentSyncHelper constructor.
    *
    * @param \Drupal\Component\Uuid\UuidInterface $uuid
@@ -86,8 +94,10 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
    *   The config factory.
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
    *   The entity repository.
+   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
+   *   The entity type bundle info service.
    */
-  public function __construct(UuidInterface $uuid, FileSystemInterface $file_system, FileRepositoryInterface $file_repository, ArchiverManager $archiver_manager, EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, EntityRepositoryInterface $entity_repository) {
+  public function __construct(UuidInterface $uuid, FileSystemInterface $file_system, FileRepositoryInterface $file_repository, ArchiverManager $archiver_manager, EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info) {
     $this->uuid = $uuid;
     $this->fileSystem = $file_system;
     $this->fileRepository = $file_repository;
@@ -95,6 +105,7 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->entityRepository = $entity_repository;
+    $this->entityTypeBundleInfo = $entity_type_bundle_info;
   }
 
   /**
@@ -132,15 +143,19 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
    * {@inheritdoc}
    */
   public function getDefaultFileScheme(): string {
-    return $this->configFactory->get('system.file')->get('default_scheme');
+    // We can only work with local files e.g. generating zip.
+    // External schema is not allowed as you can't create zip instance in this
+    // case.
+    return 'public';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function createZipInstance(string $file_real_path): ArchiverInterface {
+  public function createZipInstance(string $file_real_path, int $flags = 0): ArchiverInterface {
     return $this->archiverManager->getInstance([
       'filepath' => $file_real_path,
+      'flags' => $flags,
     ]);
   }
 
@@ -160,13 +175,34 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
    */
   public function validateYamlFileContent(string $content): array {
     $content = Yaml::decode($content);
-
+    // Validate YAML format structure.
     if (!is_array($content)) {
       throw new \Exception($this->t('YAML is not valid.'));
     }
 
-    if (!isset($content['uuid']) || !isset($content['entity_type']) || !isset($content['base_fields']) || !isset($content['custom_fields'])) {
+    // Validate required YAML properties.
+    if (!isset($content['uuid']) || !isset($content['entity_type']) || !isset($content['bundle']) || !isset($content['base_fields']) || !isset($content['custom_fields'])) {
       throw new \Exception($this->t('The content of the YAML file is not valid. Make sure there are uuid, entity_type, base_fields, and custom_fields properties.'));
+    }
+
+    // Validate Site UUID value to prevent import on different site.
+    if ($this->siteUuidCheckEnabled()
+      && !empty($content['site_uuid'])
+      && $this->getSiteUuid() !== $content['site_uuid']) {
+      throw new \Exception($this->t('Content source site has another UUID than current one (destination). Make sure that content has been exported from the same instance of the site or disable Site UUID check.'));
+    }
+
+    // Validate that entity type and bundle exists.
+    $definition = $this->entityTypeManager->getDefinition($content['entity_type']);
+    if (!$definition) {
+      throw new \Exception($this->t('The content of the YAML file is not valid. Make sure that entity type of the imported content does exist on your site.'));
+    }
+    else {
+      // Validate that bundle exists.
+      $available_bundles = $this->entityTypeBundleInfo->getBundleInfo($content['entity_type']);
+      if (empty($available_bundles[$content['bundle']])) {
+        throw new \Exception($this->t('The content of the YAML file is not valid. Make sure that bundle of the imported content does exist on your site.'));
+      }
     }
 
     return $content;
@@ -204,10 +240,24 @@ class ContentSyncHelper implements ContentSyncHelperInterface {
    * {@inheritdoc}
    */
   public function access(EntityInterface $entity): bool {
-    $config = $this->configFactory->get('single_content_sync.settings');
-    $allowed_entity_types = $config->get('allowed_entity_types');
+    $config = $this->configFactory->get('single_content_sync.settings')->get('allowed_entity_types');
+    $entity_type_id = $entity->getEntityTypeId();
 
-    return $entity->getEntityType()->hasLinkTemplate('single-content:export') && $entity->access('single-content:export') && !empty($allowed_entity_types[$entity->getEntityTypeId()]);
+    return $entity->getEntityType()->hasLinkTemplate('single-content:export') && $entity->access('single-content:export') && (isset($config[$entity_type_id]) && (!$config[$entity_type_id] || isset($config[$entity_type_id][$entity->bundle()])));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function siteUuidCheckEnabled(): bool {
+    return !empty($this->configFactory->get('single_content_sync.settings')->get('site_uuid_check'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSiteUuid(): string {
+    return $this->configFactory->get('system.site')->get('uuid');
   }
 
 }
