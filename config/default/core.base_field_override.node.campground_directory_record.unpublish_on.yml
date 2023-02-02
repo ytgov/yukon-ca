@@ -1,0 +1,18 @@
+uuid: cc2f398d-f82d-4ca4-8ed8-f85c4b68cb72
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: campground_directory_record
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

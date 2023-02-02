@@ -1,0 +1,38 @@
+postcard:
+  label: Postcard
+  description: A postcard content.
+  variants:
+    default:
+      label: Default
+      description: Image Card Text.
+    title:
+      label: With title
+      description: Image Card with title.
+  fields:
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Lorem Ipsum'
+    content:
+      type: text
+      label: Content
+      description: Optional text to be displayed.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+    link:
+      type: string
+      label: More Link
+      description: "Markup for More Link."
+    image:
+      type: string
+      label: Image
+      description: Markup for an image. Alternatively, provide image_* properties.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+  libraries:
+    -
+      postcard:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

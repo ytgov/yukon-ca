@@ -1,0 +1,47 @@
+graph_card:
+  label: Table card
+  description: A table card.
+  fields:
+    main_link:
+      type: string
+      label: Main link
+      description: A main link.
+      preview:
+        '#type': 'inline_template'
+        '#template': '{{ drupal_link(title, url, options) }}'
+        '#context':
+          title: 'Mauris justo tellus'
+          url: <front>
+          options: [ ]
+    extra_text:
+      type: string
+      label: Extra text
+      description: A extra text.
+      preview: 'Nulla eu'
+    items:
+      type: mixed
+      label: Items
+      description: A list of items.
+      preview:
+        -
+          'Nulla eu magna sit amet mi'
+        -
+          'Etiam tempor enim urna'
+        -
+          'Pellentesque nec neque'
+    title:
+      type: string
+      label: Title
+      description: A title.
+      preview: 'Fusce a libero et augue fermentum euismod'
+    graph:
+      type: mixed
+      label: Graph
+      description: A graph.
+      preview: 'Graph'
+  libraries:
+    -
+      graph_card:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

@@ -1,0 +1,20 @@
+uuid: ebcad641-93fe-4306-b520-5f2885206b07
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main-menu
+    parent: 'main-menu:0:'
+  scheduler: {  }
+name: 'Basic Page'
+type: wetkit_page
+description: 'An basic page to display content to users on your site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

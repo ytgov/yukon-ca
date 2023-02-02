@@ -1,0 +1,15 @@
+search_card:
+  label: Search Card
+  description: Search Card.
+  fields:
+    form:
+      type: mixed
+      label: Form
+      description: A search form.
+      preview: 'Search form'
+  libraries:
+    -
+      search_card:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

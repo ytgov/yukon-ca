@@ -1,0 +1,13 @@
+{# Prepare attributes #}
+{% set classes = [
+  'form-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">
+    {{ title }}
+  </div>
+  <div class="form">
+    {{ form }}
+  </div>
+</div>

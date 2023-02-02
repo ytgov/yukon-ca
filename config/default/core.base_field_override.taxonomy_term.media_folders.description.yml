@@ -1,0 +1,20 @@
+uuid: a90863c4-8627-4389-a436-41a70e92a9d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+  module:
+    - text
+id: taxonomy_term.media_folders.description
+field_name: description
+entity_type: taxonomy_term
+bundle: media_folders
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

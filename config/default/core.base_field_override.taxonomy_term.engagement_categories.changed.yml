@@ -1,0 +1,18 @@
+uuid: 765793c6-ddd2-4f72-aeb0-6ef5b6b1bbb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.engagement_categories
+id: taxonomy_term.engagement_categories.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

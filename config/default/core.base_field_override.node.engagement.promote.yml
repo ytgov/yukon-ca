@@ -1,0 +1,22 @@
+uuid: 693f6425-2e90-4638-acd8-b7268e87e6e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.engagement
+id: node.engagement.promote
+field_name: promote
+entity_type: node
+bundle: engagement
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

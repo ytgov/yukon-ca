@@ -2,40 +2,11 @@ carousel:
   label: Card collection
   description: A collection of cards.
   fields:
-    title:
-      type: text
-      label: Title
-      description: A title.
-      preview: 'Phonetic alphabets'
-    hide_title:
-      type: string
-      label: Hide Title
-      description: Hide the title.
-      preview: ''
     paragraph_id:
       type: text
       label: Paragraph ID
       description: Paragraph ID
       preview: 'Carousel25025'
-    summary:
-      type: text
-      label: Summary
-      description: A summary.
-      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
-    content:
-      type: text
-      label: Content
-      description: Content.
-      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
-    more_link:
-      type: string
-      label: More Link on top right
-      description: "Markup for More Link."
-    background_color:
-      type: text
-      label: Background color
-      description: Background color of carousel.
-      preview: '#FFF'
     items:
       type: mixed
       label: Cards

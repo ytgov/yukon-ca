@@ -1,0 +1,25 @@
+helpful_card:
+  label: Was This Helpful Card
+  description: Was This Helpful Card content.
+  fields:
+    question:
+      type: string
+      label: Question
+      description: A question.
+      preview: 'Was this helpful?'
+    vote_up:
+      type: mixed
+      label: Vote up
+      description: A vote up action.
+      preview: 'Like'
+    vote_down:
+      type: mixed
+      label: Vote down
+      description: A vote down action.
+      preview: 'Dislike'
+  libraries:
+    -
+      helpful_card:
+        css:
+          component:
+            css/styles.min.css: { minified: true }

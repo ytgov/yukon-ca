@@ -1,27 +1,17 @@
-{# Prepare content #}
-
-{% set content = content|render %}
-
-<footer id="footer" class="container">
-  <div class="footer-mobile-logos d-block d-sm-block d-md-block d-lg-none">
-    <a href="/">
-      <img src="/{{ active_theme_path() ~ '/images/logo-pspia-white.svg' }}" alt="Princeton School of Public and International Affairs"/>
-    </a>
-    <a href="https://www.princeton.edu" target="_blank">
-      <img src="/{{ active_theme_path() ~ '/images/logo-princeton-white.svg' }}" alt="Princeton University"/>
-    </a>
-  </div>
-  <div class="footer-light row">
-    <div class="container">
-      {% if content %}
-        <div class="footer__content">{{ content }}</div>
-      {% endif %}
+<footer id="footer" class="footer bg-eden max-w-none text-white">
+  <div class="footer-left relative overflow-hidden py-0 px-1">
+    <div class="container-lg footer-logos pt-9 pb-9">
+      <a href="/">
+        {{ logo }}
+      </a>
     </div>
   </div>
-  <div class="footer-dark row">
-    <div class="container">
-      <div class="footer__menu">{{ menu }}</div>
-      <div class="footer__legal">{{ legal }}</div>
+  <div class="footer-right bg-tiber">
+    <div class="container-lg md:flex md:items-start md:justify-between">
+      <div class="footer__menus text-base md:flex md:w-auto pt-4">{{ menus }}</div>
+      <div class="footer__legal font-light md:w-auto text-sm flex leading-12 ml-1">
+        &copy;&nbsp;{{ 'now'|date('Y') }}&nbsp;{{ legal_link }}
+      </div>
     </div>
   </div>
 </footer>

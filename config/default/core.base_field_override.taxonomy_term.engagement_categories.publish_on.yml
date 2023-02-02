@@ -1,0 +1,18 @@
+uuid: c535fca8-0344-438c-9848-99d9027e3054
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.engagement_categories
+id: taxonomy_term.engagement_categories.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

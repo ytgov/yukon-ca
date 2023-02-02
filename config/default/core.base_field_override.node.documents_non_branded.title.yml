@@ -1,0 +1,18 @@
+uuid: 5621c0e4-ffbe-4f9b-bffe-579053e1baca
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.title
+field_name: title
+entity_type: node
+bundle: documents_non_branded
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

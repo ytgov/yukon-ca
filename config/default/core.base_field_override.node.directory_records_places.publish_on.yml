@@ -1,0 +1,18 @@
+uuid: 66815788-dbfa-47d9-ba03-f87e0d80fc48
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.publish_on
+field_name: publish_on
+entity_type: node
+bundle: directory_records_places
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

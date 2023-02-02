@@ -1,0 +1,18 @@
+uuid: 0dc5b856-fc98-4aa8-9a54-c546616fbd94
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.publish_on
+field_name: publish_on
+entity_type: node
+bundle: documents_non_branded
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

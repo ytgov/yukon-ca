@@ -1,0 +1,20 @@
+uuid: 82f01207-e45d-4127-b9e4-2ded3b145aac
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - yukonca_glider
+id: languageswitcher
+theme: yukonca_glider
+region: header_menu
+weight: 0
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  label_display: '0'
+  provider: language
+visibility: {  }

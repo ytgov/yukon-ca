@@ -1,0 +1,18 @@
+uuid: 8f802ad2-2006-4d8a-818a-9af7276db1a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.blog_type
+id: taxonomy_term.blog_type.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: blog_type
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

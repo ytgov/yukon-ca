@@ -1,0 +1,18 @@
+uuid: d7751e82-f539-46fc-955e-858857c14dbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.transactional_facility_type
+id: taxonomy_term.transactional_facility_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: transactional_facility_type
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

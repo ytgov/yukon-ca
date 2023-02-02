@@ -1,0 +1,18 @@
+uuid: 49af0ce0-1ec5-4b9b-88c3-c251b4e7c98f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+id: taxonomy_term.news_type.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: news_type
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

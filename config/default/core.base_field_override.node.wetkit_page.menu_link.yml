@@ -1,0 +1,20 @@
+uuid: ad6d5782-accc-425a-af8b-017ba80c4ec5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.menu_link
+field_name: menu_link
+entity_type: node
+bundle: wetkit_page
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

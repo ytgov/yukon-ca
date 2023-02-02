@@ -1,0 +1,22 @@
+uuid: 378155ee-e83c-4054-b3b3-9d0a50e9722a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.engagement
+id: node.engagement.sticky
+field_name: sticky
+entity_type: node
+bundle: engagement
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 3b228b3d-cca5-4636-937d-7cede45e452b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.department
+id: node.department.metatag
+field_name: metatag
+entity_type: node
+bundle: department
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

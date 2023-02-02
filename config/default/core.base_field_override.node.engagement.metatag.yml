@@ -1,0 +1,18 @@
+uuid: daf4fb1d-f9fd-4774-86a8-10a6e378720f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.engagement
+id: node.engagement.metatag
+field_name: metatag
+entity_type: node
+bundle: engagement
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

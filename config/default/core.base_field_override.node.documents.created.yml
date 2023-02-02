@@ -1,0 +1,18 @@
+uuid: 56ec510f-a10f-4809-8c48-665bbaa48d27
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents
+id: node.documents.created
+field_name: created
+entity_type: node
+bundle: documents
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

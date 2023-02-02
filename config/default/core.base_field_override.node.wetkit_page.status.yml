@@ -1,0 +1,22 @@
+uuid: 8a03a3b8-2b00-45ee-8128-cffda2cdf70f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.status
+field_name: status
+entity_type: node
+bundle: wetkit_page
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 885c0b00-44d5-42ca-8e04-7d5960778f63
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.multi_step_page
+id: node.multi_step_page.title
+field_name: title
+entity_type: node
+bundle: multi_step_page
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

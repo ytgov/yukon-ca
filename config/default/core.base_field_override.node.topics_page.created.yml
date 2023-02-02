@@ -1,0 +1,18 @@
+uuid: a9d14334-ce8a-495e-9ba4-f4b2d59a6ad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.topics_page
+id: node.topics_page.created
+field_name: created
+entity_type: node
+bundle: topics_page
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,6 +1,6 @@
 # Yukon.ca
 
-`TODO` A brief description of the project.
+Drupal 10 Drupal build for Yukon.ca. This repository was prepared so it's sources can be built via CI to deploy to Pantheon.
 
 [[_TOC_]]
 
@@ -8,43 +8,31 @@
 
 For local environment setup, please check detailed instructions [here](LocalSetup.md).
 
-`TODO` Add any external setup instructions (secondary database for migration, VPN, third-party laptop, etc)
+There is an entry in sites/default/settings/local.settings.php that points to the same DB container for the secondary DB for migration, named migrate. You can populate it if you have the DB dump:
 
-### Composer version
-
-Composer is set to version 2 by default
-
-See https://xwiki.ewdev.ca/xwiki/bin/view/Developers/Technical_Documentation/Evolving_Web_Standards/Template_for_projects/ for how to switch Compooser version.
+```
+$ fin db create migrate
+$ zcat drupal7.sql.gz | fin db import --db=migrate
+```
 
 ## Architecture
 
-Include any relevant architecture information for onboarding new team members. Migration, content structure, infrastructure.
+Layout Builder: The current standard choice for components implementation is Layout Builder, so Paragraphs should normally map to Block types, exceptions apart.
 
-`TODO` Update this section whenever a new architecture decision is made.
 
 ## Components
 
-List UI components used by the project, and relevant details about its implementation. If the list is long, consider creating a new .md file and link here.
-
-`TODO` Update this section whenever a new component is going to be implemented.
-
-## Modules
-
-Listing all modules is not necessary, but it is a good idea to include the most important in terms of solutions (Paragraphs to create layouts and components, Search API for solr integration, Migrate Plus, etc).
+`TODO`: list components from Audit
 
 ## External Integrations
 
-Add details about external integrations. Do not add sensitive data (credentials, keys, etc) to this file, you can link to the Redmine Wiki page for that.
+`TODO`: Document SSO solution here.
 
 ## Development workflow
 
-Our standard workflow can be found at: https://evolving-web.atlassian.net/wiki/spaces/DEVELOPERS/pages/711032845/Development+Workflow
-`TODO` Add project-specific workflow details (client's repository, client's JIRA, etc )
-`TODO` Add detailed deployment instructions (including instructions for Pantheon and Acquia for easy reference)
+Every new development should be pushed to a development branch. The advice is to keep the names short: due to Pantheon's limitation, multidev cannot use longer branch names, so in case we want to use it, we should avoid the long names.
 
-## Sitediff
-
-For Sitediff documentation, please check [detailed instructions](Sitediff.md)
+Upon pushing to a branch, you can create a Pull Request for EW to review. Branches are pushed to Pantheon so you can also spin a Multidev environment to demonstrate before merging.
 
 ## Resources
 

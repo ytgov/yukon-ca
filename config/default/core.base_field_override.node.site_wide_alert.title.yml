@@ -1,0 +1,18 @@
+uuid: f60fee9c-6d01-4251-99f2-0de9d2748ec9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.title
+field_name: title
+entity_type: node
+bundle: site_wide_alert
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

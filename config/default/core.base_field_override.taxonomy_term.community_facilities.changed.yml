@@ -1,0 +1,18 @@
+uuid: 464f9fcf-a6e5-4ade-80ed-133291805134
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community_facilities
+id: taxonomy_term.community_facilities.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: community_facilities
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,18 @@
+uuid: 21647d75-d162-417b-b28a-ee3df8562f9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+id: taxonomy_term.secondary_roads.name
+field_name: name
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

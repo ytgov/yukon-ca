@@ -1,0 +1,28 @@
+{# Prepare attributes #}
+{% set prefix = 'postcard' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="image">
+    {{ image }}
+  </div>
+  <div class="data">
+    {% if title %}
+      <h1 class="title" id="heading">{{ title }}</h1>
+    {% endif %}
+
+    {% if content %}
+      <div class="summary">{{ content }}</div>
+    {% endif %}
+
+    {% if link|render %}
+      <div class="more-link">{{ link }}</div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+uuid: 161fd255-dea4-4323-9ad6-f22675754807
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+id: taxonomy_term.secondary_roads.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

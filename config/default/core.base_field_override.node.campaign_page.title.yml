@@ -1,0 +1,18 @@
+uuid: ecb4736a-5f6f-476f-a0fb-67d1c506f0c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campaign_page
+id: node.campaign_page.title
+field_name: title
+entity_type: node
+bundle: campaign_page
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

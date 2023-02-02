@@ -1,0 +1,18 @@
+uuid: 00937871-041e-4456-9337-a48d80e2f7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.created
+field_name: created
+entity_type: node
+bundle: documents_non_branded
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

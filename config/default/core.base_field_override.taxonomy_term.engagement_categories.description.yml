@@ -1,0 +1,20 @@
+uuid: afaa8795-49c5-4bc9-bf01-8945446796b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.engagement_categories
+  module:
+    - text
+id: taxonomy_term.engagement_categories.description
+field_name: description
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,20 @@
+uuid: 2fc84b14-e741-4f4e-b8ed-5c28c8ed95fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.menu_link
+field_name: menu_link
+entity_type: node
+bundle: documents_non_branded
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference
