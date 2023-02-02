@@ -24,6 +24,10 @@ process:
     plugin: default_value
     default_value: homepage
   title: title
+  field_page_description/value: field_page_description/0/value
+  field_page_description/format:
+    plugin: default_value
+    default_value: wysiwyg_ckeditor
   status:
     plugin: skip_on_value
     method: row
@@ -42,7 +46,7 @@ process:
   body/summary: body/0/summary
   body/format:
     plugin: default_value
-    default_value: basic_html
+    default_value: wysiwyg_ckeditor
   field_primary_item_blocks:
     plugin: node_reference
   field_secondary_item_blocks:
