@@ -1,4 +1,4 @@
-uuid: 21298e9b-6a58-4a03-9cc1-3e05ad06e0ff
+uuid: 25b4d56c-a49f-45c9-a278-22f9f3ee75fb
 langcode: en
 status: true
 dependencies:
@@ -15,11 +15,9 @@ dependencies:
     - toolbar
     - workbench
     - workbench_access
-_core:
-  default_config_hash: H8MY_pPcZMyZXWNSTIM6k6mFVBBC4NzSivjPuHhNYXo
-id: editor
-label: Editor
-weight: 4
+id: writer
+label: Writer
+weight: 3
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -36,8 +34,6 @@ permissions:
   - 'create url aliases'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
-  - 'use content transition publish'
-  - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
   - 'use workbench access'
   - 'view all revisions'

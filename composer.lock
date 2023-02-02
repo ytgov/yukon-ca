@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f23903c7e036becbc061c99fb450eaf8",
+    "content-hash": "5c2089106785f2f59cfad0954895cd11",
     "packages": [
         {
             "name": "acquia/blt",
@@ -6012,6 +6012,68 @@
             }
         },
         {
+            "name": "drupal/scheduler_content_moderation_integration",
+            "version": "2.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/scheduler_content_moderation_integration.git",
+                "reference": "2.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/scheduler_content_moderation_integration-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "481e6c06f98b6f0a59779e399b2aa49c0a99d50a"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9 || ^10",
+                "drupal/scheduler": "^2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1670600013",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "chr.fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716"
+                },
+                {
+                    "name": "daniel.bosen",
+                    "homepage": "https://www.drupal.org/user/404865"
+                },
+                {
+                    "name": "jonathan1055",
+                    "homepage": "https://www.drupal.org/user/92645"
+                },
+                {
+                    "name": "smustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890"
+                },
+                {
+                    "name": "volkerk",
+                    "homepage": "https://www.drupal.org/user/57527"
+                }
+            ],
+            "description": "Scheduler sub-module providing content moderation functionality for publishing/unpublishing",
+            "homepage": "https://www.drupal.org/project/scheduler_content_moderation_integration",
+            "support": {
+                "source": "https://git.drupalcode.org/project/scheduler_content_moderation_integration",
+                "error": "Invalid dependency: \"scheduler\", Could not parse version constraint ~: Invalid version string \"~\""
+            }
+        },
+        {
             "name": "drupal/search404",
             "version": "2.1.1",
             "source": {
@@ -7606,11 +7668,17 @@
         },
         {
             "name": "drupal/workbench_access",
-            "version": "dev-2.x",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/workbench_access.git",
-                "reference": "23d27ad8239a71094c0453d75a3e83c815397341"
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/workbench_access-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "72acace889ccfc907395329e66c905aa2952c9df"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -7620,15 +7688,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "2.x-dev",
-                    "datestamp": "1673280732",
+                    "version": "2.0.0",
+                    "datestamp": "1672771977",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
@@ -14734,10 +14799,10 @@
         "drupal/linkit": 20,
         "drupal/page_manager": 5,
         "drupal/scheduler": 5,
+        "drupal/scheduler_content_moderation_integration": 10,
         "drupal/views_menu_children_filter": 5,
         "drupal/views_tree": 5,
         "drupal/webform": 20,
-        "drupal/workbench_access": 20,
         "yukon/conditional_fields": 20,
         "yukon/geophp": 20,
         "yukon/maxlength": 20,
@@ -14750,5 +14815,5 @@
         "php": ">=7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

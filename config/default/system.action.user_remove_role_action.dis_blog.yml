@@ -1,0 +1,14 @@
+uuid: ee91fe36-a343-42d8-9876-d02dda9cb013
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dis_blog
+  module:
+    - user
+id: user_remove_role_action.dis_blog
+label: 'Remove the DIS blog role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dis_blog
