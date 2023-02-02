@@ -1,0 +1,18 @@
+uuid: 3a9aa341-f550-4164-b51c-2a7cca01c560
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.publish_on
+field_name: publish_on
+entity_type: node
+bundle: site_wide_alert
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

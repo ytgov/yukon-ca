@@ -1,0 +1,18 @@
+uuid: 18f7e276-17f7-4cce-8fa8-817409f6f27f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+id: taxonomy_term.highway_names.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: highway_names
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

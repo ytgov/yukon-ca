@@ -1,0 +1,85 @@
+contact_card:
+  label: Contact Card
+  description: A contact card.
+  variants:
+    default:
+      label: Default
+      description: Image Card Text.
+    title:
+      label: With title
+      description: Image Card with title.
+  fields:
+    title:
+      type: string
+      label: Question
+      description: A question.
+      preview: 'Lorem Ipsum Dolor'
+    map:
+      type: mixed
+      label: Map
+      description: A map.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    address:
+      type: string
+      label: Address
+      description: An address.
+      preview: 'Down Street, London'
+    phone:
+      type: string
+      label: Phone number
+      description: A phone number.
+      preview: '+44 20 7946 0399'
+    items:
+      type: mixed
+      label: Accepted items
+      description: An accepted items.
+      preview:
+        -
+          title: 'Aliquam erat volutpat'
+        -
+          title: 'Cras tristique qua'
+        -
+          title: 'Curabitur euismod'
+    open_hours:
+      type: mixed
+      label: Services
+      description: Services list.
+      preview:
+        -
+          day: 'Monday'
+          value: 'Closed'
+        -
+          day: 'Tuesday'
+          value: '12 p.m. to 6 p.m.'
+        -
+          day: 'Friday'
+          value: '11 a.m. to 4 p.m.'
+    services:
+      type: mixed
+      label: Services
+      description: Services list.
+      preview:
+        -
+          title: 'Service 1'
+        -
+          title: 'Service 2'
+    holiday_hours:
+      type: mixed
+      label: Services
+      description: Services list.
+      preview:
+        -
+          day: 'Statutory holidays'
+          value: 'Closed'
+    link:
+      type: string
+      label: More Link
+      description: "Markup for More Link."
+  libraries:
+    -
+      contact_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

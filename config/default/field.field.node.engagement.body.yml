@@ -1,0 +1,23 @@
+uuid: 30570ff0-eec2-44ce-b73e-bf646c6cfc80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.engagement
+  module:
+    - text
+id: node.engagement.body
+field_name: body
+entity_type: node
+bundle: engagement
+label: 'What is this engagement about?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

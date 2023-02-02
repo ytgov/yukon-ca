@@ -1,0 +1,20 @@
+uuid: d4c62788-160e-46c9-872f-a9f24bca988f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main-menu
+    parent: 'main-menu:0:'
+  scheduler: {  }
+name: 'Campaign Page'
+type: campaign_page
+description: 'Use for simple, one page, Government of Yukon only or multi-jurisdictional campaigns'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

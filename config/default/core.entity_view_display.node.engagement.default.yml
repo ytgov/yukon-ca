@@ -1,0 +1,31 @@
+uuid: 6fe46026-342f-4500-83d0-9e5e7376adbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.engagement.body
+    - node.type.engagement
+  module:
+    - text
+    - user
+id: node.engagement.default
+targetEntityType: node
+bundle: engagement
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

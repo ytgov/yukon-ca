@@ -1,0 +1,18 @@
+uuid: 0034b139-f249-4ee5-a7bb-48ec1275b04a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.in_page_alert
+id: node.in_page_alert.title
+field_name: title
+entity_type: node
+bundle: in_page_alert
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

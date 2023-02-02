@@ -1,0 +1,20 @@
+uuid: da1b266d-672a-4412-9406-660a41a97f63
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+  module:
+    - text
+id: taxonomy_term.secondary_roads.description
+field_name: description
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

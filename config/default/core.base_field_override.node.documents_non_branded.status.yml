@@ -1,0 +1,22 @@
+uuid: 764e0184-7e79-47d6-80ba-12a6c296ca4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.status
+field_name: status
+entity_type: node
+bundle: documents_non_branded
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

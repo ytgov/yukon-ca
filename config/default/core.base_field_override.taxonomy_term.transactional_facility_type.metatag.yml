@@ -1,0 +1,18 @@
+uuid: 06a86e94-c4ca-4439-9de2-00beca6dcdc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.transactional_facility_type
+id: taxonomy_term.transactional_facility_type.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: transactional_facility_type
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

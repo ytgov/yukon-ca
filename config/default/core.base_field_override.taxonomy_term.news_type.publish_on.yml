@@ -1,0 +1,18 @@
+uuid: ab65904a-1afb-470d-81e6-f5a757a141b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+id: taxonomy_term.news_type.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: news_type
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

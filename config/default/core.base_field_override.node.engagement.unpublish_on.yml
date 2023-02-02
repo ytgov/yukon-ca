@@ -1,0 +1,18 @@
+uuid: 9e7a0bd7-d046-4797-8bef-9255cfb58493
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.engagement
+id: node.engagement.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: engagement
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

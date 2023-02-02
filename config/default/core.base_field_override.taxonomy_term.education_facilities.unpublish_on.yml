@@ -1,0 +1,18 @@
+uuid: a39ce9d2-85be-441c-8326-d36641bdfb65
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.education_facilities
+id: taxonomy_term.education_facilities.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: education_facilities
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,20 @@
+uuid: d2e82a28-9741-4df7-95e1-368ba5467ee2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+  module:
+    - path
+id: node.documents_non_branded.path
+field_name: path
+entity_type: node
+bundle: documents_non_branded
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

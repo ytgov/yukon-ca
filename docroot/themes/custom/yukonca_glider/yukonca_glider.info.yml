@@ -11,7 +11,7 @@ regions:
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
   post_content: 'Post content'
-  footer: Footer
+  footer_logo: Footer - Logo
   footer_menu: Footer - Menu
   footer_legal: Footer - Legal notice
 

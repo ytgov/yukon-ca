@@ -1,0 +1,18 @@
+uuid: 808c2063-a1e7-4d04-a86b-6e36a4d6444a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community
+id: taxonomy_term.community.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: community
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

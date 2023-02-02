@@ -1,0 +1,18 @@
+uuid: 779fcf8d-2dfc-43f9-90a2-ac7a06e155a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+id: taxonomy_term.health_facilities.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: health_facilities
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

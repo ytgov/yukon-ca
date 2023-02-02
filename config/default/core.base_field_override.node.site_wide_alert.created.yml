@@ -1,0 +1,18 @@
+uuid: 7d6acd85-19d2-4206-b9fc-483fc3b38dfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.created
+field_name: created
+entity_type: node
+bundle: site_wide_alert
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

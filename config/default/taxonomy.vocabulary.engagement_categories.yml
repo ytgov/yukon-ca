@@ -1,0 +1,8 @@
+uuid: c0767770-6de4-47b5-ae6f-cb3f21faa1fd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Engagement Categories'
+vid: engagement_categories
+description: 'Types of engagements'
+weight: 0

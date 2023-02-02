@@ -1,0 +1,18 @@
+uuid: 02dce6b3-1cd2-4211-bc8e-a59916b4510d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+id: taxonomy_term.secondary_roads.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,47 @@
+column_layout_card:
+  label: 'Column layout card'
+  description: Callout Card.
+  fields:
+    main_link:
+      type: string
+      label: Main link
+      description: A main link.
+      preview:
+        '#type': 'inline_template'
+        '#template': '{{ drupal_link(title, url, options) }}'
+        '#context':
+          title: 'Suspendisse malesuada risus'
+          url: <front>
+          options: [ ]
+    links:
+      type: mixed
+      label: Links
+      description: List of links.
+      preview:
+        -
+          '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Curabitur rutrum nisi turpis'
+            url: <front>
+            options: [ ]
+        -
+          '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Vestibulum luctus eros et'
+            url: <front>
+            options: [ ]
+        -
+          '#type': 'inline_template'
+          '#template': '{{ drupal_link(title, url, options) }}'
+          '#context':
+            title: 'Nulla sollicitudin dolor lectus'
+            url: <front>
+            options: [ ]
+  libraries:
+    -
+      column_layout_card:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

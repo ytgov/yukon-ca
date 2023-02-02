@@ -1,0 +1,20 @@
+uuid: f56641f9-64b0-4e47-a893-5e33f5ae4335
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.multi_step_page
+  module:
+    - path
+id: node.multi_step_page.path
+field_name: path
+entity_type: node
+bundle: multi_step_page
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

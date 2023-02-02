@@ -1,0 +1,18 @@
+uuid: db1db555-c5b6-4c18-b7e9-956eed879dfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+id: taxonomy_term.health_facilities.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: health_facilities
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,18 @@
+uuid: 1fc3c6fa-4b9d-4517-b189-d70ce6c6b632
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.changed
+field_name: changed
+entity_type: node
+bundle: site_wide_alert
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,18 @@
+uuid: 0195ecaa-8606-47f4-bf5f-650162f1ca98
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+id: taxonomy_term.secondary_roads.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

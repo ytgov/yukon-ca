@@ -1,0 +1,18 @@
+uuid: 0d80e2b0-5591-4303-aceb-11380a33c4b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.recreation_site_type
+id: taxonomy_term.recreation_site_type.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: recreation_site_type
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

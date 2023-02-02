@@ -1,0 +1,18 @@
+uuid: 90a20542-f171-4742-af06-43a741380410
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.multi_step_page
+id: node.multi_step_page.publish_on
+field_name: publish_on
+entity_type: node
+bundle: multi_step_page
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

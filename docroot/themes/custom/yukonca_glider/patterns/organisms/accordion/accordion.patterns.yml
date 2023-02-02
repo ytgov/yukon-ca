@@ -62,16 +62,6 @@ accordion_item:
       label: Default
       description: The blog card with linked category image, date, title and summary.
   fields:
-    title:
-      type: text
-      label: Title
-      description: Accordion item title
-      preview: 'Lorem Ipsum'
-    summary:
-      type: text
-      label: Summary
-      description: Accordion item summary.
-      preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
     content:
       type: text
       label: Content
@@ -82,10 +72,6 @@ accordion_item:
       label: Item id
       description: Accordion item identifier.
       preview: '00678895'
-    cta:
-      type: string
-      label: CTA
-      description: "Markup for CTAs."
   libraries:
     - accordion_item:
         css:

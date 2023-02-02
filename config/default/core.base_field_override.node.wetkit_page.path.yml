@@ -1,0 +1,20 @@
+uuid: 3bc1a34d-9ba1-4b12-b727-110e99eb5c50
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+  module:
+    - path
+id: node.wetkit_page.path
+field_name: path
+entity_type: node
+bundle: wetkit_page
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,14 @@
+uuid: a37c5cac-7fbd-4c13-846b-d2bcf211a3a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.wysiwyg_ckeditor
+  module:
+    - filter
+id: publisher
+label: Publisher
+weight: 5
+is_admin: null
+permissions:
+  - 'use text format wysiwyg_ckeditor'

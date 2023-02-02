@@ -1,0 +1,18 @@
+uuid: d6796af9-d82c-40dd-9b51-f12b05329d17
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.engagement
+id: node.engagement.publish_on
+field_name: publish_on
+entity_type: node
+bundle: engagement
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

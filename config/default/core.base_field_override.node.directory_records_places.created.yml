@@ -1,0 +1,18 @@
+uuid: a74c237d-f5d8-4fcd-91aa-7c77fd31536f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.created
+field_name: created
+entity_type: node
+bundle: directory_records_places
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

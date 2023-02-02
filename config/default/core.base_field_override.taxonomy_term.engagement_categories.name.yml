@@ -1,0 +1,18 @@
+uuid: 4ea6af08-7477-4e33-bed4-407de7c7f8ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.engagement_categories
+id: taxonomy_term.engagement_categories.name
+field_name: name
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

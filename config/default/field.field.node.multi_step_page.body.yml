@@ -1,0 +1,23 @@
+uuid: c2712893-7548-4465-86a4-1b82bc14db9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.multi_step_page
+  module:
+    - text
+id: node.multi_step_page.body
+field_name: body
+entity_type: node
+bundle: multi_step_page
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

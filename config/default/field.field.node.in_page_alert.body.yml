@@ -1,0 +1,23 @@
+uuid: e3ddba47-800c-487f-9381-2f750f8bc01d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.in_page_alert
+  module:
+    - text
+id: node.in_page_alert.body
+field_name: body
+entity_type: node
+bundle: in_page_alert
+label: 'Alert message'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

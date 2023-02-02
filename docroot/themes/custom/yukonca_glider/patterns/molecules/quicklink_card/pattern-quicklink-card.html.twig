@@ -1,0 +1,31 @@
+{# Prepare attributes #}
+{% set prefix = 'quicklink-card' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  {% if icon %}
+    <div class="icon">
+      {% include active_theme_path() ~ '/images/svg/' ~ icon %}
+    </div>
+  {% endif %}
+  {% if link_title %}
+    <div class="main-link">
+      <a href="{{ link_url }}">{{ link_title }}</a>
+    </div>
+  {% endif %}
+  {% if links %}
+    <ul class="links">
+      {% for link in links %}
+        <li class="anchor-link">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
