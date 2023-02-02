@@ -1,0 +1,14 @@
+uuid: 4163aa41-5594-4b49-a13b-d6e6b18b46e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_administrator
+  module:
+    - user
+id: user_add_role_action.team_administrator
+label: 'Add the Team Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: team_administrator

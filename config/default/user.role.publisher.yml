@@ -1,4 +1,4 @@
-uuid: 21298e9b-6a58-4a03-9cc1-3e05ad06e0ff
+uuid: 723529eb-ea1c-42c4-a3de-77296dc215d3
 langcode: en
 status: true
 dependencies:
@@ -15,11 +15,9 @@ dependencies:
     - toolbar
     - workbench
     - workbench_access
-_core:
-  default_config_hash: H8MY_pPcZMyZXWNSTIM6k6mFVBBC4NzSivjPuHhNYXo
-id: editor
-label: Editor
-weight: 4
+id: publisher
+label: Publisher
+weight: 5
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -30,12 +28,16 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
+  - 'administer media'
   - 'administer menu'
   - 'administer nodes'
   - 'create media'
   - 'create url aliases'
+  - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
@@ -43,6 +45,7 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view media'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view workbench access information'

@@ -1,0 +1,14 @@
+uuid: 7e10747a-6848-49db-9d38-0b665ab776bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dis_blog
+  module:
+    - user
+id: user_add_role_action.dis_blog
+label: 'Add the DIS blog role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dis_blog
