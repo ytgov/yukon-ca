@@ -1,0 +1,25 @@
+uuid: 2fbf9095-96ab-4045-a4d6-bfa629b9b606
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.wysiwyg_ckeditor
+  module:
+    - ckeditor5
+format: wysiwyg_ckeditor
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+image_upload: {  }

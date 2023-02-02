@@ -1,0 +1,33 @@
+uuid: 277ee29f-5089-4c1e-b712-b73f291af685
+langcode: en
+status: true
+dependencies:
+  module:
+    - pathologic
+name: 'Wysiwyg Ckeditor'
+format: wysiwyg_ckeditor
+weight: 0
+filters:
+  filter_pathologic:
+    id: filter_pathologic
+    provider: pathologic
+    status: true
+    weight: 50
+    settings:
+      settings_source: local
+      local_settings:
+        protocol_style: full
+        local_paths: "/en/\r\n/fr/\r\nhttps://yukon.ca/en/\r\nhttps://yukon.ca/fr/"
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
