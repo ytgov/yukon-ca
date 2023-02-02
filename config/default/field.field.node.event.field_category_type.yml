@@ -17,8 +17,8 @@ field_name: field_category_type
 entity_type: node
 bundle: event
 label: 'Category type'
-description: ''
-required: false
+description: 'Select from taxonomy list of categories'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

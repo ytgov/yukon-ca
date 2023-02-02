@@ -1,0 +1,26 @@
+uuid: 9ba72ede-6367-41cd-8cfb-476d927c6a94
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_description
+    - node.type.blog
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.blog.field_page_description
+field_name: field_page_description
+entity_type: node
+bundle: blog
+label: 'Meta description'
+description: "A clear description of the page content, in two sentences or less. This will appear as the page's description in search results, so it should help a user understand what content they will find on this page and if it's relevant to their information need."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

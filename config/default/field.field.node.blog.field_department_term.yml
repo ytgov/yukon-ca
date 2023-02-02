@@ -1,32 +1,32 @@
-uuid: faefa12e-ef50-48d5-b76f-2a9e06b6edcd
+uuid: dbc90b8b-e8f7-4e24-b8f2-83321f7b3c1c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_community
-    - node.type.event
-    - taxonomy.vocabulary.community
+    - field.storage.node.field_department_term
+    - node.type.blog
+    - taxonomy.vocabulary.department
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.event.field_community
-field_name: field_community
+id: node.blog.field_department_term
+field_name: field_department_term
 entity_type: node
-bundle: event
-label: Community
+bundle: blog
+label: Department
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      community: community
+      department: department
     sort:
       field: name
       direction: asc

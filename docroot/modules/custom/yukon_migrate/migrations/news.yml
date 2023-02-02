@@ -1,13 +1,13 @@
-id: blog
-label: Blog
+id: news
+label: News
 migration_tags:
   - Drupal 7
   - Content
-  - blog
+  - news
 migration_group: legacy
 source:
   plugin: d7_node
-  node_type: blog
+  node_type: news
 destination:
   plugin: entity:node
 process:
@@ -27,7 +27,7 @@ process:
   revision_log: log
   type:
     plugin: default_value
-    default_value: blog
+    default_value: news
   title: title
   field_page_description/value: field_page_description
   field_page_description/format:
@@ -38,15 +38,32 @@ process:
   body/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
-  field_contact/value: field_contact
+  field_contact/value: field_contact/0/value
   field_contact/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
-  field_svg_upload:
-    plugin: imagemedia
+  field_backgrounder/value: field_backgrounder/0/value
+  field_backgrounder/format:
+    plugin: default_value
+    default_value: wysiwyg_ckeditor
+  field_news_release: field_news_release_
+  field_news_quote:
+    plugin: newsquote
+  field_quick_facts:
+    plugin: quickfacts
+  field_charts:
+    plugin: charts
   field_featured_image:
     plugin: imagemedia
-  field_blog_type:
+  field_related_link:
+    -
+      plugin: sub_process
+      source: field_related_link
+      process:
+        uri: url
+        title: title
+        attributes: attributes
+  field_news_type:
     plugin: kellett_taxonomy
   field_category_term:
     plugin: kellett_taxonomy
@@ -57,3 +74,5 @@ process:
   field_yukon_editorial_team:
     plugin: kellett_taxonomy
   field_social_sharing: field_social_sharing
+  field_featured_news_item: field_featured_news_item
+  field_featured_to_homepage: field_featured_to_homepage
