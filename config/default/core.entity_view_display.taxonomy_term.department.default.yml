@@ -1,0 +1,32 @@
+uuid: 062321e6-b291-4618-8d7c-d54f912cd5cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.department.field_meta_tags
+    - taxonomy.vocabulary.department
+  module:
+    - metatag
+    - text
+id: taxonomy_term.department.default
+targetEntityType: taxonomy_term
+bundle: department
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
