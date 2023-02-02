@@ -63,13 +63,15 @@ class Taxonomy extends ProcessPluginBase {
           $this->taxonomyTerm = $this->getTaxonomyTerm($tid, FALSE);
           $term = $this->taxonomyTerm;
         }
-        $taxonomyFieldTerm = \Drupal::service('entity_type.manager')
-          ->getStorage('taxonomy_term')
-          ->loadByProperties([
-            'name' => $term->name,
-            'vid' => $vocabulary,
-          ]);
-        $taxonomyFieldTerm = reset($taxonomyFieldTerm);
+        if (!empty($term->name)) {
+          $taxonomyFieldTerm = \Drupal::service('entity_type.manager')
+            ->getStorage('taxonomy_term')
+            ->loadByProperties([
+              'name' => $term->name,
+              'vid' => $vocabulary,
+            ]);
+          $taxonomyFieldTerm = reset($taxonomyFieldTerm);
+        }
 
         if (!empty($taxonomyFieldTerm)) {
           $translatedLanguage = 'fr';
@@ -115,7 +117,9 @@ class Taxonomy extends ProcessPluginBase {
             }
           }
 
-          $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
+          if (isset($taxonomyTerm) && is_object($taxonomyTerm)) {
+            $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
+          }
         }
       }
 
@@ -154,6 +158,11 @@ class Taxonomy extends ProcessPluginBase {
     // Event.
     if ($field === 'field_community') {
       $vocabulary = 'community';
+    }
+
+    // News.
+    if ($field === 'field_news_type') {
+      $vocabulary = 'news_type';
     }
 
     return $vocabulary;
