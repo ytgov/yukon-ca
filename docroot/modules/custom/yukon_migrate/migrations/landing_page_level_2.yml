@@ -31,11 +31,11 @@ process:
   promote: promote
   sticky: sticky
   revision_log: log
-  field_page_description/value: field_page_description
+  field_page_description/value: field_page_description/0/value
   field_page_description/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
-  field_opener_description/value: field_opener_description
+  field_opener_description/value: field_opener_description/0/value
   field_opener_description/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor

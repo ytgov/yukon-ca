@@ -3,6 +3,7 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
+use Drupal\node\Entity\Node;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -34,6 +35,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
     $node = $row->getSource();
     $nodeId = !empty($node['nid']) ? $node['nid'] : $node['entity_id'];
     $paragraphField = !empty($node['field_primary_content']) ? $node['field_primary_content'] : NULL;
+    $results = [];
     if (!empty($paragraphField)) {
       foreach ($paragraphField as $paragraph) {
         $connection = Database::getConnection('default', 'migrate');
@@ -61,6 +63,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
             'nid',
             'title',
             'type',
+            'language',
           ]);
         $query->condition('fci.item_id', $paragraph['value']);
         $results[] = $query->execute()->fetchAll();
@@ -85,17 +88,23 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
             ]);
             $referencedNode = reset($referencedNode);
 
-            if (!empty($referencedNode)) {
-              // Populate fields.
-              $paragraph->field_popular_links->target_id = $referencedNode->id();
+            if (empty($referencedNode)) {
+              $referencedNode = Node::create([
+                'title' => $item->title,
+                'type' => $item->type,
+                'langcode' => $item->language,
+              ]);
+              $referencedNode->save();
             }
+            // Populate fields.
+            $paragraph->field_popular_links->target_id = $referencedNode->id();
             $paragraph->save();
 
             $paragraphs[] = $paragraph;
           }
-
-          return $paragraphs;
         }
+
+        return $paragraphs;
       }
     }
   }
