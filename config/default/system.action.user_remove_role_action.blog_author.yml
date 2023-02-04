@@ -1,0 +1,14 @@
+uuid: 71baf270-4f6f-45d4-9336-a96526ff0591
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.blog_author
+  module:
+    - user
+id: user_remove_role_action.blog_author
+label: 'Remove the Blog Author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: blog_author

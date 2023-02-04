@@ -1,0 +1,18 @@
+uuid: a0e0f39c-a245-4e4e-9f32-f1c3cbe2bc9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+id: taxonomy_term.highway_names.name
+field_name: name
+entity_type: taxonomy_term
+bundle: highway_names
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

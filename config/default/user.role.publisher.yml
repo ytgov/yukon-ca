@@ -1,0 +1,51 @@
+uuid: 723529eb-ea1c-42c4-a3de-77296dc215d3
+langcode: en
+status: true
+dependencies:
+    config:
+        - workflows.workflow.content
+    module:
+        - content_moderation
+        - contextual
+        - linkchecker
+        - media
+        - node
+        - path
+        - system
+        - toolbar
+        - workbench
+        - workbench_access
+id: publisher
+label: Publisher
+weight: 5
+is_admin: null
+permissions:
+    - 'access administration pages'
+    - 'access broken links report'
+    - 'access content overview'
+    - 'access contextual links'
+    - 'access own broken links report'
+    - 'access site in maintenance mode'
+    - 'access toolbar'
+    - 'access workbench'
+    - 'administer media'
+    - 'administer menu'
+    - 'administer nodes'
+    - 'create media'
+    - 'create url aliases'
+    - 'use content transition archived'
+    - 'use content transition create_new_draft'
+    - 'use content transition create_new_draft'
+    - 'use content transition publish'
+    - 'use content transition publish'
+    - 'use content transition publish'
+    - 'use content transition submit_for_publish'
+    - 'use content transition submit_for_review'
+    - 'use workbench access'
+    - 'view all revisions'
+    - 'view all revisions'
+    - 'view any unpublished content'
+    - 'view media'
+    - 'view own unpublished content'
+    - 'view the administration theme'
+    - 'view workbench access information'

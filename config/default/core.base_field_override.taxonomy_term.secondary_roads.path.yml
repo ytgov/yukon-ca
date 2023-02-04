@@ -1,0 +1,20 @@
+uuid: c768f214-9507-45c9-89e5-6340250b9d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+  module:
+    - path
+id: taxonomy_term.secondary_roads.path
+field_name: path
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

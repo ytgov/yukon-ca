@@ -1,0 +1,18 @@
+uuid: 4267a3bf-a0cb-45da-bbd4-502ec321921f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.multi_step_page
+id: node.multi_step_page.metatag
+field_name: metatag
+entity_type: node
+bundle: multi_step_page
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

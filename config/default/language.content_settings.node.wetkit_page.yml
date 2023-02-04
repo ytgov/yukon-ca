@@ -1,0 +1,18 @@
+uuid: 4d1b7196-cdfd-48bc-8df8-b2024fecd310
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.wetkit_page
+target_entity_type_id: node
+target_bundle: wetkit_page
+default_langcode: site_default
+language_alterable: false

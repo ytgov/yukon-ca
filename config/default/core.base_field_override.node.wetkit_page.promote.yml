@@ -1,0 +1,22 @@
+uuid: 559f675c-f43b-4873-8998-3c12476cabea
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.promote
+field_name: promote
+entity_type: node
+bundle: wetkit_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

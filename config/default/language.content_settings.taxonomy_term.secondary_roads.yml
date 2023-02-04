@@ -1,0 +1,18 @@
+uuid: 1449e017-a562-47a5-b02d-c516db75a929
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.secondary_roads
+target_entity_type_id: taxonomy_term
+target_bundle: secondary_roads
+default_langcode: site_default
+language_alterable: false

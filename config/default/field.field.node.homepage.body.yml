@@ -6,7 +6,12 @@ dependencies:
     - field.storage.node.body
     - node.type.homepage
   module:
+    - epp
     - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
 id: node.homepage.body
 field_name: body
 entity_type: node

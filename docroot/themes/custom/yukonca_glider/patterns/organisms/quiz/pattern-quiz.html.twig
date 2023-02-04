@@ -1,0 +1,42 @@
+{# Prepare attributes #}
+{% set classes = [
+  'quiz-wrapper',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">
+    {{ title }}
+  </div>
+  <div class="question">
+    {{ question }}
+  </div>
+  <ul class="answers">
+    {% for answer in answers %}
+      <li class="answer">
+        {{ answer.text }}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="action-wrapper">
+    <div class="action-yes">
+      <a class="yes" href="{{ action_yes_url }}">{{ 'Yes'|t }}</a>
+    </div>
+    <div class="action-no">
+      <a class="no" href="{{ action_no_url }}">{{ 'No'|t }}</a>
+    </div>
+  </div>
+  <div class="links-wrapper">
+    {% if prev_question_url|render %}
+      <div class="return">
+        {{ prev_question_url }}
+        <a class="prev" href="{{ prev_question_url }}">{{ 'Return to previous question'|t }}</a>
+      </div>
+      <div class="or">{{ 'or'|t }}</div>
+    {% endif %}
+    {% if start_over_url|render %}
+      <div class="restart">
+        <a class="restart" href="{{ start_over_url }}">{{ 'Start over'|t }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{# Prepare attributes #}
+{% set prefix = 'graph-tables' %}
+
+{% set classes = [
+  'section',
+  'container',
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  <div class="title">{{ title }}</div>
+  <ul class="graph-tables">
+    {% for item in items %}
+      <li class="graph-table">
+        {{ pattern('graph_card', item, variant) }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

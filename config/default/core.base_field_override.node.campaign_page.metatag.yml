@@ -1,0 +1,18 @@
+uuid: 6cf308b6-091b-4e65-8afc-8ed6ac5a723e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campaign_page
+id: node.campaign_page.metatag
+field_name: metatag
+entity_type: node
+bundle: campaign_page
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

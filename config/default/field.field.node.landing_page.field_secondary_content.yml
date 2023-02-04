@@ -19,7 +19,7 @@ entity_type: node
 bundle: landing_page
 label: 'Secondary content'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -30,11 +30,20 @@ settings:
       secondary_content: secondary_content
     negate: 0
     target_bundles_drag_drop:
+      chart:
+        weight: 7
+        enabled: false
       image_gallery:
         weight: 4
         enabled: false
       primary_content:
         weight: 5
+        enabled: false
+      quick_facts:
+        weight: 10
+        enabled: false
+      quotes:
+        weight: 11
         enabled: false
       secondary_content:
         weight: 6

@@ -1,0 +1,8 @@
+{# Prepare attributes #}
+{% set classes = [
+  'search',
+] %}
+
+<div {{ attributes.addClass(classes) }}">
+  {{ form }}
+</div>

@@ -1,0 +1,18 @@
+uuid: ceca9d19-7e3e-479d-b892-75bdd841f5cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community
+id: taxonomy_term.community.name
+field_name: name
+entity_type: taxonomy_term
+bundle: community
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

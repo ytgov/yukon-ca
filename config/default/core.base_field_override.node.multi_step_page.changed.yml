@@ -1,0 +1,18 @@
+uuid: 6142e380-4bb0-4802-87f9-921c30127dd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.multi_step_page
+id: node.multi_step_page.changed
+field_name: changed
+entity_type: node
+bundle: multi_step_page
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

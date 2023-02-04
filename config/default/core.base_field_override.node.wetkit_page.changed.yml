@@ -1,0 +1,18 @@
+uuid: 3b08d4b5-a158-4189-b0f2-c9bf54959e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.changed
+field_name: changed
+entity_type: node
+bundle: wetkit_page
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

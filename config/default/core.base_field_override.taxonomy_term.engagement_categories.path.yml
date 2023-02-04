@@ -1,0 +1,20 @@
+uuid: 4b444ef4-2b51-471d-836c-734754db488f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.engagement_categories
+  module:
+    - path
+id: taxonomy_term.engagement_categories.path
+field_name: path
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

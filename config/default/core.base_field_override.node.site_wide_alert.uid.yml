@@ -1,0 +1,20 @@
+uuid: 4033ac1e-855d-4f0f-afff-27536016306f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.uid
+field_name: uid
+entity_type: node
+bundle: site_wide_alert
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

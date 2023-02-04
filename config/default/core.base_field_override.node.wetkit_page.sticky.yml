@@ -1,0 +1,22 @@
+uuid: d389d9ab-580c-49b0-b6e1-b31ce9bbedd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.sticky
+field_name: sticky
+entity_type: node
+bundle: wetkit_page
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

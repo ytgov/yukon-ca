@@ -1,0 +1,22 @@
+uuid: 60dfba8a-e4b9-4e1f-bc20-095880df1375
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.secondary_roads
+id: taxonomy_term.secondary_roads.status
+field_name: status
+entity_type: taxonomy_term
+bundle: secondary_roads
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

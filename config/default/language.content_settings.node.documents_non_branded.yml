@@ -1,0 +1,18 @@
+uuid: 81dcc34b-965a-4a53-911f-16c6fa02dbd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.documents_non_branded
+target_entity_type_id: node
+target_bundle: documents_non_branded
+default_langcode: site_default
+language_alterable: false

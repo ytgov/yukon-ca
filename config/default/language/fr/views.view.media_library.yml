@@ -1,0 +1,61 @@
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      exposed_form:
+        options:
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+      filters:
+        status:
+          group_info:
+            label: Publié
+            group_items:
+              1:
+                title: Publié
+              2:
+                title: 'Non publié'
+        name:
+          expose:
+            label: Nom
+        langcode:
+          expose:
+            label: Langue
+  page:
+    display_options:
+      fields:
+        delete_media:
+          text: Supprimer
+  widget:
+    display_options:
+      arguments:
+        bundle:
+          exception:
+            title: Tout
+      filters:
+        name:
+          expose:
+            label: Nom
+  widget_table:
+    display_options:
+      fields:
+        name:
+          label: Nom
+        uid:
+          label: Auteur
+        changed:
+          label: 'Mis à jour'
+      arguments:
+        bundle:
+          exception:
+            title: Tout
+      filters:
+        name:
+          expose:
+            label: Nom

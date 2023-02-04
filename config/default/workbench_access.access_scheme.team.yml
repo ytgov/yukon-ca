@@ -1,0 +1,14 @@
+uuid: 2b79b4a9-9167-4081-a9cd-062f2c442688
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.teams
+id: team
+plural_label: Teams
+label: Team
+scheme: taxonomy
+scheme_settings:
+  vocabularies:
+    - teams
+  fields: {  }

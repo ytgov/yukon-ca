@@ -1,0 +1,23 @@
+uuid: 0833efb8-dfbd-42d8-906d-8cd31e3cbc44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.site_wide_alert
+  module:
+    - text
+id: node.site_wide_alert.body
+field_name: body
+entity_type: node
+bundle: site_wide_alert
+label: 'Alert Message'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

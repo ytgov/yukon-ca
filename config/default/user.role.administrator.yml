@@ -1,11 +1,166 @@
 uuid: cfe5d2b4-4f31-49fa-9fc8-f6fdb80456d3
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - workflows.workflow.content
+  module:
+    - addtoany
+    - block
+    - block_class
+    - comment
+    - content_moderation
+    - content_translation
+    - contextual
+    - facets
+    - feeds
+    - feeds_tamper
+    - field_ui
+    - filter
+    - image
+    - language
+    - linkchecker
+    - linkit
+    - locale
+    - media
+    - menu_link_attributes
+    - metatag
+    - module_missing_message_fixer
+    - node
+    - page_manager
+    - paragraphs
+    - path
+    - pathauto
+    - scheduler
+    - search_api
+    - shortcut
+    - smtp
+    - system
+    - taxonomy
+    - toolbar
+    - views_ui
+    - webform
+    - workbench
+    - workbench_access
+    - workbench_email
 _core:
   default_config_hash: OeKGIkmZA_c-t6QLH81WNQx8gDCc1MRmxaTuQgxBByU
 id: administrator
-label: Administrator
-weight: 3
+label: administrator
+weight: 2
 is_admin: true
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access broken links report'
+  - 'access comments'
+  - 'access content'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access own broken links report'
+  - 'access site in maintenance mode'
+  - 'access site reports'
+  - 'access toolbar'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'access workbench'
+  - 'administer addtoany'
+  - 'administer block classes'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer blocks'
+  - 'administer comments'
+  - 'administer content translation'
+  - 'administer content types'
+  - 'administer display modes'
+  - 'administer facets'
+  - 'administer feeds'
+  - 'administer feeds_tamper'
+  - 'administer filters'
+  - 'administer image styles'
+  - 'administer languages'
+  - 'administer languages'
+  - 'administer linkchecker'
+  - 'administer linkit profiles'
+  - 'administer media'
+  - 'administer menu'
+  - 'administer menu link attributes'
+  - 'administer meta tags'
+  - 'administer module missing message fixer'
+  - 'administer modules'
+  - 'administer nodes'
+  - 'administer pages'
+  - 'administer paragraphs types'
+  - 'administer pathauto'
+  - 'administer permissions'
+  - 'administer scheduler'
+  - 'administer search_api'
+  - 'administer shortcuts'
+  - 'administer site configuration'
+  - 'administer smtp module'
+  - 'administer software updates'
+  - 'administer taxonomy'
+  - 'administer themes'
+  - 'administer url aliases'
+  - 'administer users'
+  - 'administer views'
+  - 'administer webform'
+  - 'administer workbench'
+  - 'administer workbench access'
+  - 'administer workbench_email templates'
+  - 'assign workbench access'
+  - 'batch update workbench access'
+  - 'bypass node access'
+  - 'cancel account'
+  - 'change own username'
+  - 'create content translations'
+  - 'create media'
+  - 'create url aliases'
+  - 'customize shortcut links'
+  - 'delete any webform submission'
+  - 'delete own webform submission'
+  - 'edit any webform submission'
+  - 'edit linkchecker link settings'
+  - 'edit own comments'
+  - 'edit own webform submission'
+  - 'notify of path changes'
+  - 'post comments'
+  - 'schedule publishing of nodes'
+  - 'select account cancellation method'
+  - 'skip comment approval'
+  - 'switch shortcut sets'
+  - 'translate any entity'
+  - 'translate any entity'
+  - 'translate editable entities'
+  - 'translate editable entities'
+  - 'translate editable entities'
+  - 'translate interface'
+  - 'translate interface'
+  - 'use content transition archived'
+  - 'use content transition create_new_draft'
+  - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition submit_for_publish'
+  - 'use content transition submit_for_review'
+  - 'use workbench access'
+  - 'view all revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view media'
+  - 'view media'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view own webform submission'
+  - 'view scheduled content'
+  - 'view the administration theme'
+  - 'view workbench access information'

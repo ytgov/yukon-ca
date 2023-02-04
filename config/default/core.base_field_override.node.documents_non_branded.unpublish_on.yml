@@ -1,0 +1,18 @@
+uuid: fd690aab-d4af-4ce3-b3d7-5462b75eca01
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: documents_non_branded
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

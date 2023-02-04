@@ -1,0 +1,18 @@
+uuid: e690ba82-fdbc-46dd-afda-4ed7a8a99f2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wetkit_page
+id: node.wetkit_page.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: wetkit_page
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

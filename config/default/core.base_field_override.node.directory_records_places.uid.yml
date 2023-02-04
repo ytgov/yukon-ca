@@ -1,0 +1,20 @@
+uuid: 7a0c7741-afc1-400d-860d-d024356251b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.uid
+field_name: uid
+entity_type: node
+bundle: directory_records_places
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

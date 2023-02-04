@@ -1,0 +1,94 @@
+uuid: e56cb6c3-c8a1-4a63-b422-d0bc8ffac995
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icon
+    - field.storage.block_content.field_icon
+    - media.type.icon
+  module:
+    - dynamic_entity_reference
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: block_content.icon.field_icon
+field_name: field_icon
+entity_type: block_content
+bundle: icon
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  media:
+    handler: 'default:media'
+    handler_settings:
+      target_bundles:
+        icon: icon
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
+      auto_create_bundle: ''
+  comment:
+    handler: 'default:comment'
+    handler_settings: {  }
+  node:
+    handler: 'default:node'
+    handler_settings: {  }
+  content_moderation_state:
+    handler: 'default:content_moderation_state'
+    handler_settings: {  }
+  block_content:
+    handler: 'default:block_content'
+    handler_settings: {  }
+  menu_link_content:
+    handler: 'default:menu_link_content'
+    handler_settings: {  }
+  feeds_feed:
+    handler: 'default:feeds_feed'
+    handler_settings: {  }
+  file:
+    handler: 'default:file'
+    handler_settings: {  }
+  job_schedule:
+    handler: 'default:job_schedule'
+    handler_settings: {  }
+  linkcheckerlink:
+    handler: 'default:linkcheckerlink'
+    handler_settings: {  }
+  paragraph:
+    handler: 'default:paragraph'
+    handler_settings: {  }
+  redirect:
+    handler: 'default:redirect'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  section_association:
+    handler: 'default:section_association'
+    handler_settings: {  }
+  shortcut:
+    handler: 'default:shortcut'
+    handler_settings: {  }
+  feeds_subscription:
+    handler: 'default:feeds_subscription'
+    handler_settings: {  }
+  taxonomy_term:
+    handler: 'default:taxonomy_term'
+    handler_settings: {  }
+  path_alias:
+    handler: 'default:path_alias'
+    handler_settings: {  }
+  user:
+    handler: 'default:user'
+    handler_settings: {  }
+  webform_submission:
+    handler: 'default:webform_submission'
+    handler_settings: {  }
+field_type: dynamic_entity_reference

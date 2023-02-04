@@ -1,0 +1,18 @@
+uuid: d68178dc-700c-4b89-8414-4bd11865ebf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.changed
+field_name: changed
+entity_type: node
+bundle: documents_non_branded
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

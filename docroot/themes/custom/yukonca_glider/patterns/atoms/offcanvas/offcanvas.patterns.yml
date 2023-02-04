@@ -1,0 +1,23 @@
+offcanvas:
+  label: 'Offcanvas'
+  description: A block of text quoted from an external source.
+  fields:
+    offcanvas_id:
+      type: string
+      label: ID
+      description: 'The unique ID of the off canvas element.'
+      preview: 'offcanvas'
+    heading:
+      type: text
+      label: Heading text
+      preview: 'Lorem ipsum dolor sit amet.'
+    content:
+      type: text
+      label: Content
+      preview: 'To be or to not to be... That is the question.'
+  libraries:
+    -
+      offcanvas:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

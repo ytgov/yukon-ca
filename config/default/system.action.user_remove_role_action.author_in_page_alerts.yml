@@ -1,0 +1,14 @@
+uuid: ec47cc7b-0428-432e-943b-0bcd07e68950
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.author_in_page_alerts
+  module:
+    - user
+id: user_remove_role_action.author_in_page_alerts
+label: 'Remove the Author In-Page Alerts role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: author_in_page_alerts

@@ -1,0 +1,22 @@
+uuid: 7c892cc3-d043-4fad-9b9c-b0fc900e9ae8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.documents_non_branded
+id: node.documents_non_branded.sticky
+field_name: sticky
+entity_type: node
+bundle: documents_non_branded
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,22 @@
+uuid: b9553797-fa4a-4fba-a098-a5f6e1b200ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+id: node.site_wide_alert.status
+field_name: status
+entity_type: node
+bundle: site_wide_alert
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

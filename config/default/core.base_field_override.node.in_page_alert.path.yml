@@ -1,0 +1,20 @@
+uuid: 415b0f32-7a47-42dc-a682-480cd595944c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.in_page_alert
+  module:
+    - path
+id: node.in_page_alert.path
+field_name: path
+entity_type: node
+bundle: in_page_alert
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

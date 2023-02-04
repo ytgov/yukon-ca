@@ -1,0 +1,18 @@
+uuid: 87470f19-12b8-4f9d-9341-aad11d16413a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.blog_type
+id: taxonomy_term.blog_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: blog_type
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

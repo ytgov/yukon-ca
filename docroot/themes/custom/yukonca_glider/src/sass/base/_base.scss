@@ -3,4 +3,18 @@
   body {
     @apply min-h-full font-base text-black;
   }
+
+  a {
+    @apply underline;
+    @apply text-blue-500;
+
+    &:visited {
+      @apply text-purple;
+    }
+
+    &:hover,
+    &:focus {
+      @apply text-blue-200;
+    }
+  }
 }
