@@ -1,7 +1,23 @@
-uuid: d153808e-57f9-4d48-88d2-3a567485a373
+uuid: a2a4c6fa-5cb7-4786-a21a-e5fe8676999c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - scheduler
+third_party_settings:
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
 name: Teams
 vid: teams
 description: ''

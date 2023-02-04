@@ -1,4 +1,4 @@
-uuid: e5b7093a-2b13-4dab-827c-e2065a957e13
+uuid: 6b4e22c5-9261-425f-8d36-807c269f2984
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,8 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
-    bundle_settings:
-      untranslatable_fields_hide: '0'
 id: taxonomy_term.teams
 target_entity_type_id: taxonomy_term
 target_bundle: teams
-default_langcode: current_interface
+default_langcode: site_default
 language_alterable: true

@@ -1,0 +1,14 @@
+uuid: 657ebef9-930a-411d-82b5-2730e5aac06d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role._webform_manager
+  module:
+    - user
+id: user_add_role_action._webform_manager
+label: 'Add the +Webform Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: _webform_manager

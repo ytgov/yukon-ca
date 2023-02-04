@@ -1,0 +1,45 @@
+uuid: af555d80-b48f-4414-80d1-db726d877bf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.content
+  module:
+    - content_moderation
+    - content_translation
+    - contextual
+    - media
+    - node
+    - path
+    - system
+    - toolbar
+    - workbench
+    - workbench_access
+id: blog_author
+label: 'Blog Author'
+weight: 13
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access workbench'
+  - 'administer nodes'
+  - 'create media'
+  - 'create url aliases'
+  - 'translate any entity'
+  - 'use content transition create_new_draft'
+  - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition submit_for_publish'
+  - 'use content transition submit_for_review'
+  - 'use workbench access'
+  - 'view all revisions'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'
+  - 'view workbench access information'

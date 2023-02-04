@@ -1,0 +1,91 @@
+uuid: dd1e233e-ec7e-4689-aa52-44b441fb5bfa
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: content
+label: Content
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 4
+      published: false
+      default_revision: false
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    needs_review:
+      label: 'Needs Review'
+      weight: 2
+      published: false
+      default_revision: false
+    publish_as_scheduled:
+      label: 'Publish as scheduled'
+      weight: 5
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 1
+      published: true
+      default_revision: true
+    ready_to_publish:
+      label: 'Ready to Publish'
+      weight: 3
+      published: false
+      default_revision: false
+  transitions:
+    archived:
+      label: Archived
+      from:
+        - published
+      to: archived
+      weight: 6
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - needs_review
+        - publish_as_scheduled
+        - ready_to_publish
+      to: published
+      weight: 1
+    reject:
+      label: Reject
+      from:
+        - needs_review
+        - ready_to_publish
+      to: draft
+      weight: 4
+    submit_for_publish:
+      label: 'Submit for publish'
+      from:
+        - draft
+        - needs_review
+      to: ready_to_publish
+      weight: 3
+    submit_for_review:
+      label: 'Submit for Review'
+      from:
+        - draft
+      to: needs_review
+      weight: 2
+    submit_for_scheduled_publishing:
+      label: 'Submit for scheduled publishing'
+      from:
+        - needs_review
+      to: publish_as_scheduled
+      weight: 5
+  entity_types: {  }
+  default_moderation_state: draft

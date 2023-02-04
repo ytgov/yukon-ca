@@ -1,4 +1,4 @@
-uuid: 02146f4e-c27d-4a74-bcb0-98b23f73a31f
+uuid: e06c4157-29ce-4c9a-8ad3-a2a2c003f1a8
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,8 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
-    bundle_settings:
-      untranslatable_fields_hide: '0'
 id: taxonomy_term.department
 target_entity_type_id: taxonomy_term
 target_bundle: department
-default_langcode: current_interface
+default_langcode: site_default
 language_alterable: true
