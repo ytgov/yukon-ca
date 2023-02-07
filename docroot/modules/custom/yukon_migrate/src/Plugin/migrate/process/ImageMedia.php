@@ -32,7 +32,17 @@ class ImageMedia extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : NULL;
+    $originalField = '';
+    if (strpos($destination_property, '_icon_') !== FALSE) {
+      $originalField = $destination_property;
+      if ($destination_property === 'field_icon_dark') {
+        $destination_property = 'field_svg_upload';
+      }
+      if ($destination_property === 'field_icon_light') {
+        $destination_property = 'field_light_svg_upload';
+      }
+    }
+    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : $node[$originalField][0];
     if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image')) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('field_data_' . $destination_property, 'svg')
@@ -65,10 +75,16 @@ class ImageMedia extends ProcessPluginBase {
           $imageMedia = reset($imageMedia);
 
           if (empty($imageMedia)) {
+            if (!empty($originalField)) {
+              $bundle = 'icon';
+            }
+            else {
+              $bundle = 'image';
+            }
             // Create Media.
             $imageMedia = Media::create([
               'name' => $result->filename,
-              'bundle' => 'image',
+              'bundle' => $bundle,
               'uid' => 1,
               'langcode' => $node['language'],
               'status' => 1,
