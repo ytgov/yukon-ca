@@ -3,33 +3,51 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.body
     - field.field.node.landing_page.field_department_term
-    - field.field.node.landing_page.field_light_svg_upload
-    - field.field.node.landing_page.field_opener_description
+    - field.field.node.landing_page.field_icon_dark
+    - field.field.node.landing_page.field_icon_light
+    - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
-    - field.field.node.landing_page.field_svg_upload
     - field.field.node.landing_page.field_target_content
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
     - entity_reference_revisions
+    - text
     - user
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
 mode: default
 content:
-  field_light_svg_upload:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon_dark:
     type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 4
+    region: content
+  field_icon_light:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
@@ -38,7 +56,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_secondary_content:
     type: entity_reference_revisions_entity_view
@@ -47,21 +65,12 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_svg_upload:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
 hidden:
   addtoany: true
   field_department_term: true
-  field_opener_description: true
+  field_meta_tags: true
   field_page_description: true
   field_redirection: true
   field_target_content: true

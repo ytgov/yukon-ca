@@ -3,14 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.body
     - field.field.node.landing_page.field_department_term
-    - field.field.node.landing_page.field_light_svg_upload
-    - field.field.node.landing_page.field_opener_description
+    - field.field.node.landing_page.field_icon_dark
+    - field.field.node.landing_page.field_icon_light
+    - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
-    - field.field.node.landing_page.field_svg_upload
     - field.field.node.landing_page.field_target_content
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
@@ -18,6 +19,7 @@ dependencies:
     - field_group
     - link
     - media_library
+    - metatag
     - paragraphs
     - path
     - text
@@ -30,7 +32,7 @@ third_party_settings:
       label: Redirection
       region: content
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: fieldset
       format_settings:
         classes: ''
@@ -43,9 +45,19 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -55,20 +67,27 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_light_svg_upload:
+  field_icon_dark:
     type: media_library_widget
     weight: 4
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_opener_description:
-    type: text_textarea
-    weight: 2
+  field_icon_light:
+    type: media_library_widget
+    weight: 3
     region: content
     settings:
-      rows: 5
-      placeholder: ''
+      media_types: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 26
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_page_description:
     type: text_textarea
@@ -121,16 +140,9 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-  field_svg_upload:
-    type: media_library_widget
-    weight: 3
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
   field_target_content:
     type: link_default
-    weight: 13
+    weight: 14
     region: content
     settings:
       placeholder_url: ''
@@ -151,27 +163,27 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 17
+    weight: 18
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -191,7 +203,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -200,10 +212,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   publish_on: true
+  publish_state: true
   unpublish_on: true
+  unpublish_state: true

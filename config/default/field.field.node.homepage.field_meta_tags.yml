@@ -1,26 +1,26 @@
-uuid: df339e3d-7919-4977-b1fa-a4fa4ca0d66b
-langcode: fr
+uuid: 7c27ed7c-3e70-46c0-90ad-7996686bfdb1
+langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_description
+    - field.storage.node.field_meta_tags
     - node.type.homepage
   module:
     - epp
-    - text
+    - metatag
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.homepage.field_page_description
-field_name: field_page_description
+id: node.homepage.field_meta_tags
+field_name: field_meta_tags
 entity_type: node
 bundle: homepage
-label: 'Meta description'
+label: 'Meta tags'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: metatag

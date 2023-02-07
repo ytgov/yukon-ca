@@ -42,6 +42,11 @@ process:
   promote: promote
   sticky: sticky
   revision_log: log
+  metatags/0/description: field_page_description/0/value
+  field_meta_tags:
+    -   plugin: callback
+        callable: serialize
+        source: '@metatags'
   body/value: body/0/value
   body/summary: body/0/summary
   body/format:

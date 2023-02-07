@@ -32,7 +32,17 @@ class ImageMedia extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : NULL;
+    $originalField = '';
+    if (strpos($destination_property, '_icon_') !== FALSE) {
+      $originalField = $destination_property;
+      if ($destination_property === 'field_icon_dark') {
+        $destination_property = 'field_svg_upload';
+      }
+      if ($destination_property === 'field_icon_light') {
+        $destination_property = 'field_light_svg_upload';
+      }
+    }
+    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : $node[$originalField][0];
     if ($node['type'] === 'event' && $destination_property === 'field_featured_image') {
       $imageField = !empty($node['field_feature_image']) ? $node['field_feature_image'][0] : NULL;
       $destination_property = 'field_feature_image';
@@ -49,7 +59,8 @@ class ImageMedia extends ProcessPluginBase {
         ]);
       $query->innerJoin('file_managed', 'fm', 'fm.fid = svg. ' . $destination_property . '_fid');
       $query->fields('fm',
-        ['fid',
+        [
+          'fid',
           'filename',
           'uri',
         ]);
@@ -69,10 +80,16 @@ class ImageMedia extends ProcessPluginBase {
           $imageMedia = reset($imageMedia);
 
           if (empty($imageMedia)) {
+            if (!empty($originalField)) {
+              $bundle = 'icon';
+            }
+            else {
+              $bundle = 'image';
+            }
             // Create Media.
             $imageMedia = Media::create([
               'name' => $result->filename,
-              'bundle' => 'image',
+              'bundle' => $bundle,
               'uid' => 1,
               'langcode' => $node['language'],
               'status' => 1,

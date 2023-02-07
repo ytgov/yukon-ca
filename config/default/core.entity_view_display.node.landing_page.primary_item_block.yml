@@ -4,14 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.primary_item_block
+    - field.field.node.landing_page.body
     - field.field.node.landing_page.field_department_term
-    - field.field.node.landing_page.field_light_svg_upload
-    - field.field.node.landing_page.field_opener_description
+    - field.field.node.landing_page.field_icon_dark
+    - field.field.node.landing_page.field_icon_light
+    - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
-    - field.field.node.landing_page.field_svg_upload
     - field.field.node.landing_page.field_target_content
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
@@ -32,20 +33,13 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_svg_upload:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
   addtoany: true
+  body: true
   field_department_term: true
-  field_light_svg_upload: true
-  field_opener_description: true
+  field_icon_dark: true
+  field_icon_light: true
+  field_meta_tags: true
   field_page_description: true
   field_redirection: true
   field_secondary_content: true

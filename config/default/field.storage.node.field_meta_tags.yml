@@ -1,17 +1,16 @@
-uuid: 32a85f9a-30d9-4627-813f-68b64474fb86
+uuid: ab586e92-b010-47bf-acda-30ad592ddaae
 langcode: en
 status: true
 dependencies:
   module:
-    - media
+    - metatag
     - node
-id: node.field_light_svg_upload
-field_name: field_light_svg_upload
+id: node.field_meta_tags
+field_name: field_meta_tags
 entity_type: node
-type: entity_reference
-settings:
-  target_type: media
-module: core
+type: metatag
+settings: {  }
+module: metatag
 locked: false
 cardinality: 1
 translatable: true
