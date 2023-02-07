@@ -8,12 +8,11 @@ migration_group: legacy
 source:
   plugin: d7_node
   node_type: homepage
-  constants:
-    uid_root: 1
 destination:
   plugin: entity:node
 process:
-  uid: constants/uid_root
+  uid:
+    plugin: yg_author
   status:
     plugin: skip_on_value
     method: row
@@ -33,6 +32,10 @@ process:
   metatags/0/description: field_page_description/0/value
   field_meta_tags:
     -
+      plugin: skip_on_empty
+      source: '@metatags'
+      method: process
+    -
       plugin: callback
       callable: serialize
       source: '@metatags'
@@ -42,14 +45,14 @@ process:
     plugin: default_value
     default_value: wysiwyg_ckeditor
   field_primary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_secondary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_tertiary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_image_gallery:
-    plugin: paragraph_image_gallery
+    plugin: yg_paragraph_image_gallery

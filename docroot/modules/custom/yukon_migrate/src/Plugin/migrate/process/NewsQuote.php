@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 
@@ -16,16 +15,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @code
  * process:
  *   field_news_quote:
- *     plugin: newsquote
+ *     plugin: yg_newsquote
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "newsquote",
+ *   id = "yg_newsquote",
  * )
  */
-class NewsQuote extends ProcessPluginBase {
+class NewsQuote extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}

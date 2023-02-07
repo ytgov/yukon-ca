@@ -14,7 +14,7 @@ destination:
   destination_module: content_translation
 process:
   uid:
-    plugin: kellett_author
+    plugin: yg_author
   nid:
     plugin: migration_lookup
     migration: blog
@@ -51,19 +51,19 @@ process:
     plugin: default_value
     default_value: wysiwyg_ckeditor
   field_svg_upload:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_featured_image:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_blog_type:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_category_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_subcategory:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_social_sharing: field_social_sharing
   content_translation_source: source
   content_translation_outdated: translate

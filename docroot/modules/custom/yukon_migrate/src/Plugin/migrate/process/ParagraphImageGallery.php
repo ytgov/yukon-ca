@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\media\Entity\Media;
@@ -17,16 +16,16 @@ use Drupal\media\Entity\Media;
  * @code
  * process:
  *   field_image_gallery:
- *     plugin: paragraph_image_gallery
+ *     plugin: yg_paragraph_image_gallery
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "paragraph_image_gallery",
+ *   id = "yg_paragraph_image_gallery",
  * )
  */
-class ParagraphImageGallery extends ProcessPluginBase {
+class ParagraphImageGallery extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}
@@ -88,7 +87,7 @@ class ParagraphImageGallery extends ProcessPluginBase {
       $paragraphs = [];
 
       foreach ($results as $result) {
-        $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
+        $paragraph = $this->entityTypeManager->getStorage('paragraph')->loadByProperties([
           'type' => 'image_gallery',
           'parent_id' => $nodeId,
           'parent_type' => 'node',
@@ -104,7 +103,7 @@ class ParagraphImageGallery extends ProcessPluginBase {
           $paragraph->save();
         }
 
-        $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
+        $imageMedia = $this->entityTypeManager->getStorage('media')->loadByProperties([
           'name' => $result->filename,
           'field_media_image' => ['target_id' => $result->field_slide_image_fid],
         ]);

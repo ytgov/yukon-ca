@@ -14,7 +14,7 @@ destination:
   destination_module: content_translation
 process:
   uid:
-    plugin: kellett_author
+    plugin: yg_author
   nid:
     plugin: migration_lookup
     migration: news
@@ -56,13 +56,13 @@ process:
     default_value: wysiwyg_ckeditor
   field_news_release: field_news_release_
   field_news_quote:
-    plugin: newsquote
+    plugin: yg_newsquote
   field_quick_facts:
-    plugin: quickfacts
+    plugin: yg_quickfacts
   field_charts:
-    plugin: charts
+    plugin: yg_charts
   field_featured_image:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_related_link:
     -
       plugin: sub_process
@@ -72,15 +72,15 @@ process:
         title: title
         attributes: attributes
   field_news_type:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_category_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_subcategory:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_social_sharing: field_social_sharing
   field_featured_news_item: field_featured_news_item
   field_featured_to_homepage: field_featured_to_homepage

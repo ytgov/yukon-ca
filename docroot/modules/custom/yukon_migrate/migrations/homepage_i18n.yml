@@ -8,14 +8,13 @@ migration_group: legacy
 source:
   plugin: d7_node_entity_translation
   node_type: homepage
-  constants:
-    uid_root: 1
 destination:
   plugin: entity:node
   translations: true
   destination_module: content_translation
 process:
-  uid: constants/uid_root
+  uid:
+    plugin: yg_author
   nid:
     plugin: migration_lookup
     migration: homepage
@@ -24,10 +23,16 @@ process:
     plugin: default_value
     default_value: homepage
   title: title
-  field_page_description/value: field_page_description/0/value
-  field_page_description/format:
-    plugin: default_value
-    default_value: wysiwyg_ckeditor
+  metatags/0/description: field_page_description/0/value
+  field_meta_tags:
+    -
+      plugin: skip_on_empty
+      source: '@metatags'
+      method: process
+    -
+      plugin: callback
+      callable: serialize
+      source: '@metatags'
   status:
     plugin: skip_on_value
     method: row
@@ -42,28 +47,23 @@ process:
   promote: promote
   sticky: sticky
   revision_log: log
-  metatags/0/description: field_page_description/0/value
-  field_meta_tags:
-    -   plugin: callback
-        callable: serialize
-        source: '@metatags'
   body/value: body/0/value
   body/summary: body/0/summary
   body/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
   field_primary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_secondary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_tertiary_item_blocks:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_image_gallery:
-    plugin: paragraph_image_gallery
+    plugin: yg_paragraph_image_gallery
   content_translation_source: source
   content_translation_outdated: translate
 migration_dependencies:

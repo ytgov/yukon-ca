@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 
@@ -16,16 +15,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @code
  * process:
  *   field_charts:
- *     plugin: charts
+ *     plugin: yg_charts
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "charts",
+ *   id = "yg_charts",
  * )
  */
-class Charts extends ProcessPluginBase {
+class Charts extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}

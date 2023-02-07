@@ -12,7 +12,7 @@ destination:
   plugin: entity:node
 process:
   uid:
-    plugin: kellett_author
+    plugin: yg_author
   langcode: language
   created: created
   promote: promote
@@ -59,7 +59,7 @@ process:
   field_postal_code: field_postal_code
   field_contact_phone: field_contact_phone
   field_building_name:
-    plugin: node_reference
+    plugin: yg_node_reference
   field_event_street_address: field_event_street_address/0/value
   field_event_locality_town: field_event_locality_town/0/value
   field_cost: field_cost
@@ -69,7 +69,7 @@ process:
     default_value: wysiwyg_ckeditor
   field_featured_event: field_featured_event
   field_featured_image:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_event_website:
     -
       plugin: sub_process
@@ -87,10 +87,10 @@ process:
         title: title
         attributes: attributes
   field_community:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_category_type:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy

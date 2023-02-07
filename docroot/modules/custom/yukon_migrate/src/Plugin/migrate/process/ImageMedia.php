@@ -5,27 +5,26 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 use Drupal\Core\Database\Database;
 use Drupal\media\Entity\Media;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Adds taxonomy terms to node content.
+ * Adds images to node content.
  *
  * Example:
  *
  * @code
  * process:
  *   field_department_term:
- *     plugin: imagemedia
+ *     plugin: yg_imagemedia
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "imagemedia",
+ *   id = "yg_imagemedia",
  * )
  */
-class ImageMedia extends ProcessPluginBase {
+class ImageMedia extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}
@@ -73,7 +72,7 @@ class ImageMedia extends ProcessPluginBase {
           $alt = $destination_property . '_alt';
           $title = $destination_property . '_title';
 
-          $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
+          $imageMedia = $this->entityTypeManager->getStorage('media')->loadByProperties([
             'name' => $result->filename,
             'field_media_image' => ['target_id' => $result->$fid],
           ]);

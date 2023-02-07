@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\taxonomy\Entity\Term;
 
@@ -16,16 +15,16 @@ use Drupal\taxonomy\Entity\Term;
  * @code
  * process:
  *   field_yukon_editorial_team:
- *     plugin: kellett_taxonomy
+ *     plugin: yg_taxonomy
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "kellett_taxonomy",
+ *   id = "yg_taxonomy",
  * )
  */
-class Taxonomy extends ProcessPluginBase {
+class Taxonomy extends YGMigratePluginBase {
 
   /**
    * Taxonomy term with translation.
@@ -50,7 +49,7 @@ class Taxonomy extends ProcessPluginBase {
     $node = $row->getSource();
     $taxonomyField = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
     $vocabulary = $this->getVocabulary($destination_property);
-    if (!empty($vocabulary) && !empty($taxonomyField)) {
+    if (!empty($taxonomyField)) {
       if (!is_array($taxonomyField)) {
         $taxonomyField = explode(',', $taxonomyField);
       }
@@ -63,15 +62,13 @@ class Taxonomy extends ProcessPluginBase {
           $this->taxonomyTerm = $this->getTaxonomyTerm($tid, FALSE);
           $term = $this->taxonomyTerm;
         }
-        if (!empty($term->name)) {
-          $taxonomyFieldTerm = \Drupal::service('entity_type.manager')
-            ->getStorage('taxonomy_term')
-            ->loadByProperties([
-              'name' => $term->name,
-              'vid' => $vocabulary,
-            ]);
-          $taxonomyFieldTerm = reset($taxonomyFieldTerm);
-        }
+        $taxonomyFieldTerm = $this->entityTypeManager
+          ->getStorage('taxonomy_term')
+          ->loadByProperties([
+            'name' => $term->name,
+            'vid' => $vocabulary,
+          ]);
+        $taxonomyFieldTerm = reset($taxonomyFieldTerm);
 
         if (!empty($taxonomyFieldTerm)) {
           $translatedLanguage = 'fr';
@@ -117,9 +114,7 @@ class Taxonomy extends ProcessPluginBase {
             }
           }
 
-          if (isset($taxonomyTerm) && is_object($taxonomyTerm)) {
-            $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
-          }
+          $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
         }
       }
 
@@ -158,11 +153,6 @@ class Taxonomy extends ProcessPluginBase {
     // Event.
     if ($field === 'field_community') {
       $vocabulary = 'community';
-    }
-
-    // News.
-    if ($field === 'field_news_type') {
-      $vocabulary = 'news_type';
     }
 
     return $vocabulary;

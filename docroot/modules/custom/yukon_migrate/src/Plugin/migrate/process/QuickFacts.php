@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 
@@ -16,16 +15,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @code
  * process:
  *   field_quick_facts:
- *     plugin: quickfacts
+ *     plugin: yg_quickfacts
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "quickfacts",
+ *   id = "yg_quickfacts",
  * )
  */
-class QuickFacts extends ProcessPluginBase {
+class QuickFacts extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}

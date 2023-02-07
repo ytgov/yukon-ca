@@ -4,7 +4,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
@@ -23,10 +22,10 @@ use Drupal\user\Entity\User;
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "kellett_author",
+ *   id = "yg_author",
  * )
  */
-class Author extends ProcessPluginBase {
+class Author extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}
@@ -59,7 +58,7 @@ class Author extends ProcessPluginBase {
         $id = str_replace(' ', '_', strtolower($result->r_name));
         $id = str_replace('+', '', $id);
         $id = str_replace('-', '_', $id);
-        $role = \Drupal::service('entity_type.manager')
+        $role = $this->entityTypeManager
           ->getStorage('user_role')->loadByProperties(['id' => $id]);
         $role = reset($role);
         if (!$role) {
@@ -73,8 +72,7 @@ class Author extends ProcessPluginBase {
           }
         }
 
-        $user = \Drupal::service('entity_type.manager')
-          ->getStorage('user')->loadByProperties(['name' => $result->name]);
+        $user = $this->entityTypeManager->getStorage('user')->loadByProperties(['name' => $result->name]);
         $user = reset($user);
         if (!$user) {
           $user = User::create([

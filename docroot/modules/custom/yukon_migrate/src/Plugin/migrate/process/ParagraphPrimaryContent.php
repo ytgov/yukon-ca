@@ -5,7 +5,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 use Drupal\Core\Database\Database;
 use Drupal\node\Entity\Node;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 
@@ -17,16 +16,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @code
  * process:
  *   field_primary_content:
- *     plugin: paragraph_primary_content
+ *     plugin: yg_paragraph_primary_content
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "paragraph_primary_content",
+ *   id = "yg_paragraph_primary_content",
  * )
  */
-class ParagraphPrimaryContent extends ProcessPluginBase {
+class ParagraphPrimaryContent extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}
@@ -82,7 +81,7 @@ class ParagraphPrimaryContent extends ProcessPluginBase {
             ]);
             $paragraph->save();
 
-            $referencedNode = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties([
+            $referencedNode = $this->entityTypeManager->getStorage('node')->loadByProperties([
               'title' => $item->title,
               'type' => $item->type,
             ]);
