@@ -23,6 +23,8 @@ class YGMigratePluginBase extends ProcessPluginBase implements ContainerFactoryP
   /**
    * Constructor.
    *
+   * @phpstan-consistent-constructor
+   *
    * @param array $configuration
    *    The config.
    * @param $plugin_id

@@ -88,7 +88,7 @@ class ParagraphImageGallery extends YGMigratePluginBase {
       $paragraphs = [];
 
       foreach ($results as $result) {
-        $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
+        $paragraph = $this->entityTypeManager->getStorage('paragraph')->loadByProperties([
           'type' => 'image_gallery',
           'parent_id' => $nodeId,
           'parent_type' => 'node',
@@ -104,7 +104,7 @@ class ParagraphImageGallery extends YGMigratePluginBase {
           $paragraph->save();
         }
 
-        $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
+        $imageMedia = $this->entityTypeManager->getStorage('media')->loadByProperties([
           'name' => $result->filename,
           'field_media_image' => ['target_id' => $result->field_slide_image_fid],
         ]);

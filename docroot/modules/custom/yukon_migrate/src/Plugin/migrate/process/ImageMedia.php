@@ -68,7 +68,7 @@ class ImageMedia extends YGMigratePluginBase {
           $alt = $destination_property . '_alt';
           $title = $destination_property . '_title';
 
-          $imageMedia = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties([
+          $imageMedia = $this->entityTypeManager->getStorage('media')->loadByProperties([
             'name' => $result->filename,
             'field_media_image' => ['target_id' => $result->$fid],
           ]);
