@@ -9,23 +9,23 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Adds taxonomy terms to node content.
+ * Adds images to node content.
  *
  * Example:
  *
  * @code
  * process:
  *   field_department_term:
- *     plugin: imagemedia
+ *     plugin: yg_imagemedia
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "imagemedia",
+ *   id = "yg_imagemedia",
  * )
  */
-class ImageMedia extends ProcessPluginBase {
+class ImageMedia extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}

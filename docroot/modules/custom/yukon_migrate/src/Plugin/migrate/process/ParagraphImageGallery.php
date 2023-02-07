@@ -17,16 +17,16 @@ use Drupal\media\Entity\Media;
  * @code
  * process:
  *   field_image_gallery:
- *     plugin: paragraph_image_gallery
+ *     plugin: yg_paragraph_image_gallery
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "paragraph_image_gallery",
+ *   id = "yg_paragraph_image_gallery",
  * )
  */
-class ParagraphImageGallery extends ProcessPluginBase {
+class ParagraphImageGallery extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}

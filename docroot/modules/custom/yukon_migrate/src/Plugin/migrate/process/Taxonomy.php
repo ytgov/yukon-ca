@@ -16,16 +16,16 @@ use Drupal\taxonomy\Entity\Term;
  * @code
  * process:
  *   field_yukon_editorial_team:
- *     plugin: kellett_taxonomy
+ *     plugin: yg_taxonomy
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "kellett_taxonomy",
+ *   id = "yg_taxonomy",
  * )
  */
-class Taxonomy extends ProcessPluginBase {
+class Taxonomy extends YGMigratePluginBase {
 
   /**
    * Taxonomy term with translation.
@@ -63,7 +63,7 @@ class Taxonomy extends ProcessPluginBase {
           $this->taxonomyTerm = $this->getTaxonomyTerm($tid, FALSE);
           $term = $this->taxonomyTerm;
         }
-        $taxonomyFieldTerm = \Drupal::service('entity_type.manager')
+        $taxonomyFieldTerm = $this->entityTypeManager
           ->getStorage('taxonomy_term')
           ->loadByProperties([
             'name' => $term->name,

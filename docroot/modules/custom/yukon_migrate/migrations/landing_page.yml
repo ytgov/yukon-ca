@@ -8,12 +8,11 @@ migration_group: legacy
 source:
   plugin: d7_node
   node_type: landing_page
-  constants:
-    uid_root: 1
 destination:
   plugin: entity:node
 process:
-  uid: constants/uid_root
+  uid:
+    plugin: yg_author
   nid: nid
   type:
     plugin: default_value
@@ -34,6 +33,10 @@ process:
   metatags/0/description: field_page_description/0/value
   field_meta_tags:
     -
+      plugin: skip_on_empty
+      source: '@metatags'
+      method: process
+    -
       plugin: callback
       callable: serialize
       source: '@metatags'
@@ -42,16 +45,16 @@ process:
     plugin: default_value
     default_value: wysiwyg_ckeditor
   field_icon_dark:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_icon_light:
-    plugin: imagemedia
+    plugin: yg_imagemedia
   field_primary_content:
-    plugin: paragraph_primary_content
+    plugin: yg_paragraph_primary_content
   field_secondary_content:
-    plugin: paragraph_secondary_content
+    plugin: yg_paragraph_secondary_content
   field_department_term:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_yukon_editorial_team:
-    plugin: kellett_taxonomy
+    plugin: yg_taxonomy
   field_redirection: field_redirection
   field_target_content: field_target_content

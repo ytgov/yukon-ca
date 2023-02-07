@@ -16,16 +16,16 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @code
  * process:
  *   field_secondary_content:
- *     plugin: paragraph_secondary_content
+ *     plugin: yg_paragraph_secondary_content
  * @endcode
  *
  * @see \Drupal\migrate\Plugin\MigrateProcessInterface
  *
  * @MigrateProcessPlugin(
- *   id = "paragraph_secondary_content",
+ *   id = "yg_paragraph_secondary_content",
  * )
  */
-class ParagraphSecondaryContent extends ProcessPluginBase {
+class ParagraphSecondaryContent extends YGMigratePluginBase {
 
   /**
    * {@inheritdoc}
@@ -127,7 +127,7 @@ class ParagraphSecondaryContent extends ProcessPluginBase {
           ]);
           $paragraph->save();
 
-          $referencedNode = \Drupal::service('entity_type.manager')->getStorage('node')->loadByProperties([
+          $referencedNode = $this->entityTypeManager->getStorage('node')->loadByProperties([
             'title' => $item['title'],
             'type' => $item['type'],
           ]);
