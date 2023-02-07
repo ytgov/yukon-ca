@@ -8,6 +8,11 @@ use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Base plugin for yg migrations.
+ *
+ * @phpstan-consistent-constructor
+ */
 class YGMigratePluginBase extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
   /**
@@ -22,8 +27,6 @@ class YGMigratePluginBase extends ProcessPluginBase implements ContainerFactoryP
 
   /**
    * Constructor.
-   *
-   * @phpstan-consistent-constructor
    *
    * @param array $configuration
    *    The config.
