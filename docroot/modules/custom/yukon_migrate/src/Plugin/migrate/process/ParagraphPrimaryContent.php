@@ -5,7 +5,6 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 use Drupal\Core\Database\Database;
 use Drupal\node\Entity\Node;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 use Drupal\paragraphs\Entity\Paragraph;
 

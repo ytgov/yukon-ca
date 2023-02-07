@@ -16,11 +16,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class YGMigratePluginBase extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
   /**
+   * The entity type manager service.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
   /**
+   * The migration process.
+   *
    * @var \Drupal\migrate\Plugin\Migration
    */
   protected $migration;
@@ -29,15 +33,15 @@ class YGMigratePluginBase extends ProcessPluginBase implements ContainerFactoryP
    * Constructor.
    *
    * @param array $configuration
-   *    The config.
-   * @param $plugin_id
-   *    The plugin id.
-   * @param $plugin_definition
-   *    The plugin definition.
+   *   The config.
+   * @param string $plugin_id
+   *   The plugin id.
+   * @param mixed $plugin_definition
+   *   The plugin definition.
    * @param \Drupal\migrate\Plugin\MigrationInterface $migration
-   *    The migration process.
+   *   The migration process.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *    The entity type manager service.
+   *   The entity type manager service.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
