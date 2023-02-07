@@ -72,8 +72,7 @@ class Charts extends YGMigratePluginBase {
 
       if (!empty($results)) {
         foreach ($results as $result) {
-          \Drupal::logger('test')->info('<pre><code>' . print_r($result, TRUE) . '</code></pre>');
-          $paragraph = \Drupal::service('entity_type.manager')
+          $paragraph = $this->entityTypeManager
             ->getStorage('paragraph')
             ->loadByProperties([
               'type' => 'charts',

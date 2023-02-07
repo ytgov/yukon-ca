@@ -70,7 +70,7 @@ class NewsQuote extends YGMigratePluginBase {
       if (!empty($results)) {
         foreach ($results as $result) {
           if ($node['language'] === $result->language) {
-            $paragraph = \Drupal::service('entity_type.manager')
+            $paragraph = $this->entityTypeManager
               ->getStorage('paragraph')
               ->loadByProperties([
                 'type' => 'quotes',

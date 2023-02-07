@@ -65,7 +65,7 @@ class QuickFacts extends YGMigratePluginBase {
       $result = $query->execute()->fetchObject();
 
       if (!empty($result)) {
-        $paragraph = \Drupal::service('entity_type.manager')
+        $paragraph = $this->entityTypeManager
           ->getStorage('paragraph')
           ->loadByProperties([
             'type' => 'quick_facts',
