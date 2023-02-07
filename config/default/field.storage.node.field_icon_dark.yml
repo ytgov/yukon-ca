@@ -1,12 +1,12 @@
-uuid: 32a85f9a-30d9-4627-813f-68b64474fb86
+uuid: 1c122828-991d-4fc1-b9c1-dbfd07dda004
 langcode: en
 status: true
 dependencies:
   module:
     - media
     - node
-id: node.field_light_svg_upload
-field_name: field_light_svg_upload
+id: node.field_icon_dark
+field_name: field_icon_dark
 entity_type: node
 type: entity_reference
 settings:
