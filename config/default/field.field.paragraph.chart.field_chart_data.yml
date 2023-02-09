@@ -1,0 +1,25 @@
+uuid: f9443fca-24fd-4c45-99c4-45aff08796c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_chart_data
+    - paragraphs.paragraphs_type.chart
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.chart.field_chart_data
+field_name: field_chart_data
+entity_type: paragraph
+bundle: chart
+label: 'Chart code'
+description: 'Validate your JSON <a href="https://jsonlint.com" title="JSON validator (external)" target="_blank">here</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

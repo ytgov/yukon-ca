@@ -1,0 +1,19 @@
+uuid: 4197df60-7d27-451b-8626-fcb1ff5568e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_related_tasks
+field_name: field_related_tasks
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

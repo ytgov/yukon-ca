@@ -1,0 +1,26 @@
+uuid: 9ac92cdb-b284-40e3-82b1-ce3162d46b8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.chart
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.chart.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: chart
+label: 'Chart description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
