@@ -1,0 +1,29 @@
+uuid: 60cf0af3-2565-45d7-a101-e02211758e85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_sharing
+    - node.type.basic_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.basic_page.field_social_sharing
+field_name: field_social_sharing
+entity_type: node
+bundle: basic_page
+label: 'Social sharing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
