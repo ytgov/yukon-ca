@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_yukon_editorial_team
     - node.type.blog
-    - taxonomy.vocabulary.teams
   module:
     - epp
 third_party_settings:
@@ -25,8 +24,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      teams: teams
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

@@ -9,10 +9,10 @@ dependencies:
     - field.field.node.blog.field_contact
     - field.field.node.blog.field_department_term
     - field.field.node.blog.field_featured_image
-    - field.field.node.blog.field_page_description
+    - field.field.node.blog.field_icon_dark
+    - field.field.node.blog.field_meta_tags
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
-    - field.field.node.blog.field_svg_upload
     - field.field.node.blog.field_yukon_editorial_team
     - node.type.blog
   module:
@@ -61,9 +61,9 @@ hidden:
   field_blog_type: true
   field_category_term: true
   field_department_term: true
-  field_page_description: true
+  field_icon_dark: true
+  field_meta_tags: true
   field_subcategory: true
-  field_svg_upload: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

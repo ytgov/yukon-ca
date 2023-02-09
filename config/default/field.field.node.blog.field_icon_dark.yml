@@ -1,9 +1,10 @@
-uuid: dbc90b8b-e8f7-4e24-b8f2-83321f7b3c1c
+uuid: 967a9853-acd9-4a57-ae0c-d1373703442a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_department_term
+    - field.storage.node.field_icon_dark
+    - media.type.icon
     - node.type.blog
   module:
     - epp
@@ -11,23 +12,24 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.blog.field_department_term
-field_name: field_department_term
+id: node.blog.field_icon_dark
+field_name: field_icon_dark
 entity_type: node
 bundle: blog
-label: Department
+label: 'Dark SVG upload'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:media'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      icon: icon
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

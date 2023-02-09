@@ -19,7 +19,7 @@ dependencies:
     - field.field.node.event.field_featured_event
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
-    - field.field.node.event.field_page_description
+    - field.field.node.event.field_meta_tags
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -28,6 +28,7 @@ dependencies:
     - field_group
     - link
     - media_library
+    - metatag
     - path
     - text
 third_party_settings:
@@ -35,7 +36,7 @@ third_party_settings:
     group_title_and_description:
       children:
         - title
-        - field_page_description
+        - field_meta_tags
       label: 'Title and description'
       region: content
       parent_name: ''
@@ -53,7 +54,7 @@ third_party_settings:
       label: 'Publishing options'
       region: content
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -70,7 +71,7 @@ third_party_settings:
       label: 'Event record'
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -88,7 +89,7 @@ third_party_settings:
       label: Location
       region: content
       parent_name: group_event_record
-      weight: 6
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: ''
@@ -136,7 +137,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -158,13 +159,13 @@ content:
     third_party_settings: {  }
   field_community:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact_email:
     type: email_default
-    weight: 24
+    weight: 23
     region: content
     settings:
       placeholder: ''
@@ -172,7 +173,7 @@ content:
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
-    weight: 23
+    weight: 22
     region: content
     settings:
       size: 60
@@ -210,7 +211,7 @@ content:
     third_party_settings: {  }
   field_event_locality_town:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
@@ -218,7 +219,7 @@ content:
     third_party_settings: {  }
   field_event_start_time:
     type: date_recur_basic_widget
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -240,7 +241,7 @@ content:
     third_party_settings: {  }
   field_featured_event:
     type: boolean_checkbox
-    weight: 3
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -260,17 +261,17 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_page_description:
-    type: text_textarea
-    weight: 3
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 2
     region: content
     settings:
-      rows: 5
-      placeholder: ''
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_postal_code:
     type: string_textfield
-    weight: 7
+    weight: 8
     region: content
     settings:
       size: 60
@@ -284,34 +285,34 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 8
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 11
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 15
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 13
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -326,7 +327,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -335,10 +336,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   publish_on: true
+  publish_state: true
   unpublish_on: true
+  unpublish_state: true
