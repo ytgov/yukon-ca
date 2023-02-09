@@ -1,0 +1,42 @@
+uuid: 80ccaedf-c462-495a-85ef-75e383b197d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraphs
+    - paragraphs.paragraphs_type.chart
+    - paragraphs.paragraphs_type.collapsable_field
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.collapsable_field.field_paragraphs
+field_name: field_paragraphs
+entity_type: paragraph
+bundle: collapsable_field
+label: Charts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      chart: chart
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 5
+        enabled: true
+      collapsable_field:
+        weight: 4
+        enabled: false
+      image_gallery:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions
