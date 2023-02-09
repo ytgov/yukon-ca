@@ -4,6 +4,91 @@
   }
 }
 
+.aurora-town {
+  position: relative;
+  z-index: -1;
+
+  margin-top: -6px;
+}
+
+.aurora--main {
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  width: 100%;
+  height: 50px;
+
+  transition: all 0.4s ease;
+
+  @media (min-width: 767px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 200px;
+
+    transition: all 0.4s ease;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: -100px;
+
+    display: block;
+    overflow: hidden;
+
+    width: 300px;
+    height: 50px;
+
+    content: "";
+    transition: all 0.4s ease;
+
+    background-image: url("../../images/svg/Aurora-small-mobile.svg");
+    background-repeat: no-repeat;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: -30px;
+      right: -60%;
+
+      width: 100%;
+      height: 185px;
+
+      transition: all 0.4s ease;
+
+      background-image: url("../../images/svg/Aurora-main.svg");
+      background-size: contain;
+    }
+  }
+}
+
+.aurora--mini {
+  display: inline-block;
+  overflow: hidden;
+
+  width: 100%;
+  padding: 50px 0;
+
+  &:before {
+    position: relative;
+
+    display: block;
+
+    width: 260px;
+    height: 45px;
+    margin: 0 auto;
+
+    content: "";
+
+    background-image: url("../images/Aurora-mini.svg");
+    background-repeat: no-repeat;
+  }
+}
+
 .front-svg {
   &.field__item {
     padding: 0;
@@ -27,7 +112,6 @@
 
     @include media-breakpoint-up(lg) {
       font-size: 18px;
-
     }
   }
 
@@ -193,40 +277,40 @@
   margin-bottom: 40px;
 
   .tertiary-single-item {
+    height: 100px;
+    min-height: 100px;
+    padding: 0;
+
+    h2 {
+      font-size: 18px;
+
+      margin-bottom: 0;
+
+      text-align: left;
+      @media (min-width: 1024px) {
+        font-size: 22px;
+      }
+    }
+
+    .inline-text {
+      display: table-cell;
+
+      height: 100%;
+
+      align-self: center;
+    }
+
+    .smallerish-svg {
+      width: 100px;
       height: 100px;
-      min-height: 100px;
-      padding: 0;
 
-      h2 {
-          font-size: 18px;
+      background: $link-hover;
 
-          margin-bottom: 0;
-
-          text-align: left;
-          @media (min-width: 1024px) {
-              font-size: 22px;
-          }
+      img {
+        width: 100px;
+        height: 100px;
       }
-
-      .inline-text {
-          display: table-cell;
-
-          height: 100%;
-
-          align-self: center;
-      }
-
-      .smallerish-svg {
-          width: 100px;
-          height: 100px;
-
-          background: $link-hover;
-
-          img {
-              width: 100px;
-              height: 100px;
-          }
-      }
+    }
   }
 }
 
@@ -260,7 +344,6 @@
       width: 100%;
 
       transition: transform 0.4s ease;
-
     }
 
     .field__item {
@@ -289,7 +372,6 @@
                 margin: 0;
               }
             }
-
           }
           @media (min-width: 768px) {
             padding-bottom: 0;
