@@ -39,7 +39,8 @@
 #}
 {%
   set classes = [
-    'primary-items',
+    'secondary-items',
+    'row row-cols-3 g-3',
     'field',
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
@@ -56,24 +57,25 @@
 
 {% if label_hidden %}
 	{% if multiple %}
-		<div{{attributes.addClass(classes,'field__items')}}>
+<div{{attributes.addClass(classes,'field__items')}}>
+
 			{% for item in items %}
-				<div{{item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
-          <div class="primary-single-item box-items">
-            <span class="faded-box"></span>
-            {{ item.content }}
-          </div>
-        </div>
+				<div{{item.attributes.addClass('field__item',(loop.index%2==0)?'even':'odd')}}>
+					<div class="secondary-single-item box-items">
+						<span class="faded-box"></span>
+						{{ item.content }}
+					</div>
+				</div>
 			{% endfor %}
 		</div>
 	{% else %}
 		{% for item in items %}
-			<div{{attributes.addClass(classes,'field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
-        <div class="primary-single-item box-items">
-          <span class="faded-box"></span>
-          {{ item.content }}
-        </div>
-      </div>
+			<div{{attributes.addClass(classes,'field__item',(loop.index%2==0)?'even':'odd')}}>
+				<div class="box-items">
+					<span class="faded-box"></span>
+					{{ item.content }}
+				</div>
+			</div>
 		{% endfor %}
 	{% endif %}
 {% else %}

@@ -39,7 +39,6 @@
 #}
 {%
   set classes = [
-    'primary-items',
     'field',
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
@@ -54,40 +53,6 @@
   ]
 %}
 
-{% if label_hidden %}
-	{% if multiple %}
-		<div{{attributes.addClass(classes,'field__items')}}>
-			{% for item in items %}
-				<div{{item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
-          <div class="primary-single-item box-items">
-            <span class="faded-box"></span>
-            {{ item.content }}
-          </div>
-        </div>
-			{% endfor %}
-		</div>
-	{% else %}
-		{% for item in items %}
-			<div{{attributes.addClass(classes,'field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
-        <div class="primary-single-item box-items">
-          <span class="faded-box"></span>
-          {{ item.content }}
-        </div>
-      </div>
-		{% endfor %}
-	{% endif %}
-{% else %}
-	<div{{attributes.addClass(classes)}}>
-		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
-		{% if multiple %}
-			<div class="field__items">
-			{% endif %}
-			{% for item in items %}
-				<div{{item.attributes.addClass('field__item')}}>{{ item.content }}</div>
-			{% endfor %}
-			{% if multiple %}
-			</div>
-		{% endif %}
-	</div>
-{% endif %}
-
+{% for item in items %}
+  <h3{{attributes.addClass(classes,'field__item')}}>{{ item.content }}</h3>
+{% endfor %}
