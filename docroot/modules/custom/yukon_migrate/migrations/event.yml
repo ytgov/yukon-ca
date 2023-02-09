@@ -15,6 +15,7 @@ process:
     plugin: yg_author
   langcode: language
   created: created
+  changed: changed
   promote: promote
   sticky: sticky
   revision_log: log
@@ -25,10 +26,16 @@ process:
     plugin: skip_on_empty
     method: row
     source: title
-  field_page_description/value: field_page_description
-  field_page_description/format:
-    plugin: default_value
-    default_value: wysiwyg_ckeditor
+  metatags/0/description: field_page_description/0/value
+  field_meta_tags:
+    -
+      plugin: skip_on_empty
+      source: '@metatags'
+      method: process
+    -
+      plugin: callback
+      callable: serialize
+      source: '@metatags'
   field_event_start_time:
     -
       plugin: sub_process
