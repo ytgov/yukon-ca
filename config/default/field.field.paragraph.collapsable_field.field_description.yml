@@ -1,0 +1,21 @@
+uuid: 291be617-f9ae-4575-93d6-5c14d76ee3fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.collapsable_field
+  module:
+    - text
+id: paragraph.collapsable_field.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: collapsable_field
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,25 @@
+uuid: 80749525-5531-43d1-860e-66b4a960a753
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.collapsable_field
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.collapsable_field.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: collapsable_field
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

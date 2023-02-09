@@ -1,0 +1,26 @@
+uuid: 37cbfee1-7343-4307-ac2f-95b50d7ae278
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.basic_page
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.basic_page.field_contact
+field_name: field_contact
+entity_type: node
+bundle: basic_page
+label: Contact
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
