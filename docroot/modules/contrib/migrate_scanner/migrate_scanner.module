@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations of Migrate Scanner module.
+ */
+
+/**
+ * Implements hook_migrate_scanner_patterns_alter().
+ */
+function migrate_scanner_migrate_scanner_patterns_alter(array &$patterns) {
+  $patterns['exclude'][] = '#/migrations/state/#';
+}

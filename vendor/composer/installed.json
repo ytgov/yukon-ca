@@ -5103,6 +5103,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
                 }
             },
             "installation-source": "source",
@@ -5389,6 +5392,54 @@
                 "slack": "#migrate"
             },
             "install-path": "../../docroot/modules/contrib/migrate_plus"
+        },
+        {
+            "name": "drupal/migrate_scanner",
+            "version": "dev-1.0.x",
+            "version_normalized": "dev-1.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_scanner.git",
+                "reference": "3549c8decbd7bb28f7e88263c38c1289fe0103ff"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
+                "drupal": {
+                    "version": "1.0.0+1-dev",
+                    "datestamp": "1656772809",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "source",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Matroskeen",
+                    "homepage": "https://www.drupal.org/user/3426249"
+                },
+                {
+                    "name": "bohart",
+                    "homepage": "https://www.drupal.org/user/289861"
+                }
+            ],
+            "description": "Provides recursive discovery of migration plugins.",
+            "homepage": "https://www.drupal.org/project/migrate_scanner",
+            "support": {
+                "source": "https://git.drupalcode.org/project/migrate_scanner"
+            },
+            "install-path": "../../docroot/modules/contrib/migrate_scanner"
         },
         {
             "name": "drupal/migrate_tools",

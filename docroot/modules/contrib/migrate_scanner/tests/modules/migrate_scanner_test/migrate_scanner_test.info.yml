@@ -1,0 +1,7 @@
+name: 'Migrate Scanner Test'
+description: 'Support module for the Migrate Scanner module tests.'
+type: module
+package: Testing
+core_version_requirement: ^8.8 || ^9 || ^10
+dependencies:
+  - drupal:migrate_scanner

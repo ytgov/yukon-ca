@@ -1,0 +1,8 @@
+id: migration_excluded
+label: Migration (excluded)
+source:
+  plugin: embedded_data
+process:
+  id: id
+destination:
+  plugin: null

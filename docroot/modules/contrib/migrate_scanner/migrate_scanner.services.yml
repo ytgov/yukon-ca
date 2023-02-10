@@ -1,0 +1,7 @@
+services:
+  migrate_scanner.plugin.manager.migration:
+    class: Drupal\migrate_scanner\Plugin\MigrationPluginManager
+    public: false
+    decorates: plugin.manager.migration
+    decoration_priority: 10
+    arguments: ['@module_handler', '@cache.discovery_migration', '@language_manager']

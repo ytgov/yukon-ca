@@ -3,7 +3,7 @@
         'name' => 'evolvingweb/test',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'b13dfb02f664bb3f640f8c17867b43ec905f5567',
+        'reference' => 'f4ac5db2b279ccd9bc333779760f8cedbaf90d3f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -843,6 +843,17 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/migrate_scanner' => array(
+            'pretty_version' => 'dev-1.0.x',
+            'version' => 'dev-1.0.x',
+            'reference' => '3549c8decbd7bb28f7e88263c38c1289fe0103ff',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../docroot/modules/contrib/migrate_scanner',
+            'aliases' => array(
+                0 => '1.0.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
         'drupal/migrate_tools' => array(
             'pretty_version' => '6.0.1',
             'version' => '6.0.1.0',
@@ -1273,7 +1284,7 @@
         'evolvingweb/test' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'b13dfb02f664bb3f640f8c17867b43ec905f5567',
+            'reference' => 'f4ac5db2b279ccd9bc333779760f8cedbaf90d3f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

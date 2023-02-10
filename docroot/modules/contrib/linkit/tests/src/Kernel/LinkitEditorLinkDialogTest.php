@@ -76,19 +76,15 @@ class LinkitEditorLinkDialogTest extends LinkitKernelTestBase {
     $format->save();
 
     // Set up editor.
-    $ckeditor = $this->container->get('plugin.manager.editor')->createInstance('ckeditor');
     $this->editor = Editor::create([
       'format' => 'filtered_html',
       'editor' => 'ckeditor',
     ]);
-    $this->editor->setSettings([
-      'plugins' => [
-        'drupallink' => [
-          'linkit_enabled' => TRUE,
-          'linkit_profile' => $this->linkitProfile->id(),
-        ],
-      ],
-    ] + $ckeditor->getDefaultSettings());
+    $this->editor->save();
+    $settings = $this->editor->getSettings();
+    $settings['plugins']['drupallink']['linkit_enabled'] = TRUE;
+    $settings['plugins']['drupallink']['linkit_profile'] = $this->linkitProfile->id();
+    $this->editor->setSettings($settings);
     $this->editor->save();
   }
 

@@ -1,0 +1,8 @@
+id: migration_top_level
+label: Migration (top level)
+source:
+  plugin: embedded_data
+process:
+  id: id
+destination:
+  plugin: null

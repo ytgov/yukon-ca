@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_migrate_scanner_patterns_alter().
+ */
+function migrate_scanner_test_migrate_scanner_patterns_alter(array &$patterns) {
+  $patterns['exclude'][] = '#/migrations/foo_exclude/#';
+}

@@ -1,0 +1,7 @@
+name: 'Migrate Scanner'
+type: module
+description: 'Provides recursive discovery of migration plugins.'
+package: Migration
+core_version_requirement: ^8.8 || ^9 || ^10
+dependencies:
+  - drupal:migrate
