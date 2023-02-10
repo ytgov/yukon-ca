@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c2089106785f2f59cfad0954895cd11",
+    "content-hash": "717dde2933fe8234b32f2e5d176f78f6",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5170,6 +5170,51 @@
                 "source": "https://git.drupalcode.org/project/migrate_plus",
                 "issues": "https://www.drupal.org/project/issues/migrate_plus",
                 "slack": "#migrate"
+            }
+        },
+        {
+            "name": "drupal/migrate_scanner",
+            "version": "dev-1.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_scanner.git",
+                "reference": "3549c8decbd7bb28f7e88263c38c1289fe0103ff"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
+                "drupal": {
+                    "version": "1.0.0+1-dev",
+                    "datestamp": "1656772809",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Matroskeen",
+                    "homepage": "https://www.drupal.org/user/3426249"
+                },
+                {
+                    "name": "bohart",
+                    "homepage": "https://www.drupal.org/user/289861"
+                }
+            ],
+            "description": "Provides recursive discovery of migration plugins.",
+            "homepage": "https://www.drupal.org/project/migrate_scanner",
+            "support": {
+                "source": "https://git.drupalcode.org/project/migrate_scanner"
             }
         },
         {
