@@ -47,8 +47,15 @@ class Taxonomy extends YGMigratePluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $taxonomyField = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
+    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE). '</code></pre>');
     $vocabulary = $this->getVocabulary($destination_property);
+    if ($node['type'] === 'event' && $destination_property === 'field_category_term') {
+      $destination_property = 'field_category_type';
+    }
+    if ($node['type'] === 'event' && $destination_property === 'field_department_term') {
+      $destination_property = 'field_node_department';
+    }
+    $taxonomyField = !empty($node[$destination_property]) ? $node[$destination_property] : NULL;
     if (!empty($taxonomyField)) {
       if (!is_array($taxonomyField)) {
         $taxonomyField = explode(',', $taxonomyField);
@@ -62,59 +69,61 @@ class Taxonomy extends YGMigratePluginBase {
           $this->taxonomyTerm = $this->getTaxonomyTerm($tid, FALSE);
           $term = $this->taxonomyTerm;
         }
-        $taxonomyFieldTerm = $this->entityTypeManager
-          ->getStorage('taxonomy_term')
-          ->loadByProperties([
-            'name' => $term->name,
-            'vid' => $vocabulary,
-          ]);
-        $taxonomyFieldTerm = reset($taxonomyFieldTerm);
+        if ($term) {
+          $taxonomyFieldTerm = $this->entityTypeManager
+            ->getStorage('taxonomy_term')
+            ->loadByProperties([
+              'name' => $term->name,
+              'vid' => $vocabulary,
+            ]);
+          $taxonomyFieldTerm = reset($taxonomyFieldTerm);
 
-        if (!empty($taxonomyFieldTerm)) {
-          $translatedLanguage = 'fr';
-          if (!$taxonomyFieldTerm->hasTranslation($translatedLanguage)) {
-            if ($this->taxonomyTermTranslation) {
-              $taxonomyFieldTerm->addTranslation($translatedLanguage, [
-                'name' => $this->taxonomyTermTranslation->translation,
-              ]);
-            }
-            $taxonomyFieldTerm->save();
-          }
-          $taxonomyData[$id] = ['target_id' => $taxonomyFieldTerm->id()];
-        }
-        else {
-          if (!empty($this->taxonomyTermTranslation)) {
-            if (!empty($this->taxonomyTermTranslation->name)) {
-              $taxonomyTerm = Term::create([
-                'vid' => $vocabulary,
-                'name' => $this->taxonomyTermTranslation->name,
-                'description' => $this->taxonomyTermTranslation->description,
-                'weight' => $this->taxonomyTermTranslation->weight,
-                'langcode' => 'en',
-              ]);
-              $taxonomyTerm->save();
-              if (!$taxonomyTerm->hasTranslation('fr')) {
-                $taxonomyTerm->addTranslation('fr', [
+          if (!empty($taxonomyFieldTerm)) {
+            $translatedLanguage = 'fr';
+            if (!$taxonomyFieldTerm->hasTranslation($translatedLanguage)) {
+              if ($this->taxonomyTermTranslation) {
+                $taxonomyFieldTerm->addTranslation($translatedLanguage, [
                   'name' => $this->taxonomyTermTranslation->translation,
+                ]);
+              }
+              $taxonomyFieldTerm->save();
+            }
+            $taxonomyData[$id] = ['target_id' => $taxonomyFieldTerm->id()];
+          }
+          else {
+            if (!empty($this->taxonomyTermTranslation)) {
+              if (!empty($this->taxonomyTermTranslation->name)) {
+                $taxonomyTerm = Term::create([
+                  'vid' => $vocabulary,
+                  'name' => $this->taxonomyTermTranslation->name,
+                  'description' => $this->taxonomyTermTranslation->description,
+                  'weight' => $this->taxonomyTermTranslation->weight,
+                  'langcode' => 'en',
+                ]);
+                $taxonomyTerm->save();
+                if (!$taxonomyTerm->hasTranslation('fr')) {
+                  $taxonomyTerm->addTranslation('fr', [
+                    'name' => $this->taxonomyTermTranslation->translation,
+                  ]);
+                  $taxonomyTerm->save();
+                }
+              }
+            }
+            else {
+              if (!empty($this->taxonomyTerm->name)) {
+                $taxonomyTerm = Term::create([
+                  'vid' => $vocabulary,
+                  'name' => $this->taxonomyTerm->name,
+                  'description' => $this->taxonomyTerm->description,
+                  'weight' => $this->taxonomyTerm->weight,
+                  'langcode' => 'en',
                 ]);
                 $taxonomyTerm->save();
               }
             }
-          }
-          else {
-            if (!empty($this->taxonomyTerm->name)) {
-              $taxonomyTerm = Term::create([
-                'vid' => $vocabulary,
-                'name' => $this->taxonomyTerm->name,
-                'description' => $this->taxonomyTerm->description,
-                'weight' => $this->taxonomyTerm->weight,
-                'langcode' => 'en',
-              ]);
-              $taxonomyTerm->save();
-            }
-          }
 
-          $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
+            $taxonomyData[$id] = ['target_id' => $taxonomyTerm->id()];
+          }
         }
       }
 
@@ -125,7 +134,7 @@ class Taxonomy extends YGMigratePluginBase {
   /**
    * Get vocabulary.
    *
-   * @param string $field
+   * @param  string  $field
    *   The field to get vocabulary for.
    */
   protected function getVocabulary(string $field): string {
@@ -155,21 +164,29 @@ class Taxonomy extends YGMigratePluginBase {
       $vocabulary = 'community';
     }
 
+    // News
+    if ($field === 'field_news_type') {
+      $vocabulary = 'news_type';
+    }
+
     return $vocabulary;
   }
 
   /**
    * Get information about the requested term.
    *
-   * @param array $tid
+   * @param  array  $tid
    *   The term id.
-   * @param bool $translationCheck
+   * @param  bool  $translationCheck
    *   Whether to request translations.
    *
    * @return array|object
    *   Return all tid data.
    */
-  protected function getTaxonomyTerm(array $tid, bool $translationCheck = TRUE) {
+  protected function getTaxonomyTerm(
+    array $tid,
+    bool $translationCheck = TRUE
+  ) {
     $connection = Database::getConnection('default', 'migrate');
     $query = $connection->select('taxonomy_term_data', 'ttd')
       ->fields('ttd', [

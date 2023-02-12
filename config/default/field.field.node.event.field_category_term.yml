@@ -1,24 +1,24 @@
-uuid: b0b611db-1657-4fc1-83a4-09bba01cf737
+uuid: 9f178c59-e7ab-4e30-a62b-032d62d5dd59
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_department_term
+    - field.storage.node.field_category_term
     - node.type.event
-    - taxonomy.vocabulary.department
+    - taxonomy.vocabulary.category
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.event.field_department_term
-field_name: field_department_term
+id: node.event.field_category_term
+field_name: field_category_term
 entity_type: node
 bundle: event
-label: Department
+label: 'Category type'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -26,7 +26,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      department: department
+      category: category
     sort:
       field: name
       direction: asc

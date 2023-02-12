@@ -13,6 +13,12 @@ destination:
 process:
   uid:
     plugin: yg_author
+  status:
+    plugin: skip_on_value
+    method: row
+    not_equals: true
+    value: 1
+    source: status
   langcode: language
   created: created
   changed: changed
@@ -95,7 +101,7 @@ process:
         attributes: attributes
   field_community:
     plugin: yg_taxonomy
-  field_category_type:
+  field_category_term:
     plugin: yg_taxonomy
   field_department_term:
     plugin: yg_taxonomy

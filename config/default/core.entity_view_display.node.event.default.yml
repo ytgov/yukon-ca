@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.date_format.yg_long
     - field.field.node.event.field_building_name
-    - field.field.node.event.field_category_type
+    - field.field.node.event.field_category_term
     - field.field.node.event.field_community
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_name
@@ -42,6 +42,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_category_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
     region: content
   field_contact_email:
     type: basic_string
@@ -172,7 +180,6 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_category_type: true
   field_community: true
   field_featured_event: true
   field_meta_tags: true

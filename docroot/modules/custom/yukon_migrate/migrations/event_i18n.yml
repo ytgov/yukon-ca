@@ -19,6 +19,12 @@ process:
     plugin: migration_lookup
     migration: event
     source: entity_id
+  status:
+    plugin: skip_on_value
+    method: row
+    not_equals: true
+    value: 1
+    source: status
   langcode:
     plugin: default_value
     default_value: fr
@@ -103,7 +109,7 @@ process:
         attributes: attributes
   field_community:
     plugin: yg_taxonomy
-  field_category_type:
+  field_category_term:
     plugin: yg_taxonomy
   field_department_term:
     plugin: yg_taxonomy

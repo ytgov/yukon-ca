@@ -52,11 +52,11 @@ process:
   body/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
-  field_contact/value: field_contact
+  field_contact/value: field_contact/0/value
   field_contact/format:
     plugin: default_value
     default_value: wysiwyg_ckeditor
-  field_svg_upload:
+  field_icon_dark:
     plugin: yg_imagemedia
   field_featured_image:
     plugin: yg_imagemedia

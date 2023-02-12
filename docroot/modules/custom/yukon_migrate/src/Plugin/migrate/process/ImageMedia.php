@@ -32,6 +32,7 @@ class ImageMedia extends YGMigratePluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
     $originalField = '';
+    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE) . '</code></pre>');
     if (strpos($destination_property, '_icon_') !== FALSE) {
       $originalField = $destination_property;
       if ($destination_property === 'field_icon_dark') {
@@ -41,7 +42,12 @@ class ImageMedia extends YGMigratePluginBase {
         $destination_property = 'field_light_svg_upload';
       }
     }
-    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : $node[$originalField][0];
+    if (isset($node[$destination_property]) && isset($node[$destination_property][0])) {
+      $imageField = $node[$destination_property][0];
+    }
+    elseif (isset($node[$originalField]) && isset($node[$originalField][0])) {
+      $imageField = $node[$originalField][0];
+    }
     if ($node['type'] === 'event' && $destination_property === 'field_featured_image') {
       $imageField = !empty($node['field_feature_image']) ? $node['field_feature_image'][0] : NULL;
       $destination_property = 'field_feature_image';

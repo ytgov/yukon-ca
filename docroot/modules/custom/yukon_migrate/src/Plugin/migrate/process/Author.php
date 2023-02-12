@@ -32,7 +32,15 @@ class Author extends YGMigratePluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    $uid = $node['node_uid'] ?? 1;
+    if (isset($node['uid'])) {
+      $uid = $node['uid'];
+    }
+    elseif (isset($node['node_uid'])) {
+      $uid = $node['node_uid'];
+    }
+    else {
+      $uid = 1;
+    }
     if (!empty($uid)) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('users', 'u')
