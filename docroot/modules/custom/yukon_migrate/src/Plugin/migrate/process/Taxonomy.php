@@ -133,7 +133,7 @@ class Taxonomy extends YGMigratePluginBase {
   /**
    * Get vocabulary.
    *
-   * @param  string  $field
+   * @param string $field
    *   The field to get vocabulary for.
    */
   protected function getVocabulary(string $field): string {
@@ -163,7 +163,7 @@ class Taxonomy extends YGMigratePluginBase {
       $vocabulary = 'community';
     }
 
-    // News
+    // News.
     if ($field === 'field_news_type') {
       $vocabulary = 'news_type';
     }
@@ -174,9 +174,9 @@ class Taxonomy extends YGMigratePluginBase {
   /**
    * Get information about the requested term.
    *
-   * @param  array  $tid
+   * @param array $tid
    *   The term id.
-   * @param  bool  $translationCheck
+   * @param bool $translationCheck
    *   Whether to request translations.
    *
    * @return array|object
