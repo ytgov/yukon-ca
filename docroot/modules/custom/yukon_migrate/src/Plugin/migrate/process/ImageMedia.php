@@ -32,7 +32,6 @@ class ImageMedia extends YGMigratePluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
     $originalField = '';
-    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE) . '</code></pre>');
     if (strpos($destination_property, '_icon_') !== FALSE) {
       $originalField = $destination_property;
       if ($destination_property === 'field_icon_dark') {

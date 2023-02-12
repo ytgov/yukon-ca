@@ -47,7 +47,6 @@ class Taxonomy extends YGMigratePluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $node = $row->getSource();
-    \Drupal::logger('test')->info('<pre><code>' . print_r($node, TRUE). '</code></pre>');
     $vocabulary = $this->getVocabulary($destination_property);
     if ($node['type'] === 'event' && $destination_property === 'field_category_term') {
       $destination_property = 'field_category_type';
