@@ -11,7 +11,6 @@ source:
   translation: false
 
 process:
-  tid: tid
   language: language
   name: name
   description: description
