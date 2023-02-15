@@ -18,6 +18,7 @@ process:
     source: entity_id
     no_stub: true
 
+  # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
   status: status
   created: created
