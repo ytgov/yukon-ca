@@ -1,0 +1,25 @@
+id: yukon_migrate_charts
+label: Yukon Migrate Chart Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: chart_block
+  constants:
+    default_text_format: full_html
+process:
+  field_title: title_field
+  field_chart_data: field_chart_data
+  field_highlighted_stat: field_highlighted_stat
+
+  field_description/value: field_chart_description/0/value
+  field_description/format: constants/default_text_format
+
+  field_source_notes/value: field_source_notes/0/value
+  field_source_notes/format: constants/default_text_format
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: chart
