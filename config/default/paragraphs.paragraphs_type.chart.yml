@@ -1,0 +1,10 @@
+uuid: f72f7aac-a324-4e11-8d93-9e56ff76a3d1
+langcode: en
+status: true
+dependencies: {  }
+id: chart
+label: Chart
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: b2dcde71-a3a0-429b-8a17-af452738bdfc
+langcode: en
+status: true
+dependencies: {  }
+id: collapsable_field
+label: 'Collapsable Field'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
