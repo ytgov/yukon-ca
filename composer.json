@@ -9,6 +9,7 @@
         "acquia/blt": "^13.7",
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
+        "drupal/addtoany": "^2.0",
         "drupal/admin_toolbar": "^3.3",
         "drupal/advanced_help": "1.x-dev@dev",
         "drupal/ajax_comments": "1.x-dev@dev",
@@ -190,19 +191,6 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/addtoany",
-                "type": "drupal-module",
-                "version": "1.16",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/addtoany.git",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
         },
         {
             "type": "package",
