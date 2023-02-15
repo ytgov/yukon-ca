@@ -10,9 +10,9 @@
 ] %}
 
 <header {{ attributes.addClass(classes).setAttribute('id', 'header') }}>
-  <div class="container navbar">
+  <div class="container-lg navbar">
     <div class="row items-center">
-      <div class="site-main-logo col-5 col-sm-4 col-md-3 col-lg-2 py-1">
+      <div class="site-main-logo col-5 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
         {{ logo }}
       </div>
       <div class="site-nav-toggle col-7 col-sm-8 col-md-9 col-lg-10 flex justify-end">
@@ -20,7 +20,7 @@
           {{ languageswitcher }}
         {% endif %}
         {% if menus %}
-          <button class="bg-transparent border-none gap-x-4 flex px-8 items-baseline" aria-controls="{{ unique_id }}" aria-haspopup="true" id="menu-button"
+          <button class="bg-transparent border-none gap-x-4 flex px-8 items-baseline md:mr-9" aria-controls="{{ unique_id }}" aria-haspopup="true" id="menu-button"
                   data-bs-toggle="offcanvas" data-bs-target="#{{ unique_id }}"
                   title="Search and menus" aria-label="Menu collapsed">
                   <span class="menu-icon" aria-hidden="true">
