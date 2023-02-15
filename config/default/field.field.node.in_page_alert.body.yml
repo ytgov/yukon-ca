@@ -1,0 +1,28 @@
+uuid: cea96ab5-534a-48d9-bb6f-e099b77f5835
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.in_page_alert
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.in_page_alert.body
+field_name: body
+entity_type: node
+bundle: in_page_alert
+label: 'Alert message'
+description: 'This alert is displayed at the top of the specified pages, to share urgent announcements with users.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

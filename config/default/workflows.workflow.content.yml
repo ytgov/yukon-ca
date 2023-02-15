@@ -2,6 +2,8 @@ uuid: dd1e233e-ec7e-4689-aa52-44b441fb5bfa
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.in_page_alert
   module:
     - content_moderation
 id: content
@@ -87,5 +89,7 @@ type_settings:
         - needs_review
       to: publish_as_scheduled
       weight: 5
-  entity_types: {  }
+  entity_types:
+    node:
+      - in_page_alert
   default_moderation_state: draft
