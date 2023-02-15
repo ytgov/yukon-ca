@@ -1,4 +1,4 @@
-uuid: ba355a79-637b-4dc9-a7cc-8463d08171c5
+uuid: b2d7b4c9-d094-40c0-861c-f0731694ea4e
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ bundle: menu_link_content
 label: 'Menu link title'
 description: 'The text to be used for this link in the menu.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

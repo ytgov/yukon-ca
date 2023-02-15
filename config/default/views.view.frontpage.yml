@@ -75,19 +75,8 @@ display:
           plugin_id: text_custom
           label: ''
           empty: true
-          content: 'No front page content has been created yet.<br/>Follow the <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">User Guide</a> to start building your site.'
+          content: "<p>The Yukon Territory (Yukon) is in the northwest corner of Canada. It borders on British Columbia, the Northwest Territories and Alaska. Yukon has a total population of 34,157 people with most living in the capital city of Whitehorse. The Yukon is home to Canada's highest peak, largest ice fields, the smallest desert and the western-most point in Canada. It has an incredible array of wildlife and grizzly bears, caribou, moose and other animals roam the land.</p>\r\n<p>Yukon is an excellent place to live, work and play. Yukon welcomes newcomers every year and offers great opportunities, including:</p>\r\n<ul>\r\n<li>friendly people</li>\r\n<li>a skilled and educated workforce</li>\r\n<li>up-to-date transportation systems</li>\r\n<li>outdoor activities in every season of the year</li>\r\n<li>one of the lowest unemployment rates in Canada</li>\r\n<li>a strong economy thanks to our natural resources</li>\r\n<li>broadband Internet service in all of our communities</li>\r\n</ul>"
           tokenize: false
-        node_listing_empty:
-          id: node_listing_empty
-          table: node
-          field: node_listing_empty
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: node_listing_empty
-          label: ''
-          empty: true
         title:
           id: title
           table: views
@@ -281,12 +270,13 @@ display:
         options:
           relationship: none
           view_mode: rss
-      display_extenders: {  }
+      display_extenders:
+        ajax_history: {  }
       path: rss.xml
       sitename_title: true
       displays:
-        page_1: page_1
-        default: ''
+        default: '0'
+        page_1: '0'
     cache_metadata:
       max-age: -1
       contexts:

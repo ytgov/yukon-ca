@@ -1,4 +1,4 @@
-uuid: b8671866-7b29-4e5f-a29f-58134e6a557e
+uuid: 6f2ce325-aab3-43c1-86e3-3905668dd30f
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ bundle: menu_link_content
 label: Changed
 description: 'The time that the menu link was last edited.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
