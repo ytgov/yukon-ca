@@ -1,18 +1,18 @@
-uuid: ec8be47c-2621-40f4-8801-df119a86feae
+uuid: cca8b178-04e7-4f34-97e0-e26462cb082b
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.icon
+    - block_content.type.basic
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: false
+    enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: block_content.icon
+id: block_content.basic
 target_entity_type_id: block_content
-target_bundle: icon
+target_bundle: basic
 default_langcode: site_default
-language_alterable: false
+language_alterable: true
