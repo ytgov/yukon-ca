@@ -1,0 +1,37 @@
+id: yukon_migrate_images
+label: Yukon migrate Images Media Type
+audit: true
+migration_tags:
+  - Drupal 7
+  - Content
+migration_group: legacy
+source:
+  plugin: d7_file
+  scheme: public
+  constants:
+    source_base_path: 'https://yukon.ca/'
+process:
+  filename: filename
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - filepath
+    -
+      plugin: urlencode
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - uri
+  filemime: filemime
+  status: status
+  created: timestamp
+  changed: timestamp
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: uid
+destination:
+  plugin: entity:media
+  default_bundle: images

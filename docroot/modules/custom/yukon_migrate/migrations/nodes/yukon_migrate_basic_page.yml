@@ -1,0 +1,70 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_basic_page
+label: Yukon Migrate Basic Page Nodes
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+  - Basic Pages
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: wetkit_page
+  constants:
+    default_text_format: full_html
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  title: title
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: node_uid
+  status: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+
+  body/value: body/0/value
+  body/format: constants/default_text_format
+
+  pseudo_field_paragraphs:
+    - plugin: skip_on_empty
+      method: process
+      source: field_collapsable_field/0/value
+    - plugin: migration_lookup
+      migration:
+        - yukon_migrate_collapsable_field
+        - yukon_migrate_charts
+      no_stub: true
+
+  field_paragraphs:
+    - plugin: skip_on_empty
+      method: process
+      source: '@pseudo_field_paragraphs'
+    - plugin: sub_process
+      source:
+        - '@pseudo_field_paragraphs'
+      process:
+        target_id: '0'
+        target_revision_id: '1'
+
+  field_contact/value: field_contact/0/value
+  field_contact/format: constants/default_text_format
+
+  field_full_width: field_full_width
+
+  field_page_description: field_page_description
+
+  field_related_tasks: field_related_tasks
+
+  field_social_sharing: field_social_sharing
+
+destination:
+  plugin: entity:node
+  default_bundle: basic_page
+migration_dependencies:
+  optional:
+    - yukon_migrate_collapsable_field
+    - yukon_migrate_charts
