@@ -1,0 +1,71 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_home_page
+label: Yukon Migrate Home Page Node
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+  - Home Page
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: homepage
+  constants:
+    default_text_format: full_html
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  title: title
+  uid: node_uid
+  status:
+    plugin: skip_on_value
+    method: row
+    not_equals: true
+    value: 1
+    source: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+
+  metatags/0/description: field_page_description/0/value
+  field_meta_tags:
+    -
+      plugin: skip_on_empty
+      source: '@metatags'
+      method: process
+    -
+      plugin: callback
+      callable: serialize
+      source: '@metatags'
+
+  body/value: body/0/value
+  body/format: constants/default_text_format
+
+  field_primary_item_blocks:
+    plugin: yukon_node_reference
+  field_secondary_item_blocks:
+    plugin: yukon_node_reference
+  field_tertiary_item_blocks:
+    plugin: yukon_node_reference
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+  field_image_gallery:
+    plugin: yukon_paragraph_image_gallery
+destination:
+  plugin: entity:node
+  default_bundle: homepage
+migration_dependencies:
+  optional:
+    - yukon_migrate_department
+    - yukon_migrate_teams
