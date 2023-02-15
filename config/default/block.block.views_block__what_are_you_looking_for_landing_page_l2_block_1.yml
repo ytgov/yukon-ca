@@ -1,0 +1,33 @@
+uuid: 2323e7da-164a-4377-856d-5d13b14c51ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.what_are_you_looking_for_landing_page_l2
+  module:
+    - node
+    - views
+  theme:
+    - yukonca_glider
+id: views_block__what_are_you_looking_for_landing_page_l2_block_1
+theme: yukonca_glider
+region: post_content
+weight: -7
+provider: null
+plugin: 'views_block:what_are_you_looking_for_landing_page_l2-block_1'
+settings:
+  id: 'views_block:what_are_you_looking_for_landing_page_l2-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      landing_page_level_2: landing_page_level_2

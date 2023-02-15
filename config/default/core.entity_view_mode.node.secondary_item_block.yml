@@ -1,0 +1,10 @@
+uuid: 25f54032-6088-439a-b947-80707c5cb0b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.secondary_item_block
+label: 'Secondary item block'
+targetEntityType: node
+cache: true
