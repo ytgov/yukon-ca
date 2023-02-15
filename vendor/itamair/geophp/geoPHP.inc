@@ -10,6 +10,7 @@
 // Adapters
 include_once("lib/adapters/GeoAdapter.class.php"); // Abtract class
 include_once("lib/adapters/GeoJSON.class.php");
+include_once("lib/adapters/EsriJSON.class.php");
 include_once("lib/adapters/WKT.class.php");
 include_once("lib/adapters/EWKT.class.php");
 include_once("lib/adapters/WKB.class.php");
@@ -65,9 +66,10 @@ class geoPHP
       $args = $format;
     }
 
-    $processor_type = $type_map[$type];
-
-    if (!$processor_type) {
+    if (array_key_exists($type, $type_map)) {
+      $processor_type = $type_map[$type];
+    }
+    else {
       throw new exception('geoPHP could not find an adapter of type '.htmlentities($type));
     }
 
@@ -96,6 +98,8 @@ class geoPHP
       'wkb' =>  'WKB',
       'ewkb' => 'EWKB',
       'json' => 'GeoJSON',
+      'esrijson' => 'EsriJSON',
+      'arcgis' => 'EsriJSON',
       'geojson' => 'GeoJSON',
       'kml' =>  'KML',
       'gpx' =>  'GPX',
@@ -256,6 +260,9 @@ class geoPHP
 
     // Detect GeoJSON - first char starts with {
     if ($bytes[1] == 123) {
+      if (strpos($input, 'esri') !== FALSE) {
+        return 'esrijson';
+      }
       return 'json';
     }
 

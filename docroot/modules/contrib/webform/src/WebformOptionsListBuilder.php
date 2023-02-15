@@ -37,6 +37,13 @@ class WebformOptionsListBuilder extends ConfigEntityListBuilder {
   protected $category;
 
   /**
+   * Query request.
+   *
+   * @var \Symfony\Component\HttpFoundation\RequestStack
+   */
+  protected $request;
+
+  /**
    * {@inheritdoc}
    */
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {

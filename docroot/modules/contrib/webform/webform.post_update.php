@@ -96,3 +96,10 @@ function webform_post_update_ckeditor() {
 
   _webform_update_html_editor();
 }
+
+/**
+ * #3335924: Allow the confirmation page to include robots noindex meta tag.
+ */
+function webform_post_update_confirmation_page_noindex() {
+  _webform_update_admin_settings();
+}

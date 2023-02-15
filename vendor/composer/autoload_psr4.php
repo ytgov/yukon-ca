@@ -10,6 +10,7 @@ return array(
     'phootwork\\lang\\' => array($vendorDir . '/phootwork/lang'),
     'phootwork\\collection\\' => array($vendorDir . '/phootwork/collection'),
     'loophp\\phposinfo\\' => array($vendorDir . '/loophp/phposinfo/src'),
+    'enshrined\\svgSanitize\\' => array($vendorDir . '/enshrined/svg-sanitize/src'),
     'cweagans\\Composer\\' => array($vendorDir . '/cweagans/composer-patches/src'),
     'Zumba\\Amplitude\\Test\\' => array($vendorDir . '/zumba/amplitude-php/test'),
     'Zumba\\Amplitude\\' => array($vendorDir . '/zumba/amplitude-php/src'),

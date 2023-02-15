@@ -176,7 +176,7 @@ class KML extends GeoAdapter
     $coord_elements = $this->childElements($xml, 'coordinates');
     $coordinates = array();
     if (count($coord_elements)) {
-      $coord_sets = explode(' ', preg_replace('/[\r\n]+/', ' ', $coord_elements[0]->nodeValue));
+      $coord_sets = explode(' ', preg_replace('/[\r\n\t]+/', ' ', $coord_elements[0]->nodeValue));
       foreach ($coord_sets as $set_string) {
         $set_string = trim($set_string);
         if ($set_string) {
@@ -224,6 +224,18 @@ class KML extends GeoAdapter
   private function linestringToKML($geom, $type = FALSE) {
     if (!$type) {
       $type = $geom->getGeomType();
+
+      // Generate LinearRing in case of closed Linestring.
+      // @see https://github.com/phayes/geoPHP/pull/158/files
+      if ($type === 'LineString') {
+        $components = $geom->getComponents();
+        $firstPoint = array_shift($components);
+        $lastPoint = array_pop($components);
+
+        if ($firstPoint->equals($lastPoint)) {
+          $type = 'LinearRing';
+        }
+      }
     }
 
     $str = '<'.$this->nss . $type .'>';

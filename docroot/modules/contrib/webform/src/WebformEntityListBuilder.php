@@ -85,6 +85,34 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
   protected $database;
 
   /**
+   * The user storage object.
+   *
+   * @var \Drupal\user\UserStorageInterface
+   */
+  protected $userStorage;
+
+  /**
+   * The result limit.
+   *
+   * @var int
+   */
+  protected $limit;
+
+  /**
+   * The role storage object
+   *
+   * @var \Drupal\user\RoleStorageInterface
+   */
+  protected $roleStorage;
+
+  /**
+   * The webform submission storage.
+   *
+   * @var \Drupal\webform\WebformSubmissionStorageInterface
+   */
+  protected $submissionStorage;
+
+  /**
    * {@inheritdoc}
    */
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {

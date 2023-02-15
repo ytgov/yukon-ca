@@ -127,6 +127,13 @@ abstract class WebformHandlerBase extends PluginBase implements WebformHandlerIn
   protected $tokenManager;
 
   /**
+   * The configuration array.
+   *
+   * @var array
+   */
+  protected $configuration;
+
+  /**
    * {@inheritdoc}
    *
    * IMPORTANT:

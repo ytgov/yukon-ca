@@ -289,15 +289,11 @@ class WebformHtmlEditor extends FormElement implements TrustedCallbackInterface 
    *   The processed element.
    */
   public static function processTextFormat($element, FormStateInterface $form_state, &$complete_form) {
-    // Remove the 'webform' default text format from allowed formats.
-    // This is needed because the webform default text format DOES NOT filter HTML.
-    if (empty($element['#allowed_formats'])) {
-      $user = \Drupal::currentUser();
-      $formats = filter_formats($user);
-      if (isset($formats[static::DEFAULT_FILTER_FORMAT])) {
-        unset($formats[static::DEFAULT_FILTER_FORMAT]);
-        $element['#allowed_formats'] = array_keys($formats);
-      }
+    if ($element['format']['format']['#default_value'] !== static::DEFAULT_FILTER_FORMAT) {
+      unset(
+        $element['format']['format']['#options'][static::DEFAULT_FILTER_FORMAT],
+        $element['format']['guidelines'][static::DEFAULT_FILTER_FORMAT]
+      );
     }
     return $element;
   }

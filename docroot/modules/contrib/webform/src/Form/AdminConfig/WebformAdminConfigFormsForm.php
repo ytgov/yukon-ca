@@ -458,6 +458,13 @@ class WebformAdminConfigFormsForm extends WebformAdminConfigBaseForm {
       '#description' => $this->t('A list of classes that will be provided in the "Confirmation back link CSS classes" dropdown. Enter one or more classes on each line. These styles should be available in your theme\'s CSS file.'),
       '#default_value' => $settings['confirmation_back_classes'],
     ];
+    $form['confirmation_settings']['default_confirmation_noindex'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Default confirmation robots noindex'),
+      '#description' => $this->t('If checked, a meta tag robots noindex directive  will be added to the confirmation page of all webforms.'),
+      '#return_value' => TRUE,
+      '#default_value' => $settings['default_confirmation_noindex'],
+    ];
     $form['confirmation_settings']['token_tree_link'] = $this->tokenManager->buildTreeElement();
 
     // Ajax settings.

@@ -58,6 +58,13 @@ class WebformTokenManager implements WebformTokenManagerInterface {
   protected $token;
 
   /**
+   * A configuration object.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $config;
+
+  /**
    * An array of support token suffixes.
    *
    * @var array

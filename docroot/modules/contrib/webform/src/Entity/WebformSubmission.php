@@ -116,6 +116,13 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
   protected $computedData = [];
 
   /**
+   * The webform view mode twig.
+   *
+   * @var string
+   */
+  protected $_webform_view_mode_twig;
+
+  /**
    * The data hashed.
    *
    * @var string

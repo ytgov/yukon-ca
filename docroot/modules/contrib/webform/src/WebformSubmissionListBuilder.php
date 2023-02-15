@@ -270,6 +270,13 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
   protected $submissionViews;
 
   /**
+   * The result limit.
+   *
+   * @var int
+   */
+  protected $limit;
+
+  /**
    * {@inheritdoc}
    */
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {

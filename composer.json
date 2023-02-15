@@ -71,6 +71,7 @@
         "drupal/single_content_sync": "^1.3",
         "drupal/smtp": "^1.2",
         "drupal/stage_file_proxy": "^1.0",
+        "drupal/svg_image": "^3.0",
         "drupal/token": "^1.11",
         "drupal/twig_tweak": "^3.2",
         "drupal/ui_patterns": "^1.2",
@@ -97,8 +98,7 @@
         "yukon/geophp": "8.x-dev",
         "yukon/maxlength": "2.x-dev",
         "yukon/module_missing_message_fixer": "2.x-dev",
-        "yukon/pathologic": "8.x-dev",
-        "yukon/svg_image": "^1.16"
+        "yukon/pathologic": "8.x-dev"
     },
     "extra": {
         "enable-patching": true,
@@ -117,9 +117,6 @@
             },
             "yukon/pathologic": {
                 "3289033 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-12-02/3289033-drupal-10-compatibility-14.patch"
-            },
-            "yukon/svg_image": {
-                "3299276 - Automated Drupal 10 compatibility fixes\n": "https://www.drupal.org/files/issues/2023-01-13/svg_image-D10-3299276-22.patch"
             }
         },
         "installer-paths": {

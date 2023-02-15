@@ -39,6 +39,20 @@ class WebformLibrariesCommands extends WebformCommandsBase {
   protected $moduleHandler;
 
   /**
+   * The path of composer.json
+   *
+   * @var string
+   */
+  protected $composer_json;
+
+  /**
+   * The directory of composer.json
+   *
+   * @var string
+   */
+  protected $composer_directory;
+
+  /**
    * Constructs WebformLibrariesCommand.
    *
    * @param \GuzzleHttp\ClientInterface $http_client

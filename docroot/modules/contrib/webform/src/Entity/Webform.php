@@ -498,6 +498,13 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   protected $hasAnonymousSubmissionTrackingHandler;
 
   /**
+   * Track if the webform has message handler.
+   *
+   * @var bool
+   */
+  private $hasMessagehandler;
+
+  /**
    * {@inheritdoc}
    */
   public function getLangcode() {
@@ -1504,7 +1511,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     catch (\Exception $exception) {
       $link = $this->toLink($this->t('Edit'), 'edit-form')->toString();
       \Drupal::logger('webform')
-        ->notice('%title elements are not valid. @message', [
+        ->error('%title elements are not valid. @message', [
           '%title' => $this->label(),
           '@message' => $exception->getMessage(),
           'link' => $link,

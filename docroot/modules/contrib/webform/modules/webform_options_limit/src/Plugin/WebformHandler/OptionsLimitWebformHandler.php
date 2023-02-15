@@ -1296,7 +1296,7 @@ class OptionsLimitWebformHandler extends WebformHandlerBase implements WebformOp
   /**
    * Get boolean submission total for the current webform and source entity.
    *
-   * @return int
+   * @return int|null
    *   Boolean totals.
    */
   protected function getBooleanTotal() {

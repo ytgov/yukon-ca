@@ -195,6 +195,13 @@ class WebformSubmissionForm extends ContentEntityForm {
   protected $bubbleableMetadata;
 
   /**
+   * Operation value, like 'default', add, edit, test, etc.
+   *
+   * @var string
+   */
+  protected $operation;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {

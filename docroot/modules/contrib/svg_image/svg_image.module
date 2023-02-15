@@ -11,6 +11,30 @@ use Drupal\svg_image\Plugin\Field\FieldFormatter\SvgImageUrlFormatter;
 use Drupal\svg_image\Plugin\Field\FieldWidget\SvgImageWidget;
 
 /**
+ * Implements hook_config_schema_info_alter().
+ */
+function svg_image_config_schema_info_alter(&$definitions) {
+  $definitions['field.formatter.settings.image']['mapping']['svg_attributes'] = [
+    'type' => 'mapping',
+    'label' => 'SVG attributes',
+    'mapping' => [
+      'width' => [
+        'type' => 'integer',
+        'label' => 'Width',
+      ],
+      'height' => [
+        'type' => 'integer',
+        'label' => 'Height',
+      ],
+    ],
+  ];
+  $definitions['field.formatter.settings.image']['mapping']['svg_render_as_image'] = [
+    'type' => 'boolean',
+    'label' => 'Render SVG image as <img>',
+  ];
+}
+
+/**
  * Implements hook_field_widget_info_alter().
  */
 function svg_image_field_widget_info_alter(array &$info) {

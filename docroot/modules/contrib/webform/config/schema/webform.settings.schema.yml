@@ -150,6 +150,10 @@ webform.settings:
           type: label
           label: 'Default confirmation back label'
           webform_type: html
+        default_confirmation_noindex:
+          type: boolean
+          label: 'Default confirmation noindex'
+          webform_type: html
         default_limit_total_message:
           type: text
           label: 'Default limit total message'

@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\image\Plugin\Field\FieldFormatter\ImageUrlFormatter;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -77,7 +78,10 @@ class SvgImageUrlFormatter extends ImageUrlFormatter {
     foreach ($images as $delta => $image) {
       $image_uri = $image->getFileUri();
       $isSvg = svg_image_is_file_svg($image);
-      $url = ($image_style && !$isSvg) ? $image_style->buildUrl($image_uri) : $this->fileUrlGenerator->generateAbsoluteString($image_uri);
+      $url = ($image_style && !$isSvg)
+        ? $image_style->buildUrl($image_uri)
+        : $this->fileUrlGenerator->generateAbsoluteString($image_uri);
+
       $url = $this->fileUrlGenerator->transformRelative($url);
 
       // Add cacheability metadata from the image and image style.
@@ -86,7 +90,7 @@ class SvgImageUrlFormatter extends ImageUrlFormatter {
         $cacheability->addCacheableDependency(CacheableMetadata::createFromObject($image_style));
       }
 
-      $elements[$delta] = ['#markup' => $url];
+      $elements[$delta] = ['#markup' => Markup::create($url)];
       $cacheability->applyTo($elements[$delta]);
     }
     return $elements;

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455
+class ComposerStaticInit78d97dffa7ff085d45fb3b904e460931
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -40,6 +40,10 @@ class ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455
         'l' => 
         array (
             'loophp\\phposinfo\\' => 17,
+        ),
+        'e' => 
+        array (
+            'enshrined\\svgSanitize\\' => 22,
         ),
         'c' => 
         array (
@@ -205,6 +209,10 @@ class ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455
         'loophp\\phposinfo\\' => 
         array (
             0 => __DIR__ . '/..' . '/loophp/phposinfo/src',
+        ),
+        'enshrined\\svgSanitize\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
         ),
         'cweagans\\Composer\\' => 
         array (
@@ -6743,6 +6751,17 @@ class ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455
         'cweagans\\Composer\\PatchEvent' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvent.php',
         'cweagans\\Composer\\PatchEvents' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvents.php',
         'cweagans\\Composer\\Patches' => __DIR__ . '/..' . '/cweagans/composer-patches/src/Patches.php',
+        'enshrined\\svgSanitize\\ElementReference\\Resolver' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Resolver.php',
+        'enshrined\\svgSanitize\\ElementReference\\Subject' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Subject.php',
+        'enshrined\\svgSanitize\\ElementReference\\Usage' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Usage.php',
+        'enshrined\\svgSanitize\\Exceptions\\NestingException' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Exceptions/NestingException.php',
+        'enshrined\\svgSanitize\\Helper' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Helper.php',
+        'enshrined\\svgSanitize\\Sanitizer' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Sanitizer.php',
+        'enshrined\\svgSanitize\\data\\AllowedAttributes' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AllowedAttributes.php',
+        'enshrined\\svgSanitize\\data\\AllowedTags' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AllowedTags.php',
+        'enshrined\\svgSanitize\\data\\AttributeInterface' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AttributeInterface.php',
+        'enshrined\\svgSanitize\\data\\TagInterface' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/TagInterface.php',
+        'enshrined\\svgSanitize\\data\\XPath' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/XPath.php',
         'geoPHP' => __DIR__ . '/..' . '/itamair/geophp/geoPHP.inc',
         'loophp\\phposinfo\\Enum\\Enum' => __DIR__ . '/..' . '/loophp/phposinfo/src/Enum/Enum.php',
         'loophp\\phposinfo\\Enum\\Family' => __DIR__ . '/..' . '/loophp/phposinfo/src/Enum/Family.php',
@@ -6816,11 +6835,11 @@ class ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit69c6c8c2692f4f870c6988a52b0ad455::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit78d97dffa7ff085d45fb3b904e460931::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit78d97dffa7ff085d45fb3b904e460931::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit78d97dffa7ff085d45fb3b904e460931::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit78d97dffa7ff085d45fb3b904e460931::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit78d97dffa7ff085d45fb3b904e460931::$classMap;
 
         }, null, ClassLoader::class);
     }
