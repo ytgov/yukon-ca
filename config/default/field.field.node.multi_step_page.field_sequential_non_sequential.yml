@@ -1,0 +1,26 @@
+uuid: 69b3aead-5192-40af-a01a-09c378e63c90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sequential_non_sequential
+    - node.type.multi_step_page
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.multi_step_page.field_sequential_non_sequential
+field_name: field_sequential_non_sequential
+entity_type: node
+bundle: multi_step_page
+label: 'Sequential / Non-Sequential'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
