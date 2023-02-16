@@ -21,6 +21,7 @@ process:
         plugin: migration_lookup
         migration: yukon_migrate_news
         source: entity_id
+        no_stub: true
     status:
         plugin: skip_on_value
         method: row
