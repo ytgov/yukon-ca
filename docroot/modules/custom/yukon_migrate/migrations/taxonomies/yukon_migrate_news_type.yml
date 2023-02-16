@@ -1,0 +1,33 @@
+id: yukon_migrate_news_type
+label: News Type taxonomy terms
+migration_group: legacy
+migration_tags:
+  - Drupal 7
+  - taxonomy
+
+source:
+  plugin: yukon_term
+  bundle: news_type
+  translation: false
+
+process:
+  language: language
+  name: name
+  description: description
+  weight: weight
+  parent:
+    -
+      plugin: skip_on_empty
+      source: parent
+      method: process
+    -
+      plugin: migration_lookup
+      migration: yukon_migrate_news_type
+  path/alias: alias
+  path/pathauto:
+    plugin: default_value
+    default_value: false
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: news_type

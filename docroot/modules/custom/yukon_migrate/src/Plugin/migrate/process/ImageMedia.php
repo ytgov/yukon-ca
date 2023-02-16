@@ -41,8 +41,17 @@ class ImageMedia extends YGMigratePluginBase {
         $destination_property = 'field_light_svg_upload';
       }
     }
-    $imageField = !empty($node[$destination_property]) ? $node[$destination_property][0] : $node[$originalField][0];
-    if ($imageField !== NULL && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image')) {
+    if (isset($node[$destination_property]) && isset($node[$destination_property][0])) {
+      $imageField = $node[$destination_property][0];
+    }
+    elseif (isset($node[$originalField]) && isset($node[$originalField][0])) {
+      $imageField = $node[$originalField][0];
+    }
+    if ($node['type'] === 'event' && $destination_property === 'field_featured_image') {
+      $imageField = !empty($node['field_feature_image']) ? $node['field_feature_image'][0] : NULL;
+      $destination_property = 'field_feature_image';
+    }
+    if (!empty($imageField) && ($destination_property === 'field_svg_upload' || $destination_property === 'field_light_svg_upload' || $destination_property === 'field_featured_image' || $destination_property === 'field_feature_image')) {
       $connection = Database::getConnection('default', 'migrate');
       $query = $connection->select('field_data_' . $destination_property, 'svg')
         ->fields('svg', [
@@ -54,7 +63,8 @@ class ImageMedia extends YGMigratePluginBase {
         ]);
       $query->innerJoin('file_managed', 'fm', 'fm.fid = svg. ' . $destination_property . '_fid');
       $query->fields('fm',
-        ['fid',
+        [
+          'fid',
           'filename',
           'uri',
         ]);
@@ -67,23 +77,19 @@ class ImageMedia extends YGMigratePluginBase {
           $alt = $destination_property . '_alt';
           $title = $destination_property . '_title';
 
-          if (!empty($originalField)) {
-            $bundle = 'icon';
-            $mediaField = 'field_media_image';
-          }
-          else {
-            $bundle = 'image';
-            $mediaField = 'field_media_image_1';
-          }
-
           $imageMedia = $this->entityTypeManager->getStorage('media')->loadByProperties([
             'name' => $result->filename,
-            $mediaField => ['target_id' => $result->$fid],
+            'field_media_image' => ['target_id' => $result->$fid],
           ]);
           $imageMedia = reset($imageMedia);
 
           if (empty($imageMedia)) {
-
+            if (!empty($originalField)) {
+              $bundle = 'icon';
+            }
+            else {
+              $bundle = 'image';
+            }
             // Create Media.
             $imageMedia = Media::create([
               'name' => $result->filename,
@@ -91,7 +97,7 @@ class ImageMedia extends YGMigratePluginBase {
               'uid' => 1,
               'langcode' => $node['language'],
               'status' => 1,
-              $mediaField => [
+              'field_media_image' => [
                 'target_id' => $result->$fid,
                 'alt' => $result->$alt,
                 'title' => $result->$title,
