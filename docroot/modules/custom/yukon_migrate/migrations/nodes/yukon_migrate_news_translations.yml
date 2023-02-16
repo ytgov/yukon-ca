@@ -1,5 +1,5 @@
 id: yukon_migrate_news_translations
-label: News
+label: Yukon Migrate News Nodes Translations
 migration_tags:
     - Drupal 7
     - Content
@@ -19,7 +19,7 @@ process:
         plugin: yukon_author
     nid:
         plugin: migration_lookup
-        migration: news
+        migration: yukon_migrate_news
         source: entity_id
     status:
         plugin: skip_on_value
@@ -100,4 +100,4 @@ process:
     content_translation_outdated: translate
 migration_dependencies:
     required:
-        - news
+        - yukon_migrate_news

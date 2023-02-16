@@ -1,5 +1,5 @@
 id: yukon_migrate_news
-label: News
+label: Yukon Migrate News Nodes Translations
 migration_tags:
     - Drupal 7
     - Content
@@ -90,3 +90,9 @@ process:
     field_social_sharing: field_social_sharing
     field_featured_news_item: field_featured_news_item
     field_featured_to_homepage: field_featured_to_homepage
+migration_dependencies:
+    optional:
+        - yukon_migrate_department
+        - yukon_migrate_teams
+        - yukon_migrate_news_type
+        - yukon_migrate_category

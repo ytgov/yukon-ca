@@ -1,5 +1,5 @@
 id: yukon_migrate_event
-label: Event
+label: Yukon Migrate Event Nodes
 migration_tags:
     - Drupal 7
     - Content
@@ -119,3 +119,8 @@ process:
         migration: yukon_migrate_teams
         source: field_yukon_editorial_team
         no_stub: true
+migration_dependencies:
+    optional:
+        - yukon_migrate_department
+        - yukon_migrate_teams
+        - yukon_migrate_category

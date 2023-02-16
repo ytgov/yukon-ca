@@ -1,5 +1,5 @@
 id: yukon_migrate_blog_translations
-label: Blog
+label: Yukon Migrate Blog Nodes Translations
 migration_tags:
     - Drupal 7
     - Content
