@@ -18,7 +18,7 @@ bundle: chart
 label: 'Chart code'
 description: 'Validate your JSON <a href="https://jsonlint.com" title="JSON validator (external)" target="_blank">here</a>'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
