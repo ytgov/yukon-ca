@@ -1,0 +1,18 @@
+uuid: 92e7dd22-4529-444b-8d19-8310585512ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.multi_step
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.multi_step
+target_entity_type_id: paragraph
+target_bundle: multi_step
+default_langcode: site_default
+language_alterable: true
