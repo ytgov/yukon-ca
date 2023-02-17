@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.multi_step.field_title
     - paragraphs.paragraphs_type.multi_step
   module:
-    - entity_reference_revisions
+    - paragraphs
     - text
 id: paragraph.multi_step.default
 targetEntityType: paragraph
@@ -16,14 +16,16 @@ bundle: multi_step
 mode: default
 content:
   field_paragraphs:
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
     third_party_settings: {  }
   field_section_content:
     type: text_textarea
@@ -40,6 +42,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
