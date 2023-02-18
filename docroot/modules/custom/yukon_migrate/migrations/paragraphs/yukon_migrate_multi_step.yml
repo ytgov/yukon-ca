@@ -1,0 +1,44 @@
+id: yukon_migrate_multi_step
+label: Yukon Migrate Multi Step Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: multi_step
+  constants:
+    default_text_format: full_html
+process:
+  field_title: field_title
+
+  field_section_content/value: field_section_content/0/value
+  field_section_content/format: constants/default_text_format
+
+  # Todo: field_paragraphs on D7 site is empty for all paragraphs. Remove below code if it is not needed.
+  pseudo_field_paragraphs:
+    plugin: sub_process
+    source: field_charts
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration:
+          - yukon_migrate_charts
+        no_stub: true
+
+  field_paragraphs:
+    plugin: sub_process
+    source: '@pseudo_field_paragraphs'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: multi_step
+migration_dependencies:
+  required:
+    - yukon_migrate_charts
+  optional: {  }

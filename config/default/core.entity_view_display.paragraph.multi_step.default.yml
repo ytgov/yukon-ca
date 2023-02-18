@@ -1,0 +1,43 @@
+uuid: 9cfcd534-b665-45f6-b8fa-10516aa9c1fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multi_step.field_paragraphs
+    - field.field.paragraph.multi_step.field_section_content
+    - field.field.paragraph.multi_step.field_title
+    - paragraphs.paragraphs_type.multi_step
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.multi_step.default
+targetEntityType: paragraph
+bundle: multi_step
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_section_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
