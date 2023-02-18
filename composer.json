@@ -114,9 +114,6 @@
             },
             "yukon/maxlength": {
                 "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/merge_requests/24.diff"
-            },
-            "yukon/pathologic": {
-                "3289033 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-12-02/3289033-drupal-10-compatibility-14.patch"
             }
         },
         "installer-paths": {
