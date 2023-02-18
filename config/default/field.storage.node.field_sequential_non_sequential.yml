@@ -1,0 +1,27 @@
+uuid: 544871b1-80c3-462e-9c23-e730ecf7c7cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_sequential_non_sequential
+field_name: field_sequential_non_sequential
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: non_sequential
+      label: Non-Sequential
+    -
+      value: sequential
+      label: Sequential
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

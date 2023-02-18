@@ -1,24 +1,24 @@
-uuid: df20480b-1059-41fd-813b-79b54d056741
+uuid: 6e290b5f-fc02-40e2-a2f6-32f7449e4012
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.image_gallery
+    - paragraphs.paragraphs_type.multi_step
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: paragraph.image_gallery.field_title
+id: paragraph.multi_step.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: image_gallery
+bundle: multi_step
 label: Title
 description: ''
-required: true
-translatable: false
+required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

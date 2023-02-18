@@ -1,10 +1,10 @@
-uuid: dd6329ff-2f5d-4036-b03c-ecb5fdb7e666
+uuid: 32f2f6b1-152d-4c78-b5f6-fde4d78dcb2d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_source_notes
-    - paragraphs.paragraphs_type.chart
+    - field.storage.node.field_contact
+    - node.type.multi_step_page
   module:
     - epp
     - text
@@ -12,11 +12,11 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: paragraph.chart.field_source_notes
-field_name: field_source_notes
-entity_type: paragraph
-bundle: chart
-label: 'Source and notes'
+id: node.multi_step_page.field_contact
+field_name: field_contact
+entity_type: node
+bundle: multi_step_page
+label: Contact
 description: ''
 required: false
 translatable: true

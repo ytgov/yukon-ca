@@ -1,0 +1,29 @@
+uuid: 6129a65c-9cd7-4d00-87e2-927ffe32dabe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_full_width
+    - node.type.multi_step_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.multi_step_page.field_full_width
+field_name: field_full_width
+entity_type: node
+bundle: multi_step_page
+label: 'Full width'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

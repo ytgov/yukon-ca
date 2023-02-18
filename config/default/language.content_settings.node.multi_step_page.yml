@@ -1,18 +1,18 @@
-uuid: 7caf3d47-75bb-4adb-9cac-8f83c65f119b
+uuid: 19443223-9b4d-447b-9468-d65765bb7142
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.in_page_alert
+    - node.type.multi_step_page
   module:
     - content_translation
 third_party_settings:
   content_translation:
     enabled: true
     bundle_settings:
-      untranslatable_fields_hide: '1'
-id: node.in_page_alert
+      untranslatable_fields_hide: '0'
+id: node.multi_step_page
 target_entity_type_id: node
-target_bundle: in_page_alert
+target_bundle: multi_step_page
 default_langcode: site_default
-language_alterable: false
+language_alterable: true
