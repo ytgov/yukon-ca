@@ -1,18 +1,18 @@
-uuid: 57149e78-e435-46ef-8181-572a407c50e9
+uuid: 6f8d758a-560a-4ad8-9bd7-d9c8985074da
 langcode: en
 status: true
 dependencies:
   config:
-    - media.type.image
+    - paragraphs.paragraphs_type.collapsable_field
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: true
+    enabled: false
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: media.image
-target_entity_type_id: media
-target_bundle: image
+id: paragraph.collapsable_field
+target_entity_type_id: paragraph
+target_bundle: collapsable_field
 default_langcode: site_default
 language_alterable: false

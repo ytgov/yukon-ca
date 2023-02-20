@@ -4,34 +4,48 @@ audit: true
 migration_tags:
   - Drupal 7
   - Content
+  - Media
 migration_group: legacy
 source:
   plugin: d7_file
   scheme: public
+  file_type:
+    - image
+    - wysiwyg_image
+  batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
 process:
-  filename: filename
-  source_full_path:
-    -
-      plugin: concat
-      delimiter: /
-      source:
-        - constants/source_base_path
-        - filepath
-    -
-      plugin: urlencode
-  uri:
-    plugin: file_copy
-    source:
-      - '@source_full_path'
-      - uri
+  name: filename
+  field_media_image_1/target_id:
+    - plugin: migration_lookup
+      migration: yukon_migrate_files__public
+      source: fid
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+  field_media_image_1/alt: field_file_image_alt_text/0/value
+  field_media_image_1/title: field_file_image_title_text/0/value
+
+  directory:
+    plugin: migration_lookup
+    migration: yukon_migrate_media_folders
+    source: field_folder/0/tid
+    no_stub: true
+
   filemime: filemime
   status: status
   created: timestamp
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
+  langcode:
+    plugin: default_value
+    default_value: "en"
 destination:
   plugin: entity:media
-  default_bundle: images
+  default_bundle: image
+#migration_dependencies:
+#  required:
+#    - yukon_migrate_files__public
+#    - yukon_migrate_media_folders
