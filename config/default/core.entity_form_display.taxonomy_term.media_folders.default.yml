@@ -1,38 +1,24 @@
-uuid: 52a1f8f2-5e56-4783-b455-17a7febc7de1
+uuid: 2866d814-7a45-4fa1-a2b1-3b12a71d1900
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.image.field_media_image_1
-    - image.style.thumbnail
-    - media.type.image
+    - taxonomy.vocabulary.media_folders
   module:
     - path
-    - svg_image
-id: media.image.default
-targetEntityType: media
-bundle: image
+    - text
+id: taxonomy_term.media_folders.default
+targetEntityType: taxonomy_term
+bundle: media_folders
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  directory:
-    type: options_select
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_media_image_1:
-    type: image_image
+  description:
+    type: text_textfield
     weight: 0
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -61,16 +47,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
 hidden:
   publish_on: true
