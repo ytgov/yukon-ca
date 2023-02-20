@@ -42,7 +42,7 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+<div class="layout-container flex flex-col min-h-screen">
 
   {# BEGIN HEADER #}
   {% set menuSectionId = 'header-main-navigaion' %}
@@ -65,7 +65,7 @@
 
   {{ page.help }}
 
-  <main role="main" class="container-lg">
+  <main role="main" class="container-lg grow">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="row">

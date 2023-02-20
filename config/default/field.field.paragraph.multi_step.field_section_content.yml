@@ -1,0 +1,26 @@
+uuid: 4d3d216b-6ae6-4c02-a578-5c031d3c5e08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content
+    - paragraphs.paragraphs_type.multi_step
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.multi_step.field_section_content
+field_name: field_section_content
+entity_type: paragraph
+bundle: multi_step
+label: 'Section Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
