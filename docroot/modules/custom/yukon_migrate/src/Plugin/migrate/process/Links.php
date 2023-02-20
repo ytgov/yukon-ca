@@ -49,10 +49,10 @@ class Links extends MigrationLookup {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    $attributes = unserialize($value['attributes']);
+    $attributes = unserialize($value['attributes'], ['allowed_classes' => FALSE]);
     // Drupal 6/7 link attributes might be double serialized.
     if (!is_array($attributes)) {
-      $attributes = unserialize($attributes);
+      $attributes = unserialize($attributes, ['allowed_classes' => FALSE]);
     }
 
     // In rare cases Drupal 6/7 link attributes are triple serialized. To avoid
