@@ -8038,8 +8038,8 @@
                     "dev-6.2.x": "6.2.x-dev"
                 },
                 "drupal": {
-                    "version": "6.2.0-beta5+64-dev",
-                    "datestamp": "1676410492",
+                    "version": "6.2.0-beta5+74-dev",
+                    "datestamp": "1676490822",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -14757,19 +14757,6 @@
             "install-path": "../webmozart/path-util"
         },
         {
-            "name": "yukon/addtoany",
-            "version": "1.16",
-            "version_normalized": "1.16.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/addtoany.git",
-                "reference": "8.x-1.x"
-            },
-            "type": "drupal-module",
-            "installation-source": "source",
-            "install-path": "../../docroot/modules/contrib/addtoany"
-        },
-        {
             "name": "yukon/conditional_fields",
             "version": "4.x-dev",
             "version_normalized": "4.9999999.9999999.9999999-dev",
@@ -14846,11 +14833,6 @@
                 "reference": "8.x-1.x"
             },
             "type": "drupal-module",
-            "extra": {
-                "patches_applied": {
-                    "3289033 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-12-02/3289033-drupal-10-compatibility-14.patch"
-                }
-            },
             "installation-source": "source",
             "install-path": "../../docroot/modules/contrib/pathologic"
         },
