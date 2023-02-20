@@ -105,6 +105,9 @@
     "extra": {
         "enable-patching": true,
         "patches": {
+            "drupal/core": {
+                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://git.drupalcode.org/project/drupal/-/merge_requests/1201.diff"
+            },
             "drupal/linkit": {
                 "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
             },
