@@ -73,6 +73,11 @@ process:
       migration: yukon_migrate_teams
       no_stub: true
 
+  path/alias: alias
+  path/pathauto:
+    plugin: default_value
+    default_value: false
+
 destination:
   plugin: entity:node
   default_bundle: basic_page
