@@ -1,4 +1,4 @@
-uuid: 79c99872-bf57-497c-97ce-a04b602cf17c
+uuid: 050a0438-a666-4fd5-978d-c4c4095db93e
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ bundle: chart
 label: Published
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 1

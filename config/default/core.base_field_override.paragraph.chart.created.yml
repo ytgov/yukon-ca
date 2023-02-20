@@ -1,4 +1,4 @@
-uuid: ebdcf38a-25ef-4982-bea0-e1f8cd24883d
+uuid: 327e73b4-5c33-405a-82e4-9bdf93fbc433
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ bundle: chart
 label: 'Authored on'
 description: 'The time that the Paragraph was created.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
