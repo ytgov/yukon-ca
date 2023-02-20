@@ -1,0 +1,29 @@
+uuid: 571869a5-180f-4356-b2f1-795a37ec9f22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_one_wheelchair_camp
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_one_wheelchair_camp
+field_name: field_one_wheelchair_camp
+entity_type: node
+bundle: campground_directory_record
+label: 'At least one wheelchair accessible campsite'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

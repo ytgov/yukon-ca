@@ -1,0 +1,42 @@
+uuid: 597c551c-07bd-42da-8e3d-789bd0ada963
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.transactional_facilities.field_tf_services
+    - field.field.paragraph.transactional_facilities.field_transactional_facility_typ
+    - paragraphs.paragraphs_type.transactional_facilities
+  module:
+    - fences
+    - text
+id: paragraph.transactional_facilities.default
+targetEntityType: paragraph
+bundle: transactional_facilities
+mode: default
+content:
+  field_tf_services:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_transactional_facility_typ:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

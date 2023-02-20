@@ -1,0 +1,29 @@
+uuid: c4845254-2091-46ab-918d-6d42ab5f3245
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_change_room
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_change_room
+field_name: field_change_room
+entity_type: node
+bundle: campground_directory_record
+label: 'Change room'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
