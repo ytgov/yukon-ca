@@ -1,0 +1,22 @@
+media_directories_ui.settings:
+  type: config_object
+  label: 'Media Directories UI settings'
+  mapping:
+    hide_media_library_media_tab:
+      type: boolean
+      label: 'Hide Media tabs'
+    hide_media_library_files_tab:
+      type: boolean
+      label: 'Hide Files tabs'
+    hide_admin_toolbar_links:
+      type: boolean
+      label: 'Hide admin_toolbar_tools links'
+    enable_combined_upload:
+      type: boolean
+      label: 'Enable combined upload'
+    combined_upload_media_types:
+      type: sequence
+      label: 'Enabled Media types'
+      sequence:
+        type: string
+        label: 'Media type'

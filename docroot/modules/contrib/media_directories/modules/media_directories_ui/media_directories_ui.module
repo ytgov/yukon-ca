@@ -1,0 +1,538 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Asset\AttachedAssetsInterface;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\FormState;
+use Drupal\Core\Url;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\file\FileInterface;
+use Drupal\media_directories_ui\Form\FileUploadForm;
+use Drupal\media_directories_ui\Form\MediaCombinedUploadForm;
+use Drupal\media_directories_ui\Form\OEmbedForm;
+
+/**
+ * Implements hook_theme().
+ */
+function media_directories_ui_theme($existing, $type, $theme, $path) {
+  return [
+    'media_directories_browser' => [
+      'render element' => 'browser',
+    ],
+    'media_directories_add' => [
+      'variables' => [
+        'selected_type' => NULL,
+        'active_directory' => NULL,
+        'target_bundles' => NULL,
+        'cardinality' => -1,
+        'selection_mode' => NULL,
+        'media_library_form_rebuild' => FALSE,
+      ],
+    ],
+    'views_view_unformatted__media_directories_base' => [
+      'base hook' => 'views_view_unformatted',
+      'template' => 'views-view-unformatted--media-directories-base',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_css_alter().
+ */
+function media_directories_ui_css_alter(&$css, AttachedAssetsInterface $assets) {
+  $route = 'entity_browser.media_directories_overview';
+
+  if (Drupal::routeMatch()->getRouteName() === $route) {
+    unset($css[\Drupal::service('extension.list.module')->getPath('entity_browser') . '/css/entity_browser.entity_browser.css']);
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * Note: libraries_get_path() is deprecated and will be removed before a stable
+ * libraries Drupal 8 release. Needs update when libraries module is supporting
+ * variants.
+ * https://www.drupal.org/node/1704734
+ */
+function media_directories_ui_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'jstree' && function_exists('libraries_get_path')) {
+    // Use Libraries API's path.
+    $libraries['jstree']['js'] = ['/' . libraries_get_path('jstree') . '/jstree.min.js' => ['weight' => -4]];
+  }
+}
+
+/**
+ * Implements hook_block_access().
+ */
+function media_directories_ui_block_access(Block $block, $operation, AccountInterface $account) {
+
+  if ($operation == 'view' && $block->getPluginId() == 'page_title_block') {
+    // Hide the page title block when showing the modal dialogs to ensure the "Select media" button is visible.
+    $entity_browser_id = \Drupal::routeMatch()->getParameter('entity_browser_id');
+    return AccessResult::forbiddenIf(in_array($entity_browser_id, ['media_directories_modal', 'media_directories_editor_browser']))->addCacheableDependency($block);
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function media_directories_ui_views_data_alter(array &$data) {
+  $data['media_field_data']['media_name']['argument'] = [
+    'id' => 'media_directory_ui_string_contains',
+    'title' => t('Media name'),
+    'help' => t('Media name contains characters.'),
+    'field' => 'name',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_html__entity_browser__modal__media_directories_modal(&$variables) {
+  $variables['attributes']['class'][] = 'media-directories-modal';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_html__entity_browser__iframe__media_directories_editor_browser(&$variables) {
+  $variables['attributes']['class'][] = 'media-directories-modal';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_views_view_unformatted__media_directories_base(&$variables) {
+  foreach ($variables['rows'] as &$row) {
+    /** @var \Drupal\media\Entity\Media $entity */
+    $entity = $row['content']['#row']->_entity;
+    $entity_id = $entity->id();
+    $row['attributes']->setAttribute('data-mid', $entity_id);
+    $row['attributes']->addClass('media-item');
+    $row['attributes']->addClass('media-type--' . $entity->bundle());
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_media_directories_browser(&$variables) {
+  $variables['media_translation_enabled'] = FALSE;
+  if (\Drupal::service('module_handler')->moduleExists('content_translation')) {
+    $variables['media_translation_enabled'] = \Drupal::service('content_translation.manager')->isEnabled('media');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_views_view_fields__media_directories_base(&$variables) {
+  foreach ($variables['fields'] as $name => &$field) {
+    /** @var \Drupal\media\Entity\Media $entity */
+    $entity = $variables['row']->_entity;
+
+    if ($name === 'thumbnail__target_id') {
+      $field->wrapper_attributes->addClass('media-thumbnail');
+      $field->wrapper_attributes->addClass('media-thumbnail--' . $entity->bundle());
+    }
+    elseif ($name === 'name') {
+      $field->wrapper_attributes->addClass('media-name');
+      $field->wrapper_attributes->addClass('media-name--' . $entity->bundle());
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_ui_preprocess_media_directories_add(&$variables) {
+  $ui_config = \Drupal::config('media_directories_ui.settings');
+  $combined_upload_enabled = $ui_config->get('enable_combined_upload');
+  $combined_media_types = ($ui_config->get('combined_upload_media_types') != NULL ? $ui_config->get('combined_upload_media_types') : []);
+  /** @var \Drupal\media\Entity\MediaType[] $types */
+  $types = \Drupal::entityTypeManager()->getStorage('media_type')->loadMultiple();
+
+  $variables['links'] = [
+    '#theme' => 'links',
+    '#links' => [],
+    '#attributes' => [
+      'class' => ['media-library-menu', 'js-media-library-menu'],
+    ],
+  ];
+
+  // Find the types combined upload should handle.
+  // If types are limited and these are not allowed in combined upload,
+  // then the tab is hidden.
+  $combined_media_types_diff = array_intersect($variables['target_bundles'], $combined_media_types);
+
+  if ($combined_upload_enabled && !empty($combined_media_types_diff)) {
+    $types_string = ' (';
+    foreach ($combined_media_types_diff as $type) {
+      if (isset($types[$type])) {
+        $types_string .= $types[$type]->label() . ', ';
+      }
+    }
+    $types_string = substr($types_string, 0, -2);
+    if (strlen($types_string) > 0) {
+      $types_string .= ')';
+    }
+    $variables['links']['#links']['combined_upload'] = [
+      'title' => t('Combined upload @types_string', ['@types_string' => $types_string]),
+      'url' => Url::fromRoute('media_directories_ui.media.add', [], [
+        'query' => [
+          'media_type' => 'combined_upload',
+          'active_directory' => $variables['active_directory'],
+          'target_bundles' => $variables['target_bundles'],
+          'cardinality' => $variables['cardinality'],
+          'selection_mode' => $variables['selection_mode'],
+        ],
+      ]),
+      'attributes' => ['class' => ['use-ajax', 'media-library-menu__link']],
+    ];
+
+    if ($variables['selected_type'] === 'combined_upload') {
+      $variables['links']['#links']['combined_upload']['attributes']['class'][] = 'active';
+    }
+  }
+
+  foreach ($types as $type) {
+    if (!is_array($variables['target_bundles']) || !in_array($type->id(), $variables['target_bundles'], TRUE)) {
+      continue;
+    }
+
+    // If combined upload is enabled and the media type is included, we hide the tab.
+    if ($combined_upload_enabled && isset($combined_media_types[$type->id()]) && $combined_media_types[$type->id()] === $type->id()) {
+      continue;
+    }
+
+    $variables['links']['#links'][$type->id()] = [
+      'title' => $type->label(),
+      'url' => Url::fromRoute('media_directories_ui.media.add', [], [
+        'query' => [
+          'media_type' => $type->id(),
+          'active_directory' => $variables['active_directory'],
+          'target_bundles' => $variables['target_bundles'],
+          'cardinality' => $variables['cardinality'],
+          'selection_mode' => $variables['selection_mode'],
+        ],
+      ]),
+      'attributes' => ['class' => ['use-ajax', 'media-library-menu__link']],
+    ];
+
+    if ($variables['selected_type'] === $type->id()) {
+      $variables['links']['#links'][$type->id()]['attributes']['class'][] = 'active';
+    }
+  }
+
+  $form_state = new FormState();
+  $form_state->set('active_directory', $variables['active_directory']);
+  $form_state->set('target_bundles', $variables['target_bundles']);
+  $form_state->set('cardinality', $variables['cardinality']);
+  $form_state->set('selection_mode', $variables['selection_mode']);
+
+  if ($variables['media_library_form_rebuild']) {
+    $form_state->setUserInput([]);
+  }
+
+  if ($variables['selected_type'] === 'combined_upload') {
+    $form_state->set('media_type', $variables['selected_type']);
+    $variables['media_form'] = \Drupal::formBuilder()->buildForm(MediaCombinedUploadForm::class, $form_state);
+  }
+  elseif (isset($types[$variables['selected_type']])) {
+    /** @var \Drupal\media\Entity\MediaType $type */
+    $type = $types[$variables['selected_type']];
+    $form_state->set('media_type', $type);
+
+    $plugin_definition = $type->getSource()->getPluginDefinition();
+    if (isset($plugin_definition['deriver']) && $plugin_definition['deriver'] == 'Drupal\media\Plugin\media\Source\OEmbedDeriver') {
+      $variables['media_form'] = \Drupal::formBuilder()->buildForm(OEmbedForm::class, $form_state);
+    }
+    else {
+      $variables['media_form'] = \Drupal::formBuilder()->buildForm(FileUploadForm::class, $form_state);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_directories_ui_form_entity_browser_media_directories_overview_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  _media_directories_ui_requirements_check();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_directories_ui_form_entity_browser_media_directories_modal_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  _media_directories_ui_requirements_check();
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function media_directories_ui_field_widget_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
+  if (isset($element['entity_browser']) && $element['entity_browser']['#entity_browser'] === 'media_directories_modal') {
+    /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
+    $items = $context['items'];
+    $handler_settings = $items->getSetting('handler_settings');
+    $target_bundles = $handler_settings['target_bundles'];
+    // Add bundle validation constraint to entity browser.
+    $element['entity_browser']['#entity_browser_validators']['target_bundles'] = ['bundle' => $target_bundles];
+
+    $current_items = $element['current']['items'];
+    $cardinality = $element['entity_browser']['#cardinality'];
+
+    $element['entity_browser']['#widget_context']['remaining'] = $cardinality - count($current_items);
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function media_directories_ui_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface $cacheability) {
+  $config = \Drupal::config('media_directories_ui.settings');
+  $hide_media_library_media_tab = $config->get('hide_media_library_media_tab');
+  $hide_media_library_files_tab = $config->get('hide_media_library_files_tab');
+
+  if ($hide_media_library_media_tab) {
+    unset($data['tabs'][0]['entity.media.collection']);
+  }
+
+  if ($hide_media_library_files_tab) {
+    unset($data['tabs'][0]['views_view:view.files.page_1']);
+  }
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function media_directories_ui_menu_links_discovered_alter(&$links) {
+  $config = \Drupal::config('media_directories_ui.settings');
+  $hide_admin_toolbar_links = $config->get('hide_admin_toolbar_links');
+
+  if ($hide_admin_toolbar_links) {
+    $hide_media_library_files_tab = $config->get('hide_media_library_files_tab');
+    if ($hide_media_library_files_tab) {
+      unset($links['admin_toolbar_tools.extra_links:view.files']);
+    }
+    $hide_media_library_media_tab = $config->get('hide_media_library_media_tab');
+    if ($hide_media_library_media_tab) {
+      unset($links['admin_toolbar_tools.extra_links:media_page']);
+    }
+
+    unset($links['admin_toolbar_tools.extra_links:add_media']);
+    foreach (array_keys($links) as $key) {
+      if (isset($links[$key]['parent']) && $links[$key]['parent'] === 'admin_toolbar_tools.extra_links:add_media') {
+        unset($links[$key]);
+      }
+    }
+  }
+}
+
+/**
+ * Wrapper validator callback to do the actual file validations.
+ *
+ * @param \Drupal\file\FileInterface $file
+ *   A file entity.
+ * @param array $validators_by_media_type
+ *   All validators per media type.
+ *
+ * @return array
+ *   An empty array if the file is accepted or error message(s) if it's not.
+ *
+ * @see hook_file_validate()
+ */
+function media_directories_ui_file_validator(FileInterface $file, array $validators_by_media_type) {
+  $errors = [];
+
+  $ui_helper = \Drupal::service('media_directories_ui.helper');
+  /** @var \Drupal\media\Entity\MediaType $media_type */
+  $media_type = $ui_helper->getMediaType($file);
+  if ($media_type != NULL) {
+    $errors = file_validate($file, $validators_by_media_type[$media_type->id()]);
+  }
+  else {
+    $errors[] = t('Only files with the following extensions are allowed: %files-allowed.', ['%files-allowed' => $ui_helper->getValidExtensions()]);
+  }
+
+  return $errors;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adding settings to the media_directories config form here.
+ */
+function media_directories_ui_form_media_directories_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::config('media_directories_ui.settings');
+  $combined_upload_enabled = $config->get('enable_combined_upload');
+
+  $form['media_directories_ui'] = [
+    '#type' => 'details',
+    '#title' => t('Media browser UI'),
+    '#description' => t('Change media browser UI settings.'),
+    '#collapsible' => TRUE,
+    '#open' => TRUE,
+    '#tree' => TRUE,
+  ];
+
+  $form['media_directories_ui']['quick_edit_form_mode'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Add/Quick Edit Media(s) Form Mode'),
+    '#description' => t('The media form mode <strong>media_library</strong> is used to display media(s) in the add or quick edit dialog. You can edit the form display <a href=":url">in the media types field UI</a>. <em>Be aware that the media\'s source field will always be hidden!</em>', [
+      ':url' => Url::fromRoute('entity.media_type.collection')->toString(),
+    ]),
+  ];
+
+  $form['media_directories_ui']['hide_media_library_media_tab'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Hide Media tab'),
+    '#description' => t('If checked, the <em>Media</em> tab will be hidden. <strong>Needs manual cache rebuild!</strong>'),
+    '#default_value' => $config->get('hide_media_library_media_tab'),
+  ];
+
+  $form['media_directories_ui']['hide_media_library_files_tab'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Hide Files tab'),
+    '#description' => t('If checked, the <em>Files</em> tab will be hidden. <strong>Needs manual cache rebuild!</strong>'),
+    '#default_value' => $config->get('hide_media_library_files_tab'),
+  ];
+
+  if (\Drupal::service('module_handler')->moduleExists('admin_toolbar_tools')) {
+    $form['media_directories_ui']['hide_admin_toolbar_links'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Hide admin_toolbar_tools links'),
+      '#description' => t("If checked, the <em>Add Media</em> menu links of admin_toolbar_tools will be hidden and also it's <em>Media</em> and <em>Files</em> links depending on the tab settings. . <strong>Needs manual cache rebuild!</strong>"),
+      '#default_value' => $config->get('hide_admin_toolbar_links'),
+    ];
+  }
+
+  /** @var  \Drupal\media\MediaTypeInterface[] $media_types */
+  $media_types = \Drupal::entityTypeManager()
+    ->getStorage('media_type')
+    ->loadMultiple();
+
+  $options = [];
+
+  foreach ($media_types as $media_type) {
+    $source_field_allowed_types = $media_type->getSource()->getPluginDefinition()['allowed_field_types'];
+    $valid_field_types = ['file', 'image'];
+    if (array_intersect($valid_field_types, $source_field_allowed_types)) {
+      $options[$media_type->id()] = $media_type->label();
+    }
+  }
+
+  $form['media_directories_ui']['combined_upload'] = [
+    '#type' => 'details',
+    '#title' => t('Combined upload'),
+    '#description' => t("Allows uploading files through one upload field. A media type is identified by it's file extension(s)!"),
+    '#collapsible' => TRUE,
+    '#open' => $combined_upload_enabled,
+  ];
+
+  $form['media_directories_ui']['combined_upload']['enable_combined_upload'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable combined upload'),
+    '#description' => t('Enables simplified upload form, where user can upload different file types through one upload field.'),
+    '#default_value' => $config->get('enable_combined_upload'),
+  ];
+
+  $form['media_directories_ui']['combined_upload']['combined_upload_media_types'] = [
+    '#type' => 'checkboxes',
+    '#title' => t('Enabled Media types'),
+    '#description' => t('Select media types to use in combined upload (you need to select at least one). This will work only for media types that have upload field.'),
+    '#options' => $options,
+    '#default_value' => ($config->get('combined_upload_media_types') != NULL ? $config->get('combined_upload_media_types') : []),
+  ];
+
+  array_unshift($form['#submit'], 'media_directories_ui_config_form_submit');
+}
+
+/**
+ * Submit handler for saving Media Directories UI configuration.
+ *
+ * @param array $form
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function media_directories_ui_config_form_submit(array &$form, FormStateInterface $form_state) {
+  \Drupal::configFactory()->getEditable('media_directories_ui.settings')
+    ->set('hide_media_library_media_tab', $form_state->getValue([
+      'media_directories_ui',
+      'hide_media_library_media_tab',
+    ]))
+    ->set('hide_media_library_files_tab', $form_state->getValue([
+      'media_directories_ui',
+      'hide_media_library_files_tab',
+    ]))
+    ->set('hide_admin_toolbar_links', $form_state->getValue([
+      'media_directories_ui',
+      'hide_admin_toolbar_links',
+    ], FALSE))
+    ->set('enable_combined_upload', $form_state->getValue([
+      'media_directories_ui',
+      'combined_upload',
+      'enable_combined_upload',
+    ]))
+    ->set('combined_upload_media_types', $form_state->getValue([
+      'media_directories_ui',
+      'combined_upload',
+      'combined_upload_media_types',
+    ]))
+    ->save();
+}
+
+/**
+ * Helper function to check requirements.
+ */
+function _media_directories_ui_requirements_check() {
+  $settings_url = Url::fromRoute('media_directories.config_form');
+  if (!_media_directories_ui_vocabulary_set()) {
+    $settings_url = Url::fromRoute('media_directories.config_form');
+    \Drupal::messenger()->addError(t('Vocabulary is not selected. Please select it in the <a href=":url">settings</a>.', [':url' => $settings_url->toString()]));
+  }
+}
+
+/**
+ * Helper function to see if a library file exists.
+ */
+function _media_directories_ui_library_file_exists($library_name) {
+  if (function_exists('libraries_get_path') && libraries_get_path($library_name)) {
+    // Libraries API is active and library file is in place.
+    return TRUE;
+  }
+
+  /** @var \Drupal\Core\Asset\LibraryDiscoveryInterface $library_discovery */
+  $library_discovery = \Drupal::service('library.discovery');
+  $library = $library_discovery->getLibraryByName('media_directories_ui', $library_name);
+  if ($library && file_exists($library['js'][0]['data'])) {
+    // File is in place.
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Helper function to see if vocabulary is setup.
+ */
+function _media_directories_ui_vocabulary_set() {
+  $vid = \Drupal::config('media_directories.settings')->get('directory_taxonomy');
+  if (!empty($vid)) {
+    // Vocabulary is set.
+    return TRUE;
+  }
+
+  return FALSE;
+}

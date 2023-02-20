@@ -1,0 +1,181 @@
+<?php
+
+/**
+ * @file
+ * Install and database hook implementations.
+ */
+
+use Drupal\language\ConfigurableLanguageManagerInterface;
+use Drupal\views\Entity\View;
+
+/**
+ * Implements hook_uninstall().
+ */
+function media_directories_ui_uninstall() {
+
+  // Remove the styles directory and generated images.
+  // Do this first, so that errors will not leave a half-configured module back.
+  $browser_thumbnail_dir_uri = \Drupal::config('system.file')->get('default_scheme') . '://styles/browser_thumbnail';
+  \Drupal::service('file_system')->deleteRecursive($browser_thumbnail_dir_uri);
+  if (\Drupal::service('file_system')->prepareDirectory($browser_thumbnail_dir_uri)) {
+    \Drupal::service('file_system')->rmdir($browser_thumbnail_dir_uri);
+  }
+
+  // Remove the view.
+  \Drupal::configFactory()->getEditable('views.view.media_directories_base')->delete();
+
+  // Remove the entity browsers.
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_directories_overview')->delete();
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_directories_modal')->delete();
+
+  // Remove the image style.
+  \Drupal::configFactory()->getEditable('image.style.browser_thumbnail')->delete();
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function media_directories_ui_requirements($phase) {
+  if ($phase != 'runtime') {
+    return [];
+  }
+
+  $exists = _media_directories_ui_library_file_exists('jstree');
+
+  return [
+    'jstree_library' => [
+      'title'       => t('jsTree library'),
+      'description' => $exists ? '' : t('The <a href=":url">jsTree library</a> should be installed at <strong>/libraries/jstree/dist/jstree.min.js</strong>, or any path supported by libraries.module if enabled.', [':url' => 'https://github.com/vakata/jstree']),
+      'severity'    => $exists ? REQUIREMENT_OK : REQUIREMENT_WARNING,
+      'value'       => $exists ? t('Installed') : t('Served by CDN'),
+    ],
+  ];
+}
+
+/**
+ * Make the media_directory_browser view interface language aware.
+ */
+function media_directories_ui_update_8001() {
+  $view = View::load('media_directory_browser');
+
+  $filter = [
+    'id' => 'default_langcode',
+    'table' => 'media_field_data',
+    'field' => 'default_langcode',
+    'relationship' => 'none',
+    'group_type' => 'group',
+    'operator' => '=',
+    'value' => '1',
+    'group' => 1,
+    'expose' => FALSE,
+    'is_grouped' => FALSE,
+    'entity_type' => 'media',
+    'entity_field' => 'default_langcode',
+    'plugin_id' => 'boolean',
+  ];
+
+  $default_display = &$view->getDisplay('default');
+  $default_display['display_options']['filters'] = array_merge(['default_langcode' => $filter], $default_display['display_options']['filters']);
+
+  $media_browser_display = &$view->getDisplay('media_browser');
+  $media_browser_display['display_options']['rendering_language'] = '***LANGUAGE_language_interface***';
+  $delta = array_search('languages:language_content', $media_browser_display['cache_metadata']['contexts']);
+  unset($media_browser_display['cache_metadata']['contexts'][$delta]);
+
+  $view->save();
+}
+
+/**
+ * Extend the media_directory_browser view with the media name argument.
+ */
+function media_directories_ui_update_8002() {
+  $view = View::load('media_directory_browser');
+
+  $argument = [
+    'id' => 'media_name',
+    'table' => 'media_field_data',
+    'field' => 'media_name',
+    'relationship' => 'none',
+    'group_type' => 'group',
+    'title_enable' => FALSE,
+    'default_argument_type' => 'fixed',
+    'default_argument_skip_url' => FALSE,
+    'specify_validation' => FALSE,
+    'entity_type' => 'media',
+    'plugin_id' => 'media_directory_ui_string_contains',
+  ];
+
+  $default_display = &$view->getDisplay('default');
+  $default_display['display_options']['arguments']['media_name'] = $argument;
+
+  $view->save();
+}
+
+/**
+ * Rename the media_directories view and entity browsers (to avoid conflicts with other modules).
+ */
+function media_directories_ui_update_8003() {
+
+  // Rename the view (config entity) and replace its id.
+  // $view->createDuplicate()>set('id',  would also be an option.
+  $config_factory = \Drupal::configFactory();
+  $config_factory->rename('views.view.media_directory_browser', 'views.view.media_directories_base');
+  $config = $config_factory->getEditable('views.view.media_directories_base');
+  $config->set('id', 'media_directories_base');
+  $config->save();
+
+  // Rename aund update the entity browsers.
+  $config_factory->rename('entity_browser.browser.directory_browser', 'entity_browser.browser.media_directories_overview');
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_overview');
+  $config->set('name', 'media_directories_overview');
+  $config->set('widgets.35012080-4c05-4d06-aa7b-0a179e04a611.id', 'media_directories_browser_widget');
+  $config->save();
+  $config_factory->rename('entity_browser.browser.media_browser', 'entity_browser.browser.media_directories_modal');
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_modal');
+  $config->set('name', 'media_directories_modal');
+  $config->set('widgets.24011187-a4c0-42f1-a71a-eec339d3721f.id', 'media_directories_browser_widget');
+  $config->save();
+
+  // Update all form displays to use the refer the new entity browser id.
+  foreach ($config_factory->listAll('core.entity_form_display.') as $config_name) {
+    $config = $config_factory->getEditable($config_name);
+
+    foreach ($config->get('content') as $field_name => $config_field) {
+      if (isset($config_field['type']) && $config_field['type'] == 'entity_browser_entity_reference' &&
+        $config_field['settings']['entity_browser'] == 'media_browser') {
+        $config_dependencies = $config->get('dependencies.config');
+        $config_dependencies_new = array_diff($config_dependencies, ['entity_browser.browser.media_browser']);
+        $config_dependencies_new[] = 'entity_browser.browser.media_directories_modal';
+        $config->set('dependencies.config', $config_dependencies_new);
+        $config_field['settings']['entity_browser'] = 'media_directories_modal';
+        $config->set('content.' . $field_name, $config_field);
+        $config->save();
+      }
+    }
+  }
+}
+
+/**
+ * Rename the entity browsers labels.
+ */
+function media_directories_ui_update_8004() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_overview');
+  $config->set('label', 'Media Directories: Standalone');
+  $config->save();
+  $config = $config_factory->getEditable('entity_browser.browser.media_directories_modal');
+  $config->set('label', 'Media Directories: Field widget');
+  $config->save();
+
+  $language_manager = \Drupal::languageManager();
+  if ($language_manager instanceof ConfigurableLanguageManagerInterface) {
+    foreach ($language_manager->getLanguages() as $language) {
+      $config_translation = $language_manager->getLanguageConfigOverride($language->getId(), 'entity_browser.browser.media_directories_overview');
+      $config_translation->set('label', 'Media Directories: Standalone');
+      $config_translation->save();
+      $config_translation = $language_manager->getLanguageConfigOverride($language->getId(), 'entity_browser.browser.media_directories_modal');
+      $config_translation->set('label', 'Media Directories: Field widget');
+      $config_translation->save();
+    }
+  }
+}

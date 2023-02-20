@@ -1,0 +1,79 @@
+# Directory tree route.
+media_directories_ui.directory.tree:
+  path: '/admin/media_directories/directory/tree'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryTree'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Directory content route.
+media_directories_ui.directory.content:
+  path: '/admin/media_directories/directory/tree/content'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryContent'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Add directory route.
+media_directories_ui.directory.add:
+  path: '/admin/media_directories/directory/tree/add'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryAdd'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Rename directory route.
+media_directories_ui.directory.rename:
+  path: '/admin/media_directories/directory/tree/rename'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryRename'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Delete directory route.
+media_directories_ui.directory.delete:
+  path: '/admin/media_directories/directory/tree/delete'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryDelete'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Move directory route.
+media_directories_ui.directory.move:
+  path: '/admin/media_directories/directory/tree/move'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::directoryMove'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Add media route.
+media_directories_ui.media.add:
+  path: '/admin/media_directories/media/add'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::mediaAdd'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Edit media route.
+media_directories_ui.media.edit:
+  path: '/admin/media_directories/media/edit'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::mediaEdit'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Move media route.
+media_directories_ui.media.move:
+  path: '/admin/media_directories/media/move'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::mediaMove'
+  requirements:
+    _permission: 'access media directories ui browser'
+
+# Delete media route.
+media_directories_ui.media.delete:
+  path: '/admin/media_directories/media/delete'
+  defaults:
+    _controller: '\Drupal\media_directories_ui\Controller\MediaDirectoriesController::mediaDelete'
+  requirements:
+    _permission: 'access media directories ui browser'

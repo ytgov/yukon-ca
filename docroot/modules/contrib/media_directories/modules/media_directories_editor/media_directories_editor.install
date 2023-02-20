@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Install and database hook implementations.
+ */
+
+use Drupal\language\ConfigurableLanguageManagerInterface;
+use Drupal\media\Entity\MediaType;
+use Drupal\Core\Entity\Entity\EntityViewMode;
+
+/**
+ * Implements hook_install().
+ */
+function media_directories_editor_install() {
+  // Do not add button config, if we aren't installing from configuration.
+  if (!\Drupal::isConfigSyncing()) {
+    $config = \Drupal::configFactory()->getEditable('embed.button.media_directories');
+
+    // Add the standard media types for the embed button, if available.
+    $media_types_to_add = ['image', 'remote_video'];
+    $media_types = MediaType::loadMultiple();
+    foreach ($media_types_to_add as $delta => $type) {
+      if (!isset($media_types[$type])) {
+        unset($media_types_to_add[$delta]);
+      }
+    }
+    if (count($media_types_to_add) > 0) {
+      $config->set('type_settings.bundles', $media_types_to_add);
+    }
+
+    // Add the standard media entity view mode, if available.
+    $media_full_view_mode = EntityViewMode::load('media.full');
+    if ($media_full_view_mode) {
+      $display_plugins = $config->get('type_settings.display_plugins');
+      $display_plugins[] = 'view_mode:' . $media_full_view_mode->id();
+      $config->set('type_settings.display_plugins', $display_plugins);
+    }
+
+    $config->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function media_directories_editor_uninstall() {
+
+  // Remove the entity browsers.
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_directories_editor_browser')->delete();
+
+  // Remove the embed button.
+  \Drupal::configFactory()->getEditable('embed.button.media_directories')->delete();
+}
+
+/**
+ * Update the entity browser's widget id.
+ */
+function media_directories_editor_update_8001() {
+
+  // Update the entity browser.
+  $config = \Drupal::configFactory()->getEditable('entity_browser.browser.media_directories_editor_browser');
+  $config->set('widgets.5bc2a17c-b080-4a3b-867c-7953ae9b55c4.id', 'media_directories_browser_widget');
+  $config->save();
+}
+
+/**
+ * Rename the entity browsers labels.
+ */
+function media_directories_editor_update_8002() {
+  $config = \Drupal::configFactory()->getEditable('entity_browser.browser.media_directories_editor_browser');
+  $config->set('label', 'Media Directories: Editor widget');
+  $config->save();
+  $language_manager = \Drupal::languageManager();
+  if ($language_manager instanceof ConfigurableLanguageManagerInterface) {
+    foreach ($language_manager->getLanguages() as $language) {
+      $config_translation = $language_manager->getLanguageConfigOverride($language->getId(), 'entity_browser.browser.media_directories_editor_browser');
+      $config_translation->set('label', 'Media Directories: Editor widget');
+      $config_translation->save();
+    }
+  }
+}
+
+/**
+ * Convert embed button to SVG format.
+ */
+function media_directories_editor_update_8003() {
+  // Update config with new uri.
+  $config = \Drupal::configFactory()->getEditable('embed.button.media_directories');
+  $config->set('icon.uri', 'public://embed_buttons/folder.svg');
+  $config->set('icon.data', 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZD0iTTkyNC4zLDU1MC44YzAtMTItOS4xLTE4LTI3LjItMThIMzM4LjZjLTEzLjcsMC0yOC4zLDMuNy00My45LDExYy0xNS42LDcuNC0yNy44LDE2LjMtMzYuNywyNi45TDEwNy4xLDc1Ny4yYy02LjIsOC4yLTkuMiwxNS4xLTkuMiwyMC41YzAsMTIsOS4xLDE4LDI3LjIsMThoNTU4LjVjMTMuNywwLDI4LjQtMy44LDQ0LjItMTEuM2MxNS43LTcuNSwyNy45LTE2LjYsMzYuNC0yNy4ybDE1MC45LTE4Ni4zQzkyMS4yLDU2My4zLDkyNC4zLDU1Ni42LDkyNC4zLDU1MC44TDkyNC4zLDU1MC44eiBNMzM4LjYsNDY3LjFoMzk0LjJWMzg1YzAtMTMuNy00LjgtMjUuMy0xNC40LTM0LjljLTkuNi05LjYtMjEuMi0xNC40LTM0LjktMTQuNEgzODcuOWMtMTMuNywwLTI1LjMtNC44LTM0LjktMTQuNGMtOS42LTkuNi0xNC40LTIxLjItMTQuNC0zNC45di0zMi45YzAtMTMuNy00LjgtMjUuMy0xNC40LTM0LjljLTkuNi05LjYtMjEuMi0xNC40LTM0LjktMTQuNEgxMjVjLTEzLjcsMC0yNS4zLDQuOC0zNC45LDE0LjRjLTkuNiw5LjYtMTQuNCwyMS4yLTE0LjQsMzQuOXY0MzcuOWwxMzEuNC0xNjEuN2MxNS4xLTE4LjEsMzQuOS0zMy4xLDU5LjYtNDQuOUMyOTEuNCw0NzMsMzE1LjMsNDY3LjEsMzM4LjYsNDY3LjFMMzM4LjYsNDY3LjF6IE05OTAsNTUwLjhjMCwyMS4yLTcuOSw0MS44LTIzLjYsNjEuNkw4MTUsNzk4LjhjLTE0LjcsMTguMS0zNC42LDMzLjEtNTkuNiw0NC45Yy0yNSwxMS44LTQ5LDE3LjctNzEuOSwxNy43SDEyNWMtMzEuNSwwLTU4LjUtMTEuMy04MS4xLTMzLjlDMjEuMyw4MDQuOSwxMCw3NzcuOSwxMCw3NDYuNFYyNTMuNmMwLTMxLjUsMTEuMy01OC41LDMzLjktODEuMWMyMi42LTIyLjYsNDkuNi0zMy45LDgxLjEtMzMuOWgxNjQuM2MzMS41LDAsNTguNSwxMS4zLDgxLjEsMzMuOWMyMi42LDIyLjYsMzMuOSw0OS42LDMzLjksODEuMVYyNzBoMjc5LjNjMzEuNSwwLDU4LjUsMTEuMyw4MS4xLDMzLjljMjIuNiwyMi42LDMzLjksNDkuNiwzMy45LDgxLjF2ODIuMWg5OC42YzE4LjUsMCwzNS40LDQuMiw1MC44LDEyLjZjMTUuNCw4LjQsMjYuOSwyMC41LDM0LjQsMzYuMkM5ODcuNCw1MjYuOSw5OTAsNTM4LjUsOTkwLDU1MC44TDk5MCw1NTAuOHoiLz48L2c+DQo8L3N2Zz4=');
+  $config->save();
+
+  // Clean up file system.
+  \Drupal::service('file_system')->delete('public://embed_buttons/folder.png');
+}

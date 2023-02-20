@@ -1,0 +1,4 @@
+services:
+  media_directories_ui.helper:
+    class: Drupal\media_directories_ui\MediaDirectoriesUiHelper
+    arguments: ['@entity_type.manager', '@config.factory']

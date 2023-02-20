@@ -1,0 +1,9 @@
+media_directories.config_form:
+  path: '/admin/config/media/media_directories'
+  defaults:
+    _form: '\Drupal\media_directories\Form\MediaDirectoriesConfigForm'
+    _title: 'Media directories settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

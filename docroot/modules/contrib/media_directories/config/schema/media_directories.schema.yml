@@ -1,0 +1,10 @@
+media_directories.settings:
+  type: config_object
+  label: 'Media directories settings'
+  mapping:
+    directory_taxonomy:
+      type: string
+      label: 'Taxonomy'
+    all_files_in_root:
+      type: boolean
+      label: 'Show all files in Root directory'

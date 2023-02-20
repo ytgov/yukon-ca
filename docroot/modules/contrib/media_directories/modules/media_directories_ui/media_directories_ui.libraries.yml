@@ -1,0 +1,95 @@
+jstree:
+  remote: https://github.com/vakata/jstree/archive/3.3.12.zip
+  license:
+    name: MIT
+    gpl-compatible: true
+  css:
+    component:
+      /libraries/jstree/dist/themes/default/style.css: {}
+  js:
+    /libraries/jstree/dist/jstree.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+
+jstree-cdn:
+  remote: https://github.com/vakata/jstree/archive/3.3.12.zip
+  license:
+    name: MIT
+    gpl-compatible: true
+  css:
+    component:
+      //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css: { external: true, minified: true}
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js: { external: true, minified: true }
+  dependencies:
+    - core/jquery
+
+commands.load-directory-content:
+  js:
+    js/commands/media_directories_ui.load_directory_content.js: {}
+  dependencies:
+    - core/jquery
+    - media_directories_ui/media-ui.media
+
+commands.refresh-directory-tree:
+  js:
+    js/commands/media_directories_ui.refresh_directory_tree.js: {}
+  dependencies:
+    - core/jquery
+
+# Main media browser object.
+media-ui.browser:
+  css:
+    theme:
+      css/media_directories_ui.browser.css: {}
+  js:
+    js/media_directories_ui.browser.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings
+    - core/drupal.ajax
+    - core/drupal.debounce
+    - core/drupal.dialog.ajax
+    - core/jquery.form
+    - core/jquery.ui.draggable
+
+# Toolbar functionality.
+media-ui.toolbar:
+  js:
+    js/media_directories_ui.toolbar.js: {}
+  dependencies:
+    - media_directories_ui/media-ui.browser
+
+# Functionality for media items.
+media-ui.media:
+  js:
+    js/media_directories_ui.media.js: {}
+  dependencies:
+    - media_directories_ui/media-ui.browser
+
+# Directory tree functionality.
+media-ui.tree:
+  js:
+    js/media_directories_ui.tree.js: {}
+  dependencies:
+    - media_directories_ui/media-ui.browser
+
+media-ui:
+  css:
+    theme:
+      css/media_directories_ui.css: {}
+  js:
+    js/media_directories_ui.js: {}
+  dependencies:
+    - media_directories_ui/media-ui.tree
+    - media_directories_ui/media-ui.toolbar
+    - media_directories_ui/media-ui.media
+    - media_directories_ui/commands.load-directory-content
+    - media_directories_ui/commands.refresh-directory-tree
+
+# AddMedia- and EditMediaForm helper.
+media-library.quick-edit-dialog:
+  css:
+    theme:
+      css/media_directories_ui.dialog.css: {}

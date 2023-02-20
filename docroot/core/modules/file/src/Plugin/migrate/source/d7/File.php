@@ -3,7 +3,7 @@
 namespace Drupal\file\Plugin\migrate\source\d7;
 
 use Drupal\migrate\Row;
-use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
+use Drupal\migrate_drupal\Plugin\migrate\source\d7\FieldableEntity;
 
 /**
  * Drupal 7 file source from database.
@@ -36,7 +36,7 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  *   source_module = "file"
  * )
  */
-class File extends DrupalSqlBase {
+class File extends FieldableEntity {
 
   /**
    * The public file directory path.
@@ -104,6 +104,27 @@ class File extends DrupalSqlBase {
     // the source_base_path in order to make them all relative.
     $path = preg_replace('#' . preg_quote($this->configuration['constants']['source_base_path']) . '#', '', $path, 1);
     $row->setSourceProperty('filepath', $path);
+
+    // File Entity module makes files as fieldable entities, so we can get
+    // Field API field values.
+    if ($this->moduleExists('file_entity')) {
+      $type = $row->getSourceProperty('type');
+      $fid = $row->getSourceProperty('fid');
+
+      // If this entity was translated using Entity Translation, we need to get
+      // its source language to get the field values in the right language.
+      $entity_translatable = $this->isEntityTranslatable('file');
+      $source_language = $this->getEntityTranslationSourceLanguage('file', $fid);
+      $language = $entity_translatable && $source_language ? $source_language : $row->getSourceProperty('language');
+
+      foreach ($this->getFields('file', $type) as $field_name => $field) {
+        // Ensure we're using the right language if the entity and the field are
+        // translatable.
+        $field_language = $entity_translatable && $field['translatable'] ? $language : NULL;
+        $row->setSourceProperty($field_name, $this->getFieldValues('file', $field_name, $fid, NULL, $field_language));
+      }
+    }
+
     return parent::prepareRow($row);
   }
 

@@ -1,0 +1,13 @@
+views.filter.media_directory:
+  type: views.filter.many_to_one
+  label: 'Media directory filter.'
+  mapping:
+    error_message:
+      type: boolean
+      label: 'Display error message'
+    value:
+      type: sequence
+      label: 'Values'
+      sequence:
+        type: integer
+        label: 'Value'

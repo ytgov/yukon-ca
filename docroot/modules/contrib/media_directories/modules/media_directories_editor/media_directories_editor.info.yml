@@ -1,0 +1,9 @@
+name: 'Media Directories Editor'
+description: 'Integrate media browser UI with CKEditor.'
+type: module
+core_version_requirement: ^9.3 || ^10
+
+dependencies:
+  - media_directories:media_directories_ui
+  - embed:embed (>=8.x-1.6)
+  - entity_embed:entity_embed

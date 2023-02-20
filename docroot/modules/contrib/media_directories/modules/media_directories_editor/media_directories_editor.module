@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Media;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adding settings to the media_directories config form here.
+ */
+function media_directories_editor_form_media_directories_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['media_directories_editor'] = [
+    '#type' => 'details',
+    '#title' => t('Editor Settings'),
+    '#description' => t("Here you'll find settings regarding the CKEditor integration."),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#tree' => TRUE,
+  ];
+  $form['media_directories_editor']['directories_button'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Directories button'),
+    '#description' => t('The desired text formats should be given the editor button. You can edit them <a href=":url">here</a>. <em>Make sure to also enable the embed media filter!</em>', [
+      ':url' => Url::fromRoute('filter.admin_overview')->toString(),
+    ]),
+  ];
+
+  $config = \Drupal::configFactory()->get('media_directories_editor.settings');
+
+  $form['media_directories_editor']['embed_dialog'] = [
+    '#type' => 'details',
+    '#title' => t('Embed dialog'),
+    '#description' => t('Extra settings for embed dialog.'),
+    '#open' => TRUE,
+  ];
+
+  $image_styles = image_style_options(FALSE);
+
+  $form['media_directories_editor']['embed_dialog']['image_styles'] = [
+    '#title' => t('Select images styles to use'),
+    '#description' => t('Select list of image styles to show in embed dialog. If nothing is selected, all styles will be shown.'),
+    '#type' => 'select',
+    '#options' => $image_styles,
+    '#multiple' => TRUE,
+    '#size' => 10,
+    '#default_value' => $config->get('embed_dialog.image_styles'),
+  ];
+
+  if (!empty($config->get('embed_dialog.image_styles'))) {
+    $form['media_directories_editor']['#open'] = TRUE;
+  }
+
+  array_unshift($form['#submit'], 'media_directories_editor_config_form_submit');
+}
+
+/**
+ * Submit handler for media directories config form.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function media_directories_editor_config_form_submit(array &$form, FormStateInterface $form_state) {
+  \Drupal::configFactory()->getEditable('media_directories_editor.settings')
+    ->set('embed_dialog', $form_state->getValue(['media_directories_editor', 'embed_dialog']))
+    ->save();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_directories_editor_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $storage = $form_state->getStorage();
+  /** @var \Drupal\embed\Entity\EmbedButton $embed_button */
+  $embed_button = $storage['embed_button'];
+
+  // Make sure we only alter the form for the button defined by our module.
+  if ($embed_button->id() == 'media_directories') {
+
+    /** @var \Drupal\media\Entity\Media $entity */
+    $entity = $storage['entity'];
+
+    if ($entity !== NULL && $entity instanceof Media) {
+      /** @var \Drupal\file\Entity\File $file */
+      $file = $entity->get('thumbnail')->entity;
+      $image = [
+        '#theme' => 'image_style',
+        '#style_name' => 'thumbnail',
+        '#alt' => $entity->label(),
+        '#uri' => $file->getFileUri(),
+      ];
+      $link = [
+        '#type' => 'link',
+        '#title' => $image,
+        '#url' => $entity->toUrl(),
+        '#attributes' => [
+          'target' => '_blank',
+        ],
+      ];
+      $form['entity']['#title'] = t('Selected item');
+      $form['entity']['link'] = $link;
+      unset($form['entity']['#markup']);
+    }
+
+    if (isset($form['attributes']['data-entity-embed-display-settings']) && $entity->bundle() === 'image') {
+      $entity_element = $form_state->get('entity_element');
+      if (isset($entity_element['data-entity-embed-display-settings']) && !is_array($entity_element['data-entity-embed-display-settings'])) {
+        $entity_element['data-entity-embed-display-settings'] = Json::decode($entity_element['data-entity-embed-display-settings']);
+      }
+    }
+
+    // Add bundle validation constraint to entity browser.
+    if (isset($form['entity_browser'])) {
+      $bundles = $embed_button->getTypeSetting('bundles');
+      $bundles = array_combine($bundles, $bundles);
+      $form['entity_browser']['#entity_browser_validators']['target_bundles'] = ['bundle' => $bundles];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function media_directories_editor_preprocess_entity_embed_container(&$variables) {
+  // Remove some attributes we don't need.
+  unset($variables['attributes']['data-entity-embed-display-settings']);
+  unset($variables['attributes']['data-entity-embed-display']);
+  unset($variables['attributes']['data-embed-button']);
+}

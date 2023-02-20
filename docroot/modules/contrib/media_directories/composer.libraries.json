@@ -1,0 +1,31 @@
+{
+   "name":"drupal/media_directories",
+   "description":"Adds a directory structure to Media entities, provides a nice UI and editor integration.",
+   "type":"drupal-module",
+   "license":"GPL-2.0-or-later",
+   "minimum-stability":"dev",
+   "homepage":"https://drupal.org/project/media_directories",
+   "repositories":{
+      "jstree":{
+         "type":"package",
+         "package":{
+            "name":"vakata/jstree",
+            "version":"3.3.12",
+            "type":"drupal-library",
+            "extra":{
+               "installer-name":"jstree"
+            },
+            "dist":{
+               "url":"https://github.com/vakata/jstree/archive/3.3.12.zip",
+               "type":"zip"
+            },
+            "require":{
+               "composer/installers":"^1.2 || ^2"
+            }
+         }
+      }
+   },
+   "require":{
+      "vakata/jstree":"3.3.12"
+   }
+}

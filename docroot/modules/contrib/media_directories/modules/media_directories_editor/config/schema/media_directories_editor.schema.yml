@@ -1,0 +1,14 @@
+media_directories_editor.settings:
+  type: config_object
+  label: 'Media Directories Editor settings'
+  mapping:
+    embed_dialog:
+      type: mapping
+      label: 'Embed dialog settings'
+      mapping:
+        image_styles:
+          type: sequence
+          label: 'List of enabled image styles in embed dialog'
+          sequence:
+            type: string
+            label: 'Image style'

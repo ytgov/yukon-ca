@@ -1,0 +1,7 @@
+.media-library-add-form__preview {
+  flex-direction: column;
+}
+
+.media-library-add-form__preview a.edit-link {
+  padding: 20px;
+}

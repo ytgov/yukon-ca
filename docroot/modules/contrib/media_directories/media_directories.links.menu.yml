@@ -1,0 +1,6 @@
+media_directories.config_form:
+  title: 'Media directories'
+  route_name: media_directories.config_form
+  description: 'Configure Media directories settings'
+  parent: system.admin_config_media
+  weight: 99

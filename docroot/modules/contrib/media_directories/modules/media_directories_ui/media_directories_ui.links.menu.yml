@@ -1,0 +1,6 @@
+# Media browser menu link.
+media_directories_ui.browser:
+  title: 'Media browser'
+  route_name: entity_browser.media_directories_overview
+  description: 'Manage Media entities.'
+  parent: system.admin_content

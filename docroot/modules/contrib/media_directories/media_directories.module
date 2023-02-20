@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Root directory value.
+ *
+ * It is hard to use 0, because it might be considered as empty value
+ * in various places (e.g views filter).
+ */
+const MEDIA_DIRECTORY_ROOT = -1;
+
+/**
+ * Implements hook_help().
+ */
+function media_directories_help($route_name) {
+  switch ($route_name) {
+    case 'help.page.media_directories':
+      $vocabulary_add_url = Url::fromRoute('entity.taxonomy_vocabulary.add_form')->toString();
+      $settings_url = Url::fromRoute('media_directories.config_form')->toString();
+      return '<p>' . t('Create taxonomy <a href=":create_vocabulary_url">vocabulary</a> to hold directory structure and select it in the <a href=":media_directors_setting_url">settings</a>.', [
+        ':create_vocabulary_url' => $vocabulary_add_url,
+        ':media_directors_setting_url' => $settings_url,
+      ]) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function media_directories_field_widget_options_select_form_alter(&$element, FormStateInterface $form_state, $context) {
+  /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
+  $items = $context['items'];
+
+  if ($items->getName() === 'directory') {
+    // Set better name for empty value.
+    $element['#options']['_none'] = t('Root directory');
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function media_directories_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'media') {
+    $fields = [];
+
+    $fields['directory'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Directory'))
+      ->setDescription(t('The ID of the taxonomy term.'))
+      ->setSetting('handler', 'media_directory:default')
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+        'weight' => 2,
+      ]);
+
+    $config = \Drupal::config('media_directories.settings');
+    $vocabulary = $config->get('directory_taxonomy');
+
+    if ($vocabulary) {
+      $fields['directory']->setSetting('handler_settings', [
+        'target_bundles' => [$vocabulary => $vocabulary],
+      ]);
+    }
+
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function media_directories_media_presave(FieldableEntityInterface $entity) {
+  if ($entity->hasField('directory') && !$entity->get('directory')->isEmpty()) {
+    if ($entity->get('directory')->target_id <= 0) {
+      // Make sure we store an allowed value.
+      $entity->set('directory', NULL);
+    }
+  }
+}
