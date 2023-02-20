@@ -1,0 +1,24 @@
+uuid: a91821ae-6bf1-4bbd-9425-9bc0fb836539
+langcode: en
+status: true
+dependencies:
+  module:
+    - scheduler
+third_party_settings:
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
+name: 'Media Folders'
+vid: media_folders
+description: 'Use media folders to organize your media'
+weight: 0
