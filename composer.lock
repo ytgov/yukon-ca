@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8dc2b2898c3a38199e00ab98b200f0a",
+    "content-hash": "1f89e5fb1d7b2c6d94d6bcd157885cfa",
     "packages": [
         {
             "name": "acquia/blt",
@@ -7984,8 +7984,8 @@
                     "dev-6.2.x": "6.2.x-dev"
                 },
                 "drupal": {
-                    "version": "6.2.0-beta5+64-dev",
-                    "datestamp": "1676410492",
+                    "version": "6.2.0-beta5+74-dev",
+                    "datestamp": "1676490822",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -14420,16 +14420,6 @@
             },
             "abandoned": "symfony/filesystem",
             "time": "2015-12-17T08:42:14+00:00"
-        },
-        {
-            "name": "yukon/addtoany",
-            "version": "1.16",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/addtoany.git",
-                "reference": "8.x-1.x"
-            },
-            "type": "drupal-module"
         },
         {
             "name": "yukon/conditional_fields",

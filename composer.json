@@ -95,7 +95,6 @@
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10.0",
-        "yukon/addtoany": "^1.16",
         "yukon/conditional_fields": "4.x-dev",
         "yukon/geophp": "8.x-dev",
         "yukon/maxlength": "2.x-dev",
@@ -119,9 +118,6 @@
             },
             "yukon/maxlength": {
                 "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/merge_requests/24.diff"
-            },
-            "yukon/pathologic": {
-                "3289033 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-12-02/3289033-drupal-10-compatibility-14.patch"
             }
         },
         "installer-paths": {
