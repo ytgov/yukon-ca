@@ -39,6 +39,8 @@ class Links extends MigrationLookup {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, MigrateLookupInterface $migrate_lookup, MigrateStubInterface $migrate_stub) {
     $configuration['migration'] = [
       'yukon_migrate_basic_page',
+      'yukon_migrate_multi_step_page',
+      'yukon_migrate_multi_step_page_translations',
     ];
     $configuration['no_stub'] = TRUE;
 

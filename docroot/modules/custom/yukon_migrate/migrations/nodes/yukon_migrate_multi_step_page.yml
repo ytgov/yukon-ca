@@ -73,8 +73,7 @@ process:
   field_page_description: field_description
 
   field_related_tasks:
-    plugin: field_link
-    validate_route: false
+    plugin: yukon_migrate_links
     source: field_related_tasks
 
 destination:
@@ -83,3 +82,4 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_teams
+    - yukon_migrate_department
