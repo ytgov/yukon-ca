@@ -1,9 +1,9 @@
-uuid: 776effa2-fc60-40ac-891a-7779f5f3c830
+uuid: fcdc28d7-d42a-492a-ae95-9bdc1128b4ac
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.engagement_categories
+    - node.type.engagement
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.engagement_categories
-target_entity_type_id: taxonomy_term
-target_bundle: engagement_categories
+id: node.engagement
+target_entity_type_id: node
+target_bundle: engagement
 default_langcode: site_default
-language_alterable: true
+language_alterable: false
