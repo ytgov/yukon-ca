@@ -1,0 +1,44 @@
+uuid: 84805030-e6c5-46b0-a097-2f28663616d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collapsible_items
+    - node.type.basic_page
+    - paragraphs.paragraphs_type.chart
+    - paragraphs.paragraphs_type.collapsable_field
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.basic_page.field_collapsible_items
+field_name: field_collapsible_items
+entity_type: node
+bundle: basic_page
+label: 'Collapsable field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      chart: chart
+      collapsable_field: collapsable_field
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 4
+        enabled: true
+      collapsable_field:
+        weight: 5
+        enabled: true
+      image_gallery:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions
