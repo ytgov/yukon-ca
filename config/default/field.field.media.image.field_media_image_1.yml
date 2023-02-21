@@ -6,7 +6,18 @@ dependencies:
     - field.storage.media.field_media_image_1
     - media.type.image
   module:
+    - content_translation
+    - epp
     - image
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: media.image.field_media_image_1
 field_name: field_media_image_1
 entity_type: media
@@ -27,10 +38,10 @@ settings:
   min_resolution: ''
   alt_field: true
   alt_field_required: true
-  title_field: false
+  title_field: true
   title_field_required: false
   default_image:
-    uuid: null
+    uuid: ''
     alt: ''
     title: ''
     width: null

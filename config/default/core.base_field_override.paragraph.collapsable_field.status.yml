@@ -1,0 +1,22 @@
+uuid: 5ca54646-115f-46e6-bf4d-85bc4b6feeb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.collapsable_field
+id: paragraph.collapsable_field.status
+field_name: status
+entity_type: paragraph
+bundle: collapsable_field
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

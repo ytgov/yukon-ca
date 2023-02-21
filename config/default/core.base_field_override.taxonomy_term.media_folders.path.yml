@@ -1,0 +1,20 @@
+uuid: 86da4536-1b46-43d8-83c3-e886f54b44a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+  module:
+    - path
+id: taxonomy_term.media_folders.path
+field_name: path
+entity_type: taxonomy_term
+bundle: media_folders
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path
