@@ -8,7 +8,7 @@ migration_tags:
   - Basic Pages
 migration_group: legacy
 source:
-  plugin: d7_node
+  plugin: yukon_node
   node_type: wetkit_page
   constants:
     default_text_format: full_html
@@ -76,7 +76,7 @@ process:
   path/alias: alias
   path/pathauto:
     plugin: default_value
-    default_value: false
+    default_value: checked_alias
 
 destination:
   plugin: entity:node

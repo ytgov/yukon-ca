@@ -28,7 +28,7 @@ process:
   path/alias: alias
   path/pathauto:
     plugin: default_value
-    default_value: false
+    default_value: checked_alias
 
   body/value: body/0/value
   body/format: constants/default_text_format

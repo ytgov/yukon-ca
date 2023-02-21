@@ -19,6 +19,17 @@ class Node extends D7Node {
    */
   public function prepareRow(Row $row) {
     $nid = $row->getSourceProperty('nid');
+
+    $query = $this->query()->fields('ps', ['pathauto'])
+      ->condition('n.nid', $nid);
+    $result = $query->execute()->fetchAssoc();
+    if (isset($result['pathauto']) && $result['pathauto'] === "1") {
+      $row->setSourceProperty('checked_alias', TRUE);
+    }
+    else {
+      $row->setSourceProperty('checked_alias', FALSE);
+    }
+
     $query = $this->select('url_alias', 'ua')->fields('ua', ['alias']);
     $query->condition('ua.source', 'node/' . $nid);
     $alias = $query->execute()->fetchField();
@@ -60,6 +71,16 @@ class Node extends D7Node {
       'current' => $workbench_moderation['state'],
       'state' => $workbench_moderation['from_state'],
     ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function query() {
+    // Select node in its last revision.
+    $query = parent::query();
+    $query->leftJoin('pathauto_state', 'ps', '[n].[nid] = [ps].[entity_id]');
+    return $query;
   }
 
 }
