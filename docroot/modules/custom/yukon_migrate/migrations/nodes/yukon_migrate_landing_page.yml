@@ -1,0 +1,70 @@
+id: yukon_migrate_landing_page
+label: Landing Page
+migration_tags:
+    - Drupal 7
+    - Content
+    - Landing Page
+migration_group: legacy
+source:
+    plugin: d7_node
+    node_type: landing_page
+    constants:
+        default_text_format: full_html
+destination:
+    plugin: entity:node
+process:
+    uid:
+        plugin: yukon_author
+    nid: nid
+    type:
+        plugin: default_value
+        default_value: landing_page
+    title: title
+    status:
+        plugin: skip_on_value
+        method: row
+        not_equals: true
+        value: 1
+        source: status
+    langcode: language
+    created: created
+    changed: changed
+    promote: promote
+    sticky: sticky
+    revision_log: log
+    metatags/0/description: field_page_description/0/value
+    field_meta_tags:
+        -
+            plugin: skip_on_empty
+            source: '@metatags'
+            method: process
+        -
+            plugin: callback
+            callable: serialize
+            source: '@metatags'
+    body/value: field_opener_description/0/value
+    body/format: constants/default_text_format
+    field_icon_dark:
+        plugin: yukon_imagemedia
+    field_icon_light:
+        plugin: yukon_imagemedia
+    field_primary_content:
+        plugin: yukon_paragraph_primary_content
+    field_secondary_content:
+        plugin: yukon_paragraph_secondary_content
+    field_department_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_department
+        source: field_department_term
+        no_stub: true
+    field_yukon_editorial_team:
+        plugin: migration_lookup
+        migration: yukon_migrate_teams
+        source: field_yukon_editorial_team
+        no_stub: true
+    field_redirection: field_redirection
+    field_target_content: field_target_content
+migration_dependencies:
+    optional:
+        - yukon_migrate_department
+        - yukon_migrate_teams
