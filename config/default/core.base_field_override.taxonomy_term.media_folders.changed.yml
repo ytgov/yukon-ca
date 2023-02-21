@@ -1,0 +1,18 @@
+uuid: 14ebe4cd-3ccc-4c1a-8abe-301eb0a52d11
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+id: taxonomy_term.media_folders.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: media_folders
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed
