@@ -1,0 +1,121 @@
+<?php
+
+/**
+ * @file
+ * Controls the migration process.
+ */
+
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrationInterface;
+
+/**
+ * Implements hook_migrate_prepare_row().
+ *
+ * @throws \Exception
+ */
+function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  $migration_nids = [
+    'yukon_migrate_engagement',
+    'yukon_migrate_in_page_alert',
+    'yukon_migrate_basic_page',
+    'yukon_migrate_basic_page_translations',
+  ];
+  $migration_tids = [
+    'yukon_migrate_department',
+    'yukon_migrate_engagement_categories',
+    'yukon_migrate_media_folders',
+    'yukon_migrate_teams',
+  ];
+  $node_migration = in_array($migration->id(), $migration_nids);
+  $taxonomy_migration = in_array($migration->id(), $migration_tids);
+
+  /** @var \Drupal\Core\Database\Connection $database */
+  $database = $source->getDatabase();
+
+  // Get and set into source property Pathauto and Moderation State.
+  if ($node_migration) {
+    $nid = $row->getSourceProperty('nid');
+    // Revision ID.
+    $vid = $row->getSourceProperty('vid');
+
+    $query = $database->select('node', 'n')
+      ->fields('n', ['nid', 'vid'])
+      ->fields('ps', ['pathauto'])
+      ->fields('w', [
+        'from_state',
+        'state',
+      ]);
+    $query->condition('ps.entity_type', 'node');
+    $query->condition('n.nid', $nid);
+    $query->leftJoin('pathauto_state', 'ps', '[n].[nid] = [ps].[entity_id]');
+    $query->leftJoin('workbench_moderation_node_history', 'w', '[n].[nid] = [w].[nid]');
+    $result = $query->execute()->fetchAssoc();
+
+    if (!empty($result)) {
+      yukon_migrate_set_pathauto_value($result, $row);
+    }
+
+    $workbench_moderation = $query->condition('n.vid', $vid)
+      ->orderBy('stamp', 'DESC')
+      ->execute()
+      ->fetchAssoc();
+
+    if (!empty($workbench_moderation)) {
+      // Get and set workbench moderation status.
+      $row->setSourceProperty('moderation_state', [
+        'current' => $workbench_moderation['state'],
+        'state' => $workbench_moderation['from_state'],
+      ]);
+    }
+  }
+
+  // Get and set into source property Pathauto.
+  if ($taxonomy_migration) {
+    $tid = $row->getSourceProperty('tid');
+
+    $query = $database->select('taxonomy_index', 'ti')
+      ->fields('ti', ['tid'])
+      ->fields('pst', ['pathauto']);
+    $query->leftJoin('pathauto_state', 'pst', '[ti].[tid] = [pst].[entity_id]');
+    $query->condition('ti.tid', $tid);
+    $query->condition('pst.entity_type', 'taxonomy_term');
+    $result = $query->execute()->fetchAssoc();
+
+    if (!empty($result)) {
+      yukon_migrate_set_pathauto_value($result, $row);
+    }
+  }
+
+  // Get and set Alias source property.
+  if ($node_migration || $taxonomy_migration) {
+    $query = $database->select('url_alias', 'ua');
+    $query->fields('ua', ['alias']);
+    $source_condition = "node/{$nid}";
+    if ($taxonomy_migration) {
+      $source_condition = "taxonomy/term/{$tid}";
+    }
+    $query->condition('source', $source_condition);
+    $alias = $query->execute()
+      ->fetchField();
+
+    if (!empty($alias)) {
+      $row->setSourceProperty('alias', '/' . $alias);
+    }
+  }
+}
+
+/**
+ * Set the Boolean value for PathAuto.
+ *
+ * @param array $result
+ *   Query result.
+ * @param \Drupal\migrate\Row $row
+ *   Migrate row.
+ *
+ * @throws \Exception
+ */
+function yukon_migrate_set_pathauto_value(array $result, Row $row) {
+  $pathauto = isset($result['pathauto']) && $result['pathauto'] === '1';
+  $row->setSourceProperty('pathauto', $pathauto);
+}

@@ -1,0 +1,33 @@
+id: yukon_migrate_image_gallery
+label: Yukon Migrate Image Gallery Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: image_gallery
+  constants:
+    default_text_format: full_html
+process:
+  field_title: title_field
+
+  field_description/value: field_description/0/value
+
+  field_link:
+    plugin: yukon_migrate_links
+    source: field_link
+
+  field_image:
+    plugin: migration_lookup
+    source: field_slide_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: image_gallery
+migration_dependencies:
+  required:
+    - yukon_migrate_charts
