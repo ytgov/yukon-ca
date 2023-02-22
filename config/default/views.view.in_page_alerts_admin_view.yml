@@ -724,7 +724,7 @@ display:
           exposed: true
           expose:
             operator_id: uid_op
-            label: 'Name (autocomplete)'
+            label: Author
             description: ''
             use_operator: false
             operator: uid_op
@@ -777,7 +777,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'Published status'
+            label: Published
             description: ''
             use_operator: false
             operator: status_op
