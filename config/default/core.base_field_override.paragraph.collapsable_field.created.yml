@@ -1,0 +1,18 @@
+uuid: 76405f70-3c83-4746-811c-c69c5f51ae3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.collapsable_field
+id: paragraph.collapsable_field.created
+field_name: created
+entity_type: paragraph
+bundle: collapsable_field
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

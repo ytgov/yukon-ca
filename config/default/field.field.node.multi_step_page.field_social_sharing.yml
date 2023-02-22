@@ -1,0 +1,29 @@
+uuid: 98c2f14c-2d17-4c33-bae9-764febe47250
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_sharing
+    - node.type.multi_step_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.multi_step_page.field_social_sharing
+field_name: field_social_sharing
+entity_type: node
+bundle: multi_step_page
+label: 'Social sharing'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -16,10 +16,10 @@ id: paragraph.image_gallery.field_image
 field_name: field_image
 entity_type: paragraph
 bundle: image_gallery
-label: Image
+label: 'Slide image'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
