@@ -23,10 +23,9 @@ process:
     -
       plugin: migration_lookup
       migration: yukon_migrate_department
+
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+  path/pathauto: checked_alias
 
 destination:
   plugin: entity:taxonomy_term

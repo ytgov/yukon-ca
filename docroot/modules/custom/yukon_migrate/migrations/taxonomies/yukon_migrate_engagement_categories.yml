@@ -25,9 +25,7 @@ process:
       migration: yukon_migrate_engagement_categories
 
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: checked_alias
+  path/pathauto: checked_alias
 
   field_engagement_image:
     plugin: sub_process

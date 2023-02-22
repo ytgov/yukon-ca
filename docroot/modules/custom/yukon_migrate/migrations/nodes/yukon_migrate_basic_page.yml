@@ -74,9 +74,7 @@ process:
       no_stub: true
 
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+  path/pathauto: checked_alias
 
 destination:
   plugin: entity:node
