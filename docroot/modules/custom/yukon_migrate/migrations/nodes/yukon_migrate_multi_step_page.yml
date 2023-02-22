@@ -79,6 +79,7 @@ process:
     plugin: yukon_migrate_links
     source: field_related_tasks
 
+  moderation_state: moderation_state
 destination:
   plugin: entity:node
   default_bundle: multi_step_page
