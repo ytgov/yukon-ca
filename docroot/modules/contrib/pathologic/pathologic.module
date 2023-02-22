@@ -184,8 +184,7 @@ function _pathologic_replace($matches) {
   if (isset($parts['scheme']) && $parts['scheme'] === 'files') {
     // Path Filter "files:" support. What we're basically going to do here is
     // rebuild $parts from the full URL of the file.
-    $uri = \Drupal::config('system.file')->get('default_scheme') . '://' . $parts['path'];
-    $new_parts = parse_url(\Drupal::service('file_url_generator')->generateAbsoluteString($uri));
+    $new_parts = parse_url(file_create_url(\Drupal::config('system.file')->get('default_scheme') . '://' . $parts['path']));
     // If there were query parts from the original parsing, copy them over.
     if (!empty($parts['query'])) {
       $new_parts['query'] = $parts['query'];
