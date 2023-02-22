@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Controls the migration process.
+ */
+
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrationInterface;
+
+/**
+ * Implements hook_migrate_prepare_row().
+ *
+ * @throws \Exception
+ */
+function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  $migration_ids = [
+    'yukon_migrate_engagement',
+    'yukon_migrate_basic_page',
+    'yukon_migrate_basic_page_translations',
+  ];
+  $migration_tids = [
+    'yukon_migrate_engagement_categories',
+  ];
+  $node_migration = in_array($migration->id(), $migration_ids);
+  $taxonomy_migration = in_array($migration->id(), $migration_tids);
+  if ($node_migration) {
+    $nid = $row->getSourceProperty('nid');
+    $vid = $row->getSourceProperty('vid');
+    /** @var \Drupal\Core\Database\Connection $database */
+    $database = $source->getDatabase();
+
+    $query = $database->select('node', 'n')
+      ->fields('n', ['nid', 'vid'])
+      ->fields('ps', ['pathauto'])
+      ->fields('w', [
+        'from_state',
+        'state',
+      ]);
+    $query->condition('n.nid', $nid);
+    $query->leftJoin('pathauto_state', 'ps', '[n].[nid] = [ps].[entity_id]');
+    $query->leftJoin('workbench_moderation_node_history', 'w', '[n].[nid] = [w].[nid]');
+    $result = $query->execute()->fetchAssoc();
+    if (isset($result['pathauto']) && $result['pathauto'] === "1") {
+      $row->setSourceProperty('checked_alias', TRUE);
+    }
+    else {
+      $row->setSourceProperty('checked_alias', FALSE);
+    }
+    $workbench_moderation = $query->condition('n.vid', $vid)
+      ->orderBy('stamp', 'DESC')
+      ->execute()
+      ->fetchAssoc();
+
+    // Get and set workbench moderation status.
+    $row->setSourceProperty('moderation_state', [
+      'current' => $workbench_moderation['state'],
+      'state' => $workbench_moderation['from_state'],
+    ]);
+  }
+  if ($node_migration|| $taxonomy_migration) {
+    $query = $database->select('url_alias', 'ua');
+    $query->fields('ua', ['alias']);
+    if ($node_migration) {
+      $query->condition('source', 'node/' . $nid);
+    }
+    elseif ($taxonomy_migration) {
+      $tid = $row->getSourceProperty('tid');
+      $query->condition('source', 'taxonomy/term/' . $tid);
+    }
+    $alias = $query->execute()
+      ->fetchField();
+    if (!empty($alias)) {
+      $row->setSourceProperty('alias', $alias);
+    }
+  }
+}
