@@ -2,7 +2,7 @@ id: yukon_migrate_landing_page_level_2_translations
 label: Landing Page Level 2
 migration_tags:
     - Drupal 7
-    - Content
+    - node
     - Landing Page Level 2
 migration_group: legacy
 source:
@@ -15,8 +15,7 @@ destination:
     translations: true
     destination_module: content_translation
 process:
-    uid:
-        plugin: yukon_author
+    uid: uid
     nid:
         plugin: migration_lookup
         migration: yukon_migrate_landing_page_level_2
@@ -38,24 +37,37 @@ process:
     promote: promote
     sticky: sticky
     revision_log: log
-    metatags/0/description: field_page_description/0/value
-    field_meta_tags:
-        -
-            plugin: skip_on_empty
-            source: '@metatags'
-            method: process
-        -
-            plugin: callback
-            callable: serialize
-            source: '@metatags'
+    field_page_description/value: field_page_description/0/value
+    field_page_description/format: constants/default_text_format
     body/value: field_opener_description/0/value
     body/format: constants/default_text_format
     field_icon_dark:
-        plugin: yukon_imagemedia
+        plugin: migration_lookup
+        source: field_svg_upload/0/fid
+        migration: yukon_migrate_icon
+        no_stub: true
     field_icon_light:
-        plugin: yukon_imagemedia
+        plugin: migration_lookup
+        source: field_light_svg_upload/0/fid
+        migration: yukon_migrate_icon
+        no_stub: true
+    pseudo_field_primary_content:
+        plugin: sub_process
+        source: field_primary_content
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration:
+                    - yukon_migrate_primary_content
+                no_stub: true
+
     field_primary_content:
-        plugin: yukon_paragraph_primary_content
+        plugin: sub_process
+        source: '@pseudo_field_primary_content'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
     field_department_term:
         plugin: migration_lookup
         migration: yukon_migrate_department

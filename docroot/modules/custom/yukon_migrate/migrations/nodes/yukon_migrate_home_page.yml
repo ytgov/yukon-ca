@@ -30,26 +30,44 @@ process:
   promote: promote
   sticky: sticky
 
-  metatags/0/description: field_page_description/0/value
-  field_meta_tags:
-    -
-      plugin: skip_on_empty
-      source: '@metatags'
-      method: process
-    -
-      plugin: callback
-      callable: serialize
-      source: '@metatags'
-
+  field_page_description/value: field_page_description/0/value
+  field_page_description/format: constants/default_text_format
   body/value: body/0/value
   body/format: constants/default_text_format
 
   field_primary_item_blocks:
-    plugin: yukon_node_reference
+    plugin: sub_process
+    source: field_primary_item_blocks
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: target_id
+        migration:
+          - yukon_migrate_basic_page
+          - yukon_migrate_landing_page
+          - yukon_migrate_landing_page_level_2
   field_secondary_item_blocks:
-    plugin: yukon_node_reference
+    plugin: sub_process
+    source: field_secondary_item_blocks
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: target_id
+        migration:
+          - yukon_migrate_basic_page
+          - yukon_migrate_landing_page
+          - yukon_migrate_landing_page_level_2
   field_tertiary_item_blocks:
-    plugin: yukon_node_reference
+    plugin: sub_process
+    source: field_tertiary_item_blocks
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: target_id
+        migration:
+          - yukon_migrate_basic_page
+          - yukon_migrate_landing_page
+          - yukon_migrate_landing_page_level_2
   field_department_term:
     plugin: migration_lookup
     migration: yukon_migrate_department
@@ -60,8 +78,24 @@ process:
     migration: yukon_migrate_teams
     source: field_yukon_editorial_team
     no_stub: true
+
+  pseudo_field_image_gallery:
+    plugin: sub_process
+    source: field_image_gallery
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration: yukon_migrate_image_gallery
+        no_stub: true
+
   field_image_gallery:
-    plugin: yukon_paragraph_image_gallery
+    plugin: sub_process
+    source: '@pseudo_field_image_gallery'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
 destination:
   plugin: entity:node
   default_bundle: homepage
