@@ -32,4 +32,3 @@ process:
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: secondary_content
-
