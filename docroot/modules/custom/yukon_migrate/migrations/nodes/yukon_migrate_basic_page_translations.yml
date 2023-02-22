@@ -36,26 +36,41 @@ process:
   body/value: body/0/value
   body/format: constants/default_text_format
 
-  pseudo_field_paragraphs:
-    - plugin: skip_on_empty
-      method: process
-      source: field_collapsable_field/0/value
-    - plugin: migration_lookup
-      migration:
-        - yukon_migrate_collapsable_field
-        - yukon_migrate_charts
-      no_stub: true
+  pseudo_field_collapsible_items:
+    plugin: sub_process
+    source: field_collapsable_field
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration:
+          - yukon_migrate_collapsable_field
+          - yukon_migrate_charts
+        no_stub: true
 
-  field_paragraphs:
-    - plugin: skip_on_empty
-      method: process
-      source: '@pseudo_field_paragraphs'
-    - plugin: sub_process
-      source:
-        - '@pseudo_field_paragraphs'
-      process:
-        target_id: '0'
-        target_revision_id: '1'
+  field_collapsible_items:
+    plugin: sub_process
+    source: '@pseudo_field_collapsible_items'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  pseudo_field_image_gallery:
+    plugin: sub_process
+    source: field_collapsable_field
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration: yukon_migrate_image_gallery
+        no_stub: true
+
+  field_image_gallery:
+    plugin: sub_process
+    source: '@pseudo_field_image_gallery'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
   field_contact/value: field_contact/0/value
   field_contact/format: constants/default_text_format
@@ -81,6 +96,17 @@ process:
       source: field_node_department
       migration: yukon_migrate_department
       no_stub: true
+
+  field_image:
+    plugin: migration_lookup
+    source: field_featured_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  path/alias: alias
+  path/pathauto:
+    plugin: default_value
+    default_value: false
 
 destination:
   plugin: entity:node

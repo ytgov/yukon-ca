@@ -1,0 +1,18 @@
+uuid: 4bf70454-fbc4-4a27-9138-8492cd8334ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+id: taxonomy_term.media_folders.name
+field_name: name
+entity_type: taxonomy_term
+bundle: media_folders
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
