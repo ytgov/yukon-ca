@@ -5,9 +5,11 @@
  * Controls the migration process.
  */
 
+use Drupal\node\Plugin\migrate\source\d7\Node;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Row;
 use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\taxonomy\Plugin\migrate\source\d7\Term;
 
 /**
  * Implements hook_migrate_prepare_row().
@@ -15,9 +17,9 @@ use Drupal\migrate\Plugin\MigrationInterface;
  * @throws \Exception
  */
 function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
-  $migration_type = strpos($source->getPluginId(), 'node') ? 'node' : NULL;
+  $migration_type = $source instanceof Node ? 'node' : NULL;
   if (empty($migration_type)) {
-    $migration_type = strpos($source->getPluginId(), 'term') ? 'taxonomy_term' : NULL;
+    $migration_type = $source instanceof Term ? 'taxonomy_term' : NULL;
   }
 
   /** @var \Drupal\Core\Database\Connection $database */
@@ -48,7 +50,7 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
       }
 
       // Set workbench moderation status.
-      if (!empty($vid)) {
+      if ($migration_type === 'node' && !empty($vid)) {
         $workbench_moderation = $query->condition('w.vid', $vid)
           ->orderBy('stamp', 'DESC')
           ->execute()

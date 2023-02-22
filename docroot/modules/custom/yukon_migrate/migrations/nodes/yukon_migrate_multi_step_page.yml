@@ -59,15 +59,13 @@ process:
     plugin: migration_lookup
     migration: yukon_migrate_teams
     source: field_yukon_editorial_team
-    process:
-      target_id: tid
+    no_stub: true
 
   field_department:
     plugin: migration_lookup
     migration: yukon_migrate_department
     source: field_department
-    process:
-      target_id: tid
+    no_stub: true
 
   #  Meta tags Description
   field_page_description: field_description
@@ -87,3 +85,4 @@ migration_dependencies:
   required:
     - yukon_migrate_teams
     - yukon_migrate_department
+    - field_yukon_editorial_team
