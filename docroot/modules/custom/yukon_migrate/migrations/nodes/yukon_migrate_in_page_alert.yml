@@ -26,7 +26,7 @@ process:
   promote: promote
   sticky: sticky
   path/alias: alias
-  path/pathauto: checked_alias
+  path/pathauto: pathauto
 
   body/value: body/0/value
   body/format: constants/default_text_format
