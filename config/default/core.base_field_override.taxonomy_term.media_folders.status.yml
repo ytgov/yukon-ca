@@ -1,17 +1,17 @@
-uuid: 79c99872-bf57-497c-97ce-a04b602cf17c
+uuid: f289c311-542d-40ba-ab01-83d3711cf6ed
 langcode: en
 status: true
 dependencies:
   config:
-    - paragraphs.paragraphs_type.chart
-id: paragraph.chart.status
+    - taxonomy.vocabulary.media_folders
+id: taxonomy_term.media_folders.status
 field_name: status
-entity_type: paragraph
-bundle: chart
+entity_type: taxonomy_term
+bundle: media_folders
 label: Published
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 1
