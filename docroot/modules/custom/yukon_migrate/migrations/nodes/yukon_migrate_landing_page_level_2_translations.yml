@@ -12,9 +12,10 @@ source:
         default_text_format: full_html
 destination:
     plugin: entity:node
+    default_bundle: landing_page_level_2
     translations: true
-    destination_module: content_translation
-process:
+yukon_migrate_home_page_translations:
+    yml:process:
     uid: uid
     nid:
         plugin: migration_lookup

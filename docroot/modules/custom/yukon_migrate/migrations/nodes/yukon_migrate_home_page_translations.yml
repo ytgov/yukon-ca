@@ -13,8 +13,8 @@ source:
         default_text_format: full_html
 destination:
     plugin: entity:node
+    default_bundle: homepage
     translations: true
-    destination_module: content_translation
 process:
     uid: uid
     nid:

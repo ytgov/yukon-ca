@@ -12,6 +12,7 @@ source:
         default_text_format: full_html
 destination:
     plugin: entity:node
+    default_bundle: landing_page_level_2
 process:
     uid: node_uid
     nid: nid
