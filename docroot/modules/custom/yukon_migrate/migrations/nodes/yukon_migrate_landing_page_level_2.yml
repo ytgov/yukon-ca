@@ -16,9 +16,6 @@ destination:
 process:
     uid: node_uid
     nid: nid
-    type:
-        plugin: default_value
-        default_value: landing_page_level_2
     title: title
     status:
         plugin: skip_on_value

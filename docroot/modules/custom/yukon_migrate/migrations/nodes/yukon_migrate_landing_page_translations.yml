@@ -21,9 +21,6 @@ process:
         migration: yukon_migrate_landing_page
         source: entity_id
         no_stub: true
-    type:
-        plugin: default_value
-        default_value: landing_page
     title: title
     status:
         plugin: skip_on_value

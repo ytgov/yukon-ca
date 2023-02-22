@@ -14,17 +14,13 @@ destination:
     plugin: entity:node
     default_bundle: landing_page_level_2
     translations: true
-yukon_migrate_home_page_translations:
-    yml:process:
+process:
     uid: uid
     nid:
         plugin: migration_lookup
         migration: yukon_migrate_landing_page_level_2
         source: entity_id
         no_stub: true
-    type:
-        plugin: default_value
-        default_value: landing_page_level_2
     title: title
     status:
         plugin: skip_on_value

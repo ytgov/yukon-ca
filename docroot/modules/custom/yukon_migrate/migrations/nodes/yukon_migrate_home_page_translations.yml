@@ -22,9 +22,6 @@ process:
         migration: yukon_migrate_home_page
         source: entity_id
         no_stub: true
-    type:
-        plugin: default_value
-        default_value: homepage
     title: title
     created: created
     changed: timestamp
