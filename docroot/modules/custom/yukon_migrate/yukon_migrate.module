@@ -21,16 +21,18 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     'yukon_migrate_basic_page_translations',
   ];
   $migration_tids = [
+    'yukon_migrate_department',
     'yukon_migrate_engagement_categories',
+    'yukon_migrate_media_folders',
+    'yukon_migrate_teams',
   ];
   $node_migration = in_array($migration->id(), $migration_ids);
   $taxonomy_migration = in_array($migration->id(), $migration_tids);
+  /** @var \Drupal\Core\Database\Connection $database */
+  $database = $source->getDatabase();
   if ($node_migration) {
     $nid = $row->getSourceProperty('nid');
     $vid = $row->getSourceProperty('vid');
-    /** @var \Drupal\Core\Database\Connection $database */
-    $database = $source->getDatabase();
-
     $query = $database->select('node', 'n')
       ->fields('n', ['nid', 'vid'])
       ->fields('ps', ['pathauto'])
@@ -38,16 +40,14 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
         'from_state',
         'state',
       ]);
+    $query->condition('ps.entity_type', 'node');
     $query->condition('n.nid', $nid);
     $query->leftJoin('pathauto_state', 'ps', '[n].[nid] = [ps].[entity_id]');
     $query->leftJoin('workbench_moderation_node_history', 'w', '[n].[nid] = [w].[nid]');
     $result = $query->execute()->fetchAssoc();
-    if (isset($result['pathauto']) && $result['pathauto'] === "1") {
-      $row->setSourceProperty('checked_alias', TRUE);
-    }
-    else {
-      $row->setSourceProperty('checked_alias', FALSE);
-    }
+    if ($result !== FALSE) {
+      yukon_migrate_set_pathauto_check_value($result, $row);
+    };
     $workbench_moderation = $query->condition('n.vid', $vid)
       ->orderBy('stamp', 'DESC')
       ->execute()
@@ -59,20 +59,51 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
       'state' => $workbench_moderation['from_state'],
     ]);
   }
-  if ($node_migration|| $taxonomy_migration) {
+  if ($taxonomy_migration) {
+    $tid = $row->getSourceProperty('tid');
+    $query = $database->select('taxonomy_index', 'ti')
+      ->fields('ti', ['tid'])
+      ->fields('pst', ['pathauto']);
+    $query->leftJoin('pathauto_state', 'pst', '[ti].[tid] = [pst].[entity_id]');
+    $query->condition('ti.tid', $tid);
+    $query->condition('pst.entity_type', 'taxonomy_term');
+    $result = $query->execute()->fetchAssoc();
+    if ($result !== FALSE) {
+      yukon_migrate_set_pathauto_check_value($result, $row);
+    }
+  }
+  if ($node_migration || $taxonomy_migration) {
     $query = $database->select('url_alias', 'ua');
     $query->fields('ua', ['alias']);
     if ($node_migration) {
       $query->condition('source', 'node/' . $nid);
     }
     elseif ($taxonomy_migration) {
-      $tid = $row->getSourceProperty('tid');
       $query->condition('source', 'taxonomy/term/' . $tid);
     }
     $alias = $query->execute()
       ->fetchField();
     if (!empty($alias)) {
-      $row->setSourceProperty('alias', $alias);
+      $row->setSourceProperty('alias', '/' . $alias);
     }
+  }
+}
+
+/**
+ * Set the Boolean value for PathAuto.
+ *
+ * @param array $result
+ *   Query result.
+ * @param \Drupal\migrate\Row $row
+ *   Migrate row.
+ *
+ * @throws \Exception
+ */
+function yukon_migrate_set_pathauto_check_value(array $result, Row $row) {
+  if (isset($result['pathauto']) && $result['pathauto'] === "1") {
+    $row->setSourceProperty('checked_alias', TRUE);
+  }
+  else {
+    $row->setSourceProperty('checked_alias', FALSE);
   }
 }
