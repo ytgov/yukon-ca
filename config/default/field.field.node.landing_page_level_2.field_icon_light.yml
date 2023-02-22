@@ -19,7 +19,7 @@ bundle: landing_page_level_2
 label: 'Light SVG upload'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
