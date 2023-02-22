@@ -8,7 +8,7 @@ migration_tags:
   - In-Page Alerts
 migration_group: legacy
 source:
-  plugin: yukon_node
+  plugin: d7_node
   node_type: in_page_alert
   constants:
     default_text_format: full_html
@@ -26,9 +26,7 @@ process:
   promote: promote
   sticky: sticky
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+  path/pathauto: pathauto
 
   body/value: body/0/value
   body/format: constants/default_text_format
