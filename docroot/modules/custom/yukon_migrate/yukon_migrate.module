@@ -15,8 +15,9 @@ use Drupal\migrate\Plugin\MigrationInterface;
  * @throws \Exception
  */
 function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
-  $migration_ids = [
+  $migration_nids = [
     'yukon_migrate_engagement',
+    'yukon_migrate_in_page_alert',
     'yukon_migrate_basic_page',
     'yukon_migrate_basic_page_translations',
   ];
@@ -26,8 +27,9 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     'yukon_migrate_media_folders',
     'yukon_migrate_teams',
   ];
-  $node_migration = in_array($migration->id(), $migration_ids);
+  $node_migration = in_array($migration->id(), $migration_nids);
   $taxonomy_migration = in_array($migration->id(), $migration_tids);
+
   /** @var \Drupal\Core\Database\Connection $database */
   $database = $source->getDatabase();
 
@@ -36,6 +38,7 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     $nid = $row->getSourceProperty('nid');
     // Revision ID.
     $vid = $row->getSourceProperty('vid');
+
     $query = $database->select('node', 'n')
       ->fields('n', ['nid', 'vid'])
       ->fields('ps', ['pathauto'])
@@ -49,7 +52,7 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     $query->leftJoin('workbench_moderation_node_history', 'w', '[n].[nid] = [w].[nid]');
     $result = $query->execute()->fetchAssoc();
 
-    if ($result !== FALSE) {
+    if (!empty($result)) {
       yukon_migrate_set_pathauto_value($result, $row);
     }
 
@@ -58,16 +61,19 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
       ->execute()
       ->fetchAssoc();
 
-    // Get and set workbench moderation status.
-    $row->setSourceProperty('moderation_state', [
-      'current' => $workbench_moderation['state'],
-      'state' => $workbench_moderation['from_state'],
-    ]);
+    if (!empty($workbench_moderation)) {
+      // Get and set workbench moderation status.
+      $row->setSourceProperty('moderation_state', [
+        'current' => $workbench_moderation['state'],
+        'state' => $workbench_moderation['from_state'],
+      ]);
+    }
   }
 
   // Get and set into source property Pathauto.
   if ($taxonomy_migration) {
     $tid = $row->getSourceProperty('tid');
+
     $query = $database->select('taxonomy_index', 'ti')
       ->fields('ti', ['tid'])
       ->fields('pst', ['pathauto']);
@@ -75,7 +81,8 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     $query->condition('ti.tid', $tid);
     $query->condition('pst.entity_type', 'taxonomy_term');
     $result = $query->execute()->fetchAssoc();
-    if ($result !== FALSE) {
+
+    if (!empty($result)) {
       yukon_migrate_set_pathauto_value($result, $row);
     }
   }
@@ -84,14 +91,14 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
   if ($node_migration || $taxonomy_migration) {
     $query = $database->select('url_alias', 'ua');
     $query->fields('ua', ['alias']);
-    if ($node_migration) {
-      $query->condition('source', 'node/' . $nid);
+    $source_condition = "node/{$nid}";
+    if ($taxonomy_migration) {
+      $source_condition = "taxonomy/term/{$tid}";
     }
-    elseif ($taxonomy_migration) {
-      $query->condition('source', 'taxonomy/term/' . $tid);
-    }
+    $query->condition('source', $source_condition);
     $alias = $query->execute()
       ->fetchField();
+
     if (!empty($alias)) {
       $row->setSourceProperty('alias', '/' . $alias);
     }
@@ -109,10 +116,6 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
  * @throws \Exception
  */
 function yukon_migrate_set_pathauto_value(array $result, Row $row) {
-  if (isset($result['pathauto']) && $result['pathauto'] === "1") {
-    $row->setSourceProperty('pathauto', TRUE);
-  }
-  else {
-    $row->setSourceProperty('pathauto', FALSE);
-  }
+  $pathauto = isset($result['pathauto']) && $result['pathauto'] === '1';
+  $row->setSourceProperty('pathauto', $pathauto);
 }
