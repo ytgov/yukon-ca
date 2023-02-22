@@ -72,6 +72,9 @@ process:
   #  Meta tags Description
   field_page_description: field_description
 
+  path/alias: alias
+  path/pathauto: pathauto
+
   field_related_tasks:
     plugin: yukon_migrate_links
     source: field_related_tasks
