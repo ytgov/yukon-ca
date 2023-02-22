@@ -17,23 +17,22 @@ process:
   field_description/format: constants/default_text_format
 
   pseudo_field_paragraphs:
-    - plugin: skip_on_empty
-      method: process
-      source: field_charts/0/value
-    - plugin: migration_lookup
-      migration: yukon_migrate_charts
-      no_stub: true
+    plugin: sub_process
+    source: field_charts
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration:
+          - yukon_migrate_charts
+        no_stub: true
 
   field_paragraphs:
-    - plugin: skip_on_empty
-      method: process
-      source: '@pseudo_field_paragraphs'
-    - plugin: sub_process
-      source:
-        - '@pseudo_field_paragraphs'
-      process:
-        target_id: '0'
-        target_revision_id: '1'
+    plugin: sub_process
+    source: '@pseudo_field_paragraphs'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
 destination:
   plugin: entity_reference_revisions:paragraph

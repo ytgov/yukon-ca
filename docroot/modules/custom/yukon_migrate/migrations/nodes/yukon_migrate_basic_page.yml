@@ -29,7 +29,7 @@ process:
   body/value: body/0/value
   body/format: constants/default_text_format
 
-  pseudo_field_paragraphs:
+  pseudo_field_collapsible_items:
     plugin: sub_process
     source: field_collapsable_field
     process:
@@ -41,9 +41,26 @@ process:
           - yukon_migrate_charts
         no_stub: true
 
-  field_paragraphs:
+  field_collapsible_items:
     plugin: sub_process
-    source: '@pseudo_field_paragraphs'
+    source: '@pseudo_field_collapsible_items'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  pseudo_field_image_gallery:
+    plugin: sub_process
+    source: field_image_gallery
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration: yukon_migrate_image_gallery
+        no_stub: true
+
+  field_image_gallery:
+    plugin: sub_process
+    source: '@pseudo_field_image_gallery'
     process:
       target_id: 'paragraph/0'
       target_revision_id: 'paragraph/1'
@@ -73,6 +90,12 @@ process:
       migration: yukon_migrate_teams
       no_stub: true
 
+  field_image:
+    plugin: migration_lookup
+    source: field_featured_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
   path/alias: alias
   path/pathauto: checked_alias
 
@@ -82,6 +105,8 @@ destination:
 migration_dependencies:
   optional:
     - yukon_migrate_collapsable_field
+    - yukon_migrate_image_gallery
     - yukon_migrate_charts
     - yukon_migrate_department
     - yukon_migrate_teams
+    - yukon_migrate_images
