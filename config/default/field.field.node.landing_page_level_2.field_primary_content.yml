@@ -1,0 +1,51 @@
+uuid: d1d79a3a-19b4-4ae7-bba7-8b31a0e00c4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_content
+    - node.type.landing_page_level_2
+    - paragraphs.paragraphs_type.primary_content
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_primary_content
+field_name: field_primary_content
+entity_type: node
+bundle: landing_page_level_2
+label: 'Top tasks'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      primary_content: primary_content
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 7
+        enabled: false
+      image_gallery:
+        weight: 4
+        enabled: false
+      primary_content:
+        weight: 5
+        enabled: true
+      quick_facts:
+        weight: 10
+        enabled: false
+      quotes:
+        weight: 11
+        enabled: false
+      secondary_content:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

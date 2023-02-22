@@ -1,0 +1,36 @@
+uuid: 20e4cd7b-b3c9-4711-a6d3-877fca34c0ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_gallery
+    - node.type.homepage
+    - paragraphs.paragraphs_type.image_gallery
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.homepage.field_image_gallery
+field_name: field_image_gallery
+entity_type: node
+bundle: homepage
+label: 'Featured content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image_gallery: image_gallery
+    negate: 0
+    target_bundles_drag_drop:
+      image_gallery:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

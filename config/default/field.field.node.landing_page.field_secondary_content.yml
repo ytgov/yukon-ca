@@ -1,0 +1,51 @@
+uuid: ac3915fc-cf41-4d6c-b6e6-854a7cf64e55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondary_content
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.secondary_content
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page.field_secondary_content
+field_name: field_secondary_content
+entity_type: node
+bundle: landing_page
+label: 'Secondary content'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      secondary_content: secondary_content
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 7
+        enabled: false
+      image_gallery:
+        weight: 4
+        enabled: false
+      primary_content:
+        weight: 5
+        enabled: false
+      quick_facts:
+        weight: 10
+        enabled: false
+      quotes:
+        weight: 11
+        enabled: false
+      secondary_content:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

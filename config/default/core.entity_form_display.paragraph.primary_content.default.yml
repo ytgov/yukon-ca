@@ -1,0 +1,25 @@
+uuid: b3735ba5-453e-48ea-8eb0-a9e32229e25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.primary_content.field_popular_links
+    - paragraphs.paragraphs_type.primary_content
+id: paragraph.primary_content.default
+targetEntityType: paragraph
+bundle: primary_content
+mode: default
+content:
+  field_popular_links:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

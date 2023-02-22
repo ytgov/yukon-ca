@@ -1,0 +1,10 @@
+uuid: f35c2ee2-90ee-4146-85a1-4fb3b8d25555
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.primary_item_block
+label: 'Primary item block'
+targetEntityType: node
+cache: true
