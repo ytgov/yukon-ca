@@ -1,0 +1,29 @@
+uuid: 81810b72-1cf7-4957-81f0-fdf7a2293dc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_required
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_registration_required
+field_name: field_registration_required
+entity_type: node
+bundle: campground_directory_record
+label: 'Registration required'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: aff12dd8-175e-4850-af12-b786a0f6e409
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_postal_code
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_postal_code
+field_name: field_postal_code
+entity_type: node
+bundle: directory_records_places
+label: 'Postal code'
+description: 'Optional. Include if possible.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

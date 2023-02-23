@@ -1,0 +1,26 @@
+uuid: 27a5ce1d-ed7d-4e61-a5dc-e001164ece8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.directory_records_places
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: directory_records_places
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
