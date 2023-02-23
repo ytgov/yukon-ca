@@ -28,6 +28,17 @@ process:
     plugin: default_value
     default_value: false
 
+    field_icon_dark:
+      plugin: migration_lookup
+      source: field_dark_svg/0/fid
+      migration: yukon_migrate_icon
+      no_stub: true
+    field_icon_light:
+      plugin: migration_lookup
+      source: field_light_svg/0/fid
+      migration: yukon_migrate_icon
+      no_stub: true
+
 destination:
   plugin: entity:taxonomy_term
   default_bundle: category

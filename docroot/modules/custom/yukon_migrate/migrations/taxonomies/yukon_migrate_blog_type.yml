@@ -28,6 +28,18 @@ process:
     plugin: default_value
     default_value: false
 
+    field_agency_logo:
+      plugin: migration_lookup
+      source: field_agency_logo/0/fid
+      migration: yukon_migrate_images
+      no_stub: true
+
+    field_featured_image:
+      plugin: migration_lookup
+      source: field_featured_image/0/fid
+      migration: yukon_migrate_images
+      no_stub: true
+
 destination:
   plugin: entity:taxonomy_term
   default_bundle: blog_type
