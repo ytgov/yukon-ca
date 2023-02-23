@@ -19,7 +19,7 @@ bundle: campground_directory_record
 label: 'Site description'
 description: 'A short description of the campground / recreational site facility. This will be displayed on Yukon.ca'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

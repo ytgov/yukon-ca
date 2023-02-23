@@ -19,7 +19,7 @@ bundle: campground_directory_record
 label: 'Site description (app)'
 description: 'A short description of the campground / recreational site facility. This will be not be displayed on Yukon.ca, but is for the driving app.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

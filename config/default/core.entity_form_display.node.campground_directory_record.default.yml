@@ -29,7 +29,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_interpretive_centre
     - field.field.node.campground_directory_record.field_july_availability
     - field.field.node.campground_directory_record.field_june_availability
-    - field.field.node.campground_directory_record.field_map_download
+    - field.field.node.campground_directory_record.field_map_upload
     - field.field.node.campground_directory_record.field_may_availability
     - field.field.node.campground_directory_record.field_meta_tags
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
@@ -217,6 +217,7 @@ third_party_settings:
         required_fields: true
     group_related_content:
       children:
+        - field_map_upload
         - field_map_download
         - field_related_tasks
       label: 'Related content'
@@ -237,7 +238,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -303,7 +304,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 12
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -404,9 +405,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_map_download:
+  field_map_upload:
     type: media_library_widget
-    weight: 18
+    weight: 11
     region: content
     settings:
       media_types: {  }
@@ -491,7 +492,7 @@ content:
     third_party_settings: {  }
   field_related_tasks:
     type: link_default
-    weight: 19
+    weight: 13
     region: content
     settings:
       placeholder_url: ''
@@ -610,7 +611,7 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 11
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -623,33 +624,33 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 19
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 17
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 22
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -662,9 +663,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS
@@ -673,7 +679,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

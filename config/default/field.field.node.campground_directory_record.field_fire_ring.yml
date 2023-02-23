@@ -18,7 +18,7 @@ bundle: campground_directory_record
 label: 'Fire ring'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

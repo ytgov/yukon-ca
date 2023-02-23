@@ -29,7 +29,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_interpretive_centre
     - field.field.node.campground_directory_record.field_july_availability
     - field.field.node.campground_directory_record.field_june_availability
-    - field.field.node.campground_directory_record.field_map_download
+    - field.field.node.campground_directory_record.field_map_upload
     - field.field.node.campground_directory_record.field_may_availability
     - field.field.node.campground_directory_record.field_meta_tags
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
@@ -82,7 +82,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 27
+    weight: 28
     region: content
   field_august_availability:
     type: list_default
@@ -99,7 +99,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 22
+    weight: 23
     region: content
   field_bear_proof_garbage_bins:
     type: boolean
@@ -109,7 +109,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 17
+    weight: 18
     region: content
   field_bear_proof_recycling_bins:
     type: boolean
@@ -119,7 +119,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 18
+    weight: 19
     region: content
   field_boat_dock:
     type: boolean
@@ -129,7 +129,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 24
+    weight: 25
     region: content
   field_boat_launch:
     type: boolean
@@ -139,7 +139,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 23
+    weight: 24
     region: content
   field_campground_site_type:
     type: entity_reference_label
@@ -157,7 +157,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 36
+    weight: 37
     region: content
   field_cook_shelter:
     type: boolean
@@ -167,7 +167,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 20
+    weight: 21
     region: content
   field_department_term:
     type: entity_reference_label
@@ -175,7 +175,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 51
+    weight: 52
     region: content
   field_fire_ring:
     type: boolean
@@ -185,7 +185,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 21
+    weight: 22
     region: content
   field_gate_closed_date:
     type: datetime_default
@@ -203,7 +203,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-    weight: 49
+    weight: 50
     region: content
   field_gate_open_date:
     type: datetime_default
@@ -239,7 +239,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 33
+    weight: 34
     region: content
   field_hand_pump_or_water_tank_pr:
     type: boolean
@@ -249,7 +249,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 29
+    weight: 30
     region: content
   field_highway:
     type: entity_reference_label
@@ -257,7 +257,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 42
+    weight: 43
     region: content
   field_highway_kilometre:
     type: string
@@ -265,7 +265,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 43
+    weight: 44
     region: content
   field_hiking_trails:
     type: boolean
@@ -275,7 +275,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 25
+    weight: 26
     region: content
   field_image:
     type: entity_reference_label
@@ -283,7 +283,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 41
+    weight: 42
     region: content
   field_interpretive_centre:
     type: boolean
@@ -293,7 +293,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 32
+    weight: 33
     region: content
   field_july_availability:
     type: list_default
@@ -309,13 +309,13 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_map_download:
+  field_map_upload:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   field_may_availability:
     type: list_default
@@ -332,7 +332,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 28
+    weight: 29
     region: content
   field_outdoor_ampitheatre:
     type: boolean
@@ -342,7 +342,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 37
+    weight: 38
     region: content
   field_outhouse_unisex:
     type: boolean
@@ -352,7 +352,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_photo_credit:
     type: string
@@ -360,7 +360,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 47
+    weight: 48
     region: content
   field_picnic_tables:
     type: boolean
@@ -370,7 +370,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 19
+    weight: 20
     region: content
   field_playground:
     type: boolean
@@ -380,7 +380,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 26
+    weight: 27
     region: content
   field_pull_through:
     type: string
@@ -388,7 +388,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 48
+    weight: 49
     region: content
   field_region:
     type: entity_reference_label
@@ -427,7 +427,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 39
+    weight: 40
     region: content
   field_sandy_or_cobble_beach_with:
     type: boolean
@@ -437,7 +437,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 30
+    weight: 31
     region: content
   field_secondary_road:
     type: string
@@ -445,7 +445,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 44
+    weight: 45
     region: content
   field_secondary_road_kilometre:
     type: string
@@ -453,7 +453,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 45
+    weight: 46
     region: content
   field_september_availability:
     type: list_default
@@ -510,7 +510,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 46
+    weight: 47
     region: content
   field_social_sharing:
     type: boolean
@@ -520,7 +520,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 38
+    weight: 39
     region: content
   field_swimming_area_or_dock_no_l:
     type: boolean
@@ -530,7 +530,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 35
+    weight: 36
     region: content
   field_tent_pads_or_sites_availab:
     type: boolean
@@ -540,7 +540,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 34
+    weight: 35
     region: content
   field_total_sites:
     type: string
@@ -558,7 +558,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 31
+    weight: 32
     region: content
   field_walk_in_sites:
     type: boolean
@@ -568,14 +568,14 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 50
+    weight: 51
     region: content
   field_warning:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 40
+    weight: 41
     region: content
 hidden:
   addtoany: true

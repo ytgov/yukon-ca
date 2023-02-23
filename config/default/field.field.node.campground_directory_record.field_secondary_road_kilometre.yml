@@ -18,7 +18,7 @@ bundle: campground_directory_record
 label: 'Secondary road kilometre'
 description: 'Enter the km number of the highway, if applicable'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

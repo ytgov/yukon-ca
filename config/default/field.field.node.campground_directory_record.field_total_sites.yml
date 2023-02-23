@@ -18,7 +18,7 @@ bundle: campground_directory_record
 label: 'Total sites'
 description: 'Optional: for roadside accessible and backcountry campgrounds only'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

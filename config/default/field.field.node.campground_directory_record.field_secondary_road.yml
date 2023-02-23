@@ -18,7 +18,7 @@ bundle: campground_directory_record
 label: 'Secondary road'
 description: 'Enter a Secondary road name.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

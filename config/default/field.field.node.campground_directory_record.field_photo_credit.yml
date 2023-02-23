@@ -18,7 +18,7 @@ bundle: campground_directory_record
 label: 'Photo credit'
 description: 'Optionally include a photo credit for the uploaded image.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

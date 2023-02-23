@@ -19,7 +19,7 @@ bundle: campground_directory_record
 label: 'Recreation site type (app)'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

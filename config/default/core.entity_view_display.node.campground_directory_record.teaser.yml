@@ -30,7 +30,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_interpretive_centre
     - field.field.node.campground_directory_record.field_july_availability
     - field.field.node.campground_directory_record.field_june_availability
-    - field.field.node.campground_directory_record.field_map_download
+    - field.field.node.campground_directory_record.field_map_upload
     - field.field.node.campground_directory_record.field_may_availability
     - field.field.node.campground_directory_record.field_meta_tags
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
@@ -226,7 +226,7 @@ hidden:
   field_hiking_trails: true
   field_image: true
   field_interpretive_centre: true
-  field_map_download: true
+  field_map_upload: true
   field_meta_tags: true
   field_one_wheelchair_camp: true
   field_outdoor_ampitheatre: true
