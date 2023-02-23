@@ -1,0 +1,22 @@
+uuid: 3da219d9-78fe-4a6d-ad68-b61514673f81
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page_level_2
+id: node.landing_page_level_2.status
+field_name: status
+entity_type: node
+bundle: landing_page_level_2
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
