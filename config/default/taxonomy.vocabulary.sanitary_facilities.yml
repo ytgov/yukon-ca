@@ -1,0 +1,8 @@
+uuid: f78d133b-a9a9-4876-ba1b-6c310f3a2097
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sanitary facilities'
+vid: sanitary_facilities
+description: ''
+weight: 0

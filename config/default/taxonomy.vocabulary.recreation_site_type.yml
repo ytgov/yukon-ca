@@ -1,0 +1,8 @@
+uuid: 49d417d6-ec36-4094-9aaa-f235db756847
+langcode: en
+status: true
+dependencies: {  }
+name: 'Recreation site type'
+vid: recreation_site_type
+description: ''
+weight: 0
