@@ -23,7 +23,10 @@ process:
         not_equals: true
         value: 1
         source: status
-    langcode: language
+    langcode:
+        plugin: default_value
+        source: language
+        default_value: "en"
     created: created
     changed: changed
     promote: promote

@@ -28,10 +28,7 @@ process:
         not_equals: true
         value: 1
         source: status
-    langcode:
-        plugin: default_value
-        source: language
-        default_value: "fr"
+    langcode: language
     created: created
     changed: changed
     promote: promote
