@@ -6,7 +6,7 @@ migration_tags:
   - taxonomy
 
 source:
-  plugin: yukon_term
+  plugin: d7_taxonomy_term
   bundle: media_folders
   translation: false
 
