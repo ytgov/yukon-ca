@@ -27,6 +27,14 @@ class YukonFile extends File {
 
       $query->condition('type', $types);
     }
+    if (isset($this->configuration['file_mime'])) {
+      $mimeTypes = $this->configuration['file_mime'];
+      if (!is_array($mimeTypes)) {
+        $mimeTypes = [$mimeTypes];
+      }
+
+      $query->condition('filemime', $mimeTypes);
+    }
     return $query;
   }
 
