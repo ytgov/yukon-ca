@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.landing_page_level_2.field_icon_dark
     - field.field.node.landing_page_level_2.field_icon_light
     - field.field.node.landing_page_level_2.field_meta_tags
+    - field.field.node.landing_page_level_2.field_page_description
     - field.field.node.landing_page_level_2.field_primary_content
     - field.field.node.landing_page_level_2.field_social_sharing
     - field.field.node.landing_page_level_2.field_yukon_editorial_team
@@ -57,6 +58,7 @@ hidden:
   addtoany: true
   field_department_term: true
   field_meta_tags: true
+  field_page_description: true
   field_social_sharing: true
   field_yukon_editorial_team: true
   langcode: true

@@ -18,7 +18,7 @@ bundle: landing_page_level_2
 label: 'Social sharing'
 description: "Select if social sharing is required on page. Default 'yes'"
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 1

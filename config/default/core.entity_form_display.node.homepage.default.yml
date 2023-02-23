@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.homepage.field_department_term
     - field.field.node.homepage.field_image_gallery
     - field.field.node.homepage.field_meta_tags
+    - field.field.node.homepage.field_page_description
     - field.field.node.homepage.field_primary_item_blocks
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
     - field.field.node.homepage.field_yukon_editorial_team
     - node.type.homepage
   module:
+    - content_moderation
     - metatag
     - paragraphs
     - path
@@ -24,7 +26,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -46,7 +48,7 @@ content:
     third_party_settings: {  }
   field_image_gallery:
     type: paragraphs
-    weight: 6
+    weight: 7
     region: content
     settings:
       title: Paragraph
@@ -64,23 +66,21 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 26
+    weight: 18
     region: content
     settings:
       sidebar: true
       use_details: true
     third_party_settings: {  }
-  field_primary_item_blocks:
-    type: entity_reference_autocomplete
-    weight: 3
+  field_page_description:
+    type: string_textarea
+    weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_secondary_item_blocks:
+  field_primary_item_blocks:
     type: entity_reference_autocomplete
     weight: 4
     region: content
@@ -90,7 +90,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_tertiary_item_blocks:
+  field_secondary_item_blocks:
     type: entity_reference_autocomplete
     weight: 5
     region: content
@@ -100,9 +100,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_tertiary_item_blocks:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -112,6 +122,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 19
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
