@@ -57,5 +57,6 @@ destination:
   default_bundle: in_page_alert
 migration_dependencies:
   optional:
+    - yukon_migrate_basic_page
     - yukon_migrate_department
     - yukon_migrate_teams
