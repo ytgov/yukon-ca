@@ -1,0 +1,123 @@
+id: yukon_migrate_event
+label: Yukon Migrate Event Nodes
+migration_tags:
+    - Drupal 7
+    - Content
+    - Event
+migration_group: legacy
+source:
+    plugin: d7_node
+    node_type: event
+    constants:
+        default_text_format: full_html
+destination:
+    plugin: entity:node
+    default_bundle: event
+process:
+    uid: node_uid
+    status:
+        plugin: skip_on_value
+        method: row
+        not_equals: true
+        value: 1
+        source: status
+    langcode: language
+    created: created
+    changed: changed
+    promote: promote
+    sticky: sticky
+    revision_log: log
+    title:
+        plugin: skip_on_empty
+        method: row
+        source: title
+    field_page_description/value: field_page_description/0/value
+    field_page_description/format: constants/default_text_format
+    field_event_start_time:
+        -
+            plugin: sub_process
+            source: field_event_start_time
+            process:
+                value:
+                    -
+                        plugin: format_date
+                        from_format: 'Y-m-d H:i:s'
+                        to_format: 'Y-m-d\TH:i:s'
+                        source: value
+                end_value:
+                    -
+                        plugin: format_date
+                        from_format: 'Y-m-d H:i:s'
+                        to_format: 'Y-m-d\TH:i:s'
+                        source: value2
+                timezone:
+                    -
+                        plugin: default_value
+                        default_value: 'America/Whitehorse'
+                rrule:
+                    -
+                        plugin: get
+                        source: rrule
+    field_contact_name: field_contact_name
+    field_contact_email: field_contact_email
+    field_postal_code: field_postal_code
+    field_contact_phone: field_contact_phone
+    field_building_name:
+        plugin: sub_process
+        source: field_building_name
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_places
+    field_event_street_address: field_event_street_address/0/value
+    field_event_locality_town: field_event_locality_town/0/value
+    field_cost: field_cost
+    field_event_description/value: field_event_description/0/value
+    field_event_description/format: constants/default_text_format
+    field_featured_event: field_featured_event
+    field_featured_image:
+        plugin: migration_lookup
+        source: field_featured_image/0/fid
+        migration: yukon_migrate_images
+        no_stub: true
+    field_event_website:
+        plugin: sub_process
+        source: field_event_website
+        process:
+            uri: url
+            title: title
+            attributes: attributes
+    field_link_title:
+        plugin: sub_process
+        source: field_link_title
+        process:
+            uri: url
+            title: title
+            attributes: attributes
+    field_community:
+        plugin: migration_lookup
+        migration: yukon_migrate_community
+        source: field_community
+        no_stub: true
+    field_category_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_category
+        source: field_category_term
+        no_stub: true
+    field_department_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_department
+        source: field_department_term
+        no_stub: true
+    field_yukon_editorial_team:
+        plugin: migration_lookup
+        migration: yukon_migrate_teams
+        source: field_yukon_editorial_team
+        no_stub: true
+migration_dependencies:
+    optional:
+        - yukon_migrate_department
+        - yukon_migrate_teams
+        - yukon_migrate_category

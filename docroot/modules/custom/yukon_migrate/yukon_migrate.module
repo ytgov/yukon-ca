@@ -26,6 +26,11 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     'yukon_migrate_engagement_categories',
     'yukon_migrate_media_folders',
     'yukon_migrate_teams',
+    'yukon_migrate_blog_type',
+    'yukon_migrate_category',
+    'yukon_migrate_community',
+    'yukon_migrate_news_types',
+    'yukon_migrate_subcategory',
   ];
   $node_migration = in_array($migration->id(), $migration_nids);
   $taxonomy_migration = in_array($migration->id(), $migration_tids);
@@ -91,7 +96,9 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
   if ($node_migration || $taxonomy_migration) {
     $query = $database->select('url_alias', 'ua');
     $query->fields('ua', ['alias']);
-    $source_condition = "node/{$nid}";
+    if ($node_migration) {
+      $source_condition = "node/{$nid}";
+    }
     if ($taxonomy_migration) {
       $source_condition = "taxonomy/term/{$tid}";
     }

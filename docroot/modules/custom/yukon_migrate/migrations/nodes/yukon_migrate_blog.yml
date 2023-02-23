@@ -1,22 +1,20 @@
-id: yukon_migrate_landing_page_level_2
-label: Landing Page Level 2
+id: yukon_migrate_blog
+label: Yukon Migrate Blog Nodes
 migration_tags:
     - Drupal 7
-    - node
-    - Landing Page Level 2
+    - Content
+    - Blog
 migration_group: legacy
 source:
     plugin: d7_node
-    node_type: landing_page_level_2
+    node_type: blog
     constants:
         default_text_format: full_html
 destination:
     plugin: entity:node
-    default_bundle: landing_page_level_2
+    default_bundle: blog
 process:
     uid: node_uid
-    nid: nid
-    title: title
     status:
         plugin: skip_on_value
         method: row
@@ -32,37 +30,38 @@ process:
     promote: promote
     sticky: sticky
     revision_log: log
+    title: title
     field_page_description/value: field_page_description/0/value
     field_page_description/format: constants/default_text_format
-    body/value: field_opener_description/0/value
+    body/value: body/0/value
     body/format: constants/default_text_format
+    field_contact/value: field_contact/0/value
+    field_contact/format: constants/default_text_format
     field_icon_dark:
         plugin: migration_lookup
         source: field_svg_upload/0/fid
         migration: yukon_migrate_icon
         no_stub: true
-    field_icon_light:
+    field_featured_image:
         plugin: migration_lookup
-        source: field_light_svg_upload/0/fid
-        migration: yukon_migrate_icon
+        source: field_featured_image/0/fid
+        migration: yukon_migrate_images
         no_stub: true
-    pseudo_field_primary_content:
-        plugin: sub_process
-        source: field_primary_content
-        process:
-            paragraph:
-                plugin: migration_lookup
-                source: value
-                migration:
-                    - yukon_migrate_primary_content
-                no_stub: true
-
-    field_primary_content:
-        plugin: sub_process
-        source: '@pseudo_field_primary_content'
-        process:
-            target_id: 'paragraph/0'
-            target_revision_id: 'paragraph/1'
+    field_blog_type:
+        plugin: migration_lookup
+        migration: yukon_migrate_blog_type
+        source: field_blog_type
+        no_stub: true
+    field_category_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_category
+        source: field_category_term
+        no_stub: true
+    field_subcategory:
+        plugin: migration_lookup
+        migration: yukon_migrate_subcategory
+        source: field_subcategory_term
+        no_stub: true
     field_department_term:
         plugin: migration_lookup
         migration: yukon_migrate_department
@@ -74,3 +73,10 @@ process:
         source: field_yukon_editorial_team
         no_stub: true
     field_social_sharing: field_social_sharing
+migration_dependencies:
+    optional:
+        - yukon_migrate_department
+        - yukon_migrate_teams
+        - yukon_migrate_blog_type
+        - yukon_migrate_category
+        - yukon_migrate_subcategory
