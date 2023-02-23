@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.basic_page
     - node.type.in_page_alert
   module:
     - content_moderation
@@ -91,5 +92,6 @@ type_settings:
       weight: 5
   entity_types:
     node:
+      - basic_page
       - in_page_alert
   default_moderation_state: draft

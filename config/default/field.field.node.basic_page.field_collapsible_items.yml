@@ -1,9 +1,9 @@
-uuid: eb0c67fb-3bc9-43ea-8807-06fb16a20f5f
+uuid: 84805030-e6c5-46b0-a097-2f28663616d8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
+    - field.storage.node.field_collapsible_items
     - node.type.basic_page
     - paragraphs.paragraphs_type.chart
     - paragraphs.paragraphs_type.collapsable_field
@@ -14,8 +14,8 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.basic_page.field_paragraphs
-field_name: field_paragraphs
+id: node.basic_page.field_collapsible_items
+field_name: field_collapsible_items
 entity_type: node
 bundle: basic_page
 label: 'Collapsable field'
