@@ -1,0 +1,26 @@
+uuid: 3604d99b-601a-4aca-af95-879af15f1619
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.landing_page_level_2
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: landing_page_level_2
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
