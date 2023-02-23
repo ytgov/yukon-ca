@@ -1,6 +1,13 @@
 tabs:
   label: Tabs
   description: A Tabs component.
+  variants:
+    default:
+      label: Default
+      description: With tabs.
+    pills:
+      label: With pills
+      description: With Bootstrap 5 pills.
   fields:
     title:
       type: text

@@ -33,6 +33,7 @@ module.exports = {
       gray: {
         DEFAULT: '#999',
         light: '#F1F1F1',
+        silver: '#D4C7CF',
         dark: '#747474',
         darker: '#595A59',
       },
@@ -62,24 +63,28 @@ module.exports = {
         'h5-mobile':    ['0.938rem', '1.375rem'],
         h5:             ['1.188rem', '1.5rem'],
         'base-mobile':  ['0.938rem', '1.375rem'],
-        'heading': fontSize(22, 24),
+        heading: fontSize(22, 24),
         'default-base': ['1rem', '1.25rem'],
-        'grande':       ['1.25rem', '1.625rem'],
-        'legendes':     ['0.813rem', '1.25rem'],
+        grande:       ['1.25rem', '1.625rem'],
+        legendes:     ['0.813rem', '1.25rem'],
       },
       fontFamily: {
         base:  ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+      margin: {
+        15: '3.75rem',
       },
       width: {
         '8.5/12': '70%',
       },
       minWidth: {
+        '8': '2rem',
       },
       lineHeight: {
-        '12': '3rem',
+        12: '3rem',
       },
       backgroundSize: {
-        'full': '100%',
+        full: '100%',
       },
       spacing: {
       },
@@ -99,6 +104,10 @@ module.exports = {
       '2xl'   : '1440px',
       '3xl'   : '1600px',
     },
+    borderWidth: {
+      DEFAULT: '1px',
+      '0': '0',
+    }
   },
   corePlugins: {
     container : false,
