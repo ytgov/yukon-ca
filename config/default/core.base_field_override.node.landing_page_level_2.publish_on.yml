@@ -1,0 +1,18 @@
+uuid: 6ac297cb-dbd4-4188-96ab-640d6d90ba43
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page_level_2
+id: node.landing_page_level_2.publish_on
+field_name: publish_on
+entity_type: node
+bundle: landing_page_level_2
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

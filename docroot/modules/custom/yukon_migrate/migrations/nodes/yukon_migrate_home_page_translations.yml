@@ -1,0 +1,106 @@
+id: yukon_migrate_home_page_translations
+label: Yukon Migrate Home Page Node Translations
+audit: true
+migration_tags:
+    - Drupal 7
+    - node
+    - Home Page
+migration_group: legacy
+source:
+    plugin: d7_node_entity_translation
+    node_type: homepage
+    constants:
+        default_text_format: full_html
+destination:
+    plugin: entity:node
+    default_bundle: homepage
+    translations: true
+process:
+    uid: uid
+    nid:
+        plugin: migration_lookup
+        migration: yukon_migrate_home_page
+        source: entity_id
+        no_stub: true
+    title: title
+    created: created
+    changed: timestamp
+    promote: promote
+    sticky: sticky
+    status:
+        plugin: skip_on_value
+        method: row
+        not_equals: true
+        value: 1
+        source: status
+    langcode: language
+    field_page_description/value: field_page_description/0/value
+    field_page_description/format: constants/default_text_format
+    body/value: body/0/value
+    body/format: constants/default_text_format
+    field_primary_item_blocks:
+        plugin: sub_process
+        source: field_primary_item_blocks
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+    field_secondary_item_blocks:
+        plugin: sub_process
+        source: field_secondary_item_blocks
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+    field_tertiary_item_blocks:
+        plugin: sub_process
+        source: field_tertiary_item_blocks
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+    field_department_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_department
+        source: field_department_term
+        no_stub: true
+    field_yukon_editorial_team:
+        plugin: migration_lookup
+        migration: yukon_migrate_teams
+        source: field_yukon_editorial_team
+        no_stub: true
+
+    pseudo_field_image_gallery:
+        plugin: sub_process
+        source: field_image_gallery
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration: yukon_migrate_image_gallery
+                no_stub: true
+
+    field_image_gallery:
+        plugin: sub_process
+        source: '@pseudo_field_image_gallery'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
+
+    content_translation_source: source
+    content_translation_outdated: translate
+migration_dependencies:
+    required:
+        - yukon_migrate_home_page

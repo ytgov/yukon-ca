@@ -1,0 +1,18 @@
+uuid: 4a889365-5563-4e5e-93aa-bf4f7430c496
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+id: node.landing_page.publish_on
+field_name: publish_on
+entity_type: node
+bundle: landing_page
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

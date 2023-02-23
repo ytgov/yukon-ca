@@ -1,0 +1,26 @@
+uuid: 7c27ed7c-3e70-46c0-90ad-7996686bfdb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.homepage
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.homepage.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: homepage
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

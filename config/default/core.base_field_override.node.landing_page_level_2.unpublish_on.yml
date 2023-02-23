@@ -1,0 +1,18 @@
+uuid: beb2fc5d-6f5d-4cde-a4c8-0f199e9f525c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page_level_2
+id: node.landing_page_level_2.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: landing_page_level_2
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp
