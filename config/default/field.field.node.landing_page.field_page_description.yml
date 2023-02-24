@@ -1,4 +1,4 @@
-uuid: 7305a309-4a17-4528-8237-22d4f8546a2b
+uuid: 665a2372-22f4-4732-be08-2d6f6c691411
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,6 @@ dependencies:
     - node.type.landing_page
   module:
     - epp
-    - text
 third_party_settings:
   epp:
     value: ''
@@ -23,4 +22,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

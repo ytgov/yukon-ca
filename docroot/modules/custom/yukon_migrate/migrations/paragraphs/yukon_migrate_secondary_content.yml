@@ -14,12 +14,8 @@ process:
 
     field_category_title: field_category_title
     field_subcategory_links:
-        -   plugin: sub_process
-            source: field_subcategory_links
-            process:
-                uri: url
-                title: title
-                attributes: attributes
+        plugin: yukon_migrate_links
+        source: field_subcategory_links
 
     field_use_landing_page_level_2_a: field_use_landing_page_level_2_a
 
@@ -32,3 +28,6 @@ process:
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: secondary_content
+migration_dependencies:
+    optional:
+        - yukon_migrate_landing_page_level_2

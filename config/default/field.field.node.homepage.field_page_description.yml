@@ -1,20 +1,20 @@
-uuid: d7ca3a05-f516-4bc8-9e3c-db0c775d7fe1
+uuid: f7008dca-b0b7-4625-a3ad-715acedcadb3
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_page_description
-    - node.type.landing_page_level_2
+    - node.type.homepage
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.landing_page_level_2.field_page_description
+id: node.homepage.field_page_description
 field_name: field_page_description
 entity_type: node
-bundle: landing_page_level_2
+bundle: homepage
 label: 'Meta description'
 description: ''
 required: false

@@ -7,7 +7,7 @@ migration_tags:
   - Media
 migration_group: legacy
 source:
-  plugin: yukon_migrate_file_mime
+  plugin: yukon_migrate_file
   scheme: public
   file_type:
     - image
