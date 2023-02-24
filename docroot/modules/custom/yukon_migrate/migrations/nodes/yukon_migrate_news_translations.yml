@@ -114,11 +114,6 @@ process:
                 uri: url
                 title: title
                 attributes: attributes
-    field_news_type:
-        plugin: migration_lookup
-        migration: yukon_migrate_news_type
-        source: field_news_type
-        no_stub: true
     field_category_term:
         plugin: migration_lookup
         migration: yukon_migrate_category
@@ -128,6 +123,11 @@ process:
         plugin: migration_lookup
         migration: yukon_migrate_department
         source: field_department_term
+        no_stub: true
+    field_news_type:
+        plugin: migration_lookup
+        migration: yukon_migrate_news_type
+        source: field_news_type
         no_stub: true
     field_yukon_editorial_team:
         plugin: migration_lookup
@@ -142,3 +142,11 @@ process:
 migration_dependencies:
     required:
         - yukon_migrate_news
+    optional:
+        - yukon_migrate_images
+        - yukon_migrate_quick_facts
+        - yukon_migrate_quotes
+        - yukon_migrate_category
+        - yukon_migrate_department
+        - yukon_migrate_news_type
+        - yukon_migrate_teams

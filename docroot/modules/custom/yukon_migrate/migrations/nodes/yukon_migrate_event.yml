@@ -96,15 +96,15 @@ process:
             uri: url
             title: title
             attributes: attributes
-    field_community:
-        plugin: migration_lookup
-        migration: yukon_migrate_community
-        source: field_community
-        no_stub: true
     field_category_term:
         plugin: migration_lookup
         migration: yukon_migrate_category
         source: field_category_term
+        no_stub: true
+    field_community:
+        plugin: migration_lookup
+        migration: yukon_migrate_community
+        source: field_community
         no_stub: true
     field_department_term:
         plugin: migration_lookup
@@ -118,6 +118,8 @@ process:
         no_stub: true
 migration_dependencies:
     optional:
+        - yukon_migrate_places
+        - yukon_migrate_category
+        - yukon_migrate_community
         - yukon_migrate_department
         - yukon_migrate_teams
-        - yukon_migrate_category

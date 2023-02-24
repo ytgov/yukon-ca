@@ -75,8 +75,10 @@ process:
     field_social_sharing: field_social_sharing
 migration_dependencies:
     optional:
-        - yukon_migrate_department
-        - yukon_migrate_teams
+        - yukon_migrate_icon
+        - yukon_migrate_images
         - yukon_migrate_blog_type
         - yukon_migrate_category
+        - yukon_migrate_department
         - yukon_migrate_subcategory
+        - yukon_migrate_teams
