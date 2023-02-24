@@ -28,3 +28,6 @@ process:
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: secondary_content
+migration_dependencies:
+    optional:
+        - yukon_migrate_landing_page_level_2
