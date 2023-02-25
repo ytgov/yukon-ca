@@ -6,44 +6,57 @@
   more_link|render ? 'has-more-link' : ''
 ] %}
 
-{% set tab_id = 'sometest'%}
+{% set tab_id = 'sometest' %}
 {% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
-  <div class="container">
-    {% if not hide_title and title %}
-      <div class="title">
-        <h2>{{ title }}</h2>
-      </div>
-    {% endif %}
-
-    <ul class="nav nav-pills pl-12 pt-5 pb-4 my-5 block columns-2
-      border-solid border-y border-y-gray-silver border-x-0" id="nav-tab-{{ tab_id }}" role="tablist">
-      {% for item in items %}
-        {% set id = item.title|trim|clean_id %}
-        <li class="nav-item w-full mb-12" role="presentation">
-          <a class="nav-link bg-none text-blue-500 hover:text-blue-200 underline flex gap-2 {% if loop.first %} active  active:text-purple {% endif %}" id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
-             aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %} >
-            <span class="{{ prefix }}-number bg-blue-500 hover:bg-blue-200 active:bg-purple rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 font-semibold">{{ loop.index }}</span>
-            {{ item.title }}</a>
-         </li>
-      {% endfor %}
-    </ul>
-    <div class="tab-content mt-15" id="nav-tab-content-{{ tab_id }}">
-      {% for item in items %}
-        {% set id = item.title|trim|clean_id %}
-        <div class="tab-pane fade show  {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel" aria-labelledby="nav-{{ id }}-tab" tabindex="0">
-          <div class="field-item text-2xl font-semibold">{{ item.title }} </div>
-          {{ item.content|raw }}
-        </div>
-      {% endfor %}
+<div class="container">
+  {% if not hide_title and title %}
+    <div class="title">
+      <h2>{{ title }}</h2>
     </div>
+  {% endif %}
+
+  <ul class="nav nav-pills pl-12 pt-5 pb-4 my-5 block columns-2
+      border-solid border-y border-y-gray-silver border-x-0" id="nav-tab-{{ tab_id }}" role="tablist">
+    {% for item in items %}
+      {% set id = item.title|trim|clean_id %}
+      <li class="nav-item w-full mb-12" role="presentation">
+        <a class="nav-link bg-none text-blue-500 hover:text-blue-200 underline flex gap-2 active:text-purple active:bg-transparent {% if loop.first %} active {% endif %}"
+           id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
+           aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %} >
+          <span
+              class="{{ prefix }}-number no-underline bg-blue-500 hover:bg-blue-200 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 font-semibold">{{ loop.index }}</span>
+          {{ item.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="tab-content mt-15" id="nav-tab-content-{{ tab_id }}">
+    {% for item in items %}
+      {% set id = item.title|trim|clean_id %}
+      <div class="tab-pane fade show  {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel"
+           aria-labelledby="nav-{{ id }}-tab" tabindex="0">
+        <div class="field-item text-2xl font-semibold">{{ item.title }} </div>
+        {{ item.content|raw }}
+      </div>
+    {% endfor %}
   </div>
-{% endset %}
+</div>
+<div class="{{ prefix }}-arrow-buttons flex">
+  <div class="prev-step btn btn-link basis-1/2">
+    <div class="{{ prefix }}-btn-link flex justify-start gap-2" style="display: none;"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+      <p> Previous</p></div>
+  </div>
+  <div class="next-step btn btn-link basis-1/2">
+    <div class="{{ prefix }}-btn-link flex justify-end gap-2"><p>Next</p>
+      <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+  </div>
+
+  {% endset %}
 
 
-{{ pattern('section', {
-  title: title,
-  content: content,
-  attribs: attributes,
-}, 'default') }}
+  {{ pattern('section', {
+    title: title,
+    content: content,
+    attribs: attributes,
+  }, 'default') }}

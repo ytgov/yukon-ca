@@ -6,7 +6,7 @@
  * @param window window Current window object
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   /**
    * Main script for the current theme
    */
@@ -32,6 +32,37 @@
           $activeTab.scrollIntoView({ behavior: 'smooth', block: tabScrollPosition });
         });
       });
+
+      $(once('arrows', '.pills-arrow-buttons .btn-link', context)).click(function () {
+        const activeTab = $('.nav-pills a.nav-link.active');
+        if ($(this).hasClass('next-step')) {
+          $(this).prev().children('.pills-btn-link').show();
+          activeTab.parent().next().children('a').addClass('active');
+          activeTab.removeClass('active');
+
+          if ($('.nav-pills .nav-item:last-child a').hasClass('active')) {
+            $(this).hide();
+          }
+        } else if ($(this).hasClass('prev-step')) {
+          $(this).next().show();
+          activeTab.parent().prev().children('a').addClass('active');
+          activeTab.removeClass('active');
+          if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
+            $(this).children('.pills-btn-link').hide();
+          }
+        }
+      });
+
+      $('.nav-pills .nav-item').click(function (e) {
+        $('.pills-arrow-buttons .btn-link .pills-btn-link').show();
+
+        if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
+          $('.pills-arrow-buttons .prev-step.btn-link .pills-btn-link').hide();
+        }
+        if ($('.nav-pills .nav-item:last-child a').hasClass('active')) {
+          $('.pills-arrow-buttons .next-step.btn-link .pills-btn-link').hide();
+        }
+      });
     },
   };
-}(jQuery, Drupal));
+}(jQuery, Drupal, once));
