@@ -110,9 +110,6 @@
             "drupal/linkit": {
                 "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
             },
-            "yukon/conditional_fields": {
-                "3286636 - Automated Drupal 10 compatibility fixes": "https://git.drupalcode.org/project/conditional_fields/-/merge_requests/19.diff"
-            },
             "yukon/geophp": {
                 "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
             },
