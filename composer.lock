@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f89e5fb1d7b2c6d94d6bcd157885cfa",
+    "content-hash": "9f2a56539c2e02fc2ef3ed0763776425",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3258,6 +3258,10 @@
                     "role": "Maintainer"
                 },
                 {
+                    "name": "lhangea",
+                    "homepage": "https://www.drupal.org/user/2743803"
+                },
+                {
                     "name": "miro_dietiker",
                     "homepage": "https://www.drupal.org/user/227761"
                 },
@@ -5235,7 +5239,7 @@
                 },
                 "drupal": {
                     "version": "2.1.x-dev",
-                    "datestamp": "1676753929",
+                    "datestamp": "1677428810",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -7984,8 +7988,8 @@
                     "dev-6.2.x": "6.2.x-dev"
                 },
                 "drupal": {
-                    "version": "6.2.0-beta5+74-dev",
-                    "datestamp": "1676490822",
+                    "version": "6.2.0-beta5+77-dev",
+                    "datestamp": "1677182740",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -8210,6 +8214,10 @@
                 {
                     "name": "larowlan",
                     "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "mstrelan",
+                    "homepage": "https://www.drupal.org/user/314289"
                 },
                 {
                     "name": "teknic",
