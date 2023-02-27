@@ -73,7 +73,7 @@ display:
               secondary_open: false
               reset_button_always_show: false
             filter:
-              created:
+              created_1:
                 plugin_id: bef_datepicker
                 advanced:
                   placeholder_text: ''
@@ -254,13 +254,15 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        created:
-          id: created
-          table: taxonomy_index
+        created_1:
+          id: created_1
+          table: node_field_data
           field: created
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: created
           plugin_id: date
           operator: '='
           value:
@@ -271,14 +273,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: created_op
+            operator_id: created_1_op
             label: 'Date:'
             description: ''
             use_operator: false
-            operator: created_op
+            operator: created_1_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: created
+            identifier: created_1
             required: false
             remember: false
             multiple: false
