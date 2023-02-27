@@ -19,6 +19,11 @@ tabs:
       label: Hide Title
       description: Hide the title.
       preview: ''
+    sequential:
+      type: string
+      label: Icon for links
+      description: Number or icon for anchor links.
+      preview: ''
     summary:
       type: text
       label: Summary

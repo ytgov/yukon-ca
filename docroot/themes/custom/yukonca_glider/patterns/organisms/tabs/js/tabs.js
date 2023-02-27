@@ -33,34 +33,40 @@
         });
       });
 
-      $(once('arrows', '.pills-arrow-buttons .btn-link', context)).click(function () {
+      $(once('arrows', '.pills-arrow-buttons .pills-btn-link', context)).click(function () {
         const activeTab = $('.nav-pills a.nav-link.active');
-        if ($(this).hasClass('next-step')) {
-          $(this).prev().children('.pills-btn-link').show();
+        const activeContent = $('.tab-content .tab-pane.show.active');
+        if ($(this).parent().hasClass('next-step')) {
+          $(this).parent().prev().children('.pills-btn-link').show();
           activeTab.parent().next().children('a').addClass('active');
           activeTab.removeClass('active');
+          activeContent.next().addClass('active');
+          activeContent.removeClass('active');
 
           if ($('.nav-pills .nav-item:last-child a').hasClass('active')) {
             $(this).hide();
           }
-        } else if ($(this).hasClass('prev-step')) {
-          $(this).next().show();
+        } else if ($(this).parent().hasClass('prev-step')) {
+          $(this).parent().next().children('.pills-btn-link').show();
           activeTab.parent().prev().children('a').addClass('active');
           activeTab.removeClass('active');
+
+          activeContent.prev().addClass('active');
+          activeContent.removeClass('active');
           if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
-            $(this).children('.pills-btn-link').hide();
+            $(this).hide();
           }
         }
       });
 
-      $('.nav-pills .nav-item').click(function (e) {
-        $('.pills-arrow-buttons .btn-link .pills-btn-link').show();
+      $('.nav-pills .nav-item').click(function () {
+        $('.pills-arrow-buttons .btn-links .pills-btn-link').show();
 
         if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
-          $('.pills-arrow-buttons .prev-step.btn-link .pills-btn-link').hide();
+          $('.pills-arrow-buttons .prev-step.btn-links .pills-btn-link').hide();
         }
         if ($('.nav-pills .nav-item:last-child a').hasClass('active')) {
-          $('.pills-arrow-buttons .next-step.btn-link .pills-btn-link').hide();
+          $('.pills-arrow-buttons .next-step.btn-links .pills-btn-link').hide();
         }
       });
     },

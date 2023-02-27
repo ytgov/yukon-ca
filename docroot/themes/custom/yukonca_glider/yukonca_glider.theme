@@ -32,9 +32,14 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $section_paragraphs = array_column($variables["content"]["field_paragraphs"], '#paragraph');
   $variables['items'] = [];
   foreach ($section_paragraphs as $paragraph) {
-    $variables['items'][] = [
+    $variables['content']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
       'content' => $paragraph->get('field_section_content')->value,
     ];
   }
+  $variables['content']['links_icon_type'] = str_replace('_', '-',
+    $variables['node']->get('field_sequential_non_sequential')->getString());
+  // Use for pills ID.
+  $variables['content']['title'] = $variables['node']->getTitle();
+
 }

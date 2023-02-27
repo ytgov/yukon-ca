@@ -3,12 +3,3 @@
     @apply bg-transparent;
   }
 }
-
-// Tabs pattern. Rewrite bootstrap class.
-.nav-pills .nav-link.active {
-  @apply bg-transparent text-purple;
-
-  .pills-number {
-    @apply  bg-purple;
-  }
-}

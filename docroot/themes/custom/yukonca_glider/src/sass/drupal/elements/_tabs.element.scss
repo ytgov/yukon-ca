@@ -1,0 +1,40 @@
+.non-sequential {
+  &::before {
+    @extend %icon;
+    @include getIcon("chevron-right");
+  }
+}
+
+// Tabs pattern. Rewrite bootstrap class.
+.nav-pills {
+  .nav-link.active {
+    @apply bg-transparent text-purple;
+
+    &:before {
+      @apply bg-purple;
+    }
+  }
+}
+
+.tab-content {
+  .field-item-content {
+    @apply mt-4;
+
+    h2 {
+      @apply font-medium mt-10 my-3;
+    }
+
+    h3 {
+      @apply font-medium mt-5 my-2;
+    }
+
+    ul {
+      @apply pl-12;
+
+      li {
+        @apply pl-2;
+      }
+    }
+
+  }
+}

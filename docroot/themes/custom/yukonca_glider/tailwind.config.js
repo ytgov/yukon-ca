@@ -33,6 +33,7 @@ module.exports = {
       gray: {
         DEFAULT: '#999',
         light: '#F1F1F1',
+        lightgray: '#EEE',
         silver: '#D4C7CF',
         dark: '#747474',
         darker: '#595A59',
@@ -43,6 +44,7 @@ module.exports = {
       tiber: '#0B3442',
       blue: {
         0: '#0B3442',
+        50: '#00535c',
         100: '#0D3E4F',
         200: '#005A65',
         300: '#00616D',
@@ -67,6 +69,7 @@ module.exports = {
         'default-base': ['1rem', '1.25rem'],
         grande:       ['1.25rem', '1.625rem'],
         legendes:     ['0.813rem', '1.25rem'],
+        circles:      ['2rem', '2rem'],
       },
       fontFamily: {
         base:  ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
@@ -106,6 +109,7 @@ module.exports = {
     },
     borderWidth: {
       DEFAULT: '1px',
+      '1': '0.0625rem',
       '0': '0',
     }
   },

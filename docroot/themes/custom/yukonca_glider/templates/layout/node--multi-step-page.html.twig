@@ -102,11 +102,13 @@
   <div{{ content_attributes.addClass('node__content') }}>
 {# Items - array from content.field_paragraph in yukonca_glider_preprocess_node__multi_step_page() #}
     {{ pattern('tabs', {
-      items: items,
+      title: content.title,
+      hide_title: true,
+      summary: content.body,
+      sequential: content.links_icon_type,
+      items: content.items,
     }, 'pills') }}
-
   </div>
-
-
-
+  {{ content.field_contact }}
+  {{ content.field_related_tasks }}
 </article>
