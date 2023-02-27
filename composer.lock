@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f2a56539c2e02fc2ef3ed0763776425",
+    "content-hash": "e0350bbed989ff129c7843e70de52b95",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2378,6 +2378,85 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/color_field",
                 "error": "require-dev.drupal/feeds : invalid version constraint (Could not parse version constraint : Invalid version string \"\")"
+            }
+        },
+        {
+            "name": "drupal/conditional_fields",
+            "version": "4.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/conditional_fields.git",
+                "reference": "4.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/conditional_fields-4.0.0-alpha2.zip",
+                "reference": "4.0.0-alpha2",
+                "shasum": "acc5658cb370583449d119a4172b7e0c2d81c86a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0-alpha2",
+                    "datestamp": "1677271425",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "ergonlogic",
+                    "homepage": "https://www.drupal.org/user/368613"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                },
+                {
+                    "name": "itsekhmistro",
+                    "homepage": "https://www.drupal.org/user/928152"
+                },
+                {
+                    "name": "mparker17",
+                    "homepage": "https://www.drupal.org/user/536298"
+                },
+                {
+                    "name": "OlgaRabodzei",
+                    "homepage": "https://www.drupal.org/user/3389198"
+                },
+                {
+                    "name": "peterpoe",
+                    "homepage": "https://www.drupal.org/user/55674"
+                },
+                {
+                    "name": "thalles",
+                    "homepage": "https://www.drupal.org/user/3589086"
+                }
+            ],
+            "description": "Define dependencies between fields based on their states and values.",
+            "homepage": "https://www.drupal.org/project/conditional_fields",
+            "support": {
+                "source": "https://git.drupalcode.org/project/conditional_fields"
             }
         },
         {
@@ -14430,16 +14509,6 @@
             "time": "2015-12-17T08:42:14+00:00"
         },
         {
-            "name": "yukon/conditional_fields",
-            "version": "4.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/conditional_fields",
-                "reference": "4.x"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "yukon/geophp",
             "version": "8.x-dev",
             "source": {
@@ -15261,6 +15330,7 @@
     "stability-flags": {
         "drupal/advanced_help": 20,
         "drupal/ajax_comments": 20,
+        "drupal/conditional_fields": 15,
         "drupal/feeds": 10,
         "drupal/feeds_tamper": 10,
         "drupal/focal_point": 15,
@@ -15273,7 +15343,6 @@
         "drupal/views_menu_children_filter": 5,
         "drupal/views_tree": 5,
         "drupal/webform": 20,
-        "yukon/conditional_fields": 20,
         "yukon/geophp": 20,
         "yukon/maxlength": 20,
         "yukon/module_missing_message_fixer": 20,
