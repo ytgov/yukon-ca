@@ -1,0 +1,11 @@
+.node--type-multi-step-page {
+  .field--name-field-contact,
+  .field--name-field-related-tasks {
+    .field__label {
+      @apply  text-lg font-medium;
+    }
+    .field__item {
+      @apply mt-2;
+    }
+  }
+}

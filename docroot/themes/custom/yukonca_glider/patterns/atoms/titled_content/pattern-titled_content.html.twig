@@ -1,0 +1,12 @@
+{% set prefix = 'titled-content' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+] %}
+
+<div {{ attribs.addClass(classes) }}>
+  <div class="border-solid border-y border-b-0 border-x-0 border-y-gray-lightgray my-7"></div>
+  <div class="{{ prefix }}-title
+      border-solid border-y border-t-0 border-y-gray-silver border-x-0 text-lg font-medium">{{ title }}</div>
+  <div class="{{ prefix }}-content py-6 mb-3 border-solid border-y border-t-0 border-y-gray-silver border-x-0"> {{ content }} </div>
+</div>

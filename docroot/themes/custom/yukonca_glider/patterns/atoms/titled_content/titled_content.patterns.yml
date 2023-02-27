@@ -1,0 +1,25 @@
+titled_content:
+  label: 'Blockquote'
+  description: A block of text quoted from an external source.
+  fields:
+    title:
+      label: With title
+      type: text
+      description: Image Card with title.
+      preview: 'Main title.'
+    content:
+      type: text
+      label: Content
+      description: The body of the quote.
+      preview: 'To be or to not to be... That is the question.'
+    attribution:
+      type: text
+      label: Attribution
+      description: Reference to the original author (optional).
+      preview: 'William Shakespeare'
+  libraries:
+    -
+      titled_content:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }
