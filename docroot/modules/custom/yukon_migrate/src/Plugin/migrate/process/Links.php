@@ -72,6 +72,7 @@ class Links extends MigrationLookup {
 
       $destination_id = parent::transform($source_nid, $migrate_executable, $row, $destination_property);
       if (!empty($destination_id)) {
+        $destination_id = is_array($destination_id) ? reset($destination_id) : $destination_id;
         $uri = "internal:/node/{$destination_id}";
       }
     }
