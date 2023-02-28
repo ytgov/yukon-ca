@@ -1,0 +1,19 @@
+uuid: 454f9322-7fea-4bc0-b3b3-0ba117aeca22
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_secondary_item_blocks
+field_name: field_secondary_item_blocks
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

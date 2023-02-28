@@ -1,0 +1,51 @@
+uuid: caebb448-a300-42a1-897a-e4de4bd99582
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.secondary_item_block
+    - field.field.node.homepage.body
+    - field.field.node.homepage.field_department_term
+    - field.field.node.homepage.field_image_gallery
+    - field.field.node.homepage.field_meta_tags
+    - field.field.node.homepage.field_page_description
+    - field.field.node.homepage.field_primary_item_blocks
+    - field.field.node.homepage.field_secondary_item_blocks
+    - field.field.node.homepage.field_tertiary_item_blocks
+    - field.field.node.homepage.field_yukon_editorial_team
+    - node.type.homepage
+  module:
+    - text
+    - user
+id: node.homepage.secondary_item_block
+targetEntityType: node
+bundle: homepage
+mode: secondary_item_block
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_secondary_item_blocks:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  field_department_term: true
+  field_image_gallery: true
+  field_meta_tags: true
+  field_page_description: true
+  field_primary_item_blocks: true
+  field_tertiary_item_blocks: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

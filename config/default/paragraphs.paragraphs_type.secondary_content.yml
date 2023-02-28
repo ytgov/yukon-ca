@@ -1,0 +1,10 @@
+uuid: 5c653824-6816-4949-9150-3bff7517cb16
+langcode: en
+status: true
+dependencies: {  }
+id: secondary_content
+label: 'Secondary content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
