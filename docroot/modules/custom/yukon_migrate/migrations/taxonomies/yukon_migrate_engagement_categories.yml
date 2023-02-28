@@ -40,3 +40,6 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: engagement_categories
+migration_dependencies:
+  required:
+    - yukon_migrate_images
