@@ -2477,6 +2477,88 @@
             "install-path": "../../docroot/modules/contrib/color_field"
         },
         {
+            "name": "drupal/conditional_fields",
+            "version": "4.0.0-alpha2",
+            "version_normalized": "4.0.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/conditional_fields.git",
+                "reference": "4.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/conditional_fields-4.0.0-alpha2.zip",
+                "reference": "4.0.0-alpha2",
+                "shasum": "acc5658cb370583449d119a4172b7e0c2d81c86a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0-alpha2",
+                    "datestamp": "1677271425",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "ergonlogic",
+                    "homepage": "https://www.drupal.org/user/368613"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                },
+                {
+                    "name": "itsekhmistro",
+                    "homepage": "https://www.drupal.org/user/928152"
+                },
+                {
+                    "name": "mparker17",
+                    "homepage": "https://www.drupal.org/user/536298"
+                },
+                {
+                    "name": "OlgaRabodzei",
+                    "homepage": "https://www.drupal.org/user/3389198"
+                },
+                {
+                    "name": "peterpoe",
+                    "homepage": "https://www.drupal.org/user/55674"
+                },
+                {
+                    "name": "thalles",
+                    "homepage": "https://www.drupal.org/user/3589086"
+                }
+            ],
+            "description": "Define dependencies between fields based on their states and values.",
+            "homepage": "https://www.drupal.org/project/conditional_fields",
+            "support": {
+                "source": "https://git.drupalcode.org/project/conditional_fields"
+            },
+            "install-path": "../../docroot/modules/contrib/conditional_fields"
+        },
+        {
             "name": "drupal/config_filter",
             "version": "1.10.0",
             "version_normalized": "1.10.0.0",
@@ -3389,6 +3471,10 @@
                     "name": "Brian Gilbert (realityloop).",
                     "homepage": "https://www.drupal.org/u/realityloop",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "lhangea",
+                    "homepage": "https://www.drupal.org/user/2743803"
                 },
                 {
                     "name": "miro_dietiker",
@@ -5460,7 +5546,7 @@
                 },
                 "drupal": {
                     "version": "2.1.x-dev",
-                    "datestamp": "1676753929",
+                    "datestamp": "1677428810",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -8335,8 +8421,8 @@
                     "dev-6.2.x": "6.2.x-dev"
                 },
                 "drupal": {
-                    "version": "6.2.0-beta5+74-dev",
-                    "datestamp": "1676490822",
+                    "version": "6.2.0-beta5+77-dev",
+                    "datestamp": "1677182740",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -8571,6 +8657,10 @@
                 {
                     "name": "larowlan",
                     "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "mstrelan",
+                    "homepage": "https://www.drupal.org/user/314289"
                 },
                 {
                     "name": "teknic",
@@ -15052,24 +15142,6 @@
             },
             "abandoned": "symfony/filesystem",
             "install-path": "../webmozart/path-util"
-        },
-        {
-            "name": "yukon/conditional_fields",
-            "version": "4.x-dev",
-            "version_normalized": "4.9999999.9999999.9999999-dev",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/conditional_fields",
-                "reference": "4.x"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "patches_applied": {
-                    "3286636 - Automated Drupal 10 compatibility fixes": "https://git.drupalcode.org/project/conditional_fields/-/merge_requests/19.diff"
-                }
-            },
-            "installation-source": "source",
-            "install-path": "../../docroot/modules/contrib/conditional_fields"
         },
         {
             "name": "yukon/geophp",
