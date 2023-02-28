@@ -42,6 +42,7 @@ class Links extends MigrationLookup {
       'yukon_migrate_basic_page_translations',
       'yukon_migrate_multi_step_page',
       'yukon_migrate_multi_step_page_translations',
+      'yukon_migrate_sub_heading',
     ];
     $configuration['no_stub'] = TRUE;
 

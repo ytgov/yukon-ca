@@ -104,3 +104,10 @@ process:
 migration_dependencies:
     required:
         - yukon_migrate_home_page
+    optional:
+        - yukon_migrate_basic_page
+        - yukon_migrate_landing_page
+        - yukon_migrate_landing_page_level_2
+        - yukon_migrate_image_gallery
+        - yukon_migrate_department
+        - yukon_migrate_teams
