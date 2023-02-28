@@ -7,7 +7,7 @@ migration_tags:
 
 source:
   plugin: d7_taxonomy_term
-  bundle: media_folders
+  bundle: media_foldersyukon_migrate_engagement
   translation: false
 
 process:
@@ -24,7 +24,7 @@ process:
       plugin: migration_lookup
       migration: yukon_migrate_media_folders
   path/alias: alias
-  path/pathauto: checked_alias
+  path/pathauto: pathauto
 
 destination:
   plugin: entity:taxonomy_term

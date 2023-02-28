@@ -6,7 +6,7 @@ migration_tags:
   - taxonomy
 
 source:
-  plugin: yukon_term
+  plugin: d7_taxonomy_term
   bundle: engagement_categories
   translation: false
 
@@ -25,7 +25,7 @@ process:
       migration: yukon_migrate_engagement_categories
 
   path/alias: alias
-  path/pathauto: checked_alias
+  path/pathauto: pathauto
 
   field_engagement_image:
     plugin: sub_process

@@ -25,7 +25,7 @@ process:
       migration: yukon_migrate_department
 
   path/alias: alias
-  path/pathauto: checked_alias
+  path/pathauto: pathauto
 
 destination:
   plugin: entity:taxonomy_term
