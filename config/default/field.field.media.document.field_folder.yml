@@ -1,0 +1,35 @@
+uuid: 07751cbd-92e5-40ef-869d-d83344286f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_folder
+    - media.type.document
+    - taxonomy.vocabulary.media_folders
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: media.document.field_folder
+field_name: field_folder
+entity_type: media
+bundle: document
+label: 'Media Folder'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media_folders: media_folders
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
