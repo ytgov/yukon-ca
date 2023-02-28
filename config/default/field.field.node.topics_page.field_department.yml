@@ -1,35 +1,35 @@
-uuid: 7fdeef5e-c784-4a2a-a2eb-d04d152a3cf5
+uuid: e4e7bc21-94c1-4c71-b244-5b57b58f38b1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_svg_upload
-    - media.type.image
-    - node.type.landing_page_level_2
+    - field.storage.node.field_department
+    - node.type.topics_page
+    - taxonomy.vocabulary.department
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.landing_page_level_2.field_svg_upload
-field_name: field_svg_upload
+id: node.topics_page.field_department
+field_name: field_department
 entity_type: node
-bundle: landing_page_level_2
-label: 'Dark SVG upload'
+bundle: topics_page
+label: Department
 description: ''
 required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      image: image
+      department: department
     sort:
-      field: _none
-      direction: ASC
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

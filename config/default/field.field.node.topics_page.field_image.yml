@@ -1,24 +1,24 @@
-uuid: 426005ef-8424-4d7c-967a-849150ae68b7
+uuid: 96ff8d65-007e-45bd-a44f-923dc32b4272
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_svg_upload
+    - field.storage.node.field_image
     - media.type.image
-    - node.type.landing_page
+    - node.type.topics_page
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.landing_page.field_svg_upload
-field_name: field_svg_upload
+id: node.topics_page.field_image
+field_name: field_image
 entity_type: node
-bundle: landing_page
-label: 'Dark SVG upload'
+bundle: topics_page
+label: 'Description image'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
