@@ -1,0 +1,33 @@
+id: yukon_migrate_secondary_content
+label: Yukon Migrate Secondary Content field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: secondary_content
+  constants:
+    default_text_format: full_html
+process:
+
+    field_category_title: field_category_title
+    field_subcategory_links:
+        plugin: yukon_migrate_links
+        source: field_subcategory_links
+
+    field_use_landing_page_level_2_a: field_use_landing_page_level_2_a
+
+    field_landing_page_level_2:
+        plugin: migration_lookup
+        source: field_landing_page_level_2/0/target_id
+        migration:
+            - yukon_migrate_landing_page_level_2
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: secondary_content
+migration_dependencies:
+    optional:
+        - yukon_migrate_landing_page_level_2

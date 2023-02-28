@@ -97,7 +97,9 @@ process:
     no_stub: true
 
   path/alias: alias
-  path/pathauto: checked_alias
+  path/pathauto: pathauto
+
+  moderation_state: moderation_state
 
 destination:
   plugin: entity:node

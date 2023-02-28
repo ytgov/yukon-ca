@@ -1,0 +1,29 @@
+uuid: ea6a7417-558a-45b7-9c67-bdf95c7606b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_sharing
+    - node.type.landing_page_level_2
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_social_sharing
+field_name: field_social_sharing
+entity_type: node
+bundle: landing_page_level_2
+label: 'Social sharing'
+description: "Select if social sharing is required on page. Default 'yes'"
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

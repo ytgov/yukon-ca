@@ -1,0 +1,35 @@
+uuid: eafaaa34-af1e-4a4a-acba-583ddec99024
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yukon_editorial_team
+    - node.type.landing_page
+    - taxonomy.vocabulary.teams
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page.field_yukon_editorial_team
+field_name: field_yukon_editorial_team
+entity_type: node
+bundle: landing_page
+label: 'Yukon Editorial Team'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      teams: teams
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

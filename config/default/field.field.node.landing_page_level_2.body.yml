@@ -1,0 +1,28 @@
+uuid: 6545959d-2e15-429a-a489-ed929190ec99
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.landing_page_level_2
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.body
+field_name: body
+entity_type: node
+bundle: landing_page_level_2
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary
