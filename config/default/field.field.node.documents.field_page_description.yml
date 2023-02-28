@@ -1,0 +1,25 @@
+uuid: d9f25992-1a8c-42e8-82d7-8b4a5d2903a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_description
+    - node.type.documents
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_page_description
+field_name: field_page_description
+entity_type: node
+bundle: documents
+label: 'Meta description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
