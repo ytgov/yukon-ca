@@ -11,8 +11,7 @@ source:
 process:
   field_title: field_sub_header
   field_link:
-    plugin: field_link
-    validate_route: false
+    plugin: yukon_migrate_links
     source: field_sub_header_item
 destination:
   plugin: entity_reference_revisions:paragraph

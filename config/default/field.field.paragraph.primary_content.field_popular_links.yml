@@ -4,14 +4,8 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_popular_links
-    - node.type.campaign_page
-    - node.type.directory_records_places
-    - node.type.documents
     - node.type.landing_page
     - node.type.multi_step_page
-    - node.type.news
-    - node.type.topics_page
-    - node.type.wetkit_page
     - paragraphs.paragraphs_type.primary_content
   module:
     - epp
