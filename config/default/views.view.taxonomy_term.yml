@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.sub_category
   module:
+    - better_exposed_filters
     - node
     - taxonomy
     - user
@@ -26,15 +29,17 @@ display:
     display_options:
       fields: {  }
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 10
           total_pages: 0
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -43,8 +48,9 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -53,6 +59,42 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: basic_html
+          bef:
+            general:
+              autosubmit: true
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: true
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              created_1:
+                plugin_id: bef_datepicker
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  is_secondary: false
+              field_category_term_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_subcategory_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
       access:
         type: perm
         options:
@@ -212,6 +254,197 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        created_1:
+          id: created_1
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_1_op
+            label: 'Date:'
+            description: ''
+            use_operator: false
+            operator: created_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: created_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_category_term_target_id:
+          id: field_category_term_target_id
+          table: node__field_category_term
+          field: field_category_term_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_category_term_target_id_op
+            label: 'Category:'
+            description: ''
+            use_operator: false
+            operator: field_category_term_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_category_term_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        field_subcategory_target_id:
+          id: field_subcategory_target_id
+          table: node__field_subcategory
+          field: field_subcategory_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_subcategory_target_id_op
+            label: 'Subcategory:'
+            description: ''
+            use_operator: false
+            operator: field_subcategory_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_subcategory_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: sub_category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
         options:
@@ -232,6 +465,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       link_display: page_1
       link_url: ''
       header:
@@ -248,6 +482,16 @@ display:
           view_mode: full
           tokenize: true
           bypass_access: false
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: "<div class=\"result-summary\">\r\n  Displaying @start - @end of @total\r\n</div>"
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -256,6 +500,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -287,13 +532,13 @@ display:
       display_extenders: {  }
       path: taxonomy/term/%/feed
       displays:
-        page_1: page_1
         default: '0'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -303,10 +548,14 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: true
       query:
         type: views_query
         options: {  }
-      display_extenders: {  }
+      exposed_block: true
+      display_extenders:
+        ajax_history:
+          enable_history: false
       path: taxonomy/term/%
     cache_metadata:
       max-age: -1
@@ -314,6 +563,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

@@ -1,24 +1,24 @@
-uuid: 6129a65c-9cd7-4d00-87e2-927ffe32dabe
+uuid: 215087f6-1540-4a16-b038-446f5537a158
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_full_width
-    - node.type.multi_step_page
+    - field.storage.node.field_featured_to_homepage
+    - node.type.news
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.multi_step_page.field_full_width
-field_name: field_full_width
+id: node.news.field_featured_to_homepage
+field_name: field_featured_to_homepage
 entity_type: node
-bundle: multi_step_page
-label: 'Full width'
+bundle: news
+label: 'Featured to homepage'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0

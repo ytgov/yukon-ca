@@ -1,21 +1,21 @@
-uuid: 6129a65c-9cd7-4d00-87e2-927ffe32dabe
+uuid: 696d2cd1-e62d-4497-9813-bc035d5335ba
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_full_width
-    - node.type.multi_step_page
+    - field.storage.node.field_social_sharing
+    - node.type.blog
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.multi_step_page.field_full_width
-field_name: field_full_width
+id: node.blog.field_social_sharing
+field_name: field_social_sharing
 entity_type: node
-bundle: multi_step_page
-label: 'Full width'
+bundle: blog
+label: 'Social sharing'
 description: ''
 required: false
 translatable: true

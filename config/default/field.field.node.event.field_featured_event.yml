@@ -1,24 +1,24 @@
-uuid: 6129a65c-9cd7-4d00-87e2-927ffe32dabe
+uuid: 905dc5b7-7916-4040-828b-be095740ca1d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_full_width
-    - node.type.multi_step_page
+    - field.storage.node.field_featured_event
+    - node.type.event
   module:
     - epp
 third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.multi_step_page.field_full_width
-field_name: field_full_width
+id: node.event.field_featured_event
+field_name: field_featured_event
 entity_type: node
-bundle: multi_step_page
-label: 'Full width'
+bundle: event
+label: 'Featured event'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0

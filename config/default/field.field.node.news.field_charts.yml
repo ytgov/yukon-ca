@@ -1,11 +1,11 @@
-uuid: 86f57c44-903f-4919-ac07-b51405f5035d
+uuid: 291754a6-8a63-407c-ae19-451f4e276a6e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
-    - node.type.multi_step_page
-    - paragraphs.paragraphs_type.multi_step
+    - field.storage.node.field_charts
+    - node.type.news
+    - paragraphs.paragraphs_type.chart
   module:
     - entity_reference_revisions
     - epp
@@ -13,11 +13,11 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.multi_step_page.field_paragraphs
-field_name: field_paragraphs
+id: node.news.field_charts
+field_name: field_charts
 entity_type: node
-bundle: multi_step_page
-label: Sections
+bundle: news
+label: Charts
 description: ''
 required: false
 translatable: false
@@ -27,19 +27,25 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      multi_step: multi_step
+      chart: chart
     negate: 0
     target_bundles_drag_drop:
       chart:
-        weight: 4
-        enabled: false
-      collapsable_field:
-        weight: 5
-        enabled: false
-      image_gallery:
-        weight: 6
-        enabled: false
-      multi_step:
-        weight: 8
+        weight: 7
         enabled: true
+      image_gallery:
+        weight: 8
+        enabled: false
+      primary_content:
+        weight: 9
+        enabled: false
+      quick_facts:
+        weight: 10
+        enabled: false
+      quotes:
+        weight: 11
+        enabled: false
+      secondary_content:
+        weight: 12
+        enabled: false
 field_type: entity_reference_revisions

@@ -1,11 +1,11 @@
-uuid: 86f57c44-903f-4919-ac07-b51405f5035d
+uuid: 2e645327-7599-40dc-9856-b78a0abf3c3c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
-    - node.type.multi_step_page
-    - paragraphs.paragraphs_type.multi_step
+    - field.storage.node.field_quick_facts
+    - node.type.news
+    - paragraphs.paragraphs_type.quick_facts
   module:
     - entity_reference_revisions
     - epp
@@ -13,11 +13,11 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.multi_step_page.field_paragraphs
-field_name: field_paragraphs
+id: node.news.field_quick_facts
+field_name: field_quick_facts
 entity_type: node
-bundle: multi_step_page
-label: Sections
+bundle: news
+label: 'Quick facts'
 description: ''
 required: false
 translatable: false
@@ -27,19 +27,22 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      multi_step: multi_step
+      quick_facts: quick_facts
     negate: 0
     target_bundles_drag_drop:
-      chart:
-        weight: 4
-        enabled: false
-      collapsable_field:
-        weight: 5
-        enabled: false
       image_gallery:
         weight: 6
         enabled: false
-      multi_step:
+      primary_content:
+        weight: 7
+        enabled: false
+      quick_facts:
         weight: 8
         enabled: true
+      quotes:
+        weight: 9
+        enabled: false
+      secondary_content:
+        weight: 10
+        enabled: false
 field_type: entity_reference_revisions
