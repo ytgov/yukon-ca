@@ -15,9 +15,10 @@ dependencies:
     - node.type.topics_page
   module:
     - content_moderation
-    - entity_reference_revisions
     - link
+    - media_library
     - metatag
+    - paragraphs
     - path
     - text
 id: node.topics_page.default
@@ -42,24 +43,17 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_department_term:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 130
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_image:
-    type: entity_reference_autocomplete
+    type: media_library_widget
     weight: 124
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
@@ -78,14 +72,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_paragraphs:
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
     weight: 128
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_top_task:
     type: link_default
@@ -104,14 +100,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_yukon_editorial_team:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 125
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
