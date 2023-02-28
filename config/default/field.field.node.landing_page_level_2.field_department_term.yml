@@ -1,0 +1,35 @@
+uuid: 204936de-7ac9-498c-b336-e42923c29462
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_department_term
+    - node.type.landing_page_level_2
+    - taxonomy.vocabulary.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page_level_2.field_department_term
+field_name: field_department_term
+entity_type: node
+bundle: landing_page_level_2
+label: Department
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

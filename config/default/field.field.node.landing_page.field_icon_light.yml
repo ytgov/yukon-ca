@@ -1,0 +1,35 @@
+uuid: cb89d9d6-e7e4-481b-97f5-6d4e161ba6d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon_light
+    - media.type.icon
+    - node.type.landing_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page.field_icon_light
+field_name: field_icon_light
+entity_type: node
+bundle: landing_page
+label: 'Light SVG upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

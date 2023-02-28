@@ -1,0 +1,28 @@
+uuid: 10d06e08-334d-49dc-ab28-3f23424aa42a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_target_content
+    - node.type.landing_page
+  module:
+    - epp
+    - link
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.landing_page.field_target_content
+field_name: field_target_content
+entity_type: node
+bundle: landing_page
+label: 'Target content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

@@ -1,0 +1,10 @@
+uuid: 952cbb4a-efdc-4d8b-9dec-446c538454d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.tertiary_item_blocks
+label: 'Tertiary item blocks'
+targetEntityType: node
+cache: true

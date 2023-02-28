@@ -1,0 +1,22 @@
+uuid: f289c311-542d-40ba-ab01-83d3711cf6ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+id: taxonomy_term.media_folders.status
+field_name: status
+entity_type: taxonomy_term
+bundle: media_folders
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

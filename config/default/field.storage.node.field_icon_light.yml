@@ -1,0 +1,20 @@
+uuid: 730eda46-c1da-42fc-bfcd-85fe5a95b3b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_icon_light
+field_name: field_icon_light
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

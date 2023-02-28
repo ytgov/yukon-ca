@@ -1,0 +1,28 @@
+uuid: 3c7c501a-2b53-475f-8d4f-a32099eb90f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.homepage
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.homepage.body
+field_name: body
+entity_type: node
+bundle: homepage
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

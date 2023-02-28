@@ -1,0 +1,14 @@
+uuid: 3081361e-25fd-480b-b1bc-ac2878136f0c
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user_path
+label: 'User path'
+type: 'canonical_entities:user'
+pattern: 'users/[user:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }
