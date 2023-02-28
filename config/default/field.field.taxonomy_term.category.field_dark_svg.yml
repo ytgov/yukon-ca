@@ -1,0 +1,35 @@
+uuid: e5fa26c1-d86d-4dcd-9bc0-6b3df71bc998
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_dark_svg
+    - media.type.image
+    - taxonomy.vocabulary.category
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.category.field_dark_svg
+field_name: field_dark_svg
+entity_type: taxonomy_term
+bundle: category
+label: 'Dark SVG'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
