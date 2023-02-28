@@ -1,9 +1,9 @@
-uuid: e4e7bc21-94c1-4c71-b244-5b57b58f38b1
+uuid: 3f0c5394-d800-4950-a879-65caf334f893
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_department
+    - field.storage.node.field_department_term
     - node.type.topics_page
     - taxonomy.vocabulary.department
   module:
@@ -12,8 +12,8 @@ third_party_settings:
   epp:
     value: ''
     on_update: 0
-id: node.topics_page.field_department
-field_name: field_department
+id: node.topics_page.field_department_term
+field_name: field_department_term
 entity_type: node
 bundle: topics_page
 label: Department

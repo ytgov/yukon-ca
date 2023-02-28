@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.topics_page.body
-    - field.field.node.topics_page.field_department
+    - field.field.node.topics_page.field_department_term
     - field.field.node.topics_page.field_image
     - field.field.node.topics_page.field_meta_tags
     - field.field.node.topics_page.field_page_description
@@ -31,13 +31,13 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
-  field_department:
+  field_department_term:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 109
+    weight: 110
     region: content
   field_image:
     type: entity_reference_label

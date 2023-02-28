@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.topics_page.body
-    - field.field.node.topics_page.field_department
+    - field.field.node.topics_page.field_department_term
     - field.field.node.topics_page.field_image
     - field.field.node.topics_page.field_meta_tags
     - field.field.node.topics_page.field_page_description
@@ -29,7 +29,7 @@ content:
 hidden:
   addtoany: true
   body: true
-  field_department: true
+  field_department_term: true
   field_image: true
   field_meta_tags: true
   field_page_description: true
