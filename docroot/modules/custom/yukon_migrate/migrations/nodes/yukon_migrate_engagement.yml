@@ -11,7 +11,6 @@ source:
   node_type: engagement
   constants:
     default_text_format: full_html
-    slash: '/'
 process:
   langcode:
     plugin: default_value
