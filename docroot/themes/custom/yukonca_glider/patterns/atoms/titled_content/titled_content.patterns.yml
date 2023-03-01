@@ -1,22 +1,17 @@
 titled_content:
-  label: 'Blockquote'
-  description: A block of text quoted from an external source.
+  label: 'Titled Content'
+  description: A block with border under the title.
   fields:
     title:
-      label: With title
+      label: Title
       type: text
-      description: Image Card with title.
+      description: Title.
       preview: 'Main title.'
     content:
       type: text
       label: Content
-      description: The body of the quote.
-      preview: 'To be or to not to be... That is the question.'
-    attribution:
-      type: text
-      label: Attribution
-      description: Reference to the original author (optional).
-      preview: 'William Shakespeare'
+      description: MAin content field.
+      preview: 'Section content.'
   libraries:
     -
       titled_content:
