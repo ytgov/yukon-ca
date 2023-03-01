@@ -4,9 +4,31 @@
     @apply min-h-full font-base text-black;
   }
 
+  ul,
+  ol {
+    li {
+      @apply list-disc pl-2.5;
+
+      ul {
+        @apply pl-2.5;
+
+        li {
+          @apply list-circle;
+        }
+      }
+    }
+  }
+
+  img {
+    @apply max-w-full opacity-100;
+  }
+
+  img[data-src] {
+    @apply opacity-0;
+  }
+
   a {
-    @apply underline;
-    @apply text-blue-500;
+    @apply underline text-blue-500;
 
     &:visited {
       @apply text-purple;
@@ -17,4 +39,36 @@
       @apply text-blue-200;
     }
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium mt-6 text-black;
+
+  }
+
+  .field--name-body,
+  .field-item-content {
+    @apply leading-relaxed;
+
+    h2,
+    .h2 {
+      @apply pt-10;
+    }
+
+    h3,
+    .h3 {
+      @apply font-medium pt-5;
+    }
+  }
+
+  .field {
+    .field-items {
+      @apply mt-6;
+    }
+  }
+
 }
