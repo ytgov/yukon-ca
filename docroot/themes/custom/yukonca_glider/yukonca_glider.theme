@@ -41,6 +41,7 @@ function yukonca_glider_preprocess_block(&$variables) {
 }
 
 /**
+<<<<<<< HEAD
  * Implements hook_theme_suggestions_HOOK_alter() for page template.
  */
 function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array $variables) {
@@ -56,12 +57,18 @@ function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array 
 }
 
 /**
+=======
+>>>>>>> ea2568b11198a8e76a82d0884197c6ba5ba913bd
  * Implements template_preprocess_node().
  */
 function yukonca_glider_preprocess_node(&$variables) {
   $type = $variables['node']->bundle();
   $view_mode = $variables['view_mode'];
+<<<<<<< HEAD
   if (!empty($type) && $type == 'landing_page' && $view_mode == 'primary_item_block') {
+=======
+  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
+>>>>>>> ea2568b11198a8e76a82d0884197c6ba5ba913bd
     // Render only the first three links in field_primary_content.
     $links = $variables['node']->field_primary_content->getValue();
     foreach ($links as $key => $link) {
@@ -71,6 +78,7 @@ function yukonca_glider_preprocess_node(&$variables) {
     }
   }
 }
+<<<<<<< HEAD
 
 /**
  * Implements template_proprocess_page().
@@ -88,3 +96,5 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
   }
 }
+=======
+>>>>>>> ea2568b11198a8e76a82d0884197c6ba5ba913bd

@@ -68,21 +68,20 @@
  */
 #}
 {%
-  set classes = [
+    set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
+]
 %}
 {{ attach_library('classy/node') }}
 <article{{attributes.addClass(classes)}}>
-
-	{{ title_prefix }}
-	{% if label and not page %}
-			<a href="{{ url }}" rel="bookmark">
+    {{ title_prefix }}
+    {% if label and not page %}
+        <a href="{{ url }}" rel="bookmark">
         <span class="row row-cols-2 g-0">
           <span class="smallerish-svg">
             {{ content }}
@@ -93,10 +92,8 @@
             </h2>
           </span>
         </span>
-      </a>
-	{% endif %}
-	{{ title_suffix }}
-
-
+        </a>
+    {% endif %}
+    {{ title_suffix }}
 </article>
 
