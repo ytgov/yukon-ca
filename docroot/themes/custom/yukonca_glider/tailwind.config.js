@@ -74,7 +74,7 @@ module.exports = {
         base: ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
       },
       margin: {
-        15: '3.75rem',
+        15: rem(15 * 4),
       },
       padding: {
         2.5: rem(2.5 * 4),
@@ -83,15 +83,14 @@ module.exports = {
         '8.5/12': '70%',
       },
       minWidth: {
-        '8': '2rem',
+        '8': rem(8 * 4),
       },
       lineHeight: {
-        12: '3rem',
+        12: rem(12 * 4),
       },
       backgroundSize: {
         full: '100%',
       },
-      spacing: {},
       textDecoration: ['focus-visible'],
       boxShadow: {
         card: '0px 8.01379px 14.0241px rgba(166, 170, 172, 0.035), 0px 2.89843px 5.07226px rgba(166, 170, 172, 0.0243888)',
