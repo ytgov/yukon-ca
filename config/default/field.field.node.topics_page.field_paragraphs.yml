@@ -1,0 +1,54 @@
+uuid: 86923ab8-2531-480c-8377-3f8377ab0870
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.topics_page
+    - paragraphs.paragraphs_type.sub_heading
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.topics_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: topics_page
+label: Sub-header
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sub_heading: sub_heading
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 8
+        enabled: false
+      collapsable_field:
+        weight: 9
+        enabled: false
+      image_gallery:
+        weight: 10
+        enabled: false
+      multi_step:
+        weight: 11
+        enabled: false
+      primary_content:
+        weight: 12
+        enabled: false
+      secondary_content:
+        weight: 13
+        enabled: false
+      sub_heading:
+        weight: 14
+        enabled: true
+field_type: entity_reference_revisions
