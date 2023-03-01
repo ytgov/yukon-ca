@@ -113,7 +113,7 @@
 
     {{ content.field_contact }}
 
-    {% if content.field_related_tasks %}
+    {% if content.field_related_tasks|render %}
       {{ pattern('titled_content', {
         title: 'Related'|t,
         content: content.field_related_tasks,

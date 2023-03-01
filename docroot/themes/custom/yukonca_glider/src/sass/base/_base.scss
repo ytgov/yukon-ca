@@ -1,19 +1,28 @@
 @layer base {
+  *,
+  ::before,
+  ::after {
+    border-width: 0;
+    border-style: solid;
+  }
+
   html,
   body {
     @apply min-h-full font-base text-black;
   }
 
-  ul,
-  ol {
-    li {
-      @apply list-disc pl-2.5;
+  body {
+    ul,
+    ol {
+      li {
+        @apply list-disc pl-2.5;
 
-      ul {
-        @apply pl-2.5;
+        ul {
+          @apply pl-2.5;
 
-        li {
-          @apply list-circle;
+          li {
+            @apply list-circle;
+          }
         }
       }
     }
@@ -40,12 +49,17 @@
     }
   }
 
+  .field-label {
+    @apply text-lg;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  .field-label {
     @apply font-medium mt-6 text-black;
 
   }
