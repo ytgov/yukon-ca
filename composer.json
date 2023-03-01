@@ -83,6 +83,7 @@
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_menu_children_filter": "^3.0@RC",
         "drupal/views_tree": "^2.0@RC",
+        "drupal/views_year_filter": "^2.1",
         "drupal/viewsreference": "^1.7",
         "drupal/webform": "6.2.x-dev@dev",
         "drupal/workbench": "^1.4",
