@@ -1,21 +1,56 @@
 /* Add your code here */
-.non-sequential {
-  .pills-number {
-    @apply hidden;
-  }
-  &:before {
-    @apply inline-block bg-blue-500 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center font-semibold text-circles;
+.nav-pills {
+  .nav-link {
+    &::before {
+      @apply bg-blue-500 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 mr-2 ml-[-40px] font-semibold;
+      content: counter(my-awesome-counter);
+    }
+
+    &.active {
+      @apply text-purple;
+
+      &::before,
+      &.active:hover::before {
+        @apply bg-purple;
+      }
+
+      .pills-number {
+        @apply bg-purple;
+      }
+    }
+
+    &:hover {
+      @apply bg-none;
+
+      &::before {
+        @apply bg-blue-200;
+      }
+
+      .pills-number {
+        @apply bg-blue-200;
+      }
+    }
   }
 
-  &:hover {
-    &:before {
-      @apply bg-blue-200;
-    }
+  li {
+    counter-increment: my-awesome-counter;
   }
 }
 
-.sequential.active {
-  .pills-number {
-    @apply bg-purple;
+.tab-content {
+  .tab-pane.fade {
+    @apply hidden;
+  }
+
+  .tab-pane.fade.show.active {
+    @apply block;
+  }
+}
+
+.pills-arrow {
+  .btn-links.hide {
+    .pills-btn-link {
+      display: none;
+    }
   }
 }

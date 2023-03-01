@@ -11,7 +11,7 @@
     @apply min-h-full font-base text-black;
   }
 
-  body {
+  .field__content {
     ul,
     ol {
       li {
@@ -59,7 +59,8 @@
   h4,
   h5,
   h6,
-  .field-label {
+  .field-label,
+  .field__label {
     @apply font-medium mt-6 text-black;
 
   }

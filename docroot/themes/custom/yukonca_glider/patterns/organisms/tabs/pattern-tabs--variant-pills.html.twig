@@ -10,62 +10,61 @@
 {% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
-<div class="container">
+<div class="container border-b border-solid border-gray-lightgray pb-8">
   {% if not hide_title and title %}
     <div class="title">
       <h2>{{ title }}</h2>
     </div>
   {% endif %}
-
-  <ul class="nav nav-pills pl-12 pt-5 pb-4 my-5 block columns-2
-      border-solid border-y border-y-gray-silver border-x-0" id="nav-tab-{{ tab_id }}" role="tablist">
-    {% for item in items %}
-      {% set id = item.title|trim|clean_id %}
-      <li class="nav-item w-full mb-12" role="presentation">
-        <a class="{{ sequential }}  nav-link p-0 bg-none inline-block  text-blue-500 hover:text-blue-200 flex gap-2 items-center active:text-purple  {% if loop.first %} active {% endif %}"
-           id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
-           aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %} >
-          <span class="{{ prefix }}-number bg-blue-500 hover:bg-blue-200  rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 font-semibold">
-            {{ loop.index }}</span>
-          <span class="underline">{{ item.title }}</span></a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="{{ prefix }}-wrapper border-solid border-y border-gray-lightborder">
+    <ul class="nav nav-pills block columns-2 pl-12 py-6" id="nav-tab-{{ tab_id }}" role="tablist">
+      {% for item in items %}
+        {% set id = item.title|trim|clean_id %}
+        <li class="nav-item w-full mb-12 pl-10 list-none" role="presentation">
+          <a class="nav-link {{ sequential }} {% if loop.first %} active {% endif %}"
+             id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
+             aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %}>
+{#          <span#}
+{#              class="{{ prefix }}-number bg-blue-500 hover:bg-blue-200 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 font-semibold">#}
+{#            {{ loop.index }}</span>#}
+            {{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
   <div class="summary important-paragraph">{{ summary }}</div>
 
   <div class="tab-content mt-15" id="nav-tab-content-{{ tab_id }}">
     {% for item in items %}
       {% set id = item.title|trim|clean_id %}
-      <div class="tab-pane fade show  {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel"
+      <div class="tab-pane fade show {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel"
            aria-labelledby="nav-{{ id }}-tab" tabindex="0">
         <div class="field-item text-2xl my-4 font-semibold">{{ item.title }} </div>
-        <div class="field-item-content">
+        <div class="field-item-content field__content">
           {{ item.content|raw }}
         </div>
       </div>
     {% endfor %}
+    <div class="{{ prefix }}-arrow flex justify-between items-center py-8">
+      <div class="prev-step btn-links hide">
+        <div class="{{ prefix }}-btn-link flex gap-2 text-blue-400 hover:text-blue-50  cursor-pointer text-2xl">
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          <span class="text-base">{{ 'Previous'|t }}</span>
+        </div>
+      </div>
+      <div class="next-step btn-links">
+        <div class="{{ prefix }}-btn-link flex gap-2 text-blue-400 hover:text-blue-50 cursor-pointer text-2xl">
+          <span class="text-base">{{ 'Next'|t }}</span>
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+      </div>
+    </div>
   </div>
-</div>
+  {% endset %}
 
 
-<div class="{{ prefix }}-arrow-buttons flex text-base pt-8 pb-8 mb-8 border-y border-solid border-y-gray-lightgray border-x-0 border-t-0">
-  <div class="prev-step btn-links basis-1/2">
-    <div class="{{ prefix }}-btn-link flex justify-start items-center gap-2 text-blue-400 hover:text-blue-50 cursor-pointer" style="display: none;">
-      <i class="fa fa-arrow-circle-left text-circles" aria-hidden="true"></i>
-      <div>{{ 'Previous'|t }}</div></div>
-  </div>
-  <div class="next-step btn-links basis-1/2">
-    <div class="{{ prefix }}-btn-link flex justify-end items-center gap-2 text-blue-400 hover:text-blue-50 cursor-pointer">
-      <span>{{ 'Next'|t }}</span>
-      <i class="fa fa-arrow-circle-right text-circles" aria-hidden="true"></i></div>
-  </div>
-
-{% endset %}
-
-
-  {{ pattern('section', {
-    title: title,
-    content: content,
-    attribs: attributes,
-  }, 'default') }}
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}

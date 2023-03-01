@@ -1,8 +1,5 @@
 .node--type-multi-step-page {
-  .field--name-field-contact,
-  .field--name-field-related-tasks {
-    .field__item {
-      @apply mb-5;
-    }
+  .field__item {
+    @apply mb-5;
   }
 }
