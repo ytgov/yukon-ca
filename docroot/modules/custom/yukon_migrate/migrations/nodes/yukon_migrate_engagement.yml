@@ -86,6 +86,7 @@ destination:
   plugin: entity:node
   default_bundle: engagement
 migration_dependencies:
-  optional:
+  required:
     - yukon_migrate_engagement_categories
     - yukon_migrate_teams
+    - yukon_migrate_department

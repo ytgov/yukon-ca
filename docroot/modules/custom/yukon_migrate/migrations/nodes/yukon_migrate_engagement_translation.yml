@@ -100,3 +100,6 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_engagement
+    - - yukon_migrate_engagement_categories
+      - yukon_migrate_teams
+      - yukon_migrate_department
