@@ -25,6 +25,9 @@
           // On tab switch: update URL fragment.
           const hash = $(e.target).attr('href');
           const tabScrollPosition = 'center';
+          if (hash.substr(0, 1) === '#') {
+            winLocation.replace(`#!${hash.substr(1)}`);
+          }
           const $activeTab = document.querySelector(`${hash}-tab`);
           $activeTab.scrollIntoView({ behavior: 'smooth', block: tabScrollPosition });
         });

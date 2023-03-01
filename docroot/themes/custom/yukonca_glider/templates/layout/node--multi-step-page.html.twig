@@ -104,10 +104,10 @@
       {# Items - array from content.field_paragraph in yukonca_glider_preprocess_node__multi_step_page() #}
       {{ pattern('tabs', {
         title: content.title,
-        hide_title: true,
+        tab_id: tabs.id,
         summary: content.body,
-        sequential: content.links_icon_type,
-        items: content.items,
+        sequential: tabs.links_icon_type,
+        items: tabs.items,
       }, 'pills') }}
     {% endif %}
 

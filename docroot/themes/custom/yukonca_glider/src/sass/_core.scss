@@ -33,7 +33,6 @@ $colors: map-remove($colors,
   "light",
   "dark"
 );
-$border-width: 0;
 
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";

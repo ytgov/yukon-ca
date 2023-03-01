@@ -5,6 +5,8 @@
  * Theme specific functionality.
  */
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_preprocess_html().
  */
@@ -30,16 +32,18 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
  */
 function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $section_paragraphs = array_column($variables["content"]["field_paragraphs"], '#paragraph');
-  $variables['items'] = [];
+  $node = $variables['node'];
+
+  $variables['tabs']['items'] = [];
   foreach ($section_paragraphs as $paragraph) {
-    $variables['content']['items'][] = [
+    $variables['tabs']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
       'content' => $paragraph->get('field_section_content')->value,
     ];
   }
-  $variables['content']['links_icon_type'] = str_replace('_', '-',
-    $variables['node']->get('field_sequential_non_sequential')->getString());
+
+  $variables['tabs']['links_icon_type'] = $node->get('field_sequential_non_sequential')->getString();
   // Use for pills ID.
-  $variables['content']['title'] = $variables['node']->getTitle();
+  $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
 
 }

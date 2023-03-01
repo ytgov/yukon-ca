@@ -6,12 +6,11 @@
   more_link|render ? 'has-more-link' : ''
 ] %}
 
-{% set tab_id = title|trim|clean_id %}
 {% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
 <div class="container border-b border-solid border-gray-lightgray pb-8">
-  {% if not hide_title and title %}
+  {% if title %}
     <div class="title">
       <h2>{{ title }}</h2>
     </div>
@@ -24,9 +23,6 @@
           <a class="nav-link {{ sequential }} {% if loop.first %} active {% endif %}"
              id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
              aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %}>
-{#          <span#}
-{#              class="{{ prefix }}-number bg-blue-500 hover:bg-blue-200 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 font-semibold">#}
-{#            {{ loop.index }}</span>#}
             {{ item.title }}</a>
         </li>
       {% endfor %}

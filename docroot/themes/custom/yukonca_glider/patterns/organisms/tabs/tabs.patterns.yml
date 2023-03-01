@@ -14,6 +14,11 @@ tabs:
       label: Title
       description: A title.
       preview: 'Phonetic alphabets'
+    tab_id:
+      type: string
+      label: Main identifier.
+      description: Unique id.
+      preview: 'some-unique-id'
     hide_title:
       type: string
       label: Hide Title
