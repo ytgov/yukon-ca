@@ -1,0 +1,46 @@
+id: yukon_migrate_engagement_categories
+label: Engagement Categories taxonomy terms
+migration_group: legacy
+migration_tags:
+  - Drupal 7
+  - taxonomy
+
+source:
+  plugin: d7_taxonomy_term
+  bundle: engagement_categories
+  translation: false
+
+process:
+  language: language
+  name: name
+  description: description
+  weight: weight
+  parent:
+    -
+      plugin: skip_on_empty
+      source: parent
+      method: process
+    -
+      plugin: migration_lookup
+      migration: yukon_migrate_engagement_categories
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  field_engagement_image:
+    plugin: sub_process
+    source: field_engagement_image
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: fid
+        migration: yukon_migrate_images
+        no_stub: true
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: engagement_categories
+migration_dependencies:
+  required:
+    - yukon_migrate_images
+    - yukon_migrate_engagement_categories

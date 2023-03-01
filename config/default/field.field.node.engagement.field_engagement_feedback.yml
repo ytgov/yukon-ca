@@ -1,0 +1,26 @@
+uuid: 661b8e45-89cc-4d82-b78c-30ba154fc396
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_feedback
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_feedback
+field_name: field_engagement_feedback
+entity_type: node
+bundle: engagement
+label: 'Give your feedback on the engagement process'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
