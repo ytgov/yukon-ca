@@ -915,6 +915,7 @@ display:
       display_description: ''
       header: {  }
       rendering_language: '***LANGUAGE_language_interface***'
+      exposed_block: true
       display_extenders:
         ajax_history: {  }
     cache_metadata:
