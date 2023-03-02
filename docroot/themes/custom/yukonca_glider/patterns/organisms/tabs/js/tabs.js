@@ -40,7 +40,27 @@
    */
   Drupal.behaviors.pillsJS = {
     attach (context) {
-      $(once('arrows', '.pills-arrow .pills-btn-link', context)).click(function () {
+      // For bootstrap 5.2.
+      const winLocation = window.location;
+      $(once('changeHash', document, context)).ready(function(){
+        /* Navigate to tab if it exists in the URL. */
+        if (winLocation.hash.substr(0, 1) === '#') {
+          $(`a[data-bs-toggle="tab"][data-bs-target="${winLocation.hash}"]`).tab('show');
+        }
+      })
+
+        $('a[data-bs-toggle="tab"]', context).on('shown.bs.tab', (e) => {
+          // On tab switch: update URL fragment.
+          const hash = $(e.target).attr('data-bs-target');
+          if (hash.substr(0, 1) === '#') {
+            winLocation.replace(`${hash}`);
+          }
+
+          const $activeContent = document.querySelector(`${hash}`);
+          $activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        $(once('arrows', '.pills-arrow .pills-btn-link', context)).on('shown.bs.tab', function () {
         if ($(this).parent().hasClass('next-step')) {
           $('.nav-pills .active').parent().next('li').find('a').tab('show');
         } else if ($(this).parent().hasClass('prev-step')) {
@@ -48,7 +68,7 @@
         }
       });
 
-      $('.nav-pills .nav-item').click(function () {
+      $('.nav-pills .nav-item').click(function (e) {
         $('.pills-arrow .btn-links').removeClass('hide');
         if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
           $('.pills-arrow .prev-step.btn-links').addClass('hide');

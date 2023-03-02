@@ -48,6 +48,10 @@
 
   .tab-pane.fade.show.active {
     @apply block;
+
+    &:focus-visible {
+
+    }
   }
 }
 

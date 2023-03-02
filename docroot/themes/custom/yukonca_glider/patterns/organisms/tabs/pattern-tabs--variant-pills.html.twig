@@ -35,7 +35,7 @@
     {% for item in items %}
       {% set id = item.title|trim|clean_id %}
       <div class="tab-pane fade show {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel"
-           aria-labelledby="nav-{{ id }}-tab" tabindex="0">
+           aria-labelledby="nav-{{ id }}-tab" tabindex="-1">
         <div class="field-item text-2xl my-4 font-semibold">{{ item.title }} </div>
         <div class="field-item-content field__content">
           {{ item.content|raw }}
