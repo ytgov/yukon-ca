@@ -53,7 +53,7 @@
 
     .btn {
       min-width: 55px;
-      border: 1px solid $light-border;
+      border-color: $light-border;
       border-radius: 0;
       height: 32px;
       padding: 0;
@@ -88,6 +88,9 @@
           margin-right: 0;
         }
 
+        @include media-breakpoint-up(md) {
+          float: none;
+        }
       }
 
       &.next {
@@ -100,6 +103,10 @@
         .fa,
         .svg-inline--fa {
           margin-left: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          float: none;
         }
       }
     }

@@ -30,9 +30,4 @@
   img {
     @apply w-[120px] h-[85px] md:h-[120px];
   }
-
-  h1.title {
-    @apply text-center md:text-left;
-    @apply md:w-3/5 lg:w-2/5;
-  }
 }

@@ -50,6 +50,7 @@ function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array 
     if (is_numeric($node)) {
       $node = Node::load($node);
     }
+
     $suggestions[] = 'page__node__' . $node->bundle();
   }
 }
@@ -60,7 +61,7 @@ function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array 
 function yukonca_glider_preprocess_node(&$variables) {
   $type = $variables['node']->bundle();
   $view_mode = $variables['view_mode'];
-  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
+  if (!empty($type) && $type == 'landing_page' && $view_mode == 'primary_item_block') {
     // Render only the first three links in field_primary_content.
     $links = $variables['node']->field_primary_content->getValue();
     foreach ($links as $key => $link) {
@@ -75,7 +76,7 @@ function yukonca_glider_preprocess_node(&$variables) {
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
-  if (!empty($variables['node'])) {
+  if ($variables['node']) {
     $bundle = $variables['node']->bundle();
     if ($bundle == 'landing_page' || $bundle == 'landing_page_level_2') {
       $node = $variables['node'];

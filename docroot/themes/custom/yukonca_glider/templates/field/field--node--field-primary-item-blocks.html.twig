@@ -38,7 +38,7 @@
  */
 #}
 {%
-    set classes = [
+  set classes = [
     'primary-items',
     'row d-block',
     'field',
@@ -46,23 +46,49 @@
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
-]
+  ]
 %}
 {%
-    set title_classes = [
+  set title_classes = [
     'field__label',
     label_display == 'visually_hidden' ? 'visually-hidden',
-]
+  ]
 %}
 
-<div{{attributes.addClass(classes,'field__items')}}>
-    {% for item in items %}
-        <div{{item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
-            <div class="primary-single-item box-items">
-                <span class="faded-box"></span>
-                {{ item.content }}
-            </div>
+{% if label_hidden %}
+	{% if multiple %}
+		<div{{attributes.addClass(classes,'field__items')}}>
+			{% for item in items %}
+				<div{{item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
+          <div class="primary-single-item box-items">
+            <span class="faded-box"></span>
+            {{ item.content }}
+          </div>
         </div>
-    {% endfor %}
-</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		{% for item in items %}
+			<div{{attributes.addClass(classes,'field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
+        <div class="primary-single-item box-items">
+          <span class="faded-box"></span>
+          {{ item.content }}
+        </div>
+      </div>
+		{% endfor %}
+	{% endif %}
+{% else %}
+	<div{{attributes.addClass(classes)}}>
+		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
+		{% if multiple %}
+			<div class="field__items">
+			{% endif %}
+			{% for item in items %}
+				<div{{item.attributes.addClass('field__item')}}>{{ item.content }}</div>
+			{% endfor %}
+			{% if multiple %}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
 
