@@ -43,3 +43,6 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: blog_type
+migration_dependencies:
+  optional:
+    - yukon_migrate_images

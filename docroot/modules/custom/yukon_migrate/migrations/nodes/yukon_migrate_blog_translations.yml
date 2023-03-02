@@ -78,6 +78,10 @@ process:
     field_social_sharing: field_social_sharing
     content_translation_source: source
     content_translation_outdated: translate
+
+    path/alias: alias
+    path/pathauto: pathauto
+
 migration_dependencies:
     required:
         - yukon_migrate_blog

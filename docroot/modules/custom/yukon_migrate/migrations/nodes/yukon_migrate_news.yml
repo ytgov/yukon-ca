@@ -85,8 +85,7 @@ process:
             paragraph:
                 plugin: migration_lookup
                 source: value
-                migration:
-                    - yukon_migrate_charts
+                migration: yukon_migrate_charts
                 no_stub: true
 
     field_charts:
@@ -132,9 +131,14 @@ process:
     field_social_sharing: field_social_sharing
     field_featured_news_item: field_featured_news_item
     field_featured_to_homepage: field_featured_to_homepage
+
+    path/alias: alias
+    path/pathauto: pathauto
+
 migration_dependencies:
     optional:
         - yukon_migrate_images
+        - yukon_migrate_charts
         - yukon_migrate_quick_facts
         - yukon_migrate_quotes
         - yukon_migrate_category
