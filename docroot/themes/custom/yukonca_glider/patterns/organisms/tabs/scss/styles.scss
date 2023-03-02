@@ -1,9 +1,13 @@
-/* Add your code here */
 .nav-pills {
+  &.sequential .nav-link {
+    &::before {
+      content: counter(my-awesome-counter);
+    }
+  }
   .nav-link {
     &::before {
-      @apply bg-blue-500 rounded-full text-white w-8 h-8 min-w-8 inline-block text-center pt-1 mr-2 ml-[-40px] font-semibold;
-      content: counter(my-awesome-counter);
+      @apply bg-blue-500 rounded-full w-8 h-8 min-w-8 inline-block ml-[-40px] ;
+      @apply text-white text-base text-center pt-1 mr-2 font-semibold;
     }
 
     &.active {

@@ -16,11 +16,11 @@
     </div>
   {% endif %}
   <div class="{{ prefix }}-wrapper border-solid border-y border-gray-lightborder">
-    <ul class="nav nav-pills block columns-2 pl-12 py-6" id="nav-tab-{{ tab_id }}" role="tablist">
+    <ul class="nav nav-pills {{ sequential|replace({'_':'-'}) }} block columns-2 pl-12 py-6" id="nav-tab-{{ tab_id }}" role="tablist">
       {% for item in items %}
         {% set id = item.title|trim|clean_id %}
         <li class="nav-item w-full mb-12 pl-10 list-none" role="presentation">
-          <a class="nav-link {{ sequential }} {% if loop.first %} active {% endif %}"
+          <a class="nav-link {% if loop.first %} active {% endif %}"
              id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
              aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %}>
             {{ item.title }}</a>

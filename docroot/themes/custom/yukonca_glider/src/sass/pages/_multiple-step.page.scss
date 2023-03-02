@@ -3,3 +3,13 @@
     @apply mb-5;
   }
 }
+
+.nav-pills.non-sequential {
+  .nav-link {
+    &::before {
+      @extend %icon;
+      @include getIcon("chevron-right");
+      @apply absolute p-0 text-[2rem];
+    }
+  }
+}
