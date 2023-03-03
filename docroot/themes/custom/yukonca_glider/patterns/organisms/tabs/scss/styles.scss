@@ -1,15 +1,7 @@
-.nav-pills {
-  &.sequential .nav-link {
-    &::before {
-      content: counter(pills-counter);
-    }
-  }
-  .nav-link {
-    &::before {
-      @apply bg-blue-500 rounded-full w-8 h-8 min-w-8 inline-block ml-[-40px] ;
-      @apply text-white text-base text-center pt-1 mr-2 font-semibold;
-    }
+@import "core";
 
+.nav-pills {
+  .nav-link {
     &.active {
       @apply text-purple;
 
@@ -24,20 +16,30 @@
     }
 
     &:hover {
-      @apply bg-none;
-
-      &::before {
-        @apply bg-blue-200;
-      }
-
       .pills-number {
         @apply bg-blue-200;
       }
     }
   }
 
+  &.sequential .nav-link {
+    &::before {
+      @apply content-[counter(pills-counter)];
+    }
+  }
+
   li {
     counter-increment: pills-counter;
+  }
+
+  &.non-sequential {
+    .nav-link {
+      &::before {
+        @extend %icon;
+        @include getIcon("chevron-right");
+        @apply absolute p-0 text-[2rem];
+      }
+    }
   }
 }
 
@@ -48,17 +50,13 @@
 
   .tab-pane.fade.show.active {
     @apply block;
-
-    &:focus-visible {
-
-    }
   }
 }
 
 .pills-arrow {
   .btn-links.hide {
     .pills-btn-link {
-      display: none;
+      @apply hidden;
     }
   }
 }

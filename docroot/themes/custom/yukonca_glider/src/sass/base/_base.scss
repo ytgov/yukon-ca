@@ -11,23 +11,6 @@
     @apply min-h-full font-base text-black;
   }
 
-  .field__content {
-    ul,
-    ol {
-      li {
-        @apply list-disc pl-2.5;
-
-        ul {
-          @apply pl-2.5;
-
-          li {
-            @apply list-circle;
-          }
-        }
-      }
-    }
-  }
-
   img {
     @apply max-w-full opacity-100;
   }
@@ -46,37 +29,6 @@
     &:hover,
     &:focus {
       @apply text-blue-200;
-    }
-  }
-
-  .field-label {
-    @apply text-lg;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .field-label,
-  .field__label {
-    @apply font-medium mt-6 text-black;
-
-  }
-
-  .field--name-body,
-  .field-item-content {
-    @apply leading-relaxed;
-
-    h2,
-    .h2 {
-      @apply pt-10;
-    }
-
-    h3,
-    .h3 {
-      @apply font-medium pt-5;
     }
   }
 

@@ -108,9 +108,9 @@ module.exports = {
       '3xl': '1600px',
     },
     listStyleType: {
+      circle: 'circle',
       none: 'none',
       disc: 'disc',
-      circle: 'circle',
     },
   },
   corePlugins: {

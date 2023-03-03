@@ -100,7 +100,7 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {% if content.field_paragraphs %}
+    {% if content.field_paragraphs|render %}
       {# Items - array from content.field_paragraph in yukonca_glider_preprocess_node__multi_step_page() #}
       {{ pattern('tabs', {
         title: content.title,
