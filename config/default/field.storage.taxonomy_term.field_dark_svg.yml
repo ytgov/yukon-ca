@@ -1,19 +1,19 @@
-uuid: a32a938b-eb26-4eb3-8438-2f2043627874
+uuid: 181b0e59-1101-4793-a64a-570202b587c9
 langcode: en
 status: true
 dependencies:
   module:
-    - node
+    - media
     - taxonomy
-id: node.field_yukon_editorial_team
-field_name: field_yukon_editorial_team
-entity_type: node
+id: taxonomy_term.field_dark_svg
+field_name: field_dark_svg
+entity_type: taxonomy_term
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: media
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

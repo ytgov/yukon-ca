@@ -36,6 +36,7 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
     if (!empty($id)) {
       $query = $database->select('pathauto_state', 'ps')
         ->fields('ps', ['pathauto', 'entity_id'])
+        ->fields('n', ['type'])
         ->fields('w', [
           'from_state',
           'state',
@@ -43,10 +44,12 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
       $query->condition('ps.entity_type', $migration_type);
       $query->condition('ps.entity_id', $id);
       $query->leftJoin('workbench_moderation_node_history', 'w', '[ps].[entity_id] = [w].[nid]');
+      $query->leftJoin('node', 'n', '[n].[nid] = [w].[nid]');
       $result = $query->execute()->fetchAssoc();
 
       if (!empty($result)) {
         yukon_migrate_set_pathauto_value($result, $row);
+        yukon_migrate_set_document_type_value($result, $row);
       }
 
       // Set workbench moderation status.
@@ -91,4 +94,19 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
 function yukon_migrate_set_pathauto_value(array $result, Row $row) {
   $pathauto = isset($result['pathauto']) && $result['pathauto'] === '1';
   $row->setSourceProperty('pathauto', $pathauto);
+}
+
+/**
+ * Set the Boolean value for Documents and Documents Non Branded.
+ *
+ * @param array $result
+ *   Query result.
+ * @param \Drupal\migrate\Row $row
+ *   Migrate row.
+ *
+ * @throws \Exception
+ */
+function yukon_migrate_set_document_type_value(array $result, Row $row) {
+  $pathauto = isset($result['type']) && $result['type'] === 'documents_non_branded';
+  $row->setSourceProperty('documents_type', $pathauto);
 }
