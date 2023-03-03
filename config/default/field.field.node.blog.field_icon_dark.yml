@@ -1,0 +1,35 @@
+uuid: 967a9853-acd9-4a57-ae0c-d1373703442a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon_dark
+    - media.type.icon
+    - node.type.blog
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.blog.field_icon_dark
+field_name: field_icon_dark
+entity_type: node
+bundle: blog
+label: 'Dark SVG upload'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

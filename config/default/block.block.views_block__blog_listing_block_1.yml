@@ -1,0 +1,30 @@
+uuid: af6dbd3c-8628-438f-b353-8c33b3a71b96
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.blog_listing
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: views_block__blog_listing_block_1
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:blog_listing-block_1'
+settings:
+  id: 'views_block:blog_listing-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/digital-blog/*\r\n/blogue-renseignements-et-services-en-ligne/*"

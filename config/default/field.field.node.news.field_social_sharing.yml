@@ -1,0 +1,29 @@
+uuid: b46e5687-014e-4072-89b2-17aeb815b23e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_sharing
+    - node.type.news
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_social_sharing
+field_name: field_social_sharing
+entity_type: node
+bundle: news
+label: 'Social sharing'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

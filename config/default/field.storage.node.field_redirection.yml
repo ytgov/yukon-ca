@@ -1,0 +1,18 @@
+uuid: 9ae2882b-3f3b-46d8-a41d-4a09431bf882
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_redirection
+field_name: field_redirection
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
