@@ -1,0 +1,29 @@
+uuid: 1fdbee6e-5ed6-4b69-89aa-5e5f8497e2d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pages
+    - node.type.documents
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_pages
+field_name: field_pages
+entity_type: node
+bundle: documents
+label: 'Number of pages'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

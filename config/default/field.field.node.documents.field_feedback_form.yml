@@ -1,0 +1,29 @@
+uuid: e678f71b-d766-4714-924c-71e94a066758
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feedback_form
+    - node.type.documents
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_feedback_form
+field_name: field_feedback_form
+entity_type: node
+bundle: documents
+label: 'Feedback form'
+description: "Select if feedback form is required on page. Default 'yes'"
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
