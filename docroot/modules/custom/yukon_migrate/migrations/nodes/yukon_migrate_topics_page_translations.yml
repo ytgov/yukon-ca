@@ -104,5 +104,6 @@ migration_dependencies:
     - yukon_migrate_topics_page
     - yukon_migrate_images
     - yukon_migrate_teams
-    - yukon_migrate_sub_heading
     - yukon_migrate_department
+  optional:
+    - yukon_migrate_sub_heading
