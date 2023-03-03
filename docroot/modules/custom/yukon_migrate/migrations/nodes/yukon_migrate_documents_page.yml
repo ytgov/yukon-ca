@@ -9,7 +9,9 @@ migration_tags:
 migration_group: legacy
 source:
   plugin: d7_node
-  node_type: [documents, documents_non_branded]
+  node_type:
+    - documents
+    - documents_non_branded
   constants:
     default_text_format: full_html
 process:
@@ -75,7 +77,12 @@ process:
   field_feedback_form: field_feedback_form
   field_document_type: field_document_type
 
-  field_documents_non_branded: documents_type
+  field_documents_non_branded:
+    plugin: static_map
+    source: node_type
+    map:
+      documents: 0
+      documents_non_branded: 1
 destination:
   plugin: entity:node
   default_bundle: documents
