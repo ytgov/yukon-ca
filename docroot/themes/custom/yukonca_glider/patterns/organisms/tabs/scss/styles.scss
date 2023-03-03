@@ -1,7 +1,7 @@
 .nav-pills {
   &.sequential .nav-link {
     &::before {
-      content: counter(my-awesome-counter);
+      content: counter(pills-counter);
     }
   }
   .nav-link {
@@ -37,7 +37,7 @@
   }
 
   li {
-    counter-increment: my-awesome-counter;
+    counter-increment: pills-counter;
   }
 }
 
