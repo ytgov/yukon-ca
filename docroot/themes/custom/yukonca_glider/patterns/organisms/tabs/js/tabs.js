@@ -42,14 +42,14 @@
     attach (context) {
       // For bootstrap 5.2.
       const winLocation = window.location;
-      $(once('changeHash', document, context)).ready(function(){
+      $(once('initHash', document, context)).ready(function(){
         /* Navigate to tab if it exists in the URL. */
         if (winLocation.hash.substr(0, 1) === '#') {
           $(`a[data-bs-toggle="tab"][data-bs-target="${winLocation.hash}"]`).tab('show');
         }
       })
 
-        $('a[data-bs-toggle="tab"]', context).on('shown.bs.tab', (e) => {
+        $(once('changeWindowHash', 'a[data-bs-toggle="tab"]', context)).on('shown.bs.tab', (e) => {
           // On tab switch: update URL fragment.
           const hash = $(e.target).attr('data-bs-target');
           if (hash.substr(0, 1) === '#') {
@@ -68,7 +68,7 @@
         }
       });
 
-      $('.nav-pills .nav-item').click(function (e) {
+      $(once('arrowClick','.nav-pills .nav-item')).click(function (e) {
         $('.pills-arrow .btn-links').removeClass('hide');
         if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
           $('.pills-arrow .prev-step.btn-links').addClass('hide');
