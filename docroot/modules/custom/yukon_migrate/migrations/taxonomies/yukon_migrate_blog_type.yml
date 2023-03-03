@@ -1,0 +1,48 @@
+id: yukon_migrate_blog_type
+label: Blog type taxonomy terms
+migration_group: legacy
+migration_tags:
+  - Drupal 7
+  - taxonomy
+
+source:
+  plugin: d7_taxonomy_term
+  bundle: blog_type
+  translation: false
+
+process:
+  language: language
+  name: name
+  description: description
+  weight: weight
+  parent:
+    -
+      plugin: skip_on_empty
+      source: parent
+      method: process
+    -
+      plugin: migration_lookup
+      migration: yukon_migrate_blog_type
+  path/alias: alias
+  path/pathauto:
+    plugin: default_value
+    default_value: false
+
+    field_agency_logo:
+      plugin: migration_lookup
+      source: field_agency_logo/0/fid
+      migration: yukon_migrate_images
+      no_stub: true
+
+    field_featured_image:
+      plugin: migration_lookup
+      source: field_featured_image/0/fid
+      migration: yukon_migrate_images
+      no_stub: true
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: blog_type
+migration_dependencies:
+  optional:
+    - yukon_migrate_images

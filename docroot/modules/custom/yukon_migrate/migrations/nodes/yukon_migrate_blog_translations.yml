@@ -1,0 +1,95 @@
+id: yukon_migrate_blog_translations
+label: Yukon Migrate Blog Nodes Translations
+migration_tags:
+    - Drupal 7
+    - Content
+    - Blog
+migration_group: legacy
+source:
+    plugin: d7_node_entity_translation
+    node_type: blog
+    constants:
+        default_text_format: full_html
+destination:
+    plugin: entity:node
+    default_bundle: blog
+    translations: true
+process:
+    uid: uid
+    nid:
+        plugin: migration_lookup
+        migration: yukon_migrate_blog
+        source: entity_id
+        no_stub: true
+    status:
+        plugin: skip_on_value
+        method: row
+        not_equals: true
+        value: 1
+        source: status
+    langcode: language
+    created: created
+    changed: changed
+    promote: promote
+    sticky: sticky
+    revision_log: log
+    title: title
+    field_page_description/value: field_page_description/0/value
+    field_page_description/format: constants/default_text_format
+    body/value: body/0/value
+    body/format: constants/default_text_format
+    field_contact/value: field_contact/0/value
+    field_contact/format: constants/default_text_format
+    field_icon_dark:
+        plugin: migration_lookup
+        source: field_svg_upload/0/fid
+        migration: yukon_migrate_icon
+        no_stub: true
+    field_featured_image:
+        plugin: migration_lookup
+        source: field_featured_image/0/fid
+        migration: yukon_migrate_images
+        no_stub: true
+    field_blog_type:
+        plugin: migration_lookup
+        migration: yukon_migrate_blog_type
+        source: field_blog_type
+        no_stub: true
+    field_category_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_category
+        source: field_category_term
+        no_stub: true
+    field_subcategory:
+        plugin: migration_lookup
+        migration: yukon_migrate_subcategory
+        source: field_subcategory_term
+        no_stub: true
+    field_department_term:
+        plugin: migration_lookup
+        migration: yukon_migrate_department
+        source: field_department_term
+        no_stub: true
+    field_yukon_editorial_team:
+        plugin: migration_lookup
+        migration: yukon_migrate_teams
+        source: field_yukon_editorial_team
+        no_stub: true
+    field_social_sharing: field_social_sharing
+    content_translation_source: source
+    content_translation_outdated: translate
+
+    path/alias: alias
+    path/pathauto: pathauto
+
+migration_dependencies:
+    required:
+        - yukon_migrate_blog
+    optional:
+        - yukon_migrate_icon
+        - yukon_migrate_images
+        - yukon_migrate_blog_type
+        - yukon_migrate_category
+        - yukon_migrate_department
+        - yukon_migrate_subcategory
+        - yukon_migrate_teams
