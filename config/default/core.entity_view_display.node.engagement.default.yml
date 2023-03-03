@@ -1,0 +1,136 @@
+uuid: 425992b3-ae58-4ee7-b8b8-c40187862ff5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.engagement.body
+    - field.field.node.engagement.field_department_term
+    - field.field.node.engagement.field_engagement_category
+    - field.field.node.engagement.field_engagement_dates
+    - field.field.node.engagement.field_engagement_feedback
+    - field.field.node.engagement.field_engagement_find_info
+    - field.field.node.engagement.field_engagement_find_results
+    - field.field.node.engagement.field_engagement_info_use
+    - field.field.node.engagement.field_engagement_participate
+    - field.field.node.engagement.field_engagement_results
+    - field.field.node.engagement.field_engagement_status
+    - field.field.node.engagement.field_meta_tags
+    - field.field.node.engagement.field_yukon_editorial_team
+    - node.type.engagement
+  module:
+    - datetime_range
+    - metatag
+    - options
+    - text
+    - user
+id: node.engagement.default
+targetEntityType: node
+bundle: engagement
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_department_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_engagement_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_engagement_dates:
+    type: daterange_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      separator: '-'
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_engagement_feedback:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_engagement_find_info:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_engagement_find_results:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_engagement_info_use:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_engagement_participate:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_engagement_results:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_engagement_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_yukon_editorial_team:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

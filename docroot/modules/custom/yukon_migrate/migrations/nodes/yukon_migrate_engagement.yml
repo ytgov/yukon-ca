@@ -1,0 +1,92 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_engagement
+label: Yukon Migrate Public Engagements Nodes
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: engagement
+  constants:
+    default_text_format: full_html
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  title: title_field
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: node_uid
+  status: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+
+  body/value: body/0/value
+  body/format: constants/default_text_format
+
+  field_engagement_dates:
+    plugin: sub_process
+    source: field_engagement_dates
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+      end_value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value2
+
+  field_engagement_status: field_engagement_status
+
+  field_engagement_category:
+    - plugin: migration_lookup
+      source: field_engagement_category
+      migration: yukon_migrate_engagement_categories
+      no_stub: true
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  field_engagement_participate/value: field_engagement_participate/0/value
+  field_engagement_participate/format: constants/default_text_format
+
+  field_engagement_info_use/value: field_engagement_info_use/0/value
+  field_engagement_info_use/format: constants/default_text_format
+
+  field_engagement_find_info/value: field_engagement_find_info/0/value
+  field_engagement_find_info/format: constants/default_text_format
+
+  field_engagement_find_results/value: field_engagement_find_results/0/value
+  field_engagement_find_results/format: constants/default_text_format
+
+  field_engagement_feedback/value: field_engagement_feedback/0/value
+  field_engagement_feedback/format: constants/default_text_format
+
+  field_yukon_editorial_team:
+    - plugin: migration_lookup
+      source: field_yukon_editorial_team
+      migration: yukon_migrate_teams
+      no_stub: true
+
+  field_department_term:
+    - plugin: migration_lookup
+      source: field_department_term
+      migration: yukon_migrate_department
+      no_stub: true
+
+  moderation_state: moderation_state
+destination:
+  plugin: entity:node
+  default_bundle: engagement
+migration_dependencies:
+  required:
+    - yukon_migrate_engagement_categories
+    - yukon_migrate_teams
+    - yukon_migrate_department
