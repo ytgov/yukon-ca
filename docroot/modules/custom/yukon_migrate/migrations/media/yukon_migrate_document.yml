@@ -13,20 +13,21 @@ source:
     - document
   file_mime:
     - 'application/pdf'
-    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    - 'application/vnd.ms-excel'
-    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    - 'application/msword'
   batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
 
 process:
-  name: filename_field
+  name: filename
+  field_media_file/target_id:
+    - plugin: migration_lookup
+      migration: yukon_migrate_files__public
+      source: fid
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+
   field_document_name: field_document_name
-
-  field_folder:
-
 
   directory:
     plugin: migration_lookup
@@ -43,7 +44,6 @@ process:
   langcode:
     plugin: default_value
     default_value: "en"
-
 destination:
   plugin: 'entity:media'
   default_bundle: document

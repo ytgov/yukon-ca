@@ -85,4 +85,3 @@ migration_dependencies:
     - yukon_migrate_category
     - yukon_migrate_department
     - yukon_migrate_teams
-

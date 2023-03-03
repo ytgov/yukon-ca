@@ -93,4 +93,3 @@ migration_dependencies:
     - yukon_migrate_department
     - yukon_migrate_teams
     - yukon_migrate_documents_page
-
