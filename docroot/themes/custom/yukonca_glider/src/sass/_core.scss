@@ -38,7 +38,5 @@ $colors: map-remove($colors,
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
-$utilities: (); /* Removing BS utilities. Remove this line to enable BS utilities */
-
 /* Theme mixins */
 @import "mixins/index";
