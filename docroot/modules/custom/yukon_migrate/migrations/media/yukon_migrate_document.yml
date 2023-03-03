@@ -11,12 +11,6 @@ source:
   scheme: public
   file_type:
     - document
-  file_mime:
-    - 'application/pdf'
-    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    - 'application/vnd.ms-excel'
-    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    - 'application/msword'
   batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
