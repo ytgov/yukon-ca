@@ -19,7 +19,7 @@ dependencies:
     - node.type.documents
   module:
     - datetime
-    - options
+    - fences
     - text
     - user
 id: node.documents.default
@@ -29,10 +29,10 @@ mode: default
 content:
   body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 5
     region: content
   field_category:
     type: entity_reference_label
@@ -40,74 +40,43 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 106
-    region: content
-  field_contact:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_department_term:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 107
-    region: content
-  field_document_type:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 112
+    weight: 1
     region: content
   field_document_upload:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: full
       link: false
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_documents_non_branded:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 113
-    region: content
-  field_feedback_form:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 111
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 3
     region: content
   field_last_updated:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_page_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 102
+      format_type: long_format
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    weight: 2
     region: content
   field_pages:
     type: number_integer
@@ -116,7 +85,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 105
+    weight: 4
     region: content
   field_social_sharing:
     type: boolean
@@ -126,22 +95,21 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 109
-    region: content
-  field_yukon_editorial_team:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 110
+    weight: 6
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   addtoany: true
+  field_contact: true
+  field_department_term: true
+  field_document_type: true
+  field_documents_non_branded: true
+  field_feedback_form: true
+  field_page_description: true
+  field_yukon_editorial_team: true
   langcode: true
   search_api_excerpt: true
