@@ -52,4 +52,4 @@ tabs:
           component:
             dist/css/styles.min.css: { minified: true }
         js:
-            dist/js/tabs.min.js: { minified: true }
+          dist/js/tabs.min.js: { minified: true }
