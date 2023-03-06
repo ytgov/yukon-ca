@@ -1,4 +1,4 @@
-uuid: e8af3e34-41c9-4844-bb81-9c8b8dcc1240
+uuid: 596f66a1-2c0f-4922-98e6-a71cf48b4b44
 langcode: en
 status: true
 dependencies:
@@ -9,20 +9,20 @@ dependencies:
     - views
   theme:
     - yukonca_glider
-id: exposed_form_documents_page
+id: exposed_form_documents_forms
 theme: yukonca_glider
 region: sidebar_first
 weight: 0
 provider: null
-plugin: 'views_exposed_filter_block:documents_browse-page'
+plugin: 'views_exposed_filter_block:documents_browse-page_1'
 settings:
-  id: 'views_exposed_filter_block:documents_browse-page'
+  id: 'views_exposed_filter_block:documents_browse-page_1'
   label: ''
   label_display: visible
   provider: views
-  views_label: 'Filtrer par'
+  views_label: 'Filter by'
 visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/documents\r\n/les-documents"
+    pages: "/forms\r\n/les-forms"
