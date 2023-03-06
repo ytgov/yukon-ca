@@ -9,11 +9,11 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
  */
-function yukon_department_form_webform_submission_page_feedback_add_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function yukon_department_form_webform_submission_page_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   /** @var \Drupal\node\NodeInterface $node */
-  $node = \Drupal::routeMatch()->getParameter('node');
+  $node = \Drupal::service('node.node_route_context')->getRuntimeContexts([])['node']->getContextValue();
   if ($node instanceof NodeInterface) {
     // Different content types can have different names for department field.
     $possible_department_field_names = [
