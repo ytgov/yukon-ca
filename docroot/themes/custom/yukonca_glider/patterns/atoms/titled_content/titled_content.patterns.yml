@@ -1,0 +1,20 @@
+titled_content:
+  label: 'Titled Content'
+  description: A block with border under the title.
+  fields:
+    title:
+      label: Title
+      type: text
+      description: Title.
+      preview: 'Main title.'
+    content:
+      type: text
+      label: Content
+      description: MAin content field.
+      preview: 'Section content.'
+  libraries:
+    -
+      titled_content:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

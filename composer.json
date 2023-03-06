@@ -5,7 +5,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "acquia/blt": "^13.7",
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
@@ -76,6 +76,7 @@
         "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^3.0",
         "drupal/token": "^1.11",
+        "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/ui_patterns": "^1.2",
         "drupal/username_enumeration_prevention": "^1.3",
@@ -105,16 +106,16 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://git.drupalcode.org/project/drupal/-/merge_requests/1201.diff"
+                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch"
             },
             "drupal/linkit": {
-                "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
+                "2712951 - Linkit for Link field": "patches/linkit-2712951-linkit-for-link.patch"
             },
             "yukon/geophp": {
                 "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
             },
             "yukon/maxlength": {
-                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/merge_requests/24.diff"
+                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/commit/0bb4dee7f018303bedd1ac34e7cedc0c41273850.diff"
             }
         },
         "installer-paths": {

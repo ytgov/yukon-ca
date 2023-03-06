@@ -1,16 +1,33 @@
 tabs:
   label: Tabs
   description: A Tabs component.
+  variants:
+    default:
+      label: Default
+      description: With tabs.
+    pills:
+      label: With pills
+      description: With Bootstrap 5 pills.
   fields:
     title:
       type: text
       label: Title
       description: A title.
       preview: 'Phonetic alphabets'
+    tab_id:
+      type: string
+      label: Main identifier.
+      description: Unique id.
+      preview: 'some-unique-id'
     hide_title:
       type: string
       label: Hide Title
       description: Hide the title.
+      preview: ''
+    sequential:
+      type: string
+      label: Icon for links
+      description: Number or icon for anchor links.
       preview: ''
     summary:
       type: text
