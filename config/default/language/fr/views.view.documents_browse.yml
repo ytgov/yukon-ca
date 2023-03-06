@@ -1,0 +1,25 @@
+display:
+  block:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+  page:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+      header:
+        result:
+          admin_label: 'Résultats  @start - @end de @total'
+  page_1:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
