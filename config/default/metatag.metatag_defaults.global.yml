@@ -8,4 +8,7 @@ id: global
 label: Global
 tags:
   canonical_url: '[current-page:url]'
+  dcterms_creator: '[current-page:metatag:author]'
+  dcterms_language: '[current-page:content-language]'
+  dcterms_title: '[current-page:title]'
   title: '[current-page:title] | [site:name]'
