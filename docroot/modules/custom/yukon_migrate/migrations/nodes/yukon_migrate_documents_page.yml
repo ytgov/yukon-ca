@@ -5,7 +5,6 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
-  - Basic Pages
 migration_group: legacy
 source:
   plugin: d7_node

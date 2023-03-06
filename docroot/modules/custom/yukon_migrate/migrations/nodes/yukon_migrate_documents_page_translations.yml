@@ -5,11 +5,12 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
-  - Basic Pages
 migration_group: legacy
 source:
   plugin: d7_node_entity_translation
-  node_type: [documents, documents_non_branded]
+  node_type:
+    - documents
+    - documents_non_branded
   constants:
     default_text_format: full_html
 process:
@@ -30,7 +31,13 @@ process:
   revision_uid: revision_uid
   revision_log: log
   revision_timestamp: timestamp
-  content_translation_source: source
+  content_translation_source:
+    plugin: static_map
+    source: source
+    map:
+      en: en
+      fr: fr
+      LANGUAGE_NONE: und
   content_translation_outdated: translate
   langcode: language
 
@@ -82,6 +89,13 @@ process:
 
   field_feedback_form: field_feedback_form
   field_document_type: field_document_type
+
+  field_documents_non_branded:
+    plugin: static_map
+    source: node_type
+    map:
+      documents: 0
+      documents_non_branded: 1
 destination:
   plugin: entity:node
   default_bundle: documents
