@@ -1,0 +1,24 @@
+uuid: 0a8e9e75-dbbc-48b3-aaea-792fa98d5c1a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - yukonca_glider
+id: breadcrumbs
+theme: yukonca_glider
+region: pre_content
+weight: -7
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/engagements/*'

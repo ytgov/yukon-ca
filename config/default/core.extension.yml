@@ -33,6 +33,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   entity_reference_revisions: 0
   epp: 0
