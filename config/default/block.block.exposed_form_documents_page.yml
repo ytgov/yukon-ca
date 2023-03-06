@@ -1,0 +1,28 @@
+uuid: e8af3e34-41c9-4844-bb81-9c8b8dcc1240
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.documents_browse
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposed_form_documents_page
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:documents_browse-page'
+settings:
+  id: 'views_exposed_filter_block:documents_browse-page'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filtrer par'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/documents\r\n/les-documents"
