@@ -86,6 +86,10 @@
       {% endif %}
     </div>
 
+    {% if page.post_content %}
+      {{ page.post_content }}
+    {% endif %}
+
   </main>
 
   {% if page.footer_logo or page.footer_menu or page.footer_legal %}

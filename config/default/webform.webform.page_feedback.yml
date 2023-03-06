@@ -26,7 +26,7 @@ elements: |-
     '#title': 'Search query'
     '#value': '[current-page:query:query]'
   was_this_page_helpful:
-    '#type': select
+    '#type': radios
     '#title': 'Was this page helpful?'
     '#options': yes_no
     '#wrapper_attributes':
@@ -66,7 +66,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="was_this_page_helpful"]':
-          filled: true
+          checked: true
     '#submit__label': 'Submit feedback'
 css: ''
 javascript: ''
@@ -85,7 +85,7 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: true
+  form_previous_submissions: false
   form_confidential: false
   form_confidential_message: ''
   form_disable_remote_addr: false
@@ -127,7 +127,7 @@ settings:
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
-  submission_user_duplicate: false
+  submission_user_duplicate: true
   submission_access_denied: default
   submission_access_denied_title: ''
   submission_access_denied_message: ''
@@ -172,12 +172,12 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: inline
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: '<section class="alert alert-block alert-success"><p>Thanks for taking the time to send us your feedback.</p></section>'
   confirmation_attributes: {  }
-  confirmation_back: true
+  confirmation_back: false
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
@@ -251,5 +251,42 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  email:
+    id: email
+    handler_id: email
+    label: Email
+    notes: ''
+    status: false
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: 'eservices@gov.yk.ca,Sara.Bergquist@gov.yk.ca'
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      from_mail: eservices@gov.yk.ca
+      from_options: {  }
+      from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'Feedback form submission from Yukon.ca'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
 variants: {  }
