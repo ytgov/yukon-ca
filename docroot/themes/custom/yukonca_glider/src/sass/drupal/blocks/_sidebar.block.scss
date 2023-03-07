@@ -1,0 +1,22 @@
+.region-sidebar-first {
+  h2.block-title {
+    @apply pb-2 pt-4;
+    @apply border-solid border-0 border-b-[12px] border-yellow;
+    @apply text-default-base;
+  }
+
+  .block {
+    @apply mt-10
+  }
+
+  #block-social-share {
+    h2.block-title {
+      @apply mb-5 pb-3 pt-2;
+    }
+
+    .a2a_svg {
+      @apply rounded-full;
+      @apply p-1;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+uuid: ead9d2b5-2e23-4f71-b91e-ae2cbf2fe63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.blog
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.blog.field_contact
+field_name: field_contact
+entity_type: node
+bundle: blog
+label: 'Related posts'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

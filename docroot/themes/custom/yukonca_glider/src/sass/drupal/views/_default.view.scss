@@ -1,3 +1,11 @@
 .view--default {
   @apply bg-white;
 }
+
+.view-header {
+  @apply mb-10;
+
+  .result-summary {
+    @apply mt-[70px];
+  }
+}
