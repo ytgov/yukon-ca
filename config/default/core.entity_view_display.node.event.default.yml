@@ -1,0 +1,189 @@
+uuid: 7c3f09fc-229d-4ba6-98f9-585c2704c1a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.yg_long
+    - field.field.node.event.field_building_name
+    - field.field.node.event.field_category_term
+    - field.field.node.event.field_community
+    - field.field.node.event.field_contact_email
+    - field.field.node.event.field_contact_name
+    - field.field.node.event.field_contact_phone
+    - field.field.node.event.field_cost
+    - field.field.node.event.field_department_term
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_locality_town
+    - field.field.node.event.field_event_start_time
+    - field.field.node.event.field_event_street_address
+    - field.field.node.event.field_event_website
+    - field.field.node.event.field_featured_event
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_link_title
+    - field.field.node.event.field_meta_tags
+    - field.field.node.event.field_postal_code
+    - field.field.node.event.field_yukon_editorial_team
+    - node.type.event
+  module:
+    - date_recur
+    - fences
+    - link
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_building_name:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_category_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_contact_email:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_contact_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_contact_phone:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_cost:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_department_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_event_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_event_locality_town:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_event_start_time:
+    type: date_recur_basic_formatter
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: yg_long
+      separator: '-'
+      show_next: 5
+      count_per_item: true
+      occurrence_format_type: yg_long
+      same_end_date_format_type: yg_long
+      interpreter: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 0
+    region: content
+  field_event_street_address:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_event_website:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_link_title:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_postal_code:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  addtoany: true
+  field_community: true
+  field_featured_event: true
+  field_meta_tags: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
