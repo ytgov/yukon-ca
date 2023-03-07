@@ -100,6 +100,12 @@ process:
 
     content_translation_source: source
     content_translation_outdated: translate
+
+    path/alias: alias
+    path/pathauto:
+        plugin: default_value
+        default_value: false
+
 migration_dependencies:
     required:
         - yukon_migrate_landing_page
