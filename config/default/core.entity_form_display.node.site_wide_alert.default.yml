@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
   module:
+    - allowed_formats
     - content_moderation
     - maxlength
     - text
@@ -26,6 +27,9 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
       maxlength:
         maxlength_js: 300
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
@@ -77,6 +81,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
