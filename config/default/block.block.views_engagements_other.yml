@@ -1,0 +1,38 @@
+uuid: 0dac6130-08f2-4abb-8ce6-80f6888eca2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.engagements
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: views_engagements_other
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:engagements-other'
+settings:
+  id: 'views_block:engagements-other'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/engagements/*'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      engagement: engagement
