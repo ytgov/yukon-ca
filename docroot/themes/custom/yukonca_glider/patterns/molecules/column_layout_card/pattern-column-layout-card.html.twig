@@ -1,14 +1,27 @@
-{% set classes = [
-  'column-layout-card',
-] %}
-
-<div {{ attribs.addClass(classes) }}>
-  <div class="main-link">
+<div class="column-layout-card">
+  <h4 class="main-link border-bottom border-gray boarder-solid">
     {{ main_link }}
+  </h4>
+  <div class="subcategory-links mt-4">
+    {% if level_2_link %}
+      <div class="level_2-link">
+        {{ level_2_link }}
+      </div>
+    {% endif %}
+
+    {% if links['#items'] %}
+      {% for link in links['#items'] %}
+        <div class="link-item">
+          {{ link(link.title, link.url) }}
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for link in links %}
+        <div class="link-item">
+          {{ link(link.title, link.url) }}
+        </div>
+      {% endfor %}
+    {% endif %}
   </div>
-  {% for link in links %}
-    <div class="link-item">
-      {{ link }}
-    </div>
-  {% endfor %}
+
 </div>

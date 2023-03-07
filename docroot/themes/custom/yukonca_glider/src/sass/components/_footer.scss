@@ -1,0 +1,51 @@
+.footer-left {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: -40%;
+    top: 0;
+    background-image: url("../../images/svg/Aurora-small-mobile.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 90%;
+
+    @media (min-width: 767px) {
+      background-image: url("../../images/svg/Aurora-main.svg");
+      top: -30px;
+      width: 70%;
+      right: -20%;
+    }
+  }
+
+  .brand-items {
+    padding: 36px 0;
+  }
+}
+
+.region-footer-legal {
+  a {
+    color: $color-white;
+  }
+}
+
+.region-footer-menu {
+  display: flex;
+  flex-flow: row wrap;
+
+  @include media-breakpoint-up(md) {
+    gap: 3rem;
+  }
+
+  .menu {
+    .menu-item {
+      a {
+        color: $color-white;
+      }
+    }
+  }
+}
+

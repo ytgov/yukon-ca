@@ -3,21 +3,22 @@
 
 {% set classes = [
   'section',
-  'container',
   prefix,
   prefix ~ '--' ~ variant,
 ] %}
 
-<div {{ attributes.addClass(classes) }}">
-  {% if icon %}
-    <div class="icon">
-      {% include active_theme_path() ~ '/images/svg/' ~ icon %}
-    </div>
-  {% endif %}
+<div {{ attributes.addClass(classes) }}>
   {% if link_title %}
-    <div class="main-link">
-      <a href="{{ link_url }}">{{ link_title }}</a>
-    </div>
+    <a href="{{ link_url }}" class="flex justify-center items-center text-center w-full h-full">
+    {% if icon %}
+      <span class="icon">
+        {{  icon  }}
+      </span>
+      <h2>{{ link_title }}</h2>
+    {% else %}
+      {{ link_title }}
+    {% endif %}
+    </a>
   {% endif %}
   {% if links %}
     <ul class="links">

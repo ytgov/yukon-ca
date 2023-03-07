@@ -79,6 +79,7 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{attributes.addClass(classes)}}>
+
 	{{ title_prefix }}
 	{% if label and not page %}
 			<a href="{{ url }}" rel="bookmark">
@@ -95,5 +96,7 @@
       </a>
 	{% endif %}
 	{{ title_suffix }}
+
+
 </article>
 
