@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0350bbed989ff129c7843e70de52b95",
+    "content-hash": "d2f890b82baaa2174006c5c05e7fc39a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5245,7 +5245,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "d95a39274cb73b0096e16fbbc9d5abe80e790c79"
+                "reference": "e00284c79e4c16bdfd603c846361bcaa44a47a00"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10"
@@ -5260,8 +5260,8 @@
                     "dev-6.0.x": "6.0.x-dev"
                 },
                 "drupal": {
-                    "version": "6.0.0-beta3+7-dev",
-                    "datestamp": "1667937361",
+                    "version": "6.0.0-beta3+8-dev",
+                    "datestamp": "1678029787",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -5282,6 +5282,10 @@
                 {
                     "name": "johnwebdev",
                     "homepage": "https://www.drupal.org/user/3331569"
+                },
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
                 }
             ],
             "description": "Linkit - Enriched linking experience",
