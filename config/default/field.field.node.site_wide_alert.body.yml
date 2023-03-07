@@ -6,9 +6,13 @@ dependencies:
     - field.storage.node.body
     - node.type.site_wide_alert
   module:
+    - allowed_formats
     - epp
     - text
 third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
   epp:
     value: ''
     on_update: 0
