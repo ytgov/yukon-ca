@@ -107,7 +107,8 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch"
+                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
+                "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch"
             },
             "drupal/linkit": {
                 "2712951 - Linkit for Link field": "patches/linkit-2712951-linkit-for-link.patch"
