@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - node
     - system
   theme:
     - yukonca_glider
@@ -18,7 +19,18 @@ settings:
   label_display: '0'
   provider: system
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
-    pages: '/engagements/*'
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      basic_page: basic_page
+      documents: documents
+      engagement: engagement
+      in_page_alert: in_page_alert
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
+      multi_step_page: multi_step_page
+      site_wide_alert: site_wide_alert
+      topics_page: topics_page
