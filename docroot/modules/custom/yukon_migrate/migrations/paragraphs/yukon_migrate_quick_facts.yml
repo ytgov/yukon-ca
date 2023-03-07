@@ -1,0 +1,20 @@
+id: yukon_migrate_quick_facts
+label: Yukon Migrate Quick Facts field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: quick_facts
+  constants:
+    default_text_format: full_html
+process:
+
+    field_facts/value: field_facts/0/value
+    field_facts/format: constants/default_text_format
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: quick_facts
