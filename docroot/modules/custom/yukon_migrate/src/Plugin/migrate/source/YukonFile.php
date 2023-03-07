@@ -25,7 +25,7 @@ class YukonFile extends File {
         $types = [$types];
       }
 
-      $query->condition('type', $types);
+      $query->condition('type', $types, 'IN');
     }
     if (isset($this->configuration['file_mime'])) {
       $mimeTypes = $this->configuration['file_mime'];
@@ -33,7 +33,7 @@ class YukonFile extends File {
         $mimeTypes = [$mimeTypes];
       }
 
-      $query->condition('filemime', $mimeTypes);
+      $query->condition('filemime', $mimeTypes, 'IN');
     }
     return $query;
   }
