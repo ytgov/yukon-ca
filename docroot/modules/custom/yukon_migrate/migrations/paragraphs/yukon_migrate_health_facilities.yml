@@ -1,0 +1,27 @@
+id: yukon_migrate_health_facilities
+label: Yukon Migrate Health Facilities field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: hospitals_and_health_centres
+  constants:
+    default_text_format: full_html
+process:
+
+  field_health_facility_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_health_facilities_terms
+    source: field_health_facility_type
+    no_stub: true
+  field_hf_services: field_services
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: health_facilities
+migration_dependencies:
+  optional:
+    - yukon_migrate_health_facilities_terms

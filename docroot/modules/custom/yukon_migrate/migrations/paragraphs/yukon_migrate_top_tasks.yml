@@ -1,0 +1,32 @@
+id: yukon_migrate_top_tasks
+label: Yukon Migrate Top Tasks field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: top_tasks
+  constants:
+    default_text_format: full_html
+process:
+
+    field_top_tasks_link:
+        plugin: sub_process
+        source: field_top_tasks_link
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_multi_step_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+
+    field_top_tasks_name: field_top_tasks_name
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: top_tasks

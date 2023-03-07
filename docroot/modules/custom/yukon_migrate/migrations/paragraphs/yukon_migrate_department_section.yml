@@ -1,0 +1,49 @@
+id: yukon_migrate_department_section
+label: Yukon Migrate Section field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: department_branch
+  constants:
+    default_text_format: full_html
+process:
+
+    field_section_title: field_title
+    field_section_email: field_branch_email/0/email
+    field_section_fax_number: field_fax_number
+    field_public_facing: field_public_facing
+    field_section_telephone: field_section_phone_number
+    field_phone_extension: field_phone_extension
+    field_secondary_telephone: field_secondary_phone
+    field_secondary_phone_extension: field_secondary_phone_extension
+    field_toll_free_phone: field_toll_free_phone
+    field_toll_free_phone_extension: field_toll_free_phone_extension
+    field_section_description/value: field_section_description/0/value
+    field_section_description/format: constants/default_text_format
+    field_links_to_services_provided/value: field_links_to_services_provided/0/value
+    field_links_to_services_provided/format: constants/default_text_format
+    field_section_type:
+        plugin: migration_lookup
+        migration: yukon_migrate_section
+        source: field_section_taxonomy_type
+        no_stub: true
+    field_staff_directory:
+        plugin: sub_process
+        source: field_staff_directory
+        process:
+            uri: url
+            title: title
+            attributes: attributes
+    field_section_location:
+        plugin: migration_lookup
+        source: field_section_location/0/target_id
+        migration:
+            - yukon_migrate_places
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: section

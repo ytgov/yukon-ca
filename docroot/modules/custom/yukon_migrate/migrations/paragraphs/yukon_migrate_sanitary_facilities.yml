@@ -1,0 +1,29 @@
+id: yukon_migrate_sanitary_facilities
+label: Yukon Migrate Sanitary Facilities field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: waste_and_recycling_facilities
+  constants:
+    default_text_format: full_html
+process:
+
+  field_sanitary_facility_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_sanitary_facilities_terms
+    source: field_sanitary_facility_type
+    no_stub: true
+  field_sanitary_facility_services: field_services
+  field_sanitary_facility_email: field_email/0/email
+  field_sanitary_facility_accepted: field_accepted_items
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: waste_and_recycling_facilities
+migration_dependencies:
+  optional:
+    - yukon_migrate_sanitary_facilities_terms
