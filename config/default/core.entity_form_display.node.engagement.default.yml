@@ -20,9 +20,66 @@ dependencies:
   module:
     - content_moderation
     - datetime_range
+    - field_group
     - metatag
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_attribs
+        - group_writeup
+      label: 'Vertical Tabs'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_attribs:
+      children:
+        - field_engagement_dates
+        - field_engagement_status
+        - field_engagement_category
+      label: Attributes
+      region: content
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_writeup:
+      children:
+        - field_engagement_participate
+        - field_engagement_info_use
+        - field_engagement_find_info
+        - field_engagement_find_results
+        - field_engagement_results
+        - field_engagement_feedback
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: node.engagement.default
 targetEntityType: node
 bundle: engagement
@@ -30,7 +87,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 6
+    weight: 2
     region: content
     settings:
       rows: 9
@@ -40,19 +97,19 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 15
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 13
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_engagement_category:
     type: options_select
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -64,7 +121,7 @@ content:
     third_party_settings: {  }
   field_engagement_feedback:
     type: text_textarea
-    weight: 11
+    weight: 18
     region: content
     settings:
       rows: 5
@@ -72,7 +129,7 @@ content:
     third_party_settings: {  }
   field_engagement_find_info:
     type: text_textarea
-    weight: 8
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -80,7 +137,7 @@ content:
     third_party_settings: {  }
   field_engagement_find_results:
     type: text_textarea
-    weight: 9
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -88,7 +145,7 @@ content:
     third_party_settings: {  }
   field_engagement_info_use:
     type: text_textarea
-    weight: 7
+    weight: 14
     region: content
     settings:
       rows: 5
@@ -96,7 +153,7 @@ content:
     third_party_settings: {  }
   field_engagement_participate:
     type: text_textarea
-    weight: 5
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -104,7 +161,7 @@ content:
     third_party_settings: {  }
   field_engagement_results:
     type: text_textarea
-    weight: 10
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -118,7 +175,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 23
+    weight: 15
     region: content
     settings:
       sidebar: true
@@ -126,46 +183,63 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 12
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 3
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 21
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 19
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 17
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 52
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 18
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -179,13 +253,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 16
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -193,13 +267,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  url_redirects:
-    weight: 20
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 54
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  publish_on: true
-  publish_state: true
-  unpublish_on: true
-  unpublish_state: true
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 55
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
