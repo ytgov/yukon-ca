@@ -108,7 +108,7 @@
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://git.drupalcode.org/project/drupal/-/merge_requests/1201.diff"
             },
             "drupal/linkit": {
-                "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
+                "2712951 - Linkit for Link field": "https://www.drupal.org/files/issues/2023-03-06/2712951-326.patch"
             },
             "yukon/geophp": {
                 "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
