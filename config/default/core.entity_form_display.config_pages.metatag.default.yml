@@ -1,0 +1,22 @@
+uuid: b1ca2bc4-23aa-452e-bd0b-639b39021e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.metatag
+    - field.field.config_pages.metatag.field_wetkit_metatag_creator
+id: config_pages.metatag.default
+targetEntityType: config_pages
+bundle: metatag
+mode: default
+content:
+  field_wetkit_metatag_creator:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

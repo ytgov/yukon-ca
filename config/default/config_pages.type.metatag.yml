@@ -1,0 +1,17 @@
+uuid: 67507b7d-1986-4b2f-a198-f8b55b8ecf11
+langcode: en
+status: true
+dependencies: {  }
+id: metatag
+label: Metatag
+token: true
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''
