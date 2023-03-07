@@ -1,15 +1,10 @@
-uuid: f0983f42-c670-4957-87ec-a2b6caa5567d
+uuid: f5ac151c-340f-448f-852a-128c2a5631a7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.category.field_dark_svg
-    - field.field.taxonomy_term.category.field_light_svg
-    - field.field.taxonomy_term.category.field_meta_tags
     - taxonomy.vocabulary.category
   module:
-    - media_library
-    - metatag
     - path
     - text
 id: taxonomy_term.category.default
@@ -24,28 +19,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_dark_svg:
-    type: media_library_widget
-    weight: 102
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_light_svg:
-    type: media_library_widget
-    weight: 103
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_meta_tags:
-    type: metatag_firehose
-    weight: 101
-    region: content
-    settings:
-      sidebar: true
-      use_details: true
     third_party_settings: {  }
   langcode:
     type: language_select

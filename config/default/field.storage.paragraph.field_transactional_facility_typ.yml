@@ -1,0 +1,20 @@
+uuid: 7db4dff7-4f8c-487f-8c78-7f487809df25
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_transactional_facility_typ
+field_name: field_transactional_facility_typ
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

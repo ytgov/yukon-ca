@@ -1,0 +1,19 @@
+uuid: 7879c8b2-5823-4910-9ba5-b45903f57d75
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_optional_internal_related
+field_name: field_optional_internal_related
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

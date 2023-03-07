@@ -33,7 +33,6 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
-  easy_breadcrumb: 0
   editor: 0
   entity_reference_revisions: 0
   epp: 0
@@ -133,7 +132,6 @@ module:
   workbench_email: 0
   workflows: 0
   yukon_base: 0
-  yukon_department: 0
   yukon_migrate: 0
   pathauto: 1
   content_translation: 10
