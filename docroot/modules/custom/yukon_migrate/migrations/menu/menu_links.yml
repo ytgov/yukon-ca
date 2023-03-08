@@ -37,7 +37,7 @@ process:
       map:
         '<nolink>': 'route:<nolink>'
       source: link_path
-    - plugin: migrated_path_lookup
+    - plugin: yukon_migrate_links
 
   link/uri:
     plugin: link_uri
