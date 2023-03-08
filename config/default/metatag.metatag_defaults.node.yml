@@ -8,7 +8,11 @@ id: node
 label: Content
 tags:
   canonical_url: '[node:url]'
-  dcterms_creator: '[node:author]'
+  dcterms_creator: '[config_page:metatag:field_wetkit_metatag_creator]'
+  dcterms_date: '[node:bilingual_date_published]'
+  dcterms_description: '[node:improved_summary]'
+  dcterms_language: '[current-page:bilingual_prefix]'
+  dcterms_subject: '[current-page:bilingual_default_value]'
   dcterms_title: '[node:title]'
   description: '[node:field_page_description]'
   title: '[node:title] | [site:name]'

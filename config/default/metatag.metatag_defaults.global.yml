@@ -9,6 +9,7 @@ label: Global
 tags:
   canonical_url: '[current-page:url]'
   dcterms_creator: '[config_page:metatag:field_wetkit_metatag_creator]'
-  dcterms_language: '[current-page:content-language]'
+  dcterms_language: '[current-page:bilingual_prefix]'
+  dcterms_subject: '[current-page:bilingual_default_value]'
   dcterms_title: '[current-page:title]'
   title: '[current-page:title] | [site:name]'

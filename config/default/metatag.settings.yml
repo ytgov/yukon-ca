@@ -1,4 +1,25 @@
 entity_type_groups:
+  node:
+    basic_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    documents:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    engagement:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    multi_step_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    topics_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
   taxonomy_term:
     department:
       basic: basic
@@ -6,9 +27,9 @@ entity_type_groups:
       dublin_core: dublin_core
 tag_trim_method: beforeValue
 tag_trim_maxlength:
+  metatag_maxlength_abstract: null
   metatag_maxlength_title: null
   metatag_maxlength_description: null
-  metatag_maxlength_abstract: null
   metatag_maxlength_dcterms_title: null
   metatag_maxlength_dcterms_description: null
 tag_scroll_max_height: ''
