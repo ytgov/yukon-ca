@@ -64,19 +64,11 @@ function yukon_base_tokens($type, $tokens, array $data, array $options, Bubbleab
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'bilingual_default_value':
-          $value = 'none';
-          if ($language_code === 'fr') {
-            $value = 'nul';
-          }
-          $replacements[$original] = $value;
+          $replacements[$original] = ($language_code === 'fr') ? 'nul' : 'none';
           break;
 
         case 'bilingual_prefix':
-          $value = 'eng';
-          if ($language_code === 'fr') {
-            $value = 'fra';
-          }
-          $replacements[$original] = $value;
+          $replacements[$original] = ($language_code === 'fr') ? 'fra' : 'eng';
           break;
       }
     }

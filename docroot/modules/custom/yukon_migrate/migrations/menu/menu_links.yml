@@ -31,18 +31,16 @@ process:
       plugin: skip_on_empty
       method: row
 
-  link_path_processed:
+  link/uri:
+    - plugin: yukon_migrate_links
+      source: link_path
     - plugin: static_map
       bypass: true
       map:
         '<nolink>': 'route:<nolink>'
-      source: link_path
-    - plugin: yukon_migrate_links
+    - plugin: link_uri
+      validate_route: false
 
-  link/uri:
-    plugin: link_uri
-    validate_route: false
-    source: '@link_path_processed'
   link/options: options
   route:
     plugin: route

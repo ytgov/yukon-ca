@@ -60,13 +60,7 @@ class Links extends MigrationLookup implements ContainerFactoryPluginInterface {
    * @param \Drupal\migrate\Plugin\MigrationPluginManager $migration_plugin_manager
    *   The Migration Plugin Manager Interface.
    */
-  public function __construct(array $configuration,
-  $plugin_id,
-  $plugin_definition,
-                              MigrationInterface $migration,
-                              MigrateLookupInterface $migrate_lookup,
-                              MigrateStubInterface $migrate_stub,
-                              MigrationPluginManager $migration_plugin_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, MigrateLookupInterface $migrate_lookup, MigrateStubInterface $migrate_stub, MigrationPluginManager $migration_plugin_manager) {
     $this->migrationPluginManager = $migration_plugin_manager;
     foreach ($this->migrationPluginManager->createInstancesByTag('node') as $migration) {
       $configuration['migration'][] = $migration->id();
@@ -122,8 +116,8 @@ class Links extends MigrationLookup implements ContainerFactoryPluginInterface {
         $uri = "internal:/node/{$destination_id}";
       }
     }
-    // String value only for URI migration(menu links).
-    if (!is_array($value)) {
+
+    if (is_string($value)) {
       return $uri;
     }
 
