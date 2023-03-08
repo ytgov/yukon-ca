@@ -1,0 +1,10 @@
+uuid: 896c275a-5e8c-4a2c-a5a7-a70f0d6f6834
+langcode: en
+status: true
+dependencies: {  }
+id: health_facilities
+label: 'Health facilities'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

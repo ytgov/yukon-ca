@@ -1,0 +1,26 @@
+uuid: 95d831c3-3aad-46dc-a564-463764ecfa5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_site_description
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_site_description
+field_name: field_site_description
+entity_type: node
+bundle: campground_directory_record
+label: 'Site description'
+description: 'A short description of the campground / recreational site facility. This will be displayed on Yukon.ca'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

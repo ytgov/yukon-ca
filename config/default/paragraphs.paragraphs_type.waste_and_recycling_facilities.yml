@@ -1,0 +1,10 @@
+uuid: 898b9fb8-547a-4167-b0ae-61ece9bc21d2
+langcode: en
+status: true
+dependencies: {  }
+id: waste_and_recycling_facilities
+label: 'Sanitary facilities'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

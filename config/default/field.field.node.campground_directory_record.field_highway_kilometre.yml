@@ -1,0 +1,25 @@
+uuid: 3a6dc248-ded7-4446-bd23-40ed784cec24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highway_kilometre
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_highway_kilometre
+field_name: field_highway_kilometre
+entity_type: node
+bundle: campground_directory_record
+label: 'Highway kilometre'
+description: 'Enter the km number of the highway'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

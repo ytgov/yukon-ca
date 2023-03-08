@@ -1,0 +1,20 @@
+uuid: bcbaacba-8eb5-439d-a89c-c9833ac94004
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main-menu
+    parent: 'main-menu:0:'
+  scheduler: {  }
+name: Department
+type: department
+description: 'Use for information about Yukon departments and their branches. Includes contact information, branch information, top tasks and services.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

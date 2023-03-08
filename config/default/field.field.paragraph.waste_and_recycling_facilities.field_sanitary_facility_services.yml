@@ -1,0 +1,25 @@
+uuid: 18f2cad8-dd41-4a89-a789-f9c61365fe6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sanitary_facility_services
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.waste_and_recycling_facilities.field_sanitary_facility_services
+field_name: field_sanitary_facility_services
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: Services
+description: "Enter services offered in a list.\r\ne.g. Free store on site"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

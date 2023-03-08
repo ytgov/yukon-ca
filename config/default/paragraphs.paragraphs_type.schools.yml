@@ -1,0 +1,10 @@
+uuid: 78960378-c172-417c-ae5b-f49f967331a2
+langcode: en
+status: true
+dependencies: {  }
+id: schools
+label: 'Education facilities'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,26 @@
+uuid: 5116e95b-6788-4cfd-803f-d115791a582f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_site_description_app
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_site_description_app
+field_name: field_site_description_app
+entity_type: node
+bundle: campground_directory_record
+label: 'Site description (app)'
+description: 'A short description of the campground / recreational site facility. This will be not be displayed on Yukon.ca, but is for the driving app.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

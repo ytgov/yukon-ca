@@ -1,0 +1,29 @@
+uuid: 52090542-1f0b-451c-824a-4c4eb2f64a84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_outhouse_unisex
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_outhouse_unisex
+field_name: field_outhouse_unisex
+entity_type: node
+bundle: campground_directory_record
+label: 'Outhouse unisex'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

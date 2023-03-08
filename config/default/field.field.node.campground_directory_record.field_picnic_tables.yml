@@ -1,0 +1,29 @@
+uuid: 988a1f6d-1076-42c8-9b55-4f3491bc10bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_picnic_tables
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_picnic_tables
+field_name: field_picnic_tables
+entity_type: node
+bundle: campground_directory_record
+label: 'Picnic tables'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

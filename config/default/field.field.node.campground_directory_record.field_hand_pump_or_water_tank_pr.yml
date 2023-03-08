@@ -1,0 +1,29 @@
+uuid: b8974b88-99ce-4857-8183-e6d1c154b798
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hand_pump_or_water_tank_pr
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_hand_pump_or_water_tank_pr
+field_name: field_hand_pump_or_water_tank_pr
+entity_type: node
+bundle: campground_directory_record
+label: 'Hand pump or water tank provided'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

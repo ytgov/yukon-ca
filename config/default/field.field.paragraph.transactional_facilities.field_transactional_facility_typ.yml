@@ -1,0 +1,35 @@
+uuid: 89a20853-f631-4dd2-bef9-827aea0a32cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_transactional_facility_typ
+    - paragraphs.paragraphs_type.transactional_facilities
+    - taxonomy.vocabulary.transactional_facility_type
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.transactional_facilities.field_transactional_facility_typ
+field_name: field_transactional_facility_typ
+entity_type: paragraph
+bundle: transactional_facilities
+label: 'Transactional facility type'
+description: "Select one, or both, from the following list:\r\nLiquor store\r\nTerritorial agent"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      transactional_facility_type: transactional_facility_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

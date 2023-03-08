@@ -1,0 +1,26 @@
+uuid: 14afeb34-acf9-4f75-a490-8ff11ee3d037
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_august_availability
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_august_availability
+field_name: field_august_availability
+entity_type: node
+bundle: campground_directory_record
+label: 'August availability'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,35 @@
+uuid: e7ff6cb4-1199-49a7-90af-976794a4dfdb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sanitary_facility_type
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+    - taxonomy.vocabulary.sanitary_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.waste_and_recycling_facilities.field_sanitary_facility_type
+field_name: field_sanitary_facility_type
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: 'Sanitary facility type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sanitary_facilities: sanitary_facilities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

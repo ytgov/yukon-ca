@@ -1,0 +1,35 @@
+uuid: 0c31e3d1-7fdb-4d3b-a992-3367d25d6a18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campground_site_type
+    - node.type.campground_directory_record
+    - taxonomy.vocabulary.site_type
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_campground_site_type
+field_name: field_campground_site_type
+entity_type: node
+bundle: campground_directory_record
+label: 'Campground site type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      site_type: site_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,21 @@
+uuid: 8cae3624-6b12-47a5-8cf8-74a890094209
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_team_leader_phone
+field_name: field_team_leader_phone
+entity_type: paragraph
+type: string
+settings:
+  max_length: 30
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

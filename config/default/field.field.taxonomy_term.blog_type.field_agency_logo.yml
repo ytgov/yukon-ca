@@ -1,0 +1,35 @@
+uuid: 0b89618d-1ffa-42ba-a8ad-d768d53d7609
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_agency_logo
+    - media.type.image
+    - taxonomy.vocabulary.blog_type
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.blog_type.field_agency_logo
+field_name: field_agency_logo
+entity_type: taxonomy_term
+bundle: blog_type
+label: 'Agency Logo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

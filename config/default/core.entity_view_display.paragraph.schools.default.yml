@@ -1,0 +1,111 @@
+uuid: 98c5a3a4-37ee-4cb3-adc9-eed8e494fccd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.schools.field_education_facility_type
+    - field.field.paragraph.schools.field_grades_from
+    - field.field.paragraph.schools.field_grades_to
+    - field.field.paragraph.schools.field_principal
+    - field.field.paragraph.schools.field_principal_email
+    - field.field.paragraph.schools.field_principal_telephone
+    - field.field.paragraph.schools.field_superintendent
+    - field.field.paragraph.schools.field_superintendent_email
+    - field.field.paragraph.schools.field_superintendent_phone
+    - field.field.paragraph.schools.field_team_leader
+    - field.field.paragraph.schools.field_team_leader_email
+    - field.field.paragraph.schools.field_team_leader_phone
+    - paragraphs.paragraphs_type.schools
+id: paragraph.schools.default
+targetEntityType: paragraph
+bundle: schools
+mode: default
+content:
+  field_grades_from:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_grades_to:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_principal:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_principal_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_principal_telephone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_superintendent:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_superintendent_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_superintendent_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_team_leader:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_team_leader_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_team_leader_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_education_facility_type: true
+  search_api_excerpt: true

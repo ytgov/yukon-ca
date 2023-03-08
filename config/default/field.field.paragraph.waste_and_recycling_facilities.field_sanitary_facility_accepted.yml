@@ -1,0 +1,25 @@
+uuid: cc44a8ac-980e-4e6b-9b29-4cbcd4976bd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sanitary_facility_accepted
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.waste_and_recycling_facilities.field_sanitary_facility_accepted
+field_name: field_sanitary_facility_accepted
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: 'Accepted items'
+description: "Optional. Include, if applicable. Enter items accepted at facility in an alphabetical list: e.g.\r\nBrush and clean wood\r\nConstruction and demolition waste\r\nE-waste\r\nHousehold garbage\r\nHousehold hazardous waste\r\nTires\r\nWaste metals"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
