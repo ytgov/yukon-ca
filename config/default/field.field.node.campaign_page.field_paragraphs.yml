@@ -5,6 +5,14 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.campaign_page
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.chart
+    - paragraphs.paragraphs_type.full_width_image
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.text_and_image
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.video_and_text
   module:
     - entity_reference_revisions
     - epp
@@ -25,28 +33,63 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      text: text
+      text_and_image: text_and_image
+      full_width_image: full_width_image
+      video: video
+      video_and_text: video_and_text
+      call_to_action: call_to_action
+      quote: quote
+      chart: chart
     negate: 0
     target_bundles_drag_drop:
+      call_to_action:
+        weight: -28
+        enabled: true
       chart:
-        weight: 8
-        enabled: false
+        weight: -26
+        enabled: true
       collapsable_field:
-        weight: 9
+        weight: -25
         enabled: false
+      full_width_image:
+        weight: -31
+        enabled: true
       image_gallery:
-        weight: 10
+        weight: -24
         enabled: false
       multi_step:
-        weight: 11
+        weight: -23
+        enabled: false
+      navigation_jump_point:
+        weight: -19
         enabled: false
       primary_content:
-        weight: 12
+        weight: -22
         enabled: false
+      quote:
+        weight: -27
+        enabled: true
       secondary_content:
-        weight: 13
+        weight: -21
+        enabled: false
+      social_network:
+        weight: -18
         enabled: false
       sub_heading:
-        weight: 14
+        weight: -20
         enabled: false
+      text:
+        weight: -33
+        enabled: true
+      text_and_image:
+        weight: -32
+        enabled: true
+      video:
+        weight: -30
+        enabled: true
+      video_and_text:
+        weight: -29
+        enabled: true
 field_type: entity_reference_revisions
