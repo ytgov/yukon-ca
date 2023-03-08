@@ -30,16 +30,20 @@ process:
     -
       plugin: skip_on_empty
       method: row
-  'link/uri':
-  #  plugin: link_uri
-  #  source: link_path
-  # Currently using a placeholder until nodes are imported. Will need to replace with a proper lookup.
-    -
-      plugin: default_value
-      default_value: 'internal:#'
-    -
-      plugin: link_uri
-  'link/options': options
+
+  link_path_processed:
+    - plugin: static_map
+      bypass: true
+      map:
+        '<nolink>': 'route:<nolink>'
+      source: link_path
+    - plugin: migrated_path_lookup
+
+  link/uri:
+    plugin: link_uri
+    validate_route: false
+    source: '@link_path_processed'
+  link/options: options
   route:
     plugin: route
     source:
