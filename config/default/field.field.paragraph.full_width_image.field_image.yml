@@ -1,0 +1,35 @@
+uuid: 39cc2069-f2fa-4ab5-9c40-ad15b1e777da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.full_width_image
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.full_width_image.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: full_width_image
+label: 'Image block'
+description: "IMPORTANT: For upload, your image must be in PNG or JPG format only.\r\nDescribe the image in the Alt text. Aim for a medium-high level of detail, keeping in mind the specific context of the image. The alt text will be used by assisted technology, screen readers, etc."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
