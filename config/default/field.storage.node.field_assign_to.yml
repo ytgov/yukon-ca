@@ -1,11 +1,11 @@
-uuid: 9365fd4d-324c-4722-86ce-047c98e2622d
+uuid: 463c885b-1e6c-4d21-a07d-2cd086f7df46
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_field_assign_to
-field_name: field_field_assign_to
+id: node.field_assign_to
+field_name: field_assign_to
 entity_type: node
 type: entity_reference
 settings:
