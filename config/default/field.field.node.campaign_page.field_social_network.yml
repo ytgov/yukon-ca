@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_social_network
     - node.type.campaign_page
+    - paragraphs.paragraphs_type.social_network
   module:
     - entity_reference_revisions
     - epp
@@ -25,7 +26,8 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      social_network: social_network
     negate: 0
     target_bundles_drag_drop:
       chart:
@@ -40,12 +42,18 @@ settings:
       multi_step:
         weight: 11
         enabled: false
+      navigation_jump_point:
+        weight: 14
+        enabled: false
       primary_content:
         weight: 12
         enabled: false
       secondary_content:
         weight: 13
         enabled: false
+      social_network:
+        weight: 17
+        enabled: true
       sub_heading:
         weight: 14
         enabled: false
