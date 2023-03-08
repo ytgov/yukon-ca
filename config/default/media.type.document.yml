@@ -1,4 +1,4 @@
-uuid: 85f4c680-b569-432d-9b16-6f031fac7dd9
+uuid: 8f4e3a5d-399e-4900-aecd-4d6139f71fba
 langcode: en
 status: true
 dependencies:
@@ -20,7 +20,7 @@ third_party_settings:
     unpublish_revision: false
 id: document
 label: Document
-description: ''
+description: 'A Document file is written information.'
 source: file
 queue_thumbnail_downloads: false
 new_revision: false

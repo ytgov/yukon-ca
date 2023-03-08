@@ -1,12 +1,16 @@
-uuid: 839e7eeb-f618-4cc4-9cdb-dc9e7d767396
+uuid: 1bf45b22-215f-41a7-bb92-5da3ade1de09
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.category.field_dark_svg
+    - field.field.taxonomy_term.category.field_light_svg
+    - field.field.taxonomy_term.category.field_meta_tags
     - field.field.taxonomy_term.category.field_icon_dark
     - field.field.taxonomy_term.category.field_icon_light
     - taxonomy.vocabulary.category
   module:
+    - metatag
     - text
 id: taxonomy_term.category.default
 targetEntityType: taxonomy_term
@@ -19,6 +23,24 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_dark_svg:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_light_svg:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_icon_dark:
     type: entity_reference_entity_view
@@ -44,8 +66,15 @@ content:
     settings:
       view_mode: default
       link: false
-    third_party_settings: {  }
+    third_party_settings: { }
     weight: 2
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   langcode: true

@@ -1,4 +1,4 @@
-uuid: 15143d47-be1d-452f-a162-d7c4f4e0d4c8
+uuid: 97538520-5143-45a6-bd25-5a68a7b2cac5
 langcode: en
 status: true
 dependencies:
@@ -14,5 +14,5 @@ third_party_settings:
 id: taxonomy_term.category
 target_entity_type_id: taxonomy_term
 target_bundle: category
-default_langcode: current_interface
-language_alterable: true
+default_langcode: site_default
+language_alterable: false
