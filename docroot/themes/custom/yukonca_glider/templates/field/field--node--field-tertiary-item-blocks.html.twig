@@ -46,18 +46,13 @@
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    'field__items',
   ]
 %}
 
-<div{{attributes.addClass(classes,'field__items')}}>
+<div{{attributes.addClass(classes)}}>
   {% for item in items %}
-    <div{{item.attributes.addClass('field__item')}}>
+    <div{{ item.attributes.addClass('field__item') }}>
       <div class="tertiary-single-item box-items">
         {{ item.content }}
       </div>

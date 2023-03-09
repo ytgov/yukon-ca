@@ -78,11 +78,11 @@
   ]
 %}
 {{ attach_library('classy/node') }}
-<article{{attributes.addClass(classes)}}>
+<article{{ attributes.addClass(classes) }}>
 	{{ title_prefix }}
   <a href="{{ url }}" rel="bookmark">
     {{ content.field_svg_upload }}
-    <h2{{title_attributes}}>
+    <h2{{ title_attributes }}>
       {{ label }}
     </h2>
   </a>
