@@ -128,10 +128,10 @@ display:
           exposed: false
           granularity: second
       arguments:
-        field_field_assign_to_target_id:
-          id: field_field_assign_to_target_id
-          table: node__field_field_assign_to
-          field: field_field_assign_to_target_id
+        field_assign_to_target_id:
+          id: field_assign_to_target_id
+          table: node__field_assign_to
+          field: field_assign_to_target_id
           relationship: none
           group_type: group
           admin_label: ''
