@@ -1,0 +1,39 @@
+uuid: e9696b55-ca51-47be-983b-471903983941
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.in_page_alerts
+  module:
+    - node
+    - views
+  theme:
+    - yukonca_glider
+id: views_block__in_page_alerts_block
+theme: yukonca_glider
+region: pre_content
+weight: 0
+provider: null
+plugin: 'views_block:in_page_alerts-block'
+settings:
+  id: 'views_block:in_page_alerts-block'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      basic_page: basic_page
+      documents: documents
+      engagement: engagement
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
+      multi_step_page: multi_step_page
+      topics_page: topics_page
