@@ -2,12 +2,14 @@
 {% set classes = [
   prefix,
   prefix ~ '--' ~ variant,
+  'mt-7',
+  'mb-5',
 ] %}
 
 {% set attributes = attributes.addClass(classes).setAttribute('data-aos', 'fade-up').setAttribute('data-aos-once', 'true') %}
 
 {% set content %}
-  <div class="{{ prefix }}__content">
+  <div class="{{ prefix }}__content px-5 py-6 bg-alert-background text-alert-text flex gap-5">
     {% if icon %}
       <div class="icon">
         {{ icon }}
@@ -15,7 +17,7 @@
     {% endif %}
 
     <div class="content">
-      <div class="title">{{ title }}</div>
+      <div class="title text-lg font-medium mb-2">{{ title }}</div>
 
       {% if content %}
         <div class="text">{{ content }}</div>
