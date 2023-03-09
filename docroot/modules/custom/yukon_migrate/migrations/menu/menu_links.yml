@@ -30,16 +30,18 @@ process:
     -
       plugin: skip_on_empty
       method: row
-  'link/uri':
-  #  plugin: link_uri
-  #  source: link_path
-  # Currently using a placeholder until nodes are imported. Will need to replace with a proper lookup.
-    -
-      plugin: default_value
-      default_value: 'internal:#'
-    -
-      plugin: link_uri
-  'link/options': options
+
+  link/uri:
+    - plugin: yukon_migrate_links
+      source: link_path
+    - plugin: static_map
+      bypass: true
+      map:
+        '<nolink>': 'route:<nolink>'
+    - plugin: link_uri
+      validate_route: false
+
+  link/options: options
   route:
     plugin: route
     source:

@@ -6,7 +6,6 @@ dependencies:
     - views.view.engagements
   module:
     - node
-    - system
     - views
   theme:
     - yukonca_glider
@@ -25,10 +24,6 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  request_path:
-    id: request_path
-    negate: true
-    pages: ''
   'entity_bundle:node':
     id: 'entity_bundle:node'
     negate: false
