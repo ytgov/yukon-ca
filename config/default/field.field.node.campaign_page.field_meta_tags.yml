@@ -1,0 +1,26 @@
+uuid: 595ff78f-84ec-4905-88df-3669d062cf40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.campaign_page
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: campaign_page
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
