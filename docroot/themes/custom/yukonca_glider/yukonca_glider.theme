@@ -47,3 +47,16 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
 
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__documents(&$variables) {
+  $node = $variables['node'];
+  if (!$node->get('field_document_upload')->isEmpty()) {
+    $media_file = $node->get('field_document_upload')->entity;
+    $file = \Drupal::entityTypeManager()->getStorage('file')->load($media_file->get('field_media_file')->getString());
+    $variables['document_size'] = format_size($file->getSize());
+    $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
+  }
+}
