@@ -1,18 +1,18 @@
-uuid: eb79c705-a2e2-4ead-a69a-43ca83e3ec4f
+uuid: 3680bd91-b175-43d0-ba72-b5f8234301be
 langcode: en
 status: true
 dependencies:
   config:
-    - paragraphs.paragraphs_type.quotes
+    - paragraphs.paragraphs_type.transactional_facilities
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: true
+    enabled: false
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: paragraph.quotes
+id: paragraph.transactional_facilities
 target_entity_type_id: paragraph
-target_bundle: quotes
+target_bundle: transactional_facilities
 default_langcode: site_default
-language_alterable: true
+language_alterable: false

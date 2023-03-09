@@ -1,9 +1,9 @@
-uuid: eb79c705-a2e2-4ead-a69a-43ca83e3ec4f
+uuid: a6ba5d44-6b72-4329-b690-53f986cfcf11
 langcode: en
 status: true
 dependencies:
   config:
-    - paragraphs.paragraphs_type.quotes
+    - paragraphs.paragraphs_type.holiday_times
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: paragraph.quotes
+id: paragraph.holiday_times
 target_entity_type_id: paragraph
-target_bundle: quotes
+target_bundle: holiday_times
 default_langcode: site_default
 language_alterable: true
