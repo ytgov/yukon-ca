@@ -38,30 +38,25 @@
  */
 #}
 {%
-	set classes = [
-	'secondary-items',
-	'row row-cols-3 g-3',
-	'field',
-	'field--name-' ~ field_name|clean_class,
-	'field--type-' ~ field_type|clean_class,
-	'field--label-' ~ label_display,
-	label_display == 'inline' ? 'clearfix',
-]
-%}
-{%
-	set title_classes = [
-	'field__label',
-	label_display == 'visually_hidden' ? 'visually-hidden',
-]
+  set classes = [
+    'secondary-items',
+    'row row-cols-3 g-3',
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+    'field__items',
+  ]
 %}
 
-<div{{ attributes.addClass(classes,'field__items') }}>
-	{% for item in items %}
-		<div{{ item.attributes.addClass('field__item') }}>
-			<div class="secondary-single-item box-items">
-				<span class="faded-box"></span>
-				{{ item.content }}
-			</div>
-		</div>
-	{% endfor %}
+<div{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item') }}>
+      <div class="secondary-single-item box-items">
+        <span class="faded-box"></span>
+        {{ item.content }}
+      </div>
+    </div>
+  {% endfor %}
 </div>

@@ -1,34 +1,26 @@
-@import "../../../styles.scss";
+@import "src/sass/core";
 
 .hero {
-  position: relative;
-  @apply bg-gray-light;
-  @apply py-[30px] md:py-0;
-
   &::before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: -125px;
-    width: 350px;
-    height: 135px;
-    background-repeat: no-repeat;
+    @apply block;
+    @apply content-[""];
+    @apply block;
+    @apply absolute;
+    @apply -top-2.5 md:top-auto;
+    @apply -right-[125px] md:-right-[300px];
+    @apply w-[350px] md:w-2/3;
+    @apply h-[135px];
+    @apply bg-no-repeat;
+    @apply bg-contain md:bg-cover;
     background-image: url(../../../../../images/svg/Aurora-small-mobile.svg);
-    background-size: contain;
 
     @include media-breakpoint-up(md) {
-      top: auto;
-      right: -300px;
-      bottom: 0;
-      width: 66%;
       background-image: url(../../../../../images/svg/Aurora-main.svg);
-      background-size: cover;
     }
   }
 
   img {
-    @apply w-[120px] h-[85px] md:h-[120px];
+    @apply w-auto h-[85px] md:h-[120px];
   }
 
   h1.title {

@@ -1,5 +1,4 @@
-/* Add your code here */
-@import "../../../styles.scss";
+@import "src/sass/core";
 
 .quicklink-card {
   @apply shadow-card;
@@ -7,6 +6,6 @@
   @apply h-full;
 
   a {
-    @apply p-[2rem];
+    @apply p-8;
   }
 }

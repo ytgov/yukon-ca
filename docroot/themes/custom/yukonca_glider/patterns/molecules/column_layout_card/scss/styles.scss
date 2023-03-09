@@ -1,12 +1,11 @@
-/* Add your code here */
 .column-layout-card {
   a {
-    display: block;
-    @apply mb-[20px];
+    @apply block;
+    @apply mb-5;
   }
 
   h4 {
-    @apply pb-[10px];
+    @apply pb-2.5;
 
     a {
       @apply mb-0;

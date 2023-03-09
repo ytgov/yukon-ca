@@ -46,16 +46,11 @@
     label_display == 'inline' ? 'clearfix',
     'grid grid-cols-3',
     'gap-3',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    'field__items',
   ]
 %}
 
-<div{{ attributes.addClass(classes, 'field__items') }}>
+<div{{ attributes.addClass(classes) }}>
   {% for item in items %}
     <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
   {% endfor %}
