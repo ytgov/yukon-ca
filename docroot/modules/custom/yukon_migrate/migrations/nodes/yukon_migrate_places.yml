@@ -125,7 +125,9 @@ process:
       paragraph:
         plugin: migration_lookup
         source: value
-        migration: yukon_migrate_opening_times
+        migration:
+          - yukon_migrate_date_range_text
+          - yukon_migrate_opening_times
         no_stub: true
 
   field_opening_times:

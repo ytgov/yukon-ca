@@ -62,6 +62,10 @@ class Time extends ProcessPluginBase {
       if (strpos($value, ':48')) {
         $value = date('Y-m-d\TH:i:s', strtotime($value . ' +12 seconds'));
       }
+      if (strpos($value, ':47:44') || strpos($value, ':17:44')) {
+        $value = date('Y-m-d\TH:i:s', strtotime($value . ' +12 minutes'));
+        $value = date('Y-m-d\TH:i:s', strtotime($value . ' +16 seconds'));
+      }
 
       return $value;
     }

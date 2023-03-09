@@ -47,16 +47,8 @@ process:
       value:
         -   plugin: format_date
             from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
+            to_format: 'Y-m-d'
             source: value
-      end_value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
-            source: value2
-      timezone:
-        -   plugin: default_value
-            default_value: 'America/Whitehorse'
 
   # links
   field_legislative_assembly_web:

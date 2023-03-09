@@ -42,6 +42,9 @@ class Links extends MigrationLookup {
       'yukon_migrate_basic_page_translations',
       'yukon_migrate_multi_step_page',
       'yukon_migrate_multi_step_page_translations',
+      'yukon_migrate_places',
+      'yukon_migrate_places_translations',
+      'yukon_migrate_secondary_content',
       'yukon_migrate_sub_heading',
     ];
     $configuration['no_stub'] = TRUE;
@@ -72,6 +75,7 @@ class Links extends MigrationLookup {
 
       $destination_id = parent::transform($source_nid, $migrate_executable, $row, $destination_property);
       if (!empty($destination_id)) {
+        $destination_id = is_array($destination_id) ? reset($destination_id) : $destination_id;
         $uri = "internal:/node/{$destination_id}";
       }
     }

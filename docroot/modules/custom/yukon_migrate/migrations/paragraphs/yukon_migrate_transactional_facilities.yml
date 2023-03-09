@@ -14,7 +14,7 @@ process:
 
   field_transactional_facility_typ:
     plugin: migration_lookup
-    migration: yukon_migrate_sanitary_facility_type_terms
+    migration: yukon_migrate_transactional_facility_type
     source: field_transactional_facility_typ
     no_stub: true
   field_tf_services/value: field_tf_services/0/value

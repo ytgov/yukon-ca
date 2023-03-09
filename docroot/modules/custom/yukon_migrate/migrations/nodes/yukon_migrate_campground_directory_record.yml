@@ -45,6 +45,7 @@ process:
   field_boat_launch:  field_boat_launch
   field_change_room: field_change_room
   field_cook_shelter: field_cook_shelter
+  field_fire_ring: field_fire_ring
   field_gate_open_year_round: field_gate_open_year_round
   field_group_campsite: field_group_campsite
   field_hand_pump_or_water_tank_pr: field_hand_pump_or_water_tank_pr
@@ -70,16 +71,8 @@ process:
       value:
         -   plugin: format_date
             from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
+            to_format: 'Y-m-d'
             source: value
-      end_value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
-            source: value2
-      timezone:
-        -   plugin: default_value
-            default_value: 'America/Whitehorse'
   field_gate_open_date:
     plugin: sub_process
     source: field_gate_open
@@ -87,16 +80,8 @@ process:
       value:
         -   plugin: format_date
             from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
+            to_format: 'Y-m-d'
             source: value
-      end_value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
-            source: value2
-      timezone:
-        -   plugin: default_value
-            default_value: 'America/Whitehorse'
   field_serviced_end_date:
     plugin: sub_process
     source: field_closing_date
@@ -104,16 +89,8 @@ process:
       value:
         -   plugin: format_date
             from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
+            to_format: 'Y-m-d'
             source: value
-      end_value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
-            source: value2
-      timezone:
-        -   plugin: default_value
-            default_value: 'America/Whitehorse'
   field_serviced_start_date:
     plugin: sub_process
     source: field_opening_date
@@ -121,16 +98,8 @@ process:
       value:
         -   plugin: format_date
             from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
+            to_format: 'Y-m-d'
             source: value
-      end_value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d\TH:i:s'
-            source: value2
-      timezone:
-        -   plugin: default_value
-            default_value: 'America/Whitehorse'
 
   # links
   field_related_tasks:

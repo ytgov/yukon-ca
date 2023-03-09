@@ -15,7 +15,7 @@ source:
 process:
   nid:
     plugin: migration_lookup
-    migration: yukon_migrate_department_nodes
+    migration: yukon_migrate_places
     source: entity_id
     no_stub: true
   content_translation_source: source
@@ -107,7 +107,9 @@ process:
       paragraph:
         plugin: migration_lookup
         source: value
-        migration: yukon_migrate_opening_times
+        migration:
+          - yukon_migrate_date_range_text
+          - yukon_migrate_opening_times
         no_stub: true
 
   field_opening_times:
@@ -176,7 +178,7 @@ destination:
   translations: true
 migration_dependencies:
   required:
-    - yukon_migrate_department_nodes
+    - yukon_migrate_places
   optional:
     - yukon_migrate_community
     - yukon_migrate_department
