@@ -1,9 +1,9 @@
-uuid: e6a19d35-1f85-4b6c-a937-ec98929fa9c4
+uuid: a047c057-a23d-45b6-ba03-b4350ce81413
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.campaign_page
+    - paragraphs.paragraphs_type.social_network
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: node.campaign_page
-target_entity_type_id: node
-target_bundle: campaign_page
+id: paragraph.social_network
+target_entity_type_id: paragraph
+target_bundle: social_network
 default_langcode: site_default
 language_alterable: true

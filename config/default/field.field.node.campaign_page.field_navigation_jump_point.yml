@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_navigation_jump_point
     - node.type.campaign_page
+    - paragraphs.paragraphs_type.navigation_jump_point
   module:
     - entity_reference_revisions
     - epp
@@ -25,7 +26,8 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      navigation_jump_point: navigation_jump_point
     negate: 0
     target_bundles_drag_drop:
       chart:
@@ -40,6 +42,9 @@ settings:
       multi_step:
         weight: 11
         enabled: false
+      navigation_jump_point:
+        weight: 13
+        enabled: true
       primary_content:
         weight: 12
         enabled: false
