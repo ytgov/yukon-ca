@@ -1,1 +1,13 @@
-/* Add your code here */
+.node--type-site-wide-alert {
+  .callout-card__content-wrapper {
+    @apply lg:ml-[25%];
+  }
+}
+
+.callout-card {
+  .field--name-body {
+    & > p {
+      @apply m-0;
+    }
+  }
+}
