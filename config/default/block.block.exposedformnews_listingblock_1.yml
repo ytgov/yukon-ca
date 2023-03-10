@@ -1,0 +1,32 @@
+uuid: a7916eca-eb92-4ff4-a81a-668329cb53e5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.news_listing
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - yukonca_glider
+third_party_settings:
+  block_class:
+    classes: exposed-listing-filters
+id: exposedformnews_listingblock_1
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:news_listing-block_1'
+settings:
+  id: 'views_exposed_filter_block:news_listing-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/news\r\n/communiques-de-presse"

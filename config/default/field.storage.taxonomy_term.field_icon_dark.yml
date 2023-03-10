@@ -1,0 +1,20 @@
+uuid: f52ea5c4-f91a-4e17-b211-0145b77cfac3
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - taxonomy
+id: taxonomy_term.field_icon_dark
+field_name: field_icon_dark
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
