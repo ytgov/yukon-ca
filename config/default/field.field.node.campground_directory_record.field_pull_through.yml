@@ -1,0 +1,25 @@
+uuid: 48855dd7-7641-4864-a902-78bb9356133a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pull_through
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_pull_through
+field_name: field_pull_through
+entity_type: node
+bundle: campground_directory_record
+label: 'Pull through'
+description: 'Optional: for roadside accessible campgrounds only'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

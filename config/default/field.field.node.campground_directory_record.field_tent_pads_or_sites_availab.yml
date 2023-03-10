@@ -1,0 +1,29 @@
+uuid: 358d87c2-0bd9-4c0e-ae99-59c6b75ed8df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tent_pads_or_sites_availab
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_tent_pads_or_sites_availab
+field_name: field_tent_pads_or_sites_availab
+entity_type: node
+bundle: campground_directory_record
+label: 'Tent pads or sites available via walking trail'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

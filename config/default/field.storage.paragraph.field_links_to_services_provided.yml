@@ -1,0 +1,19 @@
+uuid: c640c62a-2c53-4044-86ae-b947a7f18e28
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_links_to_services_provided
+field_name: field_links_to_services_provided
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

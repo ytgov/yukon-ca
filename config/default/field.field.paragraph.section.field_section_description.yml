@@ -1,0 +1,26 @@
+uuid: 3e2b0a26-0e18-4dd3-b46a-b8c77ad24915
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_description
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_section_description
+field_name: field_section_description
+entity_type: paragraph
+bundle: section
+label: 'Section description'
+description: 'Enter a short paragraph containing a description of the function the branch serves.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

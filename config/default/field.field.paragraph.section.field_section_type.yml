@@ -1,0 +1,35 @@
+uuid: 3d853f97-d392-4d9d-af88-2179563c54dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_type
+    - paragraphs.paragraphs_type.section
+    - taxonomy.vocabulary.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_section_type
+field_name: field_section_type
+entity_type: paragraph
+bundle: section
+label: 'Section type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

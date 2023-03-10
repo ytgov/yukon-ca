@@ -1,0 +1,29 @@
+uuid: 13190902-b0ae-4491-bc5d-dbaddc0a4303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_viewing_structures_or_sign
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_viewing_structures_or_sign
+field_name: field_viewing_structures_or_sign
+entity_type: node
+bundle: campground_directory_record
+label: 'Viewing structures or signage about local cultural and natural history'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

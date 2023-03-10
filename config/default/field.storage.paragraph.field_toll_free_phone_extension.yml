@@ -1,0 +1,21 @@
+uuid: e364b272-688b-413e-a9fb-320201af0a89
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_toll_free_phone_extension
+field_name: field_toll_free_phone_extension
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

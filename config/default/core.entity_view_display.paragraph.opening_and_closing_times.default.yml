@@ -1,0 +1,54 @@
+uuid: c4c15a9c-5901-4eb3-b9a7-494f85e103e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.opening_and_closing_times.field_closing_time
+    - field.field.paragraph.opening_and_closing_times.field_opening_time
+    - paragraphs.paragraphs_type.opening_and_closing_times
+  module:
+    - datetime
+    - fences
+id: paragraph.opening_and_closing_times.default
+targetEntityType: paragraph
+bundle: opening_and_closing_times
+mode: default
+content:
+  field_closing_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: yg_long
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 1
+    region: content
+  field_opening_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: yg_long
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

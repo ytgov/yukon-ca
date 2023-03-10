@@ -1,0 +1,25 @@
+uuid: 72aea501-253b-43f4-8a28-c3af1c36fc30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gps_coordinate_n
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_gps_coordinate_n
+field_name: field_gps_coordinate_n
+entity_type: node
+bundle: directory_records_places
+label: 'GPS Coordinate N'
+description: 'Enter the North GPS coordinate for this location'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,29 @@
+uuid: 9f15a267-154d-4188-898e-161d4bd025e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_public_facing
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_public_facing
+field_name: field_public_facing
+entity_type: paragraph
+bundle: section
+label: Public-facing
+description: 'Check this checkbox for this section to be displayed on the website.<br>Uncheck it for this section to be hidden from the website.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

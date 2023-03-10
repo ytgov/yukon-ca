@@ -1,0 +1,35 @@
+uuid: 54851cc6-b1d8-4924-bf67-928caeb0ec81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_region
+    - node.type.directory_records_places
+    - taxonomy.vocabulary.region
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_region
+field_name: field_region
+entity_type: node
+bundle: directory_records_places
+label: Region
+description: "Select one from the following list:\r\n   Campbell\r\n   Klondike\r\n   Kluane\r\n   North Yukon\r\n   Silver Trail\r\n   Southern Lakes\r\n   Watson Lake\r\n   Whitehorse"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      region: region
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

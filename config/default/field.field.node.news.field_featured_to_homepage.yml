@@ -1,0 +1,29 @@
+uuid: 215087f6-1540-4a16-b038-446f5537a158
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_to_homepage
+    - node.type.news
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_featured_to_homepage
+field_name: field_featured_to_homepage
+entity_type: node
+bundle: news
+label: 'Featured to homepage'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: 6776a0a0-d674-4dca-bed1-ef824c66b09b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_email
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_email
+field_name: field_minister_email
+entity_type: node
+bundle: department
+label: Email
+description: 'Enter the email address for the department head office.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

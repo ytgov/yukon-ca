@@ -1,0 +1,8 @@
+uuid: 871a3487-1b8c-4ac2-8e97-3d09021443dc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Community facilities'
+vid: community_facilities
+description: ''
+weight: 0

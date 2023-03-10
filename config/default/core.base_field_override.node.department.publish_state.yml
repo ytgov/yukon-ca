@@ -1,0 +1,20 @@
+uuid: e5293439-933e-4b1f-bc6a-f286fda0493e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.department
+  module:
+    - options
+id: node.department.publish_state
+field_name: publish_state
+entity_type: node
+bundle: department
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

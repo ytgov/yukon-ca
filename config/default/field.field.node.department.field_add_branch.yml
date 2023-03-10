@@ -1,0 +1,93 @@
+uuid: 9dae5133-414b-452c-adcf-4f7ba700226c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_branch
+    - node.type.department
+    - paragraphs.paragraphs_type.section
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_add_branch
+field_name: field_add_branch
+entity_type: node
+bundle: department
+label: 'Add section'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      section: section
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 21
+        enabled: false
+      collapsable_field:
+        weight: 22
+        enabled: false
+      community_facilities:
+        weight: 23
+        enabled: false
+      contact_person:
+        weight: 24
+        enabled: false
+      date_range_text:
+        weight: 25
+        enabled: false
+      health_facilities:
+        weight: 26
+        enabled: false
+      holiday_times:
+        weight: 27
+        enabled: false
+      image_gallery:
+        weight: 28
+        enabled: false
+      opening_and_closing_times:
+        weight: 29
+        enabled: false
+      opening_times:
+        weight: 30
+        enabled: false
+      primary_content:
+        weight: 31
+        enabled: false
+      quick_facts:
+        weight: 32
+        enabled: false
+      quotes:
+        weight: 33
+        enabled: false
+      related_content:
+        weight: 34
+        enabled: false
+      schools:
+        weight: 35
+        enabled: false
+      secondary_content:
+        weight: 36
+        enabled: false
+      section:
+        weight: 37
+        enabled: true
+      top_tasks:
+        weight: 38
+        enabled: false
+      transactional_facilities:
+        weight: 39
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

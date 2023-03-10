@@ -1,0 +1,22 @@
+uuid: 9f206dca-36b1-45b0-a72e-a3d44e017b7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date_range_text.field_date_range_text
+    - paragraphs.paragraphs_type.date_range_text
+id: paragraph.date_range_text.default
+targetEntityType: paragraph
+bundle: date_range_text
+mode: default
+content:
+  field_date_range_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

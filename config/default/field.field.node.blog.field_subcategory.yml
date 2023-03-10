@@ -1,0 +1,35 @@
+uuid: 23311764-1c31-40c1-8fb7-c203357373d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subcategory
+    - node.type.blog
+    - taxonomy.vocabulary.sub_category
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.blog.field_subcategory
+field_name: field_subcategory
+entity_type: node
+bundle: blog
+label: Subcategory
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sub_category: sub_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

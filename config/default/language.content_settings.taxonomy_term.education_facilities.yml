@@ -1,0 +1,18 @@
+uuid: 752356c8-a82b-487f-a7c4-e401a0398dfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.education_facilities
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.education_facilities
+target_entity_type_id: taxonomy_term
+target_bundle: education_facilities
+default_langcode: site_default
+language_alterable: true

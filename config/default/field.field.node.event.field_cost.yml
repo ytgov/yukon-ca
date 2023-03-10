@@ -1,0 +1,25 @@
+uuid: 707abf7b-354e-4dd4-b241-a16824f4f3fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cost
+    - node.type.event
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_cost
+field_name: field_cost
+entity_type: node
+bundle: event
+label: Cost
+description: 'Format $ , .00'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

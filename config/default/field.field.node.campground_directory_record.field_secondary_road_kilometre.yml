@@ -1,0 +1,25 @@
+uuid: 3ddd8e0c-f54b-48c6-a00f-765fc0032b17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondary_road_kilometre
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_secondary_road_kilometre
+field_name: field_secondary_road_kilometre
+entity_type: node
+bundle: campground_directory_record
+label: 'Secondary road kilometre'
+description: 'Enter the km number of the highway, if applicable'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 41ccfbf0-e24e-412b-ae9b-c39e7ff7d840
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+id: paragraph.waste_and_recycling_facilities.status
+field_name: status
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

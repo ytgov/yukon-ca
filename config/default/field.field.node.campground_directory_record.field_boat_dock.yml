@@ -1,0 +1,29 @@
+uuid: d8ab62fc-86b5-47ea-876c-16a27de51746
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_boat_dock
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_boat_dock
+field_name: field_boat_dock
+entity_type: node
+bundle: campground_directory_record
+label: 'Boat dock'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

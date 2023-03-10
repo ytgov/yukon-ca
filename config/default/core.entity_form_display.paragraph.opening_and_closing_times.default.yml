@@ -1,0 +1,35 @@
+uuid: d89f3962-ac10-4895-afcd-25af0795062c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.opening_and_closing_times.field_closing_time
+    - field.field.paragraph.opening_and_closing_times.field_opening_time
+    - paragraphs.paragraphs_type.opening_and_closing_times
+  module:
+    - datetime
+id: paragraph.opening_and_closing_times.default
+targetEntityType: paragraph
+bundle: opening_and_closing_times
+mode: default
+content:
+  field_closing_time:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_opening_time:
+    type: datetime_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

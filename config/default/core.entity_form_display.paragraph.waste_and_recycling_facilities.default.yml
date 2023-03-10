@@ -1,0 +1,48 @@
+uuid: 7ce6fc23-868f-48f6-8be2-6ccdf9018d2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_accepted
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_email
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_services
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_type
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+id: paragraph.waste_and_recycling_facilities.default
+targetEntityType: paragraph
+bundle: waste_and_recycling_facilities
+mode: default
+content:
+  field_sanitary_facility_accepted:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sanitary_facility_email:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_sanitary_facility_services:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sanitary_facility_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

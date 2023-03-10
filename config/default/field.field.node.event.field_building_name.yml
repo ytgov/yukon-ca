@@ -1,0 +1,35 @@
+uuid: f46637c3-e84c-4d9e-a47b-7e7ad502278a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_building_name
+    - node.type.directory_records_places
+    - node.type.event
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_building_name
+field_name: field_building_name
+entity_type: node
+bundle: event
+label: 'Building name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      directory_records_places: directory_records_places
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

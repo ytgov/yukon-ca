@@ -1,0 +1,10 @@
+uuid: 0af1c6a0-01d5-45e7-97aa-9b1acc3bb489
+langcode: en
+status: true
+dependencies: {  }
+id: quick_facts
+label: 'Quick facts'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

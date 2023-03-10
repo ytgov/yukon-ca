@@ -1,0 +1,26 @@
+uuid: 2e4f7ef3-97e7-40f7-9395-06b6b0386dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_backgrounder
+    - node.type.news
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_backgrounder
+field_name: field_backgrounder
+entity_type: node
+bundle: news
+label: Backgrounder
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

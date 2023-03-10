@@ -1,0 +1,37 @@
+uuid: b114c747-b950-45c2-bba4-efdcd110b85f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.directory_records_places
+  module:
+    - epp
+    - geofield
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_location
+field_name: field_location
+entity_type: node
+bundle: directory_records_places
+label: 'Map pin'
+description: 'Use a pin to locate on a map'
+required: false
+translatable: true
+default_value:
+  -
+    value: 'POINT (-135.0568 60.7212)'
+    geo_type: Point
+    lat: 60.7212
+    lon: -135.0568
+    left: -135.0568
+    top: 60.7212
+    right: -135.0568
+    bottom: 60.7212
+    geohash: bfzcqtyws
+    latlon: '60.7212,-135.0568'
+default_value_callback: ''
+settings: {  }
+field_type: geofield

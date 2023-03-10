@@ -1,0 +1,26 @@
+uuid: e0305b33-b314-4c69-9f54-c9cd02362456
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_date
+    - node.type.department
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_review_date
+field_name: field_review_date
+entity_type: node
+bundle: department
+label: 'Review date'
+description: 'Set a date that content should be reviewed.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

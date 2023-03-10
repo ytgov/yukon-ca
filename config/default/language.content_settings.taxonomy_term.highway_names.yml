@@ -1,0 +1,18 @@
+uuid: 39ffe08f-9f64-4f81-9253-6fb3c35af7cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.highway_names
+target_entity_type_id: taxonomy_term
+target_bundle: highway_names
+default_langcode: site_default
+language_alterable: true

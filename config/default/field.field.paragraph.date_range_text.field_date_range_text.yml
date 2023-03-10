@@ -1,0 +1,25 @@
+uuid: a20dc066-eefa-479c-8d2e-0fcbd778ea47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_range_text
+    - paragraphs.paragraphs_type.date_range_text
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.date_range_text.field_date_range_text
+field_name: field_date_range_text
+entity_type: paragraph
+bundle: date_range_text
+label: 'Date Range Text'
+description: 'Date Range Text Title. e.g. January 1 to April 30'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

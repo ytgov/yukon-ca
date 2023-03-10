@@ -1,0 +1,84 @@
+uuid: db6017ec-381a-4fad-a021-2a23020fe180
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_holiday_hours
+    - node.type.directory_records_places
+    - paragraphs.paragraphs_type.holiday_times
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_holiday_hours
+field_name: field_holiday_hours
+entity_type: node
+bundle: directory_records_places
+label: 'Holiday hours'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      holiday_times: holiday_times
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 18
+        enabled: false
+      collapsable_field:
+        weight: 19
+        enabled: false
+      community_facilities:
+        weight: 20
+        enabled: false
+      contact_person:
+        weight: 21
+        enabled: false
+      date_range_text:
+        weight: 22
+        enabled: false
+      health_facilities:
+        weight: 23
+        enabled: false
+      holiday_times:
+        weight: 24
+        enabled: true
+      image_gallery:
+        weight: 25
+        enabled: false
+      opening_and_closing_times:
+        weight: 26
+        enabled: false
+      opening_times:
+        weight: 27
+        enabled: false
+      primary_content:
+        weight: 28
+        enabled: false
+      quick_facts:
+        weight: 29
+        enabled: false
+      quotes:
+        weight: 30
+        enabled: false
+      schools:
+        weight: 31
+        enabled: false
+      secondary_content:
+        weight: 32
+        enabled: false
+      transactional_facilities:
+        weight: 33
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,25 @@
+uuid: 9a41ed94-9ee0-4952-8225-4756d9a108b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sanitary_facility_email
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.waste_and_recycling_facilities.field_sanitary_facility_email
+field_name: field_sanitary_facility_email
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: Email
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

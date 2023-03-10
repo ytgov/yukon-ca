@@ -1,0 +1,29 @@
+uuid: b320207c-9290-42e2-993a-7d92c427626a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fire_ring
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_fire_ring
+field_name: field_fire_ring
+entity_type: node
+bundle: campground_directory_record
+label: 'Fire ring'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

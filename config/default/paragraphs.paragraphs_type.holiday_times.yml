@@ -1,0 +1,10 @@
+uuid: 1655a31c-e5c2-48a3-b073-c8de3ed75b23
+langcode: en
+status: true
+dependencies: {  }
+id: holiday_times
+label: 'Holiday times'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

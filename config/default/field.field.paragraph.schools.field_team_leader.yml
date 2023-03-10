@@ -1,0 +1,25 @@
+uuid: 4fafd460-c922-42af-8c33-cc75f847094d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_team_leader
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_team_leader
+field_name: field_team_leader
+entity_type: paragraph
+bundle: schools
+label: 'Team leader'
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,25 @@
+uuid: fc3fc132-73a0-4bdd-909f-a7b7d8921706
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_holiday
+    - paragraphs.paragraphs_type.holiday_times
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.holiday_times.field_holiday
+field_name: field_holiday
+entity_type: paragraph
+bundle: holiday_times
+label: Holiday
+description: 'Optional. Include, if applicable'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

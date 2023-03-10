@@ -1,0 +1,25 @@
+uuid: 5fb98a6d-1c63-4812-b6d0-b8b9b2ba348f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_person_email
+    - paragraphs.paragraphs_type.contact_person
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.contact_person.field_contact_person_email
+field_name: field_contact_person_email
+entity_type: paragraph
+bundle: contact_person
+label: Email
+description: 'Only include, if applicable'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

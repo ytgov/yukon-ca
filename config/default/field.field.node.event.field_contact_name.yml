@@ -1,0 +1,25 @@
+uuid: dd855221-af7f-4edb-97ab-f06965e1b5c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_name
+    - node.type.event
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_contact_name
+field_name: field_contact_name
+entity_type: node
+bundle: event
+label: 'Contact name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

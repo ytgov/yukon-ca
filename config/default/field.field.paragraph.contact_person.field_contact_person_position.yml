@@ -1,0 +1,25 @@
+uuid: 496435e4-8b83-4e6c-a413-f0e5d5841d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_person_position
+    - paragraphs.paragraphs_type.contact_person
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.contact_person.field_contact_person_position
+field_name: field_contact_person_position
+entity_type: paragraph
+bundle: contact_person
+label: 'Contact person position'
+description: "Enter the contact person's position, if applicable"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

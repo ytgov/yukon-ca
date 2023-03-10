@@ -1,0 +1,83 @@
+uuid: 34626551-f2df-450c-9ea5-e9ddb831abb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_opening_times
+    - node.type.directory_records_places
+    - paragraphs.paragraphs_type.date_range_text
+    - paragraphs.paragraphs_type.opening_times
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_opening_times
+field_name: field_opening_times
+entity_type: node
+bundle: directory_records_places
+label: 'Opening times'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      date_range_text: date_range_text
+      opening_times: opening_times
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 16
+        enabled: false
+      collapsable_field:
+        weight: 17
+        enabled: false
+      community_facilities:
+        weight: 18
+        enabled: false
+      contact_person:
+        weight: 19
+        enabled: false
+      date_range_text:
+        weight: 21
+        enabled: true
+      health_facilities:
+        weight: 20
+        enabled: false
+      image_gallery:
+        weight: 21
+        enabled: false
+      opening_and_closing_times:
+        weight: 22
+        enabled: false
+      opening_times:
+        weight: 23
+        enabled: true
+      primary_content:
+        weight: 24
+        enabled: false
+      quick_facts:
+        weight: 25
+        enabled: false
+      quotes:
+        weight: 26
+        enabled: false
+      schools:
+        weight: 27
+        enabled: false
+      secondary_content:
+        weight: 28
+        enabled: false
+      transactional_facilities:
+        weight: 29
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

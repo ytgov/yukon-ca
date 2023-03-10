@@ -1,0 +1,35 @@
+uuid: 6042be71-d382-4e3f-9e11-8e34debea34e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_location
+    - node.type.directory_records_places
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_section_location
+field_name: field_section_location
+entity_type: paragraph
+bundle: section
+label: Location
+description: 'If available, provide the link to Yukon.ca Places record for this branch.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      directory_records_places: directory_records_places
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

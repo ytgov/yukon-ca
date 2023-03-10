@@ -1,0 +1,62 @@
+uuid: 97fde5f1-6d85-4867-89d2-a5a76ca84c93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_top_tasks_link
+    - node.type.basic_page
+    - node.type.blog
+    - node.type.campground_directory_record
+    - node.type.department
+    - node.type.directory_records_places
+    - node.type.event
+    - node.type.homepage
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.multi_step_page
+    - node.type.news
+    - paragraphs.paragraphs_type.top_tasks
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.top_tasks.field_top_tasks_link
+field_name: field_top_tasks_link
+entity_type: paragraph
+bundle: top_tasks
+label: Link
+description: 'Enter the page URL of the top task.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      basic_page: basic_page
+      blog: blog
+      campaign_page: campaign_page
+      campground_directory_record: campground_directory_record
+      department: department
+      documents: documents
+      documents_non_branded: documents_non_branded
+      event: event
+      homepage: homepage
+      in_page_alert: in_page_alert
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
+      multi_step_page: multi_step_page
+      news: news
+      directory_records_places: directory_records_places
+      engagement: engagement
+      site_wide_alert: site_wide_alert
+      topics_page: topics_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: basic_page
+field_type: entity_reference

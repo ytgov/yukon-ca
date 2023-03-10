@@ -1,0 +1,26 @@
+uuid: c6b0ecb4-c255-4ff0-a540-bc152ff1830a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tf_services
+    - paragraphs.paragraphs_type.transactional_facilities
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.transactional_facilities.field_tf_services
+field_name: field_tf_services
+entity_type: paragraph
+bundle: transactional_facilities
+label: Services
+description: 'Help text: Enter information about the services offered. Write in short sentences and use a bulleted list'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

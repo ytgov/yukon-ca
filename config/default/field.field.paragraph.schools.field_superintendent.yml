@@ -1,0 +1,25 @@
+uuid: 13623944-035c-4ed2-9ccd-e77c70805e49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_superintendent
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_superintendent
+field_name: field_superintendent
+entity_type: paragraph
+bundle: schools
+label: Superintendent
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

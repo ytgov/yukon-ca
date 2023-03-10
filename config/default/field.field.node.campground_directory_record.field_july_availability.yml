@@ -1,0 +1,26 @@
+uuid: 4d11b583-6725-45a1-aa0a-e7843f725e33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_july_availability
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_july_availability
+field_name: field_july_availability
+entity_type: node
+bundle: campground_directory_record
+label: 'July availability'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

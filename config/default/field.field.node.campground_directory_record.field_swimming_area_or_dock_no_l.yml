@@ -1,0 +1,29 @@
+uuid: 92ae5950-7c04-42da-a946-b13ba6b651a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_swimming_area_or_dock_no_l
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_swimming_area_or_dock_no_l
+field_name: field_swimming_area_or_dock_no_l
+entity_type: node
+bundle: campground_directory_record
+label: 'Swimming area or dock. No lifeguard'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

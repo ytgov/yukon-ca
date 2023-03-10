@@ -1,0 +1,72 @@
+uuid: ba8090cf-cbbc-4003-bfba-313d2c2a65a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_person
+    - node.type.directory_records_places
+    - paragraphs.paragraphs_type.contact_person
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_contact_person
+field_name: field_contact_person
+entity_type: node
+bundle: directory_records_places
+label: 'Contact person'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      contact_person: contact_person
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 14
+        enabled: false
+      collapsable_field:
+        weight: 15
+        enabled: false
+      community_facilities:
+        weight: 16
+        enabled: false
+      contact_person:
+        weight: 17
+        enabled: true
+      health_facilities:
+        weight: 18
+        enabled: false
+      image_gallery:
+        weight: 19
+        enabled: false
+      primary_content:
+        weight: 20
+        enabled: false
+      quick_facts:
+        weight: 21
+        enabled: false
+      quotes:
+        weight: 22
+        enabled: false
+      schools:
+        weight: 23
+        enabled: false
+      secondary_content:
+        weight: 24
+        enabled: false
+      transactional_facilities:
+        weight: 25
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

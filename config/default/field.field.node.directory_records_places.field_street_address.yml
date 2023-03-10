@@ -1,0 +1,25 @@
+uuid: 22a33f2e-e2cf-475c-9ad7-12c2bc78d2fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_street_address
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_street_address
+field_name: field_street_address
+entity_type: node
+bundle: directory_records_places
+label: 'Street address'
+description: 'eg. 123 Main Street'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

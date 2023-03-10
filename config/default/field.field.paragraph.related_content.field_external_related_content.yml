@@ -1,0 +1,28 @@
+uuid: 57ce7b47-1132-4f1c-9775-85e32e748ffc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_external_related_content
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - epp
+    - link
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.related_content.field_external_related_content
+field_name: field_external_related_content
+entity_type: paragraph
+bundle: related_content
+label: 'External related content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,10 @@
+uuid: bd1e272a-d4f5-4728-92e0-f4dab34a99a6
+langcode: en
+status: true
+dependencies: {  }
+id: date_range_text
+label: 'Date Range Text'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

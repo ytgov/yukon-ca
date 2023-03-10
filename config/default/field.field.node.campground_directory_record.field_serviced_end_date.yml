@@ -1,0 +1,26 @@
+uuid: 1a0a9904-0869-4342-826f-158cc31860d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_serviced_end_date
+    - node.type.campground_directory_record
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_serviced_end_date
+field_name: field_serviced_end_date
+entity_type: node
+bundle: campground_directory_record
+label: 'Serviced end date'
+description: 'Enter date YYYY-MMM-DD'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

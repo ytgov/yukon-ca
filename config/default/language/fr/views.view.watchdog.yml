@@ -9,10 +9,6 @@ display:
           admin_label: Icône
         severity:
           label: Importance
-        type:
-          label: Type
-        message:
-          label: Message
         name:
           label: Utilisateur
         link:
@@ -33,9 +29,6 @@ display:
           admin_label: "Aucune entrée du journal n'est disponible."
           content: "Aucune entrée du journal n'est disponible."
       filters:
-        type:
-          expose:
-            label: Type
         severity:
           expose:
             label: Importance

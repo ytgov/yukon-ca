@@ -1,0 +1,25 @@
+uuid: bc467d45-f74c-4fb1-9aec-fc7467a509fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_number
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_additional_number
+field_name: field_additional_number
+entity_type: node
+bundle: directory_records_places
+label: 'Additional number'
+description: "Optional. Include an additional telephone number, if applicable.\r\nUse format 1-###-###-####\r\nFor extensions, use format 1-###-###-####, extension ####"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

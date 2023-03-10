@@ -1,0 +1,26 @@
+uuid: 2be88965-9cd9-45c3-8412-3c4c512dfece
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_closing_time
+    - paragraphs.paragraphs_type.opening_and_closing_times
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.opening_and_closing_times.field_closing_time
+field_name: field_closing_time
+entity_type: paragraph
+bundle: opening_and_closing_times
+label: 'Closing time'
+description: "Optional. Enter the closing time applicable with the 'Day' text field. For multiple opening times, enter the earliest closing time first"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

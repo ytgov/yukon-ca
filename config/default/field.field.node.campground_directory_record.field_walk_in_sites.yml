@@ -1,0 +1,29 @@
+uuid: a8d19aff-c620-40cb-b842-5673bcba510d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_walk_in_sites
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_walk_in_sites
+field_name: field_walk_in_sites
+entity_type: node
+bundle: campground_directory_record
+label: 'Walk-in sites'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

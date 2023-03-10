@@ -1,0 +1,25 @@
+uuid: df5fed67-f978-43a4-801a-c454a16968e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_telephone
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_section_telephone
+field_name: field_section_telephone
+entity_type: paragraph
+bundle: section
+label: Telephone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

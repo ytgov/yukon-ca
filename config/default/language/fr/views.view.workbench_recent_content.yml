@@ -21,8 +21,6 @@ display:
       fields:
         title:
           label: Titre
-        type:
-          label: Type
         status:
           label: Publié
         name:
@@ -35,9 +33,6 @@ display:
         title:
           expose:
             label: Titre
-        type:
-          expose:
-            label: Type
         status:
           expose:
             label: Publié
@@ -64,8 +59,6 @@ display:
       fields:
         title:
           label: Titre
-        type:
-          label: Type
         name:
           label: Auteur
         changed:

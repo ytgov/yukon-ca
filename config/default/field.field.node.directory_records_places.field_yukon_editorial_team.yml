@@ -1,0 +1,35 @@
+uuid: d8a349ff-7dd0-4486-b9b8-444ba69e1fe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yukon_editorial_team
+    - node.type.directory_records_places
+    - taxonomy.vocabulary.teams
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_yukon_editorial_team
+field_name: field_yukon_editorial_team
+entity_type: node
+bundle: directory_records_places
+label: 'Yukon Editorial Team'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      teams: teams
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

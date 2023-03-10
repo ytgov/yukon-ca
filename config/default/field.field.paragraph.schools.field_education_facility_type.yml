@@ -1,0 +1,35 @@
+uuid: eeb7d1f4-e0a8-44ff-aac2-c53294dc9247
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_education_facility_type
+    - paragraphs.paragraphs_type.schools
+    - taxonomy.vocabulary.education_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_education_facility_type
+field_name: field_education_facility_type
+entity_type: paragraph
+bundle: schools
+label: 'Education facility type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      education_facilities: education_facilities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

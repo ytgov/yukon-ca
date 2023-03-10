@@ -1,0 +1,25 @@
+uuid: 96b7296d-d58d-47a3-9257-cc4b5b2a3b6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_toll_free_phone
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_toll_free_phone
+field_name: field_toll_free_phone
+entity_type: paragraph
+bundle: section
+label: 'Toll-free telephone'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

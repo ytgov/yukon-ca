@@ -1,0 +1,28 @@
+uuid: f36433d3-489b-4345-8634-cb0f87f1e220
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_listing
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedform_news
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:news_listing-block_news_listing'
+settings:
+  id: 'views_exposed_filter_block:news_listing-block_news_listing'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/news\r\n/communiques-de-presse"

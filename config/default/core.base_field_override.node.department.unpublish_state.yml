@@ -1,0 +1,20 @@
+uuid: e6e594b8-39b9-409a-b793-15aecf562676
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.department
+  module:
+    - options
+id: node.department.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: department
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

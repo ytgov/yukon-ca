@@ -1,0 +1,35 @@
+uuid: faefa12e-ef50-48d5-b76f-2a9e06b6edcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_community
+    - node.type.event
+    - taxonomy.vocabulary.community
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_community
+field_name: field_community
+entity_type: node
+bundle: event
+label: Community
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      community: community
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

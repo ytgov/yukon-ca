@@ -1,0 +1,26 @@
+uuid: ebe98aea-b8ae-4fde-9fc8-f0c2ceb3c008
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_place_accessibility
+    - node.type.directory_records_places
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_place_accessibility
+field_name: field_place_accessibility
+entity_type: node
+bundle: directory_records_places
+label: Accessibility
+description: "Optional. Help text: Enter information about building accessibility, if applicable. Write in short sentences and use a bulleted list.\r\n\r\nOnly use: Basic HTML. H2 and H3, bullets and italics."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

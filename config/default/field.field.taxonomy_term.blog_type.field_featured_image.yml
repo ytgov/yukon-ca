@@ -1,0 +1,35 @@
+uuid: 278f93e3-5dce-43aa-aadf-ccc5b45a6514
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_featured_image
+    - media.type.image
+    - taxonomy.vocabulary.blog_type
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.blog_type.field_featured_image
+field_name: field_featured_image
+entity_type: taxonomy_term
+bundle: blog_type
+label: 'Primary Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

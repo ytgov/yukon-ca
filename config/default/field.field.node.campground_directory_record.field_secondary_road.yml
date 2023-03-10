@@ -1,0 +1,25 @@
+uuid: e4f798ec-c69f-4cb4-b529-98be5a2036e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondary_road
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_secondary_road
+field_name: field_secondary_road
+entity_type: node
+bundle: campground_directory_record
+label: 'Secondary road'
+description: 'Enter a Secondary road name.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

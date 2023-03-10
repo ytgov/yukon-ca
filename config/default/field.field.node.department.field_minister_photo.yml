@@ -1,0 +1,35 @@
+uuid: 5c2bf958-0ab2-4320-8e15-97c912a8c3f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_photo
+    - media.type.image
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_photo
+field_name: field_minister_photo
+entity_type: node
+bundle: department
+label: 'Minister Photo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

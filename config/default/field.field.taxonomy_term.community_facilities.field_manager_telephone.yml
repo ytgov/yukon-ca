@@ -1,0 +1,25 @@
+uuid: 5c230bef-b5e5-45c4-ad5a-6f382d501ee1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_manager_telephone
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_manager_telephone
+field_name: field_manager_telephone
+entity_type: taxonomy_term
+bundle: community_facilities
+label: Telephone
+description: "Optional. Include, if applicable.\r\nUse format 1-###-###-####\r\nTo include an extension, use format 1-###-###-####, extension ####"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

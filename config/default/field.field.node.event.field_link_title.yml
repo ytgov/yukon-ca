@@ -1,0 +1,28 @@
+uuid: 31c8b123-fd21-4b90-90ad-2edcc39110e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_title
+    - node.type.event
+  module:
+    - epp
+    - link
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_link_title
+field_name: field_link_title
+entity_type: node
+bundle: event
+label: 'Link title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,25 @@
+uuid: 4bea2d0d-e39d-44f4-a2c5-3f9795b5d8f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_first_name
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_first_name
+field_name: field_minister_first_name
+entity_type: node
+bundle: department
+label: 'First name'
+description: "Enter the minister's first name."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

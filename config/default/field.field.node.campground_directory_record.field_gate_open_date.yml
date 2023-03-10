@@ -1,0 +1,26 @@
+uuid: 7f109539-f4e6-4962-8ddb-34c710e3be06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gate_open_date
+    - node.type.campground_directory_record
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_gate_open_date
+field_name: field_gate_open_date
+entity_type: node
+bundle: campground_directory_record
+label: 'Gate open date'
+description: 'Enter DD-MMM-YYYY'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

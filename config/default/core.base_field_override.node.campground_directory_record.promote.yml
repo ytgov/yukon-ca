@@ -1,0 +1,22 @@
+uuid: 8d488f2c-02ae-4c78-a240-d983f41319de
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.promote
+field_name: promote
+entity_type: node
+bundle: campground_directory_record
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

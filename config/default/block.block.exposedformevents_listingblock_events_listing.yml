@@ -1,0 +1,28 @@
+uuid: 40d5793e-b349-4899-894f-21b9ed03f114
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events_listing
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedformevents_listingblock_events_listing
+theme: yukonca_glider
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:events_listing-block_events_listing'
+settings:
+  id: 'views_exposed_filter_block:events_listing-block_events_listing'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /events

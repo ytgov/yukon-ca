@@ -1,0 +1,25 @@
+uuid: 25ade495-7280-46b3-bffe-5828e16827d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_principal
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_principal
+field_name: field_principal
+entity_type: paragraph
+bundle: schools
+label: Principal
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

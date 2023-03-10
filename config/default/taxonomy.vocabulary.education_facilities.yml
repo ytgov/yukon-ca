@@ -1,0 +1,8 @@
+uuid: 06c972c7-4460-448b-9a79-ff5539f0d526
+langcode: en
+status: true
+dependencies: {  }
+name: 'Education facilities'
+vid: education_facilities
+description: ''
+weight: 0

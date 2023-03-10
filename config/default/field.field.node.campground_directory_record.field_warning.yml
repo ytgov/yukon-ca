@@ -1,0 +1,26 @@
+uuid: 1b493c4c-1894-4b45-b023-88e394155429
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_warning
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_warning
+field_name: field_warning
+entity_type: node
+bundle: campground_directory_record
+label: Warning
+description: 'Use for sites where there is an alert, or high priority information for potential visitors. This will not show up on Yukon.ca'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

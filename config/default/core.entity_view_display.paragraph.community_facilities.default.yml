@@ -1,0 +1,76 @@
+uuid: 8485d532-96b5-4e6a-ac68-da25e7aaf773
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.community_facilities.field_about_services
+    - field.field.paragraph.community_facilities.field_assistant_manager
+    - field.field.paragraph.community_facilities.field_assistant_manager_email
+    - field.field.paragraph.community_facilities.field_assistant_manager_telephon
+    - field.field.paragraph.community_facilities.field_community_facility_type
+    - field.field.paragraph.community_facilities.field_manager
+    - field.field.paragraph.community_facilities.field_manager_email
+    - field.field.paragraph.community_facilities.field_manager_telephone
+    - paragraphs.paragraphs_type.community_facilities
+id: paragraph.community_facilities.default
+targetEntityType: paragraph
+bundle: community_facilities
+mode: default
+content:
+  field_about_services:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_assistant_manager:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_assistant_manager_email:
+    type: email_mailto
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_assistant_manager_telephon:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_manager:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_manager_email:
+    type: email_mailto
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_manager_telephone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_community_facility_type: true
+  search_api_excerpt: true
