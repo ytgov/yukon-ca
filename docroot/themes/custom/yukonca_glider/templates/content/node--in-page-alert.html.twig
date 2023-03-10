@@ -75,8 +75,8 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  'pt-7',
-  'mb-5',
+    'pt-7',
+    'mb-5',
   ]
 %}
 {{ attach_library('classy/node') }}
@@ -91,7 +91,7 @@
   {% endif %}
   {{ title_suffix }}
 {% set icon %}
-  <i class="fa fa-exclamation-triangle text-[38px]"></i>
+  <i class="fa fa-exclamation-triangle text-[2.375rem]"></i>
 {% endset %}
 
   {{ pattern('callout_card', {
