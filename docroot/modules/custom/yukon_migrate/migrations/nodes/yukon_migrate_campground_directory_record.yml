@@ -181,6 +181,9 @@ process:
     source: field_yukon_editorial_team
     no_stub: true
 
+    path/alias: alias
+    path/pathauto: pathauto
+
 destination:
   plugin: entity:node
   default_bundle: campground_directory_record

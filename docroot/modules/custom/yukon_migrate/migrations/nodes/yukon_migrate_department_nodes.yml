@@ -168,6 +168,9 @@ process:
   field_minister_telephone: field_telephone_
   field_minister_fax_number: field_fax_
 
+  path/alias: alias
+  path/pathauto: pathauto
+
 destination:
   plugin: entity:node
   default_bundle: department

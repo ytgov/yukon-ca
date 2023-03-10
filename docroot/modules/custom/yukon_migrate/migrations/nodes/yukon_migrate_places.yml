@@ -168,6 +168,9 @@ process:
   field_postal_code: field_postcode
   field_street_address: field_street_address
 
+  path/alias: alias
+  path/pathauto: pathauto
+
 destination:
   plugin: entity:node
   default_bundle: directory_records_places
