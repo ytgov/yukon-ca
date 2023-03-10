@@ -84,6 +84,7 @@
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_menu_children_filter": "^3.0@RC",
         "drupal/views_tree": "^2.0@RC",
+        "drupal/views_year_filter": "^2.1",
         "drupal/viewsreference": "^1.7",
         "drupal/webform": "6.2.x-dev@dev",
         "drupal/workbench": "^1.4",
@@ -106,9 +107,6 @@
         "patches": {
             "drupal/core": {
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://git.drupalcode.org/project/drupal/-/merge_requests/1201.diff"
-            },
-            "drupal/linkit": {
-                "2712951 - Linkit for Link field": "https://git.drupalcode.org/project/linkit/-/merge_requests/12.diff"
             },
             "yukon/geophp": {
                 "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
