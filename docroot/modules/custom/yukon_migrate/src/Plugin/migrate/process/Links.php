@@ -78,6 +78,9 @@ class Links extends MigrationLookup {
         $destination_id = is_array($destination_id) ? reset($destination_id) : $destination_id;
         $uri = "internal:/node/{$destination_id}";
       }
+      else {
+        $uri = "internal:/{$uri}";
+      }
     }
 
     $route['uri'] = $uri;
