@@ -20,7 +20,7 @@ bundle: multi_step_page
 label: Sections
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
