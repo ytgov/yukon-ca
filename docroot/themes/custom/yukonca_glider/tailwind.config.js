@@ -40,6 +40,10 @@ module.exports = {
       },
       purple: '#643F5D',
       yellow: '#FFCD57',
+      alert: {
+        background: '#FFF4E4',
+        text: '#444142',
+      },
       eden: '#0D3E4F',
       tiber: '#0B3442',
       blue: {
