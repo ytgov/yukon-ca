@@ -7,7 +7,7 @@ migration_tags:
   - Media
 migration_group: legacy
 source:
-  plugin: yukon_migrate_file_mime
+  plugin: yukon_migrate_file
   scheme: public
   file_type:
     - document
@@ -18,15 +18,16 @@ source:
     source_base_path: 'https://yukon.ca/'
 process:
   name: filename
-  field_media_image/target_id:
+  field_media_file/target_id:
     - plugin: migration_lookup
       migration: yukon_migrate_files__public
       source: fid
       no_stub: true
     - plugin: skip_on_empty
       method: row
-  field_media_image/alt: field_file_image_alt_text/0/value
-  field_media_image/title: field_file_image_title_text/0/value
+  field_media_file/display:
+    plugin: default_value
+    default_value: 1
 
   directory:
     plugin: migration_lookup
