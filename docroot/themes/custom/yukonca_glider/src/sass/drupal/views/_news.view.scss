@@ -1,0 +1,14 @@
+.view-news-listing {
+  &.view-id-news_listing {
+    .views-row {
+      @apply border-solid border-0 border-b border-gray-light;
+      @apply py-8 md:py-16;
+    }
+  }
+}
+
+.listing-list-item {
+  small {
+    @apply text-gray-dark;
+  }
+}
