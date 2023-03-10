@@ -49,7 +49,7 @@ function yukon_base_tokens($type, $tokens, array $data, array $options, Bubbleab
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'improved_summary':
-          $replacements[$original] = $node->get('body')->value . "...";
+          $replacements[$original] = $node->hasField('body') ? $node->get('body')->value . '...' : '...';
           break;
 
         case 'bilingual_date_published':
