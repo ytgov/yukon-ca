@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.teaser
     - node.type.in_page_alert
   module:
     - node
@@ -189,7 +189,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: full
+          view_mode: teaser
       query:
         type: views_query
         options:
@@ -218,12 +218,12 @@ display:
     position: 1
     display_options:
       display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         ajax_history: {  }
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'

@@ -78,16 +78,23 @@
   ]
 %}
 {{ attach_library('classy/node') }}
+
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
-  {% if label and not page %}
-    {{ label }}
+  {% if label and not page and not view_mode == 'teaser' %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
   {% endif %}
   {{ title_suffix }}
+{% set icon %}
+  <i class="fa fa-exclamation-triangle text-[38px]"></i>
+{% endset %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
-
+  {{ pattern('callout_card', {
+    title: label,
+    content: content,
+    icon: icon,
+  }, 'default') }}
 </article>

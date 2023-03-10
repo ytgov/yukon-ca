@@ -75,6 +75,8 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'pt-7',
+  'mb-5',
   ]
 %}
 {{ attach_library('classy/node') }}
@@ -82,7 +84,7 @@
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
-  {% if label and not page %}
+  {% if label and not page and not view_mode == 'teaser' %}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
