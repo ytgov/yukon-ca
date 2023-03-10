@@ -1,0 +1,18 @@
+uuid: e8e47126-6c23-459c-9f9f-356d68882ca6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.department
+id: node.department.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: department
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

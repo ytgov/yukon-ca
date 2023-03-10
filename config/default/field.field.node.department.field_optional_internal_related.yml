@@ -11,6 +11,7 @@ dependencies:
     - node.type.directory_records_places
     - node.type.event
     - node.type.homepage
+    - node.type.in_page_alert
     - node.type.landing_page
     - node.type.landing_page_level_2
     - node.type.multi_step_page
@@ -28,7 +29,7 @@ bundle: department
 label: 'Optional internal related content'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -18,7 +18,7 @@ bundle: department
 label: Email
 description: 'Enter the email address for the department head office.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

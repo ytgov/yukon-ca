@@ -18,7 +18,7 @@ bundle: opening_times
 label: Day(s)
 description: 'Enter whatever is most applicable. e.g. Monday, or Monday to Friday, Weekdays, or Daily.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

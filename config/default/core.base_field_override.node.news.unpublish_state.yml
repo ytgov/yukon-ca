@@ -1,0 +1,20 @@
+uuid: cbfcf7b6-b76d-458d-87d3-c4c166ec2379
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - options
+id: node.news.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: news
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,18 @@
+uuid: 58ca9252-0759-4628-9c91-3cf6d45d02dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.icon
+id: media.icon.publish_on
+field_name: publish_on
+entity_type: media
+bundle: icon
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

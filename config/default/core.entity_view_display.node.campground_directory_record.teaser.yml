@@ -63,7 +63,6 @@ dependencies:
     - field.field.node.campground_directory_record.field_yukon_editorial_team
     - node.type.campground_directory_record
   module:
-    - datetime
     - fences
     - options
     - user
@@ -95,33 +94,6 @@ content:
         fences_label_tag: div
         fences_label_classes: ''
     weight: 8
-    region: content
-  field_gate_closed_date:
-    type: datetime_default
-    label: inline
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_gate_open_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: yg_long
-    third_party_settings:
-      fences:
-        fences_field_tag: div
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
-    weight: 10
     region: content
   field_july_availability:
     type: list_default
@@ -168,42 +140,6 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
-  field_serviced_end_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: yg_long
-    third_party_settings:
-      fences:
-        fences_field_tag: div
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
-    weight: 1
-    region: content
-  field_serviced_start_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: yg_months
-    third_party_settings:
-      fences:
-        fences_field_tag: div
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
-    weight: 5
-    region: content
 hidden:
   addtoany: true
   field_at_least_one_wheelchair_ac: true
@@ -216,6 +152,8 @@ hidden:
   field_cook_shelter: true
   field_department_term: true
   field_fire_ring: true
+  field_gate_closed_date: true
+  field_gate_open_date: true
   field_gate_open_year_round: true
   field_gps_coordinate_n: true
   field_gps_coordinate_w: true
@@ -241,6 +179,8 @@ hidden:
   field_sandy_or_cobble_beach_with: true
   field_secondary_road: true
   field_secondary_road_kilometre: true
+  field_serviced_end_date: true
+  field_serviced_start_date: true
   field_site_description: true
   field_site_description_app: true
   field_site_directions: true

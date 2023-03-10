@@ -18,7 +18,7 @@ bundle: section
 label: 'Section title'
 description: 'Enter the name of the department branch.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

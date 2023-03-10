@@ -189,7 +189,7 @@ content:
     region: content
   field_gate_closed_date:
     type: datetime_default
-    label: inline
+    label: above
     settings:
       timezone_override: ''
       format_type: yg_long
@@ -207,11 +207,20 @@ content:
     region: content
   field_gate_open_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
+      format_type: yg_long
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 3
     region: content
   field_gps_coordinate_n:
@@ -464,7 +473,7 @@ content:
     region: content
   field_serviced_end_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: yg_long
@@ -482,10 +491,10 @@ content:
     region: content
   field_serviced_start_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_months
+      format_type: yg_long
     third_party_settings:
       fences:
         fences_field_tag: div

@@ -19,7 +19,7 @@ bundle: directory_records_places
 label: 'Map pin'
 description: 'Use a pin to locate on a map'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 'POINT (-135.0568 60.7212)'

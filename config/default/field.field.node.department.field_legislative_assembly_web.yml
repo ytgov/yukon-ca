@@ -19,7 +19,7 @@ bundle: department
 label: 'Legislative Assembly website profile'
 description: "Provide the URL to the Minister's profile on the Legislative Assembly website."
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

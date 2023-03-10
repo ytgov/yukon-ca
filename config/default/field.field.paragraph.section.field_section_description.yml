@@ -19,7 +19,7 @@ bundle: section
 label: 'Section description'
 description: 'Enter a short paragraph containing a description of the function the branch serves.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

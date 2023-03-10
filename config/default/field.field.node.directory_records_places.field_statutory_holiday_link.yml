@@ -19,7 +19,7 @@ bundle: directory_records_places
 label: 'Statutory holiday link'
 description: 'Optionally add a link to statutory holiday page on yukon.ca with full list of dates.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

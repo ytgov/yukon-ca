@@ -136,7 +136,7 @@ third_party_settings:
       label: 'Peak times'
       region: content
       parent_name: group_serviced
-      weight: 14
+      weight: 41
       format_type: fieldset
       format_settings:
         classes: ''
@@ -218,7 +218,6 @@ third_party_settings:
     group_related_content:
       children:
         - field_map_upload
-        - field_map_download
         - field_related_tasks
       label: 'Related content'
       region: content
@@ -316,13 +315,13 @@ content:
     third_party_settings: {  }
   field_gate_closed_date:
     type: datetime_default
-    weight: 13
+    weight: 40
     region: content
     settings: {  }
     third_party_settings: {  }
   field_gate_open_date:
     type: datetime_default
-    weight: 12
+    weight: 39
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -528,13 +527,13 @@ content:
     third_party_settings: {  }
   field_serviced_end_date:
     type: datetime_default
-    weight: 11
+    weight: 38
     region: content
     settings: {  }
     third_party_settings: {  }
   field_serviced_start_date:
     type: datetime_default
-    weight: 10
+    weight: 37
     region: content
     settings: {  }
     third_party_settings: {  }

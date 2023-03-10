@@ -19,7 +19,7 @@ bundle: opening_times
 label: Open
 description: "Select 'no' only when facility is closed on the associated 'Day' text field."
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

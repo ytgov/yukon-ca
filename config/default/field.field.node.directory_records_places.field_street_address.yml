@@ -18,7 +18,7 @@ bundle: directory_records_places
 label: 'Street address'
 description: 'eg. 123 Main Street'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
