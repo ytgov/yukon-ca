@@ -4,6 +4,10 @@ entity_type_groups:
       basic: basic
       advanced: advanced
       dublin_core: dublin_core
+    campaign_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
     documents:
       basic: basic
       advanced: advanced
@@ -12,7 +16,27 @@ entity_type_groups:
       basic: basic
       advanced: advanced
       dublin_core: dublin_core
+    homepage:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    in_page_alert:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    landing_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    landing_page_level_2:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
     multi_step_page:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+    site_wide_alert:
       basic: basic
       advanced: advanced
       dublin_core: dublin_core
@@ -22,6 +46,11 @@ entity_type_groups:
       dublin_core: dublin_core
   taxonomy_term:
     department:
+      basic: basic
+      advanced: advanced
+      dublin_core: dublin_core
+  user:
+    user:
       basic: basic
       advanced: advanced
       dublin_core: dublin_core
