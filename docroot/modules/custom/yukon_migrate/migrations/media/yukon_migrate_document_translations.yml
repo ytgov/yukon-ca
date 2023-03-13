@@ -60,3 +60,4 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_files__public
+    - yukon_migrate_document
