@@ -34,11 +34,6 @@ class YukonFileTranslation extends FieldableEntity {
       $query->condition('f.type', (array) $this->configuration['file_type'], 'IN');
     }
     if (isset($this->configuration['file_mime'])) {
-      $mimeTypes = $this->configuration['file_mime'];
-      if (!is_array($mimeTypes)) {
-        $mimeTypes = [$mimeTypes];
-      }
-
       $query->condition('f.filemime', (array) $this->configuration['file_mime'], 'IN');
     }
 
