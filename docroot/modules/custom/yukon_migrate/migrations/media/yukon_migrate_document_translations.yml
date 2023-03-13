@@ -1,4 +1,4 @@
-id: yukon_migrate_document
+id: yukon_migrate_document_translations
 label: Yukon migrate Document Media Type
 audit: true
 migration_tags:
@@ -7,20 +7,24 @@ migration_tags:
 migration_group: legacy
 
 source:
-  plugin: yukon_migrate_file
-  scheme: public
+  plugin: yukon_migrate_file_translation
   file_type:
     - document
   batch_size: 200
-  constants:
-    source_base_path: 'https://yukon.ca/'
 
 process:
+  mid:
+    - plugin: migration_lookup
+      source: entity_id
+      migration: yukon_migrate_document
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
   name: filename
   field_media_file/target_id:
     - plugin: migration_lookup
       migration: yukon_migrate_files__public
-      source: fid
+      source: entity_id
       no_stub: true
     - plugin: skip_on_empty
       method: row
@@ -39,11 +43,19 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode: source_language
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
 
 destination:
   plugin: entity:media
   default_bundle: document
+  translations: true
 
 migration_dependencies:
   required:
