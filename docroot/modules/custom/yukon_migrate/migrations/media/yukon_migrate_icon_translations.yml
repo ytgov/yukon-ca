@@ -1,4 +1,5 @@
-id: yukon_migrate_icon
+# Migration file created but the data is not exist in database.
+id: yukon_migrate_icon_translations
 label: Yukon migrate Icon Media Type
 audit: true
 migration_tags:
@@ -7,21 +8,26 @@ migration_tags:
   - Media
 migration_group: legacy
 source:
-  plugin: yukon_migrate_file
+  plugin: yukon_migrate_file_translation
   scheme: public
   file_type:
     - image
   file_mime:
     - 'image/svg+xml'
   batch_size: 200
-  constants:
-    source_base_path: 'https://yukon.ca/'
 process:
+  mid:
+    - plugin: migration_lookup
+      source: entity_id
+      migration: yukon_migrate_icon
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
   name: filename
   field_media_image/target_id:
     - plugin: migration_lookup
       migration: yukon_migrate_files__public
-      source: fid
+      source: entity_id
       no_stub: true
     - plugin: skip_on_empty
       method: row
@@ -40,11 +46,20 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode: source_language
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
 destination:
   plugin: entity:media
   default_bundle: icon
+  translations: true
 migration_dependencies:
   required:
-#    - yukon_migrate_files__public
+    - yukon_migrate_files__public
     - yukon_migrate_media_folders
+    - yukon_migrate_icon

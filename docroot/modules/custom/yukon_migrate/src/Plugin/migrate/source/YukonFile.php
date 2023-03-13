@@ -3,6 +3,7 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\source;
 
 use Drupal\file\Plugin\migrate\source\d7\File;
+use Drupal\migrate\Row;
 
 /**
  * The 'yukon_migrate_file' source plugin.
@@ -36,6 +37,23 @@ class YukonFile extends File {
       $query->condition('filemime', $mimeTypes, 'IN');
     }
     return $query;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function prepareRow(Row $row) {
+    if ($this->moduleExists('file_entity')) {
+      $fid = $row->getSourceProperty('fid');
+
+      $entity_translatable = $this->isEntityTranslatable('file');
+      $source_language = $this->getEntityTranslationSourceLanguage('file', $fid);
+      $language = $entity_translatable && $source_language ? $source_language : $row->getSourceProperty('language');
+
+      $row->setSourceProperty('source_language', $language);
+    }
+
+    return parent::prepareRow($row);
   }
 
 }
