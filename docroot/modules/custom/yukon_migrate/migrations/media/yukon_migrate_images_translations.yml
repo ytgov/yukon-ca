@@ -13,8 +13,6 @@ source:
     - image
     - wysiwyg_image
   batch_size: 200
-  constants:
-    source_base_path: 'https://yukon.ca/'
 process:
   mid:
     - plugin: migration_lookup
