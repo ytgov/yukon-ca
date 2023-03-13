@@ -50,7 +50,7 @@ class YukonFile extends File {
       $source_language = $this->getEntityTranslationSourceLanguage('file', $fid);
       $language = $entity_translatable && $source_language ? $source_language : $row->getSourceProperty('language');
 
-      $language === 'fr' ? $row->setSourceProperty('source_language', 'fr') : $row->setSourceProperty('source_language', 'en');
+      $row->setSourceProperty('source_language', $language);
     }
 
     return parent::prepareRow($row);

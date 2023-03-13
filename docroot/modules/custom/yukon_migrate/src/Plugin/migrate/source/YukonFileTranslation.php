@@ -54,7 +54,7 @@ class YukonFileTranslation extends FieldableEntity {
       'translate' => $this->t('A boolean indicating whether this translation needs to be updated.'),
       'created' => $this->t('The Unix timestamp when the translation was created.'),
       'changed' => $this->t('The Unix timestamp when the translation was most recently saved.'),
-      'mid' => $this->t('The media ID this translation relates to'),
+      'fid' => $this->t('The file ID this translation relates to'),
       'filename' => $this->t('The original name of the file.'),
       'langcode' => $this->t('The language for current translation.'),
       'type' => $this->t('The type this translation relates to'),
