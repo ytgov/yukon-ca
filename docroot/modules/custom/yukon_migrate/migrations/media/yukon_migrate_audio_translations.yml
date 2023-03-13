@@ -12,9 +12,7 @@ source:
   file_type:
     - audio
     - wysiwyg_audio
-#  batch_size: 200
-  constants:
-    source_base_path: 'https://yukon.ca/'
+  batch_size: 200
 process:
   mid:
     - plugin: migration_lookup
