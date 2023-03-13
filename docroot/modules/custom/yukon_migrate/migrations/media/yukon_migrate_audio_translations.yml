@@ -60,3 +60,4 @@ migration_dependencies:
   required:
     - yukon_migrate_files__public
     - yukon_migrate_media_folders
+    - yukon_migrate_audio
