@@ -56,7 +56,7 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
   $node = $variables['node'];
   if ($node->hasField('field_document_upload') && !$node->get('field_document_upload')->isEmpty()) {
     $media_file = $node->get('field_document_upload')->entity;
-    if ($media_file->hasField('field_media_file') && !$media_file->get('field_media_file')->isEmpty()) {
+    if (!empty($media_file) && $media_file->hasField('field_media_file') && !$media_file->get('field_media_file')->isEmpty()) {
       $file = \Drupal::entityTypeManager()
         ->getStorage('file')
         ->load($media_file->get('field_media_file')->getString());
