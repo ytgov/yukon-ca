@@ -16,7 +16,6 @@ dependencies:
     - node
     - taxonomy
     - user
-    - views_bootstrap
 id: news_listing
 label: 'News Listing'
 module: views
@@ -1221,6 +1220,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      title: 'Latest News'
       fields:
         title:
           id: title
@@ -1358,21 +1358,17 @@ display:
         groups:
           1: AND
       style:
-        type: views_bootstrap_grid
+        type: default
         options:
           grouping: {  }
           row_class: 'position-relative listing-list-item'
           default_row_class: true
-          col_xs: col-auto
-          col_sm: col-sm-auto
-          col_md: col-md-4
-          col_lg: none
-          col_xl: none
       row:
         type: fields
         options: {  }
       defaults:
         empty: false
+        title: false
         pager: false
         style: false
         row: false
@@ -1391,7 +1387,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: false
-          content: '<a href="/news" class="btn btn-link">Read more news <i class="fa fa-chevron-right" aria-hidden="true"></i></a>'
+          content: "<h2>[view:title]</h2>\r\n<a href=\"/news\" class=\"btn btn-link\">Read more news <i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></a>"
           tokenize: false
       display_extenders:
         ajax_history: {  }
