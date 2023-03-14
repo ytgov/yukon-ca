@@ -16,6 +16,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - views_bootstrap
 id: news_listing
 label: 'News Listing'
 module: views
@@ -1356,9 +1357,25 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: 'position-relative listing-list-item'
+          default_row_class: true
+          col_xs: col-auto
+          col_sm: col-sm-auto
+          col_md: col-md-4
+          col_lg: none
+          col_xl: none
+      row:
+        type: fields
+        options: {  }
       defaults:
         empty: false
         pager: false
+        style: false
+        row: false
         fields: false
         filters: false
         filter_groups: false
