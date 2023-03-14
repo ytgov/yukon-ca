@@ -7,3 +7,9 @@
 .page-title {
   @apply my-4;
 }
+
+.node {
+  .field__label {
+    @apply my-6;
+  }
+}
