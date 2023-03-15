@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.blog.body
     - field.field.node.blog.field_blog_type
     - field.field.node.blog.field_category_term
+    - field.field.node.blog.field_comments
     - field.field.node.blog.field_contact
     - field.field.node.blog.field_department_term
     - field.field.node.blog.field_featured_image
@@ -68,6 +69,7 @@ hidden:
   addtoany: true
   field_blog_type: true
   field_category_term: true
+  field_comments: true
   field_contact: true
   field_department_term: true
   field_icon_dark: true
