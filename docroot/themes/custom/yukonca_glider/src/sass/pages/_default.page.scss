@@ -8,6 +8,18 @@
   @apply my-4;
 }
 
+.page-node-type-news {
+  .field--name-field-related-link {
+    .field__label {
+      @apply pb-1 border-solid border-0 border-b border-gray;
+    }
+
+    .field__item {
+      @apply my-3;
+    }
+  }
+}
+
 .node {
   .field:not(.field--label-inline) {
     .field__label {
