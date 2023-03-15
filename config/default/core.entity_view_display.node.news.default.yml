@@ -126,6 +126,7 @@ hidden:
   field_featured_to_homepage: true
   field_meta_tags: true
   field_news_type: true
+  field_page_description: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
