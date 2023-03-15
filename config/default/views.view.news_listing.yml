@@ -2,20 +2,20 @@ uuid: 9edef887-e438-411d-bb28-988d82bd6477
 langcode: en
 status: true
 dependencies:
-    config:
-        - field.storage.node.field_featured_image
-        - field.storage.node.field_featured_news_item
-        - field.storage.node.field_page_description
-        - image.style.medium
-        - node.type.news
-        - taxonomy.vocabulary.category
-        - taxonomy.vocabulary.news_type
-        - taxonomy.vocabulary.teams
-    module:
-        - media
-        - node
-        - taxonomy
-        - user
+  config:
+    - field.storage.node.field_featured_image
+    - field.storage.node.field_featured_news_item
+    - field.storage.node.field_page_description
+    - image.style.medium
+    - node.type.news
+    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.news_type
+    - taxonomy.vocabulary.teams
+  module:
+    - media
+    - node
+    - taxonomy
+    - user
 id: news_listing
 label: 'News Listing'
 module: views
