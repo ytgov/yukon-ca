@@ -34,7 +34,7 @@ process:
     sticky: sticky
     revision_log: log
     title: title
-    field_page_description/value: field_page_description/0/value
+    field_page_description/value: field_description/0/value
     field_page_description/format: constants/default_text_format
     body/value: body/0/value
     body/format: constants/default_text_format
