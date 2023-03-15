@@ -1,0 +1,16 @@
+id: yukon_migrate_navigation_jump_point
+label: Yukon Migrate Navigation jump point Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: navigation_jump_point
+process:
+  field_add_navigation_jump_point: field_add_navigation_jump_point
+  field_icon_name: field_add_navigation_jump_point_/0/icon
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: navigation_jump_point,
