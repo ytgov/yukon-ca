@@ -4,16 +4,14 @@ status: true
 dependencies:
   config:
     - comment.type.blog_comments
-    - field.field.comment.blog_comments.comment_body
-  module:
-    - text
+    - field.field.comment.blog_comments.field_comment_body
 id: comment.blog_comments.default
 targetEntityType: comment
 bundle: blog_comments
 mode: default
 content:
-  comment_body:
-    type: text_default
+  field_comment_body:
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -22,7 +20,7 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
   addtoany: true

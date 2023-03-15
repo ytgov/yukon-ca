@@ -4,9 +4,7 @@ status: true
 dependencies:
   config:
     - comment.type.blog_comments
-    - field.field.comment.blog_comments.comment_body
-  module:
-    - text
+    - field.field.comment.blog_comments.field_comment_body
 id: comment.blog_comments.default
 targetEntityType: comment
 bundle: blog_comments
@@ -17,8 +15,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  comment_body:
-    type: text_textarea
+  field_comment_body:
+    type: string_textarea
     weight: 1
     region: content
     settings:
