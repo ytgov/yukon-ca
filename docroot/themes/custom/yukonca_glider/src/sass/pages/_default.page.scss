@@ -9,7 +9,21 @@
 }
 
 .node {
-  .field__label {
-    @apply my-6;
+  .field:not(.field--label-inline) {
+    .field__label {
+      @apply my-6;
+    }
+  }
+}
+
+.node.page-node-type-event {
+  fieldset.event-location {
+    legend {
+      @apply mb-0;
+
+      span {
+        @apply font-bold text-base;
+      }
+    }
   }
 }
