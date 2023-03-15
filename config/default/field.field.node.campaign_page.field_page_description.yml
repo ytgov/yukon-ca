@@ -1,0 +1,25 @@
+uuid: 31f0c4f2-17e2-47fc-b26a-1ae4e1536c97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_description
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_page_description
+field_name: field_page_description
+entity_type: node
+bundle: campaign_page
+label: 'Meta description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

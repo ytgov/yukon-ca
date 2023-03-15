@@ -163,7 +163,6 @@ migration_dependencies:
     - yukon_migrate_campaign_page
     - yukon_migrate_department
     - yukon_migrate_teams
-    -
   optional:
     - yukon_migrate_text
     - yukon_migrate_text_and_image

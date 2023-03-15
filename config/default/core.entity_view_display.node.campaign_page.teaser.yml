@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.campaign_page.field_logos
     - field.field.node.campaign_page.field_meta_tags
     - field.field.node.campaign_page.field_navigation_jump_point
+    - field.field.node.campaign_page.field_page_description
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
     - field.field.node.campaign_page.field_social_network
@@ -57,6 +58,7 @@ hidden:
   field_logos: true
   field_meta_tags: true
   field_navigation_jump_point: true
+  field_page_description: true
   field_paragraphs: true
   field_parent_campaign_page: true
   field_social_network: true
