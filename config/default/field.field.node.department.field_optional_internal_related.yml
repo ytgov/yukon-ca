@@ -9,12 +9,17 @@ dependencies:
     - node.type.campground_directory_record
     - node.type.department
     - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
     - node.type.event
     - node.type.homepage
+    - node.type.in_page_alert
     - node.type.landing_page
     - node.type.landing_page_level_2
     - node.type.multi_step_page
     - node.type.news
+    - node.type.site_wide_alert
+    - node.type.topics_page
   module:
     - epp
 third_party_settings:
@@ -28,7 +33,7 @@ bundle: department
 label: 'Optional internal related content'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

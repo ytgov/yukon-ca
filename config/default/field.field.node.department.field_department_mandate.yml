@@ -19,7 +19,7 @@ bundle: department
 label: 'Department mandate'
 description: "Help text: Enter a short description of your department's mandate."
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

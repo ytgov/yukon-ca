@@ -18,10 +18,26 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  field_agency_logo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
     weight: 0
     region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
-  field_agency_logo: true
-  field_featured_image: true
   langcode: true
   search_api_excerpt: true

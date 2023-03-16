@@ -1,0 +1,18 @@
+uuid: d801702c-629e-4618-9130-fd3001e79b77
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.changed
+field_name: changed
+entity_type: node
+bundle: campground_directory_record
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

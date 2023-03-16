@@ -1,0 +1,18 @@
+uuid: fd901ee0-739a-4ade-8bf8-36b50b9045d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.changed
+field_name: changed
+entity_type: node
+bundle: directory_records_places
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

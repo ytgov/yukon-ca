@@ -1,0 +1,18 @@
+uuid: 1973e91f-2153-4a90-9522-bfbd3c5050a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.education_facilities
+id: taxonomy_term.education_facilities.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: education_facilities
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

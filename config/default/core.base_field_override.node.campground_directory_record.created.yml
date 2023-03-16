@@ -1,0 +1,18 @@
+uuid: e3a209da-b71a-433f-a088-38715a130564
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.created
+field_name: created
+entity_type: node
+bundle: campground_directory_record
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

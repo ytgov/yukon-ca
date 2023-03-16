@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_category_term
+    - field.storage.node.field_category
     - field.storage.node.field_contact
     - field.storage.node.field_featured_image
     - field.storage.node.field_icon_dark
@@ -464,13 +464,13 @@ display:
           replica: false
           query_tags: {  }
       relationships:
-        field_category_term:
-          id: field_category_term
-          table: node__field_category_term
-          field: field_category_term
+        field_category:
+          id: field_category
+          table: node__field_category
+          field: field_category
           relationship: none
           group_type: group
-          admin_label: 'field_category_term: Taxonomy term'
+          admin_label: 'field_category: Taxonomy term'
           plugin_id: standard
           required: true
       header: {  }
@@ -629,10 +629,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_category_term:
-          id: field_category_term
-          table: node__field_category_term
-          field: field_category_term
+        field_category:
+          id: field_category
+          table: node__field_category
+          field: field_category
           relationship: none
           group_type: group
           admin_label: ''
@@ -734,10 +734,10 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -883,10 +883,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -896,14 +896,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_term_target_id_op
+            operator_id: field_category_target_id_op
             label: 'Category:'
             description: ''
             use_operator: false
-            operator: field_category_term_target_id_op
+            operator: field_category_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_term_target_id
+            identifier: field_category_target_id
             required: false
             remember: false
             multiple: false
@@ -1029,7 +1029,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_category_term'
+        - 'config:field.storage.node.field_category'
   block_2:
     id: block_2
     display_title: 'About this blog'

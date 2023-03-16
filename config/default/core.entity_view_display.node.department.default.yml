@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.department.field_minister_photo
     - field.field.node.department.field_minister_telephone
     - field.field.node.department.field_optional_internal_related
+    - field.field.node.department.field_page_description
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
     - field.field.node.department.field_yukon_editorial_team
@@ -140,6 +141,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 12
+    region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
     region: content
   field_related_content:
     type: entity_reference_revisions_entity_view

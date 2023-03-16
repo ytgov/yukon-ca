@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
     - field.field.node.campground_directory_record.field_outdoor_ampitheatre
     - field.field.node.campground_directory_record.field_outhouse_unisex
+    - field.field.node.campground_directory_record.field_page_description
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
@@ -76,7 +77,7 @@ mode: default
 content:
   field_at_least_one_wheelchair_ac:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -86,14 +87,14 @@ content:
     region: content
   field_august_availability:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 8
     region: content
   field_bear_proof_cache:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -103,7 +104,7 @@ content:
     region: content
   field_bear_proof_garbage_bins:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -113,7 +114,7 @@ content:
     region: content
   field_bear_proof_recycling_bins:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -123,7 +124,7 @@ content:
     region: content
   field_boat_dock:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -133,7 +134,7 @@ content:
     region: content
   field_boat_launch:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -143,7 +144,7 @@ content:
     region: content
   field_campground_site_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -151,7 +152,7 @@ content:
     region: content
   field_change_room:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -161,7 +162,7 @@ content:
     region: content
   field_cook_shelter:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -179,7 +180,7 @@ content:
     region: content
   field_fire_ring:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -189,7 +190,7 @@ content:
     region: content
   field_gate_closed_date:
     type: datetime_default
-    label: inline
+    label: above
     settings:
       timezone_override: ''
       format_type: yg_long
@@ -207,7 +208,7 @@ content:
     region: content
   field_gate_open_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium
@@ -216,24 +217,24 @@ content:
     region: content
   field_gps_coordinate_n:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   field_gps_coordinate_w:
     type: solr_highlighted_string
-    label: above
+    label: hidden
     settings:
       prefix: '<strong>'
       suffix: '</strong>'
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_group_campsite:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -243,7 +244,7 @@ content:
     region: content
   field_hand_pump_or_water_tank_pr:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -253,7 +254,7 @@ content:
     region: content
   field_highway:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -261,7 +262,7 @@ content:
     region: content
   field_highway_kilometre:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -269,7 +270,7 @@ content:
     region: content
   field_hiking_trails:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -287,7 +288,7 @@ content:
     region: content
   field_interpretive_centre:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -297,21 +298,21 @@ content:
     region: content
   field_july_availability:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content
   field_june_availability:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 6
     region: content
   field_map_upload:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: false
     third_party_settings: {  }
@@ -319,14 +320,14 @@ content:
     region: content
   field_may_availability:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 5
     region: content
   field_one_wheelchair_camp:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -336,7 +337,7 @@ content:
     region: content
   field_outdoor_ampitheatre:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -346,7 +347,7 @@ content:
     region: content
   field_outhouse_unisex:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -354,9 +355,16 @@ content:
     third_party_settings: {  }
     weight: 17
     region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
   field_photo_credit:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -364,7 +372,7 @@ content:
     region: content
   field_picnic_tables:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -374,7 +382,7 @@ content:
     region: content
   field_playground:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -384,7 +392,7 @@ content:
     region: content
   field_pull_through:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -392,7 +400,7 @@ content:
     region: content
   field_region:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: false
     third_party_settings:
@@ -409,7 +417,7 @@ content:
     region: content
   field_registration_required:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -431,7 +439,7 @@ content:
     region: content
   field_sandy_or_cobble_beach_with:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -441,7 +449,7 @@ content:
     region: content
   field_secondary_road:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -449,7 +457,7 @@ content:
     region: content
   field_secondary_road_kilometre:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -457,14 +465,14 @@ content:
     region: content
   field_september_availability:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 9
     region: content
   field_serviced_end_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: yg_long
@@ -482,7 +490,7 @@ content:
     region: content
   field_serviced_start_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: yg_months
@@ -503,7 +511,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   field_site_directions:
     type: text_default
@@ -524,7 +532,7 @@ content:
     region: content
   field_swimming_area_or_dock_no_l:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -534,7 +542,7 @@ content:
     region: content
   field_tent_pads_or_sites_availab:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -544,15 +552,15 @@ content:
     region: content
   field_total_sites:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 14
+    weight: 15
     region: content
   field_viewing_structures_or_sign:
     type: boolean
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -572,7 +580,7 @@ content:
     region: content
   field_warning:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 41

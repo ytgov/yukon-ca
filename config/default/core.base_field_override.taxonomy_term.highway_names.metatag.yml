@@ -1,0 +1,18 @@
+uuid: f1cf6724-46d3-49f4-95a5-ac66979db030
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+id: taxonomy_term.highway_names.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: highway_names
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

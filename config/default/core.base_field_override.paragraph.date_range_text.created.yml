@@ -1,0 +1,18 @@
+uuid: 12d1804e-75a6-4692-af65-24aa0332815e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.date_range_text
+id: paragraph.date_range_text.created
+field_name: created
+entity_type: paragraph
+bundle: date_range_text
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

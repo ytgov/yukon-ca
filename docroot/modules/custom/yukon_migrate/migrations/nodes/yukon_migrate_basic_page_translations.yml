@@ -85,7 +85,7 @@ process:
 
   field_social_sharing: field_social_sharing
 
-  field_department:
+  field_department_term:
     - plugin: migration_lookup
       source: field_node_department
       migration: yukon_migrate_department
@@ -114,3 +114,5 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_basic_page
+    - yukon_migrate_images
+    - yukon_migrate_image_gallery

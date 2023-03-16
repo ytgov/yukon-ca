@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
     - field.field.node.campground_directory_record.field_outdoor_ampitheatre
     - field.field.node.campground_directory_record.field_outhouse_unisex
+    - field.field.node.campground_directory_record.field_page_description
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
@@ -84,7 +85,7 @@ third_party_settings:
       label: 'Location details'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: fieldset
       format_settings:
         classes: ''
@@ -100,7 +101,7 @@ third_party_settings:
       label: 'Opening details'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -151,7 +152,7 @@ third_party_settings:
       label: Image
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: ''
@@ -171,7 +172,7 @@ third_party_settings:
       label: 'Services and facilities'
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: ''
@@ -218,12 +219,11 @@ third_party_settings:
     group_related_content:
       children:
         - field_map_upload
-        - field_map_download
         - field_related_tasks
       label: 'Related content'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: fieldset
       format_settings:
         classes: ''
@@ -238,7 +238,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -286,7 +286,7 @@ content:
     third_party_settings: {  }
   field_campground_site_type:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -304,7 +304,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -420,7 +420,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 1
+    weight: 2
     region: content
     settings:
       sidebar: true
@@ -443,6 +443,14 @@ content:
     weight: 11
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_page_description:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_photo_credit:
     type: string_textfield
@@ -474,7 +482,7 @@ content:
     third_party_settings: {  }
   field_recreation_site_type:
     type: options_buttons
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -564,7 +572,7 @@ content:
     third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -611,46 +619,46 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 10
+    weight: 11
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 19
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 17
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 18
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -670,7 +678,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -679,7 +687,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
