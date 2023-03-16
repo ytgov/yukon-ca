@@ -89,7 +89,10 @@
 
       <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-lg-8' : '' }} px-3.5">
         {% if node.type[0].target_id == 'blog' %}
-          {% set logo_image = logo_url ? logo_url : '/' ~ active_theme_path() ~ '/logo.svg'  %}
+          {% set defualt_logo %}
+              <img src="{{ '/' ~ active_theme_path() ~ '/logo.svg' }}">
+          {% endset %}
+          {% set logo_image = logo_url ? logo_url : defualt_logo  %}
           {{
             pattern ('blog_type_info', {
               image: logo_image,
