@@ -7,7 +7,7 @@ migration_tags:
   - node
 migration_group: legacy
 source:
-  plugin: d7_node_entity_translation
+  plugin: yukon_node_entity_translation
   node_type:
     - documents
     - documents_non_branded
