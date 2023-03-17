@@ -78,7 +78,7 @@ process:
 
   field_documents_non_branded:
     plugin: static_map
-    source: node_type
+    source: type
     map:
       documents: 0
       documents_non_branded: 1

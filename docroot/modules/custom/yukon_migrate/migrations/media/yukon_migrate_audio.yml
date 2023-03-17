@@ -39,7 +39,7 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode: language
+  langcode: source_language
 destination:
   plugin: entity:media
   default_bundle: audio

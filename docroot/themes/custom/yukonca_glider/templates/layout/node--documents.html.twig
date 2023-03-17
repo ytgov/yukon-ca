@@ -78,16 +78,35 @@
   ]
 %}
 {{ attach_library('classy/node') }}
+
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
   {% if label and not page %}
-    {{ label }}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
   {% endif %}
   {{ title_suffix }}
 
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
 
+  <div{{ content_attributes.addClass('node__content') }}>
+    <div class="field field--label-inline"><span class="field__label">{{ 'Name'|t }}</span> {{ label }}</div>
+    {{ content.field_category }}
+    {{ content.field_last_updated}}
+    <div class="field field--label-inline"><span class="field__label">{{ 'Size'|t }}</span> {{ document_size }}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'File Type'|t }}</span> {{ document_type }}</div>
+    {{ content.field_pages }}
+    {{ content.body }}
+    {{ content.field_document_upload }}
+  </div>
 </article>

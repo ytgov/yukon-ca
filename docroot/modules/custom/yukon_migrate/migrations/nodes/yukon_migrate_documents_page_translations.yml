@@ -7,7 +7,7 @@ migration_tags:
   - node
 migration_group: legacy
 source:
-  plugin: d7_node_entity_translation
+  plugin: yukon_node_entity_translation
   node_type:
     - documents
     - documents_non_branded
@@ -90,12 +90,6 @@ process:
   field_feedback_form: field_feedback_form
   field_document_type: field_document_type
 
-  field_documents_non_branded:
-    plugin: static_map
-    source: node_type
-    map:
-      documents: 0
-      documents_non_branded: 1
 destination:
   plugin: entity:node
   default_bundle: documents

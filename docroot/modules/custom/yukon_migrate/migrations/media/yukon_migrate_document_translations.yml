@@ -1,0 +1,63 @@
+id: yukon_migrate_document_translations
+label: Yukon migrate Document Media Type
+audit: true
+migration_tags:
+  - Drupal 7
+  - Media
+migration_group: legacy
+
+source:
+  plugin: yukon_migrate_file_translation
+  file_type:
+    - document
+  batch_size: 200
+
+process:
+  mid:
+    - plugin: migration_lookup
+      source: entity_id
+      migration: yukon_migrate_document
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+  name: filename
+  field_media_file/target_id:
+    - plugin: migration_lookup
+      migration: yukon_migrate_files__public
+      source: entity_id
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+
+  field_document_name/value: field_document_name/0/value
+
+  directory:
+    plugin: migration_lookup
+    migration: yukon_migrate_media_folders
+    source: field_folder/0/tid
+    no_stub: true
+
+  filemime: filemime
+  status: status
+  created: timestamp
+  changed: timestamp
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: uid
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
+
+destination:
+  plugin: entity:media
+  default_bundle: document
+  translations: true
+
+migration_dependencies:
+  required:
+    - yukon_migrate_files__public
+    - yukon_migrate_document

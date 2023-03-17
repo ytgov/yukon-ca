@@ -1,0 +1,29 @@
+uuid: b12996b2-6ba8-4fad-89b3-76d16e303c87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_use_navigation_jump_points
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_use_navigation_jump_points
+field_name: field_use_navigation_jump_points
+entity_type: node
+bundle: campaign_page
+label: 'Use navigation jump points'
+description: "Select 'yes' to use navigation jump points on page.\r\nSelect 'no' to not use navigation jump points."
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

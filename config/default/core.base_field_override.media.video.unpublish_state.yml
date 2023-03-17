@@ -1,0 +1,20 @@
+uuid: 8326cec2-6afd-446f-b5ad-08f93ec2e91b
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.video
+  module:
+    - options
+id: media.video.unpublish_state
+field_name: unpublish_state
+entity_type: media
+bundle: video
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

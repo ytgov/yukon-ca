@@ -42,8 +42,28 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
     ];
   }
 
-  $variables['tabs']['links_icon_type'] = $node->get('field_sequential_non_sequential')->getString();
+  $variables['tabs']['links_icon_type'] = $node->get('field_sequential_non_sequential')
+    ->getString();
   // Use for pills ID.
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
 
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__documents(&$variables) {
+  $node = $variables['node'];
+  if ($node->hasField('field_document_upload') && !$node->get('field_document_upload')->isEmpty()) {
+    $media_file = $node->get('field_document_upload')->entity;
+    if (!empty($media_file) && $media_file->hasField('field_media_file') && !$media_file->get('field_media_file')->isEmpty()) {
+      $file = \Drupal::entityTypeManager()
+        ->getStorage('file')
+        ->load($media_file->get('field_media_file')->getString());
+      if (!empty($file)) {
+        $variables['document_size'] = format_size($file->getSize());
+        $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
+      }
+    }
+  }
 }

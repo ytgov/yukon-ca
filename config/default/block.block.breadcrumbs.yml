@@ -10,7 +10,7 @@ dependencies:
 id: breadcrumbs
 theme: yukonca_glider
 region: pre_content
-weight: -7
+weight: -12
 provider: null
 plugin: system_breadcrumb_block
 settings:

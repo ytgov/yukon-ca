@@ -1,0 +1,35 @@
+uuid: 0e9d8d19-5547-4178-9784-6d3a2c1943fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logos
+    - media.type.image
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_logos
+field_name: field_logos
+entity_type: node
+bundle: campaign_page
+label: 'Multi-jurisdictional logos'
+description: "Select all the partner logos to display in the footer.\r\n\r\nIMPORTANT: For upload, your logo must be between 40x40 and 350x200 pixels, and have a white background. Files must be less than 64 MB. Allowed file types: png, jpg, or jpeg format. Logos will be displayed, in the order selected, left to right in the footer."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
