@@ -1,5 +1,5 @@
 # Migrates all revisions and all revision translations.
-id: yukon_migrate_campaign_page
+id: yukon_migrate_campaign_page_translations
 label: Yukon Migrate Campaign Page Nodes
 audit: true
 migration_tags:
@@ -7,23 +7,31 @@ migration_tags:
   - node
 migration_group: legacy
 source:
-  plugin: d7_node
+  plugin: yukon_node_entity_translation
   node_type: campaign_page
   constants:
     default_text_format: full_html
 process:
-  langcode:
-    plugin: default_value
-    source: language
-    default_value: "en"
-  title: title_field
+  nid:
+    plugin: migration_lookup
+    migration: yukon_migrate_campaign_page
+    source: entity_id
+    no_stub: true
+
   # Todo: Replace this part with migration lookup after we migrate users.
-  uid: node_uid
+  uid: uid
   status: status
   created: created
-  changed: timestamp
+  changed: changed
   promote: promote
   sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
+  title: title
 
   path/alias: alias
   path/pathauto: pathauto
@@ -76,7 +84,6 @@ process:
         source: value
         migration:
           - yukon_migrate_text
-          - yukon_migrate_text_unformatted
           - yukon_migrate_text_and_image
           - yukon_migrate_video
           - yukon_migrate_video_and_text
@@ -158,14 +165,16 @@ process:
 destination:
   plugin: entity:node
   default_bundle: campaign_page
+  translations: true
 migration_dependencies:
   required:
     - yukon_migrate_images
+    - yukon_migrate_campaign_page
     - yukon_migrate_department
     - yukon_migrate_teams
+    - yukon_migrate_campaign_page
   optional:
     - yukon_migrate_text
-    - yukon_migrate_text_unformatted
     - yukon_migrate_text_and_image
     - yukon_migrate_video
     - yukon_migrate_video_and_text

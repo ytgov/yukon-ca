@@ -7,16 +7,13 @@ migration_tags:
   - Media
 migration_group: legacy
 source:
-  plugin: d7_paragraphs_item
+  plugin: yukon_paragraphs_item
   bundle: video_and_text_block
 process:
   field_media_oembed_video: field_video_block/0/video_url
   field_caption: field_video_block/0/description
-  # Todo: Replace this part with migration lookup after we migrate users.
-  uid: uid
   langcode:
     plugin: default_value
-    source: language
     default_value: "en"
 destination:
   plugin: entity:media
