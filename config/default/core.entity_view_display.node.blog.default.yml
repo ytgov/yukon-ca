@@ -31,13 +31,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_contact:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: hidden
@@ -47,24 +40,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_social_sharing:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   addtoany: true
   field_blog_type: true
   field_category: true
+  field_contact: true
   field_department_term: true
   field_icon_dark: true
   field_meta_tags: true
   field_page_description: true
+  field_social_sharing: true
   field_subcategory: true
   field_yukon_editorial_team: true
   langcode: true

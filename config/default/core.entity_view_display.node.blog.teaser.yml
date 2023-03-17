@@ -16,9 +16,11 @@ dependencies:
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
     - field.field.node.blog.field_yukon_editorial_team
+    - image.style.agency_blog_landing_page
     - node.type.blog
   module:
     - fences
+    - media
     - text
     - user
 id: node.blog.teaser
@@ -41,6 +43,26 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: none
         fences_label_classes: ''
+    weight: 1
+    region: content
+  field_featured_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: agency_blog_landing_page
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
     weight: 0
     region: content
 hidden:
@@ -49,7 +71,6 @@ hidden:
   field_category: true
   field_contact: true
   field_department_term: true
-  field_featured_image: true
   field_icon_dark: true
   field_meta_tags: true
   field_page_description: true

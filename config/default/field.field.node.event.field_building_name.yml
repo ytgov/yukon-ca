@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_building_name
+    - node.type.directory_records_places
     - node.type.event
   module:
     - epp
@@ -18,7 +19,7 @@ bundle: event
 label: 'Building name'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

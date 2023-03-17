@@ -39,6 +39,7 @@ third_party_settings:
       children:
         - title
         - field_page_description
+        - field_meta_tags
       label: 'Title and description'
       region: content
       parent_name: ''
@@ -340,6 +341,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 11
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

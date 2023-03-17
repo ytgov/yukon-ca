@@ -18,7 +18,7 @@ bundle: schools
 label: Telephone
 description: "Optional. Include, if applicable.\r\nUse format 1-###-###-####\r\nTo include an extension, use format 1-###-###-####, extension ####"
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

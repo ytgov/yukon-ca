@@ -19,7 +19,7 @@ bundle: directory_records_places
 label: Community
 description: "Select one from the following list:\r\n  Beaver Creek\r\n  Burwash Landing\r\n  Carcross and Tagish\r\n  Carmacks\r\n  Dawson City\r\n  Faro\r\n  Haines Junction\r\n  Mayo\r\n  Old Crow\r\n  Pelly Crossing\r\n  Ross River\r\n  Teslin\r\n  Watson Lake\r\n  Whitehorse"
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -19,7 +19,7 @@ bundle: opening_and_closing_times
 label: 'Closing time'
 description: "Optional. Enter the closing time applicable with the 'Day' text field. For multiple opening times, enter the earliest closing time first"
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

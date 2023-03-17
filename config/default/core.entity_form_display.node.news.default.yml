@@ -73,16 +73,9 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: select
+      add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: chart
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_contact:
     type: text_textarea
@@ -132,19 +125,12 @@ content:
     weight: 5
     region: content
     settings:
-      title: Quote
-      title_plural: Quotes
+      title: Paragraph
+      title_plural: Paragraphs
       edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: button
+      add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: quotes
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_news_release:
     type: string_textfield
@@ -169,23 +155,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_quick_facts:
-    type: paragraphs
+    type: entity_reference_paragraphs
     weight: 6
     region: content
     settings:
-      title: Facts
-      title_plural: Facts
-      edit_mode: closed
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: button
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: quick_facts
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_related_link:
     type: link_default
@@ -255,6 +234,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

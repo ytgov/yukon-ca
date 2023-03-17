@@ -19,7 +19,7 @@ bundle: directory_records_places
 label: 'Place information'
 description: 'Use this space for any additional information about the place, which is not already captured in the fields below.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -7,11 +7,6 @@ dependencies:
     - node.type.campground_directory_record
   module:
     - datetime
-    - epp
-third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
 id: node.campground_directory_record.field_gate_closed_date
 field_name: field_gate_closed_date
 entity_type: node
@@ -19,7 +14,7 @@ bundle: campground_directory_record
 label: 'Gate closed date'
 description: 'Enter DD-MMM-YYYY'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

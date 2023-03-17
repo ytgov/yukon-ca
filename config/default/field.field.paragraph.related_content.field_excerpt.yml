@@ -19,7 +19,7 @@ bundle: related_content
 label: Excerpt
 description: 'If a website node is being referenced, the meta description of that node will be used. If referencing an external document, or if you want to use your own excerpt, just place it in this field.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

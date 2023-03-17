@@ -20,7 +20,7 @@ third_party_settings:
     unpublish_revision: false
 id: document
 label: Document
-description: 'A Document file is written information.'
+description: ''
 source: file
 queue_thumbnail_downloads: false
 new_revision: false
