@@ -29,10 +29,67 @@ dependencies:
     - node.type.directory_records_places
   module:
     - entity_reference_revisions
-    - geofield
+    - field_group
+    - leaflet
     - link
     - text
     - user
+third_party_settings:
+  field_group:
+    group_row:
+      children:
+        - field_location
+        - group_details
+      label: row
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: places-page-grid
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_details:
+      children:
+        - field_street_address
+        - field_postal_code
+        - field_contact_person
+        - field_main_telephone
+        - field_fax
+        - field_website
+        - field_additional_number
+        - field_places_record_type
+        - field_opening_times
+        - field_holiday_hours
+        - field_statutory_holiday_link
+        - field_community
+        - field_region
+        - field_place_accessibility
+        - field_gps_coordinate_n
+        - field_gps_coordinate_w
+      label: Details
+      parent_name: group_row
+      region: content
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: place-info
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
 id: node.directory_records_places.default
 targetEntityType: node
 bundle: directory_records_places
@@ -40,7 +97,7 @@ mode: default
 content:
   field_additional_number:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -51,7 +108,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 18
+    weight: 1
     region: content
   field_community:
     type: entity_reference_label
@@ -59,7 +116,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 14
     region: content
   field_contact_person:
     type: entity_reference_revisions_entity_view
@@ -68,15 +125,15 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 17
+    weight: 3
     region: content
   field_fax:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_gps_coordinate_n:
     type: string
@@ -84,7 +141,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 15
+    weight: 17
     region: content
   field_gps_coordinate_w:
     type: string
@@ -92,7 +149,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 16
+    weight: 18
     region: content
   field_holiday_hours:
     type: entity_reference_revisions_entity_view
@@ -101,16 +158,94 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   field_location:
-    type: geofield_default
+    type: leaflet_formatter_default
     label: hidden
     settings:
-      output_format: wkt
-      output_escape: true
+      multiple_map: false
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+      reset_map:
+        control: false
+        options: '{"position": "topleft", "title": "Reset View"}'
+      locate:
+        control: false
+        options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
+        automatic: false
+      leaflet_tooltip:
+        value: ''
+        options: '{"permanent":false,"direction":"center"}'
+      popup: false
+      popup_content: ''
+      leaflet_popup:
+        control: ''
+        content: ''
+        options: '{"maxWidth":"300","minWidth":"50", "autoPan": true}'
+        value: ''
+        view_mode: full
+      map_position:
+        force: false
+        center:
+          lat: 0.0
+          lon: 0.0
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: null
+          'y': null
+        iconAnchor:
+          x: null
+          'y': null
+        shadowSize:
+          x: null
+          'y': null
+        shadowAnchor:
+          x: null
+          'y': null
+        popupAnchor:
+          x: null
+          'y': null
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius": 100, "color": "red", "fillColor": "#f03", "fillOpacity": 0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        excluded: ''
+        include_path: false
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      feature_properties:
+        values: ''
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 20
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+      weight: null
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
   field_main_telephone:
     type: string
@@ -118,17 +253,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_open_24_hours:
-    type: boolean
-    label: hidden
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 9
+    weight: 4
     region: content
   field_opening_times:
     type: entity_reference_revisions_entity_view
@@ -137,14 +262,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_place_accessibility:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 16
     region: content
   field_places_record_type:
     type: entity_reference_revisions_entity_view
@@ -153,7 +278,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 10
     region: content
   field_postal_code:
     type: string
@@ -161,7 +286,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_region:
     type: entity_reference_label
@@ -169,17 +294,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
-    region: content
-  field_social_sharing:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 7
+    weight: 15
     region: content
   field_statutory_holiday_link:
     type: link
@@ -191,7 +306,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 19
+    weight: 13
     region: content
   field_street_address:
     type: string
@@ -199,7 +314,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_website:
     type: link
@@ -211,12 +326,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
 hidden:
   addtoany: true
   field_department_term: true
   field_meta_tags: true
+  field_open_24_hours: true
+  field_social_sharing: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
