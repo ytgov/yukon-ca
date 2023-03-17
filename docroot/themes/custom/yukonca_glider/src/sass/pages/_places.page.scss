@@ -1,0 +1,7 @@
+.places-page-grid {
+  @apply md:grid md:grid-cols-2;
+
+  .place-info {
+    @apply md:ml-[8%];
+  }
+}
