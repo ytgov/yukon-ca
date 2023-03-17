@@ -1,8 +1,9 @@
-uuid: c0119fe0-b23f-47a3-93cd-af65592efd6d
+uuid: d3ca9b6a-d2be-4eb4-80f9-eb3280044edf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.department.field_add_branch
     - field.field.node.department.field_add_primary_top_tasks
     - field.field.node.department.field_add_secondary_top_tasks
@@ -25,7 +26,6 @@ dependencies:
     - entity_reference_revisions
     - field_group
     - link
-    - media
     - text
     - user
 third_party_settings:
@@ -46,7 +46,6 @@ third_party_settings:
         description: ''
     group_minister_responsible:
       children:
-        - field_minister_photo
         - field_minister_first_name
         - field_minister_last_name
         - field_legislative_assembly_web
@@ -63,10 +62,10 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         description: ''
-id: node.department.default
+id: node.department.full
 targetEntityType: node
 bundle: department
-mode: default
+mode: full
 content:
   field_add_branch:
     type: entity_reference_revisions_entity_view
@@ -138,14 +137,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 14
+    weight: 5
     region: content
   field_minister_email:
     type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 6
     region: content
   field_minister_fax_number:
     type: string
@@ -153,7 +152,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 17
+    weight: 8
     region: content
   field_minister_first_name:
     type: string
@@ -161,7 +160,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 12
+    weight: 3
     region: content
   field_minister_last_name:
     type: string
@@ -169,16 +168,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 13
+    weight: 4
     region: content
   field_minister_photo:
-    type: media_thumbnail
-    label: hidden
+    type: entity_reference_entity_view
+    label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 11
     region: content
@@ -188,7 +185,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 16
+    weight: 7
     region: content
   field_optional_internal_related:
     type: entity_reference_label
