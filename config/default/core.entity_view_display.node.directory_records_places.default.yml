@@ -29,6 +29,7 @@ dependencies:
     - node.type.directory_records_places
   module:
     - entity_reference_revisions
+    - fences
     - field_group
     - leaflet
     - link
@@ -60,6 +61,8 @@ third_party_settings:
       children:
         - field_street_address
         - field_postal_code
+        - field_community
+        - field_region
         - field_contact_person
         - field_main_telephone
         - field_fax
@@ -69,8 +72,6 @@ third_party_settings:
         - field_opening_times
         - field_holiday_hours
         - field_statutory_holiday_link
-        - field_community
-        - field_region
         - field_place_accessibility
         - field_gps_coordinate_n
         - field_gps_coordinate_w
@@ -101,7 +102,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_additional_related_info:
     type: text_default
@@ -112,11 +113,20 @@ content:
     region: content
   field_community:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 14
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 3
     region: content
   field_contact_person:
     type: entity_reference_revisions_entity_view
@@ -125,7 +135,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_fax:
     type: string
@@ -133,7 +143,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 7
     region: content
   field_gps_coordinate_n:
     type: string
@@ -141,7 +151,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 17
+    weight: 15
     region: content
   field_gps_coordinate_w:
     type: string
@@ -149,7 +159,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 18
+    weight: 16
     region: content
   field_holiday_hours:
     type: entity_reference_revisions_entity_view
@@ -253,7 +263,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_opening_times:
     type: entity_reference_revisions_entity_view
@@ -269,7 +279,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 14
     region: content
   field_places_record_type:
     type: entity_reference_revisions_entity_view
@@ -290,11 +300,20 @@ content:
     region: content
   field_region:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 4
     region: content
   field_statutory_holiday_link:
     type: link
@@ -310,7 +329,7 @@ content:
     region: content
   field_street_address:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -326,7 +345,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 8
     region: content
 hidden:
   addtoany: true
