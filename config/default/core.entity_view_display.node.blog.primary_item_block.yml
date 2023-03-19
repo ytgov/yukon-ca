@@ -1,0 +1,41 @@
+uuid: f8beafc9-00a2-4ddd-a6a7-72e38c957fba
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.primary_item_block
+    - field.field.node.blog.body
+    - field.field.node.blog.field_blog_type
+    - field.field.node.blog.field_category_term
+    - field.field.node.blog.field_contact
+    - field.field.node.blog.field_department_term
+    - field.field.node.blog.field_featured_image
+    - field.field.node.blog.field_icon_dark
+    - field.field.node.blog.field_meta_tags
+    - field.field.node.blog.field_social_sharing
+    - field.field.node.blog.field_subcategory
+    - field.field.node.blog.field_yukon_editorial_team
+    - node.type.blog
+  module:
+    - user
+id: node.blog.primary_item_block
+targetEntityType: node
+bundle: blog
+mode: primary_item_block
+content: {  }
+hidden:
+  addtoany: true
+  body: true
+  field_blog_type: true
+  field_category_term: true
+  field_contact: true
+  field_department_term: true
+  field_featured_image: true
+  field_icon_dark: true
+  field_meta_tags: true
+  field_social_sharing: true
+  field_subcategory: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
