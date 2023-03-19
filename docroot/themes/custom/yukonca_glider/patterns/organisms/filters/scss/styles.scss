@@ -1,1 +1,32 @@
 /* Add your code here */
+
+@import "../../../styles.scss";
+
+h2.title {
+  @apply pb-2 pt-4 mb-7;
+  @apply border-solid border-0 border-b-[12px] border-yellow;
+  @apply text-default-base;
+}
+
+.form {
+  .js-form-item {
+    label {
+      @apply block;
+      @apply text-gray font-normal;
+      @apply mb-1;
+    }
+
+    input,
+    select {
+      @apply border-yellow border-solid;
+      @apply bg-gray-light;
+      @apply h-[37px] py-[6px] px-[12px] w-full;
+    }
+
+  }
+
+  .form-submit {
+    @apply mt-7;
+    @apply btn btn-primary;
+  }
+}

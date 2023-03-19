@@ -5,6 +5,9 @@
  * Theme specific functionality.
  */
 
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+
 /**
  * Implements hook_preprocess_html().
  */
@@ -26,29 +29,45 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
- * Implements template_preprocess_block() for block templates.
+ * Implements template_proprocess_page().
  */
-function yukonca_glider_preprocess_block(&$variables) {
-  if ($variables['base_plugin_id'] == 'system_branding_block') {
-    $logo_file = $variables['site_logo'];
-    $pathinfo = pathinfo($logo_file);
-    $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
-  }
-}
+function yukonca_glider_preprocess_page(&$variables) {
+  if (!empty($variables['node'])) {
+    $bundle = $variables['node']->bundle();
+    $node = $variables['node'];
+    if ($bundle == 'landing_page' || $bundle == 'landing_page_level_2') {
+      $mid = $node->field_svg_upload->target_id;
+      $fid = Media::load($mid)->field_media_image->target_id;
+      $file = File::load($fid);
+      $file_url = $file->createFileUrl(TRUE);
+      $variables['header_image'] = $file_url;
+    }
 
-/**
- * Implements template_preprocess_node().
- */
-function yukonca_glider_preprocess_node(&$variables) {
-  $type = $variables['node']->bundle();
-  $view_mode = $variables['view_mode'];
-  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
-    // Render only the first three links in field_primary_content.
-    $links = $variables['node']->field_primary_content->getValue();
-    foreach ($links as $key => $link) {
-      if ($key > 2) {
-        unset($variables['content']['field_primary_content'][$key]);
+    if ($bundle == 'blog' || $bundle == 'default') {
+      $tid = $node->field_blog_type->target_id;
+      if (!empty($tid)) {
+        $blog_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+        $agency_img_mid = $blog_type_term->field_agency_logo->target_id;
+        if (!empty($agency_img_mid)) {
+          $fid = Media::load($mid)->field_media_image->target_id;
+          $fid = Media::load($mid)->field_media_image->target_id;
+          $file = File::load($fid);
+          $file_url = $file->createFileUrl(TRUE);
+          $variables['logo_url'] = $file_url;
+        }
+      }
+
+      $variables['blog_category_subcategory'] = [];
+      if (!empty($node->field_category_term->target_id)) {
+        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category_term->target_id);
+        array_push($variables['blog_category_subcategory'], $category_term->getName());
+      }
+
+      if (!empty($node->field_subcategory->target_id)) {
+        $subcategory_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_subcategory->target_id);
+        array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
       }
     }
   }
+
 }
