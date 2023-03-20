@@ -1,0 +1,125 @@
+uuid: 1b2363db-9017-4544-a328-5b16a8d4666d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.community_facilities.field_about_services
+    - field.field.paragraph.community_facilities.field_assistant_manager
+    - field.field.paragraph.community_facilities.field_assistant_manager_email
+    - field.field.paragraph.community_facilities.field_assistant_manager_telephon
+    - field.field.paragraph.community_facilities.field_community_facility_type
+    - field.field.paragraph.community_facilities.field_manager
+    - field.field.paragraph.community_facilities.field_manager_email
+    - field.field.paragraph.community_facilities.field_manager_telephone
+    - paragraphs.paragraphs_type.community_facilities
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_manager:
+      children:
+        - field_manager
+        - field_manager_telephone
+        - field_manager_email
+      label: Manager
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_assistant_manager:
+      children:
+        - field_assistant_manager
+        - field_assistant_manager_telephon
+        - field_assistant_manager_email
+      label: 'Assistant manager'
+      region: content
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: paragraph.community_facilities.default
+targetEntityType: paragraph
+bundle: community_facilities
+mode: default
+content:
+  field_about_services:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assistant_manager:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assistant_manager_email:
+    type: email_default
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_assistant_manager_telephon:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_community_facility_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_manager:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_manager_email:
+    type: email_default
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_manager_telephone:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

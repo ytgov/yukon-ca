@@ -31,3 +31,7 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       engagement: engagement
+  request_path:
+    id: request_path
+    negate: true
+    pages: ''

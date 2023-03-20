@@ -1,0 +1,25 @@
+uuid: 1cdb47a6-e4ef-4d86-b97d-d4df38db8bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gps_coordinate_n
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_gps_coordinate_n
+field_name: field_gps_coordinate_n
+entity_type: node
+bundle: campground_directory_record
+label: 'GPS Coordinate N'
+description: 'Format ##.###'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

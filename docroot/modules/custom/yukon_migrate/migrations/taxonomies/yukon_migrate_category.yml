@@ -29,13 +29,13 @@ process:
 
   field_meta_tags: metatags
 
-  field_dark_svg:
+  field_icon_dark:
     plugin: migration_lookup
     source: field_dark_svg/0/fid
     migration: yukon_migrate_images
     no_stub: true
 
-  field_light_svg:
+  field_icon_light:
     plugin: migration_lookup
     source: field_light_svg/0/fid
     migration: yukon_migrate_images
@@ -44,3 +44,6 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: category
+migration_dependencies:
+  required:
+    - yukon_migrate_images

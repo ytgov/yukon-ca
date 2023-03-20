@@ -1,0 +1,26 @@
+uuid: 8b0962f9-75f1-4f15-b15d-326a33ddc92c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links_to_services_provided
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_links_to_services_provided
+field_name: field_links_to_services_provided
+entity_type: paragraph
+bundle: section
+label: 'Services provided'
+description: 'Use this area to provide links to services/tasks provided by this section.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

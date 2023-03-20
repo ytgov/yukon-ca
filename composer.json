@@ -87,6 +87,7 @@
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_menu_children_filter": "^3.0@RC",
         "drupal/views_tree": "^2.0@RC",
+        "drupal/views_year_filter": "^2.1",
         "drupal/viewsreference": "^1.7",
         "drupal/webform": "6.2.x-dev@dev",
         "drupal/workbench": "^1.4",
@@ -111,9 +112,6 @@
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
                 "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2023-01-02/drupal-3264843-15_0.patch"
-            },
-            "drupal/linkit": {
-                "2712951 - Linkit for Link field": "patches/linkit-2712951-linkit-for-link.patch"
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"

@@ -1,0 +1,29 @@
+uuid: fcbbcf42-5df4-4cbb-9947-0b4dfa97b760
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_sharing
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_social_sharing
+field_name: field_social_sharing
+entity_type: node
+bundle: directory_records_places
+label: 'Social sharing'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 3bc836fc-4ddd-4088-9e3e-1d2ac837bb3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+  module:
+    - path
+id: node.directory_records_places.path
+field_name: path
+entity_type: node
+bundle: directory_records_places
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

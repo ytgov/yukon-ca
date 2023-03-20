@@ -1,4 +1,4 @@
-uuid: ac3366b0-42b7-4271-8fce-1e6cbcb0b664
+uuid: 61094efd-8471-4fc3-b8a5-b7bbd3d7792a
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,9 @@ dependencies:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: true
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
 id: media.document
 target_entity_type_id: media
 target_bundle: document

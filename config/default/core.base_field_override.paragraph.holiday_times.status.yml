@@ -1,0 +1,22 @@
+uuid: e81f0b4d-29fd-472b-9303-6cdfb7bbf4ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.holiday_times
+id: paragraph.holiday_times.status
+field_name: status
+entity_type: paragraph
+bundle: holiday_times
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

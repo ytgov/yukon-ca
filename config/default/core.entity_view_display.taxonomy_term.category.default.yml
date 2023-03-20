@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.category.field_dark_svg
-    - field.field.taxonomy_term.category.field_light_svg
+    - field.field.taxonomy_term.category.field_icon_dark
+    - field.field.taxonomy_term.category.field_icon_light
     - field.field.taxonomy_term.category.field_meta_tags
     - taxonomy.vocabulary.category
   module:
@@ -22,23 +22,32 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_dark_svg:
+  field_icon_dark:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 1
+    region: content
+  field_icon_light:
+    type: entity_reference_entity_view
+    label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
     weight: 2
-    region: content
-  field_light_svg:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_meta_tags:
     type: metatag_empty_formatter

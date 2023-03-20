@@ -1,0 +1,35 @@
+uuid: 43967f7c-82cd-4621-b618-a1a5463584c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.health_facilities.field_health_facility_type
+    - field.field.paragraph.health_facilities.field_hf_services
+    - paragraphs.paragraphs_type.health_facilities
+id: paragraph.health_facilities.default
+targetEntityType: paragraph
+bundle: health_facilities
+mode: default
+content:
+  field_health_facility_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hf_services:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

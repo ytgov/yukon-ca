@@ -1,0 +1,77 @@
+uuid: dd84ba0a-a3a6-48b0-a5c6-67677bde9d73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_places_record_type
+    - node.type.directory_records_places
+    - paragraphs.paragraphs_type.community_facilities
+    - paragraphs.paragraphs_type.health_facilities
+    - paragraphs.paragraphs_type.schools
+    - paragraphs.paragraphs_type.transactional_facilities
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_places_record_type
+field_name: field_places_record_type
+entity_type: node
+bundle: directory_records_places
+label: 'Places record type'
+description: "Select one from the following list:\r\n   Community facilities (airport and aerodromes, archives, community centres, libraries, public art, visitor information centres, women's shelters)\r\n   Education facilities (schools and colleges)\r\n   Health facilities (community health centres, continuing care facilities, hospitals)\r\n   Sanitary facilities (hazardous waste, recycling, solid waste)\r\n   Transactional facilities (liquor stores and territorial agents)"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      community_facilities: community_facilities
+      health_facilities: health_facilities
+      transactional_facilities: transactional_facilities
+      schools: schools
+      waste_and_recycling_facilities: waste_and_recycling_facilities
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 8
+        enabled: false
+      collapsable_field:
+        weight: 12
+        enabled: false
+      community_facilities:
+        weight: 9
+        enabled: true
+      health_facilities:
+        weight: 14
+        enabled: true
+      image_gallery:
+        weight: 10
+        enabled: false
+      primary_content:
+        weight: 11
+        enabled: false
+      quick_facts:
+        weight: 12
+        enabled: false
+      quotes:
+        weight: 13
+        enabled: false
+      schools:
+        weight: 20
+        enabled: true
+      secondary_content:
+        weight: 14
+        enabled: false
+      transactional_facilities:
+        weight: 16
+        enabled: true
+      waste_and_recycling_facilities:
+        weight: 24
+        enabled: true
+field_type: entity_reference_revisions
