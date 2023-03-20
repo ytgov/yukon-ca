@@ -1,0 +1,30 @@
+uuid: 7193202c-c9d9-41bb-9c1e-5215d716ff32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attributor
+    - paragraphs.paragraphs_type.quote
+  module:
+    - allowed_formats
+    - epp
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.quote.field_attributor
+field_name: field_attributor
+entity_type: paragraph
+bundle: quote
+label: Attributor
+description: 'Enter first name, followed by last name or enter organization name.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

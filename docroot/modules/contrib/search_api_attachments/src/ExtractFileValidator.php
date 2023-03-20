@@ -36,7 +36,7 @@ class ExtractFileValidator {
    *
    * Obtained from a space separated string of file extensions.
    *
-   * @param string $extensions
+   * @param array $extensions
    *   If it's not null, the return will correspond to the extensions.
    *   If it is null,the return will correspond to the default excluded
    *   extensions.
@@ -61,7 +61,7 @@ class ExtractFileValidator {
       }
     }
     // Ensure we get an array of unique mime values because many extension can
-    // map the the same mime type.
+    // map the same mime type.
     return array_unique($excluded_mimes);
   }
 

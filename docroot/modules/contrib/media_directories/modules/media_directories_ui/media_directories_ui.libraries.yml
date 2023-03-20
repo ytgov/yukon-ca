@@ -1,5 +1,5 @@
 jstree:
-  remote: https://github.com/vakata/jstree/archive/3.3.12.zip
+  remote: https://github.com/vakata/jstree/archive/3.3.15.zip
   license:
     name: MIT
     gpl-compatible: true
@@ -12,15 +12,15 @@ jstree:
     - core/jquery
 
 jstree-cdn:
-  remote: https://github.com/vakata/jstree/archive/3.3.12.zip
+  remote: https://github.com/vakata/jstree/archive/3.3.15.zip
   license:
     name: MIT
     gpl-compatible: true
   css:
     component:
-      //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css: { external: true, minified: true}
+      //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.15/themes/default/style.min.css: { external: true, minified: true}
   js:
-    //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js: { external: true, minified: true }
+    //cdnjs.cloudflare.com/ajax/libs/jstree/3.3.15/jstree.min.js: { external: true, minified: true }
   dependencies:
     - core/jquery
 
@@ -53,6 +53,15 @@ media-ui.browser:
     - core/drupal.dialog.ajax
     - core/jquery.form
     - core/jquery.ui.draggable
+
+media-ui.browser.gin:
+  css:
+    theme:
+      css/media_directories_ui.browser.gin.css: {}
+  dependencies:
+    - media_directories_ui/media-ui.browser
+    - claro/media_library.theme
+    - gin/media_library
 
 # Toolbar functionality.
 media-ui.toolbar:
@@ -93,3 +102,13 @@ media-library.quick-edit-dialog:
   css:
     theme:
       css/media_directories_ui.dialog.css: {}
+
+widget:
+  css:
+    theme:
+      css/media_directories_ui.widget.css: {}
+
+widget.gin:
+  css:
+    theme:
+      css/media_directories_ui.widget.gin.css: {}

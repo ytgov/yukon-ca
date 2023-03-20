@@ -61,7 +61,7 @@ class LinkitFormatter extends LinkFormatter {
   }
 
   /**
-   * Constructs a new LinkitFormatter.
+   * Constructs a new Linkit field formatter.
    *
    * @param string $plugin_id
    *   The plugin_id for the formatter.
@@ -79,6 +79,8 @@ class LinkitFormatter extends LinkFormatter {
    *   Third party settings.
    * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
    *   The path validator service.
+   * @param Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
    * @param \Drupal\linkit\SubstitutionManagerInterface $substitution_manager
    *   The substitution manager.
    */

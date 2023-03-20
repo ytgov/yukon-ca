@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\search_api\Item\ItemInterface;
+use Drupal\Core\Entity\EntityInterface;
 /**
  * @file
  * Hooks provided by the "Search API attachments" module.
@@ -23,7 +25,7 @@
  * @return bool|null
  *   Return FALSE if the attachment should not be indexed.
  */
-function hook_search_api_attachments_indexable($file, \Drupal\search_api\Item\ItemInterface $item, $field_name) {
+function hook_search_api_attachments_indexable($file, ItemInterface $item, $field_name) {
   // Don't index files on entities owned by our bulk upload bot accounts.
   if (in_array($item->getOriginalObject()->uid, my_module_blocked_uids())) {
     return FALSE;
@@ -38,7 +40,7 @@ function hook_search_api_attachments_indexable($file, \Drupal\search_api\Item\It
  * @param \Drupal\Core\Entity\EntityInterface $entity
  *   The entity where the file was referenced in.
  */
-function hook_search_api_attachments_content_extracted($file, \Drupal\Core\Entity\EntityInterface $entity) {
+function hook_search_api_attachments_content_extracted($file, EntityInterface $entity) {
   // Search for nodes using media item in specific fields.
   if ($entity->getEntityTypeId() === 'media') {
     $query = \Drupal::entityQuery('node')

@@ -1,0 +1,15 @@
+.media-directories-widget .media-library-item__preview-wrapper {
+  position: relative;
+}
+
+.media-directories-widget .entities-list .rendered-entity {
+  margin: 0;
+}
+
+.media-directories-widget .entities-list.sortable .item-container:hover {
+  opacity: 1;
+}
+
+.media-directories-widget .entities-list .item-container > input {
+  margin: 0.3125rem;
+}

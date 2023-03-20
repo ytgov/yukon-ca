@@ -1,68 +1,11 @@
-.media-listing {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .media-item {
-  position: relative;
-  width: 125px;
-  margin: 1em;
-  transition: all .1s linear;
   cursor: default;
-}
-
-.media-item:hover .media-thumbnail {
-  box-shadow: 0 0 0.5em 0.1em hsla(203, 100%, 60%, 0.7);
-}
-
-.media-item.selected {
-  opacity: 0.5;
-}
-
-.media-item.selected .media-thumbnail {
-  border: 1px solid #3ab2ff;
-  box-shadow: 0 0 0.5em 0.1em hsla(203, 100%, 60%, 0.7);
-}
-
-.media-item .media-thumbnail {
-  height: 96px;
-  width: 123px;
-  border: 1px solid #ccc;
-  transition: all .1s linear;
-}
-
-.media-item .media-thumbnail:hover {
-  border: 1px solid #3ab2ff;
-  box-shadow: 0 0 0.5em 0.1em hsla(203, 100%, 60%, 0.7);
-}
-
-.media-item .media-thumbnail img {
-  display: block;
-}
-
-.media-item .media-name {
-  padding: 5px 0;
-  font-size: 10px;
-  line-height: 1.25;
-  text-align: center;
-  word-break: break-all;
 }
 
 .media-item .views-field-entity-browser-select {
   position: absolute;
   height: 0;
   overflow: hidden;
-}
-
-.media-item .media-info {
-  bottom: 0;
-  font-size: 10px;
-  padding: 5px 5px;
-}
-
-.media-item .media-info .media-info--Image {
-  display: none;
 }
 
 body.media-directories-modal:not(.toolbar-tray-open) .layout-container {

@@ -1,0 +1,25 @@
+uuid: 603181c2-99f4-440c-9fbe-34ef187f9394
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_fax_number
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_fax_number
+field_name: field_minister_fax_number
+entity_type: node
+bundle: department
+label: 'Fax number'
+description: 'Optional: Enter the fax number for the department head office.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

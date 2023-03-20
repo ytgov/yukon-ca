@@ -1,0 +1,25 @@
+uuid: 63abeaad-312b-4df1-8c68-02f4a22f4185
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_assistant_manager_email
+    - paragraphs.paragraphs_type.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.community_facilities.field_assistant_manager_email
+field_name: field_assistant_manager_email
+entity_type: paragraph
+bundle: community_facilities
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

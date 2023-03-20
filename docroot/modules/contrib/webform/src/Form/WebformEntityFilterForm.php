@@ -95,7 +95,7 @@ class WebformEntityFilterForm extends FormBase {
     $state = $form_state->getValue('state') ?? '';
     $query = [
       'search' => trim($search),
-      'category ' => trim($category),
+      'category' => trim($category),
       'state' => trim($state),
     ];
     $form_state->setRedirect($this->getRouteMatch()->getRouteName(), $this->getRouteMatch()->getRawParameters()->all(), [

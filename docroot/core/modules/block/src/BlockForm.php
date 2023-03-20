@@ -247,11 +247,6 @@ class BlockForm extends EntityForm {
       $form[$condition_id] = $condition_form;
     }
 
-    if (isset($form['entity_bundle:node'])) {
-      $form['entity_bundle:node']['negate']['#type'] = 'value';
-      $form['entity_bundle:node']['negate']['#title_display'] = 'invisible';
-      $form['entity_bundle:node']['negate']['#value'] = $form['entity_bundle:node']['negate']['#default_value'];
-    }
     if (isset($form['user_role'])) {
       $form['user_role']['#title'] = $this->t('Roles');
       unset($form['user_role']['roles']['#description']);

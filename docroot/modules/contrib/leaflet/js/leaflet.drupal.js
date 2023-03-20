@@ -214,6 +214,16 @@
       this.lMap.fitWorld();
     }
 
+    // Set to refresh when first in viewport to avoid missing visibility.
+    new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.intersectionRatio > 0) {
+          this.lMap.invalidateSize();
+          observer.disconnect();
+        }
+      });
+    }).observe(this.lMap._container);
+
   };
 
   /**

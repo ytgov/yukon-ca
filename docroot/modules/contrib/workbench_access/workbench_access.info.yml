@@ -13,7 +13,7 @@ dependencies:
 test_dependencies:
   - inline_entity_form:inline_entity_form
 
-# Information added by Drupal.org packaging script on 2023-01-03
-version: '2.0.0'
+# Information added by Drupal.org packaging script on 2023-02-15
+version: '2.0.1'
 project: 'workbench_access'
-datestamp: 1672771980
+datestamp: 1676497404

@@ -5,6 +5,7 @@
  * Install and database hook implementations.
  */
 
+use Drupal\Core\Config\FileStorage;
 use Drupal\language\ConfigurableLanguageManagerInterface;
 use Drupal\views\Entity\View;
 
@@ -178,4 +179,31 @@ function media_directories_ui_update_8004() {
       $config_translation->save();
     }
   }
+}
+
+/**
+ * Update media directories base view configuration.
+ */
+function media_directories_ui_update_9002(): void {
+  $config_path = \Drupal::service('extension.list.module')->getPath('media_directories_ui') . '/config/install';
+  $source = new FileStorage($config_path);
+
+  $config_src = $source->read('views.view.media_directories_base');
+
+  /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $entity_storage */
+  $entity_storage = \Drupal::service('config.manager')
+    ->getEntityTypeManager()
+    ->getStorage('view');
+
+  /** @var \Drupal\views\Entity\View $view */
+  $view = $entity_storage->load('media_directories_base');
+
+  if ($view === NULL) {
+    $entity = $entity_storage->createFromStorageRecord($config_src);
+  }
+  else {
+    $entity = $entity_storage->updateFromStorageRecord($view, $config_src);
+  }
+
+  $entity->save();
 }

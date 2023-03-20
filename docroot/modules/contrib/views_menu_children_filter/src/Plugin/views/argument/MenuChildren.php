@@ -269,7 +269,7 @@ class MenuChildren extends NumericArgument {
    *   The by
    *   parent link.
    */
-  public static function filterByPage(Sql $query, MenuLinkContent|NULL $link) {
+  public static function filterByPage(Sql $query, ?MenuLinkContent $link) {
     // Set $parent to 0 if no link was given to indicate no results:
     $parent = !empty($link)
       ? $link->getPluginId()

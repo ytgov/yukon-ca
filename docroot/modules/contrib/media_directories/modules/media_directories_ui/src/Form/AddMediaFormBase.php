@@ -269,7 +269,7 @@ abstract class AddMediaFormBase extends FormBase {
       $form['#attached']['library'][] = 'claro/media_library.theme';
     }
     else if ($theme_name === 'gin') {
-      $form['#attached']['library'][] = 'gin/media_library.theme';
+      $form['#attached']['library'][] = 'gin/media_library';
     }
     else if ($theme_name === 'seven') {
       // Legacy D9 - seven will not live longer.

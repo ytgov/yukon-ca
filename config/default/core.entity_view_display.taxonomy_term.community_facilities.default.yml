@@ -1,0 +1,86 @@
+uuid: 0d45d734-fba7-4b54-b5c9-77a5f20ccf6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.community_facilities.field_about_services
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager_email
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager_telephon
+    - field.field.taxonomy_term.community_facilities.field_community_facility_type
+    - field.field.taxonomy_term.community_facilities.field_manager
+    - field.field.taxonomy_term.community_facilities.field_manager_email
+    - field.field.taxonomy_term.community_facilities.field_manager_telephone
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - text
+id: taxonomy_term.community_facilities.default
+targetEntityType: taxonomy_term
+bundle: community_facilities
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_about_services:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_assistant_manager:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_assistant_manager_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_assistant_manager_telephon:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_manager:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_manager_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_manager_telephone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  field_community_facility_type: true
+  langcode: true
+  search_api_excerpt: true

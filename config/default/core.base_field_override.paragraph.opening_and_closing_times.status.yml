@@ -1,0 +1,22 @@
+uuid: 12540e71-c1f3-4ea7-bba1-cab293f048be
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.opening_and_closing_times
+id: paragraph.opening_and_closing_times.status
+field_name: status
+entity_type: paragraph
+bundle: opening_and_closing_times
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

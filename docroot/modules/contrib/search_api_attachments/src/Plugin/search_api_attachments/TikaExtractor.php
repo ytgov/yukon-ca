@@ -33,10 +33,14 @@ class TikaExtractor extends TextExtractorPluginBase {
     $java = $this->configuration['java_path'];
     // UTF-8 multibyte characters will be stripped by escapeshellargs() for the
     // default C-locale.
-    // So temporarily set the locale to UTF-8 so that the filepath remains
-    // valid.
+    // So temporarily set the locale to UTF-8 if available so that the filepath
+    // remains valid.
+    // Attempt to use en_US.UTF-8 first, and fallback to C.UTF-8, since
+    // en_US.UTF-8 is more widespread, while C.UTF-8 may be present otherwwise.
     $backup_locale = setlocale(LC_CTYPE, '0');
-    setlocale(LC_CTYPE, 'en_US.UTF-8');
+    $preferred_locales = ['en_US.UTF-8', 'C.UTF-8'];
+    $new_locale = setlocale(LC_CTYPE, $preferred_locales) ?: $backup_locale;
+
     $param = '';
     if ($file->getMimeType() != 'audio/mpeg') {
       $param = ' -Dfile.encoding=UTF8 -cp ' . escapeshellarg($tika);
@@ -51,12 +55,11 @@ class TikaExtractor extends TextExtractorPluginBase {
     }
     // Restore the locale.
     setlocale(LC_CTYPE, $backup_locale);
-    // Support UTF-8 commands:
-    // @see http://www.php.net/manual/en/function.shell-exec.php#85095
-    shell_exec("LANG=en_US.utf-8");
+    // Support UTF-8 encoded filenames
+    $cmd = 'export LANG=' . $new_locale . '; ' . $cmd;
     $output = shell_exec($cmd);
     if (is_null($output)) {
-      throw new \Exception('Tika Exctractor is not available.');
+      throw new \Exception('Tika Extractor is not available.');
     }
     return $output;
   }

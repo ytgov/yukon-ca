@@ -112,39 +112,37 @@
    * Global event bindings.
    */
   Drupal.MediaBrowser.globalBindings = function () {
-    $(once('media-browser-dnd-move', document)).each(function () {
-      // Drag&Drop indicators for media dnd operation.
-      $(this).on('dnd_move.vakata', function (e, data) {
-        // Only work on media: folders drag&drop are handled from jsTree events directly.
-        if (data.data.handleDndStopMedia) {
-          // Check if the tree instance is dnd enabled.
-          var jsTree = $(Drupal.MediaBrowser.treeSelector).jstree(true);
-          if (jsTree && jsTree._data && jsTree._data.dnd) {
-            // Check if hovering a folder.
-            ref = jsTree.settings.dnd.large_drop_target ? $(data.event.target).closest('.jstree-node').children('.jstree-anchor') : $(data.event.target).closest('.jstree-anchor');
-            if (ref && ref.length && ref.parent().is('.jstree-closed, .jstree-open, .jstree-leaf')) {
-              if (data.data.currentDirectory !== data.event.target.dataset.tid) {
-                data.helper.find('.jstree-icon').first().removeClass('jstree-er').addClass('jstree-ok');
-              } else {
-                data.helper.find('.jstree-icon').removeClass('jstree-ok').addClass('jstree-er');
-              }
+    // Drag&Drop indicators for media dnd operation.
+    $(document).on('dnd_move.vakata', function (e, data) {
+      // Only work on media: folders drag&drop are handled from jsTree events directly.
+      if (data.data.handleDndStopMedia) {
+        // Check if the tree instance is dnd enabled.
+        var jsTree = $(Drupal.MediaBrowser.treeSelector).jstree(true);
+        if (jsTree && jsTree._data && jsTree._data.dnd) {
+          // Check if hovering a folder.
+          ref = jsTree.settings.dnd.large_drop_target ? $(data.event.target).closest('.jstree-node').children('.jstree-anchor') : $(data.event.target).closest('.jstree-anchor');
+          if (ref && ref.length && ref.parent().is('.jstree-closed, .jstree-open, .jstree-leaf')) {
+            if (data.data.currentDirectory !== data.event.target.dataset.tid) {
+              data.helper.find('.jstree-icon').first().removeClass('jstree-er').addClass('jstree-ok');
+            } else {
+              data.helper.find('.jstree-icon').removeClass('jstree-ok').addClass('jstree-er');
             }
           }
         }
-      });
+      }
+    });
 
-      // Drag and Drop event bind for external sources.
-      $(this).on('dnd_stop.vakata', function (e, data) {
-        var targetDirectory = data.event.target.dataset.tid;
-        // Only work on media: folders drag&drop are handled from jsTree events directly.
-        if (data.data.handleDndStopMedia && data.data.currentDirectory !== targetDirectory) {
-          var media_items = [];
-          for (var i = 0; i < data.data.nodes.length; i++) {
-            media_items.push(data.data.nodes[i].id);
-          }
-          Drupal.MediaBrowser.moveMediaToDirectory(media_items, targetDirectory);
+    // Drag and Drop event bind for external sources.
+    $(document).on('dnd_stop.vakata', function (e, data) {
+      var targetDirectory = data.event.target.dataset.tid;
+      // Only work on media: folders drag&drop are handled from jsTree events directly.
+      if (data.data.handleDndStopMedia && data.data.currentDirectory !== targetDirectory) {
+        var media_items = [];
+        for (var i = 0; i < data.data.nodes.length; i++) {
+          media_items.push(data.data.nodes[i].id);
         }
-      });
+        Drupal.MediaBrowser.moveMediaToDirectory(media_items, targetDirectory);
+      }
     });
   };
 
@@ -167,24 +165,28 @@
 
     // Lock the UI.
     Drupal.MediaBrowser.startLoader();
-    Drupal.ajax(ajaxSettings).execute().done(function () {
+    Drupal.ajax(ajaxSettings).execute().then(function (data) {
       Drupal.MediaBrowser.activeDirectory = directory_id;
       Drupal.MediaBrowser.media.init($('.browser--listing'));
 
       // Unlock the UI.
       Drupal.MediaBrowser.stopLoader();
 
-      // Set previous selection, if there is any.
-      $.each(Drupal.MediaBrowser.getSelectedMids(), function (key, value) {
-        var $element = Drupal.MediaBrowser.getMediaElement(value);
-        if ($element.length > 0) {
-          $element.addClass('selected');
-          $('input[type="checkbox"]', $element).prop('checked', true);
-        }
-      });
-      Drupal.MediaBrowser.toolbar.selectionChanged();
+      Drupal.MediaBrowser.setMediaSelected();
     });
   };
+
+  Drupal.MediaBrowser.setMediaSelected = function () {
+    // Set previous selection, if there is any.
+    $.each(Drupal.MediaBrowser.getSelectedMids(), function (key, value) {
+      var $element = Drupal.MediaBrowser.getMediaElement(value);
+      if ($element.length > 0) {
+        $element.addClass('selected');
+        $('input[type="checkbox"]', $element).prop('checked', true);
+      }
+    });
+    Drupal.MediaBrowser.toolbar.selectionChanged();
+  }
 
   /**
    * Move media item(s) into directory.

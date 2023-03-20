@@ -1,0 +1,26 @@
+uuid: 76c7386f-776b-4d56-aa87-b4856cbd6ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.opening_times.field_open
+    - field.field.paragraph.opening_times.field_opening_time_paragraph
+    - field.field.paragraph.opening_times.field_opening_times_day
+    - paragraphs.paragraphs_type.opening_times
+id: paragraph.opening_times.default
+targetEntityType: paragraph
+bundle: opening_times
+mode: default
+content:
+  field_opening_times_day:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_open: true
+  field_opening_time_paragraph: true
+  search_api_excerpt: true

@@ -1,9 +1,9 @@
 .browser {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 1px);
+  height: calc(100vh - 2px);
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray-200-o-80, #ccc);
   border-radius: 3px;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -27,9 +27,9 @@
 
 .browser--header {
   width: 100%;
-  background: #e1e2dc87;
-  border-bottom: 1px solid #ccc;
-  padding: 1em;
+  background: var(--color-gray-050, #e1e2dc87);
+  border-bottom: 1px solid var(--color-gray-200-o-80, #ccc);
+  padding: 0.75em 1em;
   align-self: self-start;
 }
 
@@ -40,14 +40,15 @@
   align-self: stretch;
   flex: 1;
   width: 100%;
+  overflow: hidden;
 }
 
 .browser--footer {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  background: #e1e2dc87;
-  border-top: 1px solid #ccc;
+  background: var(--color-gray-050, #e1e2dc87);
+  border-top: 1px solid var(--color-gray-200-o-80, #ccc);
   padding: 1em;
   align-self: self-end;
 }
@@ -56,26 +57,30 @@
 .browser--footer input.button  {
   margin-top: 0;
   margin-bottom: 0;
+  margin-right: 0;
 }
 
 .browser--tree {
   overflow: auto;
   width: 25%;
   max-width: 350px;
-  background: #fcfcfa87;
+  background: var(--color-gray-025, #fcfcfa87);
   padding: 0;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--color-gray-200-o-80, #ccc);
 }
 
 .browser--listing {
   width: 75%;
   flex-grow: 1;
-  padding: 1em;
   overflow: auto;
 }
 
 .browser--listing .form-actions {
   display: none;
+}
+
+.browser--listing .view-empty {
+  margin: 1em;
 }
 
 .browser-toolbar {
@@ -102,4 +107,15 @@
 
 .jstree-wholerow{
   opacity: 0.75;
+}
+
+#vakata-dnd .media-library-item--grid .media-library-item__attributes {
+  display: none;
+}
+#vakata-dnd .media-library-item--grid {
+  width: 150px !important;
+}
+
+.view-media-directories-base {
+  padding: 1em;
 }

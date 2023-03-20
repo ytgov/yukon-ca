@@ -1,0 +1,28 @@
+uuid: 512d0e64-c2bd-421f-af23-f79755d5a187
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document_type
+    - node.type.documents
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_document_type
+field_name: field_document_type
+entity_type: node
+bundle: documents
+label: 'Document Type'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

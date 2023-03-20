@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
+class ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -905,6 +905,7 @@ class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
         'Consolidation\\AnnotatedCommand\\Attributes\\FilterDefaultField' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/FilterDefaultField.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Help' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Help.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Hook' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Hook.php',
+        'Consolidation\\AnnotatedCommand\\Attributes\\HookSelector' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/HookSelector.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Misc' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Misc.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Option' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Option.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Topics' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Topics.php',
@@ -3252,6 +3253,7 @@ class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
         'Drush\\Drupal\\Commands\\core\\LanguageCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/LanguageCommands.php',
         'Drush\\Drupal\\Commands\\core\\LinkHooks' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/LinkHooks.php',
         'Drush\\Drupal\\Commands\\core\\LocaleCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/LocaleCommands.php',
+        'Drush\\Drupal\\Commands\\core\\MaintCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/MaintCommands.php',
         'Drush\\Drupal\\Commands\\core\\MessengerCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/MessengerCommands.php',
         'Drush\\Drupal\\Commands\\core\\MigrateRunnerCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/MigrateRunnerCommands.php',
         'Drush\\Drupal\\Commands\\core\\QueueCommands' => __DIR__ . '/..' . '/drush/drush/src/Drupal/Commands/core/QueueCommands.php',
@@ -4047,6 +4049,7 @@ class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
         'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
         'PEAR_ErrorStack' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR/ErrorStack.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
         'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
         'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
         'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
@@ -6496,6 +6499,7 @@ class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
         'Symfony\\Component\\VarExporter\\Internal\\Hydrator' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Hydrator.php',
         'Symfony\\Component\\VarExporter\\Internal\\LazyObjectRegistry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectRegistry.php',
         'Symfony\\Component\\VarExporter\\Internal\\LazyObjectState' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectState.php',
+        'Symfony\\Component\\VarExporter\\Internal\\LazyObjectTrait' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectTrait.php',
         'Symfony\\Component\\VarExporter\\Internal\\Reference' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Reference.php',
         'Symfony\\Component\\VarExporter\\Internal\\Registry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Registry.php',
         'Symfony\\Component\\VarExporter\\Internal\\Values' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Values.php',
@@ -6835,11 +6839,11 @@ class ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit25eeffe33871a2d79973a8a9e768bac5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit5305d9697782a8158e4c95fafbfbd7b4::$classMap;
 
         }, null, ClassLoader::class);
     }

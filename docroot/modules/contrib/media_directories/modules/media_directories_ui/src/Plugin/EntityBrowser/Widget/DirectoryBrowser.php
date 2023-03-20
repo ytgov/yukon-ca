@@ -8,6 +8,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\content_translation\ContentTranslationManagerInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\entity_browser\WidgetBase;
 use Drupal\Core\Url;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -69,6 +70,13 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
   protected $vocabularyId;
 
   /**
+   * Theme manager.
+   *
+   * @var \Drupal\Core\Theme\ThemeManagerInterface
+   */
+  protected  $themeManager;
+
+  /**
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
@@ -89,7 +97,8 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
       $container->get('current_user'),
       $container->get('current_route_match'),
       $container->get('module_handler'),
-      $container->get('config.factory')
+      $container->get('config.factory'),
+      $container->get('theme.manager')
     );
   }
 
@@ -116,12 +125,15 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
    *   The module handler.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
+   * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
+   *   Theme manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EventDispatcherInterface $event_dispatcher, EntityTypeManagerInterface $entity_type_manager, WidgetValidationManager $validation_manager, AccountInterface $current_user, RouteMatchInterface $route_match, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EventDispatcherInterface $event_dispatcher, EntityTypeManagerInterface $entity_type_manager, WidgetValidationManager $validation_manager, AccountInterface $current_user, RouteMatchInterface $route_match, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory, ThemeManagerInterface $theme_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $validation_manager);
     $this->currentUser = $current_user;
     $this->routeMatch = $route_match;
     $this->moduleHandler = $module_handler;
+    $this->themeManager = $theme_manager;
 
     if ($this->moduleHandler->moduleExists('content_translation')) {
       // I found no way to inject an optional service into this plugin.
@@ -149,6 +161,15 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
       $form['#attached']['library'][] = 'media_directories_ui/jstree-cdn';
     }
     $form['#attached']['library'][] = 'media_directories_ui/media-ui';
+
+    switch ($this->themeManager->getActiveTheme()->getName()) {
+      case 'claro':
+        $form['#attached']['library'][] = 'claro/media_library.theme';
+        break;
+      case 'gin':
+        $form['#attached']['library'][] = 'media_directories_ui/media-ui.browser.gin';
+        break;
+    }
 
     // Default values.
     $form['#attached']['drupalSettings']['media_directories']['cardinality'] = -1;
@@ -226,7 +247,7 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
     }
 
     $enabled_bundles = [];
-    if ($target_bundles && count($target_bundles['bundle']) > 0) {
+    if (isset($target_bundles['bundle']) && count($target_bundles['bundle']) > 0) {
       $enabled_bundles = $target_bundles['bundle'];
     }
     else {
@@ -368,7 +389,7 @@ class DirectoryBrowser extends WidgetBase implements ContainerFactoryPluginInter
     $selected_rows = array_values(array_filter($form_state->getUserInput()['entity_browser_select']));
     $entities = [];
     foreach ($selected_rows as $row) {
-      list($type, $id) = explode(':', $row);
+      [$type, $id] = explode(':', $row);
       $storage = $this->entityTypeManager->getStorage($type);
       if ($entity = $storage->load($id)) {
         $entities[] = $entity;

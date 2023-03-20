@@ -1,0 +1,8 @@
+uuid: f021d2c0-2430-4021-8e5f-25baac77c73f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sub Category'
+vid: sub_category
+description: 'Category used for blog agencies'
+weight: 0

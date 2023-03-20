@@ -23,11 +23,12 @@ class LinkitHelper {
    *   uri, or NULL if could not match any entity.
    */
   public static function getEntityFromUri($uri) {
-    // Stripe out potential query and fragment from the uri.
+    // Strip out potential query and fragment from the uri.
     $uri = strtok(strtok($uri, "?"), "#");
     // Remove the schema, if any. Otherwise, remove the forwarding "/".
     if (strpos($uri, 'entity:') !== FALSE) {
-      list(, $uri) = explode(':', $uri);
+      $uri_parts = explode(':', $uri);
+      $uri = $uri_parts[1] ?? $uri;
     }
     else {
       $uri = trim($uri, '/');
@@ -36,7 +37,7 @@ class LinkitHelper {
     if ($uri) {
       $parts = explode('/', $uri, 2);
       if (count($parts) === 2) {
-        list($entity_type, $entity_id) = $parts;
+        [$entity_type, $entity_id] = $parts;
         $entity_manager = \Drupal::entityTypeManager();
         if ($entity_manager->hasDefinition($entity_type)) {
           if ($entity = $entity_manager->getStorage($entity_type)->load($entity_id)) {

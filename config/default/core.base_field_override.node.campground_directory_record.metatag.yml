@@ -1,0 +1,18 @@
+uuid: f05e73fe-842c-4330-8b56-25e4c259eb80
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.metatag
+field_name: metatag
+entity_type: node
+bundle: campground_directory_record
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

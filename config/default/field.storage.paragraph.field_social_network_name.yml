@@ -1,0 +1,42 @@
+uuid: 374c6fbf-f64f-41e0-bc2d-e8801180376d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_social_network_name
+field_name: field_social_network_name
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: google_plus
+      label: 'Google +'
+    -
+      value: instagram
+      label: Instagram
+    -
+      value: linkedin
+      label: Linkedin
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: youtube
+      label: YouTube
+    -
+      value: vimeo
+      label: Vimeo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

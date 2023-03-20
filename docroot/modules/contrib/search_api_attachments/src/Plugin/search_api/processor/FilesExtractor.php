@@ -400,9 +400,9 @@ class FilesExtractor extends ProcessorPluginBase implements PluginFormInterface 
     // Default the configuration to a sensible amount of text to extract and
     // cache in the database. 1 million characters should be enough for most
     // cases.
-    $bytes = Bytes::toInt('1 MB');
+    $bytes = Bytes::toNumber('1 MB');
     if (isset($this->configuration['number_first_bytes'])) {
-      $bytes = Bytes::toInt($this->configuration['number_first_bytes']);
+      $bytes = Bytes::toNumber($this->configuration['number_first_bytes']);
     }
     // If $bytes is 0 return all items.
     if ($bytes == 0) {

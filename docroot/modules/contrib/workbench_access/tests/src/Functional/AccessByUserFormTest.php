@@ -145,7 +145,6 @@ class AccessByUserFormTest extends BrowserTestBase {
     $editors = $page->findField('editors_remove');
     $web_assert->fieldExists('editors_remove[' . $user3->id() . ']', $editors);
     $web_assert->fieldExists('editors_remove[' . $user4->id() . ']', $editors);
-
   }
 
 }

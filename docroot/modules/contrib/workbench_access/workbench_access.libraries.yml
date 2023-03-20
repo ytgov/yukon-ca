@@ -4,4 +4,5 @@ admin:
     js/workbench_access.js: {}
   dependencies:
     - core/jquery
+    - core/once
     - core/drupal

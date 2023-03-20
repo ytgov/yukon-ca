@@ -8,7 +8,7 @@ A user may be granted editorial rights to a section specific to their account or
 
 ## Current versions
 
-* Current development is in the 2.x branch and is Drupal 9 and 10 compatible.
+* Current development is in the 2.0.x branch and is Drupal 9 and 10 compatible.
 * 8.x-1.0 still supports Drupal 8, if needed. However, this release will no longer receive any development or bugfixes, only support for configuration questions. The 8.x-1.x branch is closed.
 * The 7.x-1.x branch is likewise closed to new development, and release 7.x-1.6 is the final release for Drupal 7.
 

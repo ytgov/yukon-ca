@@ -234,6 +234,22 @@ class NodeBlockFunctionalTest extends NodeTestBase {
     // Check that block is displayed on the admin/structure/block page.
     $this->assertSession()->pageTextContains($label);
     $this->assertSession()->linkByHrefExists($block->toUrl()->toString());
+
+    // Negate the content type condition.
+    $this->drupalGet($block->toUrl()->toString());
+    $edit = [
+      'visibility[entity_bundle:node][negate]' => 1,
+    ];
+    $this->submitForm($edit, 'Save block');
+
+    $this->drupalGet($node1->toUrl());
+    // Check that block is not displayed on the node page when node is of type
+    // 'article'.
+    $this->assertSession()->pageTextNotContains($label);
+    $this->drupalGet($node5->toUrl());
+    // Check that block is displayed on the node page when node is of type
+    // 'page'.
+    $this->assertSession()->pageTextContains($label);
   }
 
 }

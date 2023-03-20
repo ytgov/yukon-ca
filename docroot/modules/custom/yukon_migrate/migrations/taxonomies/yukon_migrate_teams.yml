@@ -24,9 +24,7 @@ process:
       plugin: migration_lookup
       migration: yukon_migrate_teams
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+  path/pathauto: pathauto
 
 destination:
   plugin: entity:taxonomy_term

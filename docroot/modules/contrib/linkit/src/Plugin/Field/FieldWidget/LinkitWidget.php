@@ -54,7 +54,9 @@ class LinkitWidget extends LinkWidget {
   }
 
   /**
-   * @param $plugin_id
+   * Constructs a new Linkit field widget.
+   *
+   * @param string $plugin_id
    *   The plugin_id for the formatter.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
@@ -83,9 +85,9 @@ class LinkitWidget extends LinkWidget {
    */
   public static function defaultSettings() {
     return [
-        'linkit_profile' => 'default',
-        'linkit_auto_link_text' => FALSE,
-      ] + parent::defaultSettings();
+      'linkit_profile' => 'default',
+      'linkit_auto_link_text' => FALSE,
+    ] + parent::defaultSettings();
   }
 
   /**

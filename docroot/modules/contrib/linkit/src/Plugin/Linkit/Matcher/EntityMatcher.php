@@ -366,6 +366,7 @@ class EntityMatcher extends ConfigurableMatcherBase {
 
     $entity_type = $this->entityTypeManager->getDefinition($this->targetType);
     $query = $this->entityTypeManager->getStorage($this->targetType)->getQuery();
+    $query->accessCheck(TRUE);
     $label_key = $entity_type->getKey('label');
 
     if ($label_key) {

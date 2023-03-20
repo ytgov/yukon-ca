@@ -1,0 +1,26 @@
+uuid: 3eed90b3-66b1-4cee-8518-fdb5c552c4e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_open
+    - paragraphs.paragraphs_type.opening_times
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.opening_times.field_open
+field_name: field_open
+entity_type: paragraph
+bundle: opening_times
+label: Open
+description: "Select 'no' only when facility is closed on the associated 'Day' text field."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

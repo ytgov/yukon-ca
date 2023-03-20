@@ -1,0 +1,22 @@
+uuid: 7a938cc7-5b57-454f-a51f-440638f836db
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sanitary_facilities
+id: taxonomy_term.sanitary_facilities.status
+field_name: status
+entity_type: taxonomy_term
+bundle: sanitary_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -912,6 +912,9 @@ function token_tokens($type, array $tokens, array $data, array $options, Bubblea
           $value = \Drupal::request()->query->get($name);
           $replacements[$original] = $value;
         }
+        else {
+          $replacements[$original] = '';
+        }
       }
     }
 

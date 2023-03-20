@@ -1,0 +1,26 @@
+uuid: 37d59174-a619-45a5-962d-aa46943371d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.holiday_times.field_holiday
+    - field.field.paragraph.holiday_times.field_open
+    - field.field.paragraph.holiday_times.field_opening_time_paragraph
+    - paragraphs.paragraphs_type.holiday_times
+id: paragraph.holiday_times.default
+targetEntityType: paragraph
+bundle: holiday_times
+mode: default
+content:
+  field_holiday:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_open: true
+  field_opening_time_paragraph: true
+  search_api_excerpt: true

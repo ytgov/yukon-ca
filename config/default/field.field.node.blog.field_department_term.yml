@@ -1,0 +1,33 @@
+uuid: dbc90b8b-e8f7-4e24-b8f2-83321f7b3c1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_department_term
+    - node.type.blog
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.blog.field_department_term
+field_name: field_department_term
+entity_type: node
+bundle: blog
+label: Department
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -50,7 +50,7 @@ function media_directories_ui_css_alter(&$css, AttachedAssetsInterface $assets) 
   $route = 'entity_browser.media_directories_overview';
 
   if (Drupal::routeMatch()->getRouteName() === $route) {
-    unset($css[\Drupal::service('extension.list.module')->getPath('entity_browser') . '/css/entity_browser.entity_browser.css']);
+    unset($css[Drupal::service('extension.list.module')->getPath('entity_browser') . '/css/entity_browser.entity_browser.css']);
   }
 }
 
@@ -76,7 +76,7 @@ function media_directories_ui_block_access(Block $block, $operation, AccountInte
 
   if ($operation == 'view' && $block->getPluginId() == 'page_title_block') {
     // Hide the page title block when showing the modal dialogs to ensure the "Select media" button is visible.
-    $entity_browser_id = \Drupal::routeMatch()->getParameter('entity_browser_id');
+    $entity_browser_id = Drupal::routeMatch()->getParameter('entity_browser_id');
     return AccessResult::forbiddenIf(in_array($entity_browser_id, ['media_directories_modal', 'media_directories_editor_browser']))->addCacheableDependency($block);
   }
 
@@ -100,6 +100,7 @@ function media_directories_ui_views_data_alter(array &$data) {
  */
 function media_directories_ui_preprocess_html__entity_browser__modal__media_directories_modal(&$variables) {
   $variables['attributes']['class'][] = 'media-directories-modal';
+  $variables['attributes']['class'][] = 'media-library-widget-modal';
 }
 
 /**
@@ -107,6 +108,7 @@ function media_directories_ui_preprocess_html__entity_browser__modal__media_dire
  */
 function media_directories_ui_preprocess_html__entity_browser__iframe__media_directories_editor_browser(&$variables) {
   $variables['attributes']['class'][] = 'media-directories-modal';
+  $variables['attributes']['class'][] = 'media-library-widget-modal';
 }
 
 /**
@@ -120,6 +122,10 @@ function media_directories_ui_preprocess_views_view_unformatted__media_directori
     $row['attributes']->setAttribute('data-mid', $entity_id);
     $row['attributes']->addClass('media-item');
     $row['attributes']->addClass('media-type--' . $entity->bundle());
+    $row['attributes']->addClass('js-media-library-item');
+    $row['attributes']->addClass('js-click-to-select');
+    $row['attributes']->addClass('media-library-item');
+    $row['attributes']->addClass('media-library-item--grid');
   }
 }
 
@@ -128,8 +134,8 @@ function media_directories_ui_preprocess_views_view_unformatted__media_directori
  */
 function media_directories_ui_preprocess_media_directories_browser(&$variables) {
   $variables['media_translation_enabled'] = FALSE;
-  if (\Drupal::service('module_handler')->moduleExists('content_translation')) {
-    $variables['media_translation_enabled'] = \Drupal::service('content_translation.manager')->isEnabled('media');
+  if (Drupal::service('module_handler')->moduleExists('content_translation')) {
+    $variables['media_translation_enabled'] = Drupal::service('content_translation.manager')->isEnabled('media');
   }
 }
 
@@ -156,11 +162,11 @@ function media_directories_ui_preprocess_views_view_fields__media_directories_ba
  * Implements hook_preprocess_HOOK().
  */
 function media_directories_ui_preprocess_media_directories_add(&$variables) {
-  $ui_config = \Drupal::config('media_directories_ui.settings');
+  $ui_config = Drupal::config('media_directories_ui.settings');
   $combined_upload_enabled = $ui_config->get('enable_combined_upload');
   $combined_media_types = ($ui_config->get('combined_upload_media_types') != NULL ? $ui_config->get('combined_upload_media_types') : []);
   /** @var \Drupal\media\Entity\MediaType[] $types */
-  $types = \Drupal::entityTypeManager()->getStorage('media_type')->loadMultiple();
+  $types = Drupal::entityTypeManager()->getStorage('media_type')->loadMultiple();
 
   $variables['links'] = [
     '#theme' => 'links',
@@ -246,7 +252,7 @@ function media_directories_ui_preprocess_media_directories_add(&$variables) {
 
   if ($variables['selected_type'] === 'combined_upload') {
     $form_state->set('media_type', $variables['selected_type']);
-    $variables['media_form'] = \Drupal::formBuilder()->buildForm(MediaCombinedUploadForm::class, $form_state);
+    $variables['media_form'] = Drupal::formBuilder()->buildForm(MediaCombinedUploadForm::class, $form_state);
   }
   elseif (isset($types[$variables['selected_type']])) {
     /** @var \Drupal\media\Entity\MediaType $type */
@@ -255,10 +261,10 @@ function media_directories_ui_preprocess_media_directories_add(&$variables) {
 
     $plugin_definition = $type->getSource()->getPluginDefinition();
     if (isset($plugin_definition['deriver']) && $plugin_definition['deriver'] == 'Drupal\media\Plugin\media\Source\OEmbedDeriver') {
-      $variables['media_form'] = \Drupal::formBuilder()->buildForm(OEmbedForm::class, $form_state);
+      $variables['media_form'] = Drupal::formBuilder()->buildForm(OEmbedForm::class, $form_state);
     }
     else {
-      $variables['media_form'] = \Drupal::formBuilder()->buildForm(FileUploadForm::class, $form_state);
+      $variables['media_form'] = Drupal::formBuilder()->buildForm(FileUploadForm::class, $form_state);
     }
   }
 }
@@ -280,19 +286,52 @@ function media_directories_ui_form_entity_browser_media_directories_modal_form_a
 /**
  * Implements hook_field_widget_WIDGET_TYPE_form_alter().
  */
-function media_directories_ui_field_widget_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
-  if (isset($element['entity_browser']) && $element['entity_browser']['#entity_browser'] === 'media_directories_modal') {
+function media_directories_ui_field_widget_single_element_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
+  /** @var \Drupal\entity_browser\Plugin\Field\FieldWidget\EntityReferenceBrowserWidget $widget */
+  $widget = $context['widget'];
+  if ($widget->getSetting('entity_browser') === 'media_directories_modal') {
     /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
     $items = $context['items'];
     $handler_settings = $items->getSetting('handler_settings');
-    $target_bundles = $handler_settings['target_bundles'];
+    $target_bundles = $handler_settings['target_bundles'] ?? [];
     // Add bundle validation constraint to entity browser.
     $element['entity_browser']['#entity_browser_validators']['target_bundles'] = ['bundle' => $target_bundles];
 
     $current_items = $element['current']['items'];
-    $cardinality = $element['entity_browser']['#cardinality'];
+    $cardinality = $element['entity_browser']['#cardinality'] ?? 1;
 
     $element['entity_browser']['#widget_context']['remaining'] = $cardinality - count($current_items);
+
+    // Attach custom css to modify widget to look a bit more like media_library widget.
+    $element['#attached']['library'][] = 'media_directories_ui/widget';
+
+    $active_theme = \Drupal::theme()->getActiveTheme();
+
+    switch ($active_theme->getName()) {
+      case 'claro':
+        $element['#attached']['library'][] = 'claro/media_library.theme';
+        break;
+      case 'gin':
+        $element['#attached']['library'][] = 'gin/media_library';
+        $element['#attached']['library'][] = 'media_directories_ui/widget.gin';
+        break;
+    }
+
+    $element['#attributes']['class'][] = 'media-directories-widget';
+    $element['current']['#attributes']['class'][] = 'media-library-selection';
+
+    // Add additional attributes to use media library styles.
+    foreach ($element['current']['items'] as &$item) {
+      $item['#attributes']['class'][] = 'media-library-item';
+      $item['#attributes']['class'][] = 'media-library-item--grid';
+      $item['#attributes']['tabindex'] = '-1';
+
+      $item['remove_button']['#attributes']['class'][] = 'media-library-item__remove';
+      $item['remove_button']['#attributes']['class'][] = 'icon-link';
+
+      $item['edit_button']['#attributes']['class'][] = 'media-library-item__edit';
+      $item['edit_button']['#attributes']['class'][] = 'icon-link';
+    }
   }
 }
 
@@ -300,7 +339,7 @@ function media_directories_ui_field_widget_entity_browser_entity_reference_form_
  * Implements hook_menu_local_tasks_alter().
  */
 function media_directories_ui_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface $cacheability) {
-  $config = \Drupal::config('media_directories_ui.settings');
+  $config = Drupal::config('media_directories_ui.settings');
   $hide_media_library_media_tab = $config->get('hide_media_library_media_tab');
   $hide_media_library_files_tab = $config->get('hide_media_library_files_tab');
 
@@ -317,7 +356,7 @@ function media_directories_ui_menu_local_tasks_alter(&$data, $route_name, Refina
  * Implements hook_menu_links_discovered_alter().
  */
 function media_directories_ui_menu_links_discovered_alter(&$links) {
-  $config = \Drupal::config('media_directories_ui.settings');
+  $config = Drupal::config('media_directories_ui.settings');
   $hide_admin_toolbar_links = $config->get('hide_admin_toolbar_links');
 
   if ($hide_admin_toolbar_links) {
@@ -355,7 +394,7 @@ function media_directories_ui_menu_links_discovered_alter(&$links) {
 function media_directories_ui_file_validator(FileInterface $file, array $validators_by_media_type) {
   $errors = [];
 
-  $ui_helper = \Drupal::service('media_directories_ui.helper');
+  $ui_helper = Drupal::service('media_directories_ui.helper');
   /** @var \Drupal\media\Entity\MediaType $media_type */
   $media_type = $ui_helper->getMediaType($file);
   if ($media_type != NULL) {
@@ -374,7 +413,7 @@ function media_directories_ui_file_validator(FileInterface $file, array $validat
  * Adding settings to the media_directories config form here.
  */
 function media_directories_ui_form_media_directories_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $config = \Drupal::config('media_directories_ui.settings');
+  $config = Drupal::config('media_directories_ui.settings');
   $combined_upload_enabled = $config->get('enable_combined_upload');
 
   $form['media_directories_ui'] = [
@@ -408,7 +447,7 @@ function media_directories_ui_form_media_directories_config_form_alter(&$form, F
     '#default_value' => $config->get('hide_media_library_files_tab'),
   ];
 
-  if (\Drupal::service('module_handler')->moduleExists('admin_toolbar_tools')) {
+  if (Drupal::service('module_handler')->moduleExists('admin_toolbar_tools')) {
     $form['media_directories_ui']['hide_admin_toolbar_links'] = [
       '#type' => 'checkbox',
       '#title' => t('Hide admin_toolbar_tools links'),
@@ -418,7 +457,7 @@ function media_directories_ui_form_media_directories_config_form_alter(&$form, F
   }
 
   /** @var  \Drupal\media\MediaTypeInterface[] $media_types */
-  $media_types = \Drupal::entityTypeManager()
+  $media_types = Drupal::entityTypeManager()
     ->getStorage('media_type')
     ->loadMultiple();
 
@@ -467,7 +506,7 @@ function media_directories_ui_form_media_directories_config_form_alter(&$form, F
  *   The form state.
  */
 function media_directories_ui_config_form_submit(array &$form, FormStateInterface $form_state) {
-  \Drupal::configFactory()->getEditable('media_directories_ui.settings')
+  Drupal::configFactory()->getEditable('media_directories_ui.settings')
     ->set('hide_media_library_media_tab', $form_state->getValue([
       'media_directories_ui',
       'hide_media_library_media_tab',
@@ -500,7 +539,7 @@ function _media_directories_ui_requirements_check() {
   $settings_url = Url::fromRoute('media_directories.config_form');
   if (!_media_directories_ui_vocabulary_set()) {
     $settings_url = Url::fromRoute('media_directories.config_form');
-    \Drupal::messenger()->addError(t('Vocabulary is not selected. Please select it in the <a href=":url">settings</a>.', [':url' => $settings_url->toString()]));
+    Drupal::messenger()->addError(t('Vocabulary is not selected. Please select it in the <a href=":url">settings</a>.', [':url' => $settings_url->toString()]));
   }
 }
 
@@ -514,7 +553,7 @@ function _media_directories_ui_library_file_exists($library_name) {
   }
 
   /** @var \Drupal\Core\Asset\LibraryDiscoveryInterface $library_discovery */
-  $library_discovery = \Drupal::service('library.discovery');
+  $library_discovery = Drupal::service('library.discovery');
   $library = $library_discovery->getLibraryByName('media_directories_ui', $library_name);
   if ($library && file_exists($library['js'][0]['data'])) {
     // File is in place.
@@ -528,7 +567,7 @@ function _media_directories_ui_library_file_exists($library_name) {
  * Helper function to see if vocabulary is setup.
  */
 function _media_directories_ui_vocabulary_set() {
-  $vid = \Drupal::config('media_directories.settings')->get('directory_taxonomy');
+  $vid = Drupal::config('media_directories.settings')->get('directory_taxonomy');
   if (!empty($vid)) {
     // Vocabulary is set.
     return TRUE;

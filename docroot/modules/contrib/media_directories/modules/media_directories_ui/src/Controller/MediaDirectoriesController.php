@@ -499,7 +499,7 @@ class MediaDirectoriesController extends ControllerBase {
    */
   public function mediaMove(Request $request) {
     $response = new AjaxResponse();
-    $media_items = $request->request->get('media_items', []);
+    $media_items = $request->request->all('media_items');
     $directory_id = (int) $request->request->get('directory_id');
 
     /** @var \Drupal\media\Entity\Media $media_entities */

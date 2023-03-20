@@ -35,8 +35,20 @@ abstract class DrupalSqlBase extends SqlBase implements DependentPluginInterface
    * The contents of the system table.
    *
    * @var array
+   *
+   * @deprecated
    */
   protected $systemData;
+
+  /**
+   * The contents of the system table.
+   *
+   * This is safe to share across all source plugin instances because the source
+   * database must be the same for all of them.
+   *
+   * @var array
+   */
+  protected static $sharedSystemData;
 
   /**
    * If the source provider is missing.
@@ -67,6 +79,12 @@ abstract class DrupalSqlBase extends SqlBase implements DependentPluginInterface
    *   List of system table information keyed by type and name.
    */
   public function getSystemData() {
+    // Use the cross-instance static cache if primed.
+    if (isset(static::$sharedSystemData)) {
+      $this->systemData = static::$sharedSystemData;
+      return $this->systemData;
+    }
+
     if (!isset($this->systemData)) {
       $this->systemData = [];
       try {
@@ -76,6 +94,8 @@ abstract class DrupalSqlBase extends SqlBase implements DependentPluginInterface
         foreach ($results as $result) {
           $this->systemData[$result['type']][$result['name']] = $result;
         }
+        // Prime the cross-instance static cache.
+        static::$sharedSystemData = $this->systemData;
       }
       catch (\Exception $e) {
         // The table might not exist for example in tests.

@@ -6,7 +6,7 @@ package: Search
 
 configure: search404.settings
 
-# Information added by Drupal.org packaging script on 2022-11-16
-version: '2.1.1'
+# Information added by Drupal.org packaging script on 2023-02-22
+version: '2.1.2'
 project: 'search404'
-datestamp: 1668603371
+datestamp: 1677067810

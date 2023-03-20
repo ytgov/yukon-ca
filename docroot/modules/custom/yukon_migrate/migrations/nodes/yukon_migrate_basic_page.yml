@@ -78,7 +78,7 @@ process:
 
   field_social_sharing: field_social_sharing
 
-  field_department:
+  field_department_term:
     - plugin: migration_lookup
       source: field_node_department
       migration: yukon_migrate_department

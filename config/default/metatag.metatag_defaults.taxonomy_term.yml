@@ -8,5 +8,7 @@ id: taxonomy_term
 label: 'Taxonomy term'
 tags:
   canonical_url: '[term:url]'
+  dcterms_description: '[term:description]'
+  dcterms_title: '[term:name]'
   description: '[term:description]'
   title: '[term:name] | [site:name]'

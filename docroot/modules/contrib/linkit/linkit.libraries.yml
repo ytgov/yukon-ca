@@ -34,3 +34,15 @@ linkit.filter_html.admin:
     - core/jquery
     - core/drupal
     - core/once
+
+ckeditor5:
+  version: VERSION
+  js:
+    js/build/linkit.js: { minified: true }
+  css:
+    component:
+      css/linkit.autocomplete.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.autocomplete
+    - core/drupal.ajax

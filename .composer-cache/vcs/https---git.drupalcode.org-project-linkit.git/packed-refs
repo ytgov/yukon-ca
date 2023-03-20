@@ -1,5 +1,5 @@
 # pack-refs with: peeled fully-peeled sorted 
-d95a39274cb73b0096e16fbbc9d5abe80e790c79 refs/heads/6.0.x
+285a3aa50db9f04ae97902887b0f169be827699e refs/heads/6.0.x
 d94c808b67ca173807f5bf5602f36b3b04845b0a refs/heads/6.x-1.x
 25f24132515a041ab7349baa1cb0e7068b2b7087 refs/heads/7.x-1.x
 33dd5a6acf62e64b197edee2c88c91b0adb2f548 refs/heads/7.x-2.x
@@ -12,10 +12,14 @@ a2436ebbbda94fe74ddb893f852a8afe9a5145f0 refs/heads/8.x-5.x
 b8f11335c5af6a01e60f14d5b8fb8586f69870c8 refs/merge-requests/10/merge
 b5f739cbfe2cb02d5f008fc9bebd07419907b85d refs/merge-requests/11/head
 5f918d8bee732af1adc9526683b33467068269b7 refs/merge-requests/11/merge
-b063884df09d8c41418282441018966b8b5756ae refs/merge-requests/12/head
-6e880f1dbce98a56f5719463ff026cd5001c8247 refs/merge-requests/12/merge
+e3b7d2ab4cf00ffbdfd6c73bbb864e152c86d843 refs/merge-requests/12/head
+3a0e546b72b2e28e09cd8822f380e8e8eb51a557 refs/merge-requests/12/merge
 521641ddc7c7810b65b80d02ddde3948c298e63f refs/merge-requests/13/head
-734517b314185820541041b710186ebbd0b73eb2 refs/merge-requests/13/merge
+565ff501b5ca3f811f0b1871cbda5635a532297a refs/merge-requests/13/merge
+76f9310a28ccc33e540beca34f2f9332c13dde84 refs/merge-requests/14/head
+d28f3d21c7023e82696071ec7dbbc638e0310abb refs/merge-requests/14/merge
+7b79b0d95183587f7cf4b9118bae54781dfbed03 refs/merge-requests/15/head
+ead4b0f8bc6062ba1c116ede6feb1b86d0eedf45 refs/merge-requests/15/merge
 c4b6acfae9a0ea8f0f74e41230cebd0c52488016 refs/merge-requests/2/head
 cd4aa028e817e2cfefc6b704d1915453fe874554 refs/merge-requests/2/merge
 f79208878688c0374c222e6119c13f8bb3a1ac7d refs/merge-requests/3/head
@@ -35,6 +39,7 @@ dbb39d993b99d677ada83a98c69f6c3782034095 refs/merge-requests/9/merge
 192fe94876df12c7a36ce64de678b39c1b4b546a refs/tags/6.0.0-beta1
 608b31dda638926352956729d0288696d43b44d1 refs/tags/6.0.0-beta2
 0ad96f077489cec37039709ad717d0df10d626e9 refs/tags/6.0.0-beta3
+e00284c79e4c16bdfd603c846361bcaa44a47a00 refs/tags/6.0.0-beta4
 df1e42c85e257d89857c5d7241b7dc5c00457d54 refs/tags/6.x-1.0
 dca91b5015efa126a5c68089af80258d761b968e refs/tags/6.x-1.0-alpha1
 3c96906709ff8098dda35faea371381139eec815 refs/tags/6.x-1.0-beta1

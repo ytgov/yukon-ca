@@ -222,6 +222,13 @@
         // Otherwise searchTerm will be a browser event.
         Drupal.MediaBrowser.toolbar.inputs.media_name_filter.val(searchTerm);
       }
+
+      // Handle enter key up event here.
+      if (typeof searchTerm === 'object' && searchTerm && searchTerm.keyCode === 13) {
+        searchTerm.preventDefault();
+        return false;
+      }
+
       Drupal.MediaBrowser.searchString = Drupal.MediaBrowser.toolbar.inputs.media_name_filter.val();
       Drupal.MediaBrowser.loadDirectoryContent(Drupal.MediaBrowser.activeDirectory);
     }
