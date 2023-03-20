@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_field_assign_to
+    - field.storage.node.field_assign_to
     - node.type.in_page_alert
   module:
     - node
@@ -89,10 +89,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_field_assign_to:
-          id: field_field_assign_to
-          table: node__field_field_assign_to
-          field: field_field_assign_to
+        field_assign_to:
+          id: field_assign_to
+          table: node__field_assign_to
+          field: field_assign_to
           relationship: none
           group_type: group
           admin_label: ''
@@ -935,7 +935,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_field_assign_to'
+        - 'config:field.storage.node.field_assign_to'
   page:
     id: page
     display_title: Page
@@ -965,4 +965,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_field_assign_to'
+        - 'config:field.storage.node.field_assign_to'

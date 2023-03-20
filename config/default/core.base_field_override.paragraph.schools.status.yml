@@ -1,0 +1,22 @@
+uuid: 783d69d3-2d09-481d-b3fe-60660485b618
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.schools
+id: paragraph.schools.status
+field_name: status
+entity_type: paragraph
+bundle: schools
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

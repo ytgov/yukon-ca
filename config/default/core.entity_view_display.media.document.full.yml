@@ -1,0 +1,35 @@
+uuid: 169a600e-a268-4f57-9b44-c9844049c1d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full
+    - field.field.media.document.field_document_name
+    - field.field.media.document.field_media_file
+    - field.field.media.document.field_metatags
+    - media.type.document
+  module:
+    - file
+id: media.document.full
+targetEntityType: media
+bundle: document
+mode: full
+content:
+  field_media_file:
+    type: file_default
+    label: visually_hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_document_name: true
+  field_metatags: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

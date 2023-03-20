@@ -1,0 +1,35 @@
+uuid: 3e1011e0-4805-4ffb-903c-bbcc5f447cf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_upload
+    - media.type.document
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_map_upload
+field_name: field_map_upload
+entity_type: node
+bundle: campground_directory_record
+label: 'Map download'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: d45b6cc1-df7b-4bab-b214-f5854572d3dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.transactional_facilities
+id: paragraph.transactional_facilities.created
+field_name: created
+entity_type: paragraph
+bundle: transactional_facilities
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

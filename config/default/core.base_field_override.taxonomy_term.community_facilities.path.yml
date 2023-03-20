@@ -1,0 +1,20 @@
+uuid: 8bbe5e81-8a18-4d18-96c2-d559d508aa43
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - path
+id: taxonomy_term.community_facilities.path
+field_name: path
+entity_type: taxonomy_term
+bundle: community_facilities
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

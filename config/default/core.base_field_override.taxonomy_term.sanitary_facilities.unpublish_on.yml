@@ -1,0 +1,18 @@
+uuid: 729c2508-0691-454b-85e0-83e9804616f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sanitary_facilities
+id: taxonomy_term.sanitary_facilities.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: sanitary_facilities
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

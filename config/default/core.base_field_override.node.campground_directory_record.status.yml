@@ -1,0 +1,22 @@
+uuid: 961d75d9-1657-4c31-b334-eb3879df9fb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+id: node.campground_directory_record.status
+field_name: status
+entity_type: node
+bundle: campground_directory_record
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

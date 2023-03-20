@@ -1,0 +1,32 @@
+uuid: 96e7aeb0-e292-4007-b6bb-ba6abb79d533
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.transactional_facilities.field_tf_services
+    - field.field.paragraph.transactional_facilities.field_transactional_facility_typ
+    - paragraphs.paragraphs_type.transactional_facilities
+  module:
+    - text
+id: paragraph.transactional_facilities.default
+targetEntityType: paragraph
+bundle: transactional_facilities
+mode: default
+content:
+  field_tf_services:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_transactional_facility_typ:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

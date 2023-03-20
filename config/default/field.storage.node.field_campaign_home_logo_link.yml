@@ -1,0 +1,19 @@
+uuid: 02cdb868-7c55-46f3-b9ce-213abf8cf0d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_campaign_home_logo_link
+field_name: field_campaign_home_logo_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

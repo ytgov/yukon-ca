@@ -107,3 +107,4 @@ migration_dependencies:
     - yukon_migrate_image_gallery
     - yukon_migrate_department
     - yukon_migrate_teams
+    - yukon_migrate_image_gallery

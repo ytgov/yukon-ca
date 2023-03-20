@@ -1,0 +1,18 @@
+uuid: 9e47ebe3-f1d1-4d14-b44b-5379564fe1b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.education_facilities
+id: taxonomy_term.education_facilities.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: education_facilities
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

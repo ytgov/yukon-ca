@@ -1,0 +1,26 @@
+uuid: 7c3d3b53-916b-451d-a098-c1a973872790
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_position_on_page
+    - paragraphs.paragraphs_type.video_and_text
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.video_and_text.field_position_on_page
+field_name: field_position_on_page
+entity_type: paragraph
+bundle: video_and_text
+label: 'Position on page'
+description: "Select video position: left or right\r\n - Left for video on the left (text on the right)\r\n - Right for video on the right (text on the left)"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

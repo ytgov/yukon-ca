@@ -1,0 +1,182 @@
+uuid: 32538cfb-e6af-4d48-9b4c-00d138dc3813
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section.field_links_to_services_provided
+    - field.field.paragraph.section.field_phone_extension
+    - field.field.paragraph.section.field_public_facing
+    - field.field.paragraph.section.field_secondary_phone_extension
+    - field.field.paragraph.section.field_secondary_telephone
+    - field.field.paragraph.section.field_section_description
+    - field.field.paragraph.section.field_section_email
+    - field.field.paragraph.section.field_section_fax_number
+    - field.field.paragraph.section.field_section_location
+    - field.field.paragraph.section.field_section_telephone
+    - field.field.paragraph.section.field_section_title
+    - field.field.paragraph.section.field_section_type
+    - field.field.paragraph.section.field_staff_directory
+    - field.field.paragraph.section.field_toll_free_phone
+    - field.field.paragraph.section.field_toll_free_phone_extension
+    - paragraphs.paragraphs_type.section
+  module:
+    - field_group
+    - link
+    - text
+third_party_settings:
+  field_group:
+    group_section_contact_info:
+      children:
+        - field_section_email
+        - field_section_telephone
+        - field_phone_extension
+        - field_secondary_telephone
+        - field_secondary_phone_extension
+        - field_toll_free_phone
+        - field_toll_free_phone_extension
+        - field_section_fax_number
+        - field_staff_directory
+        - field_section_location
+      label: 'Contact information'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: paragraph.section.default
+targetEntityType: paragraph
+bundle: section
+mode: default
+content:
+  field_links_to_services_provided:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone_extension:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_public_facing:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_secondary_phone_extension:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_secondary_telephone:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_email:
+    type: email_default
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_section_fax_number:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_location:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_telephone:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_type:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_staff_directory:
+    type: link_default
+    weight: 13
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_toll_free_phone:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_toll_free_phone_extension:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,8 @@
+uuid: e54a8b24-fdff-4685-aee6-49fd80f96759
+langcode: en
+status: true
+dependencies: {  }
+id: long_format
+label: Long
+locked: false
+pattern: 'F j, Y'

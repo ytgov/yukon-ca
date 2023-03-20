@@ -1,0 +1,19 @@
+uuid: fb0fa9a2-d50c-4eae-8505-8acbe8703212
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_legislative_assembly_web
+field_name: field_legislative_assembly_web
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

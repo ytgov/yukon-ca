@@ -30,4 +30,4 @@ destination:
   default_bundle: image_gallery
 migration_dependencies:
   required:
-    - yukon_migrate_charts
+    - yukon_migrate_images

@@ -1,0 +1,21 @@
+uuid: f050e333-6547-4f79-a28d-885859a474b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_opening_times_day
+field_name: field_opening_times_day
+entity_type: paragraph
+type: string
+settings:
+  max_length: 25
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

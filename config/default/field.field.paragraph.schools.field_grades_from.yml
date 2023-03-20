@@ -1,0 +1,25 @@
+uuid: 2cbfe3da-6e3e-4cf4-8be1-b35ebe5cef77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grades_from
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_grades_from
+field_name: field_grades_from
+entity_type: paragraph
+bundle: schools
+label: From
+description: "For 'Schools' this is a mandatory field."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
