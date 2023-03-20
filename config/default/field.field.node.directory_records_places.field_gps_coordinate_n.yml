@@ -18,7 +18,7 @@ bundle: directory_records_places
 label: 'GPS Coordinate N'
 description: 'Enter the North GPS coordinate for this location'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

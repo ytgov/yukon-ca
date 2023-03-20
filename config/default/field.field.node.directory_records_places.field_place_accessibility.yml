@@ -19,7 +19,7 @@ bundle: directory_records_places
 label: Accessibility
 description: "Optional. Help text: Enter information about building accessibility, if applicable. Write in short sentences and use a bulleted list.\r\n\r\nOnly use: Basic HTML. H2 and H3, bullets and italics."
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

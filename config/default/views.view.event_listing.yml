@@ -747,10 +747,10 @@ display:
           hierarchy_depth: 0
           required_depth: 0
           none_label: '- Please select -'
-        field_department_target_id:
-          id: field_department_target_id
-          table: node__field_department
-          field: field_department_target_id
+        field_department_term_target_id:
+          id: field_department_term_target_id
+          table: node__field_department_term
+          field: field_department_term_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -760,14 +760,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_department_target_id_op
+            operator_id: field_department_term_target_id_op
             label: Department
             description: ''
             use_operator: false
-            operator: field_department_target_id_op
+            operator: field_department_term_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_department_target_id
+            identifier: field_department_term_target_id
             required: false
             remember: false
             multiple: false

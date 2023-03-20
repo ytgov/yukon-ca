@@ -18,7 +18,7 @@ bundle: health_facilities
 label: Services
 description: 'Optional. Enter services offered in a list, if applicable.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

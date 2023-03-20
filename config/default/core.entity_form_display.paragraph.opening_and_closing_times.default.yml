@@ -14,22 +14,21 @@ bundle: opening_and_closing_times
 mode: default
 content:
   field_closing_time:
-    type: datetime_datelist
+    type: datetime_default
     weight: 1
     region: content
-    settings:
-      increment: 15
-      date_order: YMD
-      time_type: '12'
+    settings: {  }
     third_party_settings: {  }
   field_opening_time:
-    type: datetime_datelist
+    type: datetime_default
     weight: 0
     region: content
-    settings:
-      increment: 15
-      date_order: YMD
-      time_type: '12'
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

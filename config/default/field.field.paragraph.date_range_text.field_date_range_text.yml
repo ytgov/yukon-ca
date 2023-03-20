@@ -18,7 +18,7 @@ bundle: date_range_text
 label: 'Date Range Text'
 description: 'Date Range Text Title. e.g. January 1 to April 30'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

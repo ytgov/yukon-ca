@@ -19,7 +19,7 @@ bundle: campground_directory_record
 label: 'Serviced start date'
 description: 'Enter date YYYY-MMM-DD'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

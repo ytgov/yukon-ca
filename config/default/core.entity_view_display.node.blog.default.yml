@@ -61,10 +61,12 @@ hidden:
   addtoany: true
   field_blog_type: true
   field_category: true
+  field_contact: true
   field_department_term: true
   field_icon_dark: true
   field_meta_tags: true
   field_page_description: true
+  field_social_sharing: true
   field_subcategory: true
   field_yukon_editorial_team: true
   langcode: true

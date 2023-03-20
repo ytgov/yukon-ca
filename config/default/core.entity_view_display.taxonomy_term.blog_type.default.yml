@@ -39,5 +39,7 @@ content:
     weight: 2
     region: content
 hidden:
+  field_agency_logo: true
+  field_featured_image: true
   langcode: true
   search_api_excerpt: true

@@ -19,7 +19,7 @@ bundle: section
 label: Location
 description: 'If available, provide the link to Yukon.ca Places record for this branch.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

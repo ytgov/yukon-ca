@@ -18,7 +18,7 @@ bundle: directory_records_places
 label: 'Additional number'
 description: "Optional. Include an additional telephone number, if applicable.\r\nUse format 1-###-###-####\r\nFor extensions, use format 1-###-###-####, extension ####"
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

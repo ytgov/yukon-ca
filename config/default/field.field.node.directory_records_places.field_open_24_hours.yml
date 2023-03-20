@@ -18,7 +18,7 @@ bundle: directory_records_places
 label: 'Open 24 hours'
 description: 'Select if this location is open 24 hours'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

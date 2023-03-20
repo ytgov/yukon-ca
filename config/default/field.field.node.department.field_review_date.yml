@@ -19,7 +19,7 @@ bundle: department
 label: 'Review date'
 description: 'Set a date that content should be reviewed.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

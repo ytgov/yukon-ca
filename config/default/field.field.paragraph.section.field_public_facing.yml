@@ -18,7 +18,7 @@ bundle: section
 label: Public-facing
 description: 'Check this checkbox for this section to be displayed on the website.<br>Uncheck it for this section to be hidden from the website.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 1
