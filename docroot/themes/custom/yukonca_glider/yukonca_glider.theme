@@ -28,7 +28,6 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
-<<<<<<< HEAD
  * Implements template_preprocess_block() for block templates.
  */
 function yukonca_glider_preprocess_block(&$variables) {
