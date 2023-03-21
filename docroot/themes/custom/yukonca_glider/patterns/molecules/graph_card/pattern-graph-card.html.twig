@@ -1,23 +1,41 @@
 {# Prepare attributes #}
 {% set classes = [
   'graph-card',
+  title|clean_class,
+  'w-96 mw-100 my-4',
 ] %}
 
-<div {{ attributes.addClass(classes) }}">
+<div {{ attributes.addClass(classes) }}>
   <div class="left-wrapper">
-    <div class="main-link">{{ main_link }}</div>
-    <div class="extra-text">{{ extra_text }}</div>
-    <ul class="items">
-      {% for item in items %}
-        <li class="item">
-          {{ item }}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="left-wrapper">
-    <div class="title">{{ title }}</div>
-    <div class="graph">{{ graph }}</div>
-  </div>
+    {% if main_link %}
+      <div class="main-link">{{ main_link }}</div>
+    {% endif %}
 
+    {% if extra_text %}
+      <div class="extra-text">{{ extra_text }}</div>
+    {% endif %}
+
+    {% if items %}
+      <ul class="items">
+        {% for item in items %}
+          <li class="{{ item.value }}">
+            {{ item.title }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="left-wrapper">
+    <div class="title field__label mb-4">{{ title|t }}</div>
+    <div class="graph flex items-end w-full mt-2 h-40 px-10 border border-solid border-gray-light">
+      {% for item in graph %}
+        <span class="{{ item.value }} flex-grow mx-3 graph-item relative h-40"></span>
+      {% endfor %}
+    </div>
+    <div class="graph-axis-labels flex px-10">
+      {% for item in graph %}
+        <span class="text-xs pt-2 inline-block w-1/5 text-center">{{ item.title }}</span>
+      {% endfor %}
+    </div>
+  </div>
 </div>

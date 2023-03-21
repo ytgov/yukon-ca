@@ -109,7 +109,6 @@
         {{ content.field_pull_through }}
         {{ content.field_warning }}
 
-
         <div class="campground-serviced">
           <span>{{ 'Serviced'|t }}</span> {{ content.field_serviced_start_date }} {{ 'to'|t }} {{ content.field_serviced_end_date }}
         </div>
@@ -121,11 +120,12 @@
         {{ content.field_site_description }}
 
         <div class="campground-availability">
-          <span class={{ content.field_may_availability['#items'][0].value }}>{{ content.field_may_availability['#items'][0].value }}</span>
-          <span class={{ content.field_june_availability['#items'][0].value }}>{{ content.field_may_availability['#items'][0].value }}</span>
-          <span class={{ content.field_july_availability['#items'][0].value }}>{{ content.field_may_availability['#items'][0].value }}</span>
-          <span class={{ content.field_august_availability['#items'][0].value }}>{{ content.field_may_availability['#items'][0].value }}</span>
-          <span class={{ content.field_september_availability['#items'][0].value }}>{{ content.field_may_availability['#items'][0].value }}</span>
+          {{
+            pattern('graph_card',{
+              title: 'Campground peak times:',
+              graph: availability,
+            })
+          }}
         </div>
       </div>
 

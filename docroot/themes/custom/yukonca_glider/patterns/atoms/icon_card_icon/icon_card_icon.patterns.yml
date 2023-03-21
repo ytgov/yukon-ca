@@ -11,7 +11,7 @@ icon_card_icon:
       description: Name of the icon.
   libraries:
     -
-      breadcrumb:
+      icon_card_icon:
         css:
           component:
             dist/css/styles.min.css: { minified: true }

@@ -79,6 +79,26 @@ function yukonca_glider_preprocess_node(&$variables) {
       $variables['node']->field_walk_in_sites,
     ];
 
+    $availability_fields = [
+      $variables['node']->field_may_availability,
+      $variables['node']->field_june_availability,
+      $variables['node']->field_july_availability,
+      $variables['node']->field_august_availability,
+      $variables['node']->field_september_availability,
+    ];
+
+    $availability = [];
+    foreach ($availability_fields as $field) {
+      $title = $field->getFieldDefinition()->getLabel();
+      $title = str_replace(' availability', '', $title);
+      $availability[] = [
+        'title' => $title,
+        'value' => $field->value,
+      ];
+    }
+
+    $variables['availability'] = $availability;
+
     $available_services = [];
     foreach ($services_fields as $field) {
       $field_name = $field->getName();
