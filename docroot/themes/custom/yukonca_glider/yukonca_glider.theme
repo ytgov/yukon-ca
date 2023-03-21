@@ -51,4 +51,44 @@ function yukonca_glider_preprocess_node(&$variables) {
       }
     }
   }
+
+  if (!empty($type) && $type === 'campground_directory_record') {
+    $services_fields = [
+      $variables['node']->field_outhouse_unisex,
+      $variables['node']->field_bear_proof_garbage_bins,
+      $variables['node']->field_bear_proof_recycling_bins,
+      $variables['node']->field_picnic_tables,
+      $variables['node']->field_cook_shelter,
+      $variables['node']->field_fire_ring,
+      $variables['node']->field_bear_proof_cache,
+      $variables['node']->field_boat_launch,
+      $variables['node']->field_boat_dock,
+      $variables['node']->field_hiking_trails,
+      $variables['node']->field_playground,
+      $variables['node']->field_at_least_one_wheelchair_ac,
+      $variables['node']->field_one_wheelchair_camp,
+      $variables['node']->field_hand_pump_or_water_tank_pr,
+      $variables['node']->field_sandy_or_cobble_beach_with,
+      $variables['node']->field_viewing_structures_or_sign,
+      $variables['node']->field_interpretive_centre,
+      $variables['node']->field_group_campsite,
+      $variables['node']->field_tent_pads_or_sites_availab,
+      $variables['node']->field_swimming_area_or_dock_no_l,
+      $variables['node']->field_change_room,
+      $variables['node']->field_outdoor_ampitheatre,
+      $variables['node']->field_walk_in_sites,
+    ];
+
+    $available_services = [];
+    foreach ($services_fields as $field) {
+      $field_name = $field->getName();
+      $field_name = str_replace('field_', '', $field_name);
+      $available_services[] = [
+        'name' => $field_name,
+        'title' => $field->getFieldDefinition()->getLabel(),
+        'value' => $field->value,
+      ];
+    }
+    $variables['available_services'] = $available_services;
+  }
 }

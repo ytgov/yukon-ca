@@ -1,0 +1,5 @@
+.card-icon {
+  & > span {
+    @apply absolute;
+  }
+}
