@@ -96,6 +96,9 @@ process:
       target_id: 'paragraph/0'
       target_revision_id: 'paragraph/1'
 
+  path/alias: alias
+  path/pathauto: pathauto
+
 destination:
   plugin: entity:node
   default_bundle: homepage
