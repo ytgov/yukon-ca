@@ -1,0 +1,18 @@
+uuid: 1d49df49-9529-493c-beed-d5c09f556d7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.icon
+id: media.icon.unpublish_on
+field_name: unpublish_on
+entity_type: media
+bundle: icon
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

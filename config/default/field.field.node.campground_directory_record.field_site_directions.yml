@@ -1,0 +1,26 @@
+uuid: 9ac6c241-ba7a-49f3-bdab-0d7833cd5ed4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_site_directions
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_site_directions
+field_name: field_site_directions
+entity_type: node
+bundle: campground_directory_record
+label: 'Site directions'
+description: 'Use this for sites that are difficult to find or have special directions. This will show up on Yukon.ca, as well as the driving app.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

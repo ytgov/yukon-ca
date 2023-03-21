@@ -1,0 +1,25 @@
+uuid: 60fdf2e7-e14a-470d-8748-b8b61fb927ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hf_services
+    - paragraphs.paragraphs_type.health_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.health_facilities.field_hf_services
+field_name: field_hf_services
+entity_type: paragraph
+bundle: health_facilities
+label: Services
+description: 'Optional. Enter services offered in a list, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

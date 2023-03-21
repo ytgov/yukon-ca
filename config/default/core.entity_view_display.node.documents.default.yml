@@ -1,0 +1,124 @@
+uuid: 84a025ab-be1e-4e4d-92b6-6040894796a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.documents.body
+    - field.field.node.documents.field_category
+    - field.field.node.documents.field_contact
+    - field.field.node.documents.field_department_term
+    - field.field.node.documents.field_document_type
+    - field.field.node.documents.field_document_upload
+    - field.field.node.documents.field_documents_non_branded
+    - field.field.node.documents.field_feedback_form
+    - field.field.node.documents.field_last_updated
+    - field.field.node.documents.field_page_description
+    - field.field.node.documents.field_pages
+    - field.field.node.documents.field_social_sharing
+    - field.field.node.documents.field_yukon_editorial_team
+    - node.type.documents
+  module:
+    - datetime
+    - fences
+    - text
+    - user
+id: node.documents.default
+targetEntityType: node
+bundle: documents
+mode: default
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    weight: 1
+    region: content
+  field_document_upload:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 3
+    region: content
+  field_last_updated:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: long_format
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    weight: 2
+    region: content
+  field_pages:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_social_sharing:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_contact: true
+  field_department_term: true
+  field_document_type: true
+  field_documents_non_branded: true
+  field_feedback_form: true
+  field_page_description: true
+  field_yukon_editorial_team: true
+  langcode: true
+  search_api_excerpt: true

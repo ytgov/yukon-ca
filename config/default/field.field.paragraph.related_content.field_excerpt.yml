@@ -1,0 +1,26 @@
+uuid: ff66ebcc-446a-4fdd-952f-91bb6508054f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_excerpt
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.related_content.field_excerpt
+field_name: field_excerpt
+entity_type: paragraph
+bundle: related_content
+label: Excerpt
+description: 'If a website node is being referenced, the meta description of that node will be used. If referencing an external document, or if you want to use your own excerpt, just place it in this field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

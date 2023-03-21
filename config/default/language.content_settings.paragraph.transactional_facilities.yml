@@ -1,0 +1,18 @@
+uuid: 976babf9-223b-4fcb-a9fd-65d86e004ff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.transactional_facilities
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.transactional_facilities
+target_entity_type_id: paragraph
+target_bundle: transactional_facilities
+default_langcode: site_default
+language_alterable: false

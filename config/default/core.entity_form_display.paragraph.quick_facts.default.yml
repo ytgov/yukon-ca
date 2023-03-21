@@ -1,0 +1,30 @@
+uuid: d54fb960-0b3c-4821-810e-ca4e85bbee52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_facts.field_facts
+    - paragraphs.paragraphs_type.quick_facts
+  module:
+    - text
+id: paragraph.quick_facts.default
+targetEntityType: paragraph
+bundle: quick_facts
+mode: default
+content:
+  field_facts:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

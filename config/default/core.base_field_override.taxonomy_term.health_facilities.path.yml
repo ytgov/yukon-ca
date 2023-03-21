@@ -1,0 +1,20 @@
+uuid: b20e7e22-558a-4e75-8397-3ea1fe4ca026
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+  module:
+    - path
+id: taxonomy_term.health_facilities.path
+field_name: path
+entity_type: taxonomy_term
+bundle: health_facilities
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

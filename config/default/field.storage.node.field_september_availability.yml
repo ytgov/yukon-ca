@@ -1,0 +1,33 @@
+uuid: a444f543-f4c0-4d16-a49d-8bd4a6319386
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_september_availability
+field_name: field_september_availability
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: very_good
+      label: 'Very good availability'
+    -
+      value: good
+      label: 'Good availability'
+    -
+      value: poor
+      label: 'Poor availability'
+    -
+      value: na
+      label: 'Not applicable'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

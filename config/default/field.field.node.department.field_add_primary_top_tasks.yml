@@ -1,0 +1,87 @@
+uuid: 2bca339a-96d5-4bae-bc41-99b5bb1c86e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_primary_top_tasks
+    - node.type.department
+    - paragraphs.paragraphs_type.top_tasks
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_add_primary_top_tasks
+field_name: field_add_primary_top_tasks
+entity_type: node
+bundle: department
+label: 'Add primary top tasks'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      top_tasks: top_tasks
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 19
+        enabled: false
+      collapsable_field:
+        weight: 20
+        enabled: false
+      community_facilities:
+        weight: 21
+        enabled: false
+      contact_person:
+        weight: 22
+        enabled: false
+      date_range_text:
+        weight: 23
+        enabled: false
+      health_facilities:
+        weight: 24
+        enabled: false
+      holiday_times:
+        weight: 25
+        enabled: false
+      image_gallery:
+        weight: 26
+        enabled: false
+      opening_and_closing_times:
+        weight: 27
+        enabled: false
+      opening_times:
+        weight: 28
+        enabled: false
+      primary_content:
+        weight: 29
+        enabled: false
+      quick_facts:
+        weight: 30
+        enabled: false
+      quotes:
+        weight: 31
+        enabled: false
+      schools:
+        weight: 32
+        enabled: false
+      secondary_content:
+        weight: 33
+        enabled: false
+      top_tasks:
+        weight: 34
+        enabled: true
+      transactional_facilities:
+        weight: 35
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

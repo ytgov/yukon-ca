@@ -1,0 +1,30 @@
+uuid: 7a9df365-74f4-44db-8359-03dc4ab0be24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_text_block
+    - node.type.campaign_page
+  module:
+    - allowed_formats
+    - epp
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_intro_text_block
+field_name: field_intro_text_block
+entity_type: node
+bundle: campaign_page
+label: 'Text block'
+description: "Write in short sentences using plain language. Recommended reading grade < 7.\r\nTest reading grade using the Hemingwayapp"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

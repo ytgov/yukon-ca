@@ -1,0 +1,22 @@
+uuid: 7762d50d-f7d0-47b4-a83d-f6442f6f1eb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.promote
+field_name: promote
+entity_type: node
+bundle: directory_records_places
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,30 @@
+uuid: 3f83e6d4-5729-41bf-b875-12b3bfcb27ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content
+    - paragraphs.paragraphs_type.quote
+  module:
+    - allowed_formats
+    - epp
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.quote.field_section_content
+field_name: field_section_content
+entity_type: paragraph
+bundle: quote
+label: 'Quote block'
+description: "Use short and concise quotes. Recommended reading grade < 7.\r\nTest reading grade using the Hemingwayapp."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

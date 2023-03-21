@@ -1,0 +1,22 @@
+.node--type-multi-step-page {
+  .field__content {
+    ul,
+    ol {
+      li {
+        @apply list-disc pl-2.5;
+
+        ul {
+          @apply pl-2.5;
+
+          li {
+            @apply list-circle;
+          }
+        }
+      }
+    }
+  }
+
+  .field__item {
+    @apply mb-5;
+  }
+}

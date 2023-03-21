@@ -1,0 +1,48 @@
+uuid: de729ca7-6408-4ca7-bdb5-36782b49bc50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_content.field_excerpt
+    - field.field.paragraph.related_content.field_external_related_content
+    - field.field.paragraph.related_content.field_related_date
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - datetime
+    - link
+    - text
+id: paragraph.related_content.default
+targetEntityType: paragraph
+bundle: related_content
+mode: default
+content:
+  field_excerpt:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_external_related_content:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_related_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

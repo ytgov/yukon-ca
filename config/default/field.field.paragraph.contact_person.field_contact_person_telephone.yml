@@ -1,0 +1,25 @@
+uuid: 00243a27-2d3b-4683-9565-dbd834e09500
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_person_telephone
+    - paragraphs.paragraphs_type.contact_person
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.contact_person.field_contact_person_telephone
+field_name: field_contact_person_telephone
+entity_type: paragraph
+bundle: contact_person
+label: Telephone
+description: "Only include, if applicable\r\nUse format 1-###-###-####\r\nTo include an extension, use format 1-###-###-####, extension ####"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

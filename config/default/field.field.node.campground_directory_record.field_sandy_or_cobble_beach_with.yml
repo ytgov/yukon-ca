@@ -1,0 +1,29 @@
+uuid: 0211506d-70c8-4ef8-96af-9caacde09fda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sandy_or_cobble_beach_with
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_sandy_or_cobble_beach_with
+field_name: field_sandy_or_cobble_beach_with
+entity_type: node
+bundle: campground_directory_record
+label: 'Sandy or cobble beach within short walking distance'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

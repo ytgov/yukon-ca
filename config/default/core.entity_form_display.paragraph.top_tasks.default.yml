@@ -1,0 +1,34 @@
+uuid: 4f9403bd-eb24-46c0-ac80-5488880700f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.top_tasks.field_top_tasks_link
+    - field.field.paragraph.top_tasks.field_top_tasks_name
+    - paragraphs.paragraphs_type.top_tasks
+id: paragraph.top_tasks.default
+targetEntityType: paragraph
+bundle: top_tasks
+mode: default
+content:
+  field_top_tasks_link:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_top_tasks_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
