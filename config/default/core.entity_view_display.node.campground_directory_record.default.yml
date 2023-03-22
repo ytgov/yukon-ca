@@ -334,11 +334,21 @@ content:
     weight: 14
     region: content
   field_map_upload:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: inline
     settings:
+      view_mode: download
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: clearfix
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 24
     region: content
   field_may_availability:
@@ -531,7 +541,7 @@ content:
     region: content
   field_site_directions:
     type: text_default
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 25
