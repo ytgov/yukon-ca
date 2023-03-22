@@ -226,6 +226,16 @@ content:
         fences_label_classes: ''
     weight: 10
     region: content
+  field_gate_open_year_round:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 50
+    region: content
   field_gps_coordinate_n:
     type: string
     label: hidden
@@ -604,7 +614,6 @@ content:
 hidden:
   addtoany: true
   field_department_term: true
-  field_gate_open_year_round: true
   field_meta_tags: true
   field_recreation_site_type: true
   field_site_description_app: true

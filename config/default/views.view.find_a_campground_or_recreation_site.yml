@@ -8,6 +8,8 @@ dependencies:
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
   content:
+    - 'taxonomy_term:site_type:6204f8fd-51f9-412d-8f76-bc818549653b'
+    - 'taxonomy_term:site_type:7b795268-25e5-4e2f-ab46-2a243ade4794'
     - 'taxonomy_term:site_type:7e1763f1-37a9-475e-8e57-2c191b55c114'
     - 'taxonomy_term:site_type:d8e87a1e-56f1-45a2-a290-1748a5ce85d6'
   module:
@@ -713,6 +715,543 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  block_backcountry_campgrounds:
+    id: block_backcountry_campgrounds
+    display_title: 'Backcountry campgrounds'
+    display_plugin: block
+    position: 1
+    display_options:
+      title: 'Backcountry campgrounds'
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            campground_directory_record: campground_directory_record
+          group: 1
+        field_region_target_id:
+          id: field_region_target_id
+          table: node__field_region
+          field: field_region_target_id
+          relationship: none
+          group_type: group
+          admin_label: Region
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_region_target_id_op
+            label: 'Region (field_region)'
+            description: ''
+            use_operator: false
+            operator: field_region_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: region
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: region
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: false
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        field_campground_site_type_target_id:
+          id: field_campground_site_type_target_id
+          table: node__field_campground_site_type
+          field: field_campground_site_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Site type'
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            2596: 2596
+            2597: 2597
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_campground_site_type_target_id_op
+            label: 'Site type'
+            description: ''
+            use_operator: false
+            operator: field_campground_site_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: site_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: site_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: false
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        field_campground_site_type_target_id_1:
+          id: field_campground_site_type_target_id_1
+          table: node__field_campground_site_type
+          field: field_campground_site_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            2596: 2596
+            2597: 2597
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: site_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        field_one_wheelchair_camp_value:
+          id: field_one_wheelchair_camp_value
+          table: node__field_one_wheelchair_camp
+          field: field_one_wheelchair_camp_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'At least one wheelchair accessible campsite (field_one_wheelchair_camp)'
+            description: null
+            use_operator: false
+            operator: field_one_wheelchair_camp_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_one_wheelchair_camp_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Facilities
+            description: ''
+            identifier: wheelchair_accessible_campsite
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'At least one wheelchair accessible campsite'
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+        field_at_least_one_wheelchair_ac_value:
+          id: field_at_least_one_wheelchair_ac_value
+          table: node__field_at_least_one_wheelchair_ac
+          field: field_at_least_one_wheelchair_ac_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'At least one wheelchair accessible outhouse (field_at_least_one_wheelchair_ac)'
+            description: null
+            use_operator: false
+            operator: field_at_least_one_wheelchair_ac_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_at_least_one_wheelchair_ac_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_at_least_one_wheelchair_ac_value
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'At least one wheelchair accessible outhouse'
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+        field_boat_launch_value:
+          id: field_boat_launch_value
+          table: node__field_boat_launch
+          field: field_boat_launch_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Boat launch (field_boat_launch)'
+            description: null
+            use_operator: false
+            operator: field_boat_launch_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_boat_launch_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_boat_launch_value
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Boat launch'
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+        field_hiking_trails_value:
+          id: field_hiking_trails_value
+          table: node__field_hiking_trails
+          field: field_hiking_trails_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Hiking trails (field_hiking_trails)'
+            description: null
+            use_operator: false
+            operator: field_hiking_trails_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_hiking_trails_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_hiking_trails_value
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Hiking trails'
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+        field_playground_value:
+          id: field_playground_value
+          table: node__field_playground
+          field: field_playground_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Playground (field_playground)'
+            description: null
+            use_operator: false
+            operator: field_playground_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_playground_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_playground_value
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Playground
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+        field_swimming_area_or_dock_no_l_value:
+          id: field_swimming_area_or_dock_no_l_value
+          table: node__field_swimming_area_or_dock_no_l
+          field: field_swimming_area_or_dock_no_l_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Swimming area or dock. No lifeguard (field_swimming_area_or_dock_no_l)'
+            description: null
+            use_operator: false
+            operator: field_swimming_area_or_dock_no_l_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_swimming_area_or_dock_no_l_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_swimming_area_or_dock_no_l_value
+            optional: true
+            widget: radios
+            multiple: true
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Swimming area or dock - no lifeguard'
+                operator: '='
+                value: '1'
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
+      exposed_block: true
+      display_extenders:
+        ajax_history: {  }
+      block_description: 'Backcountry campgrounds'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   block_campgrounds:
     id: block_campgrounds
     display_title: 'Find a campground or recreation site'
@@ -720,6 +1259,7 @@ display:
     position: 1
     display_options:
       display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history: {  }
@@ -727,7 +1267,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
