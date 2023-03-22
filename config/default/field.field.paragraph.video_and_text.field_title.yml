@@ -1,0 +1,25 @@
+uuid: 9ed4d3f7-8adc-4644-9c4e-1361c217dfec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.video_and_text
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.video_and_text.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: video_and_text
+label: 'Section title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

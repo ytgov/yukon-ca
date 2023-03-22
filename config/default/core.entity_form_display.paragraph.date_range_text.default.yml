@@ -1,0 +1,28 @@
+uuid: 5b6d0f9e-7274-4aa9-b84d-27e9df52f7ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date_range_text.field_date_range_text
+    - paragraphs.paragraphs_type.date_range_text
+id: paragraph.date_range_text.default
+targetEntityType: paragraph
+bundle: date_range_text
+mode: default
+content:
+  field_date_range_text:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

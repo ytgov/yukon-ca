@@ -1,0 +1,10 @@
+uuid: 41c9097c-5f8f-471d-85b5-6358b07ecbb1
+langcode: en
+status: true
+dependencies: {  }
+id: opening_and_closing_times
+label: 'Opening / closing time'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,49 @@
+id: yukon_migrate_audio
+label: Yukon migrate Audio Media Type
+audit: true
+migration_tags:
+  - Drupal 7
+  - Content
+  - Media
+migration_group: legacy
+source:
+  plugin: yukon_migrate_file
+  scheme: public
+  file_type:
+    - audio
+    - wysiwyg_audio
+  batch_size: 200
+  constants:
+    source_base_path: 'https://yukon.ca/'
+process:
+  name: filename
+  field_media_file/target_id:
+    - plugin: migration_lookup
+      migration: yukon_migrate_files__public
+      source: fid
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+
+  directory:
+    plugin: migration_lookup
+    migration: yukon_migrate_media_folders
+    source: field_folder/0/tid
+    no_stub: true
+
+  field_caption: field_file_image_caption
+
+  filemime: filemime
+  status: status
+  created: timestamp
+  changed: timestamp
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: uid
+  langcode: source_language
+destination:
+  plugin: entity:media
+  default_bundle: audio
+migration_dependencies:
+  required:
+#    - yukon_migrate_files__public
+    - yukon_migrate_media_folders

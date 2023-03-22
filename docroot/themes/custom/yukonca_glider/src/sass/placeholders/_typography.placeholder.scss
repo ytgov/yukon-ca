@@ -17,18 +17,3 @@
 %mini-titre {
   @apply font-base font-semibold text-[0.688rem] lg:text-[0.75rem] tracking-[0.031rem] uppercase leading-[1.25rem];
 }
-
-%font-icons {
-  font-family: $font-icons;
-}
-
-%icon {
-  @extend %font-icons;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}

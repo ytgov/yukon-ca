@@ -1,0 +1,18 @@
+uuid: d9f02d16-fdfc-4f8b-8f30-e35c0810fa52
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_public_facing
+field_name: field_public_facing
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

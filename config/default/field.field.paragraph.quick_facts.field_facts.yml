@@ -1,0 +1,26 @@
+uuid: 7dba19c0-7203-4437-a529-27619e5afd0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_facts
+    - paragraphs.paragraphs_type.quick_facts
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.quick_facts.field_facts
+field_name: field_facts
+entity_type: paragraph
+bundle: quick_facts
+label: Facts
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

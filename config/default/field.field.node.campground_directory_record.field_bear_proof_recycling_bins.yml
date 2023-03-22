@@ -1,0 +1,29 @@
+uuid: 9dfadc1a-ff8e-4faf-b13d-b7641c9e5c75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bear_proof_recycling_bins
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_bear_proof_recycling_bins
+field_name: field_bear_proof_recycling_bins
+entity_type: node
+bundle: campground_directory_record
+label: 'Blue bear-proof recycling bins'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

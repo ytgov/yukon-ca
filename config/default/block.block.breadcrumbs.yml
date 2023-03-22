@@ -1,0 +1,28 @@
+uuid: 0a8e9e75-dbbc-48b3-aaea-792fa98d5c1a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - yukonca_glider
+id: breadcrumbs
+theme: yukonca_glider
+region: pre_content
+weight: -12
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      homepage: homepage

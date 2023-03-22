@@ -1,0 +1,23 @@
+uuid: 50d755c7-5d50-41b8-984b-dea30007d407
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_facts.field_facts
+    - paragraphs.paragraphs_type.quick_facts
+  module:
+    - text
+id: paragraph.quick_facts.default
+targetEntityType: paragraph
+bundle: quick_facts
+mode: default
+content:
+  field_facts:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

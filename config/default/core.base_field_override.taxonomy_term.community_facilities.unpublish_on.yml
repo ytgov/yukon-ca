@@ -1,0 +1,18 @@
+uuid: 3dd3447f-bb8e-45bb-9bd6-97e937da0371
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community_facilities
+id: taxonomy_term.community_facilities.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: community_facilities
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

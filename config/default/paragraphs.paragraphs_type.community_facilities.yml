@@ -1,0 +1,10 @@
+uuid: 52fd8b79-1ac6-4cfc-8382-d81e09c5abac
+langcode: en
+status: true
+dependencies: {  }
+id: community_facilities
+label: 'Community facilities'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: a25b10d4-6cf9-49ef-9e36-f7930ea93e28
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_social_campaign_tag
+field_name: field_social_campaign_tag
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

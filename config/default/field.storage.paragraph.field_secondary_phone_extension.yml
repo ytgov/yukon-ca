@@ -1,0 +1,21 @@
+uuid: c2789746-a5c8-4ac6-b2d3-d40de5b2b6d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_secondary_phone_extension
+field_name: field_secondary_phone_extension
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

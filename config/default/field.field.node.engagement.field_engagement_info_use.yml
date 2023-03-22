@@ -1,0 +1,26 @@
+uuid: b5f1987e-7911-4b62-85f4-ba4ab7a412dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_info_use
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_info_use
+field_name: field_engagement_info_use
+entity_type: node
+bundle: engagement
+label: 'How will my input make a difference?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -7,7 +7,7 @@ migration_tags:
   - Media
 migration_group: legacy
 source:
-  plugin: d7_file
+  plugin: yukon_migrate_file
   scheme: public
   file_type:
     - image
@@ -39,9 +39,7 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode:
-    plugin: default_value
-    default_value: "en"
+  langcode: source_language
 destination:
   plugin: entity:media
   default_bundle: image

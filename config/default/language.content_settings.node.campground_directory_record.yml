@@ -1,0 +1,18 @@
+uuid: 0cef1249-f0fd-4155-8323-0373046acab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: node.campground_directory_record
+target_entity_type_id: node
+target_bundle: campground_directory_record
+default_langcode: site_default
+language_alterable: false

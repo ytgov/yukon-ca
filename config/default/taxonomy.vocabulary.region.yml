@@ -1,0 +1,8 @@
+uuid: 6e1945fd-af8e-46cc-ac99-f997a62266cd
+langcode: en
+status: true
+dependencies: {  }
+name: Region
+vid: region
+description: ''
+weight: 0
