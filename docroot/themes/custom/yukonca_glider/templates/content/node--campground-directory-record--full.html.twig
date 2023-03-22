@@ -99,22 +99,25 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-
+    <div class="mb-6">
+      {{ content.field_campground_site_type }}
+    </div>
     <div class="md:grid md:grid-cols-12 gap-8">
       <div class="campground-site-information col-span-7">
-        {{ content.field_campground_site_type }}
         {{ content.field_region }}
         {{ content.field_registration_required }}
         {{ content.field_total_sites }}
         {{ content.field_pull_through }}
         {{ content.field_warning }}
 
-        <div class="campground-serviced">
-          <span>{{ 'Serviced'|t }}</span> {{ content.field_serviced_start_date }} {{ 'to'|t }} {{ content.field_serviced_end_date }}
+        <div class="field field--label-inline campground-serviced">
+          <div class="field__label">{{ 'Serviced'|t }}</div>
+          {{ content.field_serviced_start_date.0 }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
         </div>
 
-        <div class="campground-gate-open">
-          <span>{{ 'Gate Open'|t }}</span>{{ content.field_serviced_start_date }} {{ 'to'|t }} {{ content.field_serviced_end_date }}
+        <div class="field field--label-inline campground-gate-open">
+          <div class="field__label">{{ 'Gate Open'|t }}</div>
+          {{ content.field_serviced_start_date.0 }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
         </div>
 
         {{ content.field_site_description }}
@@ -129,21 +132,34 @@
         </div>
       </div>
 
-      <div class="campground--image col-span-5">
+      <div class="campground--image col-span-5 justify-self-end">
         {{ content.field_image }}
         {{ content.field_photo_credit }}
       </div>
     </div>
 
+    <div class="campground-location-information">
+      <h3>{{ 'Location'|t }}</h3>
+      {{ content.field_highway }}
+      {{ content.field_highway_kilometre }}
+      {{ content.field_secondary_road }}
+      {{ content.field_secondary_road_kilometre }}
 
-    {{ content.field_highway }}
-    {{ content.field_highway_kilometre }}
-    {{ content.field_secondary_road }}
-    {{ content.field_secondary_road_kilometre }}
-    {{ content.field_gps_coordinate_n }}
-    {{ content.field_gps_coordinate_w }}
-    {{ content.field_map_upload }}
-    {{ content.field_site_directions }}
+      <div class="field field--label-inline campground-coordinates">
+        <div class="field__label">{{ 'GPS coordinates'|t }}</div>
+        <div class="field__item">
+          {{ content.field_gps_coordinate_n.0 }}°N {{ content.field_gps_coordinate_w.0 }}°W
+        </div>
+      </div>
+
+      <div class="field field--label-inline clearfix campground-map">
+        <div class="field__label">{{ 'Map download'|t }}</div>
+        <div class="field__item">
+          {{ content.field_map_upload.0 }}
+        </div>
+      </div>
+      {{ content.field_site_directions }}
+    </div>
 
     <div class="campground-services">
       {{

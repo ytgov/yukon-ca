@@ -1,0 +1,25 @@
+.page-node-type-campground-directory-record {
+  .field--label-inline {
+    @apply mb-6;
+  }
+
+  .field--name-field-site-description {
+    .field__label {
+      @apply mb-0;
+    }
+  }
+
+  .campground-location-information {
+    @apply border-solid border-0 border-b border-t border-gray-light py-8 my-8;
+  }
+
+  .field--name-field-related-tasks {
+    .field__label {
+      @apply pb-1 border-solid border-0 border-b border-gray-light;
+    }
+
+    .field__item {
+      @apply my-3;
+    }
+  }
+}

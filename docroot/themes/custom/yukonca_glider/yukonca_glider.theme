@@ -5,6 +5,8 @@
  * Theme specific functionality.
  */
 
+use Drupal\Core\Render\Markup;
+
 /**
  * Implements hook_preprocess_html().
  */
@@ -111,4 +113,78 @@ function yukonca_glider_preprocess_node(&$variables) {
     }
     $variables['available_services'] = $available_services;
   }
+}
+
+/**
+ * Implements template_proprocess_page().
+ */
+function yukonca_glider_preprocess_page(&$variables) {
+  if (!empty($variables['node'])) {
+    $bundle = $variables['node']->bundle();
+    $node = $variables['node'];
+    if (!empty($node->field_icon_dark) && !empty($node->field_icon_dark[0])) {
+      $image = $node->field_icon_dark[0]->view([
+        'type' => 'entity_reference_entity_view',
+        'label' => 'hidden',
+      ]);
+      $variables['header_image'] = $image;
+    }
+
+    if ($bundle == 'blog' || $bundle == 'default') {
+      $tid = $node->field_blog_type->target_id;
+      if (!empty($tid)) {
+        $blog_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
+          $image = $blog_type_term->field_agency_logo[0]->view([
+            'type' => 'entity_reference_entity_view',
+            'label' => 'hidden',
+          ]);
+          $variables['logo_url'] = $image;
+        }
+      }
+
+      $variables['blog_category_subcategory'] = [];
+      if (!empty($node->field_category_term->target_id)) {
+        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category_term->target_id);
+        array_push($variables['blog_category_subcategory'], $category_term->getName());
+      }
+
+      if (!empty($node->field_subcategory->target_id)) {
+        $subcategory_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_subcategory->target_id);
+        array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_comment.
+ */
+function yukonca_glider_preprocess_comment(&$variables) {
+  $date_formatter = \Drupal::service('date.formatter');
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+}
+
+/**
+ * Implements template_preprocess_file_link().
+ *
+ * Use the media entity name as file link text if there is no description.
+ */
+function yukonca_glider_preprocess_file_link(&$variables) {
+  if (is_string($variables['link'])) {
+    return;
+  }
+  if (is_object($variables['link'])) {
+    // Ensure we are working with a renderable array, as that's
+    // just easier.
+    $variables['link'] = $variables['link']->toRenderable();
+  }
+  $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
+  $filename = $variables['link']['#title'];
+  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
+  $variables['link']['#title'] = $link_text;
+  $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
+  $variables['link']['#attributes']['target'] = '_blank';
+  $variables['filename'] = $filename;
 }
