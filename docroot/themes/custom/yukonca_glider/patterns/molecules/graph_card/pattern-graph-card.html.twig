@@ -29,11 +29,17 @@
     </div>
   {% endif %}
   <div class="right-wrapper w-96 max-w-full flex-shrink-0">
-    <div class="title field__label mb-4">{{ title|t }}</div>
+    {% if graph is iterable %}<div class="title field__label mb-4">{{ title|t }}</div>{% endif %}
     <div class="graph flex items-end w-full mt-2 h-40 px-10 border border-solid border-gray-light">
-      {% for item in graph %}
-        <span class="{{ item.value }} flex-grow mx-3 graph-item relative h-40"></span>
-      {% endfor %}
+      {% if graph is iterable %}
+        {% for item in graph %}
+          <span class="{{ item.value }} flex-grow mx-3 graph-item relative h-40"></span>
+        {% endfor %}
+      {% else %}
+        <div class="flex items-center h-full w-full">
+          <h4>{{ graph }}</h4>
+        </div>
+      {% endif %}
     </div>
     <div class="graph-axis-labels flex px-10">
       {% for item in graph %}

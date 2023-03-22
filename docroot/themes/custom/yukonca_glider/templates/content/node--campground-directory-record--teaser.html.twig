@@ -87,18 +87,26 @@
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     {% endset %}
 
-    {% set serviced %}
-      {{ 'Serviced'|t }} {{ content.field_serviced_start_date.0 }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
-    {% endset %}
+    {% set items = [] %}
 
-    {% set gate %}
-      {{ 'Gate open'|t }} {{ content.field_serviced_start_date.0.value }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
-    {% endset %}
+    {% if content.field_campground_site_type[0]['#plain_text'] != 'Backcountry campground' and content.field_campground_site_type[0]['#plain_text'] != 'Backcountry (day-use only)' %}
+      {% if content.field_serviced_start_date.0 %}
+        {% set serviced %}
+          {{ 'Serviced'|t }} {{ content.field_serviced_start_date.0 }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
+        {% endset %}
+        {% set items = items|merge({serviced}) %}
+      {% endif %}
 
-    {% set items = [
-      serviced,
-      gate,
-    ] %}
+      {% if content.field_gate_open_date.0 %}
+        {% set gate %}
+          {{ 'Gate open'|t }} {{ content.field_gate_open_date.0 }} {{ 'to'|t }} {{ content.field_gate_closed_date.0 }}
+        {% endset %}
+        {% set items = items|merge({gate}) %}
+      {% elseif content.field_gate_open_year_round %}
+        {% set gate = 'Gate open year-round'|t %}
+        {% set items = items|merge({gate}) %}
+      {% endif %}
+    {% endif %}
 
     {{
       pattern('graph_card',{
