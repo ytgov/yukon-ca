@@ -2,30 +2,33 @@
 {% set classes = [
   'graph-card',
   title|clean_class,
-  'w-96 mw-100 my-4',
+  'mw-100 my-4',
+  'md:flex'
 ] %}
 
 <div {{ attributes.addClass(classes) }}>
-  <div class="left-wrapper">
-    {% if main_link %}
-      <div class="main-link">{{ main_link }}</div>
-    {% endif %}
+  {% if main_link or extra_text or items %}
+    <div class="left-wrapper md:mr-8">
+      {% if main_link %}
+        <h4 class="main-link">{{ main_link }}</h4>
+      {% endif %}
 
-    {% if extra_text %}
-      <div class="extra-text">{{ extra_text }}</div>
-    {% endif %}
+      {% if extra_text %}
+        <div class="extra-text mb-11 text-sm text-gray font-normal">{{ extra_text }}</div>
+      {% endif %}
 
-    {% if items %}
-      <ul class="items">
-        {% for item in items %}
-          <li class="{{ item.value }}">
-            {{ item.title }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  <div class="left-wrapper">
+      {% if items %}
+        <ul class="items">
+          {% for item in items %}
+            <li>
+              {{ item }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="right-wrapper w-96 max-w-full flex-shrink-0">
     <div class="title field__label mb-4">{{ title|t }}</div>
     <div class="graph flex items-end w-full mt-2 h-40 px-10 border border-solid border-gray-light">
       {% for item in graph %}

@@ -1,5 +1,13 @@
 .graph-card {
   &.campground-peak-times {
+    .left-wrapper {
+      .main-link {
+        a {
+          @apply no-underline;
+        }
+      }
+    }
+
     .graph {
       .graph-item {
         &.poor {
