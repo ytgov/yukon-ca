@@ -1,4 +1,4 @@
-uuid: 839e7eeb-f618-4cc4-9cdb-dc9e7d767396
+uuid: 1bf45b22-215f-41a7-bb92-5da3ade1de09
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.taxonomy_term.category.field_icon_light
     - taxonomy.vocabulary.category
   module:
+    - metatag
     - text
 id: taxonomy_term.category.default
 targetEntityType: taxonomy_term
@@ -46,6 +47,13 @@ content:
       link: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   langcode: true

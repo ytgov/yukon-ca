@@ -1,0 +1,20 @@
+uuid: 192e9db2-49cb-43cf-b6e3-5108c1a8fb69
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.transactional_facility_type
+  module:
+    - path
+id: taxonomy_term.transactional_facility_type.path
+field_name: path
+entity_type: taxonomy_term
+bundle: transactional_facility_type
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

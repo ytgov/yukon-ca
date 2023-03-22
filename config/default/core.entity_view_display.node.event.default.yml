@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.date_format.yg_long
     - field.field.node.event.field_building_name
-    - field.field.node.event.field_category_term
+    - field.field.node.event.field_category
     - field.field.node.event.field_community
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_name
@@ -16,12 +16,16 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
-    - field.field.node.event.field_event_website
-    - field.field.node.event.field_featured_event
-    - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_postal_code
+    - field.field.node.event.field_featured_content
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_link_title
+    - field.field.node.event.field_meta_tags
+    - field.field.node.event.field_page_description
+    - field.field.node.event.field_postal_code
+    - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
   module:
@@ -56,7 +60,7 @@ mode: default
 content:
   field_building_name:
     type: entity_reference_label
-    label: hidden
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -106,7 +110,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 1
     region: content
   field_event_locality_town:
     type: string
@@ -122,7 +126,7 @@ content:
     settings:
       timezone_override: ''
       format_type: yg_long
-      separator: to
+      separator: '-'
       show_next: 5
       count_per_item: true
       occurrence_format_type: yg_long
@@ -142,23 +146,11 @@ content:
     region: content
   field_event_street_address:
     type: string
-    label: hidden
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_event_website:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 11
     region: content
   field_featured_image:
     type: entity_reference_entity_view
@@ -189,12 +181,25 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_website:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
 hidden:
   addtoany: true
-  field_category_term: true
+  field_category: true
   field_community: true
-  field_featured_event: true
+  field_featured_content: true
   field_meta_tags: true
+  field_page_description: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

@@ -1,0 +1,25 @@
+uuid: 2921c694-d1cf-43b5-93f2-26f59152180c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_source_credit
+    - paragraphs.paragraphs_type.text_and_image
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.text_and_image.field_source_credit
+field_name: field_source_credit
+entity_type: paragraph
+bundle: text_and_image
+label: 'Source credit'
+description: 'Enter source credit / copyright information'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

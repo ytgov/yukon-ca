@@ -1,0 +1,25 @@
+uuid: f959860b-3df8-4692-ae64-43a0e2adf6bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_assistant_manager_email
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_assistant_manager_email
+field_name: field_assistant_manager_email
+entity_type: taxonomy_term
+bundle: community_facilities
+label: Email
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

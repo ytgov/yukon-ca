@@ -1,0 +1,19 @@
+uuid: 81af3d88-664a-4f31-ad74-ff2aa3bf4acc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - metatag
+id: media.field_metatags
+field_name: field_metatags
+entity_type: media
+type: metatag
+settings: {  }
+module: metatag
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

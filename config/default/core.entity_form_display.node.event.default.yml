@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.event.field_building_name
-    - field.field.node.event.field_category_term
+    - field.field.node.event.field_category
     - field.field.node.event.field_community
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_name
@@ -15,13 +15,13 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
-    - field.field.node.event.field_event_website
-    - field.field.node.event.field_featured_event
+    - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
+    - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
   module:
@@ -53,11 +53,11 @@ third_party_settings:
         required_fields: true
     group_publishing_options:
       children:
-        - field_featured_event
+        - field_featured_content
       label: 'Publishing options'
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -67,14 +67,14 @@ third_party_settings:
         required_fields: true
     group_event_record:
       children:
-        - field_category_term
+        - field_category
         - field_event_description
         - field_event_start_time
         - group_location
       label: 'Event record'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -92,7 +92,7 @@ third_party_settings:
       label: Location
       region: content
       parent_name: group_event_record
-      weight: 11
+      weight: 105
       format_type: fieldset
       format_settings:
         classes: ''
@@ -107,11 +107,11 @@ third_party_settings:
         - field_contact_name
         - field_contact_email
         - field_contact_phone
-        - field_event_website
+        - field_website
       label: 'More details'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: fieldset
       format_settings:
         classes: ''
@@ -125,7 +125,7 @@ third_party_settings:
       label: Related
       region: content
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -140,13 +140,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_building_name:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -154,21 +154,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_category_term:
-    type: options_select
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+  field_category:
+      type: options_select
+      weight: 101
+      region: content
+      settings: {  }
+      third_party_settings: {  }
   field_community:
     type: options_select
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact_email:
     type: email_default
-    weight: 23
+    weight: 9
     region: content
     settings:
       placeholder: ''
@@ -176,7 +176,7 @@ content:
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
-    weight: 22
+    weight: 8
     region: content
     settings:
       size: 60
@@ -184,7 +184,7 @@ content:
     third_party_settings: {  }
   field_contact_phone:
     type: string_textfield
-    weight: 24
+    weight: 10
     region: content
     settings:
       size: 60
@@ -192,7 +192,7 @@ content:
     third_party_settings: {  }
   field_cost:
     type: string_textfield
-    weight: 20
+    weight: 6
     region: content
     settings:
       size: 60
@@ -200,13 +200,13 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_description:
     type: text_textarea
-    weight: 9
+    weight: 102
     region: content
     settings:
       rows: 5
@@ -214,7 +214,7 @@ content:
     third_party_settings: {  }
   field_event_locality_town:
     type: string_textfield
-    weight: 6
+    weight: 8
     region: content
     settings:
       size: 60
@@ -222,36 +222,28 @@ content:
     third_party_settings: {  }
   field_event_start_time:
     type: date_recur_basic_widget
-    weight: 10
+    weight: 104
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_street_address:
     type: string_textfield
-    weight: 5
+    weight: 7
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_event_website:
-    type: link_default
-    weight: 26
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_featured_event:
+  field_featured_content:
     type: boolean_checkbox
-    weight: 6
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 21
+    weight: 7
     region: content
     settings:
       media_types: {  }
@@ -266,7 +258,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 3
+    weight: 1
     region: content
     settings:
       sidebar: true
@@ -282,54 +274,62 @@ content:
     third_party_settings: {  }
   field_postal_code:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_website:
+    type: link_default
+    weight: 11
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 1
+    weight: 2
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 12
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -349,7 +349,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -358,7 +358,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }

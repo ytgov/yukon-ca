@@ -11,8 +11,8 @@ dependencies:
     - yukonca_glider
 id: views_block__news_listing_block_news_listing
 theme: yukonca_glider
-region: content
-weight: -6
+region: post_content
+weight: 0
 provider: null
 plugin: 'views_block:news_listing-block_news_listing'
 settings:
@@ -26,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/news\r\n/communiques-de-presse"
+    pages: "news\r\n/news\r\ncommuniques-de-presse\r\n/communiques-de-presse"
