@@ -1,0 +1,33 @@
+uuid: ce2f4b7d-a49f-4459-b16a-09632e918edb
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: blogs_fr
+label: 'Blogs - Fr'
+type: 'canonical_entities:node'
+pattern: 'blogue-renseignements-et-services-en-ligne/[node:title]'
+selection_criteria:
+  20f860d8-8463-448e-b961-a39ba7bf52ea:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 20f860d8-8463-448e-b961-a39ba7bf52ea
+    context_mapping:
+      node: node
+    bundles:
+      blog: blog
+  427d8e97-f9f7-4e83-a62a-fa6f7f22dc3c:
+    id: language
+    negate: false
+    uuid: 427d8e97-f9f7-4e83-a62a-fa6f7f22dc3c
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      fr: fr
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

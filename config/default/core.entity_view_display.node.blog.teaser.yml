@@ -6,12 +6,14 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog.body
     - field.field.node.blog.field_blog_type
-    - field.field.node.blog.field_category_term
+    - field.field.node.blog.field_category
+    - field.field.node.blog.field_comments
     - field.field.node.blog.field_contact
     - field.field.node.blog.field_department_term
     - field.field.node.blog.field_featured_image
     - field.field.node.blog.field_icon_dark
     - field.field.node.blog.field_meta_tags
+    - field.field.node.blog.field_page_description
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
     - field.field.node.blog.field_yukon_editorial_team
@@ -67,11 +69,13 @@ content:
 hidden:
   addtoany: true
   field_blog_type: true
-  field_category_term: true
+  field_category: true
+  field_comments: true
   field_contact: true
   field_department_term: true
   field_icon_dark: true
   field_meta_tags: true
+  field_page_description: true
   field_social_sharing: true
   field_subcategory: true
   field_yukon_editorial_team: true

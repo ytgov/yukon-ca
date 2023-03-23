@@ -1,0 +1,18 @@
+uuid: 494c9e32-dc01-40e4-b8ae-832cea1b2247
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.title
+field_name: title
+entity_type: node
+bundle: directory_records_places
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

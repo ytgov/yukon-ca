@@ -12,6 +12,10 @@
 @import "bootstrap/scss/variables";
 
 
+/* Icons */
+@import "theme-icons";
+@import "theme-icons-classes";
+
 // Remove unwanted colors
 $colors: map-remove($colors,
   "blue",

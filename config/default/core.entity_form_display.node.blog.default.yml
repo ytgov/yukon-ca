@@ -5,17 +5,20 @@ dependencies:
   config:
     - field.field.node.blog.body
     - field.field.node.blog.field_blog_type
-    - field.field.node.blog.field_category_term
+    - field.field.node.blog.field_category
+    - field.field.node.blog.field_comments
     - field.field.node.blog.field_contact
     - field.field.node.blog.field_department_term
     - field.field.node.blog.field_featured_image
     - field.field.node.blog.field_icon_dark
     - field.field.node.blog.field_meta_tags
+    - field.field.node.blog.field_page_description
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
     - field.field.node.blog.field_yukon_editorial_team
     - node.type.blog
   module:
+    - comment
     - content_moderation
     - media_library
     - metatag
@@ -28,7 +31,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 14
+    weight: 15
     region: content
     settings:
       rows: 9
@@ -38,25 +41,31 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_blog_type:
     type: options_select
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_category_term:
+  field_category:
     type: options_select
-    weight: 17
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_comments:
+    type: comment_default
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact:
     type: text_textarea
-    weight: 15
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -64,42 +73,50 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 13
+    weight: 14
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_icon_dark:
     type: media_library_widget
-    weight: 12
+    weight: 13
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 1
+    weight: 2
     region: content
     settings:
       sidebar: true
       use_details: true
     third_party_settings: {  }
+  field_page_description:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
-    weight: 19
+    weight: 20
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_subcategory:
     type: entity_reference_autocomplete_tags
-    weight: 18
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -109,46 +126,46 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 7
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -162,13 +179,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -177,7 +194,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

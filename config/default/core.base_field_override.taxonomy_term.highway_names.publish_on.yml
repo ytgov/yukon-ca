@@ -1,0 +1,18 @@
+uuid: 3673bf92-cc3a-4e4c-a13f-d29e72a60e5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+id: taxonomy_term.highway_names.publish_on
+field_name: publish_on
+entity_type: taxonomy_term
+bundle: highway_names
+label: 'Publish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

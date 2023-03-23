@@ -1,0 +1,21 @@
+uuid: 50e72810-0d3d-43f1-95b0-8a862f26f1a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_source_credit
+field_name: field_source_credit
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

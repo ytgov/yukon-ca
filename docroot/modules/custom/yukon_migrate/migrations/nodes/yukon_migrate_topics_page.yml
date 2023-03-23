@@ -1,0 +1,96 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_topics_page
+label: Yukon Migrate Topics page Nodes
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+migration_group: legacy
+source:
+  plugin: d7_node
+  node_type: topics_page
+  constants:
+    default_text_format: full_html
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  title: title_field
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: node_uid
+  status: status
+
+  #  Meta tags Description
+  field_page_description: field_page_description
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  body/value: field_topic_page_description/0/value
+  body/format: constants/default_text_format
+
+  field_image:
+    plugin: migration_lookup
+    source: field_description_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+
+  field_whats_new_header: field_whats_new_header
+
+  field_top_task:
+    plugin: yukon_migrate_links
+    source: field_top_task
+
+  pseudo_field_paragraphs:
+    plugin: sub_process
+    source: field_sub_headers
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration:
+          - yukon_migrate_sub_heading
+        no_stub: true
+
+  field_paragraphs:
+    plugin: sub_process
+    source: '@pseudo_field_paragraphs'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+
+  field_full_width: field_full_width
+
+  field_social_sharing: field_social_sharing
+
+  field_contact/value: field_contact/0/value
+  field_contact/format: constants/default_text_format
+
+  moderation_state: moderation_state
+destination:
+  plugin: entity:node
+  default_bundle: topics_page
+migration_dependencies:
+  required:
+    - yukon_migrate_images
+    - yukon_migrate_teams
+    - yukon_migrate_department
+  optional:
+    - yukon_migrate_sub_heading
