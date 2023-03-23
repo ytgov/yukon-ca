@@ -1,0 +1,18 @@
+uuid: 6c670d7e-5fda-4f94-9211-d9f0263a35da
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.opening_and_closing_times
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.opening_and_closing_times
+target_entity_type_id: paragraph
+target_bundle: opening_and_closing_times
+default_langcode: site_default
+language_alterable: true

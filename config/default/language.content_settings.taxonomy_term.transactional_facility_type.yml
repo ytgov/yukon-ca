@@ -1,0 +1,18 @@
+uuid: 19da5217-505d-45a3-b147-a0b8d37dc67b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.transactional_facility_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.transactional_facility_type
+target_entity_type_id: taxonomy_term
+target_bundle: transactional_facility_type
+default_langcode: site_default
+language_alterable: true

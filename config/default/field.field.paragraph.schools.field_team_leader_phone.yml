@@ -1,0 +1,25 @@
+uuid: c059dcb5-d247-4a48-9ffb-6f008c986483
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_team_leader_phone
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_team_leader_phone
+field_name: field_team_leader_phone
+entity_type: paragraph
+bundle: schools
+label: Telephone
+description: "Optional. Include, if applicable.\r\nUse format 1-###-###-####\r\nTo include an extension, use format 1-###-###-####, extension ####"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

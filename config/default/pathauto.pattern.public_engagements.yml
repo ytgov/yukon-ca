@@ -1,0 +1,22 @@
+uuid: 2cf654f6-2c86-41ad-ab59-b84b76e3bf2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: public_engagements
+label: 'Public engagements'
+type: 'canonical_entities:node'
+pattern: 'engagements/[node:title]'
+selection_criteria:
+  a8e11a90-733c-4787-8ad0-137d5dc8cc4e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a8e11a90-733c-4787-8ad0-137d5dc8cc4e
+    context_mapping:
+      node: node
+    bundles:
+      engagement: engagement
+selection_logic: and
+weight: -5
+relationships: {  }

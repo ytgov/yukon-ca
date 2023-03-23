@@ -23,22 +23,28 @@ process:
     -
       plugin: migration_lookup
       migration: yukon_migrate_category
-  path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
 
-    field_icon_dark:
-      plugin: migration_lookup
-      source: field_dark_svg/0/fid
-      migration: yukon_migrate_icon
-      no_stub: true
-    field_icon_light:
-      plugin: migration_lookup
-      source: field_light_svg/0/fid
-      migration: yukon_migrate_icon
-      no_stub: true
+  path/alias: alias
+  path/pathauto: pathauto
+
+  field_meta_tags: metatags
+
+  field_icon_dark:
+    plugin: migration_lookup
+    source: field_dark_svg/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_icon_light:
+    plugin: migration_lookup
+    source: field_light_svg/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
 
 destination:
   plugin: entity:taxonomy_term
   default_bundle: category
+
+migration_dependencies:
+  required:
+    - yukon_migrate_images

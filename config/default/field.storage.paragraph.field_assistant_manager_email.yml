@@ -1,0 +1,18 @@
+uuid: c405b1ca-47eb-40c9-bea0-ba5fd4a8fb42
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_assistant_manager_email
+field_name: field_assistant_manager_email
+entity_type: paragraph
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

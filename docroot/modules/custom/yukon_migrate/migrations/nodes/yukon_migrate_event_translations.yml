@@ -89,13 +89,13 @@ process:
     field_cost: field_cost
     field_event_description/value: field_event_description/0/value
     field_event_description/format: constants/default_text_format
-    field_featured_event: field_featured_event
+    field_featured_content: field_featured_event
     field_featured_image:
         plugin: migration_lookup
         source: field_featured_image/0/fid
         migration: yukon_migrate_images
         no_stub: true
-    field_event_website:
+    field_website:
         plugin: sub_process
         source: field_event_website
         process:
@@ -109,10 +109,10 @@ process:
             uri: url
             title: title
             attributes: attributes
-    field_category_term:
+    field_category:
         plugin: migration_lookup
         migration: yukon_migrate_category
-        source: field_category_term
+        source: field_category
         no_stub: true
     field_community:
         plugin: migration_lookup

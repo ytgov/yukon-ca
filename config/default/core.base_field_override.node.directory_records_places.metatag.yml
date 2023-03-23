@@ -1,0 +1,18 @@
+uuid: 29d607ba-ab9a-4e21-a747-ab07328088b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.metatag
+field_name: metatag
+entity_type: node
+bundle: directory_records_places
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

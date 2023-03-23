@@ -1,0 +1,19 @@
+uuid: 36a6fe1a-1614-4b3d-973b-509d2541a07c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_engagement_info_use
+field_name: field_engagement_info_use
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

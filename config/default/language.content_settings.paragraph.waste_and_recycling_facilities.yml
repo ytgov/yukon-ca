@@ -1,0 +1,18 @@
+uuid: a536ad0d-0083-47c2-a818-9bc10b8b86f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.waste_and_recycling_facilities
+target_entity_type_id: paragraph
+target_bundle: waste_and_recycling_facilities
+default_langcode: site_default
+language_alterable: false

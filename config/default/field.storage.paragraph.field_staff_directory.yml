@@ -1,0 +1,19 @@
+uuid: dfade184-1df8-4700-ace1-00361dda029e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_staff_directory
+field_name: field_staff_directory
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

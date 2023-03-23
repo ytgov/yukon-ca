@@ -1,0 +1,26 @@
+uuid: c5d03fc8-9534-4091-95e8-e82519b3d418
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_social_network_name
+    - paragraphs.paragraphs_type.social_network
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.social_network.field_social_network_name
+field_name: field_social_network_name
+entity_type: paragraph
+bundle: social_network
+label: 'Social network'
+description: "Choose the social network that you'd like to add."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

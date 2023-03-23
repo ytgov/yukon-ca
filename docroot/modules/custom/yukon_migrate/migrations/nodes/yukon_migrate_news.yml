@@ -108,7 +108,7 @@ process:
             uri: url
             title: title
             attributes: attributes
-    field_category_term:
+    field_category:
         plugin: migration_lookup
         migration: yukon_migrate_category
         source: field_category_term
@@ -129,7 +129,7 @@ process:
         source: field_yukon_editorial_team
         no_stub: true
     field_social_sharing: field_social_sharing
-    field_featured_news_item: field_featured_news_item
+    field_featured_content: field_featured_news_item
     field_featured_to_homepage: field_featured_to_homepage
 
     path/alias: alias

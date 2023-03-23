@@ -1,0 +1,18 @@
+uuid: d6ff1ce2-16ba-4d0d-a74f-11870d639f05
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: directory_records_places
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

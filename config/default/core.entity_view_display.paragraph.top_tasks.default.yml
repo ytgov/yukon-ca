@@ -1,0 +1,42 @@
+uuid: a00f385c-df5f-4fac-bd24-7a4679d95183
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.top_tasks.field_top_tasks_link
+    - field.field.paragraph.top_tasks.field_top_tasks_name
+    - paragraphs.paragraphs_type.top_tasks
+  module:
+    - fences
+id: paragraph.top_tasks.default
+targetEntityType: paragraph
+bundle: top_tasks
+mode: default
+content:
+  field_top_tasks_link:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 1
+    region: content
+  field_top_tasks_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

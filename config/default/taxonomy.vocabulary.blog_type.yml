@@ -1,0 +1,8 @@
+uuid: 1c2b9f80-51a8-4b38-b879-3b06bebba46c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Government of Yukon blogs'
+vid: blog_type
+description: 'Different government programs, branches and units publish blogs. They’re another way for us to share information with you. Find, follow or share a blog in the list below. '
+weight: 0

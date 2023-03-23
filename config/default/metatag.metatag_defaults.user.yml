@@ -8,5 +8,7 @@ id: user
 label: User
 tags:
   canonical_url: '[user:url]'
+  dcterms_creator: '[user:display-name]'
+  dcterms_title: '[user:display-name]'
   description: '[site:name]'
   title: '[user:display-name] | [site:name]'

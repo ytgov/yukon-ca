@@ -1,0 +1,18 @@
+uuid: 131ad65b-50bc-48d8-9b62-a302cc1b9304
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.opening_and_closing_times
+id: paragraph.opening_and_closing_times.created
+field_name: created
+entity_type: paragraph
+bundle: opening_and_closing_times
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created
