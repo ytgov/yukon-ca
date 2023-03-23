@@ -11,6 +11,9 @@ cta_card:
       label: Title
       description: A title.
       preview: 'Lorem Ipsum'
+    date:
+      type: text
+      label: Date
     content:
       type: text
       label: Content

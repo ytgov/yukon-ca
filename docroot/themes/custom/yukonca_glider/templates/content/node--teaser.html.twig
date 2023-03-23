@@ -67,55 +67,23 @@
  *
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'border-solid border-0 border-b-4 border-gray-light',
+  'py-8 md:py-16',
+] %}
 {{ attach_library('classy/node') }}
-<article{{ attributes.addClass(classes) }}>
 
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+{% set title %}
+  <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+{% endset %}
 
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
+{% set date = node.getCreatedTime() | date("F j, Y") %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content.field_department_mandate }}
-    {{ content.group_services_and_information }}
-
-    <div class="department-latest-news">
-      <h3>{{ 'Latest news'|t }}</h3>
-      {{ content.field_related_content }}
-      {{ view_latest_news['view'] }}
-      {{ content.field_optional_internal_related }}
-      <div class="view-footer mt-10">
-        <a href="{{ view_latest_news['read_more'] }}">
-          Read all news from this department
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    {{ content.group_minister_responsible }}
-    {{ content.field_add_branch }}
-  </div>
-
-</article>
+{{
+  pattern('cta_card', {
+    title: title,
+    date: date,
+    content: node.field_page_description.0.value,
+    additionalClass: classes|safe_join(' '),
+  }, 'default')
+}}
