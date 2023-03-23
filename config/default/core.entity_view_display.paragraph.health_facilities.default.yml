@@ -1,0 +1,24 @@
+uuid: 2401fc50-8acd-4972-8c79-7598f6ea1856
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.health_facilities.field_health_facility_type
+    - field.field.paragraph.health_facilities.field_hf_services
+    - paragraphs.paragraphs_type.health_facilities
+id: paragraph.health_facilities.default
+targetEntityType: paragraph
+bundle: health_facilities
+mode: default
+content:
+  field_hf_services:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_health_facility_type: true
+  search_api_excerpt: true

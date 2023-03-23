@@ -96,6 +96,10 @@ process:
         no_stub: true
     field_redirection: field_redirection
     field_target_content: field_target_content
+
+    path/alias: alias
+    path/pathauto: pathauto
+
 migration_dependencies:
     optional:
         - yukon_migrate_icon

@@ -1,0 +1,21 @@
+uuid: 25bde3cd-44cd-48e7-99b6-1c6d4d0aaa6c
+langcode: en
+status: true
+dependencies: {  }
+name: blog_listing_featured_image
+label: 'Blog listing featured image'
+effects:
+  9697f998-3290-4d15-9a63-4b6e821cd5e1:
+    uuid: 9697f998-3290-4d15-9a63-4b6e821cd5e1
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 422
+      height: 338
+      anchor: center-center
+  5691f880-ed4a-41ce-bf3c-e11e3a508f9c:
+    uuid: 5691f880-ed4a-41ce-bf3c-e11e3a508f9c
+    id: image_convert
+    weight: -10
+    data:
+      extension: jpeg

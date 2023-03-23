@@ -1,0 +1,22 @@
+uuid: 7c4d53b5-0990-4ee8-87dc-4a34689eb15e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.sticky
+field_name: sticky
+entity_type: node
+bundle: directory_records_places
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: e9713524-8f62-4741-9808-050616f71f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_sites
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_total_sites
+field_name: field_total_sites
+entity_type: node
+bundle: campground_directory_record
+label: 'Total sites'
+description: 'Optional: for roadside accessible and backcountry campgrounds only'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

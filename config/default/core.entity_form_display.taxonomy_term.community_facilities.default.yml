@@ -1,0 +1,154 @@
+uuid: b875fce9-0b25-444d-a6f2-e0119570c2c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.community_facilities.field_about_services
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager_email
+    - field.field.taxonomy_term.community_facilities.field_assistant_manager_telephon
+    - field.field.taxonomy_term.community_facilities.field_community_facility_type
+    - field.field.taxonomy_term.community_facilities.field_manager
+    - field.field.taxonomy_term.community_facilities.field_manager_email
+    - field.field.taxonomy_term.community_facilities.field_manager_telephone
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - field_group
+    - path
+third_party_settings:
+  field_group:
+    group_manager:
+      children:
+        - field_manager
+        - field_manager_telephone
+        - field_manager_email
+      label: Manager
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_assistant_manager:
+      children:
+        - field_assistant_manager
+        - field_assistant_manager_telephon
+        - field_assistant_manager_email
+      label: 'Assistant manager'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: taxonomy_term.community_facilities.default
+targetEntityType: taxonomy_term
+bundle: community_facilities
+mode: default
+content:
+  field_about_services:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assistant_manager:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assistant_manager_email:
+    type: email_default
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_assistant_manager_telephon:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_community_facility_type:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_manager:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_manager_email:
+    type: email_default
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_manager_telephone:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true
+  name: true
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

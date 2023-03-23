@@ -1,0 +1,25 @@
+uuid: da4ca4f6-7277-4c27-86d2-c5a78179c0ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.full_width_image
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.full_width_image.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: full_width_image
+label: 'Section title'
+description: 'Write a short and concise clear heading in sentence case.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

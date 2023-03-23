@@ -106,14 +106,9 @@ process:
         migration: yukon_migrate_images
         no_stub: true
     field_related_link:
-        -
-            plugin: sub_process
-            source: field_related_link
-            process:
-                uri: url
-                title: title
-                attributes: attributes
-    field_category_term:
+        plugin: yukon_migrate_links
+        source: field_related_link
+    field_category:
         plugin: migration_lookup
         migration: yukon_migrate_category
         source: field_category_term
@@ -134,7 +129,7 @@ process:
         source: field_yukon_editorial_team
         no_stub: true
     field_social_sharing: field_social_sharing
-    field_featured_news_item: field_featured_news_item
+    field_featured_content: field_featured_news_item
     field_featured_to_homepage: field_featured_to_homepage
     content_translation_source: source
     content_translation_outdated: translate

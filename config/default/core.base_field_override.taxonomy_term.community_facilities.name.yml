@@ -1,0 +1,18 @@
+uuid: c7448d0d-d6db-4648-9275-13d1d7166a88
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.community_facilities
+id: taxonomy_term.community_facilities.name
+field_name: name
+entity_type: taxonomy_term
+bundle: community_facilities
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

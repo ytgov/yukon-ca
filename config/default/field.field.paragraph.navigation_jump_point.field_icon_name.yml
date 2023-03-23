@@ -1,0 +1,26 @@
+uuid: d06b1323-c00c-42a1-8725-d13b44a2d925
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_name
+    - paragraphs.paragraphs_type.navigation_jump_point
+  module:
+    - epp
+    - fontawesome
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.navigation_jump_point.field_icon_name
+field_name: field_icon_name
+entity_type: paragraph
+bundle: navigation_jump_point
+label: Icon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

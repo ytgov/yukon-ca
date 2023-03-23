@@ -1,0 +1,18 @@
+uuid: 014ee7f1-4c25-4cf5-9f33-aa881c68fc9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+id: paragraph.waste_and_recycling_facilities.created
+field_name: created
+entity_type: paragraph
+bundle: waste_and_recycling_facilities
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -28,6 +28,7 @@ process:
   field_media_file/display:
     plugin: default_value
     default_value: 1
+  field_document_name/value: field_document_name/0/value
 
   directory:
     plugin: migration_lookup
@@ -44,10 +45,11 @@ process:
   langcode:
     plugin: default_value
     default_value: "en"
+
 destination:
   plugin: entity:media
   default_bundle: document
+
 migration_dependencies:
   required:
-#    - yukon_migrate_files__public
-    - yukon_migrate_media_folders
+    - yukon_migrate_files__public

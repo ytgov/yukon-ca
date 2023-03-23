@@ -1,1 +1,62 @@
-/* Add your code here */
+@import "core";
+
+.nav-pills {
+  .nav-link {
+    &.active {
+      @apply text-purple;
+
+      &::before,
+      &.active:hover::before {
+        @apply bg-purple;
+      }
+
+      .pills-number {
+        @apply bg-purple;
+      }
+    }
+
+    &:hover {
+      .pills-number {
+        @apply bg-blue-200;
+      }
+    }
+  }
+
+  &.sequential .nav-link {
+    &::before {
+      @apply content-[counter(pills-counter)];
+    }
+  }
+
+  li {
+    counter-increment: pills-counter;
+  }
+
+  &.non-sequential {
+    .nav-link {
+      &::before {
+        @extend %icon;
+        @include getIcon("chevron-right");
+        @apply absolute p-0 text-[2rem];
+      }
+    }
+  }
+}
+
+.tab-content {
+  .tab-pane.fade {
+    @apply hidden;
+  }
+
+  .tab-pane.fade.show.active {
+    @apply block;
+  }
+}
+
+.pills-arrow {
+  .btn-links.hide {
+    .pills-btn-link {
+      @apply hidden;
+    }
+  }
+}

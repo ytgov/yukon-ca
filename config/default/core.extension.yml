@@ -7,6 +7,7 @@ module:
   admin_toolbar_tools: 0
   advanced_help: 0
   ajax_comments: 0
+  allowed_formats: 0
   better_exposed_filters: 0
   big_pipe: 0
   blinker_addons_link_attributes: 0
@@ -21,6 +22,7 @@ module:
   color_field: 0
   comment: 0
   config: 0
+  config_pages: 0
   config_translation: 0
   content_moderation: 0
   contextual: 0
@@ -33,6 +35,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   entity_reference_revisions: 0
   epp: 0
@@ -124,6 +127,7 @@ module:
   views_menu_children_filter: 0
   views_tree: 0
   views_ui: 0
+  views_year_filter: 0
   webform: 0
   webform_ui: 0
   workbench: 0
@@ -131,6 +135,7 @@ module:
   workbench_email: 0
   workflows: 0
   yukon_base: 0
+  yukon_department: 0
   yukon_migrate: 0
   pathauto: 1
   content_translation: 10

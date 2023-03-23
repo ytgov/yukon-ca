@@ -1,0 +1,10 @@
+uuid: b01780ec-aa21-4b2e-a0ff-1b0ca113046c
+langcode: en
+status: true
+dependencies: {  }
+id: transactional_facilities
+label: 'Transactional facilities'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

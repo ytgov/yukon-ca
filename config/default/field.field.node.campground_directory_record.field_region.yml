@@ -1,0 +1,35 @@
+uuid: ec82b66f-46ca-41ff-92d8-4f14a4cc485f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_region
+    - node.type.campground_directory_record
+    - taxonomy.vocabulary.region
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_region
+field_name: field_region
+entity_type: node
+bundle: campground_directory_record
+label: Region
+description: 'Select from the region taxonomy list'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      region: region
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

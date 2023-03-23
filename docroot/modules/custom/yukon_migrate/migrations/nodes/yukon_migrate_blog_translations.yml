@@ -55,7 +55,7 @@ process:
         migration: yukon_migrate_blog_type
         source: field_blog_type
         no_stub: true
-    field_category_term:
+    field_category:
         plugin: migration_lookup
         migration: yukon_migrate_category
         source: field_category_term

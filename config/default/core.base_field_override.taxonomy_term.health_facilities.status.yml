@@ -1,0 +1,22 @@
+uuid: 767da59d-7398-47b2-bf35-085098a9f11a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+id: taxonomy_term.health_facilities.status
+field_name: status
+entity_type: taxonomy_term
+bundle: health_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,29 @@
+uuid: 66885ac8-4fec-48a8-913a-ac0a37c69875
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.site_wide_alert
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: views_block__site_wide_alert_block
+theme: yukonca_glider
+region: pre_content
+weight: -10
+provider: null
+plugin: 'views_block:site_wide_alert-block'
+settings:
+  id: 'views_block:site_wide_alert-block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

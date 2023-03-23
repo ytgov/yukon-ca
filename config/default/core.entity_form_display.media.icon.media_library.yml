@@ -14,6 +14,12 @@ targetEntityType: media
 bundle: icon
 mode: media_library
 content:
+  directory:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_media_image:
     type: image_image
     weight: 5
@@ -35,7 +41,9 @@ hidden:
   langcode: true
   path: true
   publish_on: true
+  publish_state: true
   scheduler_settings: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

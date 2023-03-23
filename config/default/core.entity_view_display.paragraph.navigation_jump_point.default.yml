@@ -1,0 +1,33 @@
+uuid: 7f14d03e-4717-4a84-9e8d-f179a5846f0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.navigation_jump_point.field_add_navigation_jump_point
+    - field.field.paragraph.navigation_jump_point.field_icon_name
+    - paragraphs.paragraphs_type.navigation_jump_point
+  module:
+    - fontawesome
+id: paragraph.navigation_jump_point.default
+targetEntityType: paragraph
+bundle: navigation_jump_point
+mode: default
+content:
+  field_add_navigation_jump_point:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon_name:
+    type: fontawesome_icon_formatter
+    label: above
+    settings:
+      layers: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

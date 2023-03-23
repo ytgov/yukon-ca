@@ -1,0 +1,20 @@
+uuid: aff4200b-4aa7-43b2-aa14-b85667e20921
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.education_facilities
+  module:
+    - path
+id: taxonomy_term.education_facilities.path
+field_name: path
+entity_type: taxonomy_term
+bundle: education_facilities
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path
