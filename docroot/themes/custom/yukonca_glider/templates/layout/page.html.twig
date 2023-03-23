@@ -60,15 +60,27 @@
   {{ page.secondary_menu }}
 
   {{ page.breadcrumb }}
+  {% if header_image %}
+    {{
+      pattern('hero', {
+        title: node.label,
+        image: header_image,
+        variant: 'image',
+      })
+    }}
+  {% else %}
+    <div class="aurora-town">
+      <span class="aurora--main"></span>
+    </div>
+  {% endif %}
 
   {{ page.highlighted }}
-
   {{ page.help }}
 
   <main role="main" class="container-lg grow">
+    {{ page.breadcrumb }}
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-    <div class="row">
+    <div class="row pt-16">
       {% if page.sidebar_first %}
         <aside class="layout-sidebar-first col-sm-3 col-md-4 px-3.5 lg:pr-20" role="complementary">
           {{ page.sidebar_first }}
