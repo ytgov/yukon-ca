@@ -155,11 +155,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_category:
-      type: options_select
-      weight: 101
-      region: content
-      settings: {  }
-      third_party_settings: {  }
+    type: options_select
+    weight: 101
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_community:
     type: options_select
     weight: 10

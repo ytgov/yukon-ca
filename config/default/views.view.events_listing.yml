@@ -853,7 +853,7 @@ display:
           id: field_icon_dark
           table: taxonomy_term__field_icon_dark
           field: field_icon_dark
-          relationship: field_category_term
+          relationship: field_category
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -1115,10 +1115,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_category_term:
-          id: field_category_term
-          table: node__field_category_term
-          field: field_category_term
+        field_category:
+          id: field_category
+          table: node__field_category
+          field: field_category
           relationship: none
           group_type: group
           admin_label: ''
@@ -1372,13 +1372,13 @@ display:
         relationships: false
         fields: false
       relationships:
-        field_category_term:
-          id: field_category_term
-          table: node__field_category_term
-          field: field_category_term
+        field_category:
+          id: field_category
+          table: node__field_category
+          field: field_category
           relationship: none
           group_type: group
-          admin_label: 'field_category_term: Taxonomy term'
+          admin_label: 'field_category: Taxonomy term'
           plugin_id: standard
           required: false
       display_description: ''

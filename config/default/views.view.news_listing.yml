@@ -2,22 +2,22 @@ uuid: b1be858a-05c9-461b-9a65-2e9dd1033c79
 langcode: en
 status: true
 dependencies:
-    config:
-        - field.storage.node.field_featured_image
-        - field.storage.node.field_featured_content
-        - field.storage.node.field_page_description
-        - image.style.medium
-        - node.type.news
-        - taxonomy.vocabulary.category
-        - taxonomy.vocabulary.department
-        - taxonomy.vocabulary.news_type
-        - taxonomy.vocabulary.teams
-    module:
-        - better_exposed_filters
-        - media
-        - node
-        - taxonomy
-        - user
+  config:
+    - field.storage.node.field_featured_image
+    - field.storage.node.field_featured_content
+    - field.storage.node.field_page_description
+    - image.style.medium
+    - node.type.news
+    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.department
+    - taxonomy.vocabulary.news_type
+    - taxonomy.vocabulary.teams
+  module:
+    - better_exposed_filters
+    - media
+    - node
+    - taxonomy
+    - user
 id: news_listing
 label: 'News Listing'
 module: views

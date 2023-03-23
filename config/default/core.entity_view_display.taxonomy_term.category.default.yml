@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.category.field_icon_dark
     - field.field.taxonomy_term.category.field_icon_light
+    - field.field.taxonomy_term.category.field_meta_tags
     - taxonomy.vocabulary.category
   module:
     - metatag
