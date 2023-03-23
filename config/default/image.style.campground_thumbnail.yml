@@ -1,0 +1,15 @@
+uuid: 4be08a1e-9a22-4974-9ad4-13d5e1057fea
+langcode: en
+status: true
+dependencies: {  }
+name: campground_thumbnail
+label: 'Campground thumbnail'
+effects:
+  789b86fb-2202-4e27-9038-87efc9148e1f:
+    uuid: 789b86fb-2202-4e27-9038-87efc9148e1f
+    id: image_scale
+    weight: 1
+    data:
+      width: 300
+      height: null
+      upscale: false

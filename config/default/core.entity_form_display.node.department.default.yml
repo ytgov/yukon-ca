@@ -365,7 +365,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
