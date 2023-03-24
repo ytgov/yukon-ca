@@ -1,0 +1,5 @@
+{{ pattern('blockquote', {
+  content:      paragraph.field_quote|view,
+  attribution:  paragraph.field_quote_source|view,
+  language:     paragraph.langcode.value,
+}, 'default') }}
