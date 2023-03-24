@@ -1,8 +1,9 @@
-uuid: c0119fe0-b23f-47a3-93cd-af65592efd6d
+uuid: d3ca9b6a-d2be-4eb4-80f9-eb3280044edf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.department.field_add_branch
     - field.field.node.department.field_add_primary_top_tasks
     - field.field.node.department.field_add_secondary_top_tasks
@@ -17,7 +18,6 @@ dependencies:
     - field.field.node.department.field_minister_photo
     - field.field.node.department.field_minister_telephone
     - field.field.node.department.field_optional_internal_related
-    - field.field.node.department.field_page_description
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
     - field.field.node.department.field_yukon_editorial_team
@@ -26,7 +26,6 @@ dependencies:
     - entity_reference_revisions
     - field_group
     - link
-    - media
     - text
     - user
 third_party_settings:
@@ -38,7 +37,7 @@ third_party_settings:
       label: 'Services and information'
       parent_name: ''
       region: content
-      weight: 1
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: fieldset-title
@@ -47,65 +46,26 @@ third_party_settings:
         description: ''
     group_minister_responsible:
       children:
-        - group_row
-      label: 'Minister Responsible'
-      parent_name: ''
-      region: content
-      weight: 2
-      format_type: fieldset
-      format_settings:
-        classes: fieldset-title
-        show_empty_fields: false
-        id: ''
-        description: ''
-    group_row:
-      children:
-        - field_minister_photo
-        - group_minister_details_column
-      label: row
-      parent_name: group_minister_responsible
-      region: content
-      weight: 20
-      format_type: html_element
-      format_settings:
-        classes: minister_info_card
-        show_empty_fields: false
-        id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-    group_minister_details_column:
-      children:
         - field_minister_first_name
         - field_minister_last_name
         - field_legislative_assembly_web
         - field_minister_email
         - field_minister_telephone
         - field_minister_fax_number
-      label: 'Minister details column'
-      parent_name: group_row
+      label: 'Minister Responsible'
+      parent_name: ''
       region: content
-      weight: 22
-      format_type: html_element
+      weight: 5
+      format_type: fieldset
       format_settings:
-        classes: minister_datails
+        classes: fieldset-title
         show_empty_fields: false
         id: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-id: node.department.default
+        description: ''
+id: node.department.full
 targetEntityType: node
 bundle: department
-mode: default
+mode: full
 content:
   field_add_branch:
     type: entity_reference_revisions_entity_view
@@ -114,7 +74,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
   field_add_primary_top_tasks:
     type: entity_reference_revisions_entity_view
@@ -165,7 +125,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 13
     region: content
   field_legislative_assembly_web:
     type: link
@@ -177,14 +137,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 24
+    weight: 5
     region: content
   field_minister_email:
     type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 6
     region: content
   field_minister_fax_number:
     type: string
@@ -192,52 +152,32 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 27
+    weight: 8
     region: content
   field_minister_first_name:
     type: string
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings:
-      fences:
-        fences_field_tag: span
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
-    weight: 22
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_minister_last_name:
     type: string
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings:
-      fences:
-        fences_field_tag: span
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
-    weight: 23
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_minister_photo:
-    type: media_thumbnail
-    label: hidden
+    type: entity_reference_entity_view
+    label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 21
+    weight: 11
     region: content
   field_minister_telephone:
     type: string
@@ -245,7 +185,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 26
+    weight: 7
     region: content
   field_optional_internal_related:
     type: entity_reference_label
@@ -253,14 +193,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
-    region: content
-  field_page_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 14
+    weight: 12
     region: content
   field_related_content:
     type: entity_reference_revisions_entity_view
@@ -269,7 +202,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 10
     region: content
 hidden:
   addtoany: true
