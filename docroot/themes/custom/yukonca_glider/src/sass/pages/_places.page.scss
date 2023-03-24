@@ -1,0 +1,19 @@
+.places-page-grid {
+  @apply md:grid md:grid-cols-2;
+
+  .place-info {
+    @apply md:ml-[8%];
+
+    .field {
+      @apply mb-6;
+
+      .field__label {
+        @apply my-0;
+      }
+    }
+
+    .facility-personnel {
+      @apply my-6;
+    }
+  }
+}

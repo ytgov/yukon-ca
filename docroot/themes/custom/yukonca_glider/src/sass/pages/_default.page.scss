@@ -22,9 +22,15 @@
 }
 
 .node {
-  .field:not(.field--label-inline) {
+  .field {
     .field__label {
       @apply my-6;
+    }
+  }
+
+  .field.field--label-inline {
+    .field__label {
+      @apply my-0;
     }
   }
 }
