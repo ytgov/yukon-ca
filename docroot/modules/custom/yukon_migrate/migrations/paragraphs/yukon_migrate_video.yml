@@ -23,3 +23,6 @@ process:
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: video
+migration_dependencies:
+  required:
+    - yukon_migrate_media_video

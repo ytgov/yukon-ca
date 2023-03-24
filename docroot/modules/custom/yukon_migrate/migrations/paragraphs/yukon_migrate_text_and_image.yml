@@ -27,3 +27,6 @@ process:
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: text_and_image
+migration_dependencies:
+  required:
+    - yukon_migrate_images

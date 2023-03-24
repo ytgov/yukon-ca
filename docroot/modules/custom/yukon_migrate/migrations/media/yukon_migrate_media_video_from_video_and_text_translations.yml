@@ -28,3 +28,6 @@ destination:
   plugin: entity:media
   default_bundle: video
   translations: true
+migration_dependencies:
+  required:
+    - yukon_migrate_media_video_from_video_and_text

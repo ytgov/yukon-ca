@@ -130,12 +130,12 @@ process:
         migration: yukon_migrate_navigation_jump_point
         no_stub: true
 
-    field_navigation_jump_point:
-      plugin: sub_process
-      source: '@pseudo_field_navigation_jump_point'
-      process:
-        target_id: 'paragraph/0'
-        target_revision_id: 'paragraph/1'
+  field_navigation_jump_point:
+    plugin: sub_process
+    source: '@pseudo_field_navigation_jump_point'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
   field_yukon_editorial_team:
     - plugin: migration_lookup
@@ -172,9 +172,9 @@ migration_dependencies:
     - yukon_migrate_campaign_page
     - yukon_migrate_department
     - yukon_migrate_teams
-    - yukon_migrate_campaign_page
   optional:
     - yukon_migrate_text
+    - yukon_migrate_text_unformatted
     - yukon_migrate_text_and_image
     - yukon_migrate_video
     - yukon_migrate_video_and_text

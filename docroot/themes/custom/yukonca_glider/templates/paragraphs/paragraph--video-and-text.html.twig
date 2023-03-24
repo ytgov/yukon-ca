@@ -40,9 +40,8 @@
 #}
 {{ pattern('video', {
   title:              paragraph.field_title.value,
-  hide_title:         paragraph.field_display_section_title.value,
+  hide_title:         not paragraph.field_display_section_title.value,
   video:              content.field_video,
   caption:            content.field_section_content,
+  position: content.field_position_on_page
 }, 'default') }}
-
-{{ content.field_position_on_page }}
