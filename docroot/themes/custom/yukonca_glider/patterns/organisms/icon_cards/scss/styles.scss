@@ -1,1 +1,13 @@
-/* Add your code here */
+.campground-services {
+  .icon-card {
+    @apply [&:nth-of-type(odd)]:bg-gray-light/50 md:[&:nth-of-type(odd)]:bg-transparent;
+    @apply md:[&:nth-of-type(4n-3)]:after:bg-gray-light/50;
+    @apply md:[&:nth-of-type(4n-3)]:after:content-[""];
+    @apply md:[&:nth-of-type(4n-3)]:after:absolute;
+    @apply md:[&:nth-of-type(4n-3)]:after:w-[200%];
+    @apply md:[&:nth-of-type(4n-3)]:after:h-full;
+    @apply md:[&:nth-of-type(4n-3)]:after:top-0;
+    @apply md:[&:nth-of-type(4n-3)]:after:left-0;
+    @apply md:[&:nth-of-type(4n-3)]:relative;
+  }
+}

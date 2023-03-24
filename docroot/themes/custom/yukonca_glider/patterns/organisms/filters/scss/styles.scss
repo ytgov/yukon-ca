@@ -1,6 +1,10 @@
-/* Add your code here */
-
 @import "../../../styles.scss";
+
+%filter-label {
+  @apply block;
+  @apply text-gray font-normal;
+  @apply mb-1;
+}
 
 h2.title {
   @apply pb-2 pt-4 mb-7;
@@ -11,18 +15,28 @@ h2.title {
 .form {
   .js-form-item {
     label {
-      @apply block;
-      @apply text-gray font-normal;
-      @apply mb-1;
+      @extend %filter-label;
     }
 
-    input,
+    input.form-text,
     select {
       @apply border-yellow border-solid;
       @apply bg-gray-light;
       @apply h-[37px] py-[6px] px-[12px] w-full;
     }
 
+    .form-type-checkbox {
+      input,
+      label {
+        @apply inline;
+      }
+    }
+  }
+
+  .form-wrapper {
+    .fieldset-legend {
+      @extend %filter-label;
+    }
   }
 
   .form-submit {
