@@ -95,3 +95,19 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
     }
   }
 }
+
+/**
+ * Implements template_proprocess_page().
+ */
+function yukonca_glider_preprocess_page(&$variables) {
+  if (!empty($variables['node'])) {
+    $node = $variables['node'];
+    if (!empty($node->field_icon_dark) && !empty($node->field_icon_dark[0])) {
+      $image = $node->field_icon_dark[0]->view([
+        'type' => 'entity_reference_entity_view',
+        'label' => 'hidden',
+      ]);
+      $variables['header_image'] = $image;
+    }
+  }
+}

@@ -78,22 +78,22 @@
   ]
 %}
 {{ attach_library('classy/node') }}
-<article{{attributes.addClass(classes)}}>
+<article{{ attributes.addClass(classes) }}>
 	{{ title_prefix }}
 	{% if label and not page %}
-			<a href="{{ url }}" rel="bookmark">
-        <span class="row row-cols-2 g-0">
-          <span class="smallerish-svg">
-            {{ content }}
-          </span>
-          <span class="inline-text">
-            <h2{{title_attributes}}>
-              {{ label }}
-            </h2>
-          </span>
+    <a href="{{ url }}" rel="bookmark">
+      <span class="row row-cols-2 g-0">
+        <span class="smallerish-svg">
+          {{ content }}
         </span>
-      </a>
-	{% endif %}
-	{{ title_suffix }}
+        <span class="inline-text">
+          <h2{{ title_attributes }}>
+            {{ label }}
+          </h2>
+        </span>
+      </span>
+    </a>
+  {% endif %}
+  {{ title_suffix }}
 </article>
 

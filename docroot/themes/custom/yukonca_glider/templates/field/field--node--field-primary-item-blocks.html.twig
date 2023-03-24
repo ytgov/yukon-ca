@@ -46,18 +46,13 @@
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    'field__items',
   ]
 %}
 
-<div{{attributes.addClass(classes,'field__items')}}>
+<div{{ attributes.addClass(classes) }}>
   {% for item in items %}
-    <div{{item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd')}}>
+    <div{{ item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd') }}>
       <div class="primary-single-item box-items">
         <span class="faded-box"></span>
         {{ item.content }}
