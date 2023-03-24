@@ -1,0 +1,67 @@
+uuid: ed7e3e36-7427-44c0-8f46-21753ecc712d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.campaign_page.field_add_social_media_channels
+    - field.field.node.campaign_page.field_campaign_home_logo_display
+    - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_type
+    - field.field.node.campaign_page.field_child_campaign_pages
+    - field.field.node.campaign_page.field_copyright_notice_text
+    - field.field.node.campaign_page.field_department_term
+    - field.field.node.campaign_page.field_display_copyright_notice
+    - field.field.node.campaign_page.field_hero_image
+    - field.field.node.campaign_page.field_highlight_color
+    - field.field.node.campaign_page.field_image
+    - field.field.node.campaign_page.field_intro_text_block
+    - field.field.node.campaign_page.field_link_color
+    - field.field.node.campaign_page.field_logos
+    - field.field.node.campaign_page.field_meta_tags
+    - field.field.node.campaign_page.field_navigation_jump_point
+    - field.field.node.campaign_page.field_paragraphs
+    - field.field.node.campaign_page.field_parent_campaign_page
+    - field.field.node.campaign_page.field_social_network
+    - field.field.node.campaign_page.field_source_credit
+    - field.field.node.campaign_page.field_use_navigation_jump_points
+    - field.field.node.campaign_page.field_yukon_editorial_team
+    - node.type.campaign_page
+  module:
+    - user
+id: node.campaign_page.teaser
+targetEntityType: node
+bundle: campaign_page
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_add_social_media_channels: true
+  field_campaign_home_logo_display: true
+  field_campaign_home_logo_link: true
+  field_campaign_type: true
+  field_child_campaign_pages: true
+  field_copyright_notice_text: true
+  field_department_term: true
+  field_display_copyright_notice: true
+  field_hero_image: true
+  field_highlight_color: true
+  field_image: true
+  field_intro_text_block: true
+  field_link_color: true
+  field_logos: true
+  field_meta_tags: true
+  field_navigation_jump_point: true
+  field_paragraphs: true
+  field_parent_campaign_page: true
+  field_social_network: true
+  field_source_credit: true
+  field_use_navigation_jump_points: true
+  field_yukon_editorial_team: true
+  langcode: true
+  search_api_excerpt: true

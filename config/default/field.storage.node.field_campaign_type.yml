@@ -1,0 +1,27 @@
+uuid: 4f78da67-4c20-4a09-b025-7a8aa7c4daf9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_campaign_type
+field_name: field_campaign_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: government_of_yukon
+      label: 'YG branded campaign or multipage site'
+    -
+      value: multi_jurisdictional
+      label: 'Multijurisdictional campaign or boutique multipage site'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

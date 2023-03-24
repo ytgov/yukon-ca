@@ -1,0 +1,25 @@
+uuid: ee7b486c-33e7-4b34-9be2-da1f2b9bb015
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.blog_comments
+    - field.storage.comment.field_comment_body
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: comment.blog_comments.field_comment_body
+field_name: field_comment_body
+entity_type: comment
+bundle: blog_comments
+label: Comment
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
     - field.field.node.campground_directory_record.field_outdoor_ampitheatre
     - field.field.node.campground_directory_record.field_outhouse_unisex
+    - field.field.node.campground_directory_record.field_page_description
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
@@ -249,6 +250,7 @@ hidden:
   field_one_wheelchair_camp: true
   field_outdoor_ampitheatre: true
   field_outhouse_unisex: true
+  field_page_description: true
   field_photo_credit: true
   field_picnic_tables: true
   field_playground: true

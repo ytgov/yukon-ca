@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_one_wheelchair_camp
     - field.field.node.campground_directory_record.field_outdoor_ampitheatre
     - field.field.node.campground_directory_record.field_outhouse_unisex
+    - field.field.node.campground_directory_record.field_page_description
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
@@ -77,6 +78,16 @@ bundle: campground_directory_record
 mode: default
 content:
   field_at_least_one_wheelchair_ac:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_change_room:
     type: boolean
     label: inline
     settings:
@@ -160,16 +171,6 @@ content:
         fences_label_classes: ''
     weight: 0
     region: content
-  field_change_room:
-    type: boolean
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 46
-    region: content
   field_cook_shelter:
     type: boolean
     label: inline
@@ -224,6 +225,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
+      format_type: medium
     weight: 10
     region: content
   field_gate_open_year_round:
@@ -261,7 +263,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 43
+    weight: 34
     region: content
   field_hand_pump_or_water_tank_pr:
     type: boolean
@@ -271,7 +273,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 39
+    weight: 30
     region: content
   field_highway:
     type: entity_reference_label
@@ -279,7 +281,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 18
+    weight: 43
     region: content
   field_highway_kilometre:
     type: string
@@ -287,7 +289,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 19
+    weight: 44
     region: content
   field_hiking_trails:
     type: boolean
@@ -376,7 +378,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 38
+    weight: 29
     region: content
   field_outdoor_ampitheatre:
     type: boolean
@@ -386,7 +388,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 47
+    weight: 38
     region: content
   field_outhouse_unisex:
     type: boolean
@@ -397,6 +399,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 26
+    region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_photo_credit:
     type: string
@@ -529,7 +538,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
+      format_type: yg_months
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -606,7 +615,7 @@ content:
     region: content
   field_warning:
     type: text_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 7

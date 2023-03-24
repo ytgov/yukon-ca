@@ -1,0 +1,29 @@
+uuid: 0e1c1185-18e2-423f-9415-f1afb80732b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_section_title
+    - paragraphs.paragraphs_type.text
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.text.field_display_section_title
+field_name: field_display_section_title
+entity_type: paragraph
+bundle: text
+label: 'Display section title'
+description: "Select 'yes' to show section title (h2).\r\nSelect 'no' to hide section title (h2)."
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

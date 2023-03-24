@@ -1,0 +1,35 @@
+uuid: 0f2b05d5-fe94-4417-ac8d-41fd77d3342f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_engagement_image
+    - media.type.image
+    - taxonomy.vocabulary.engagement_categories
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.engagement_categories.field_engagement_image
+field_name: field_engagement_image
+entity_type: taxonomy_term
+bundle: engagement_categories
+label: Image
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

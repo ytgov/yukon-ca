@@ -61,7 +61,7 @@ process:
     source: field_yukon_editorial_team
     no_stub: true
 
-  field_department:
+  field_department_term:
     plugin: migration_lookup
     migration: yukon_migrate_department
     source: field_department

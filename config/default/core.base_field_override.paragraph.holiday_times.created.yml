@@ -1,0 +1,18 @@
+uuid: d08db875-11ba-4101-973c-00d84409086e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.holiday_times
+id: paragraph.holiday_times.created
+field_name: created
+entity_type: paragraph
+bundle: holiday_times
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

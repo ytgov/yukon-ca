@@ -41,17 +41,8 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
-    third_party_settings:
-      fences:
-        fences_field_tag: div
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: div
-        fences_field_item_classes: ''
-        fences_label_tag: div
-        fences_label_classes: ''
+      format_type: medium
+    third_party_settings: {  }
     weight: 1
     region: content
 hidden:

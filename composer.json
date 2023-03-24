@@ -5,7 +5,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "acquia/blt": "^13.7",
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.7",
@@ -19,6 +19,7 @@
         "drupal/classy": "^1.0",
         "drupal/color_field": "^3.0",
         "drupal/conditional_fields": "^4.0@alpha",
+        "drupal/config_pages": "^2.12",
         "drupal/config_split": "^1.4",
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",
@@ -28,6 +29,7 @@
         "drupal/devel": "^5.1",
         "drupal/diff": "^1.1",
         "drupal/ds": "^3.15",
+        "drupal/easy_breadcrumb": "^2.0",
         "drupal/environment_indicator": "^4.0",
         "drupal/epp": "^1.3",
         "drupal/extlink": "^1.3",
@@ -76,6 +78,7 @@
         "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^3.0",
         "drupal/token": "^1.11",
+        "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/ui_patterns": "^1.2",
         "drupal/username_enumeration_prevention": "^1.3",
@@ -106,13 +109,18 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://git.drupalcode.org/project/drupal/-/merge_requests/1201.diff"
+                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
+                "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
+                "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2023-01-02/drupal-3264843-15_0.patch"
+            },
+            "drupal/token": {
+                "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
             },
             "yukon/geophp": {
                 "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
             },
             "yukon/maxlength": {
-                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/merge_requests/24.diff"
+                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/commit/0bb4dee7f018303bedd1ac34e7cedc0c41273850.diff"
             }
         },
         "installer-paths": {

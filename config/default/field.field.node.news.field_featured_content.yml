@@ -1,0 +1,29 @@
+uuid: 53efb8ff-d8fe-458f-88a0-9d416681d5fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_content
+    - node.type.news
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_featured_content
+field_name: field_featured_content
+entity_type: node
+bundle: news
+label: 'Featured at top of news page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
