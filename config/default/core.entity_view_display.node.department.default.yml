@@ -24,6 +24,7 @@ dependencies:
     - node.type.department
   module:
     - entity_reference_revisions
+    - fences
     - field_group
     - link
     - media
@@ -248,11 +249,21 @@ content:
     weight: 26
     region: content
   field_optional_internal_related:
-    type: entity_reference_label
-    label: above
+    type: entity_reference_entity_view
+    label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 4
     region: content
   field_page_description:
@@ -264,7 +275,7 @@ content:
     region: content
   field_related_content:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
