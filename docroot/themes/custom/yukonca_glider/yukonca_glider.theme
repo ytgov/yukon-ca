@@ -45,7 +45,22 @@ function yukonca_glider_preprocess_block(&$variables) {
 function yukonca_glider_preprocess_node(&$variables) {
   $type = $variables['node']->bundle();
   $view_mode = $variables['view_mode'];
-  if (!empty($type) && $type == 'landing_page' && $view_mode == 'primary_item_block') {
+
+  if (!empty($type) && $type === 'department') {
+    $department_tid = $variables['node']->field_department_term->target_id;
+    $latest_news_view['view'] = [
+      '#type' => 'view',
+      '#name' => 'news_listing',
+      '#display_id' => 'block_department_latest_news',
+      '#arguments' => [$department_tid],
+    ];
+
+    $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
+    $latest_news_view['read_more'] = $readmore_url;
+    $variables['view_latest_news'] = $latest_news_view;
+  }
+
+  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
     // Render only the first three links in field_primary_content.
     $links = $variables['node']->field_primary_content->getValue();
     foreach ($links as $key => $link) {
