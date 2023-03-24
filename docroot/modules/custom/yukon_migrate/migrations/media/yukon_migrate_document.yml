@@ -3,6 +3,7 @@ label: Yukon migrate Document Media Type
 audit: true
 migration_tags:
   - Drupal 7
+  - Content
   - Media
 migration_group: legacy
 
@@ -24,7 +25,9 @@ process:
       no_stub: true
     - plugin: skip_on_empty
       method: row
-
+  field_media_file/display:
+    plugin: default_value
+    default_value: 1
   field_document_name/value: field_document_name/0/value
 
   directory:

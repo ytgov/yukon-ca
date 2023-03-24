@@ -1,0 +1,210 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_campground_directory_record_translations
+label: Yukon Migrate Campground and recreation site Nodes Translations
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+  - Campground and Recreation Site
+migration_group: legacy
+source:
+  plugin: d7_node_entity_translation
+  node_type: campground_directory_record
+  constants:
+    default_text_format: full_html
+process:
+  nid:
+    plugin: migration_lookup
+    migration: yukon_migrate_campground_directory_record
+    source: entity_id
+    no_stub: true
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
+  title: title
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: uid
+  status: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+
+  # booleans
+  field_one_wheelchair_camp: field_one_wheelchair_camp
+  field_at_least_one_wheelchair_ac: field_at_least_one_wheelchair_ac
+  field_bear_proof_cache: field_bear_proof_cache
+  field_bear_proof_garbage_bins: field_bear_proof_garbage_bins
+  field_blue_bear_proof_recycling_: field_bear_proof_recycling_bins
+  field_boat_dock: field_boat_dock
+  field_boat_launch: field_boat_launch
+  field_change_room: field_change_room
+  field_cook_shelter: field_cook_shelter
+  field_fire_ring: field_fire_ring
+  field_gate_open_year_round: field_gate_open_year_round
+  field_group_campsite: field_group_campsite
+  field_hand_pump_or_water_tank_pr: field_hand_pump_or_water_tank_pr
+  field_hiking_trails: field_hiking_trails
+  field_interpretive_centre: field_interpretive_centre
+  field_outdoor_ampitheatre: field_outdoor_ampitheatre
+  field_outhouse_unisex: field_outhouse_unisex
+  field_picnic_tables: field_picnic_tables
+  field_playground: field_playground
+  field_registration_required: field_registration_required
+  field_sandy_or_cobble_beach_with: field_sandy_or_cobble_beach_with
+  field_social_sharing: field_social_sharing
+  field_swimming_area_or_dock_no_l: field_swimming_area_or_dock_no_l
+  field_tent_pads_or_sites_availab: field_tent_pads_or_sites_availab
+  field_viewing_structures_or_sign: field_viewing_structures_or_sign
+  field_walk_in_sites: field_walk_in_sites
+
+  # dates
+  field_gate_closed_date:
+    plugin: sub_process
+    source: field_gate_closed_date
+    process:
+      value:
+        - plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: 'Y-m-d'
+          source: value
+
+  field_gate_open_date:
+    plugin: sub_process
+    source: field_gate_open
+    process:
+      value:
+        - plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: 'Y-m-d'
+          source: value
+
+  field_serviced_end_date:
+    plugin: sub_process
+    source: field_closing_date
+    process:
+      value:
+        - plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: 'Y-m-d'
+          source: value
+
+  field_serviced_start_date:
+    plugin: sub_process
+    source: field_opening_date
+    process:
+      value:
+        - plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: 'Y-m-d'
+          source: value
+
+  # links
+  field_related_tasks:
+    plugin: yukon_migrate_links
+    source: field_related_articles
+
+  # lists
+  field_september_availability: field_september_availability
+  field_august_availability: field_august_availability
+  field_july_availability: field_july_availability
+  field_june_availability: field_june_availability
+  field_may_availability: field_may_availability
+
+  # media
+  field_image:
+    plugin: migration_lookup
+    source: field_image_upload/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_map_upload:
+    plugin: migration_lookup
+    source: field_map_upload/0/fid
+    migration: yukon_migrate_document
+    no_stub: true
+
+  # text fields
+  field_gps_coordinate_n: field_gps_coordinate_n
+  field_gps_coordinate_w: field_gps_coordinate_w
+  field_highway_kilometre: field_highway_km
+  field_photo_credit: field_photo_credit
+  field_pull_through: field_pull_through
+  field_secondary_road: field_secondary_road
+  field_secondary_road_kilometre: field_secondary_road_km
+  field_total_sites: field_total_sites
+
+  # long text fields
+  field_site_description/value: field_campground_description/0/value
+  field_site_description/format: constants/default_text_format
+
+  field_site_description_app/value: field_site_description_app_/0/value
+  field_site_description_app/format: constants/default_text_format
+
+  field_site_directions/value: field_site_directions/0/value
+  field_site_directions/format: constants/default_text_format
+
+  field_warning/value: field_warning/0/value
+  field_warning/format: constants/default_text_format
+
+  field_page_description/value: field_page_description/0/value
+  field_page_description/format: constants/default_text_format
+
+  # taxonomy
+  field_campground_site_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_site_type
+    source: field_site_type
+    no_stub: true
+
+  field_highway:
+    plugin: migration_lookup
+    migration: yukon_migrate_highway_names
+    source: field_highway_name
+    no_stub: true
+
+  field_region:
+    plugin: migration_lookup
+    migration: yukon_migrate_region
+    source: field_region
+    no_stub: true
+
+  field_recreation_site_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_recreation_site_type
+    source: field_recreation_site_type
+    no_stub: true
+
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  moderation_state: moderation_state
+
+destination:
+  plugin: entity:node
+  default_bundle: campground_directory_record
+  translations: true
+migration_dependencies:
+  required:
+    - yukon_migrate_campground_directory_record
+    - yukon_migrate_department
+    - yukon_migrate_teams
+    - yukon_migrate_recreation_site_type
+    - yukon_migrate_site_type
+    - yukon_migrate_region
+    - yukon_migrate_highway_names
+  optional:
+    - yukon_migrate_images
+    - yukon_migrate_document
