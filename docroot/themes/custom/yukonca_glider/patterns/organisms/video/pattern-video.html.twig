@@ -1,15 +1,18 @@
 {% set prefix = 'video' %}
 {% set classes = [
-  prefix
+  prefix,
+  position ?? 'left',
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
   <div class="container">
-    <div class="title">
-      <h2>{{ title }}</h2>
-    </div>
+    {% if not hide_title %}
+      <div class="title">
+        <h2>{{ title }}</h2>
+      </div>
+    {% endif %}
 
     <div class="video">{{ video }}</div>
 

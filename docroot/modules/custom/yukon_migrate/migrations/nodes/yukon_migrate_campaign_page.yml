@@ -123,12 +123,12 @@ process:
         migration: yukon_migrate_navigation_jump_point
         no_stub: true
 
-    field_navigation_jump_point:
-      plugin: sub_process
-      source: '@pseudo_field_navigation_jump_point'
-      process:
-        target_id: 'paragraph/0'
-        target_revision_id: 'paragraph/1'
+  field_navigation_jump_point:
+    plugin: sub_process
+    source: '@pseudo_field_navigation_jump_point'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
   field_yukon_editorial_team:
     - plugin: migration_lookup

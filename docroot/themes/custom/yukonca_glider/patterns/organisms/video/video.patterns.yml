@@ -22,6 +22,10 @@ video:
       label: Audio caption
       description: A audio caption.
       preview: 'Donec lobortis euismod risus, sed vulputate odio tempor non'
+    position:
+      type: string
+      label: Video position
+      preview: 'right'
   libraries:
     -
       video:

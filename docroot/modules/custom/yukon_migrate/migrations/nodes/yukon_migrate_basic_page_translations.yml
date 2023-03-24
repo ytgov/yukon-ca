@@ -114,5 +114,10 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_basic_page
-    - yukon_migrate_images
+  optional:
+    - yukon_migrate_collapsable_field
     - yukon_migrate_image_gallery
+    - yukon_migrate_charts
+    - yukon_migrate_department
+    - yukon_migrate_teams
+    - yukon_migrate_images
