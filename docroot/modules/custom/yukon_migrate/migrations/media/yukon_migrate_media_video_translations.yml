@@ -29,5 +29,5 @@ destination:
   default_bundle: video
   translations: true
 migration_dependencies:
-  required:
+  optional:
     - yukon_migrate_media_video
