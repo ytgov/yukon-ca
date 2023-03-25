@@ -74,6 +74,12 @@ process:
         source: field_yukon_editorial_team
         no_stub: true
     field_social_sharing: field_social_sharing
+
+    path/alias: alias
+    path/pathauto: pathauto
+
+    moderation_state: moderation_state
+
 migration_dependencies:
     optional:
         - yukon_migrate_icon

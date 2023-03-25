@@ -3,7 +3,7 @@
         'name' => 'evolvingweb/test',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '8c9c098194ba89237ed4c371560dccf8ee2941d3',
+        'reference' => 'd45304d7dd003b742509ff32575ff26f3c536a83',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1367,7 +1367,7 @@
         'evolvingweb/test' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '8c9c098194ba89237ed4c371560dccf8ee2941d3',
+            'reference' => 'd45304d7dd003b742509ff32575ff26f3c536a83',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     $vendorDir . '/pear/pear_exception',
-    $vendorDir . '/pear/console_getopt',
     $vendorDir . '/pear/pear-core-minimal/src',
+    $vendorDir . '/pear/console_getopt',
     $vendorDir . '/pear/archive_tar',
 );
