@@ -7,8 +7,7 @@
 ] %}
 
 {% if title %}
-  {% set anchor = title|trim|clean_id %}
-  {% set attributes = attributes.addClass(classes).setAttribute('id','ts--' ~ anchor) %}
+  {% set attributes = attributes.addClass(classes) %}
 {% else %}
   {% set attributes = attributes.addClass(classes) %}
 {% endif %}
@@ -16,7 +15,8 @@
 {% set content %}
   {% if title %}
     <div class="title">
-      <h2>{{ title }}</h2>
+      <h4>{{ title }}</h4>
+      <p class="date">{{ date }}</p>
     </div>
   {% endif %}
 

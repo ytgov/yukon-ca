@@ -18,7 +18,6 @@ dependencies:
     - node.type.basic_page
     - workflows.workflow.content
   module:
-    - content_moderation
     - linkit
     - maxlength
     - media_library
@@ -224,6 +223,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_collapsible_items: true
   publish_on: true
   publish_state: true
   unpublish_on: true

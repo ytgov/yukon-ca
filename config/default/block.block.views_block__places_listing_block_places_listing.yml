@@ -1,22 +1,22 @@
-uuid: ca94b343-e96d-4c2f-9c93-fdcdc5556c51
-langcode: fr
+uuid: 6bcbf03f-c885-4939-9147-46695c258bed
+langcode: en
 status: true
 dependencies:
   config:
-    - views.view.news_listing
+    - views.view.places_listing
   module:
     - system
     - views
   theme:
     - yukonca_glider
-id: views_block__news_listing_block_1
+id: views_block__places_listing_block_places_listing
 theme: yukonca_glider
 region: content
-weight: -5
+weight: 0
 provider: null
-plugin: 'views_block:news_listing-block_1'
+plugin: 'views_block:places_listing-block_places_listing'
 settings:
-  id: 'views_block:news_listing-block_1'
+  id: 'views_block:places_listing-block_places_listing'
   label: ''
   label_display: visible
   provider: views
@@ -26,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/news\r\n/communiques-de-presse"
+    pages: /places
