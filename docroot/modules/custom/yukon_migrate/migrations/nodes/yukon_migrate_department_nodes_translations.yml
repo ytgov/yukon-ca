@@ -3,184 +3,187 @@ id: yukon_migrate_department_nodes_translations
 label: Yukon Migrate Department Nodes Translations
 audit: true
 migration_tags:
-  - Drupal 7
-  - node
-  - Department
+    - Drupal 7
+    - node
+    - Department
 migration_group: legacy
 source:
-  plugin: d7_node_entity_translation
-  node_type: department
-  constants:
-    default_text_format: full_html
+    plugin: d7_node_entity_translation
+    node_type: department
+    constants:
+        default_text_format: full_html
 process:
-  nid:
-    plugin: migration_lookup
-    migration: yukon_migrate_department_nodes
-    source: entity_id
-    no_stub: true
-  content_translation_source: source
-  content_translation_outdated: translate
-  langcode: language
-  title: title
-  # Todo: Replace this part with migration lookup after we migrate users.
-  uid: uid
-  status:
-    plugin: skip_on_value
-    method: row
-    not_equals: true
-    value: 1
-    source: status
-  created: created
-  changed: timestamp
-  promote: promote
-  sticky: sticky
-
-  # meta
-  field_page_description/value: field_page_description/0/value
-  field_page_description/format: constants/default_text_format
-
-  # dates
-  field_review_date:
-    plugin: sub_process
-    source: field_review_date
-    process:
-      value:
-        -   plugin: format_date
-            from_format: 'Y-m-d H:i:s'
-            to_format: 'Y-m-d'
-            source: value
-
-  # links
-  field_legislative_assembly_web:
-    plugin: sub_process
-    source: field_legislative_assembly_websi
-    process:
-      uri: url
-      title: title
-      attributes: attributes
-
-  # media
-  field_minister_photo:
-    plugin: migration_lookup
-    source: field_minister_photo/0/fid
-    migration: yukon_migrate_images
-    no_stub: true
-
-  # long text fields
-  field_department_mandate/value: field_department_mandate/0/value
-  field_department_mandate/format: constants/default_text_format
-
-  # reference
-  field_optional_internal_related:
-    plugin: sub_process
-    source: field_optional_internal_related_
-    process:
-      target_id:
+    nid:
         plugin: migration_lookup
-        source: target_id
-        migration:
-          - yukon_migrate_basic_page
-          - yukon_migrate_multi_step_page
-          - yukon_migrate_landing_page
-          - yukon_migrate_landing_page_level_2
-          -
-  # paragraphs
-  pseudo_add_primary_top_tasks:
-    plugin: sub_process
-    source: field_add_primary_top_tasks
-    process:
-      paragraph:
+        migration: yukon_migrate_department_nodes
+        source: entity_id
+        no_stub: true
+    content_translation_source: source
+    content_translation_outdated: translate
+    langcode: language
+    title: title
+    # Todo: Replace this part with migration lookup after we migrate users.
+    uid: uid
+    status: status
+    created: created
+    changed: timestamp
+    promote: promote
+    sticky: sticky
+
+    # meta
+    field_page_description/value: field_page_description/0/value
+    field_page_description/format: constants/default_text_format
+
+    # dates
+    field_review_date:
+        plugin: sub_process
+        source: field_review_date
+        process:
+            value:
+                - plugin: format_date
+                  from_format: 'Y-m-d H:i:s'
+                  to_format: 'Y-m-d'
+                  source: value
+
+    # links
+    field_legislative_assembly_web:
+        plugin: yukon_migrate_links
+        source: field_legislative_assembly_websi
+
+    # media
+    field_minister_photo:
         plugin: migration_lookup
-        source: value
-        migration: yukon_migrate_top_tasks
+        source: field_minister_photo/0/fid
+        migration: yukon_migrate_images
         no_stub: true
 
-  field_add_primary_top_tasks:
-    plugin: sub_process
-    source: '@pseudo_add_primary_top_tasks'
-    process:
-      target_id: 'paragraph/0'
-      target_revision_id: 'paragraph/1'
+    # long text fields
+    field_department_mandate/value: field_department_mandate/0/value
+    field_department_mandate/format: constants/default_text_format
 
-  pseudo_add_secondary_top_tasks:
-    plugin: sub_process
-    source: field_add_secondary_top_tasks
-    process:
-      paragraph:
+    # reference
+    field_optional_internal_related:
+        plugin: sub_process
+        source: field_optional_internal_related_
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_multi_step_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+
+    # paragraphs
+    pseudo_add_primary_top_tasks:
+        plugin: sub_process
+        source: field_add_primary_top_tasks
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration: yukon_migrate_top_tasks
+                no_stub: true
+
+    field_add_primary_top_tasks:
+        plugin: sub_process
+        source: '@pseudo_add_primary_top_tasks'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
+
+    pseudo_add_secondary_top_tasks:
+        plugin: sub_process
+        source: field_add_secondary_top_tasks
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration: yukon_migrate_top_tasks
+                no_stub: true
+
+    field_add_secondary_top_tasks:
+        plugin: sub_process
+        source: '@pseudo_add_secondary_top_tasks'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
+
+    pseudo_add_branch:
+        plugin: sub_process
+        source: field_add_branch
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration: yukon_migrate_department_section
+                no_stub: true
+
+    field_add_branch:
+        plugin: sub_process
+        source: '@pseudo_add_branch'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
+
+    pseudo_related_content:
+        plugin: sub_process
+        source: field_related_content
+        process:
+            paragraph:
+                plugin: migration_lookup
+                source: value
+                migration: yukon_migrate_related_content
+                no_stub: true
+
+    field_related_content:
+        plugin: sub_process
+        source: '@pseudo_related_content'
+        process:
+            target_id: 'paragraph/0'
+            target_revision_id: 'paragraph/1'
+
+    # taxonomy
+    field_department_term:
         plugin: migration_lookup
-        source: value
-        migration: yukon_migrate_top_tasks
+        migration: yukon_migrate_department
+        source: field_department_term
         no_stub: true
 
-  field_add_secondary_top_tasks:
-    plugin: sub_process
-    source: '@pseudo_add_secondary_top_tasks'
-    process:
-      target_id: 'paragraph/0'
-      target_revision_id: 'paragraph/1'
-
-  pseudo_add_branch:
-    plugin: sub_process
-    source: field_add_branch
-    process:
-      paragraph:
+    field_yukon_editorial_team:
         plugin: migration_lookup
-        source: value
-        migration: yukon_migrate_department_section
+        migration: yukon_migrate_teams
+        source: field_yukon_editorial_team
         no_stub: true
 
-  field_add_branch:
-    plugin: sub_process
-    source: '@pseudo_add_branch'
-    process:
-      target_id: 'paragraph/0'
-      target_revision_id: 'paragraph/1'
+    # text fields
+    field_minister_first_name: field_minister_first_name
+    field_minister_last_name: field_surname
+    field_minister_email: field_email/0/email
+    field_minister_telephone: field_telephone_
+    field_minister_fax_number: field_fax_
 
-  pseudo_related_content:
-    plugin: sub_process
-    source: field_related_content
-    process:
-      paragraph:
-        plugin: migration_lookup
-        source: value
-        migration: yukon_migrate_related_content
-        no_stub: true
+    path/alias: alias
+    path/pathauto: pathauto
 
-  field_related_content:
-    plugin: sub_process
-    source: '@pseudo_related_content'
-    process:
-      target_id: 'paragraph/0'
-      target_revision_id: 'paragraph/1'
-
-  # taxonomy
-  field_department_term:
-    plugin: migration_lookup
-    migration: yukon_migrate_department
-    source: field_department_term
-    no_stub: true
-  field_yukon_editorial_team:
-    plugin: migration_lookup
-    migration: yukon_migrate_teams
-    source: field_yukon_editorial_team
-    no_stub: true
-
-  # text fields
-  field_minister_first_name: field_minister_first_name
-  field_minister_last_name: field_surname
-  field_minister_email: field_email/0/email
-  field_minister_telephone: field_telephone_
-  field_minister_fax_number: field_fax_
-
-  path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+    moderation_state: moderation_state
 
 destination:
-  plugin: entity:node
-  default_bundle: department
-  translations: true
+    plugin: entity:node
+    default_bundle: department
+    translations: true
 migration_dependencies:
-  required:
-    - yukon_migrate_department_nodes
+    required:
+        - yukon_migrate_department_nodes
+        - yukon_migrate_department
+        - yukon_migrate_teams
+    optional:
+        - yukon_migrate_basic_page
+        - yukon_migrate_multi_step_page
+        - yukon_migrate_landing_page
+        - yukon_migrate_landing_page_level_2
+        - yukon_migrate_related_content
+        - yukon_migrate_department_section
+        - yukon_migrate_department_section
+        - yukon_migrate_images

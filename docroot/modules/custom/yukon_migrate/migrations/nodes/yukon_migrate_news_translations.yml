@@ -21,12 +21,7 @@ process:
         migration: yukon_migrate_news
         source: entity_id
         no_stub: true
-    status:
-        plugin: skip_on_value
-        method: row
-        not_equals: true
-        value: 1
-        source: status
+    status: status
     langcode: language
     created: created
     changed: changed
@@ -34,16 +29,19 @@ process:
     sticky: sticky
     revision_log: log
     title: title
+
     field_page_description/value: field_description/0/value
     field_page_description/format: constants/default_text_format
+
     body/value: body/0/value
     body/format: constants/default_text_format
+
     field_contact/value: field_contact/0/value
     field_contact/format: constants/default_text_format
+
     field_backgrounder/value: field_backgrounder/0/value
-    field_backgrounder/format:
-        plugin: default_value
-        default_value: wysiwyukon_ckeditor
+    field_backgrounder/format: constants/default_text_format
+
     field_news_release: field_news_release_
 
     # quotes
@@ -105,29 +103,35 @@ process:
         source: field_featured_image/0/fid
         migration: yukon_migrate_images
         no_stub: true
+
     field_related_link:
         plugin: yukon_migrate_links
         source: field_related_link
+
     field_category:
         plugin: migration_lookup
         migration: yukon_migrate_category
         source: field_category_term
         no_stub: true
+
     field_department_term:
         plugin: migration_lookup
         migration: yukon_migrate_department
         source: field_department_term
         no_stub: true
+
     field_news_type:
         plugin: migration_lookup
         migration: yukon_migrate_news_type
         source: field_news_type
         no_stub: true
+
     field_yukon_editorial_team:
         plugin: migration_lookup
         migration: yukon_migrate_teams
         source: field_yukon_editorial_team
         no_stub: true
+
     field_social_sharing: field_social_sharing
     field_featured_content: field_featured_news_item
     field_featured_to_homepage: field_featured_to_homepage
@@ -135,19 +139,18 @@ process:
     content_translation_outdated: translate
 
     path/alias: alias
-    path/pathauto:
-        plugin: default_value
-        default_value: false
+    path/pathauto: pathauto
 
+    moderation_state: moderation_state
 migration_dependencies:
     required:
+        - yukon_migrate_category
+        - yukon_migrate_department
+        - yukon_migrate_news_type
+        - yukon_migrate_teams
         - yukon_migrate_news
     optional:
         - yukon_migrate_images
         - yukon_migrate_charts
         - yukon_migrate_quick_facts
         - yukon_migrate_quotes
-        - yukon_migrate_category
-        - yukon_migrate_department
-        - yukon_migrate_news_type
-        - yukon_migrate_teams

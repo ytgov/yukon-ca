@@ -99,6 +99,7 @@ process:
   path/alias: alias
   path/pathauto: pathauto
 
+  moderation_state: moderation_state
 destination:
   plugin: entity:node
   default_bundle: homepage
