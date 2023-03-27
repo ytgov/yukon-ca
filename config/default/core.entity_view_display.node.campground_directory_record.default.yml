@@ -87,16 +87,6 @@ content:
     third_party_settings: {  }
     weight: 28
     region: content
-  field_change_room:
-    type: boolean
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 37
-    region: content
   field_august_availability:
     type: list_default
     label: hidden
@@ -170,6 +160,16 @@ content:
         fences_label_tag: div
         fences_label_classes: ''
     weight: 0
+    region: content
+  field_change_room:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 37
     region: content
   field_cook_shelter:
     type: boolean
