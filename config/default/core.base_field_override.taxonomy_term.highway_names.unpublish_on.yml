@@ -1,0 +1,18 @@
+uuid: cd268aae-7e87-4cd0-822c-240946797044
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highway_names
+id: taxonomy_term.highway_names.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: highway_names
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

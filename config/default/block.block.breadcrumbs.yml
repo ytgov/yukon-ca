@@ -1,15 +1,16 @@
-uuid: 9398e93c-acc8-4d19-af5d-0190227c1257
+uuid: 0a8e9e75-dbbc-48b3-aaea-792fa98d5c1a
 langcode: en
 status: true
 dependencies:
   module:
+    - node
     - system
   theme:
     - yukonca_glider
 id: breadcrumbs
 theme: yukonca_glider
-region: breadcrumb
-weight: -16
+region: pre_content
+weight: -12
 provider: null
 plugin: system_breadcrumb_block
 settings:
@@ -18,7 +19,10 @@ settings:
   label_display: '0'
   provider: system
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: true
-    pages: '<front>'
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      homepage: homepage

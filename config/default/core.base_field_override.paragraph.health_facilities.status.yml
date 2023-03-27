@@ -1,0 +1,22 @@
+uuid: 2fe2a593-f888-433b-8e64-acf690532854
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.health_facilities
+id: paragraph.health_facilities.status
+field_name: status
+entity_type: paragraph
+bundle: health_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

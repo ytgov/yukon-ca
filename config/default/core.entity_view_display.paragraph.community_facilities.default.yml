@@ -19,7 +19,7 @@ mode: default
 content:
   field_about_services:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -31,18 +31,18 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_assistant_manager_email:
     type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_assistant_manager_telephon:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -58,18 +58,18 @@ content:
     region: content
   field_manager_email:
     type: email_mailto
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
   field_manager_telephone:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
 hidden:
   field_community_facility_type: true

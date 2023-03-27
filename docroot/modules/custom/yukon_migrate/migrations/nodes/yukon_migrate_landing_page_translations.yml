@@ -102,9 +102,9 @@ process:
     content_translation_outdated: translate
 
     path/alias: alias
-    path/pathauto:
-        plugin: default_value
-        default_value: false
+    path/pathauto: pathauto
+
+    moderation_state: moderation_state
 
 migration_dependencies:
     required:

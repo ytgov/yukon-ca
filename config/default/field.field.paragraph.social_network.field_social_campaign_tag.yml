@@ -1,0 +1,25 @@
+uuid: fb3c9502-af06-4565-a67a-4be7ab376143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_social_campaign_tag
+    - paragraphs.paragraphs_type.social_network
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.social_network.field_social_campaign_tag
+field_name: field_social_campaign_tag
+entity_type: paragraph
+bundle: social_network
+label: 'Social campaign tag'
+description: 'Enter the associated campaign social tag. e.g. @ link, # hashtag, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

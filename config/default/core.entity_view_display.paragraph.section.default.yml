@@ -108,7 +108,7 @@ content:
     region: content
   field_section_title:
     type: string
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }

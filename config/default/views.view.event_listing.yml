@@ -6,7 +6,7 @@ dependencies:
     - core.date_format.short
     - core.date_format.yg_long
     - date_recur.interpreter.default_interpreter
-    - field.storage.node.field_category_term
+    - field.storage.node.field_category
     - field.storage.node.field_community
     - field.storage.node.field_event_start_time
     - field.storage.node.field_page_description
@@ -276,10 +276,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_category_term:
-          id: field_category_term
-          table: node__field_category_term
-          field: field_category_term
+        field_category:
+          id: field_category
+          table: node__field_category
+          field: field_category
           relationship: none
           group_type: group
           admin_label: ''
@@ -683,10 +683,10 @@ display:
           hierarchy_depth: 0
           required_depth: 0
           none_label: '- Please select -'
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -696,14 +696,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_term_target_id_op
+            operator_id: field_category_target_id_op
             label: Category
             description: ''
             use_operator: false
-            operator: field_category_term_target_id_op
+            operator: field_category_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_term_target_id
+            identifier: field_category_target_id
             required: false
             remember: false
             multiple: false
@@ -900,7 +900,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_category_term'
+        - 'config:field.storage.node.field_category'
         - 'config:field.storage.node.field_community'
         - 'config:field.storage.node.field_event_start_time'
         - 'config:field.storage.node.field_page_description'
@@ -928,7 +928,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_category_term'
+        - 'config:field.storage.node.field_category'
         - 'config:field.storage.node.field_community'
         - 'config:field.storage.node.field_event_start_time'
         - 'config:field.storage.node.field_page_description'
@@ -1026,7 +1026,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_category_term'
+        - 'config:field.storage.node.field_category'
         - 'config:field.storage.node.field_community'
         - 'config:field.storage.node.field_event_start_time'
         - 'config:field.storage.node.field_page_description'
