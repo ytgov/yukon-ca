@@ -16,6 +16,9 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
+    - field.field.node.event.field_link_title
+    - field.field.node.event.field_meta_tags
+    - field.field.node.event.field_postal_code
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
@@ -28,9 +31,28 @@ dependencies:
   module:
     - date_recur
     - fences
+    - field_group
     - link
     - text
     - user
+third_party_settings:
+  field_group:
+    group_location:
+      children:
+        - field_building_name
+        - field_event_street_address
+        - field_event_locality_town
+        - field_postal_code
+      label: Location
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: event-location
+        show_empty_fields: false
+        id: ''
+        description: ''
 id: node.event.default
 targetEntityType: node
 bundle: event

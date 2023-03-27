@@ -15,9 +15,9 @@ mode: default
 content:
   field_top_tasks_link:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
-      link: false
+      link: true
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -32,7 +32,7 @@ content:
     region: content
   field_top_tasks_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

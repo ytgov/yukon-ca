@@ -1,1 +1,25 @@
-/* Add your code here */
+@import "src/sass/core";
+
+.hero {
+  &::before {
+    @apply block;
+    @apply content-[""];
+    @apply block;
+    @apply absolute;
+    @apply -top-2.5 md:top-auto;
+    @apply -right-[125px] md:-right-[300px];
+    @apply w-[350px] md:w-2/3;
+    @apply h-[135px];
+    @apply bg-no-repeat;
+    @apply bg-contain md:bg-cover;
+    background-image: url(../../../../../images/svg/Aurora-small-mobile.svg);
+
+    @include media-breakpoint-up(md) {
+      background-image: url(../../../../../images/svg/Aurora-main.svg);
+    }
+  }
+
+  img {
+    @apply w-auto h-[85px] md:h-[120px];
+  }
+}
