@@ -1,0 +1,33 @@
+id: yukon_migrate_community_facilities
+label: Yukon Migrate Community Facilities field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: community_facilities
+  constants:
+    default_text_format: full_html
+process:
+
+  field_community_facility_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_community_facilities_terms
+    source: field_community_facility_type
+    no_stub: true
+  field_about_services: field_about_services
+  field_manager: field_manager
+  field_manager_telephone: field_manager_telephone
+  field_manager_email: field_manager_email/0/email
+  field_assistant_manager: field_assistant_manager
+  field_assistant_manager_telephon: field_assistant_manager_telephon
+  field_assistant_manager_email: field_assistant_manager_email/0/email
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: community_facilities
+migration_dependencies:
+  optional:
+    - yukon_migrate_community_facilities_terms

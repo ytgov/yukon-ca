@@ -3,18 +3,19 @@ label: Yukon migrate Document Media Type
 audit: true
 migration_tags:
   - Drupal 7
+  - Content
   - Media
 migration_group: legacy
-
 source:
   plugin: yukon_migrate_file
   scheme: public
   file_type:
     - document
+  file_mime:
+    - 'application/pdf'
   batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
-
 process:
   name: filename
   field_media_file/target_id:
@@ -24,7 +25,9 @@ process:
       no_stub: true
     - plugin: skip_on_empty
       method: row
-
+  field_media_file/display:
+    plugin: default_value
+    default_value: 1
   field_document_name/value: field_document_name/0/value
 
   directory:
@@ -39,7 +42,9 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode: source_language
+  langcode:
+    plugin: default_value
+    default_value: "en"
 
 destination:
   plugin: entity:media
