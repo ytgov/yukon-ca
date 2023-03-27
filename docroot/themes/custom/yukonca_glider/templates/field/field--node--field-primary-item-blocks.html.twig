@@ -40,7 +40,7 @@
 {%
   set classes = [
     'primary-items',
-    'row d-block',
+    'row grid md:grid-cols-3',
     'field',
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
@@ -52,7 +52,7 @@
 
 <div{{ attributes.addClass(classes) }}>
   {% for item in items %}
-    <div{{ item.attributes.addClass('field__item', (loop.index % 2 == 0) ? 'even' : 'odd') }}>
+    <div{{ item.attributes.addClass('primary_block_item field__item', (loop.index % 2 == 0) ? 'even' : 'odd') }}>
       <div class="primary-single-item box-items">
         <span class="faded-box"></span>
         {{ item.content }}
