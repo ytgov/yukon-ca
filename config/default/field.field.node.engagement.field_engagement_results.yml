@@ -1,0 +1,26 @@
+uuid: b4370d95-346d-4f92-9921-232dd3a1c7ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_results
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_results
+field_name: field_engagement_results
+entity_type: node
+bundle: engagement
+label: 'Results at a glance'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

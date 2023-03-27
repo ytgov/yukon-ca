@@ -1,0 +1,57 @@
+uuid: 31667f64-7b2a-4be5-8b63-5ad04f8ba918
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_navigation_jump_point
+    - node.type.campaign_page
+    - paragraphs.paragraphs_type.navigation_jump_point
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_navigation_jump_point
+field_name: field_navigation_jump_point
+entity_type: node
+bundle: campaign_page
+label: 'Navigation jump point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      navigation_jump_point: navigation_jump_point
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 8
+        enabled: false
+      collapsable_field:
+        weight: 9
+        enabled: false
+      image_gallery:
+        weight: 10
+        enabled: false
+      multi_step:
+        weight: 11
+        enabled: false
+      navigation_jump_point:
+        weight: 13
+        enabled: true
+      primary_content:
+        weight: 12
+        enabled: false
+      secondary_content:
+        weight: 13
+        enabled: false
+      sub_heading:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

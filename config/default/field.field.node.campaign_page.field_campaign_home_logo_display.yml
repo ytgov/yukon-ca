@@ -1,0 +1,29 @@
+uuid: e2ae4713-8793-4981-a72f-32a0caa6116d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_home_logo_display
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_campaign_home_logo_display
+field_name: field_campaign_home_logo_display
+entity_type: node
+bundle: campaign_page
+label: "Check this to show logo at the top of the page. To show the Gov. of Yukon wordmark, check this box and don't upload a logo."
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

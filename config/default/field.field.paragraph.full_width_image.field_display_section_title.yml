@@ -1,0 +1,29 @@
+uuid: 0e4a3e16-6d46-471d-86b5-7c0197b79a2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_section_title
+    - paragraphs.paragraphs_type.full_width_image
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.full_width_image.field_display_section_title
+field_name: field_display_section_title
+entity_type: paragraph
+bundle: full_width_image
+label: 'Display section title'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

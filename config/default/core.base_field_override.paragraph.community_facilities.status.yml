@@ -1,0 +1,22 @@
+uuid: 136ed93e-4baf-432a-8b14-b6432916ab1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.community_facilities
+id: paragraph.community_facilities.status
+field_name: status
+entity_type: paragraph
+bundle: community_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -2,54 +2,73 @@ uuid: fd67eed1-7d84-41a9-a6ec-3eb321ea89e4
 langcode: en
 status: true
 dependencies:
-    config:
-        - field.field.node.blog.body
-        - field.field.node.blog.field_blog_type
-        - field.field.node.blog.field_category_term
-        - field.field.node.blog.field_contact
-        - field.field.node.blog.field_department_term
-        - field.field.node.blog.field_featured_image
-        - field.field.node.blog.field_icon_dark
-        - field.field.node.blog.field_meta_tags
-        - field.field.node.blog.field_social_sharing
-        - field.field.node.blog.field_subcategory
-        - field.field.node.blog.field_yukon_editorial_team
-        - node.type.blog
-    module:
-        - text
-        - user
+  config:
+    - field.field.node.blog.body
+    - field.field.node.blog.field_blog_type
+    - field.field.node.blog.field_category
+    - field.field.node.blog.field_contact
+    - field.field.node.blog.field_department_term
+    - field.field.node.blog.field_featured_image
+    - field.field.node.blog.field_icon_dark
+    - field.field.node.blog.field_meta_tags
+    - field.field.node.blog.field_page_description
+    - field.field.node.blog.field_social_sharing
+    - field.field.node.blog.field_subcategory
+    - field.field.node.blog.field_yukon_editorial_team
+    - node.type.blog
+  module:
+    - text
+    - user
 id: node.blog.default
 targetEntityType: node
 bundle: blog
 mode: default
 content:
-    body:
-        type: text_default
-        label: hidden
-        settings: {  }
-        third_party_settings: {  }
-        weight: 1
-        region: content
-    field_featured_image:
-        type: entity_reference_entity_view
-        label: hidden
-        settings:
-            view_mode: default
-            link: false
-        third_party_settings: {  }
-        weight: 0
-        region: content
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_contact:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_social_sharing:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
-    addtoany: true
-    field_blog_type: true
-    field_category_term: true
-    field_contact: true
-    field_department_term: true
-    field_icon_dark: true
-    field_meta_tags: true
-    field_social_sharing: true
-    field_subcategory: true
-    field_yukon_editorial_team: true
-    langcode: true
-    links: true
-    search_api_excerpt: true
+  addtoany: true
+  field_blog_type: true
+  field_category: true
+  field_contact: true
+  field_department_term: true
+  field_icon_dark: true
+  field_meta_tags: true
+  field_page_description: true
+  field_social_sharing: true
+  field_subcategory: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

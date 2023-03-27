@@ -1,0 +1,95 @@
+uuid: fb45b3a3-6619-4185-9418-f555a6618eb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.campaign_page
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.chart
+    - paragraphs.paragraphs_type.full_width_image
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.text_and_image
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.video_and_text
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: campaign_page
+label: 'Campaign site'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      text_and_image: text_and_image
+      full_width_image: full_width_image
+      video: video
+      video_and_text: video_and_text
+      call_to_action: call_to_action
+      quote: quote
+      chart: chart
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: -28
+        enabled: true
+      chart:
+        weight: -26
+        enabled: true
+      collapsable_field:
+        weight: -25
+        enabled: false
+      full_width_image:
+        weight: -31
+        enabled: true
+      image_gallery:
+        weight: -24
+        enabled: false
+      multi_step:
+        weight: -23
+        enabled: false
+      navigation_jump_point:
+        weight: -19
+        enabled: false
+      primary_content:
+        weight: -22
+        enabled: false
+      quote:
+        weight: -27
+        enabled: true
+      secondary_content:
+        weight: -21
+        enabled: false
+      social_network:
+        weight: -18
+        enabled: false
+      sub_heading:
+        weight: -20
+        enabled: false
+      text:
+        weight: -33
+        enabled: true
+      text_and_image:
+        weight: -32
+        enabled: true
+      video:
+        weight: -30
+        enabled: true
+      video_and_text:
+        weight: -29
+        enabled: true
+field_type: entity_reference_revisions

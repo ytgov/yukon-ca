@@ -1,0 +1,18 @@
+uuid: 32dcef5f-bceb-4b8a-af6d-5a12f57d5540
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+id: taxonomy_term.health_facilities.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: health_facilities
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

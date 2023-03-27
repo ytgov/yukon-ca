@@ -1,0 +1,28 @@
+id: yukon_migrate_full_width_image
+label: Yukon Migrate Full width image Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: full_width_image_only_block
+  constants:
+    default_text_format: full_html
+process:
+  field_title: field_section_title
+  field_display_section_title: field_display_section_title
+  field_source_credit: field_source_credit
+
+  field_image:
+    plugin: migration_lookup
+    source: field_image_block/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: full_width_image
+migration_dependencies:
+  required:
+    - yukon_migrate_images

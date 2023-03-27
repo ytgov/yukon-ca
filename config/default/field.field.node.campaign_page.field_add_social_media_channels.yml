@@ -1,0 +1,29 @@
+uuid: fd867515-86a4-47d9-b19c-b70db479018c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_social_media_channels
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_add_social_media_channels
+field_name: field_add_social_media_channels
+entity_type: node
+bundle: campaign_page
+label: 'Add social media channels'
+description: "Select 'yes' for campaigns using social media.\r\nSelect 'no' for campaigns with no social media."
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

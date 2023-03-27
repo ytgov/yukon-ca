@@ -1,0 +1,25 @@
+uuid: 7d2fd7a2-03b4-4cb3-a7fb-843b3f908bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_add_navigation_jump_point
+    - paragraphs.paragraphs_type.navigation_jump_point
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.navigation_jump_point.field_add_navigation_jump_point
+field_name: field_add_navigation_jump_point
+entity_type: paragraph
+bundle: navigation_jump_point
+label: 'Add navigation jump point'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

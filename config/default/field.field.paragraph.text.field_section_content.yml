@@ -1,0 +1,30 @@
+uuid: 32f935da-907d-4d81-b25b-0c8246cc279e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content
+    - paragraphs.paragraphs_type.text
+  module:
+    - allowed_formats
+    - epp
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.text.field_section_content
+field_name: field_section_content
+entity_type: paragraph
+bundle: text
+label: 'Text block'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

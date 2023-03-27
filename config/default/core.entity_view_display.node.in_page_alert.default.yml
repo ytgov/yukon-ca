@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.in_page_alert.body
+    - field.field.node.in_page_alert.field_assign_to
     - field.field.node.in_page_alert.field_department_term
-    - field.field.node.in_page_alert.field_field_assign_to
     - field.field.node.in_page_alert.field_meta_tags
     - field.field.node.in_page_alert.field_yukon_editorial_team
     - node.type.in_page_alert
@@ -23,45 +23,19 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
-    region: content
-  field_department_term:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
-    region: content
-  field_field_assign_to:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_yukon_editorial_team:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   addtoany: true
+  content_moderation_control: true
+  field_assign_to: true
+  field_department_term: true
+  field_meta_tags: true
+  field_yukon_editorial_team: true
   langcode: true
   search_api_excerpt: true

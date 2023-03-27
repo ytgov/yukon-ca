@@ -1,0 +1,40 @@
+id: yukon_migrate_opening_times
+label: Yukon Migrate Opening Times field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: opening_times
+  constants:
+    default_text_format: full_html
+process:
+
+    field_opening_times_day: field_opening_times_day
+    field_open: field_open
+
+    pseudo_opening_time_paragraph:
+      plugin: sub_process
+      source: field_opening_time_paragraph
+      process:
+        paragraph:
+          plugin: migration_lookup
+          source: value
+          migration: yukon_migrate_opening_and_closing_times
+          no_stub: true
+
+    field_opening_time_paragraph:
+      plugin: sub_process
+      source: '@pseudo_opening_time_paragraph'
+      process:
+        target_id: 'paragraph/0'
+        target_revision_id: 'paragraph/1'
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: opening_times
+migration_dependencies:
+  optional:
+    - yukon_migrate_opening_and_closing_times

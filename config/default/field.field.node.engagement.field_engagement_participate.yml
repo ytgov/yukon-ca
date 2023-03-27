@@ -1,0 +1,26 @@
+uuid: a2b011c9-9039-4162-8e0e-2780fc5bd6ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_participate
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_participate
+field_name: field_engagement_participate
+entity_type: node
+bundle: engagement
+label: 'How do I participate?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,17 +1,19 @@
-uuid: 9edef887-e438-411d-bb28-988d82bd6477
+uuid: b1be858a-05c9-461b-9a65-2e9dd1033c79
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_featured_image
-    - field.storage.node.field_featured_news_item
+    - field.storage.node.field_featured_content
     - field.storage.node.field_page_description
     - image.style.medium
     - node.type.news
     - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.department
     - taxonomy.vocabulary.news_type
     - taxonomy.vocabulary.teams
   module:
+    - better_exposed_filters
     - media
     - node
     - taxonomy
@@ -164,10 +166,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_featured_news_item:
-          id: field_featured_news_item
-          table: node__field_featured_news_item
-          field: field_featured_news_item
+        field_featured_content:
+          id: field_featured_content
+          table: node__field_featured_content
+          field: field_featured_content
           relationship: none
           group_type: group
           admin_label: ''
@@ -369,7 +371,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"row featured-{{ field_featured_news_item }}\">\r\n    <div class=\"col-sm-8\">\r\n        {{ title }}\r\n        <p><small>{{ created }}</small></p>\r\n        <p>{{ field_page_description }}</p>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n        {{ field_featured_image }}\r\n    </div>\r\n</div>"
+            text: "<div class=\"row featured-{{ field_featured_content }}\">\r\n    <div class=\"col-sm-8\">\r\n        {{ title }}\r\n        <p><small>{{ created }}</small></p>\r\n        <p>{{ field_page_description }}</p>\r\n    </div>\r\n    <div class=\"col-sm-4\">\r\n        {{ field_featured_image }}\r\n    </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -557,10 +559,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -570,14 +572,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_term_target_id_op
+            operator_id: field_category_target_id_op
             label: Category
             description: ''
             use_operator: false
-            operator: field_category_term_target_id_op
+            operator: field_category_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_term_target_id
+            identifier: field_category_target_id
             required: false
             remember: false
             multiple: false
@@ -749,10 +751,10 @@ display:
           hierarchy_depth: 0
           required_depth: 0
           none_label: '- Please select -'
-        field_featured_news_item_value:
-          id: field_featured_news_item_value
-          table: node__field_featured_news_item
-          field: field_featured_news_item_value
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -763,14 +765,14 @@ display:
           exposed: false
           expose:
             operator_id: ''
-            label: ''
-            description: ''
+            label: 'Featured at top of news page (field_featured_content)'
+            description: null
             use_operator: false
-            operator: ''
+            operator: field_featured_content_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
-            required: false
+            identifier: field_featured_content_value
+            required: true
             remember: false
             multiple: false
             remember_roles:
@@ -835,7 +837,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_featured_image'
-        - 'config:field.storage.node.field_featured_news_item'
+        - 'config:field.storage.node.field_featured_content'
         - 'config:field.storage.node.field_page_description'
   attachment_news:
     id: attachment_news
@@ -845,10 +847,10 @@ display:
     display_options:
       empty: {  }
       sorts:
-        field_featured_news_item_value:
-          id: field_featured_news_item_value
-          table: node__field_featured_news_item
-          field: field_featured_news_item_value
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -955,10 +957,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -968,14 +970,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_term_target_id_op
+            operator_id: field_category_target_id_op
             label: Category
             description: ''
             use_operator: false
-            operator: field_category_term_target_id_op
+            operator: field_category_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_term_target_id
+            identifier: field_category_target_id
             required: false
             remember: false
             multiple: false
@@ -1147,10 +1149,10 @@ display:
           hierarchy_depth: 0
           required_depth: 0
           none_label: '- Please select -'
-        field_featured_news_item_value:
-          id: field_featured_news_item_value
-          table: node__field_featured_news_item
-          field: field_featured_news_item_value
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1164,11 +1166,11 @@ display:
             label: ''
             description: ''
             use_operator: false
-            operator: ''
+            operator: field_featured_content_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
-            required: false
+            identifier: field_featured_content_value
+            required: true
             remember: false
             multiple: false
             remember_roles:
@@ -1212,7 +1214,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_featured_image'
-        - 'config:field.storage.node.field_featured_news_item'
+        - 'config:field.storage.node.field_featured_content'
         - 'config:field.storage.node.field_page_description'
   block_latest_news:
     id: block_latest_news
@@ -1788,7 +1790,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_featured_image'
-        - 'config:field.storage.node.field_featured_news_item'
+        - 'config:field.storage.node.field_featured_content'
         - 'config:field.storage.node.field_page_description'
   feed_news_listing:
     id: feed_news_listing
@@ -1818,10 +1820,10 @@ display:
           value:
             news: news
           group: 1
-        field_category_term_target_id:
-          id: field_category_term_target_id
-          table: node__field_category_term
-          field: field_category_term_target_id
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -1831,14 +1833,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_term_target_id_op
-            label: 'Category (field_category_term)'
+            operator_id: field_category_target_id_op
+            label: Category
             description: ''
             use_operator: false
-            operator: field_category_term_target_id_op
+            operator: field_category_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_term_target_id
+            identifier: field_category_target_id
             required: false
             remember: false
             multiple: false
@@ -2034,5 +2036,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_featured_image'
-        - 'config:field.storage.node.field_featured_news_item'
+        - 'config:field.storage.node.field_featured_content'
         - 'config:field.storage.node.field_page_description'
