@@ -39,4 +39,7 @@
  */
 #}
 
-{{ content }}
+{{ pattern('quicklink_card', {
+  link_title: content.field_top_tasks_name.0,
+  link_url: content.field_top_tasks_link.0['#url'],
+}, 'default') }}
