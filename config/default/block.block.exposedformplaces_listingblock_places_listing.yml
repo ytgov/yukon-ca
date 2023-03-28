@@ -12,7 +12,7 @@ dependencies:
 id: exposedformplaces_listingblock_places_listing
 theme: yukonca_glider
 region: sidebar_second
-weight: 0
+weight: -16
 provider: null
 plugin: 'views_exposed_filter_block:places_listing-block_places_listing'
 settings:

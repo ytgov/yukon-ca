@@ -39,4 +39,10 @@
  */
 #}
 
-{{ content }}
+<div class="field__items">
+{% for item in paragraph.field_popular_links[0:3] %}
+  <div class="field__item">
+    {{ content.field_popular_links[loop.index0] }}
+  </div>
+{% endfor %}
+</div>

@@ -20,7 +20,7 @@ h2.title {
 
     input.form-text,
     select {
-      @apply border-yellow border-solid;
+      @apply border border-yellow border-solid;
       @apply bg-gray-light;
       @apply h-[37px] py-[6px] px-[12px] w-full;
     }

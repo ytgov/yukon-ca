@@ -12,7 +12,7 @@ dependencies:
 id: exposed_form_documents_forms
 theme: yukonca_glider
 region: sidebar_first
-weight: 0
+weight: -14
 provider: null
 plugin: 'views_exposed_filter_block:documents_browse-page_1'
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: exposedformevents_listingblock_events_listing
 theme: yukonca_glider
 region: sidebar_second
-weight: 0
+weight: -19
 provider: null
 plugin: 'views_exposed_filter_block:events_listing-block_events_listing'
 settings:
