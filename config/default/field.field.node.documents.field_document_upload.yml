@@ -1,0 +1,35 @@
+uuid: eb7ad1b8-f0c3-4bb3-97f2-0e3a7981a9b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document_upload
+    - media.type.document
+    - node.type.documents
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_document_upload
+field_name: field_document_upload
+entity_type: node
+bundle: documents
+label: 'Document upload'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

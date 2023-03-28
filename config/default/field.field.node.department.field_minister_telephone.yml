@@ -1,0 +1,25 @@
+uuid: 1dbb865b-f812-4741-970f-a109fc59b559
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_telephone
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_telephone
+field_name: field_minister_telephone
+entity_type: node
+bundle: department
+label: 'Telephone number'
+description: 'Enter the phone number for the department head office.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

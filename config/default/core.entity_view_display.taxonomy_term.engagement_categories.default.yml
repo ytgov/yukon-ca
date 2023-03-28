@@ -1,0 +1,42 @@
+uuid: 130dbaad-bfa2-48e1-952e-14b2bda6d73b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.engagement_categories.field_engagement_image
+    - field.field.taxonomy_term.engagement_categories.field_meta_tags
+    - taxonomy.vocabulary.engagement_categories
+  module:
+    - metatag
+    - text
+id: taxonomy_term.engagement_categories.default
+targetEntityType: taxonomy_term
+bundle: engagement_categories
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_engagement_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

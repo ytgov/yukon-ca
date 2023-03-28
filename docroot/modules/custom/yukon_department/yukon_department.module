@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for yukon_department module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function yukon_department_form_webform_submission_page_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::service('node.node_route_context')->getRuntimeContexts([])['node']->getContextValue();
+  if ($node instanceof NodeInterface) {
+    // Different content types can have different names for department field.
+    $possible_department_field_names = [
+      'field_department_term',
+      'field_node_department',
+      'field_department',
+    ];
+    // Iterate over all possible department field names and break the loop when
+    // a field is found and processed.
+    foreach ($possible_department_field_names as $department_field_name) {
+      if (!$node->hasField($department_field_name) || $node->get($department_field_name)->isEmpty()) {
+        continue;
+      }
+      $department = $node->get($department_field_name)->entity;
+      $form['elements']['department']['#value'] = $department->label();
+      break;
+    }
+  }
+}

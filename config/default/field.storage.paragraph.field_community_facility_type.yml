@@ -1,0 +1,20 @@
+uuid: 280e823c-50ba-4faa-8d29-66e9a8ebb296
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_community_facility_type
+field_name: field_community_facility_type
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

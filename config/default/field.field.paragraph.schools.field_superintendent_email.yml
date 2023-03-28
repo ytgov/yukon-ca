@@ -1,0 +1,25 @@
+uuid: d5eda251-ba47-429a-bebe-fdce095774fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_superintendent_email
+    - paragraphs.paragraphs_type.schools
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.schools.field_superintendent_email
+field_name: field_superintendent_email
+entity_type: paragraph
+bundle: schools
+label: Email
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

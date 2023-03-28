@@ -1,0 +1,18 @@
+uuid: 0e170337-bd92-4a1e-845a-d2986a84ad4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.health_facilities
+target_entity_type_id: taxonomy_term
+target_bundle: health_facilities
+default_langcode: site_default
+language_alterable: true

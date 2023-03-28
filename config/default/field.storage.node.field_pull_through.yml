@@ -1,0 +1,21 @@
+uuid: 65d168c2-e565-4650-a0a9-fb1d71595689
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pull_through
+field_name: field_pull_through
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,26 @@
+uuid: 96423c8a-25c1-4655-b8b0-ca4e277c4c40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_updated
+    - node.type.documents
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_last_updated
+field_name: field_last_updated
+entity_type: node
+bundle: documents
+label: 'Last updated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

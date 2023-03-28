@@ -1,0 +1,30 @@
+uuid: 812898cc-bfac-4e20-bca4-c655ec2197df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.call_to_action
+  module:
+    - allowed_formats
+    - epp
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.call_to_action.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: call_to_action
+label: 'Call to action description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

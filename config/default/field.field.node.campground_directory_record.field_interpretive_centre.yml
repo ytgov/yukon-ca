@@ -1,0 +1,29 @@
+uuid: 9d9e22e0-2dc8-4523-8f4b-69b111310cf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interpretive_centre
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_interpretive_centre
+field_name: field_interpretive_centre
+entity_type: node
+bundle: campground_directory_record
+label: 'Interpretive centre'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

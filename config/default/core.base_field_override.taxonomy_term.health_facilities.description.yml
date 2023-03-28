@@ -1,0 +1,20 @@
+uuid: f37e91bd-e20a-4e64-bbe2-9f2ccc3d57be
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+  module:
+    - text
+id: taxonomy_term.health_facilities.description
+field_name: description
+entity_type: taxonomy_term
+bundle: health_facilities
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,25 @@
+uuid: b9a3d046-4c63-404e-ab69-4126b2c9a276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_button_text
+    - paragraphs.paragraphs_type.call_to_action
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.call_to_action.field_button_text
+field_name: field_button_text
+entity_type: paragraph
+bundle: call_to_action
+label: 'Button text'
+description: 'Use an action verb eg. Apply for refund'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

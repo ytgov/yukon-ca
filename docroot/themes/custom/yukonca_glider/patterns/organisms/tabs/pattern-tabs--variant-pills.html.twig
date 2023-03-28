@@ -1,0 +1,69 @@
+{# Prepare attributes #}
+{% set prefix = 'pills' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  more_link|render ? 'has-more-link' : ''
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% set content %}
+<div class="container border-b border-solid border-gray-lightgray pb-8">
+  {% if title %}
+    <div class="title">
+      <h2>{{ title }}</h2>
+    </div>
+  {% endif %}
+  <div class="{{ prefix }}-wrapper border-solid border-y border-gray-lightborder">
+    <ul class="nav nav-pills {{ sequential|replace({'_':'-'}) }} block columns-1 sm:columns-2 pl-8 sm:pl-12 py-6" id="nav-tab-{{ tab_id }}" role="tablist">
+      {% for item in items %}
+        {% set id = item.title|trim|clean_id %}
+        <li class="nav-item w-full mb-12 pl-10 list-none" role="presentation">
+          <a class="nav-link hover:bg-none {{ loop.first ? 'active' }}
+          before:bg-blue-500 before:rounded-full before:w-8 before:h-8 before:min-w-8 before:inline-block before:-ml-10
+          before:text-white before:text-base before:text-center before:pt-1 before:mr-2 before:font-semibold
+          before:hover:bg-blue-200 "
+             id="nav-{{ id }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ id }}" type="button" role="tab"
+             aria-controls="nav-{{ id }}" {% if loop.first %} aria-selected="true" {% else %} aria-selected="false" {% endif %}>
+            {{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="summary important-paragraph mt-4">{{ summary }}</div>
+
+  <div class="tab-content mt-15" id="nav-tab-content-{{ tab_id }}">
+    {% for item in items %}
+      {% set id = item.title|trim|clean_id %}
+      <div class="tab-pane fade show focus-visible:outline-0 {% if loop.first %} active {% endif %}" id="nav-{{ id }}" role="tabpanel"
+           aria-labelledby="nav-{{ id }}-tab" tabindex="0">
+        <div class="field-item text-2xl my-4 font-semibold">{{ item.title }} </div>
+        <div class="field-item-content field__content">
+          {{ item.content|raw }}
+        </div>
+      </div>
+    {% endfor %}
+    <div class="{{ prefix }}-arrow flex justify-between items-center py-8">
+      <div class="prev-step btn-links hide">
+        <div class="{{ prefix }}-btn-link flex gap-2 text-blue-400 hover:text-blue-50  cursor-pointer text-2xl">
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          <span class="text-base">{{ 'Previous'|t }}</span>
+        </div>
+      </div>
+      <div class="next-step btn-links">
+        <div class="{{ prefix }}-btn-link flex gap-2 text-blue-400 hover:text-blue-50 cursor-pointer text-2xl">
+          <span class="text-base">{{ 'Next'|t }}</span>
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </div>
+  {% endset %}
+
+
+{{ pattern('section', {
+  title: title,
+  content: content,
+  attribs: attributes,
+}, 'default') }}
