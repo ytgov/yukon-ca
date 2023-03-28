@@ -25,6 +25,10 @@
       @apply py-5 md:px-6 mb-0;
       @apply flex justify-between flex-wrap;
 
+      h2 {
+        @apply mt-0;
+      }
+
       a {
         @apply px-0;
       }
