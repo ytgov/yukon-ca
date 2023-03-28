@@ -1,0 +1,48 @@
+uuid: 2e645327-7599-40dc-9856-b78a0abf3c3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_facts
+    - node.type.news
+    - paragraphs.paragraphs_type.quick_facts
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.news.field_quick_facts
+field_name: field_quick_facts
+entity_type: node
+bundle: news
+label: 'Quick facts'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      quick_facts: quick_facts
+    negate: 0
+    target_bundles_drag_drop:
+      image_gallery:
+        weight: 6
+        enabled: false
+      primary_content:
+        weight: 7
+        enabled: false
+      quick_facts:
+        weight: 8
+        enabled: true
+      quotes:
+        weight: 9
+        enabled: false
+      secondary_content:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

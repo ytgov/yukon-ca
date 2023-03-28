@@ -1,0 +1,25 @@
+uuid: 9ff05738-f30a-421d-9314-a7185b3a9a17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_copyright_notice_text
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: '© Copyright [current-date:custom:Y] Government of Yukon'
+    on_update: 0
+id: node.campaign_page.field_copyright_notice_text
+field_name: field_copyright_notice_text
+entity_type: node
+bundle: campaign_page
+label: 'Copyright notice text'
+description: 'Optional. Edit copyright notice text, if required.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -5,9 +5,7 @@
  * Theme specific functionality.
  */
 
-use Drupal\file\Entity\File;
-use Drupal\media\Entity\Media;
-use Drupal\node\Entity\Node;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_preprocess_html().
@@ -41,21 +39,6 @@ function yukonca_glider_preprocess_block(&$variables) {
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter() for page template.
- */
-function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // Add a template suggestions for node type.
-  /** @var \Drupal\node\NodeInterface $node */
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    if (is_numeric($node)) {
-      $node = Node::load($node);
-    }
-
-    $suggestions[] = 'page__node__' . $node->bundle();
-  }
-}
-
-/**
  * Implements template_preprocess_node().
  */
 function yukonca_glider_preprocess_node(&$variables) {
@@ -73,18 +56,58 @@ function yukonca_glider_preprocess_node(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
+  $section_paragraphs = array_column($variables["content"]["field_paragraphs"], '#paragraph');
+  $node = $variables['node'];
+
+  $variables['tabs']['items'] = [];
+  foreach ($section_paragraphs as $paragraph) {
+    $variables['tabs']['items'][] = [
+      'title' => $paragraph->get('field_title')->getString(),
+      'content' => $paragraph->get('field_section_content')->value,
+    ];
+  }
+
+  $variables['tabs']['links_icon_type'] = $node->get('field_sequential_non_sequential')
+    ->getString();
+  // Use for pills ID.
+  $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__documents(&$variables) {
+  $node = $variables['node'];
+  if ($node->hasField('field_document_upload') && !$node->get('field_document_upload')->isEmpty()) {
+    $media_file = $node->get('field_document_upload')->entity;
+    if (!empty($media_file) && $media_file->hasField('field_media_file') && !$media_file->get('field_media_file')->isEmpty()) {
+      $file = \Drupal::entityTypeManager()
+        ->getStorage('file')
+        ->load($media_file->get('field_media_file')->getString());
+      if (!empty($file)) {
+        $variables['document_size'] = format_size($file->getSize());
+        $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
+      }
+    }
+  }
+}
+
+/**
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
-  if ($variables['node']) {
-    $bundle = $variables['node']->bundle();
-    if ($bundle == 'landing_page' || $bundle == 'landing_page_level_2') {
-      $node = $variables['node'];
-      $mid = $node->field_svg_upload[0]->getValue()['target_id'];
-      $fid = Media::load($mid)->field_media_image[0]->getValue()['target_id'];
-      $file = File::load($fid);
-      $file_url = $file->createFileUrl(TRUE);
-      $variables['header_image'] = $file_url;
+  if (!empty($variables['node'])) {
+    $node = $variables['node'];
+    if (!empty($node->field_icon_dark) && !empty($node->field_icon_dark[0])) {
+      $image = $node->field_icon_dark[0]->view([
+        'type' => 'entity_reference_entity_view',
+        'label' => 'hidden',
+      ]);
+      $variables['header_image'] = $image;
     }
   }
 }

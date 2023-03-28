@@ -1,0 +1,25 @@
+uuid: cb2bdcdf-117a-46c2-bbcb-b342288cea5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_email
+    - paragraphs.paragraphs_type.section
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.section.field_section_email
+field_name: field_section_email
+entity_type: paragraph
+bundle: section
+label: Email
+description: 'Enter the email address for this branch.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,58 @@
+uuid: 618167cf-97e2-4e8e-b6e4-962edd2748d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_and_image.field_display_section_title
+    - field.field.paragraph.text_and_image.field_image
+    - field.field.paragraph.text_and_image.field_position_on_page
+    - field.field.paragraph.text_and_image.field_section_content
+    - field.field.paragraph.text_and_image.field_source_credit
+    - field.field.paragraph.text_and_image.field_title
+    - paragraphs.paragraphs_type.text_and_image
+  module:
+    - media
+    - text
+id: paragraph.text_and_image.default
+targetEntityType: paragraph
+bundle: text_and_image
+mode: default
+content:
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_section_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_source_credit:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_display_section_title: true
+  field_position_on_page: true
+  search_api_excerpt: true

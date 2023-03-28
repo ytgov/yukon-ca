@@ -1,0 +1,25 @@
+uuid: af5aa48d-b449-433a-b22c-e14c3bcd9e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.call_to_action
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.call_to_action.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: call_to_action
+label: 'Section title'
+description: 'Write a short and concise clear heading in sentence case.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

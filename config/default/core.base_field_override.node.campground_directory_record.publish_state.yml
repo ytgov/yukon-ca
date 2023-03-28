@@ -1,0 +1,20 @@
+uuid: a369504b-10b5-40d1-bd2d-e5428ee2039d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campground_directory_record
+  module:
+    - options
+id: node.campground_directory_record.publish_state
+field_name: publish_state
+entity_type: node
+bundle: campground_directory_record
+label: 'Publish state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

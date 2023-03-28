@@ -1,0 +1,18 @@
+uuid: 8d3798a4-92a7-4e9f-806d-35c7b851aed5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    parent: 'main-menu:0:'
+  scheduler: {  }
+name: Places
+type: directory_records_places
+description: 'Use for government facilities, buildings and places of interest in Yukon.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

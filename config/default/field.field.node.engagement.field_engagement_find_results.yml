@@ -1,0 +1,26 @@
+uuid: 4ee46235-a607-4ba0-b15a-c638e27c8ebe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_find_results
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_find_results
+field_name: field_engagement_find_results
+entity_type: node
+bundle: engagement
+label: 'Where can I find results?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

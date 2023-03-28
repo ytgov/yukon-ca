@@ -1,0 +1,28 @@
+uuid: a9fa433e-993c-46bf-8274-2bd5268371e5
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.blog_type.field_agency_logo
+    - field.field.taxonomy_term.blog_type.field_featured_image
+    - taxonomy.vocabulary.blog_type
+  module:
+    - text
+id: taxonomy_term.blog_type.full
+targetEntityType: taxonomy_term
+bundle: blog_type
+mode: full
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_agency_logo: true
+  field_featured_image: true
+  langcode: true
+  search_api_excerpt: true

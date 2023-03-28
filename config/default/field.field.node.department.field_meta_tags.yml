@@ -1,0 +1,26 @@
+uuid: ece66e91-1074-4062-86dd-16a6ce28ea81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.department
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: department
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -1,0 +1,19 @@
+uuid: 7f1e4d3d-5dd7-4cce-8a76-9c672a53083d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_engagement_participate
+field_name: field_engagement_participate
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,25 @@
+uuid: 46489024-ff2c-4317-a58e-ac0c2ab4d372
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_document_name
+    - media.type.document
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: media.document.field_document_name
+field_name: field_document_name
+entity_type: media
+bundle: document
+label: 'Document Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

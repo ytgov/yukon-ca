@@ -1,0 +1,21 @@
+id: yukon_migrate_quote
+label: Yukon Migrate Quote Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: quote_block
+  constants:
+    default_text_format: full_html
+process:
+  field_attributor/value: field_attributor/0/value
+  field_attributor/format: constants/default_text_format
+
+  field_section_content/value: field_quote_block/0/value
+  field_section_content/format: constants/default_text_format
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: quote

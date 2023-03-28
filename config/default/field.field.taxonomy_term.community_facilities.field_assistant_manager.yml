@@ -1,0 +1,25 @@
+uuid: 14228bc8-bd26-4904-b7b2-000ffa3e5a3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_assistant_manager
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_assistant_manager
+field_name: field_assistant_manager
+entity_type: taxonomy_term
+bundle: community_facilities
+label: 'Assistant manager'
+description: 'Optional. Include, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

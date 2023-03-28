@@ -1,0 +1,26 @@
+uuid: a511c846-262b-4603-a0e1-3399a7a2b1b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - metatag
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: campground_directory_record
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

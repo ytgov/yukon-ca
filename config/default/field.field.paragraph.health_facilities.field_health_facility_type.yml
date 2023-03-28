@@ -1,0 +1,35 @@
+uuid: 0e635494-6101-451d-941e-eeb7dc1ef2ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_health_facility_type
+    - paragraphs.paragraphs_type.health_facilities
+    - taxonomy.vocabulary.health_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.health_facilities.field_health_facility_type
+field_name: field_health_facility_type
+entity_type: paragraph
+bundle: health_facilities
+label: 'Health facility type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      health_facilities: health_facilities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

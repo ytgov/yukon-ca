@@ -1,0 +1,22 @@
+uuid: 44af2046-2868-49f4-994e-db4d9ff69be9
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.metatag
+    - field.field.config_pages.metatag.field_wetkit_metatag_creator
+id: config_pages.metatag.default
+targetEntityType: config_pages
+bundle: metatag
+mode: default
+content:
+  field_wetkit_metatag_creator:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

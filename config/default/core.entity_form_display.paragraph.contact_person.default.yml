@@ -1,0 +1,55 @@
+uuid: 1566bb55-2e8a-4b7b-8a60-1e38f04f380e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_person.field_contact_person_email
+    - field.field.paragraph.contact_person.field_contact_person_name
+    - field.field.paragraph.contact_person.field_contact_person_position
+    - field.field.paragraph.contact_person.field_contact_person_telephone
+    - paragraphs.paragraphs_type.contact_person
+id: paragraph.contact_person.default
+targetEntityType: paragraph
+bundle: contact_person
+mode: default
+content:
+  field_contact_person_email:
+    type: email_default
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_contact_person_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_person_position:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_person_telephone:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

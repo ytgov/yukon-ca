@@ -36,26 +36,10 @@
     {% endif %}
     {{
       pattern('column_layout_card', {
-        main_link: 'What are you looking for?',
+        main_link: 'What are you looking for?' | t,
         links: items,
       })
      }}
-    {# {% for item in items %}
-      {%
-        set classes = [
-          'menu-item',
-          item.is_expanded ? 'menu-item--expanded',
-          item.is_collapsed ? 'menu-item--collapsed',
-          item.in_active_trail ? 'menu-item--active-trail',
-        ]
-      %}
-      <div{{ item.attributes.addClass(classes) }}>
-        {{ link(item.title, item.url) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      </div>
-    {% endfor %} #}
     </div>
   {% endif %}
 {% endmacro %}

@@ -1,0 +1,250 @@
+uuid: c693bdf1-4788-4b27-9cdf-712247edf7b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.campaign_page.field_add_social_media_channels
+    - field.field.node.campaign_page.field_campaign_home_logo_display
+    - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_type
+    - field.field.node.campaign_page.field_child_campaign_pages
+    - field.field.node.campaign_page.field_copyright_notice_text
+    - field.field.node.campaign_page.field_department_term
+    - field.field.node.campaign_page.field_display_copyright_notice
+    - field.field.node.campaign_page.field_hero_image
+    - field.field.node.campaign_page.field_highlight_color
+    - field.field.node.campaign_page.field_image
+    - field.field.node.campaign_page.field_intro_text_block
+    - field.field.node.campaign_page.field_link_color
+    - field.field.node.campaign_page.field_logos
+    - field.field.node.campaign_page.field_meta_tags
+    - field.field.node.campaign_page.field_navigation_jump_point
+    - field.field.node.campaign_page.field_page_description
+    - field.field.node.campaign_page.field_paragraphs
+    - field.field.node.campaign_page.field_parent_campaign_page
+    - field.field.node.campaign_page.field_social_network
+    - field.field.node.campaign_page.field_source_credit
+    - field.field.node.campaign_page.field_use_navigation_jump_points
+    - field.field.node.campaign_page.field_yukon_editorial_team
+    - node.type.campaign_page
+  module:
+    - color_field
+    - entity_reference_revisions
+    - link
+    - metatag
+    - options
+    - text
+    - user
+id: node.campaign_page.default
+targetEntityType: node
+bundle: campaign_page
+mode: default
+content:
+  field_add_social_media_channels:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_campaign_home_logo_display:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_campaign_home_logo_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_campaign_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_child_campaign_pages:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_copyright_notice_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_department_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_display_copyright_notice:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_hero_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_highlight_color:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_intro_text_block:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_link_color:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_logos:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_navigation_jump_point:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_parent_campaign_page:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_social_network:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_source_credit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_use_navigation_jump_points:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_yukon_editorial_team:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

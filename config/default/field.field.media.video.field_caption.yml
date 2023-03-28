@@ -1,0 +1,25 @@
+uuid: cc54f93e-e657-4adb-8186-13533a9e3d71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_caption
+    - media.type.video
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: media.video.field_caption
+field_name: field_caption
+entity_type: media
+bundle: video
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

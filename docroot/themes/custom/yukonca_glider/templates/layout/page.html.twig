@@ -59,9 +59,19 @@
 
   {{ page.secondary_menu }}
 
+  {% if header_image %}
+    {{
+      pattern('hero', {
+        title: node.label,
+        image: header_image,
+        variant: 'image',
+      })
+    }}
+  {% endif %}
+
   {{ page.breadcrumb }}
 
-  {{ page.highlighted }}
+  {{ page.pre_content }}
 
   {{ page.help }}
 
@@ -75,16 +85,21 @@
         </aside>
       {% endif %}
 
-      <div class="layout-content col-sm-9 col-md-8 px-3.5">
+      <div class="layout-content {{ page.sidebar_first ? 'col-sm-9 col-md-8' }}  px-3.5">
         {{ page.content }}
-      </div>{# /.layout-content #}
-
+        {{ page.post_content }}
+      </div>
+      {# /.layout-content #}
       {% if page.sidebar_second %}
         <aside class="layout-sidebar-second" role="complementary">
           {{ page.sidebar_second }}
         </aside>
       {% endif %}
     </div>
+
+    {% if page.post_content %}
+      {{ page.post_content }}
+    {% endif %}
 
   </main>
 

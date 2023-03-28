@@ -1,0 +1,47 @@
+uuid: 80f9d790-a31b-4416-b893-1eef248ba961
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assign_to
+    - node.type.basic_page
+    - node.type.documents
+    - node.type.engagement
+    - node.type.in_page_alert
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.multi_step_page
+    - node.type.topics_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.in_page_alert.field_assign_to
+field_name: field_assign_to
+entity_type: node
+bundle: in_page_alert
+label: 'In-page alert assignment'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      basic_page: basic_page
+      documents: documents
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
+      multi_step_page: multi_step_page
+      engagement: engagement
+      topics_page: topics_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: basic_page
+field_type: entity_reference

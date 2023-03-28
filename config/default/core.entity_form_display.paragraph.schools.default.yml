@@ -1,0 +1,192 @@
+uuid: b80916ff-fcab-4e6a-b18b-5c1b8efe5760
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.schools.field_education_facility_type
+    - field.field.paragraph.schools.field_grades_from
+    - field.field.paragraph.schools.field_grades_to
+    - field.field.paragraph.schools.field_principal
+    - field.field.paragraph.schools.field_principal_email
+    - field.field.paragraph.schools.field_principal_telephone
+    - field.field.paragraph.schools.field_superintendent
+    - field.field.paragraph.schools.field_superintendent_email
+    - field.field.paragraph.schools.field_superintendent_phone
+    - field.field.paragraph.schools.field_team_leader
+    - field.field.paragraph.schools.field_team_leader_email
+    - field.field.paragraph.schools.field_team_leader_phone
+    - paragraphs.paragraphs_type.schools
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_grades:
+      children:
+        - field_grades_from
+        - field_grades_to
+      label: Grades
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_principal:
+      children:
+        - field_principal
+        - field_principal_telephone
+        - field_principal_email
+      label: Principal
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_team_leader:
+      children:
+        - field_team_leader
+        - field_team_leader_phone
+        - field_team_leader_email
+      label: 'Team leader'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_superintendent:
+      children:
+        - field_superintendent
+        - field_superintendent_phone
+        - field_superintendent_email
+      label: Superintendent
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: paragraph.schools.default
+targetEntityType: paragraph
+bundle: schools
+mode: default
+content:
+  field_education_facility_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_grades_from:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_grades_to:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_principal:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_principal_email:
+    type: email_default
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_principal_telephone:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_superintendent:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_superintendent_email:
+    type: email_default
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_superintendent_phone:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_team_leader:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_team_leader_email:
+    type: email_default
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_team_leader_phone:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

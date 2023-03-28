@@ -1,0 +1,28 @@
+uuid: b1109831-4e54-4228-b6fc-2d4b07f7095e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.taxonomy_term
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedformtaxonomy_termpage_1
+theme: yukonca_glider
+region: sidebar_second
+weight: -6
+provider: null
+plugin: 'views_exposed_filter_block:taxonomy_term-page_1'
+settings:
+  id: 'views_exposed_filter_block:taxonomy_term-page_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/blogs/*'

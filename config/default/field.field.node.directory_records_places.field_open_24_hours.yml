@@ -1,0 +1,29 @@
+uuid: 705496a3-2339-4c30-a6f7-028955dfc8bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_24_hours
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_open_24_hours
+field_name: field_open_24_hours
+entity_type: node
+bundle: directory_records_places
+label: 'Open 24 hours'
+description: 'Select if this location is open 24 hours'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Open 24 Hours'
+  off_label: 'Off'
+field_type: boolean

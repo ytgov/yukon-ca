@@ -101,6 +101,12 @@ process:
 
     content_translation_source: source
     content_translation_outdated: translate
+
+    path/alias: alias
+    path/pathauto: pathauto
+
+    moderation_state: moderation_state
+
 migration_dependencies:
     required:
         - yukon_migrate_home_page
@@ -111,3 +117,4 @@ migration_dependencies:
         - yukon_migrate_image_gallery
         - yukon_migrate_department
         - yukon_migrate_teams
+        - yukon_migrate_image_gallery
