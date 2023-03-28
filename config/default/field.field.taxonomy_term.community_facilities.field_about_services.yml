@@ -1,0 +1,25 @@
+uuid: 4a0e2dee-fc5a-437b-9da2-96c350180a83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_about_services
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_about_services
+field_name: field_about_services
+entity_type: taxonomy_term
+bundle: community_facilities
+label: 'About / Services'
+description: 'Optional. Enter, if applicable.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

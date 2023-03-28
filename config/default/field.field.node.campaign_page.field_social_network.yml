@@ -1,0 +1,60 @@
+uuid: ffb2ccea-513c-468d-8ee9-6cd4a4951bec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_network
+    - node.type.campaign_page
+    - paragraphs.paragraphs_type.social_network
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_social_network
+field_name: field_social_network
+entity_type: node
+bundle: campaign_page
+label: 'Social network'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      social_network: social_network
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 8
+        enabled: false
+      collapsable_field:
+        weight: 9
+        enabled: false
+      image_gallery:
+        weight: 10
+        enabled: false
+      multi_step:
+        weight: 11
+        enabled: false
+      navigation_jump_point:
+        weight: 14
+        enabled: false
+      primary_content:
+        weight: 12
+        enabled: false
+      secondary_content:
+        weight: 13
+        enabled: false
+      social_network:
+        weight: 17
+        enabled: true
+      sub_heading:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

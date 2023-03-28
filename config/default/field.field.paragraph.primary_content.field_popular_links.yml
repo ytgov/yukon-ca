@@ -1,0 +1,45 @@
+uuid: 45563444-e4e1-4179-b64b-d5214613adfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_popular_links
+    - node.type.directory_records_places
+    - node.type.landing_page
+    - node.type.multi_step_page
+    - node.type.news
+    - paragraphs.paragraphs_type.primary_content
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.primary_content.field_popular_links
+field_name: field_popular_links
+entity_type: paragraph
+bundle: primary_content
+label: 'Popular links'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      wetkit_page: wetkit_page
+      campaign_page: campaign_page
+      documents: documents
+      landing_page: landing_page
+      multi_step_page: multi_step_page
+      news: news
+      directory_records_places: directory_records_places
+      topics_page: topics_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: wetkit_page
+field_type: entity_reference

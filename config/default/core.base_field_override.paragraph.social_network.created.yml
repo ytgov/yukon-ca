@@ -1,0 +1,18 @@
+uuid: ab060dc7-6bff-4209-9645-63549ab26b5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.social_network
+id: paragraph.social_network.created
+field_name: created
+entity_type: paragraph
+bundle: social_network
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

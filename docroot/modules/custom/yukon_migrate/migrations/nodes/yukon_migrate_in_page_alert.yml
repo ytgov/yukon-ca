@@ -25,8 +25,6 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
-  path/alias: alias
-  path/pathauto: pathauto
 
   body/value: body/0/value
   body/format: constants/default_text_format
@@ -37,24 +35,35 @@ process:
     source: field_department_term
     no_stub: true
   # Todo: Complete this field after adding migrations to all CTs.
-  field_field_assign_to:
-    - plugin: skip_on_empty
-      method: process
-      source: field_field_assign_to
-    - plugin: migration_lookup
-      migration:
-        - yukon_migrate_basic_page.yml
-      no_stub: true
+  field_assign_to:
+    - plugin: sub_process
+      source: field_assign_to
+      process:
+        target_id:
+          plugin: migration_lookup
+          source: target_id
+          migration:
+            - yukon_migrate_basic_page
+            - yukon_migrate_documents_page
+            - yukon_migrate_landing_page
+            - yukon_migrate_landing_page_level_2
+            - yukon_migrate_multi_step_page
+            - yukon_migrate_topics_page
+          no_stub: true
   field_yukon_editorial_team:
     plugin: migration_lookup
     migration: yukon_migrate_teams
     source: field_yukon_editorial_team
     no_stub: true
   moderation_state: moderation_state
+
+  path/alias: alias
+  path/pathauto: pathauto
 destination:
   plugin: entity:node
   default_bundle: in_page_alert
 migration_dependencies:
   optional:
+    - yukon_migrate_basic_page
     - yukon_migrate_department
     - yukon_migrate_teams

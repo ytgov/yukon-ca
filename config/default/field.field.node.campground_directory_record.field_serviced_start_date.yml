@@ -1,0 +1,26 @@
+uuid: ca22832b-bc57-4039-8540-a6ba0feffa31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_serviced_start_date
+    - node.type.campground_directory_record
+  module:
+    - datetime
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_serviced_start_date
+field_name: field_serviced_start_date
+entity_type: node
+bundle: campground_directory_record
+label: 'Serviced start date'
+description: 'Enter date YYYY-MMM-DD'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

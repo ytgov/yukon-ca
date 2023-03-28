@@ -1,0 +1,20 @@
+uuid: bc533d0d-bb33-46c1-8d36-1a4308ba7db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+  module:
+    - options
+id: node.directory_records_places.publish_state
+field_name: publish_state
+entity_type: node
+bundle: directory_records_places
+label: 'Publish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

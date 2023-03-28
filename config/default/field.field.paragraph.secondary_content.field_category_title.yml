@@ -1,0 +1,25 @@
+uuid: acef1343-4849-4297-b626-c003bab1a7b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_category_title
+    - paragraphs.paragraphs_type.secondary_content
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.secondary_content.field_category_title
+field_name: field_category_title
+entity_type: paragraph
+bundle: secondary_content
+label: 'Category title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -18,7 +18,7 @@ bundle: news
 label: 'News release #'
 description: 'Format YY-###'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

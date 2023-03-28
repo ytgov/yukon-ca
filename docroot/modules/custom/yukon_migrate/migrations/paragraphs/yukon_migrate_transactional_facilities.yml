@@ -1,0 +1,28 @@
+id: yukon_migrate_transactional_facilities
+label: Yukon Migrate Transactional Facilities field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: transactional_facilities
+  constants:
+    default_text_format: full_html
+process:
+
+  field_transactional_facility_typ:
+    plugin: migration_lookup
+    migration: yukon_migrate_transactional_facility_type
+    source: field_transactional_facility_typ
+    no_stub: true
+  field_tf_services/value: field_tf_services/0/value
+  field_tf_services/format: constants/default_text_format
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: transactional_facilities
+migration_dependencies:
+  optional:
+    - yukon_migrate_sanitary_facility_type_terms

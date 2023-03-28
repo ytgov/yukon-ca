@@ -1,0 +1,34 @@
+id: yukon_migrate_primary_content
+label: Yukon Migrate Primary Content field Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: primary_content
+  constants:
+    default_text_format: full_html
+process:
+
+    field_popular_links:
+        plugin: sub_process
+        source: field_popular_links
+        process:
+            target_id:
+                plugin: migration_lookup
+                source: target_id
+                migration:
+                    - yukon_migrate_basic_page
+                    - yukon_migrate_landing_page
+                    - yukon_migrate_landing_page_level_2
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: primary_content
+migration_dependencies:
+    optional:
+        - yukon_migrate_basic_page
+        - yukon_migrate_landing_page
+        - yukon_migrate_landing_page_level_2

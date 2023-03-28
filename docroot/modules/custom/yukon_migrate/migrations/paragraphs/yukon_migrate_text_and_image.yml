@@ -1,0 +1,32 @@
+id: yukon_migrate_text_and_image
+label: Yukon Migrate Text and Image Paragraph
+migration_tags:
+  - Drupal 7
+  - Content
+  - Paragraphs Content
+migration_group: legacy
+source:
+  plugin: d7_paragraphs_item
+  bundle: text_and_image_block
+  constants:
+    default_text_format: full_html
+process:
+  field_title: field_section_title
+  field_display_section_title: field_display_section_title
+  field_position_on_page: field_position_on_page
+  field_source_credit: field_source_credit
+
+  field_image:
+    plugin: migration_lookup
+    source: field_image_block/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_section_content/value: field_text_block/0/value
+  field_section_content/format: constants/default_text_format
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: text_and_image
+migration_dependencies:
+  required:
+    - yukon_migrate_images

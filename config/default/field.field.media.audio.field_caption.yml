@@ -1,0 +1,25 @@
+uuid: 851febb4-fce6-47b3-91dc-c702afa76992
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_caption
+    - media.type.audio
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: media.audio.field_caption
+field_name: field_caption
+entity_type: media
+bundle: audio
+label: Caption
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

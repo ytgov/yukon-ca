@@ -1,0 +1,8 @@
+uuid: 163d0bf3-942d-4bba-a1f4-575fe65a01a1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Health facilities'
+vid: health_facilities
+description: ''
+weight: 0

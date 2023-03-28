@@ -1,0 +1,35 @@
+uuid: aaabb565-35cd-4503-a607-a88157a0b823
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_department_term
+    - node.type.campground_directory_record
+    - taxonomy.vocabulary.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_department_term
+field_name: field_department_term
+entity_type: node
+bundle: campground_directory_record
+label: Department
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

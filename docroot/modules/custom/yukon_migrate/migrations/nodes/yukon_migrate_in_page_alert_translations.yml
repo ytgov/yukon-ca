@@ -1,0 +1,67 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_in_page_alert_translations
+label: Yukon Migrate In-Page Alert Nodes Translations
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+  - In-Page Alerts
+migration_group: legacy
+source:
+  plugin: d7_node_entity_translation
+  node_type: in_page_alert
+  constants:
+    default_text_format: full_html
+process:
+  nid:
+    plugin: migration_lookup
+    migration: yukon_migrate_in_page_alert
+    source: entity_id
+    no_stub: true
+
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: node_uid
+  status: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
+  title: title
+
+  body/value: body/0/value
+  body/format: constants/default_text_format
+
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+  # Todo: Complete this field after adding migrations to all CTs.
+  field_field_assign_to:
+    - plugin: migration_lookup
+      source: field_field_assign_to
+      migration:
+        - yukon_migrate_basic_page
+      no_stub: true
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+  moderation_state: moderation_state
+
+  path/alias: alias
+  path/pathauto: pathauto
+destination:
+  plugin: entity:node
+  default_bundle: in_page_alert
+  translations: true
+migration_dependencies:
+  optional:
+    - yukon_migrate_in_page_alert

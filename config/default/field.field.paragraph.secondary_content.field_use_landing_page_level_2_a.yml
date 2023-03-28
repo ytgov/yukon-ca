@@ -1,0 +1,29 @@
+uuid: 320ca4c6-015e-4c18-96e8-12cf32f3f6d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_use_landing_page_level_2_a
+    - paragraphs.paragraphs_type.secondary_content
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.secondary_content.field_use_landing_page_level_2_a
+field_name: field_use_landing_page_level_2_a
+entity_type: paragraph
+bundle: secondary_content
+label: 'Use landing page level 2 as heading'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

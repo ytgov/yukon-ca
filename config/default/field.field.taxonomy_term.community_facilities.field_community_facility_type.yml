@@ -1,0 +1,34 @@
+uuid: f3e076c2-6533-48a9-a8dc-55e6bb8b044b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_community_facility_type
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_community_facility_type
+field_name: field_community_facility_type
+entity_type: taxonomy_term
+bundle: community_facilities
+label: 'Community facility type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      community_facilities: community_facilities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

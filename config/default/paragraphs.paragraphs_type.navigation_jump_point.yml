@@ -1,0 +1,10 @@
+uuid: 5ec68652-ec95-4351-9741-59f490e18da0
+langcode: en
+status: true
+dependencies: {  }
+id: navigation_jump_point
+label: 'Navigation jump point'
+icon_uuid: null
+icon_default: null
+description: 'Use for simple, one page, Government of Yukon only or multi-jurisdictional campaigns.'
+behavior_plugins: {  }

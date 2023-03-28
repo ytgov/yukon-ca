@@ -1,0 +1,35 @@
+uuid: 48d2fa84-c9dc-446a-9c42-d69cfc9a142b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_landing_page_level_2
+    - node.type.landing_page_level_2
+    - paragraphs.paragraphs_type.secondary_content
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.secondary_content.field_landing_page_level_2
+field_name: field_landing_page_level_2
+entity_type: paragraph
+bundle: secondary_content
+label: 'Landing page level 2'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      landing_page_level_2: landing_page_level_2
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

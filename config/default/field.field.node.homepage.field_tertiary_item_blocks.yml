@@ -1,0 +1,35 @@
+uuid: 7248281e-d48c-4722-94b4-d4bc39f6b993
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tertiary_item_blocks
+    - node.type.homepage
+    - node.type.landing_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.homepage.field_tertiary_item_blocks
+field_name: field_tertiary_item_blocks
+entity_type: node
+bundle: homepage
+label: 'Tertiary item blocks'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      landing_page: landing_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
