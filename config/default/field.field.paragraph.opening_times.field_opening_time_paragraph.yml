@@ -1,0 +1,78 @@
+uuid: c7affcfc-3be3-4875-8068-0b083b8b2a54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_opening_time_paragraph
+    - paragraphs.paragraphs_type.opening_and_closing_times
+    - paragraphs.paragraphs_type.opening_times
+  module:
+    - entity_reference_revisions
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.opening_times.field_opening_time_paragraph
+field_name: field_opening_time_paragraph
+entity_type: paragraph
+bundle: opening_times
+label: 'Opening time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      opening_and_closing_times: opening_and_closing_times
+    negate: 0
+    target_bundles_drag_drop:
+      chart:
+        weight: 16
+        enabled: false
+      collapsable_field:
+        weight: 17
+        enabled: false
+      community_facilities:
+        weight: 18
+        enabled: false
+      contact_person:
+        weight: 19
+        enabled: false
+      health_facilities:
+        weight: 20
+        enabled: false
+      image_gallery:
+        weight: 21
+        enabled: false
+      opening_and_closing_times:
+        weight: 22
+        enabled: true
+      opening_times:
+        weight: 23
+        enabled: false
+      primary_content:
+        weight: 24
+        enabled: false
+      quick_facts:
+        weight: 25
+        enabled: false
+      quotes:
+        weight: 26
+        enabled: false
+      schools:
+        weight: 27
+        enabled: false
+      secondary_content:
+        weight: 28
+        enabled: false
+      transactional_facilities:
+        weight: 29
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

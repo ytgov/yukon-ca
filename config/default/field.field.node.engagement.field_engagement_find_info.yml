@@ -1,0 +1,26 @@
+uuid: 6eb30aef-6bb1-46bc-82fe-e176d480cf1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_engagement_find_info
+    - node.type.engagement
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.engagement.field_engagement_find_info
+field_name: field_engagement_find_info
+entity_type: node
+bundle: engagement
+label: 'Where can I find related information?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

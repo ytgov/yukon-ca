@@ -1,0 +1,26 @@
+uuid: 61f6ef65-ca01-48de-be7c-56ce6cb834ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.documents
+  module:
+    - epp
+    - text
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.documents.field_contact
+field_name: field_contact
+entity_type: node
+bundle: documents
+label: Contact
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

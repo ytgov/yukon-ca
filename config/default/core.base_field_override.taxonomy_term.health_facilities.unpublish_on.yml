@@ -1,0 +1,18 @@
+uuid: 1823611f-3c75-4182-b8aa-8bbc798705fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.health_facilities
+id: taxonomy_term.health_facilities.unpublish_on
+field_name: unpublish_on
+entity_type: taxonomy_term
+bundle: health_facilities
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

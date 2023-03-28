@@ -1,0 +1,18 @@
+uuid: 39bbf063-769e-4db6-92b4-52cd8d41f226
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.health_facilities
+id: paragraph.health_facilities.created
+field_name: created
+entity_type: paragraph
+bundle: health_facilities
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

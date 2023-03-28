@@ -1,0 +1,48 @@
+uuid: 9124a4b8-d201-41ce-b1dd-ae60f2813fbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.holiday_times.field_holiday
+    - field.field.paragraph.holiday_times.field_open
+    - field.field.paragraph.holiday_times.field_opening_time_paragraph
+    - paragraphs.paragraphs_type.holiday_times
+  module:
+    - entity_reference_revisions
+id: paragraph.holiday_times.default
+targetEntityType: paragraph
+bundle: holiday_times
+mode: default
+content:
+  field_holiday:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_open:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_opening_time_paragraph:
+    type: entity_reference_revisions_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

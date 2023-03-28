@@ -1,0 +1,25 @@
+uuid: 082fd203-d103-4d01-808c-8313ccffa42b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_assistant_manager_telephon
+    - taxonomy.vocabulary.community_facilities
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: taxonomy_term.community_facilities.field_assistant_manager_telephon
+field_name: field_assistant_manager_telephon
+entity_type: taxonomy_term
+bundle: community_facilities
+label: Telephone
+description: "Optional. Include, if applicable.\r\nUse format 1-###-###-####\r\nTo include an extension, use format 1-###-###-####, extension ####"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

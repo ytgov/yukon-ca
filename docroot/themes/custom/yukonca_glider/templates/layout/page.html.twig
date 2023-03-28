@@ -61,7 +61,7 @@
 
   {{ page.breadcrumb }}
 
-  {{ page.highlighted }}
+  {{ page.pre_content }}
 
   {{ page.help }}
 
@@ -105,6 +105,10 @@
       </div>{# /.layout-content #}
 
     </div>
+
+    {% if page.post_content %}
+      {{ page.post_content }}
+    {% endif %}
 
   </main>
 

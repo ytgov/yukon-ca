@@ -1,0 +1,25 @@
+uuid: 1b583a85-467d-4c03-9c48-0ea7af8a119d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minister_last_name
+    - node.type.department
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.department.field_minister_last_name
+field_name: field_minister_last_name
+entity_type: node
+bundle: department
+label: 'Last Name'
+description: "Enter the minister's last name."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

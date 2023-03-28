@@ -1,0 +1,20 @@
+uuid: 90558135-4f99-462f-9bf9-bd1bd53f05bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sanitary_facilities
+  module:
+    - path
+id: taxonomy_term.sanitary_facilities.path
+field_name: path
+entity_type: taxonomy_term
+bundle: sanitary_facilities
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,25 @@
+uuid: 9df19b9f-4d65-482e-ba3b-46911a14f6bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_top_tasks_name
+    - paragraphs.paragraphs_type.top_tasks
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.top_tasks.field_top_tasks_name
+field_name: field_top_tasks_name
+entity_type: paragraph
+bundle: top_tasks
+label: Name
+description: 'Enter the page name of the top task.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

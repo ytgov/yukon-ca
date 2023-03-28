@@ -1,0 +1,33 @@
+id: yukon_migrate_media_video_from_video_and_text_translations
+label: Yukon migrate Translation for Video Media Type
+audit: true
+migration_tags:
+  - Drupal 7
+  - Content
+  - Media
+migration_group: legacy
+source:
+  plugin: yukon_paragraphs_item
+  bundle: video_and_text_block
+  constants:
+    translation_language: 'fr'
+process:
+  mid:
+    - plugin: migration_lookup
+      source: item_id
+      migration: yukon_migrate_media_video_from_video_and_text
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+  field_media_oembed_video: field_video_block/0/video_url
+  field_caption: field_video_block/0/description
+  langcode:
+    plugin: default_value
+    default_value: "fr"
+destination:
+  plugin: entity:media
+  default_bundle: video
+  translations: true
+migration_dependencies:
+  optional:
+    - yukon_migrate_media_video_from_video_and_text

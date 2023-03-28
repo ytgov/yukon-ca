@@ -1,0 +1,32 @@
+uuid: d07a91fe-b92d-48ec-a6db-d9f1deb29ce5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.site_wide_alert.body
+    - field.field.node.site_wide_alert.field_department_term
+    - field.field.node.site_wide_alert.field_yukon_editorial_team
+    - node.type.site_wide_alert
+  module:
+    - text
+    - user
+id: node.site_wide_alert.teaser
+targetEntityType: node
+bundle: site_wide_alert
+mode: teaser
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_department_term: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

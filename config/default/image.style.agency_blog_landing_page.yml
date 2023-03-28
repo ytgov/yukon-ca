@@ -1,0 +1,21 @@
+uuid: cad9257f-2233-497b-a6b9-ef98d9ff0881
+langcode: en
+status: true
+dependencies: {  }
+name: agency_blog_landing_page
+label: 'Agency blog landing page'
+effects:
+  1e57e9b6-f804-4f4b-bf66-ca14b88e2c31:
+    uuid: 1e57e9b6-f804-4f4b-bf66-ca14b88e2c31
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 346
+      height: 277
+      anchor: center-center
+  dbbfc328-b847-48c2-a309-eceb279b43bb:
+    uuid: dbbfc328-b847-48c2-a309-eceb279b43bb
+    id: image_convert
+    weight: -10
+    data:
+      extension: jpeg

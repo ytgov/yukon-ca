@@ -1,0 +1,22 @@
+uuid: 51787627-3daf-44dc-b730-015e7ed92f8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.transactional_facilities
+id: paragraph.transactional_facilities.status
+field_name: status
+entity_type: paragraph
+bundle: transactional_facilities
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

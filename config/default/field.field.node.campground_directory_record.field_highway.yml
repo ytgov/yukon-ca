@@ -1,0 +1,35 @@
+uuid: 326ff252-cfc8-483a-afd9-66c5840301c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highway
+    - node.type.campground_directory_record
+    - taxonomy.vocabulary.highway_names
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_highway
+field_name: field_highway
+entity_type: node
+bundle: campground_directory_record
+label: Highway
+description: 'Select a Highway name from the list.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      highway_names: highway_names
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

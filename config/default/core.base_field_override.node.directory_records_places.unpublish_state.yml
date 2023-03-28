@@ -1,0 +1,20 @@
+uuid: d782b973-8eff-487b-968b-72ea3d6a5ca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+  module:
+    - options
+id: node.directory_records_places.unpublish_state
+field_name: unpublish_state
+entity_type: node
+bundle: directory_records_places
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

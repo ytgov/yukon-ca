@@ -1,0 +1,25 @@
+uuid: 28cdd68b-b505-45a9-8154-a4a5c812ae43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_photo_credit
+    - node.type.campground_directory_record
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_photo_credit
+field_name: field_photo_credit
+entity_type: node
+bundle: campground_directory_record
+label: 'Photo credit'
+description: 'Optionally include a photo credit for the uploaded image.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

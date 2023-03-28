@@ -1,0 +1,25 @@
+uuid: e0ea4ad9-4287-44a5-a073-b2a3894871d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fax
+    - node.type.directory_records_places
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.directory_records_places.field_fax
+field_name: field_fax
+entity_type: node
+bundle: directory_records_places
+label: Fax
+description: 'Optional. Include a fax number, if applicable use format 1-###-###-####'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

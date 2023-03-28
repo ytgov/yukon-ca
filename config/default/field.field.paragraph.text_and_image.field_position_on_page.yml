@@ -1,0 +1,28 @@
+uuid: d518811c-2f83-49ef-9374-dd8fdbf35ce6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_position_on_page
+    - paragraphs.paragraphs_type.text_and_image
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: paragraph.text_and_image.field_position_on_page
+field_name: field_position_on_page
+entity_type: paragraph
+bundle: text_and_image
+label: 'Position on page'
+description: "Select image position: left or right.\r\n - Left for text on the left (image on the right)\r\n - Right for text on the right (image on the left)"
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

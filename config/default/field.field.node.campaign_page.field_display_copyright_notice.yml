@@ -1,0 +1,29 @@
+uuid: 963d9aa2-e3fc-48e6-b919-9a1707ebbef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_copyright_notice
+    - node.type.campaign_page
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_display_copyright_notice
+field_name: field_display_copyright_notice
+entity_type: node
+bundle: campaign_page
+label: 'Display copyright notice'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

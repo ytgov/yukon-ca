@@ -1,0 +1,597 @@
+uuid: 4f4ee8a1-88c5-44b1-97fb-49092db9777b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.campground_directory_record.field_at_least_one_wheelchair_ac
+    - field.field.node.campground_directory_record.field_august_availability
+    - field.field.node.campground_directory_record.field_bear_proof_cache
+    - field.field.node.campground_directory_record.field_bear_proof_garbage_bins
+    - field.field.node.campground_directory_record.field_bear_proof_recycling_bins
+    - field.field.node.campground_directory_record.field_boat_dock
+    - field.field.node.campground_directory_record.field_boat_launch
+    - field.field.node.campground_directory_record.field_campground_site_type
+    - field.field.node.campground_directory_record.field_change_room
+    - field.field.node.campground_directory_record.field_cook_shelter
+    - field.field.node.campground_directory_record.field_department_term
+    - field.field.node.campground_directory_record.field_fire_ring
+    - field.field.node.campground_directory_record.field_gate_closed_date
+    - field.field.node.campground_directory_record.field_gate_open_date
+    - field.field.node.campground_directory_record.field_gate_open_year_round
+    - field.field.node.campground_directory_record.field_gps_coordinate_n
+    - field.field.node.campground_directory_record.field_gps_coordinate_w
+    - field.field.node.campground_directory_record.field_group_campsite
+    - field.field.node.campground_directory_record.field_hand_pump_or_water_tank_pr
+    - field.field.node.campground_directory_record.field_highway
+    - field.field.node.campground_directory_record.field_highway_kilometre
+    - field.field.node.campground_directory_record.field_hiking_trails
+    - field.field.node.campground_directory_record.field_image
+    - field.field.node.campground_directory_record.field_interpretive_centre
+    - field.field.node.campground_directory_record.field_july_availability
+    - field.field.node.campground_directory_record.field_june_availability
+    - field.field.node.campground_directory_record.field_map_upload
+    - field.field.node.campground_directory_record.field_may_availability
+    - field.field.node.campground_directory_record.field_meta_tags
+    - field.field.node.campground_directory_record.field_one_wheelchair_camp
+    - field.field.node.campground_directory_record.field_outdoor_ampitheatre
+    - field.field.node.campground_directory_record.field_outhouse_unisex
+    - field.field.node.campground_directory_record.field_page_description
+    - field.field.node.campground_directory_record.field_photo_credit
+    - field.field.node.campground_directory_record.field_picnic_tables
+    - field.field.node.campground_directory_record.field_playground
+    - field.field.node.campground_directory_record.field_pull_through
+    - field.field.node.campground_directory_record.field_recreation_site_type
+    - field.field.node.campground_directory_record.field_region
+    - field.field.node.campground_directory_record.field_registration_required
+    - field.field.node.campground_directory_record.field_related_tasks
+    - field.field.node.campground_directory_record.field_sandy_or_cobble_beach_with
+    - field.field.node.campground_directory_record.field_secondary_road
+    - field.field.node.campground_directory_record.field_secondary_road_kilometre
+    - field.field.node.campground_directory_record.field_september_availability
+    - field.field.node.campground_directory_record.field_serviced_end_date
+    - field.field.node.campground_directory_record.field_serviced_start_date
+    - field.field.node.campground_directory_record.field_site_description
+    - field.field.node.campground_directory_record.field_site_description_app
+    - field.field.node.campground_directory_record.field_site_directions
+    - field.field.node.campground_directory_record.field_social_sharing
+    - field.field.node.campground_directory_record.field_swimming_area_or_dock_no_l
+    - field.field.node.campground_directory_record.field_tent_pads_or_sites_availab
+    - field.field.node.campground_directory_record.field_total_sites
+    - field.field.node.campground_directory_record.field_viewing_structures_or_sign
+    - field.field.node.campground_directory_record.field_walk_in_sites
+    - field.field.node.campground_directory_record.field_warning
+    - field.field.node.campground_directory_record.field_yukon_editorial_team
+    - node.type.campground_directory_record
+  module:
+    - datetime
+    - fences
+    - link
+    - options
+    - search_api_solr
+    - text
+    - user
+id: node.campground_directory_record.default
+targetEntityType: node
+bundle: campground_directory_record
+mode: default
+content:
+  field_at_least_one_wheelchair_ac:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_august_availability:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_bear_proof_cache:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_bear_proof_garbage_bins:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_bear_proof_recycling_bins:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_boat_dock:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_boat_launch:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_campground_site_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_change_room:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_cook_shelter:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_department_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 52
+    region: content
+  field_fire_ring:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_gate_closed_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: yg_long
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 50
+    region: content
+  field_gate_open_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_gps_coordinate_n:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_gps_coordinate_w:
+    type: solr_highlighted_string
+    label: hidden
+    settings:
+      prefix: '<strong>'
+      suffix: '</strong>'
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_group_campsite:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_hand_pump_or_water_tank_pr:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_highway:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 43
+    region: content
+  field_highway_kilometre:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 44
+    region: content
+  field_hiking_trails:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_image:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 42
+    region: content
+  field_interpretive_centre:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_july_availability:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_june_availability:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_map_upload:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_may_availability:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_one_wheelchair_camp:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_outdoor_ampitheatre:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_outhouse_unisex:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_photo_credit:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 48
+    region: content
+  field_picnic_tables:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_playground:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pull_through:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 49
+    region: content
+  field_region:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 0
+    region: content
+  field_registration_required:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_related_tasks:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 40
+    region: content
+  field_sandy_or_cobble_beach_with:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_secondary_road:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_secondary_road_kilometre:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 46
+    region: content
+  field_september_availability:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_serviced_end_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: yg_long
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 4
+    region: content
+  field_serviced_start_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: yg_months
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 2
+    region: content
+  field_site_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_site_directions:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_social_sharing:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 39
+    region: content
+  field_swimming_area_or_dock_no_l:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_tent_pads_or_sites_availab:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_total_sites:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_viewing_structures_or_sign:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_walk_in_sites:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 51
+    region: content
+  field_warning:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 41
+    region: content
+hidden:
+  addtoany: true
+  field_gate_open_year_round: true
+  field_meta_tags: true
+  field_recreation_site_type: true
+  field_site_description_app: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

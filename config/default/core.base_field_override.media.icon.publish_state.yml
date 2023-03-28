@@ -1,0 +1,20 @@
+uuid: fb6b2cc5-2116-4aeb-9b52-7e5021ee3e30
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.icon
+  module:
+    - options
+id: media.icon.publish_state
+field_name: publish_state
+entity_type: media
+bundle: icon
+label: 'Publish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

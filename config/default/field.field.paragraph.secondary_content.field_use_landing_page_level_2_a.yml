@@ -18,7 +18,7 @@ bundle: secondary_content
 label: 'Use landing page level 2 as heading'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0
