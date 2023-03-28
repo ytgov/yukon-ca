@@ -44,11 +44,13 @@
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
+    'field__items',
+    'grid md:grid-cols-3 gap-3 my-5',
   ]
 %}
 
 <div{{ attributes.addClass(classes) }}>
   {% for item in items %}
-    <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+    {{ item.content }}
   {% endfor %}
 </div>
