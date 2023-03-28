@@ -1,0 +1,18 @@
+uuid: a28dc973-91f3-4649-97dd-165d5f50f89b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_gate_open_year_round
+field_name: field_gate_open_year_round
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

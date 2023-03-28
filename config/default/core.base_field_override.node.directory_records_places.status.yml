@@ -1,0 +1,22 @@
+uuid: 63764762-6d4e-49b9-aecb-f25c427af2b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory_records_places
+id: node.directory_records_places.status
+field_name: status
+entity_type: node
+bundle: directory_records_places
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

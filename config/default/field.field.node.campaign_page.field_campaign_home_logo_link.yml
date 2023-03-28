@@ -1,0 +1,28 @@
+uuid: 5a3b8a4d-8dd1-4ce7-a1b6-0e02c018ba47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_home_logo_link
+    - node.type.campaign_page
+  module:
+    - epp
+    - link
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_campaign_home_logo_link
+field_name: field_campaign_home_logo_link
+entity_type: node
+bundle: campaign_page
+label: 'Campaign Home logo link'
+description: 'This link provides the destination for the logo on the upper left portion of each hierarchy of Campaign Pages. It need only be specified for the Top Level page in the hierarchy.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

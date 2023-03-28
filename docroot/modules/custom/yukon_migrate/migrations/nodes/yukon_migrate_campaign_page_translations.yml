@@ -1,0 +1,185 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_campaign_page_translations
+label: Yukon Migrate Campaign Page Nodes
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+migration_group: legacy
+source:
+  plugin: yukon_node_entity_translation
+  node_type: campaign_page
+  constants:
+    default_text_format: full_html
+process:
+  nid:
+    plugin: migration_lookup
+    migration: yukon_migrate_campaign_page
+    source: entity_id
+    no_stub: true
+
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  content_translation_source: source
+  content_translation_outdated: translate
+  langcode: language
+  title: title
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  field_page_description: field_page_description
+  field_campaign_type: field_campaign_type
+
+  field_image:
+    plugin: migration_lookup
+    source: field_campaign_home_logo/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_campaign_home_logo_display: field_campaign_home_logo_display
+
+  field_campaign_home_logo_link:
+    plugin: yukon_migrate_links
+    source: field_campaign_home_logo_link
+
+  field_highlight_color: field_highlight_color/0/rgb
+  field_link_color: field_link_color/0/rgb
+
+  field_logos:
+    plugin: migration_lookup
+    source: field_multi_jurisdictional_logos/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_display_copyright_notice: field_display_copyright_notice
+
+  field_copyright_notice_text: field_copyright_notice_text
+
+  field_hero_image:
+    plugin: migration_lookup
+    source: field_hero_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
+
+  field_source_credit: field_source_credit
+
+  field_intro_text_block/value: field_intro_text_block/0/value
+  field_intro_text_block/format: constants/default_text_format
+
+  pseudo_field_flexible_content:
+    plugin: sub_process
+    source: field_flexible_content
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration:
+          - yukon_migrate_text
+          - yukon_migrate_text_and_image
+          - yukon_migrate_video
+          - yukon_migrate_video_and_text
+          - yukon_migrate_call_to_action
+          - yukon_migrate_quote
+          - yukon_migrate_charts
+        no_stub: true
+
+  field_paragraphs:
+    plugin: sub_process
+    source: '@pseudo_field_flexible_content'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  field_add_social_media_channels: field_add_social_media_channels
+
+  pseudo_field_social_network:
+    plugin: sub_process
+    source: field_social_network
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration: yukon_migrate_social_network
+        no_stub: true
+
+  field_social_network:
+    plugin: sub_process
+    source: '@pseudo_field_social_network'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  field_use_navigation_jump_points: field_use_navigation_jump_points
+
+  pseudo_field_navigation_jump_point:
+    plugin: sub_process
+    source: field_navigation_jump_point
+    process:
+      paragraph:
+        plugin: migration_lookup
+        source: value
+        migration: yukon_migrate_navigation_jump_point
+        no_stub: true
+
+  field_navigation_jump_point:
+    plugin: sub_process
+    source: '@pseudo_field_navigation_jump_point'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  field_yukon_editorial_team:
+    - plugin: migration_lookup
+      source: field_yukon_editorial_team
+      migration: yukon_migrate_teams
+      no_stub: true
+
+  field_parent_campaign_page:
+    - plugin: migration_lookup
+      source: field_parent_campaign_page/0/nid
+      migration: yukon_migrate_campaign_page
+      no_stub: true
+
+  field_child_campaign_pages:
+    - plugin: migration_lookup
+      source: field_child_campaign_pages/0/nid
+      migration: yukon_migrate_campaign_page
+      no_stub: true
+
+  field_department_term:
+    - plugin: migration_lookup
+      source: field_department_term
+      migration: yukon_migrate_department
+      no_stub: true
+
+  moderation_state: moderation_state
+destination:
+  plugin: entity:node
+  default_bundle: campaign_page
+  translations: true
+migration_dependencies:
+  required:
+    - yukon_migrate_images
+    - yukon_migrate_campaign_page
+    - yukon_migrate_department
+    - yukon_migrate_teams
+  optional:
+    - yukon_migrate_text
+    - yukon_migrate_text_unformatted
+    - yukon_migrate_text_and_image
+    - yukon_migrate_video
+    - yukon_migrate_video_and_text
+    - yukon_migrate_call_to_action
+    - yukon_migrate_quote
+    - yukon_migrate_charts
+    - yukon_migrate_social_network
+    - yukon_migrate_navigation_jump_point

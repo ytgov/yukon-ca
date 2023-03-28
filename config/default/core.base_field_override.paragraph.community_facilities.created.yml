@@ -1,0 +1,18 @@
+uuid: 8a1ad87e-f591-4ebb-a777-6c5d40b5f44b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.community_facilities
+id: paragraph.community_facilities.created
+field_name: created
+entity_type: paragraph
+bundle: community_facilities
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

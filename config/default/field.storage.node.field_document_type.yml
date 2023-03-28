@@ -1,0 +1,27 @@
+uuid: 0726e2b1-74f3-4e37-881e-9a8738d93dbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_document_type
+field_name: field_document_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: Documents
+    -
+      value: '1'
+      label: Forms
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

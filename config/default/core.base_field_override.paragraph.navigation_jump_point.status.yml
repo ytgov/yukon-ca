@@ -1,0 +1,22 @@
+uuid: 1aa4f239-c45e-403b-a18e-948b8e999c3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.navigation_jump_point
+id: paragraph.navigation_jump_point.status
+field_name: status
+entity_type: paragraph
+bundle: navigation_jump_point
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

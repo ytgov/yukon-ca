@@ -69,7 +69,7 @@ process:
     process:
       target_id: tid
 
-  field_department:
+  field_department_term:
     plugin: migration_lookup
     migration: yukon_migrate_department
     source: field_department
@@ -83,7 +83,8 @@ process:
     plugin: yukon_migrate_links
     source: field_related_tasks
 
-    moderation_state: moderation_state
+  moderation_state: moderation_state
+  path/alias: alias
 destination:
   plugin: entity:node
   default_bundle: multi_step_page

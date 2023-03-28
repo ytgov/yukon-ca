@@ -1,0 +1,223 @@
+uuid: 98276083-226b-4b0b-8cc7-95b2dd895837
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.directory_records_places.field_additional_number
+    - field.field.node.directory_records_places.field_additional_related_info
+    - field.field.node.directory_records_places.field_community
+    - field.field.node.directory_records_places.field_contact_person
+    - field.field.node.directory_records_places.field_department_term
+    - field.field.node.directory_records_places.field_fax
+    - field.field.node.directory_records_places.field_gps_coordinate_n
+    - field.field.node.directory_records_places.field_gps_coordinate_w
+    - field.field.node.directory_records_places.field_holiday_hours
+    - field.field.node.directory_records_places.field_location
+    - field.field.node.directory_records_places.field_main_telephone
+    - field.field.node.directory_records_places.field_meta_tags
+    - field.field.node.directory_records_places.field_open_24_hours
+    - field.field.node.directory_records_places.field_opening_times
+    - field.field.node.directory_records_places.field_place_accessibility
+    - field.field.node.directory_records_places.field_places_record_type
+    - field.field.node.directory_records_places.field_postal_code
+    - field.field.node.directory_records_places.field_region
+    - field.field.node.directory_records_places.field_social_sharing
+    - field.field.node.directory_records_places.field_statutory_holiday_link
+    - field.field.node.directory_records_places.field_street_address
+    - field.field.node.directory_records_places.field_website
+    - field.field.node.directory_records_places.field_yukon_editorial_team
+    - node.type.directory_records_places
+  module:
+    - entity_reference_revisions
+    - geofield
+    - link
+    - text
+    - user
+id: node.directory_records_places.default
+targetEntityType: node
+bundle: directory_records_places
+mode: default
+content:
+  field_additional_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_additional_related_info:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_community:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_contact_person:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_fax:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_gps_coordinate_n:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_gps_coordinate_w:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_holiday_hours:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_location:
+    type: geofield_default
+    label: hidden
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_main_telephone:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_open_24_hours:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_opening_times:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_place_accessibility:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_places_record_type:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_postal_code:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_region:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_social_sharing:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_statutory_holiday_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_street_address:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_website:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  addtoany: true
+  field_department_term: true
+  field_meta_tags: true
+  field_yukon_editorial_team: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

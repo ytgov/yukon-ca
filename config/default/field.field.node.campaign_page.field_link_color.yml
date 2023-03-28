@@ -1,0 +1,30 @@
+uuid: 4f32efbf-fde6-403c-8397-bca529ef87be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_color
+    - node.type.campaign_page
+  module:
+    - color_field
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_link_color
+field_name: field_link_color
+entity_type: node
+bundle: campaign_page
+label: 'Link Color'
+description: 'This color will be applied to link text on this Campaign Page.'
+required: false
+translatable: false
+default_value:
+  -
+    color: '#00818f'
+    opacity: 1.0
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

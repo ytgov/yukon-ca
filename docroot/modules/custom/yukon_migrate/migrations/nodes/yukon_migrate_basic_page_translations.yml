@@ -85,7 +85,7 @@ process:
 
   field_social_sharing: field_social_sharing
 
-  field_department:
+  field_department_term:
     - plugin: migration_lookup
       source: field_node_department
       migration: yukon_migrate_department
@@ -104,9 +104,7 @@ process:
     no_stub: true
 
   path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
+  path/pathauto: pathauto
 
   moderation_state: moderation_state
 destination:
@@ -116,3 +114,10 @@ destination:
 migration_dependencies:
   required:
     - yukon_migrate_basic_page
+  optional:
+    - yukon_migrate_collapsable_field
+    - yukon_migrate_image_gallery
+    - yukon_migrate_charts
+    - yukon_migrate_department
+    - yukon_migrate_teams
+    - yukon_migrate_images

@@ -1,0 +1,26 @@
+uuid: 4865d31b-5ace-4232-86d3-34c828604db5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_september_availability
+    - node.type.campground_directory_record
+  module:
+    - epp
+    - options
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campground_directory_record.field_september_availability
+field_name: field_september_availability
+entity_type: node
+bundle: campground_directory_record
+label: 'September availability'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

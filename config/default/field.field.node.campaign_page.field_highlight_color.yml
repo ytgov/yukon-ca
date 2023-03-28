@@ -1,0 +1,30 @@
+uuid: fe3a54ce-2e13-488c-b127-bdf2a81fd13b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlight_color
+    - node.type.campaign_page
+  module:
+    - color_field
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.campaign_page.field_highlight_color
+field_name: field_highlight_color
+entity_type: node
+bundle: campaign_page
+label: 'Highlight Color'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    color: '#00818f'
+    opacity: 1.0
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

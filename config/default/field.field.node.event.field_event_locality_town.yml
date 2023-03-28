@@ -1,0 +1,25 @@
+uuid: bf9ca2af-04d8-412d-b02c-fbb917ceb433
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_locality_town
+    - node.type.event
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 0
+id: node.event.field_event_locality_town
+field_name: field_event_locality_town
+entity_type: node
+bundle: event
+label: 'Locality / Town'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
