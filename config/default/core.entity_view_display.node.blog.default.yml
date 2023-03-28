@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.blog_comments.default
     - field.field.node.blog.body
     - field.field.node.blog.field_blog_type
     - field.field.node.blog.field_category
@@ -42,13 +43,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_contact:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: hidden
@@ -57,16 +51,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_social_sharing:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 3
     region: content
 hidden:
   addtoany: true
