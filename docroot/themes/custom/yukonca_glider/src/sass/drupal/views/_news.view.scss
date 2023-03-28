@@ -1,7 +1,7 @@
 .view-news-listing {
   &.view-display-id-block_news_listing {
     .views-row {
-      @apply border-solid border-b border-gray;
+      @apply border-solid border-b-4 border-gray-light;
       @apply py-8 md:py-16;
     }
   }

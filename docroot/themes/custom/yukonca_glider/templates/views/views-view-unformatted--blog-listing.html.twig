@@ -23,7 +23,6 @@
     set row_classes = [
       default_row_class ? 'views-row',
       (loop.index % 2 == 0) ? 'even' : 'odd',
-      'p-2',
     ]
   %}
   <div{{ row.attributes.addClass(row_classes) }}>
