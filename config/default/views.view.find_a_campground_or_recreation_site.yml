@@ -701,6 +701,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -1262,7 +1263,8 @@ display:
       rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
-        ajax_history: {  }
+        ajax_history:
+          enable_history: false
       block_description: 'Find a campground or recreation site'
     cache_metadata:
       max-age: -1
