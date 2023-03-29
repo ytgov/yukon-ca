@@ -1,6 +1,6 @@
 .view-events-listing {
   .views-row {
-    @apply border-solid border-0 border-b border-gray;
+    @apply border-solid border-0 border-b-4 border-gray-light;
     @apply py-8;
 
     .event-info--cat-image {

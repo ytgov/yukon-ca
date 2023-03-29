@@ -82,11 +82,11 @@
 	{{ title_prefix }}
 	{% if label and not page %}
     <a href="{{ url }}" rel="bookmark">
-      <span class="row row-cols-2 g-0">
-        <span class="smallerish-svg">
+      <span class="flex flex-row">
+        <span class="smallerish-svg flex-shrink-0">
           {{ content }}
         </span>
-        <span class="inline-text">
+        <span class="inline-text px-5">
           <h2{{ title_attributes }}>
             {{ label }}
           </h2>

@@ -1,7 +1,7 @@
 .view-news-listing {
   &.view-display-id-block_news_listing {
     .views-row {
-      @apply border-solid border-b border-gray;
+      @apply border-solid border-b-4 border-gray-light;
       @apply py-8 md:py-16;
     }
   }
@@ -24,6 +24,10 @@
     .view-header {
       @apply py-5 md:px-6 mb-0;
       @apply flex justify-between flex-wrap;
+
+      h2 {
+        @apply mt-0;
+      }
 
       a {
         @apply px-0;
