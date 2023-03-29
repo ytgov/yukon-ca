@@ -1,5 +1,5 @@
-id: yukon_migrate_quotes
-label: Yukon Migrate Quotes field Paragraph
+id: yukon_migrate_quotes_translations
+label: Yukon Migrate Quotes field Paragraph Translations
 migration_tags:
   - Drupal 7
   - Content
@@ -11,12 +11,14 @@ source:
   constants:
     default_text_format: full_html
 process:
+  langcode:
+    plugin: default_value
+    default_value: "fr"
+  field_quote/value: field_quote/0/value
+  field_quote/format: constants/default_text_format
 
-    field_quote/value: field_quote/0/value
-    field_quote/format: constants/default_text_format
-
-    field_quote_source/value: field_quote_source/0/value
-    field_quote_source/format: constants/default_text_format
+  field_quote_source/value: field_quote_source/0/value
+  field_quote_source/format: constants/default_text_format
 
 destination:
   plugin: entity_reference_revisions:paragraph
