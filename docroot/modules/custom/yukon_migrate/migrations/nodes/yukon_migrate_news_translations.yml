@@ -52,7 +52,7 @@ process:
             paragraph:
                 plugin: migration_lookup
                 source: value
-                migration: yukon_migrate_quotes
+                migration: yukon_migrate_quotes_translations
                 no_stub: true
 
     field_news_quote:
@@ -70,7 +70,7 @@ process:
             paragraph:
                 plugin: migration_lookup
                 source: value
-                migration: yukon_migrate_quick_facts
+                migration: yukon_migrate_quick_facts_translations
                 no_stub: true
 
     field_quick_facts:
