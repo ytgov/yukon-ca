@@ -9,11 +9,13 @@ source:
   plugin: d7_taxonomy_term
   bundle: blog_type
   translation: false
-
+  constants:
+    default_text_format: full_html
 process:
   language: language
   name: name
-  description: description
+  description/value: description
+  description/format: constants/default_text_format
   weight: weight
   parent:
     -
