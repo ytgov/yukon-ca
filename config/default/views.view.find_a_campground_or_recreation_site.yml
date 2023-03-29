@@ -211,7 +211,7 @@ display:
           exposed: true
           expose:
             operator_id: field_region_target_id_op
-            label: 'Region (field_region)'
+            label: Region
             description: ''
             use_operator: false
             operator: field_region_target_id_op

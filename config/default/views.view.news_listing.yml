@@ -1700,13 +1700,13 @@ display:
           empty: false
           content: '<h2>[view:title]</h2> <a href="/news" class="btn btn-link">Read more news <i class="fa fa-chevron-right" aria-hidden="true"></i></a>'
           tokenize: false
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         ajax_history: {  }
       block_description: 'Latest News'
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
@@ -2350,6 +2350,7 @@ display:
         filters: false
         filter_groups: false
       display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:
@@ -2358,7 +2359,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

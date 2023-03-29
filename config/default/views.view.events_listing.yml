@@ -1524,7 +1524,7 @@ display:
           exposed: true
           expose:
             operator_id: field_category_target_id_op
-            label: 'Category (field_category)'
+            label: Category
             description: ''
             use_operator: false
             operator: field_category_target_id_op
@@ -1660,6 +1660,7 @@ display:
           plugin_id: standard
           required: false
       display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:
@@ -1668,7 +1669,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

@@ -552,6 +552,7 @@ display:
       query:
         type: views_query
         options: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:
