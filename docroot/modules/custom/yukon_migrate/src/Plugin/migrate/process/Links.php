@@ -116,7 +116,7 @@ class Links extends MigrationLookup implements ContainerFactoryPluginInterface {
         $uri = is_string($value) ? "entity:node/{$destination_id}" : "internal:/node/{$destination_id}";
       }
       else {
-        // make sure that the node link doesn't fail.
+        // Make sure that the node link doesn't fail.
         $uri = "internal:/node/{$source_nid}";
       }
     }
