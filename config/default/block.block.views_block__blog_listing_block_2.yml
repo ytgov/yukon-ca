@@ -5,7 +5,7 @@ dependencies:
   config:
     - views.view.blog_listing
   module:
-    - system
+    - node
     - views
   theme:
     - yukonca_glider
@@ -24,7 +24,10 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
-    pages: "/digital-blog/*\r\n/blogue-renseignements-et-services-en-ligne/*"
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      blog: blog

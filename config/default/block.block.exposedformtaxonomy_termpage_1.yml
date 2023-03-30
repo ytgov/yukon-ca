@@ -5,7 +5,7 @@ dependencies:
   config:
     - views.view.taxonomy_term
   module:
-    - system
+    - taxonomy
     - views
   theme:
     - yukonca_glider
@@ -22,7 +22,10 @@ settings:
   provider: views
   views_label: 'Filter by'
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
     negate: false
-    pages: '/blogs/*'
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      blog_type: blog_type
