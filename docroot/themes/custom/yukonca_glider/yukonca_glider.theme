@@ -219,8 +219,7 @@ function yukonca_glider_preprocess_page(&$variables) {
       ]);
       $variables['header_image'] = $image;
     }
-
-    if ($bundle == 'blog' || $bundle == 'default') {
+    if ($bundle == 'blog') {
       $tid = $node->field_blog_type->target_id;
       if (!empty($tid)) {
         $blog_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
@@ -234,8 +233,8 @@ function yukonca_glider_preprocess_page(&$variables) {
       }
 
       $variables['blog_category_subcategory'] = [];
-      if (!empty($node->field_category_term->target_id)) {
-        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category_term->target_id);
+      if (!empty($node->field_category->target_id)) {
+        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category->target_id);
         array_push($variables['blog_category_subcategory'], $category_term->getName());
       }
 
