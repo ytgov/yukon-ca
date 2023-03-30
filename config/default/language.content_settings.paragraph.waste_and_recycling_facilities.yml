@@ -15,4 +15,4 @@ id: paragraph.waste_and_recycling_facilities
 target_entity_type_id: paragraph
 target_bundle: waste_and_recycling_facilities
 default_langcode: site_default
-language_alterable: false
+language_alterable: true
