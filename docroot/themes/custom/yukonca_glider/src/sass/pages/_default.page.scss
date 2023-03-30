@@ -7,3 +7,42 @@
 .page-title {
   @apply my-4;
 }
+
+.page-node-type-event,
+.page-node-type-news {
+  .field--name-field-related-link {
+    .field__label {
+      @apply pb-1 border-solid border-0 border-b border-gray;
+    }
+
+    .field__item {
+      @apply my-3;
+    }
+  }
+}
+
+.node {
+  .field {
+    .field__label {
+      @apply my-6;
+    }
+  }
+
+  .field.field--label-inline {
+    .field__label {
+      @apply my-0;
+    }
+  }
+}
+
+.page-node-type-event {
+  fieldset.event-location {
+    legend {
+      @apply mb-0;
+
+      span {
+        @apply font-bold text-base;
+      }
+    }
+  }
+}

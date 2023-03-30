@@ -30,6 +30,17 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_block() for block templates.
+ */
+function yukonca_glider_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $logo_file = $variables['site_logo'];
+    $pathinfo = pathinfo($logo_file);
+    $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
+  }
+}
+
+/**
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
@@ -93,6 +104,32 @@ function yukonca_glider_preprocess_page(&$variables) {
         $subcategory_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_subcategory->target_id);
         array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__landing_page(&$variables) {
+  if (!isset($variables['node']) && !isset($variables['view_mode'])) {
+    return;
+  }
+  $view_mode = $variables['view_mode'];
+  if ($view_mode !== 'primary_item_block') {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_primary_content') || $node->get('field_primary_content')->isEmpty()) {
+    return;
+  }
+  // Render only the first three links in field_primary_content.
+  $links = $node->get('field_primary_content')->getValue();
+  foreach ($links as $key => $link) {
+    if ($key > 2) {
+      $variables['content']['field_primary_content'][$key]['#access'] = FALSE;
     }
   }
 }
