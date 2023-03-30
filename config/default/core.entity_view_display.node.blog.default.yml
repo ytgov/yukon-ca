@@ -50,7 +50,7 @@ content:
 hidden:
   addtoany: true
   field_blog_type: true
-  field_category_term: true
+  field_category: true
   field_contact: true
   field_department_term: true
   field_icon_dark: true
