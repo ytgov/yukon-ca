@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.date_format.long_with_time
     - core.date_format.short
+    - core.date_format.time_am_pm
     - core.date_format.yg_long
     - field.storage.node.field_category
     - field.storage.node.field_community
@@ -794,7 +796,7 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships: {  }
@@ -965,13 +967,13 @@ display:
           click_sort_column: value
           type: date_recur_basic_formatter
           settings:
-            timezone_override: ''
-            format_type: short
-            separator: '-'
+            timezone_override: America/Whitehorse
+            format_type: long_with_time
+            separator: to
             show_next: 5
             count_per_item: true
-            occurrence_format_type: short
-            same_end_date_format_type: short
+            occurrence_format_type: long_with_time
+            same_end_date_format_type: time_am_pm
             interpreter: ''
           group_column: value
           group_columns: {  }
@@ -1098,13 +1100,13 @@ display:
           click_sort_column: value
           type: date_recur_basic_formatter
           settings:
-            timezone_override: ''
-            format_type: yg_long
-            separator: '-'
+            timezone_override: America/Whitehorse
+            format_type: long_with_time
+            separator: to
             show_next: 5
             count_per_item: true
-            occurrence_format_type: yg_long
-            same_end_date_format_type: yg_long
+            occurrence_format_type: long_with_time
+            same_end_date_format_type: time_am_pm
             interpreter: ''
           group_column: value
           group_columns: {  }
@@ -1316,7 +1318,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"event-info--cat-image\">\r\n  {{ field_icon_dark }}\r\n</div>\r\n<div class=\"event-info-content\">\r\n  <div class=\"event-info-header\">\r\n    <div class=\"event-info--title\">{{ title }}</div>\r\n    <div class=\"event-info--meta\">\r\n      {{ field_event_start_time_1 }}\r\n      {{ field_community }}\r\n    </div>\r\n  </div>\r\n  <div class=\"event-info--description\">\r\n      {{ field_page_description }}\r\n  </div>\r\n</div>"
+            text: "<div class=\"event-info--cat-image\">\r\n  {{ field_icon_dark }}\r\n</div>\r\n<div class=\"event-info-content\">\r\n  <div class=\"event-info-header\">\r\n    <div class=\"event-info--title\">{{ title }}</div>\r\n    <div class=\"event-info--meta\">\r\n      {{ field_event_start_time }}\r\n      {{ field_community }}\r\n    </div>\r\n  </div>\r\n  <div class=\"event-info--description\">\r\n      {{ field_page_description }}\r\n  </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
