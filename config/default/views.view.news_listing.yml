@@ -416,8 +416,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'Next â€º'
-            previous: 'â€¹ Previous'
+            next: 'Next ›'
+            previous: '‹ Previous'
             first: ''
             last: ''
           expose:
@@ -632,7 +632,7 @@ display:
           admin_label: 'Content: Department'
           plugin_id: taxonomy_index_tid
           operator: or
-          value: null
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -675,8 +675,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: teams
-          type: cshs
+          vid: department
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -1198,6 +1198,7 @@ display:
         filter_groups: false
         header: false
       header: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         ajax_history: {  }
       displays:
@@ -1206,7 +1207,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user
@@ -1773,6 +1773,7 @@ display:
       defaults:
         fields: false
       display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:
@@ -1781,7 +1782,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -2022,13 +2022,13 @@ display:
       defaults:
         filters: false
         filter_groups: false
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         ajax_history: {  }
       path: news-feed
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user

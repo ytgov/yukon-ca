@@ -22,6 +22,10 @@ blockquote:
       label: Aligment
       description: Side the blockquote text will be aligned. i.g left/center/right/justify
       preview: 'left'
+    language:
+      type: string
+      label: Language
+      description: The langcode for the active language.
   libraries:
     -
       blockquote:
