@@ -6,17 +6,15 @@
   additionalClass
 ] %}
 
-{% if title %}
-  {% set attributes = attributes.addClass(classes) %}
-{% else %}
-  {% set attributes = attributes.addClass(classes) %}
-{% endif %}
+{% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
   {% if title %}
     <div class="title">
       <h4>{{ title }}</h4>
-      <p class="date">{{ date }}</p>
+      {% if date %}
+        <p class="date">{{ date }}</p>
+      {% endif %}
     </div>
   {% endif %}
 

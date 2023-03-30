@@ -65,25 +65,25 @@ function yukonca_glider_preprocess_node__landing_page(&$variables) {
 }
 
 /**
- * Implements template_preprocess_node().
+ * Implements hook_preprocess_HOOK().
  */
-function yukonca_glider_preprocess_node(&$variables) {
-  $type = $variables['node']->bundle();
-  $view_mode = $variables['view_mode'];
-
-  if (!empty($type) && $type === 'department') {
-    $department_tid = $variables['node']->field_department_term->target_id;
-    $latest_news_view['view'] = [
-      '#type' => 'view',
-      '#name' => 'news_listing',
-      '#display_id' => 'block_department_latest_news',
-      '#arguments' => [$department_tid],
-    ];
-
-    $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
-    $latest_news_view['read_more'] = $readmore_url;
-    $variables['view_latest_news'] = $latest_news_view;
+function yukonca_glider_preprocess_node__department(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_department_term') || $node->get('field_department_term')->isEmpty()) {
+    return;
   }
+  $department_tid = $node->get('field_department_term')->target_id;
+  $latest_news_view['view'] = [
+    '#type' => 'view',
+    '#name' => 'news_listing',
+    '#display_id' => 'block_department_latest_news',
+    '#arguments' => [$department_tid],
+  ];
+
+  $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
+  $latest_news_view['read_more'] = $readmore_url;
+  $variables['view_latest_news'] = $latest_news_view;
 }
 
 /**
