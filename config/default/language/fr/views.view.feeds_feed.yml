@@ -27,7 +27,6 @@ display:
           label: Titre
         type:
           label: Type
-          separator: ', '
         name:
           label: Auteur
         changed:
