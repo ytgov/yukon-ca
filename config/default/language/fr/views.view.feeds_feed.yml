@@ -25,6 +25,9 @@ display:
           action_title: 'Pour la sélection'
         title:
           label: Titre
+        type:
+          label: Type
+          separator: ', '
         name:
           label: Auteur
         changed:
@@ -37,6 +40,9 @@ display:
         title:
           expose:
             label: Titre
+        type:
+          expose:
+            label: Type
       title: Flux
   page_1:
     display_options:
