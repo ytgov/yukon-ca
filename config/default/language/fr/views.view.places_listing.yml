@@ -1,0 +1,13 @@
+display:
+  default:
+    display_options:
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'
+      filters:
+        title:
+          expose:
+            label: Titre
+        field_community_target_id:
+          expose:
+            label: Collectivité
