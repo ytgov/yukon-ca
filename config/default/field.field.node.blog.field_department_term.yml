@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_department_term
     - node.type.blog
+    - taxonomy.vocabulary.department
   module:
     - epp
 third_party_settings:
@@ -24,7 +25,8 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      department: department
     sort:
       field: name
       direction: asc
