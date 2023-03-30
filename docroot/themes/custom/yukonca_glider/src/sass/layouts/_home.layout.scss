@@ -47,7 +47,7 @@
     content: "";
     transition: all 0.4s ease;
 
-    background-image: url("../../images/svg/Aurora-small-mobile.svg");
+    background-image: url("../../images/svg/Aurora-main.svg");
     background-repeat: no-repeat;
 
     @include media-breakpoint-up(md) {
@@ -160,7 +160,7 @@
 
           content: "";
 
-          background: $link-hover;
+          background: $color-blue200;
           @include media-breakpoint-up(lg) {
             width: 185px;
           }
@@ -184,7 +184,7 @@
 
           content: "";
 
-          background: $link-hover;
+          background: $color-blue200;
           @include media-breakpoint-up(lg) {
             width: 185px;
           }
@@ -224,7 +224,7 @@
 
             content: "";
 
-            background: $link-hover;
+            background: $color-blue200;
             @include media-breakpoint-up(md) {
               margin: 0;
             }
@@ -307,7 +307,7 @@
       width: 100px;
       height: 100px;
 
-      background: $link-hover;
+      background: $color-blue200;
 
       img {
         width: 100px;

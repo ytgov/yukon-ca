@@ -39,6 +39,32 @@ function yukonca_glider_preprocess_block(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__landing_page(&$variables) {
+  if (!isset($variables['node']) && !isset($variables['view_mode'])) {
+    return;
+  }
+  $view_mode = $variables['view_mode'];
+  if ($view_mode !== 'primary_item_block') {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_primary_content') || $node->get('field_primary_content')->isEmpty()) {
+    return;
+  }
+  // Render only the first three links in field_primary_content.
+  $links = $node->get('field_primary_content')->getValue();
+  foreach ($links as $key => $link) {
+    if ($key > 2) {
+      $variables['content']['field_primary_content'][$key]['#access'] = FALSE;
+    }
+  }
+}
+
+/**
  * Implements template_preprocess_node().
  */
 function yukonca_glider_preprocess_node(&$variables) {
@@ -57,16 +83,6 @@ function yukonca_glider_preprocess_node(&$variables) {
     $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
     $latest_news_view['read_more'] = $readmore_url;
     $variables['view_latest_news'] = $latest_news_view;
-  }
-
-  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
-    // Render only the first three links in field_primary_content.
-    $links = $variables['node']->field_primary_content->getValue();
-    foreach ($links as $key => $link) {
-      if ($key > 2) {
-        unset($variables['content']['field_primary_content'][$key]);
-      }
-    }
   }
 }
 
