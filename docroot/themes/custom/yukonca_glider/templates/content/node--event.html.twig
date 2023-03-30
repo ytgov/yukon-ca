@@ -79,6 +79,7 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
+
   {{ title_prefix }}
   {% if label and not page %}
     <h2{{ title_attributes }}>
@@ -87,12 +88,22 @@
   {% endif %}
   {{ title_suffix }}
 
-  <div class="blog-credits mb-8">
-    {{ 'By'|t }} {{ node.owner.name.value ? node.owner.name.value : author_name }}
-    <div class="text-gray">{{ node.getCreatedTime() | date("F j, Y") }}</div>
-  </div>
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
+      <div class="field__label">{{ 'Date'|t }}</div>
+      {{ content.field_event_start_time.0 }}
+    </div>
+    {{ content|without("field_event_start_time")}}
   </div>
+
 </article>
