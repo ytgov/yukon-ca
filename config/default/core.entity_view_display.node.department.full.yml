@@ -207,6 +207,7 @@ content:
 hidden:
   addtoany: true
   field_meta_tags: true
+  field_page_description: true
   field_review_date: true
   field_yukon_editorial_team: true
   langcode: true

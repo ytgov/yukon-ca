@@ -67,17 +67,6 @@
         variant: 'image',
       })
     }}
-  {% endif %}
-
-  {{ page.breadcrumb }}
-  {% if header_image %}
-    {{
-      pattern('hero', {
-        title: node.label,
-        image: header_image,
-        variant: 'image',
-      })
-    }}
   {% else %}
     <div class="aurora-town">
       <span class="aurora--main"></span>

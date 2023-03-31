@@ -16,14 +16,6 @@ targetEntityType: media
 bundle: document
 mode: default
 content:
-  field_media_file:
-    type: file_default
-    label: visually_hidden
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
   created:
     type: timestamp
     label: hidden
@@ -31,6 +23,14 @@ content:
       date_format: medium
       custom_date_format: ''
       timezone: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media_file:
+    type: file_default
+    label: visually_hidden
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     weight: 0
     region: content
@@ -60,10 +60,10 @@ hidden:
   addtoany: true
   created: true
   field_document_name: true
+  field_media_file: true
   field_metatags: true
   langcode: true
   name: true
   search_api_excerpt: true
   thumbnail: true
   uid: true
-  field_media_file: true
