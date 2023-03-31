@@ -3,3 +3,10 @@
     @apply bg-white;
   }
 }
+
+.block-views_block__block_backcountry_campgroundsm,
+.block-views-blockfind-a-campground-or-recreation-site-block-campgrounds {
+  .block-title {
+    @apply border-solid border-0 border-b-4 border-gray-light pb-3;
+  }
+}
