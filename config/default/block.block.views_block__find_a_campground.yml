@@ -12,7 +12,7 @@ dependencies:
 id: views_block__find_a_campground
 theme: yukonca_glider
 region: content
-weight: -14
+weight: -4
 provider: null
 plugin: 'views_block:find_a_campground_or_recreation_site-block_campgrounds'
 settings:
