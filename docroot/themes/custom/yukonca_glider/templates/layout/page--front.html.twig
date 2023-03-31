@@ -42,13 +42,12 @@
  * @see html.html.twig
  */
 #}
-<div
-	class="layout-container">
+<div class="layout-container">
 
-	{# BEGIN HEADER #}
-	{% set menuSectionId = 'header-main-navigaion' %}
+  {# BEGIN HEADER #}
+  {% set menuSectionId = 'header-main-navigaion' %}
 
-	{{ pattern('header', {
+  {{ pattern('header', {
     logo: page.header_branding,
     unique_id: menuSectionId,
     languageswitcher: page.header_menu.languageswitcher,
@@ -56,40 +55,40 @@
     offcanvas_heading: 'Government services <br>and information'|t,
   }) }}
 
-	{# END OF HEADER #}
+  {# END OF HEADER #}
 
-	{{ page.secondary_menu }}
+  {{ page.secondary_menu }}
 
-	{{ page.breadcrumb }}
+  {{ page.breadcrumb }}
 
-	{{ page.highlighted }}
+  {{ page.highlighted }}
 
-	{{ page.help }}
+  {{ page.help }}
 
   <div class="aurora-town">
     <span class="aurora--main"></span>
   </div>
 
-	<main role="main" class="container-lg">
-		<a id="main-content" tabindex="-1"></a>
-		{# link is in html.html.twig #}
+  <main role="main" class="container-lg">
+    <a id="main-content" tabindex="-1"></a>
+    {# link is in html.html.twig #}
 
-		<div class="row">
-			<div class="layout-content col px-3.5">
-				{{ page.content }}
-			</div>
-			{# /.layout-content #}
-		</div>
+    <div class="row pt-16">
+      <div class="layout-content col px-3.5">
+        {{ page.content }}
+      </div>
+      {# /.layout-content #}
+    </div>
 
-	</main>
+  </main>
 
-	{% if page.footer_logo or page.footer_menu or page.footer_legal %}
-		{{ pattern('footer', {
+  {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+    {{ pattern('footer', {
       logo: page.footer_logo,
       menus: page.footer_menu,
       legal_link: page.footer_legal
     }, 'default') }}
-	{% endif %}
+  {% endif %}
 
 </div>
 {# /.layout-container #}

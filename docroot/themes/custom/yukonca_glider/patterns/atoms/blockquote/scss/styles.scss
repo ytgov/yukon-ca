@@ -1,1 +1,21 @@
 @import "core";
+
+.blockquote {
+  background-image: url(../../../../../images/svg/quotes.svg);
+
+  &.fr {
+    background-image: url(../../../../../images/svg/quotes-fr.svg);
+  }
+
+  @apply bg-no-repeat;
+  @apply pl-9 py-6;
+
+  .content {
+    @apply mt-6;
+  }
+
+  .blockquote-footer {
+    @apply before:hidden mt-6;
+    @apply text-sm font-bold pl-11;
+  }
+}

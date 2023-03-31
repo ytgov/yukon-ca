@@ -1,0 +1,43 @@
+uuid: fda937b5-89af-4efa-a734-6fc159b4791a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.secondary_top_tasks
+    - field.field.paragraph.top_tasks.field_top_tasks_link
+    - field.field.paragraph.top_tasks.field_top_tasks_name
+    - paragraphs.paragraphs_type.top_tasks
+  module:
+    - fences
+id: paragraph.top_tasks.secondary_top_tasks
+targetEntityType: paragraph
+bundle: top_tasks
+mode: secondary_top_tasks
+content:
+  field_top_tasks_link:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 1
+    region: content
+  field_top_tasks_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

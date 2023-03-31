@@ -1,1 +1,27 @@
-/* Add your code here */
+.graph-card {
+  &.campground-peak-times {
+    .left-wrapper {
+      .main-link {
+        a {
+          @apply no-underline;
+        }
+      }
+    }
+
+    .graph {
+      .graph-item {
+        &.poor {
+          @apply h-4/5 bg-[red];
+        }
+
+        &.good {
+          @apply h-1/2 bg-yellow;
+        }
+
+        &.very_good {
+          @apply h-1/4 bg-[green];
+        }
+      }
+    }
+  }
+}

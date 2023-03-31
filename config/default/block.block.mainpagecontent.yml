@@ -1,0 +1,20 @@
+uuid: e13fbe92-73bf-4d3b-973f-60451c6024f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - yukonca_glider
+id: mainpagecontent
+theme: yukonca_glider
+region: content
+weight: -10
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

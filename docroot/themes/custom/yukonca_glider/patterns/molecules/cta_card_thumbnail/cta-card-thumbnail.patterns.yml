@@ -1,0 +1,41 @@
+cta_card_thumbnail:
+  label: 'CTA card with thumbnail'
+  description: Text Section.
+  variants:
+    default:
+      label: Default
+      description: Text with a title and link with a thumbnail on the left.
+    right:
+      label: With right image
+      description: With image on the right.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: A title.
+      preview: 'Lorem Ipsum'
+    url:
+      type: string
+      label: URL
+      description: The URL of the Link.
+      preview: 'http://example.com/item/alpha'
+    thumbnail:
+      type: string
+      label: thumbnail
+      description: Card thumbnail.
+      preview: 'Aurora-mini.svg'
+    content:
+      type: text
+      label: Content
+      description: Content.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis erat ultrices ipsum ultricies, id faucibus eros iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+    additionalClass:
+      type: text
+      label: Additional class name
+      description: has-title-only.
+      preview: 'Lorem Ipsum'
+  libraries:
+    - cta_card_thumbnail:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

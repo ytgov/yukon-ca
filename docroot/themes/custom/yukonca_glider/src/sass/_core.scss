@@ -12,10 +12,6 @@
 @import "bootstrap/scss/variables";
 
 
-/* Icons */
-@import "theme-icons";
-@import "theme-icons-classes";
-
 // Remove unwanted colors
 $colors: map-remove($colors,
   "blue",
@@ -42,5 +38,9 @@ $colors: map-remove($colors,
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
+$utilities: (); /* Removing BS utilities. Remove this line to enable BS utilities */
+
 /* Theme mixins */
+@import "theme-icons";
+@import "theme-icons-classes";
 @import "mixins/index";

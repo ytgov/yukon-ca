@@ -1,0 +1,10 @@
+uuid: 1ae4e6c9-9d29-4b9f-86f4-4f9f18fb34f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.secondary_top_tasks
+label: 'Secondary Top Tasks'
+targetEntityType: paragraph
+cache: true

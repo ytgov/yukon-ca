@@ -44,15 +44,10 @@
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    'field__item',
   ]
 %}
 
 {% for item in items %}
-  <h3{{attributes.addClass(classes,'field__item')}}>{{ item.content }}</h3>
+  <h3{{ attributes.addClass(classes) }}>{{ item.content }}</h3>
 {% endfor %}

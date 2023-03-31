@@ -6,7 +6,6 @@ migration_tags:
   - Content
   - Media
 migration_group: legacy
-
 source:
   plugin: yukon_migrate_file
   scheme: public
@@ -15,7 +14,6 @@ source:
   batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
-
 process:
   name: filename
   field_media_file/target_id:
