@@ -67,25 +67,23 @@
  *
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
-	{{ title_prefix }}
+  {{ title_prefix }}
   <a href="{{ url }}" rel="bookmark">
     {{ content.field_svg_upload }}
     <h2{{ title_attributes }}>
       {{ label }}
     </h2>
   </a>
-	{{ title_suffix }}
+  {{ title_suffix }}
 </article>
 
