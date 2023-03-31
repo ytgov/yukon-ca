@@ -5,7 +5,10 @@
  * Theme specific functionality.
  */
 
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_preprocess_html().
@@ -37,7 +40,7 @@ function yukonca_glider_preprocess_comment(&$variables) {
 }
 
 /**
- * Implements template_preprocess_block() for block templates.
+ * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
@@ -45,6 +48,47 @@ function yukonca_glider_preprocess_block(&$variables) {
     $pathinfo = pathinfo($logo_file);
     $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_page__node__blog(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $taxonomy_entity_manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  if ($node->hasField('field_blog_type') && !$node->get('field_blog_type')->isEmpty()) {
+    $tid = $node->get('field_blog_type')->target_id;
+    $blog_type_term = $taxonomy_entity_manager->load($tid);
+    if ($blog_type_term && $blog_type_term->hasField('field_agency_logo') && !$blog_type_term->get('field_agency_logo')->isEmpty()) {
+      $variables['logo_url'] = $blog_type_term->get('field_agency_logo')->view();
+    }
+  }
+
+  $variables['blog_category_subcategory'] = [];
+  if ($node->hasField('field_category') && !$node->get('field_category')->isEmpty()) {
+    $category_term = $taxonomy_entity_manager->load($node->get('field_category')->target_id);
+    $variables['blog_category_subcategory'][] = $category_term->getName();
+  }
+
+  if ($node->hasField('field_subcategory') && !$node->get('field_subcategory')->isEmpty()) {
+    $subcategory_term = $taxonomy_entity_manager->load($node->get('field_subcategory')->target_id);
+    $variables['blog_category_subcategory'][] = $subcategory_term->getName();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  $suggestions[] = 'page__node__' . $node->bundle();
 }
 
 /**

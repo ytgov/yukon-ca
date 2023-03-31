@@ -1,0 +1,10 @@
+<div class="blog-type-info col-sm-12">
+  <div class="blog-type-logo mb-5">
+    {{ image }}
+  </div>
+  <div class="blog-category-subcategory font-medium">
+    {% for item in content %}
+      <span class="category relative mr-2 pr-2">{{ item }}</span>
+    {% endfor %}
+  </div>
+</div>
