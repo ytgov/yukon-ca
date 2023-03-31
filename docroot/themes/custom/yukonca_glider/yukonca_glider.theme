@@ -53,7 +53,7 @@ function yukonca_glider_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function yukonca_glider_preprocess_page__blog(&$variables) {
+function yukonca_glider_preprocess_page__node__blog(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
 
@@ -62,11 +62,7 @@ function yukonca_glider_preprocess_page__blog(&$variables) {
     $tid = $node->get('field_blog_type')->target_id;
     $blog_type_term = $taxonomy_entity_manager->load($tid);
     if ($blog_type_term && $blog_type_term->hasField('field_agency_logo') && !$blog_type_term->get('field_agency_logo')->isEmpty()) {
-      $image = $blog_type_term->get('field_agency_logo')->view([
-        'type' => 'entity_reference_entity_view',
-        'label' => 'hidden',
-      ]);
-      $variables['logo_url'] = $image;
+      $variables['logo_url'] = $blog_type_term->get('field_agency_logo')->view();
     }
   }
 
