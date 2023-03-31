@@ -5,8 +5,6 @@
  * Theme specific functionality.
  */
 
-use Drupal\file\Entity\File;
-use Drupal\media\Entity\Media;
 use Drupal\Component\Utility\Html;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Render\Markup;
@@ -282,4 +280,27 @@ function yukonca_glider_preprocess_page(&$variables) {
       'label' => 'hidden',
     ]);
   }
+}
+
+/**
+ * Implements template_preprocess_file_link().
+ *
+ * Use the media entity name as file link text if there is no description.
+ */
+function yukonca_glider_preprocess_file_link(&$variables) {
+  if (is_string($variables['link'])) {
+    return;
+  }
+  if (is_object($variables['link'])) {
+    // Ensure we are working with a renderable array, as that's
+    // just easier.
+    $variables['link'] = $variables['link']->toRenderable();
+  }
+  $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
+  $filename = $variables['link']['#title'];
+  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
+  $variables['link']['#title'] = $link_text;
+  $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
+  $variables['link']['#attributes']['target'] = '_blank';
+  $variables['filename'] = $filename;
 }
