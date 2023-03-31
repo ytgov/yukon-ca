@@ -2,12 +2,6 @@
 
 @import "../../../styles.scss";
 
-h2.title {
-  @apply pb-2 pt-4 mb-7;
-  @apply border-solid border-0 border-b-[12px] border-yellow;
-  @apply text-default-base;
-}
-
 .form {
   .js-form-item {
     label {
