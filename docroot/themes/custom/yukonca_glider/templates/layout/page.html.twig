@@ -74,10 +74,12 @@
   {% endif %}
 
   {{ page.highlighted }}
+  {{ page.pre_content }}
+
   {{ page.help }}
 
   <main role="main" class="container-lg grow">
-    {{ page.pre_content }}
+    {{ page.breadcrumb }}
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <div class="row pt-16">
       {% if page.sidebar_first %}

@@ -12,7 +12,7 @@ dependencies:
 id: views_documents_block
 theme: yukonca_glider
 region: content
-weight: -10
+weight: -7
 provider: null
 plugin: 'views_block:documents_browse-block'
 settings:

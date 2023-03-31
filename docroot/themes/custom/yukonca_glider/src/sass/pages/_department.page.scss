@@ -1,0 +1,28 @@
+.fieldset-title {
+  legend {
+    @apply mt-6 mb-3;
+
+    span {
+      @apply text-h3;
+    }
+  }
+}
+
+.minister_info_card {
+  @apply grid grid-cols-3 items-center gap-10 pt-7;
+
+  img {
+    @apply h-auto max-w-full col-span-1;
+  }
+
+  .minister_datails {
+    @apply col-span-2 leading-loose;
+
+    .field--name-field-minister-first-name,
+    .field--name-field-minister-last-name {
+      @apply inline-block;
+      @apply font-bold;
+    }
+
+  }
+}
