@@ -1,144 +1,144 @@
 id: yukon_migrate_event_translations
 label: Yukon Migrate Event Node Translations
 migration_tags:
-    - Drupal 7
-    - Content
-    - Event
+  - Drupal 7
+  - Content
+  - Event
 migration_group: legacy
 source:
-    plugin: d7_node_entity_translation
-    node_type: event
-    constants:
-        default_text_format: full_html
+  plugin: d7_node_entity_translation
+  node_type: event
+  constants:
+    default_text_format: full_html
 destination:
-    plugin: entity:node
-    default_bundle: event
-    translations: true
+  plugin: entity:node
+  default_bundle: event
+  translations: true
 process:
-    nid:
+  nid:
+    plugin: migration_lookup
+    migration: yukon_migrate_event
+    source: entity_id
+    no_stub: true
+  status: status
+  langcode: language
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  content_translation_source: source
+  content_translation_outdated: translate
+
+  title:
+    plugin: skip_on_empty
+    method: row
+    source: title
+
+  field_page_description/value: field_description/0/value
+  field_page_description/format: constants/default_text_format
+
+  # to_timezone uses America/Vancouver to avoid times being off by an hour.
+  # date field is set to use Whitehorse as timezone.
+  field_event_start_time:
+    - plugin: sub_process
+      source: field_event_start_time
+      process:
+        value:
+          - plugin: format_date
+            from_format: 'Y-m-d H:i:s'
+            to_format: 'Y-m-d\TH:i:s'
+            from_timezone: 'America/Whitehorse'
+            to_timezone: 'America/Vancouver'
+            source: value
+        end_value:
+          - plugin: format_date
+            from_format: 'Y-m-d H:i:s'
+            to_format: 'Y-m-d\TH:i:s'
+            from_timezone: 'America/Whitehorse'
+            to_timezone: 'America/Vancouver'
+            source: value2
+        timezone:
+          - plugin: default_value
+            default_value: 'America/Whitehorse'
+        rrule:
+          - plugin: get
+            source: rrule
+
+  field_contact_name: field_contact_name
+  field_contact_email: field_contact_email
+  field_postal_code: field_postal_code
+  field_contact_phone: field_contact_phone
+
+  field_building_name:
+    plugin: sub_process
+    source: field_building_name
+    process:
+      target_id:
         plugin: migration_lookup
-        migration: yukon_migrate_event
-        source: entity_id
-        no_stub: true
-    status: status
-    langcode: language
-    created: created
-    changed: changed
-    promote: promote
-    sticky: sticky
-    revision_log: log
-    content_translation_source: source
-    content_translation_outdated: translate
+        source: target_id
+        migration: yukon_migrate_places
 
-    title:
-        plugin: skip_on_empty
-        method: row
-        source: title
+  field_event_street_address: field_event_street_address/0/value
+  field_event_locality_town: field_event_locality_town/0/value
 
-    field_page_description/value: field_description/0/value
-    field_page_description/format: constants/default_text_format
+  field_cost: field_cost
 
-    # to_timezone uses America/Vancouver to avoid times being off by an hour.
-    # date field is set to use Whitehorse as timezone.
-    field_event_start_time:
-        - plugin: sub_process
-          source: field_event_start_time
-          process:
-              value:
-                  - plugin: format_date
-                    from_format: 'Y-m-d H:i:s'
-                    to_format: 'Y-m-d\TH:i:s'
-                    from_timezone: 'America/Whitehorse'
-                    to_timezone: 'America/Vancouver'
-                    source: value
-              end_value:
-                  - plugin: format_date
-                    from_format: 'Y-m-d H:i:s'
-                    to_format: 'Y-m-d\TH:i:s'
-                    from_timezone: 'America/Whitehorse'
-                    to_timezone: 'America/Vancouver'
-                    source: value2
-              timezone:
-                  - plugin: default_value
-                    default_value: 'America/Whitehorse'
-              rrule:
-                  - plugin: get
-                    source: rrule
+  field_event_description/value: field_event_description/0/value
+  field_event_description/format: constants/default_text_format
 
-    field_contact_name: field_contact_name
-    field_contact_email: field_contact_email
-    field_postal_code: field_postal_code
-    field_contact_phone: field_contact_phone
+  field_featured_content: field_featured_event
 
-    field_building_name:
-        plugin: sub_process
-        source: field_building_name
-        process:
-            target_id:
-                plugin: migration_lookup
-                source: target_id
-                migration: yukon_migrate_places
+  field_featured_image:
+    plugin: migration_lookup
+    source: field_featured_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
 
-    field_event_street_address: field_event_street_address/0/value
-    field_event_locality_town: field_event_locality_town/0/value
+  field_website:
+    plugin: yukon_migrate_links
+    source: field_event_website
 
-    field_cost: field_cost
+  field_link_title:
+    plugin: yukon_migrate_links
+    source: field_link_title
 
-    field_event_description/value: field_event_description/0/value
-    field_event_description/format: constants/default_text_format
+  field_category:
+    plugin: migration_lookup
+    migration: yukon_migrate_category
+    source: field_category
+    no_stub: true
 
-    field_featured_content: field_featured_event
+  field_community:
+    plugin: migration_lookup
+    migration: yukon_migrate_community
+    source: field_community
+    no_stub: true
 
-    field_featured_image:
-        plugin: migration_lookup
-        source: field_featured_image/0/fid
-        migration: yukon_migrate_images
-        no_stub: true
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
 
-    field_website:
-        plugin: yukon_migrate_links
-        source: field_event_website
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
 
-    field_link_title:
-        plugin: yukon_migrate_links
-        source: field_link_title
+  path/alias: alias
+  path/pathauto: pathauto
 
-    field_category:
-        plugin: migration_lookup
-        migration: yukon_migrate_category
-        source: field_category
-        no_stub: true
-
-    field_community:
-        plugin: migration_lookup
-        migration: yukon_migrate_community
-        source: field_community
-        no_stub: true
-
-    field_department_term:
-        plugin: migration_lookup
-        migration: yukon_migrate_department
-        source: field_department_term
-        no_stub: true
-
-    field_yukon_editorial_team:
-        plugin: migration_lookup
-        migration: yukon_migrate_teams
-        source: field_yukon_editorial_team
-        no_stub: true
-
-    path/alias: alias
-    path/pathauto: pathauto
-
-    moderation_state: moderation_state
+  moderation_state: moderation_state
 
 migration_dependencies:
-    required:
-        - yukon_migrate_teams
-        - yukon_migrate_department
-        - yukon_migrate_community
-        - yukon_migrate_category
-        - yukon_migrate_event
-    optional:
-        - yukon_migrate_places
-        - yukon_migrate_images
+  required:
+    - yukon_migrate_teams
+    - yukon_migrate_department
+    - yukon_migrate_community
+    - yukon_migrate_category
+    - yukon_migrate_event
+  optional:
+    - yukon_migrate_places
+    - yukon_migrate_images
