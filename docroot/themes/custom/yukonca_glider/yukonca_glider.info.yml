@@ -6,7 +6,6 @@ base theme: classy
 regions:
   header_branding: Header - Branding
   header_menu: Header - Menu
-  breadcrumb: 'Breadcrumb'
   pre_content: 'Pre content'
   content: Content
   sidebar_first: 'Sidebar first'

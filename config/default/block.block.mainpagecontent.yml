@@ -9,7 +9,7 @@ dependencies:
 id: mainpagecontent
 theme: yukonca_glider
 region: content
-weight: -10
+weight: -18
 provider: null
 plugin: system_main_block
 settings:
