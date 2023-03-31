@@ -59,7 +59,6 @@
 
   {{ page.secondary_menu }}
 
-  {{ page.breadcrumb }}
   {% if header_image %}
     {{
       pattern('hero', {
@@ -89,15 +88,31 @@
         </aside>
       {% endif %}
 
-      <div class="layout-content col-xs-12 col-sm-9 col-md-8 px-3.5">
+      {% if page.sidebar_second %}
+        <aside class="layout-sidebar-second col-sm-3 col-lg-4 px-3.5 lg:pr-20" role="complementary">
+          <div id="sidebar-sticky" class="sidebar-sticky sticky top-0">
+            {{ page.sidebar_second }}
+          </div>
+        </aside>
+      {% endif %}
+
+      <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-lg-8' : '' }} px-3.5">
+        {% if node.type[0].target_id == 'blog' %}
+          {% set defualt_logo %}
+              <img src="{{ '/' ~ active_theme_path() ~ '/logo.svg' }}">
+          {% endset %}
+          {% set logo_image = logo_url ? logo_url : defualt_logo  %}
+          {{
+            pattern ('blog_type_info', {
+              image: logo_image,
+              content: blog_category_subcategory,
+            })
+          }}
+        {% endif %}
+
         {{ page.content }}
       </div>{# /.layout-content #}
 
-      {% if page.sidebar_second %}
-        <aside class="layout-sidebar-second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
     </div>
 
     {% if page.post_content %}

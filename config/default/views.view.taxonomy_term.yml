@@ -36,10 +36,10 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next â€º'
-            previous: 'â€¹ Previous'
-            first: 'Â« First'
-            last: 'Last Â»'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'

@@ -7,14 +7,11 @@
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}
-
 {% set content %}
   {% if title %}
     <div class="title">
       <h4>{{ title }}</h4>
-      {% if date %}
-        <p class="date">{{ date }}</p>
-      {% endif %}
+      <p class="date">{{ date }}</p>
     </div>
   {% endif %}
 

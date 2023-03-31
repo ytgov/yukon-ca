@@ -6,6 +6,7 @@ dependencies:
     - views.view.engagements
   module:
     - node
+    - system
     - views
   theme:
     - yukonca_glider

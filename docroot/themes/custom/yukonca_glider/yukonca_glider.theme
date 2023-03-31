@@ -5,7 +5,11 @@
  * Theme specific functionality.
  */
 
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_html().
@@ -28,7 +32,16 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
- * Implements template_preprocess_block() for block templates.
+ * Implements template_preprocess_comment.
+ */
+function yukonca_glider_preprocess_comment(&$variables) {
+  $date_formatter = \Drupal::service('date.formatter');
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
@@ -36,6 +49,47 @@ function yukonca_glider_preprocess_block(&$variables) {
     $pathinfo = pathinfo($logo_file);
     $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_page__node__blog(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $taxonomy_entity_manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  if ($node->hasField('field_blog_type') && !$node->get('field_blog_type')->isEmpty()) {
+    $tid = $node->get('field_blog_type')->target_id;
+    $blog_type_term = $taxonomy_entity_manager->load($tid);
+    if ($blog_type_term && $blog_type_term->hasField('field_agency_logo') && !$blog_type_term->get('field_agency_logo')->isEmpty()) {
+      $variables['logo_url'] = $blog_type_term->get('field_agency_logo')->view();
+    }
+  }
+
+  $variables['blog_category_subcategory'] = [];
+  if ($node->hasField('field_category') && !$node->get('field_category')->isEmpty()) {
+    $category_term = $taxonomy_entity_manager->load($node->get('field_category')->target_id);
+    $variables['blog_category_subcategory'][] = $category_term->getName();
+  }
+
+  if ($node->hasField('field_subcategory') && !$node->get('field_subcategory')->isEmpty()) {
+    $subcategory_term = $taxonomy_entity_manager->load($node->get('field_subcategory')->target_id);
+    $variables['blog_category_subcategory'][] = $subcategory_term->getName();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  $suggestions[] = 'page__node__' . $node->bundle();
 }
 
 /**
@@ -70,6 +124,7 @@ function yukonca_glider_preprocess_node__landing_page(&$variables) {
 function yukonca_glider_preprocess_node__department(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
+
   if (!$node->hasField('field_department_term') || $node->get('field_department_term')->isEmpty()) {
     return;
   }
@@ -84,6 +139,91 @@ function yukonca_glider_preprocess_node__department(&$variables) {
   $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
   $latest_news_view['read_more'] = $readmore_url;
   $variables['view_latest_news'] = $latest_news_view;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__campground_directory_record(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $availability_fields = [
+    'field_may_availability',
+    'field_june_availability',
+    'field_july_availability',
+    'field_august_availability',
+    'field_september_availability',
+  ];
+
+  $availability = [];
+  $is_empty_chart = TRUE;
+  foreach ($availability_fields as $field_name) {
+    if (!$node->hasField($field_name)) {
+      continue;
+    }
+
+    $field = $node->get($field_name);
+    $title = $field->getFieldDefinition()->getLabel();
+    $title = str_replace(' availability', '', $title);
+    $availability[] = [
+      'title' => $title,
+      'value' => $field->value,
+    ];
+
+    if ($field->value != 'na') {
+      $is_empty_chart = FALSE;
+    }
+  }
+
+  if ($is_empty_chart) {
+    $variables['availability'] = $variables['content']['field_campground_site_type'][0]['#plain_text'];
+  }
+  else {
+    $variables['availability'] = $availability;
+  }
+
+  $services_fields = [
+    'field_outhouse_unisex',
+    'field_bear_proof_garbage_bins',
+    'field_bear_proof_recycling_bins',
+    'field_picnic_tables',
+    'field_cook_shelter',
+    'field_fire_ring',
+    'field_bear_proof_cache',
+    'field_boat_launch',
+    'field_boat_dock',
+    'field_hiking_trails',
+    'field_playground',
+    'field_at_least_one_wheelchair_ac',
+    'field_one_wheelchair_camp',
+    'field_hand_pump_or_water_tank_pr',
+    'field_sandy_or_cobble_beach_with',
+    'field_viewing_structures_or_sign',
+    'field_interpretive_centre',
+    'field_group_campsite',
+    'field_tent_pads_or_sites_availab',
+    'field_swimming_area_or_dock_no_l',
+    'field_change_room',
+    'field_outdoor_ampitheatre',
+    'field_walk_in_sites',
+  ];
+  $available_services = [];
+  foreach ($services_fields as $field_name) {
+    if (!$node->hasField($field_name)) {
+      continue;
+    }
+    $field = $node->get($field_name);
+    $field_name = $field->getName();
+    $field_name = str_replace('field_', '', $field_name);
+    $available_services[] = [
+      'name' => $field_name,
+      'title' => $field->getFieldDefinition()->getLabel(),
+      'value' => $field->value,
+    ];
+  }
+
+  $variables['available_services'] = $available_services;
 }
 
 /**
@@ -105,7 +245,6 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
     ->getString();
   // Use for pills ID.
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
-
 }
 
 /**
@@ -124,5 +263,23 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
         $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
       }
     }
+  }
+}
+
+/**
+ * Implements template_proprocess_page().
+ */
+function yukonca_glider_preprocess_page(&$variables) {
+  if (!empty($variables['node'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['node'];
+    if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
+      return;
+    }
+
+    $variables['header_image'] = $node->get('field_icon_dark')->view([
+      'type' => 'entity_reference_entity_view',
+      'label' => 'hidden',
+    ]);
   }
 }
