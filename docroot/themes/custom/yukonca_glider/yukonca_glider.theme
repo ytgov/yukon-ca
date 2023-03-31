@@ -31,6 +31,15 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_comment.
+ */
+function yukonca_glider_preprocess_comment(&$variables) {
+  $date_formatter = \Drupal::service('date.formatter');
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_block(&$variables) {
@@ -131,7 +140,6 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
     ->getString();
   // Use for pills ID.
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
-
 }
 
 /**
