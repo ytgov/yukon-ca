@@ -1,0 +1,29 @@
+uuid: ddcea16b-5e9a-4543-a716-b3f3e8b9d330
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.find_a_campground_or_recreation_site
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: views_block__find_a_campground
+theme: yukonca_glider
+region: content
+weight: -14
+provider: null
+plugin: 'views_block:find_a_campground_or_recreation_site-block_campgrounds'
+settings:
+  id: 'views_block:find_a_campground_or_recreation_site-block_campgrounds'
+  label: 'Campground or recreation site'
+  label_display: visible
+  provider: views
+  views_label: 'Campground or recreation site'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /find-campground-or-recreation-site

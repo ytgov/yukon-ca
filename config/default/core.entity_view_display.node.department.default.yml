@@ -24,6 +24,7 @@ dependencies:
     - node.type.department
   module:
     - entity_reference_revisions
+    - fences
     - field_group
     - link
     - media
@@ -114,25 +115,43 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_add_primary_top_tasks:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: primary_top_tasks
       link: ''
-    third_party_settings: {  }
-    weight: 4
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 5
     region: content
   field_add_secondary_top_tasks:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: secondary_top_tasks
       link: ''
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 6
     region: content
   field_department_mandate:
     type: text_default
@@ -147,11 +166,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 6
     region: content
   field_legislative_assembly_web:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -159,63 +178,93 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 24
     region: content
   field_minister_email:
     type: email_mailto
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 25
     region: content
   field_minister_fax_number:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 9
+    weight: 27
     region: content
   field_minister_first_name:
     type: string
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
+    third_party_settings:
+      fences:
+        fences_field_tag: span
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 22
     region: content
   field_minister_last_name:
     type: string
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
+    third_party_settings:
+      fences:
+        fences_field_tag: span
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 23
     region: content
   field_minister_photo:
-    type: entity_reference_entity_view
-    label: above
+    type: media_thumbnail
+    label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 11
+    weight: 21
     region: content
   field_minister_telephone:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 26
     region: content
   field_optional_internal_related:
-    type: entity_reference_label
-    label: above
+    type: entity_reference_entity_view
+    label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 12
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 4
     region: content
   field_page_description:
     type: basic_string
@@ -226,12 +275,12 @@ content:
     region: content
   field_related_content:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 3
     region: content
 hidden:
   addtoany: true

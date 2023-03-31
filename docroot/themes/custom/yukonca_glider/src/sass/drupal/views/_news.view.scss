@@ -6,6 +6,17 @@
     }
   }
 
+  &.view-display-id-block_department_latest_news {
+    .views-row {
+      @apply border-solid border-0 border-b-4 border-gray-light;
+      @apply py-8 md:py-16;
+    }
+
+    .view-footer {
+      @apply mt-10;
+    }
+  }
+
   &.view-display-id-block_latest_news {
     @apply md:border-solid border-gray;
     @apply my-14;

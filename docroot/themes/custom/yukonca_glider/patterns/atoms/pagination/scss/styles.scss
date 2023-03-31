@@ -7,11 +7,6 @@
   }
 
   &.separator {
-    @apply after:content-["|"];
-    @apply after:absolute;
-    @apply after:top-1/2;
-    @apply after:-translate-y-1/2;
-    @apply after:right-[-4px];
-    @apply after:text-gray;
+    @apply after:content-["|"] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-1 after:text-gray;
   }
 }

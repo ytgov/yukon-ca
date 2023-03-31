@@ -9,6 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.related_content
   module:
     - datetime
+    - fences
     - link
     - text
 id: paragraph.related_content.default
@@ -18,14 +19,14 @@ mode: default
 content:
   field_excerpt:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
   field_external_related_content:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -37,7 +38,7 @@ content:
     region: content
   field_related_date:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium
