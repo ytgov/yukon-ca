@@ -29,6 +29,15 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_comment.
+ */
+function yukonca_glider_preprocess_comment(&$variables) {
+  $date_formatter = \Drupal::service('date.formatter');
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+}
+
+/**
  * Implements template_preprocess_block() for block templates.
  */
 function yukonca_glider_preprocess_block(&$variables) {
@@ -36,6 +45,32 @@ function yukonca_glider_preprocess_block(&$variables) {
     $logo_file = $variables['site_logo'];
     $pathinfo = pathinfo($logo_file);
     $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__landing_page(&$variables) {
+  if (!isset($variables['node']) && !isset($variables['view_mode'])) {
+    return;
+  }
+  $view_mode = $variables['view_mode'];
+  if ($view_mode !== 'primary_item_block') {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_primary_content') || $node->get('field_primary_content')->isEmpty()) {
+    return;
+  }
+  // Render only the first three links in field_primary_content.
+  $links = $node->get('field_primary_content')->getValue();
+  foreach ($links as $key => $link) {
+    if ($key > 2) {
+      $variables['content']['field_primary_content'][$key]['#access'] = FALSE;
+    }
   }
 }
 
@@ -58,16 +93,6 @@ function yukonca_glider_preprocess_node(&$variables) {
     $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
     $latest_news_view['read_more'] = $readmore_url;
     $variables['view_latest_news'] = $latest_news_view;
-  }
-
-  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
-    // Render only the first three links in field_primary_content.
-    $links = $variables['node']->field_primary_content->getValue();
-    foreach ($links as $key => $link) {
-      if ($key > 2) {
-        unset($variables['content']['field_primary_content'][$key]);
-      }
-    }
   }
 
   if (!empty($type) && $type === 'campground_directory_record') {
@@ -142,29 +167,6 @@ function yukonca_glider_preprocess_node(&$variables) {
 }
 
 /**
- * Implements template_preprocess_file_link().
- *
- * Use the media entity name as file link text if there is no description.
- */
-function yukonca_glider_preprocess_file_link(&$variables) {
-  if (is_string($variables['link'])) {
-    return;
-  }
-  if (is_object($variables['link'])) {
-    // Ensure we are working with a renderable array, as that's
-    // just easier.
-    $variables['link'] = $variables['link']->toRenderable();
-  }
-  $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
-  $filename = $variables['link']['#title'];
-  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
-  $variables['link']['#title'] = $link_text;
-  $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
-  $variables['link']['#attributes']['target'] = '_blank';
-  $variables['filename'] = $filename;
-}
-
-/**
  * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
@@ -183,7 +185,6 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
     ->getString();
   // Use for pills ID.
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
-
 }
 
 /**
@@ -219,39 +220,5 @@ function yukonca_glider_preprocess_page(&$variables) {
       ]);
       $variables['header_image'] = $image;
     }
-
-    if ($bundle == 'blog' || $bundle == 'default') {
-      $tid = $node->field_blog_type->target_id;
-      if (!empty($tid)) {
-        $blog_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
-          $image = $blog_type_term->field_agency_logo[0]->view([
-            'type' => 'entity_reference_entity_view',
-            'label' => 'hidden',
-          ]);
-          $variables['logo_url'] = $image;
-        }
-      }
-
-      $variables['blog_category_subcategory'] = [];
-      if (!empty($node->field_category_term->target_id)) {
-        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category_term->target_id);
-        array_push($variables['blog_category_subcategory'], $category_term->getName());
-      }
-
-      if (!empty($node->field_subcategory->target_id)) {
-        $subcategory_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_subcategory->target_id);
-        array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
-      }
-    }
   }
-}
-
-/**
- * Implements template_preprocess_comment.
- */
-function yukonca_glider_preprocess_comment(&$variables) {
-  $date_formatter = \Drupal::service('date.formatter');
-  $comment = $variables['elements']['#comment'];
-  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
 }

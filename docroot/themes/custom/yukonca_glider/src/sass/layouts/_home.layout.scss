@@ -33,7 +33,7 @@
     content: "";
     transition: all 0.4s ease;
 
-    background-image: url("../../images/svg/Aurora-small-mobile.svg");
+    background-image: url("../../images/svg/Aurora-main.svg");
     background-repeat: no-repeat;
 
     @include media-breakpoint-up(md) {
@@ -129,6 +129,95 @@
     border-radius: 4px;
     background-color: #FFF;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.27);
+
+    &.primary-single-item {
+      .faded-box {
+        &:after {
+          position: absolute;
+          right: 20px;
+          bottom: 0;
+          left: 20px;
+
+          display: block;
+
+          width: 70%;
+          height: 10px;
+          margin: 0 auto;
+
+          content: "";
+
+          background: $color-blue200;
+          @include media-breakpoint-up(lg) {
+            width: 185px;
+          }
+        }
+      }
+    }
+
+    &.secondary-single-item {
+      .faded-box {
+        &:after {
+          position: absolute;
+          right: 20px;
+          bottom: 0;
+          left: 20px;
+
+          display: block;
+
+          width: 70%;
+          height: 10px;
+          margin: 0 auto;
+
+          content: "";
+
+          background: $color-blue200;
+          @include media-breakpoint-up(lg) {
+            width: 185px;
+          }
+        }
+      }
+    }
+  }
+
+  .field__item {
+    &.odd {
+      .primary-single-item.box-items {
+        &:before {
+          position: absolute;
+          top: 0;
+          right: 0;
+
+          display: block;
+
+          width: 75%;
+          height: 20px;
+
+          content: "";
+        }
+
+        .faded-box {
+          &:after {
+            position: absolute;
+            right: 15%;
+            bottom: 0;
+            left: 15%;
+
+            display: block;
+
+            width: 185px;
+            height: 10px;
+            margin: 0 auto;
+
+            content: "";
+
+            background: $color-blue200;
+            @include media-breakpoint-up(md) {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -195,7 +284,7 @@
       width: 100px;
       height: 100px;
 
-      background: $link-hover;
+      background: $color-blue200;
 
       img {
         width: 100px;
