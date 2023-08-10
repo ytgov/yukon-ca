@@ -3,23 +3,25 @@
 
 {% set classes = [
   'section',
-  'container',
+  'overflow-hidden',
   prefix,
   prefix ~ '--' ~ variant,
+  'relative',
+  'bg-gray-light',
+  'py-8 md:py-0',
 ] %}
 
-<div {{ attributes.addClass(classes) }}">
-  <div class="row">
-    {% if image %}
-      <div class="image" style="background-image: url('{{ image }}')"></div>
-    {% endif %}
-
-    {% if title %}
-      <h1 class="title" id="heading">{{ title }}</h1>
-    {% endif %}
-
-    {% if content %}
-      <div class="content">{{ content }}</div>
-    {% endif %}
+<div {{ attributes.addClass(classes) }}>
+  <div class="container">
+    <div class="flex flex-col md:flex-row text-center md:text-left items-center">
+      {% if image %}
+        <div class="image md:order-last">
+          {{ image }}
+        </div>
+      {% endif %}
+      {% if title %}
+        <h1 class="title" id="heading">{{ title }}</h1>
+      {% endif %}
+    </div>
   </div>
 </div>

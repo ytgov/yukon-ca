@@ -13,6 +13,17 @@ column_layout_card:
           title: 'Suspendisse malesuada risus'
           url: <front>
           options: [ ]
+    level_2_link:
+      type: string
+      label: Level 2 link
+      description: A level 2 landingpage link.
+      preview:
+        '#type': 'inline_template'
+        '#template': '{{ drupal_link(title, url, options) }}'
+        '#context':
+          title: 'Suspendisse malesuada risus'
+          url: <front>
+          options: [ ]
     links:
       type: mixed
       label: Links

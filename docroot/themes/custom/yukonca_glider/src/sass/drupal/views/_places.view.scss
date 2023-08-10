@@ -1,0 +1,14 @@
+.view-places-listing {
+  .view-header {
+    @apply mb-0;
+  }
+
+  .views-row {
+    @apply border-solid border-0 border-b border-gray;
+    @apply py-7;
+  }
+
+  .views-field-field-street-address {
+    @apply text-gray-dark;
+  }
+}

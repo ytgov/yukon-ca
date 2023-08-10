@@ -1,0 +1,12 @@
+/* Add your code here */
+
+
+.thumbnail {
+  a {
+    @apply block;
+
+    img {
+      @apply w-full h-auto;
+    }
+  }
+}
