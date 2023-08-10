@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.event.field_event_street_address
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
-    - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code

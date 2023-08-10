@@ -12,11 +12,7 @@
     @apply h-[135px];
     @apply bg-no-repeat;
     @apply bg-contain md:bg-cover;
-    background-image: url(../../../../../images/svg/Aurora-small-mobile.svg);
-
-    @include media-breakpoint-up(md) {
-      background-image: url(../../../../../images/svg/Aurora-main.svg);
-    }
+    background-image: url(../../../../../images/svg/Aurora-main.svg);
   }
 
   img {

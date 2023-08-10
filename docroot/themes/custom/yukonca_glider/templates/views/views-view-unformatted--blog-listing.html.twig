@@ -19,12 +19,10 @@
   <h3>{{ title }}</h3>
 {% endif %}
 {% for row in rows %}
-  {%
-    set row_classes = [
-      default_row_class ? 'views-row',
-      (loop.index % 2 == 0) ? 'even' : 'odd',
-    ]
-  %}
+  {% set row_classes = [
+    default_row_class ? 'views-row',
+    (loop.index % 2 == 0) ? 'even' : 'odd',
+  ] %}
   <div{{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}
   </div>

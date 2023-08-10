@@ -11,8 +11,6 @@ source:
   scheme: public
   file_type:
     - document
-  file_mime:
-    - 'application/pdf'
   batch_size: 200
   constants:
     source_base_path: 'https://yukon.ca/'
@@ -42,9 +40,7 @@ process:
   changed: timestamp
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
-  langcode:
-    plugin: default_value
-    default_value: "en"
+  langcode: source_language
 
 destination:
   plugin: entity:media

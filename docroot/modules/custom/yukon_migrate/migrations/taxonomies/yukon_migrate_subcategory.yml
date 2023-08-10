@@ -7,7 +7,7 @@ migration_tags:
 
 source:
   plugin: d7_taxonomy_term
-  bundle: subcategory
+  bundle: sub_category
   translation: false
 
 process:
@@ -30,4 +30,4 @@ process:
 
 destination:
   plugin: entity:taxonomy_term
-  default_bundle: subcategory
+  default_bundle: sub_category

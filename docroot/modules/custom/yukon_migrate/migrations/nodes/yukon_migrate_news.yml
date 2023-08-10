@@ -1,151 +1,151 @@
 id: yukon_migrate_news
 label: Yukon Migrate News Nodes Translations
 migration_tags:
-    - Drupal 7
-    - Content
-    - News
+  - Drupal 7
+  - Content
+  - News
 migration_group: legacy
 source:
-    plugin: d7_node
-    node_type: news
-    constants:
-        default_text_format: full_html
+  plugin: d7_node
+  node_type: news
+  constants:
+    default_text_format: full_html
 destination:
-    plugin: entity:node
-    default_bundle: news
+  plugin: entity:node
+  default_bundle: news
 process:
-    uid: node_uid
-    status: status
-    langcode:
-        plugin: default_value
-        source: language
-        default_value: "en"
-    created: created
-    changed: changed
-    promote: promote
-    sticky: sticky
-    revision_log: log
-    title: title
+  uid: node_uid
+  status: status
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_log: log
+  title: title
 
-    field_page_description/value: field_description/0/value
-    field_page_description/format: constants/default_text_format
+  field_page_description/value: field_description/0/value
+  field_page_description/format: constants/default_text_format
 
-    body/value: body/0/value
-    body/format: constants/default_text_format
+  body/value: body/0/value
+  body/format: constants/default_text_format
 
-    field_contact/value: field_contact/0/value
-    field_contact/format: constants/default_text_format
+  field_contact/value: field_contact/0/value
+  field_contact/format: constants/default_text_format
 
-    field_backgrounder/value: field_backgrounder/0/value
-    field_backgrounder/format: constants/default_text_format
+  field_backgrounder/value: field_backgrounder/0/value
+  field_backgrounder/format: constants/default_text_format
 
-    field_news_release: field_news_release_
+  field_news_release: field_news_release_
 
-    # quotes
-    pseudo_news_quote:
-        plugin: sub_process
-        source: field_news_quote
-        process:
-            paragraph:
-                plugin: migration_lookup
-                source: value
-                migration: yukon_migrate_quotes
-                no_stub: true
-
-    field_news_quote:
-        plugin: sub_process
-        source: '@pseudo_news_quote'
-        process:
-            target_id: 'paragraph/0'
-            target_revision_id: 'paragraph/1'
-
-    # quick facts
-    pseudo_quick_facts:
-        plugin: sub_process
-        source: field_quick_facts
-        process:
-            paragraph:
-                plugin: migration_lookup
-                source: value
-                migration: yukon_migrate_quick_facts
-                no_stub: true
-
-    field_quick_facts:
-        plugin: sub_process
-        source: '@pseudo_quick_facts'
-        process:
-            target_id: 'paragraph/0'
-            target_revision_id: 'paragraph/1'
-
-    # charts
-    pseudo_field_charts:
-        plugin: sub_process
-        source: field_charts
-        process:
-            paragraph:
-                plugin: migration_lookup
-                source: value
-                migration: yukon_migrate_charts
-                no_stub: true
-
-    field_charts:
-        plugin: sub_process
-        source: '@pseudo_field_paragraphs'
-        process:
-            target_id: 'paragraph/0'
-            target_revision_id: 'paragraph/1'
-
-    field_featured_image:
+  # quotes
+  pseudo_news_quote:
+    plugin: sub_process
+    source: field_news_quote
+    process:
+      paragraph:
         plugin: migration_lookup
-        source: field_featured_image/0/fid
-        migration: yukon_migrate_images
+        source: value
+        migration: yukon_migrate_quotes
         no_stub: true
 
-    field_related_link:
-        plugin: yukon_migrate_links
-        source: field_related_link
+  field_news_quote:
+    plugin: sub_process
+    source: '@pseudo_news_quote'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
-    field_category:
+  # quick facts
+  pseudo_quick_facts:
+    plugin: sub_process
+    source: field_quick_facts
+    process:
+      paragraph:
         plugin: migration_lookup
-        migration: yukon_migrate_category
-        source: field_category_term
+        source: value
+        migration: yukon_migrate_quick_facts
         no_stub: true
 
-    field_department_term:
+  field_quick_facts:
+    plugin: sub_process
+    source: '@pseudo_quick_facts'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
+
+  # charts
+  pseudo_field_charts:
+    plugin: sub_process
+    source: field_charts
+    process:
+      paragraph:
         plugin: migration_lookup
-        migration: yukon_migrate_department
-        source: field_department_term
+        source: value
+        migration: yukon_migrate_charts
         no_stub: true
 
-    field_news_type:
-        plugin: migration_lookup
-        migration: yukon_migrate_news_type
-        source: field_news_type
-        no_stub: true
+  field_charts:
+    plugin: sub_process
+    source: '@pseudo_field_paragraphs'
+    process:
+      target_id: 'paragraph/0'
+      target_revision_id: 'paragraph/1'
 
-    field_yukon_editorial_team:
-        plugin: migration_lookup
-        migration: yukon_migrate_teams
-        source: field_yukon_editorial_team
-        no_stub: true
+  field_featured_image:
+    plugin: migration_lookup
+    source: field_featured_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
 
-    field_social_sharing: field_social_sharing
-    field_featured_content: field_featured_news_item
-    field_featured_to_homepage: field_featured_to_homepage
+  field_related_link:
+    plugin: yukon_migrate_links
+    source: field_related_link
 
-    path/alias: alias
-    path/pathauto: pathauto
+  field_category:
+    plugin: migration_lookup
+    migration: yukon_migrate_category
+    source: field_category_term
+    no_stub: true
 
-    moderation_state: moderation_state
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+
+  field_news_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_news_type
+    source: field_news_type
+    no_stub: true
+
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+
+  field_social_sharing: field_social_sharing
+  field_featured_content: field_featured_news_item
+  field_featured_to_homepage: field_featured_to_homepage
+
+  path/alias: alias
+  path/pathauto: pathauto
+
+  moderation_state: moderation_state
 
 migration_dependencies:
-    required:
-        - yukon_migrate_category
-        - yukon_migrate_department
-        - yukon_migrate_news_type
-        - yukon_migrate_teams
-    optional:
-        - yukon_migrate_images
-        - yukon_migrate_charts
-        - yukon_migrate_quick_facts
-        - yukon_migrate_quotes
+  required:
+    - yukon_migrate_category
+    - yukon_migrate_department
+    - yukon_migrate_news_type
+    - yukon_migrate_teams
+  optional:
+    - yukon_migrate_images
+    - yukon_migrate_charts
+    - yukon_migrate_quick_facts
+    - yukon_migrate_quotes
