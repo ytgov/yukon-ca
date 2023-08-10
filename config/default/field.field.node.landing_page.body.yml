@@ -6,9 +6,12 @@ dependencies:
     - field.storage.node.body
     - node.type.landing_page
   module:
+    - allowed_formats
     - epp
     - text
 third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
   epp:
     value: ''
     on_update: 0
@@ -16,7 +19,7 @@ id: node.landing_page.body
 field_name: body
 entity_type: node
 bundle: landing_page
-label: WYSIWYG
+label: 'Opener description'
 description: ''
 required: false
 translatable: true

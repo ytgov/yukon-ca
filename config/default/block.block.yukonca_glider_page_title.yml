@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - node
+    - system
   theme:
     - yukonca_glider
 _core:
@@ -11,7 +12,7 @@ _core:
 id: yukonca_glider_page_title
 theme: yukonca_glider
 region: content
-weight: -10
+weight: -19
 provider: null
 plugin: page_title_block
 settings:
@@ -20,17 +21,16 @@ settings:
   label_display: '0'
   provider: core
 visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    negate: false
+    negate: true
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
-      basic_page: basic_page
-      blog: blog
-      campground_directory_record: campground_directory_record
-      department: department
-      directory_records_places: directory_records_places
-      event: event
-      multi_step_page: multi_step_page
-      news: news
+      homepage: homepage
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2

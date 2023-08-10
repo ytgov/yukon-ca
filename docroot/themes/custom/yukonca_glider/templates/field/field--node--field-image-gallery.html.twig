@@ -64,15 +64,17 @@
         <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
       </div>
     {% endfor %}
-    <div class="featured-btn-group">
-      <button class="carousel-control-prev btn prev" type="button" data-bs-target="#image-gallery" data-bs-slide="prev">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-        <span class="visually-hidden">{{ 'Previous' | t }}</span>
-      </button>
-      <button class="carousel-control-next btn next" type="button" data-bs-target="#image-gallery" data-bs-slide="next">
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-        <span class="visually-hidden">{{ 'Next' | t }}</span>
-      </button>
-    </div>
+    {% if items|length > 1 %}
+      <div class="featured-btn-group">
+        <button class="carousel-control-prev btn prev" type="button" data-bs-target="#image-gallery" data-bs-slide="prev">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          <span class="visually-hidden">{{ 'Previous' | t }}</span>
+        </button>
+        <button class="carousel-control-next btn next" type="button" data-bs-target="#image-gallery" data-bs-slide="next">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+          <span class="visually-hidden">{{ 'Next' | t }}</span>
+        </button>
+      </div>
+    {% endif %}
   </div>
 </div>

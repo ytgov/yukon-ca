@@ -81,7 +81,7 @@
 {{ title_prefix }}
 <div class="front-primary-content">
   <a href="{{ url }}" rel="bookmark">
-    {{ content.field_svg_upload }}
+    {{ content.field_icon_dark }}
     <h2{{ title_attributes }}>
       {{ label }}
     </h2>
@@ -91,7 +91,7 @@
   <h2{{ title_attributes }}>
     <a href="{{ url }}" rel="bookmark">{{ label }}</a>
   </h2>
-  {{ content.field_primary_content }}
+  {{ content.field_primary_content.0 }}
 </div>
 {{ title_suffix }}
 

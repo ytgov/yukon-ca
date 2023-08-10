@@ -1,0 +1,23 @@
+uuid: 56e1e0dd-7e5c-4650-a009-9182e2d317de
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.primary_content.field_popular_links
+    - paragraphs.paragraphs_type.primary_content
+id: paragraph.primary_content.preview
+targetEntityType: paragraph
+bundle: primary_content
+mode: preview
+content:
+  field_popular_links:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

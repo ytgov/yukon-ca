@@ -1,0 +1,15 @@
+display:
+  default:
+    display_options:
+      filters:
+        field_region_target_id:
+          admin_label: Région
+          expose:
+            label: Région
+        field_campground_site_type_target_id:
+          admin_label: 'Type de site'
+          expose:
+            label: 'Type de site'
+        field_one_wheelchair_camp_value:
+          group_info:
+            label: 'Type d’installation'

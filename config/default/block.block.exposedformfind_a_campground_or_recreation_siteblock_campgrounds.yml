@@ -12,7 +12,7 @@ dependencies:
 id: exposedformfind_a_campground_or_recreation_siteblock_campgrounds
 theme: yukonca_glider
 region: sidebar_second
-weight: 0
+weight: -17
 provider: null
 plugin: 'views_exposed_filter_block:find_a_campground_or_recreation_site-block_campgrounds'
 settings:
@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /find-campground-or-recreation-site
+    pages: /node/48419

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.blog_comments.default
     - field.field.node.blog.body
     - field.field.node.blog.field_blog_type
     - field.field.node.blog.field_category
@@ -39,13 +40,6 @@ content:
     settings:
       view_mode: default
       pager_id: 0
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_contact:
-    type: text_default
-    label: above
-    settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content

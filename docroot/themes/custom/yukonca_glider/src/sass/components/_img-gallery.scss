@@ -8,9 +8,10 @@
     border: 1px solid $light-border;
   }
 
-  .gallery-img-item {
+  .carousel-item {
     img {
       width: 100%;
+      height: auto;
     }
   }
 
@@ -64,6 +65,7 @@
         &.next {
           border-radius: 50% !important;
           height: 40px;
+          width: 40px;
           min-width: 40px;
         }
       }

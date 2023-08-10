@@ -18,7 +18,7 @@ bundle: waste_and_recycling_facilities
 label: Services
 description: "Enter services offered in a list.\r\ne.g. Free store on site"
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

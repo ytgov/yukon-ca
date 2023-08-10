@@ -479,7 +479,7 @@ display:
           plugin_id: entity
           empty: true
           target: '{{ raw_arguments.tid }}'
-          view_mode: full
+          view_mode: default
           tokenize: true
           bypass_access: false
         result:
@@ -552,6 +552,7 @@ display:
       query:
         type: views_query
         options: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:

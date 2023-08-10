@@ -19,5 +19,15 @@ display:
         tid:
           exception:
             title: Tout
+      filters:
+        field_category_target_id:
+          expose:
+            label: 'Catégorie:'
+        field_subcategory_target_id:
+          expose:
+            label: 'Sous-catégorie:'
+      header:
+        result:
+          content: "<div class=\"result-summary\">\r\n  Résultats @start - @end de @total\r\n</div>"
   feed_1:
     display_title: Flux

@@ -12,19 +12,19 @@ dependencies:
 id: side_bar_main_menu
 theme: yukonca_glider
 region: sidebar_first
-weight: 0
+weight: -13
 provider: null
 plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
   label: 'Sidebar main menu'
-  label_display: '0'
+  label_display: visible
   provider: menu_block
   follow: false
   follow_parent: child
   label_link: false
-  label_type: block
-  level: 2
+  label_type: parent
+  level: 1
   depth: 5
   expand_all_items: false
   parent: 'main:'
