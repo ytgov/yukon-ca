@@ -202,19 +202,6 @@
                     "reference": "2.0.x"
                 }
             }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/svg_image",
-                "type": "drupal-module",
-                "version": "1.16",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/svg_image",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
         }
     ],
     "config": {
