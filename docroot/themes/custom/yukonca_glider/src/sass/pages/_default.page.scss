@@ -13,15 +13,9 @@ h3 {
 }
 
 .node {
-  .field {
+  .field:not(.field--label-inline) {
     .field__label {
       @apply my-6;
-    }
-  }
-
-  .field.field--label-inline {
-    .field__label {
-      @apply my-0;
     }
   }
 }

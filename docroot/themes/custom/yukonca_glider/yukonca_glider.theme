@@ -6,6 +6,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
 use Drupal\Core\Render\Markup;
 
 /**
@@ -29,7 +30,16 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 }
 
 /**
- * Implements template_preprocess_block() for block templates.
+ * Implements template_preprocess_comment.
+ */
+function yukonca_glider_preprocess_comment(&$variables) {
+  $date_formatter = \Drupal::service('date.formatter');
+  $comment = $variables['elements']['#comment'];
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
@@ -40,128 +50,178 @@ function yukonca_glider_preprocess_block(&$variables) {
 }
 
 /**
- * Implements template_preprocess_node().
+ * Implements hook_preprocess_HOOK().
  */
-function yukonca_glider_preprocess_node(&$variables) {
-  $type = $variables['node']->bundle();
-  $view_mode = $variables['view_mode'];
+function yukonca_glider_preprocess_page__node__blog(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
 
-  if (!empty($type) && $type === 'department') {
-    $department_tid = $variables['node']->field_department_term->target_id;
-    $latest_news_view['view'] = [
-      '#type' => 'view',
-      '#name' => 'news_listing',
-      '#display_id' => 'block_department_latest_news',
-      '#arguments' => [$department_tid],
-    ];
-
-    $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
-    $latest_news_view['read_more'] = $readmore_url;
-    $variables['view_latest_news'] = $latest_news_view;
-  }
-
-  if (!empty($type) && $type === 'landing_page' && $view_mode === 'primary_item_block') {
-    // Render only the first three links in field_primary_content.
-    $links = $variables['node']->field_primary_content->getValue();
-    foreach ($links as $key => $link) {
-      if ($key > 2) {
-        unset($variables['content']['field_primary_content'][$key]);
-      }
+  $taxonomy_entity_manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  if ($node->hasField('field_blog_type') && !$node->get('field_blog_type')->isEmpty()) {
+    $tid = $node->get('field_blog_type')->target_id;
+    $blog_type_term = $taxonomy_entity_manager->load($tid);
+    if ($blog_type_term && $blog_type_term->hasField('field_agency_logo') && !$blog_type_term->get('field_agency_logo')->isEmpty()) {
+      $variables['logo_url'] = $blog_type_term->get('field_agency_logo')->view();
     }
   }
 
-  if (!empty($type) && $type === 'campground_directory_record') {
-    $services_fields = [
-      $variables['node']->field_outhouse_unisex,
-      $variables['node']->field_bear_proof_garbage_bins,
-      $variables['node']->field_bear_proof_recycling_bins,
-      $variables['node']->field_picnic_tables,
-      $variables['node']->field_cook_shelter,
-      $variables['node']->field_fire_ring,
-      $variables['node']->field_bear_proof_cache,
-      $variables['node']->field_boat_launch,
-      $variables['node']->field_boat_dock,
-      $variables['node']->field_hiking_trails,
-      $variables['node']->field_playground,
-      $variables['node']->field_at_least_one_wheelchair_ac,
-      $variables['node']->field_one_wheelchair_camp,
-      $variables['node']->field_hand_pump_or_water_tank_pr,
-      $variables['node']->field_sandy_or_cobble_beach_with,
-      $variables['node']->field_viewing_structures_or_sign,
-      $variables['node']->field_interpretive_centre,
-      $variables['node']->field_group_campsite,
-      $variables['node']->field_tent_pads_or_sites_availab,
-      $variables['node']->field_swimming_area_or_dock_no_l,
-      $variables['node']->field_change_room,
-      $variables['node']->field_outdoor_ampitheatre,
-      $variables['node']->field_walk_in_sites,
-    ];
+  $variables['blog_category_subcategory'] = [];
+  if ($node->hasField('field_category') && !$node->get('field_category')->isEmpty()) {
+    $category_term = $taxonomy_entity_manager->load($node->get('field_category')->target_id);
+    $variables['blog_category_subcategory'][] = $category_term->getName();
+  }
 
-    $availability_fields = [
-      $variables['node']->field_may_availability,
-      $variables['node']->field_june_availability,
-      $variables['node']->field_july_availability,
-      $variables['node']->field_august_availability,
-      $variables['node']->field_september_availability,
-    ];
-
-    $availability = [];
-    $is_empty_chart = TRUE;
-    foreach ($availability_fields as $field) {
-      $title = $field->getFieldDefinition()->getLabel();
-      $title = str_replace(' availability', '', $title);
-      $availability[] = [
-        'title' => $title,
-        'value' => $field->value,
-      ];
-
-      if ($field->value != 'na') {
-        $is_empty_chart = FALSE;
-      }
-    }
-
-    if ($is_empty_chart) {
-      $variables['availability'] = $variables['content']['field_campground_site_type'][0]['#plain_text'];
-    }
-    else {
-      $variables['availability'] = $availability;
-    }
-
-    $available_services = [];
-    foreach ($services_fields as $field) {
-      $field_name = $field->getName();
-      $field_name = str_replace('field_', '', $field_name);
-      $available_services[] = [
-        'name' => $field_name,
-        'title' => $field->getFieldDefinition()->getLabel(),
-        'value' => $field->value,
-      ];
-    }
-    $variables['available_services'] = $available_services;
+  if ($node->hasField('field_subcategory') && !$node->get('field_subcategory')->isEmpty()) {
+    $subcategory_term = $taxonomy_entity_manager->load($node->get('field_subcategory')->target_id);
+    $variables['blog_category_subcategory'][] = $subcategory_term->getName();
   }
 }
 
 /**
- * Implements template_preprocess_file_link().
- *
- * Use the media entity name as file link text if there is no description.
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
-function yukonca_glider_preprocess_file_link(&$variables) {
-  if (is_string($variables['link'])) {
+function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
     return;
   }
-  if (is_object($variables['link'])) {
-    // Ensure we are working with a renderable array, as that's
-    // just easier.
-    $variables['link'] = $variables['link']->toRenderable();
+
+  $suggestions[] = 'page__node__' . $node->bundle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__landing_page(&$variables) {
+  if (!isset($variables['node']) && !isset($variables['view_mode'])) {
+    return;
   }
-  $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
-  $filename = $variables['link']['#title'];
-  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
-  $variables['link']['#title'] = $link_text;
-  $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
-  $variables['link']['#attributes']['target'] = '_blank';
-  $variables['filename'] = $filename;
+  $view_mode = $variables['view_mode'];
+  if ($view_mode !== 'primary_item_block') {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_primary_content') || $node->get('field_primary_content')->isEmpty()) {
+    return;
+  }
+  // Render only the first three links in field_primary_content.
+  $links = $node->get('field_primary_content')->getValue();
+  foreach ($links as $key => $link) {
+    if ($key > 2) {
+      $variables['content']['field_primary_content'][$key]['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__department(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if (!$node->hasField('field_department_term') || $node->get('field_department_term')->isEmpty()) {
+    return;
+  }
+  $department_tid = $node->get('field_department_term')->target_id;
+  $latest_news_view['view'] = [
+    '#type' => 'view',
+    '#name' => 'news_listing',
+    '#display_id' => 'block_department_latest_news',
+    '#arguments' => [$department_tid],
+  ];
+
+  $readmore_url = '/news?field_department_term_target_id=' . $department_tid;
+  $latest_news_view['read_more'] = $readmore_url;
+  $variables['view_latest_news'] = $latest_news_view;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__campground_directory_record(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $availability_fields = [
+    'field_may_availability',
+    'field_june_availability',
+    'field_july_availability',
+    'field_august_availability',
+    'field_september_availability',
+  ];
+
+  $availability = [];
+  $is_empty_chart = TRUE;
+  foreach ($availability_fields as $field_name) {
+    if (!$node->hasField($field_name)) {
+      continue;
+    }
+
+    $field = $node->get($field_name);
+    $title = $field->getFieldDefinition()->getLabel();
+    $title = str_replace(' availability', '', $title);
+    $availability[] = [
+      'title' => $title,
+      'value' => $field->value,
+    ];
+
+    if ($field->value != 'na') {
+      $is_empty_chart = FALSE;
+    }
+  }
+
+  if ($is_empty_chart) {
+    $variables['availability'] = $variables['content']['field_campground_site_type'][0]['#plain_text'];
+  }
+  else {
+    $variables['availability'] = $availability;
+  }
+
+  $services_fields = [
+    'field_outhouse_unisex',
+    'field_bear_proof_garbage_bins',
+    'field_bear_proof_recycling_bins',
+    'field_picnic_tables',
+    'field_cook_shelter',
+    'field_fire_ring',
+    'field_bear_proof_cache',
+    'field_boat_launch',
+    'field_boat_dock',
+    'field_hiking_trails',
+    'field_playground',
+    'field_at_least_one_wheelchair_ac',
+    'field_one_wheelchair_camp',
+    'field_hand_pump_or_water_tank_pr',
+    'field_sandy_or_cobble_beach_with',
+    'field_viewing_structures_or_sign',
+    'field_interpretive_centre',
+    'field_group_campsite',
+    'field_tent_pads_or_sites_availab',
+    'field_swimming_area_or_dock_no_l',
+    'field_change_room',
+    'field_outdoor_ampitheatre',
+    'field_walk_in_sites',
+  ];
+  $available_services = [];
+  foreach ($services_fields as $field_name) {
+    if (!$node->hasField($field_name)) {
+      continue;
+    }
+    $field = $node->get($field_name);
+    $field_name = $field->getName();
+    $field_name = str_replace('field_', '', $field_name);
+    $available_services[] = [
+      'name' => $field_name,
+      'title' => $field->getFieldDefinition()->getLabel(),
+      'value' => $field->value,
+    ];
+  }
+
+  $variables['available_services'] = $available_services;
 }
 
 /**
@@ -183,7 +243,6 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
     ->getString();
   // Use for pills ID.
   $variables['tabs']['id'] = Html::getUniqueId($node->getTitle());
-
 }
 
 /**
@@ -210,19 +269,20 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   if (!empty($variables['node'])) {
-    $bundle = $variables['node']->bundle();
+    /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];
-    if (!empty($node->field_icon_dark) && !empty($node->field_icon_dark[0])) {
-      $image = $node->field_icon_dark[0]->view([
-        'type' => 'entity_reference_entity_view',
-        'label' => 'hidden',
-      ]);
-      $variables['header_image'] = $image;
+    if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')
+        ->isEmpty()) {
+      return;
     }
+    $bundle = $variables['node']->bundle();
+
     if ($bundle == 'blog') {
       $tid = $node->field_blog_type->target_id;
       if (!empty($tid)) {
-        $blog_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+        $blog_type_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($tid);
         if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
           $image = $blog_type_term->field_agency_logo[0]->view([
             'type' => 'entity_reference_entity_view',
@@ -234,23 +294,46 @@ function yukonca_glider_preprocess_page(&$variables) {
 
       $variables['blog_category_subcategory'] = [];
       if (!empty($node->field_category->target_id)) {
-        $category_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_category->target_id);
+        $category_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($node->field_category->target_id);
         array_push($variables['blog_category_subcategory'], $category_term->getName());
       }
 
       if (!empty($node->field_subcategory->target_id)) {
-        $subcategory_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_subcategory->target_id);
+        $subcategory_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($node->field_subcategory->target_id);
         array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
       }
+
+      $variables['header_image'] = $node->get('field_icon_dark')->view([
+        'type' => 'entity_reference_entity_view',
+        'label' => 'hidden',
+      ]);
     }
   }
 }
 
 /**
- * Implements template_preprocess_comment.
+ * Implements template_preprocess_file_link().
+ *
+ * Use the media entity name as file link text if there is no description.
  */
-function yukonca_glider_preprocess_comment(&$variables) {
-  $date_formatter = \Drupal::service('date.formatter');
-  $comment = $variables['elements']['#comment'];
-  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+function yukonca_glider_preprocess_file_link(&$variables) {
+  if (is_string($variables['link'])) {
+    return;
+  }
+  if (is_object($variables['link'])) {
+    // Ensure we are working with a renderable array, as that's
+    // just easier.
+    $variables['link'] = $variables['link']->toRenderable();
+  }
+  $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
+  $filename = $variables['link']['#title'];
+  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
+  $variables['link']['#title'] = $link_text;
+  $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
+  $variables['link']['#attributes']['target'] = '_blank';
+  $variables['filename'] = $filename;
 }

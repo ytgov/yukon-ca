@@ -1,0 +1,37 @@
+label: Activités
+display:
+  block_events_listing:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>No events found. Try removing or changing a filter.</p>'
+            format: full_html
+      filters:
+        field_event_start_time_value:
+          expose:
+            label: 'Activités à partir du'
+        field_community_target_id:
+          expose:
+            label: Collectivité
+        field_category_target_id:
+          expose:
+            label: Catégorie
+        field_yukon_editorial_team_target_id:
+          expose:
+            label: Ministères
+  default:
+    display_options:
+      filters:
+        field_event_start_time_value:
+          expose:
+            label: 'Activités à partir du'
+        field_community_target_id:
+          expose:
+            label: Collectivité
+        field_category_target_id:
+          expose:
+            label: Catégorie
+        field_yukon_editorial_team_target_id:
+          expose:
+            label: Ministères

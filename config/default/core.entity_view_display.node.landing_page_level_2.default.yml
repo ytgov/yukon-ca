@@ -29,22 +29,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_icon_dark:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_icon_light:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -52,11 +36,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
 hidden:
   addtoany: true
   field_department_term: true
+  field_icon_dark: true
+  field_icon_light: true
   field_meta_tags: true
   field_page_description: true
   field_social_sharing: true

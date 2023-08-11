@@ -1,12 +1,1 @@
 /* Add your code here */
-
-.category {
-  @apply after:content-[""];
-  @apply after:inline-block;
-  @apply after:absolute after:top-1/2 after:-translate-y-1/2;
-  @apply after:-right-[5px];
-  @apply after:w-[4px] after:h-[4px];
-  @apply after:bg-black-light;
-  @apply after:rounded;
-  @apply last:after:hidden;
-}

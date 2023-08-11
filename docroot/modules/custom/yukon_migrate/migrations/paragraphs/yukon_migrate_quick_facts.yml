@@ -6,14 +6,17 @@ migration_tags:
   - Paragraphs Content
 migration_group: legacy
 source:
-  plugin: d7_paragraphs_item
+  plugin: yukon_paragraphs_item
   bundle: quick_facts
   constants:
     default_text_format: full_html
+    translation_language: 'en'
 process:
-
-    field_facts/value: field_facts/0/value
-    field_facts/format: constants/default_text_format
+  langcode:
+    plugin: default_value
+    default_value: "en"
+  field_facts/value: field_facts/0/value
+  field_facts/format: constants/default_text_format
 
 destination:
   plugin: entity_reference_revisions:paragraph

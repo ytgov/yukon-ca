@@ -36,10 +36,10 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next â€º'
-            previous: 'â€¹ Previous'
-            first: 'Â« First'
-            last: 'Last Â»'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -479,7 +479,7 @@ display:
           plugin_id: entity
           empty: true
           target: '{{ raw_arguments.tid }}'
-          view_mode: full
+          view_mode: default
           tokenize: true
           bypass_access: false
         result:
@@ -552,6 +552,7 @@ display:
       query:
         type: views_query
         options: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
         ajax_history:

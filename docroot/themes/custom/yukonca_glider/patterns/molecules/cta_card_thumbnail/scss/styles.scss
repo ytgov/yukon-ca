@@ -3,11 +3,10 @@
 
 .thumbnail {
   a {
-    display: block;
+    @apply block;
 
     img {
-      width: 100%;
-      height: auto;
+      @apply w-full h-auto;
     }
   }
 }

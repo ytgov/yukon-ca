@@ -5,14 +5,14 @@ dependencies:
   config:
     - views.view.blog_listing
   module:
-    - system
+    - node
     - views
   theme:
     - yukonca_glider
 id: views_block__blog_listing_block_1
 theme: yukonca_glider
 region: sidebar_first
-weight: -17
+weight: -18
 provider: null
 plugin: 'views_block:blog_listing-block_1'
 settings:
@@ -24,7 +24,10 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  request_path:
-    id: request_path
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
-    pages: "/digital-blog/*\r\n/blogue-renseignements-et-services-en-ligne/*"
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      blog: blog

@@ -9,26 +9,8 @@
 
 {% set attributes = attributes.addClass(classes) %}
 
-{% set content %}
-  <div class="container">
-    {# Title #}
-    {% if not hide_title and title %}
-      <div class="{{ prefix }}__title">
-        <h2>{{ title }}</h2>
-      </div>
-    {% endif %}
-
-    {# Items #}
-    <div class="content">
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    </div>
-  </div>
-{% endset %}
-
-{{ pattern('section', {
-  title: title,
-  content: content,
-  attribs: attributes,
-}, 'default') }}
+<div class="accordion">
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
+</div>
