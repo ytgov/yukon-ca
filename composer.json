@@ -62,6 +62,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/password_policy": "^4.0",
         "drupal/pathauto": "^1.11",
+        "drupal/pathologic": "^2.0@alpha",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
         "drupal/redis": "^1.6",
@@ -102,8 +103,7 @@
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10.0",
-        "yukon/module_missing_message_fixer": "2.x-dev",
-        "yukon/pathologic": "8.x-dev"
+        "yukon/module_missing_message_fixer": "2.x-dev"
     },
     "extra": {
         "enable-patching": true,
@@ -200,19 +200,6 @@
                     "url": "https://git.drupalcode.org/project/module_missing_message_fixer",
                     "type": "git",
                     "reference": "2.0.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/pathologic",
-                "type": "drupal-module",
-                "version": "8.x-dev",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/pathologic",
-                    "type": "git",
-                    "reference": "8.x-1.x"
                 }
             }
         },

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16141e8e5885bd317968cab7a66aeb9d",
+    "content-hash": "bb833a527248aec3853ca654ab14f998",
     "packages": [
         {
             "name": "acquia/blt",
@@ -6347,6 +6347,62 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
+            }
+        },
+        {
+            "name": "drupal/pathologic",
+            "version": "2.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/pathologic.git",
+                "reference": "2.0.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pathologic-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "be911b098ece7d1ffa55cf0d5f33d38ea40acda4"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1681263978",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "dww",
+                    "homepage": "https://www.drupal.org/user/46549"
+                },
+                {
+                    "name": "Garrett Albright",
+                    "homepage": "https://www.drupal.org/user/191212"
+                },
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
+                }
+            ],
+            "description": "Helps avoid broken links and incorrect paths in content.",
+            "homepage": "https://www.drupal.org/project/pathologic",
+            "support": {
+                "source": "https://git.drupalcode.org/project/pathologic"
             }
         },
         {
@@ -14856,16 +14912,6 @@
             "type": "drupal-module"
         },
         {
-            "name": "yukon/pathologic",
-            "version": "8.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/pathologic",
-                "reference": "8.x-1.x"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "zumba/amplitude-php",
             "version": "1.0.7",
             "source": {
@@ -15723,13 +15769,13 @@
         "drupal/linkit": 20,
         "drupal/media_directories": 20,
         "drupal/page_manager": 5,
+        "drupal/pathologic": 15,
         "drupal/scheduler": 5,
         "drupal/scheduler_content_moderation_integration": 10,
         "drupal/views_menu_children_filter": 5,
         "drupal/views_tree": 5,
         "drupal/webform": 20,
-        "yukon/module_missing_message_fixer": 20,
-        "yukon/pathologic": 20
+        "yukon/module_missing_message_fixer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
