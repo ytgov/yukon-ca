@@ -47,6 +47,15 @@
   ]
 %}
 
+{%
+  set title_classes = [
+    'field__label',
+    'text-2xl',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+<div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
 <div{{ attributes.addClass(classes) }}>
   {% for item in items %}
     <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>

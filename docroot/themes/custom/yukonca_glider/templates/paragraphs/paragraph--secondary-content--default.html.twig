@@ -40,7 +40,7 @@
 #}
 
 {% set l2_is_heading = content.field_use_landing_page_level_2_a['#items'][0].value %}
-{% set heading = l2_is_heading ? content.field_landing_page_level_2 : content.field_category_title[0] %}
+{% set heading = l2_is_heading ? content.field_landing_page_level_2 : content.field_category_title %}
 {% set l2_link = l2_is_heading ? '' : content.field_landing_page_level_2 %}
 
 {{

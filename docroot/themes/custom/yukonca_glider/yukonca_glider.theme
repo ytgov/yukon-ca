@@ -275,10 +275,41 @@ function yukonca_glider_preprocess_page(&$variables) {
       return;
     }
 
-    $variables['header_image'] = $node->get('field_icon_dark')->view([
-      'type' => 'entity_reference_entity_view',
-      'label' => 'hidden',
-    ]);
+    if ($variables['node']->bundle() == 'blog') {
+      $tid = $node->field_blog_type->target_id;
+      if (!empty($tid)) {
+        $blog_type_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($tid);
+        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
+          $image = $blog_type_term->field_agency_logo[0]->view([
+            'type' => 'entity_reference_entity_view',
+            'label' => 'hidden',
+          ]);
+          $variables['logo_url'] = $image;
+        }
+      }
+
+      $variables['blog_category_subcategory'] = [];
+      if (!empty($node->field_category->target_id)) {
+        $category_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($node->field_category->target_id);
+        array_push($variables['blog_category_subcategory'], $category_term->getName());
+      }
+
+      if (!empty($node->field_subcategory->target_id)) {
+        $subcategory_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($node->field_subcategory->target_id);
+        array_push($variables['blog_category_subcategory'], $subcategory_term->getName());
+      }
+
+      $variables['header_image'] = $node->get('field_icon_dark')->view([
+        'type' => 'entity_reference_entity_view',
+        'label' => 'hidden',
+      ]);
+    }
   }
 }
 
