@@ -49,6 +49,7 @@
         "drupal/link_attributes": "^1.11",
         "drupal/linkchecker": "^2.0@alpha",
         "drupal/linkit": "6.0.x-dev@dev",
+        "drupal/maxlength": "^2.1",
         "drupal/media_directories": "2.1.x-dev@dev",
         "drupal/menu_block": "^1.10",
         "drupal/menu_link_attributes": "^1.3",
@@ -101,7 +102,6 @@
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10.0",
-        "yukon/maxlength": "2.x-dev",
         "yukon/module_missing_message_fixer": "2.x-dev",
         "yukon/pathologic": "8.x-dev"
     },
@@ -116,9 +116,6 @@
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
-            },
-            "yukon/maxlength": {
-                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/commit/0bb4dee7f018303bedd1ac34e7cedc0c41273850.diff"
             }
         },
         "installer-paths": {
@@ -192,19 +189,6 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/maxlength",
-                "type": "drupal-module",
-                "version": "2.x-dev",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/maxlength",
-                    "type": "git",
-                    "reference": "2.0.x"
-                }
-            }
         },
         {
             "type": "package",
