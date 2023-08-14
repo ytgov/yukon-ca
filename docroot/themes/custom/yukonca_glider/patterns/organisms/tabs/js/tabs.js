@@ -42,7 +42,7 @@
     attach (context) {
       // For bootstrap 5.2.
       const winLocation = window.location;
-      $(once('initHash', document, context)).ready(function () {
+      $(once('initHash', document, context)).ready(() => {
         /* Navigate to tab if it exists in the URL. */
         if (winLocation.hash.substr(0, 1) === '#') {
           $(`a[data-bs-toggle="tab"][data-bs-target="${winLocation.hash}"]`).tab('show');
@@ -72,7 +72,7 @@
         }
       });
 
-      $(once('pillsClick', '.nav-pills .nav-item', context)).click(function (e) {
+      $(once('pillsClick', '.nav-pills .nav-item', context)).click((e) => {
         e.preventDefault();
         $('.pills-arrow .btn-links').removeClass('hide');
         if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
