@@ -65,5 +65,8 @@ jobs:
         cd $THEME_DIR 
         nvm install
         cd $CI_PROJECT_DIR 
+        echo "$CI_PROJECT_DIR"
+        git config --global --add safe.directory "$CI_PROJECT_DIR"
+        git config --global --add safe.directory "$CI_PROJECT_DIR/deploy"
         GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${{ github.ref_name }} - ${{ github.sha }})"
         $BLT artifact:deploy --commit-msg "$GIT_COMMIT_MESSAGE" --branch "${{ github.ref_name }}" --ignore-dirty --no-interaction --verbose
