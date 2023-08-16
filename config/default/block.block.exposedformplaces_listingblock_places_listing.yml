@@ -1,0 +1,28 @@
+uuid: 2dee7f27-3429-4e86-a87e-f20af34ee7d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.places_listing
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedformplaces_listingblock_places_listing
+theme: yukonca_glider
+region: sidebar_second
+weight: -16
+provider: null
+plugin: 'views_exposed_filter_block:places_listing-block_places_listing'
+settings:
+  id: 'views_exposed_filter_block:places_listing-block_places_listing'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /places

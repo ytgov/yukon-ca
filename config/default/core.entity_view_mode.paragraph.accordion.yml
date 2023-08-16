@@ -1,0 +1,10 @@
+uuid: cf5fc52c-6594-47ec-83ae-fa74ceda3c75
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.accordion
+label: Accordion
+targetEntityType: paragraph
+cache: true

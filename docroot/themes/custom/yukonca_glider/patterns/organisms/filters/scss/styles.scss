@@ -1,1 +1,46 @@
-/* Add your code here */
+@import "../../../styles.scss";
+
+%filter-label {
+  @apply block;
+  @apply text-gray font-normal;
+  @apply mb-1;
+}
+
+h2.title {
+  @apply pb-2 pt-4 mb-7;
+  @apply border-solid border-0 border-b-[12px] border-yellow;
+  @apply text-default-base;
+}
+
+.form {
+  .js-form-item {
+    label {
+      @extend %filter-label;
+    }
+
+    input.form-text,
+    select {
+      @apply border border-yellow border-solid;
+      @apply bg-gray-light;
+      @apply h-[37px] py-[6px] px-[12px] w-full;
+    }
+
+    .form-type-checkbox {
+      input,
+      label {
+        @apply inline;
+      }
+    }
+  }
+
+  .form-wrapper {
+    .fieldset-legend {
+      @extend %filter-label;
+    }
+  }
+
+  .form-submit {
+    @apply mt-7;
+    @apply btn btn-primary;
+  }
+}

@@ -1,0 +1,32 @@
+.page-node-type-event,
+.page-node-type-news {
+  .field--name-field-related-link {
+    .field__label {
+      @apply pb-1 border-solid border-0 border-b border-gray;
+    }
+
+    .field__item {
+      @apply my-3;
+    }
+  }
+}
+
+.page-node-type-event {
+  .field--label-inline {
+    @apply mb-4;
+  }
+
+  fieldset {
+    legend {
+      @apply mb-0;
+
+      span {
+        @apply font-bold text-base;
+      }
+    }
+  }
+
+  .field--name-field-event-description {
+    @apply border-solid border-0 border-t-4 border-gray-light mt-9;
+  }
+}

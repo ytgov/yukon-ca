@@ -16,7 +16,7 @@ third_party_settings:
 id: exposedformevent_listingblock_1
 theme: yukonca_glider
 region: sidebar_first
-weight: 0
+weight: -14
 provider: null
 plugin: 'views_exposed_filter_block:event_listing-block_1'
 settings:

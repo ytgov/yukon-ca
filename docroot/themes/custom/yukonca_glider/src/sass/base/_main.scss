@@ -3,3 +3,11 @@
     @apply bg-transparent;
   }
 }
+
+.collapse {
+  visibility: visible;
+
+  &:not(.show) {
+    display: none;
+  }
+}

@@ -5,9 +5,16 @@
 ] %}
 
 {% set anchor = title|trim|clean_id %}
-
-<div{{ attributes.addClass(classes) }} id="ac--{{ anchor }}">
-  <div id="collapse__{{ item_id }}" class="collapse {{ prefix }}__content" aria-labelledby="heading" data-parent="#heading__{{ item_id }}">
-    <div class="content">{{ content }}</div>
+{% set item_id = 'accordion-item'|clean_unique_id %}
+<div class="accordion-item">
+  <div class="accordion-header" id="{{ item_id }}--header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ item_id }}--body" aria-expanded="false" aria-controls="{{ item_id }}--body">
+      {{ title }}
+    </button>
+  </div>
+  <div id="{{ item_id }}--body" class="accordion-collapse collapse" aria-labelledby="{{ item_id }}--header">
+    <div class="accordion-body">
+      {{ content }}
+    </div>
   </div>
 </div>

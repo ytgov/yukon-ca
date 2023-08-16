@@ -1,0 +1,28 @@
+uuid: e6c1152a-6dc0-47de-b346-dad9d556f3b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.find_a_campground_or_recreation_site
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedform_block_backcountry_campgrounds
+theme: yukonca_glider
+region: sidebar_second
+weight: -18
+provider: null
+plugin: 'views_exposed_filter_block:find_a_campground_or_recreation_site-block_backcountry_campgrounds'
+settings:
+  id: 'views_exposed_filter_block:find_a_campground_or_recreation_site-block_backcountry_campgrounds'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /backcountry-campgrounds

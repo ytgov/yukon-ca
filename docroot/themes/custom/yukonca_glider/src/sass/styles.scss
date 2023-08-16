@@ -10,6 +10,11 @@ $include-font: true;
 /*! purgecss start ignore */
 @import "placeholders/index";
 
+/* Icons */
+@import "theme-icons";
+@import "theme-icons-classes";
+@import "campground-icons";
+
 /* Site styles */
 @import "base/index";
 @import "utils/index";

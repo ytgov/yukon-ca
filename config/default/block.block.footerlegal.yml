@@ -2,10 +2,6 @@ uuid: e7c9be08-814b-4118-8f77-96cc3395f8db
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:f57e0545-bb31-41d3-8527-706b62cdcef2'
-  module:
-    - block_content
   theme:
     - yukonca_glider
 id: footerlegal

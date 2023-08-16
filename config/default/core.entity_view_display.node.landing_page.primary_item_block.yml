@@ -18,26 +18,53 @@ dependencies:
     - node.type.landing_page
   module:
     - entity_reference_revisions
+    - fences
     - user
 id: node.landing_page.primary_item_block
 targetEntityType: node
 bundle: landing_page
 mode: primary_item_block
 content:
+  field_icon_dark:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: front-svg
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 0
+    region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-      view_mode: default
+      view_mode: preview
       link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 1
     region: content
 hidden:
   addtoany: true
   body: true
   field_department_term: true
-  field_icon_dark: true
   field_icon_light: true
   field_meta_tags: true
   field_page_description: true

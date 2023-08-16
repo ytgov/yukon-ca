@@ -18,7 +18,7 @@ bundle: waste_and_recycling_facilities
 label: 'Accepted items'
 description: "Optional. Include, if applicable. Enter items accepted at facility in an alphabetical list: e.g.\r\nBrush and clean wood\r\nConstruction and demolition waste\r\nE-waste\r\nHousehold garbage\r\nHousehold hazardous waste\r\nTires\r\nWaste metals"
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

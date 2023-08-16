@@ -3,19 +3,24 @@
 
 {% set classes = [
   'section',
-  'container',
   prefix,
+  'md:grid md:grid-cols-2 mt-5',
 ] %}
 
-<div {{ attributes.addClass(classes) }}">
+<h3>{{ title|t }}</h3>
+<div {{ attributes.addClass(classes) }}>
   {% for item in items %}
-    <div class="icon-card">
-      <span class="icon">
-        {% include active_theme_path() ~ '/images/svg/' ~ item.icon %}
-      </span>
-      <span class="text">
-        {{ item.text }}
-      </span>
-    </div>
+    {% if item.value == '1' %}
+      <div class="icon-card flex py-2 px-2 items-center icon-{{ item.name|clean_class }}">
+        {{
+          pattern('icon_card_icon', {
+            name: item.name|clean_class,
+          })
+        }}
+        <span class="text ml-5 z-10">
+          {{ item.title }}
+        </span>
+      </div>
+    {% endif %}
   {% endfor %}
 </div>
