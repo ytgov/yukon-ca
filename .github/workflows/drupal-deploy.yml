@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3          
-      
+    - uses: actions/checkout@v3
+
     - name: Before build
       run: |
         composer config -g cache-dir "$(pwd)/.composer-cache"
@@ -29,10 +29,10 @@ jobs:
       run: |
         CI_PROJECT_DIR="$(pwd)"
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
-        cd $THEME_DIR 
+        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+        cd $THEME_DIR
         nvm install
-        cd $CI_PROJECT_DIR 
+        cd $CI_PROJECT_DIR
         $BLT validate
         $BLT source:build --ansi --verbose --no-interaction
 
@@ -43,27 +43,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      
+
     - name: Before build
       run: |
         composer config -g cache-dir "$(pwd)/.composer-cache"
         composer self-update --2
         composer validate --no-check-all --ansi
         composer install
-      
+
     - uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
         config: ${{ secrets.DEPLOY_SSH_CONFIG }}
         known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
-        
+
     - name: Artifact Deploy
       run: |
         CI_PROJECT_DIR="$(pwd)"
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"        
-        cd $THEME_DIR 
+        [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+        cd $THEME_DIR
         nvm install
-        cd $CI_PROJECT_DIR 
+        cd $CI_PROJECT_DIR
+        git config --global --add safe.directory "$CI_PROJECT_DIR"
+        git config --global --add safe.directory "$CI_PROJECT_DIR/deploy"
         GIT_COMMIT_MESSAGE="Automated commit by Drupal CI (${{ github.ref_name }} - ${{ github.sha }})"
         $BLT artifact:deploy --commit-msg "$GIT_COMMIT_MESSAGE" --branch "${{ github.ref_name }}" --ignore-dirty --no-interaction --verbose
