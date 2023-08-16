@@ -2,7 +2,7 @@ id: yukon_migrate_event
 label: Yukon Migrate Event Nodes
 migration_tags:
   - Drupal 7
-  - Content
+  - node
   - Event
 migration_group: legacy
 source:

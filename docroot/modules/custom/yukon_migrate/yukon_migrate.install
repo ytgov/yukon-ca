@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains update functions.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Increase the length of "field_additional_number" to 255 characters.
+ */
+function yukon_migrate_update_10001() {
+  $database = \Drupal::database();
+  $database->query('ALTER TABLE node__field_additional_number MODIFY field_additional_number_value VARCHAR(255)');
+  $database->query('ALTER TABLE node_revision__field_additional_number MODIFY field_additional_number_value VARCHAR(255)');
+
+  $storage_key = 'node.field_schema_data.field_additional_number';
+  $storage_schema = \Drupal::keyValue('entity.storage_schema.sql');
+  $field_schema = $storage_schema->get($storage_key);
+  $field_schema['node__field_additional_number']['fields']['field_additional_number_value']['length'] = 255;
+  $field_schema['node_revision__field_additional_number']['fields']['field_additional_number_value']['length'] = 255;
+  $storage_schema->set($storage_key, $field_schema);
+
+  // Update field configuration.
+  $config = \Drupal::configFactory()
+    ->getEditable('field.storage.node.field_additional_number');
+  $config->set('settings.max_length', 255);
+  $config->save(TRUE);
+
+  // Update field storage configuration.
+  FieldStorageConfig::loadByName('node', 'field_additional_number')->save();
+}
