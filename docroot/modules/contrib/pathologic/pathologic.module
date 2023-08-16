@@ -184,7 +184,8 @@ function _pathologic_replace($matches) {
   if (isset($parts['scheme']) && $parts['scheme'] === 'files') {
     // Path Filter "files:" support. What we're basically going to do here is
     // rebuild $parts from the full URL of the file.
-    $new_parts = parse_url(file_create_url(\Drupal::config('system.file')->get('default_scheme') . '://' . $parts['path']));
+    $uri = \Drupal::config('system.file')->get('default_scheme') . '://' . $parts['path'];
+    $new_parts = parse_url(\Drupal::service('file_url_generator')->generateAbsoluteString($uri));
     // If there were query parts from the original parsing, copy them over.
     if (!empty($parts['query'])) {
       $new_parts['query'] = $parts['query'];
@@ -327,7 +328,6 @@ function _pathologic_replace($matches) {
     'options' => [
       // Force the query to an array if it's unspecified.
       'query' => $parts['qparts'] ?: [],
-      'path_processing' => TRUE,
       'fragment' => isset($parts['fragment']) ? $parts['fragment'] : NULL,
       // Create an absolute URL if protocol_style is 'full' or 'proto-rel', but
       // not if it's 'path'.
@@ -360,7 +360,7 @@ function _pathologic_replace($matches) {
     $url = Url::fromRoute('<front>', [], $url_params['options'])->toString();
   }
   else {
-    $path = (empty($url_params['options']['external']) ? 'base:/' : '') . $url_params['path'];
+    $path = (empty($url_params['options']['external']) ? 'base://' : '') . $url_params['path'];
     try {
       $url = Url::fromUri($path, $url_params['options'])->toString();
     }

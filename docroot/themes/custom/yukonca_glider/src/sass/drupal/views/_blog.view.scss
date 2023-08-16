@@ -1,0 +1,34 @@
+.view-yukon-blog-listing {
+  .views-row {
+    @apply border-solid border-0 border-b-4 border-gray-light;
+    @apply mb-9 md:mb-11;
+    @apply pb-9 md:pb-11;
+
+    .blog-type-item {
+      a {
+        @apply text-xl text-blue-500 hover:text-blue-500;
+        @apply no-underline hover:underline;
+      }
+
+      .content {
+        @apply md:pl-16;
+        @apply flex flex-col justify-center;
+      }
+    }
+  }
+}
+
+.view-blog-listing {
+  .about-this-blog {
+    @apply p-2;
+    @apply bg-gray-light;
+  }
+
+  &.view-display-id-block_1 {
+    .views-row {
+      &.odd {
+        @apply bg-gray-light;
+      }
+    }
+  }
+}

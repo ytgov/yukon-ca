@@ -1,0 +1,31 @@
+.view-events-listing {
+  .views-row {
+    @apply border-solid border-0 border-b-4 border-gray-light;
+    @apply py-8;
+
+    .event-info--cat-image {
+      @apply flex-none;
+      @apply w-[60px];
+      @apply mr-8;
+
+      > * {
+        @apply w-full;
+      }
+    }
+
+    .event-info-content {
+      .event-info--title {
+        @apply mb-2;
+      }
+
+      .event-info--meta {
+        @apply text-gray-dark;
+        @apply text-sm;
+      }
+
+      .event-info--description {
+        @apply mt-4;
+      }
+    }
+  }
+}

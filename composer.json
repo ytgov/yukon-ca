@@ -42,12 +42,14 @@
         "drupal/focal_point": "^2.0@alpha",
         "drupal/fontawesome": "^2.24",
         "drupal/geofield": "^1.48",
+        "drupal/geophp": "^1.1",
         "drupal/job_scheduler": "^4.0",
         "drupal/leaflet": "^10.0",
         "drupal/libraries": "^4.0",
         "drupal/link_attributes": "^1.11",
         "drupal/linkchecker": "^2.0@alpha",
         "drupal/linkit": "6.0.x-dev@dev",
+        "drupal/maxlength": "^2.1",
         "drupal/media_directories": "2.1.x-dev@dev",
         "drupal/menu_block": "^1.10",
         "drupal/menu_link_attributes": "^1.3",
@@ -60,6 +62,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/password_policy": "^4.0",
         "drupal/pathauto": "^1.11",
+        "drupal/pathologic": "^2.0@alpha",
         "drupal/recaptcha": "^3.0",
         "drupal/redirect": "^1.6",
         "drupal/redis": "^1.6",
@@ -100,10 +103,7 @@
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10.0",
-        "yukon/geophp": "8.x-dev",
-        "yukon/maxlength": "2.x-dev",
-        "yukon/module_missing_message_fixer": "2.x-dev",
-        "yukon/pathologic": "8.x-dev"
+        "yukon/module_missing_message_fixer": "2.x-dev"
     },
     "extra": {
         "enable-patching": true,
@@ -111,16 +111,11 @@
             "drupal/core": {
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
                 "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
+                "3115445 - Add a new clean_unique_id Twig filter for Html::getUniqueId": "https://www.drupal.org/files/issues/2021-05-14/3115445-10-reroll.patch",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2023-01-02/drupal-3264843-15_0.patch"
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
-            },
-            "yukon/geophp": {
-                "3287733 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-22/geophp.1.x-dev.rector.patch"
-            },
-            "yukon/maxlength": {
-                "3295052 - Drupal 10 compatibility": "https://git.drupalcode.org/project/maxlength/-/commit/0bb4dee7f018303bedd1ac34e7cedc0c41273850.diff"
             }
         },
         "installer-paths": {
@@ -198,32 +193,6 @@
         {
             "type": "package",
             "package": {
-                "name": "yukon/geophp",
-                "type": "drupal-module",
-                "version": "8.x-dev",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/geophp",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/maxlength",
-                "type": "drupal-module",
-                "version": "2.x-dev",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/maxlength",
-                    "type": "git",
-                    "reference": "2.0.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "yukon/module_missing_message_fixer",
                 "type": "drupal-module",
                 "version": "2.x-dev",
@@ -231,32 +200,6 @@
                     "url": "https://git.drupalcode.org/project/module_missing_message_fixer",
                     "type": "git",
                     "reference": "2.0.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/pathologic",
-                "type": "drupal-module",
-                "version": "8.x-dev",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/pathologic",
-                    "type": "git",
-                    "reference": "8.x-1.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "yukon/svg_image",
-                "type": "drupal-module",
-                "version": "1.16",
-                "source": {
-                    "url": "https://git.drupalcode.org/project/svg_image",
-                    "type": "git",
-                    "reference": "8.x-1.x"
                 }
             }
         }

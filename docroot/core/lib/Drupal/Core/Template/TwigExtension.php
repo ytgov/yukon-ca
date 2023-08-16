@@ -140,6 +140,7 @@ class TwigExtension extends AbstractExtension {
       // CSS class and ID filters.
       new TwigFilter('clean_class', '\Drupal\Component\Utility\Html::getClass'),
       new TwigFilter('clean_id', '\Drupal\Component\Utility\Html::getId'),
+      new TwigFilter('clean_unique_id', '\Drupal\Component\Utility\Html::getUniqueId'),
       // This filter will render a renderable array to use the string results.
       new TwigFilter('render', [$this, 'renderVar']),
       new TwigFilter('format_date', [$this->dateFormatter, 'format']),

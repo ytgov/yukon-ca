@@ -1,2 +1,2 @@
-
+.campground-services .icon-card:nth-of-type(odd){background-color:rgb(241 241 241 / .5)}@media (min-width:768px){.campground-services .icon-card:nth-of-type(odd){background-color:transparent}.campground-services .icon-card:nth-of-type(4n-3)::after{background-color:rgb(241 241 241 / .5);--tw-content:"";position:absolute;width:200%;height:100%;top:0;content:var(--tw-content);left:0}.campground-services .icon-card:nth-of-type(4n-3){position:relative}}
 /*# sourceMappingURL=styles.min.css.map */

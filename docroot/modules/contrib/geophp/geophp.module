@@ -7,7 +7,7 @@
 /**
  * Loads the geoPHP library.
  *
- * @return
+ * @return mixed
  *   Returns the filename of the included geoPHP library when successful, FALSE
  *   otherwise.
  */

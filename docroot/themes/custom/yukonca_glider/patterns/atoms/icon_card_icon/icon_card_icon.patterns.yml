@@ -1,0 +1,17 @@
+icon_card_icon:
+  label: 'Icon card icon'
+  description: Icon.
+  variants:
+    default:
+      label: Default
+  fields:
+    name:
+      type: string
+      label: Name
+      description: Name of the icon.
+  libraries:
+    -
+      icon_card_icon:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

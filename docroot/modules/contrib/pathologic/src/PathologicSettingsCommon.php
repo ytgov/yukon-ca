@@ -16,7 +16,7 @@ class PathologicSettingsCommon {
    *
    * @param array $defaults
    *   An array of default values for the configuration form fields.
-   * @return
+   * @return array
    *   The common form elements
    */
   public function commonSettingsForm(array $defaults) {
@@ -42,5 +42,5 @@ class PathologicSettingsCommon {
       ],
     ];
   }
-  
+
 }

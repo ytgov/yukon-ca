@@ -53,7 +53,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   field_contact:
     type: text_default
@@ -107,16 +107,6 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 8
-    region: content
-  field_social_sharing:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
     weight: 7
     region: content
 hidden:
@@ -128,6 +118,7 @@ hidden:
   field_meta_tags: true
   field_news_type: true
   field_page_description: true
+  field_social_sharing: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

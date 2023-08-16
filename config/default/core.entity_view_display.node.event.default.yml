@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.yg_long
+    - core.date_format.long_with_time
+    - core.date_format.time_am_pm
     - field.field.node.event.field_building_name
     - field.field.node.event.field_category
     - field.field.node.event.field_community
@@ -18,7 +19,6 @@ dependencies:
     - field.field.node.event.field_event_street_address
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
-    - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
@@ -28,9 +28,45 @@ dependencies:
   module:
     - date_recur
     - fences
+    - field_group
     - link
     - text
     - user
+third_party_settings:
+  field_group:
+    group_location:
+      children:
+        - field_building_name
+        - field_event_street_address
+        - field_event_locality_town
+        - field_postal_code
+      label: Location
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: event-location
+        show_empty_fields: false
+        id: ''
+        description: ''
+    group_contact:
+      children:
+        - field_contact_name
+        - field_contact_email
+        - field_contact_phone
+        - field_website
+        - field_link_title
+      label: Contact
+      parent_name: ''
+      region: content
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: fieldset-title
+        show_empty_fields: false
+        id: ''
+        description: ''
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -38,7 +74,7 @@ mode: default
 content:
   field_building_name:
     type: entity_reference_label
-    label: inline
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -49,15 +85,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 5
     region: content
   field_contact_name:
     type: string
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 4
     region: content
   field_contact_phone:
     type: string
@@ -65,7 +101,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 10
+    weight: 6
     region: content
   field_cost:
     type: string
@@ -73,22 +109,22 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 2
     region: content
   field_department_term:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 4
     region: content
   field_event_description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 5
     region: content
   field_event_locality_town:
     type: string
@@ -100,15 +136,15 @@ content:
     region: content
   field_event_start_time:
     type: date_recur_basic_formatter
-    label: above
+    label: hidden
     settings:
-      timezone_override: ''
-      format_type: yg_long
-      separator: '-'
+      timezone_override: America/Whitehorse
+      format_type: long_with_time
+      separator: to
       show_next: 5
       count_per_item: true
-      occurrence_format_type: yg_long
-      same_end_date_format_type: yg_long
+      occurrence_format_type: long_with_time
+      same_end_date_format_type: time_am_pm
       interpreter: ''
     third_party_settings:
       fences:
@@ -124,7 +160,7 @@ content:
     region: content
   field_event_street_address:
     type: string
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -137,7 +173,7 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   field_link_title:
     type: link
@@ -149,7 +185,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 12
+    weight: 8
     region: content
   field_postal_code:
     type: string
@@ -169,7 +205,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 11
+    weight: 7
     region: content
 hidden:
   addtoany: true

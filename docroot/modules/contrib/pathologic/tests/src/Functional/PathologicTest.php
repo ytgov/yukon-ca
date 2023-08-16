@@ -31,12 +31,12 @@ class PathologicTest extends BrowserTestBase {
     global $script_path;
 
     // Start by testing our function to build protocol-relative URLs
-    $this->assertEqual(
+    $this->assertEquals(
       _pathologic_url_to_protocol_relative('http://example.com/foo/bar'),
       '//example.com/foo/bar',
       t('Protocol-relative URL creation with http:// URL')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       _pathologic_url_to_protocol_relative('https://example.org/baz'),
       '//example.org/baz',
       t('Protocol-relative URL creation with https:// URL')
@@ -98,53 +98,53 @@ class PathologicTest extends BrowserTestBase {
         '@ps' => $protocol_style,
       ];
 
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="foo"><img src="foo/bar" /></a>', $format_id),
         '<a href="' . $paths['foo'] . '"><img src="' . $paths['foo/bar'] . '" /></a>',
         t('Simple paths. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="index.php?q=foo"></a><a href="index.php?q=foo/bar&baz=qux"></a>', $format_id),
         '<a href="' . $paths['foo'] . '"></a><a href="' . $paths['foo/bar?baz=qux'] . '"></a>',
         t('D7 and earlier-style non-clean URLs. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="index.php/foo"></a><a href="index.php/foo/bar?baz=qux"></a>', $format_id),
         '<a href="' . $paths['foo'] . '"></a><a href="' . $paths['foo/bar?baz=qux'] . '"></a>',
         t('D8-style non-clean URLs. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<form action="foo/bar?baz"><IMG LONGDESC="foo/bar?baz=qux" /></a>', $format_id),
         '<form action="' . $paths['foo/bar?baz'] . '"><IMG LONGDESC="' . $paths['foo/bar?baz=qux'] . '" /></a>',
         t('Paths with query string. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="foo/bar#baz">', $format_id),
         '<a href="' . $paths['foo/bar#baz'] . '">',
         t('Path with fragment. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="#foo">', $format_id),
         '<a href="#foo">',
         t('Fragment-only href. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
       // @see https://drupal.org/node/2208223
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="#">', $format_id),
         '<a href="#">',
         t('Hash-only href. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="foo/bar?baz=qux&amp;quux=quuux#quuuux">', $format_id),
         '<a href="' . $paths['foo/bar?baz=qux&amp;quux=quuux#quuuux'] . '">',
         t('Path with query string and fragment. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="foo%20bar?baz=qux%26quux">', $format_id),
         '<a href="' . $paths['foo%20bar?baz=qux%26quux'] . '">',
         t('Path with URL encoded parts. Clean URLs: @clean; protocol style: @ps.', $t10ns)
       );
-      $this->assertEqual(
+      $this->assertEquals(
         check_markup('<a href="/"></a>', $format_id),
         '<a href="' . $paths['/'] . '"></a>',
         t('Path with just slash. Clean URLs: @clean; protocol style: @ps', $t10ns)
@@ -152,20 +152,20 @@ class PathologicTest extends BrowserTestBase {
     }
 
     global $base_path;
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="' . $base_path . 'foo">bar</a>', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => FALSE]) .'">bar</a>',
       t('Paths beginning with $base_path (like WYSIWYG editors like to make)')
     );
     global $base_url;
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="' . $base_url . '/foo">bar</a>', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => FALSE]) .'">bar</a>',
       t('Paths beginning with $base_url')
     );
 
     // @see http://drupal.org/node/1617944
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="//example.com/foo">bar</a>', $format_id),
       '<a href="//example.com/foo">bar</a>',
       t('Off-site schemeless URLs (//example.com/foo) ignored')
@@ -181,38 +181,38 @@ class PathologicTest extends BrowserTestBase {
     ]);
 
     // @see https://drupal.org/node/2030789
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="//example.org/foo">bar</a>', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => TRUE]) . '">bar</a>',
       t('On-site schemeless URLs processed')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="internal:foo">', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => TRUE]) . '">',
       t('Path Filter compatibility (internal:)')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="files:image.jpeg">look</a>', $format_id),
-      '<a href="' . _pathologic_content_url(file_create_url( \Drupal::config('system.file')->get('default_scheme') . '://image.jpeg'), ['absolute' => TRUE]) . '">look</a>',
+      '<a href="' . _pathologic_content_url(\Drupal::service('file_url_generator')->generateAbsoluteString( \Drupal::config('system.file')->get('default_scheme') . '://image.jpeg'), ['absolute' => TRUE]) . '">look</a>',
       t('Path Filter compatibility (files:)')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="http://example.com/qux/foo"><picture><source srcset="http://example.org/bar.jpeg" /><img src="http://example.org/bar.jpeg" longdesc="/bananas/baz" /></picture></a>', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => TRUE]) . '"><picture><source srcset="' . _pathologic_content_url('bar.jpeg', ['absolute' => TRUE]) . '" /><img src="' . _pathologic_content_url('bar.jpeg', ['absolute' => TRUE]) . '" longdesc="' . _pathologic_content_url('baz', ['absolute' => TRUE]) . '" /></picture></a>',
       t('"All base paths for this site" functionality')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="webcal:foo">bar</a>', $format_id),
       '<a href="webcal:foo">bar</a>',
       t('URLs with likely protocols are ignored')
     );
     // Test hook_pathologic_alter() implementation.
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="foo?test=add_foo_qpart">', $format_id),
       '<a href="' . _pathologic_content_url('foo', ['absolute' => TRUE, 'query' => ['test' => 'add_foo_qpart', 'foo' => 'bar']]) . '">',
       t('hook_pathologic_alter(): Alter $url_params')
     );
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<a href="bar?test=use_original">', $format_id),
       '<a href="bar?test=use_original">',
       t('hook_pathologic_alter(): Passthrough with use_original option')
@@ -241,7 +241,7 @@ class PathologicTest extends BrowserTestBase {
       ->set('protocol_style', 'proto-rel')
       ->set('local_paths', 'http://example.com/')
       ->save();
-    $this->assertEqual(
+    $this->assertEquals(
       check_markup('<img src="http://example.com/foo.jpeg" />', $format_id),
       '<img src="' . _pathologic_url_to_protocol_relative(_pathologic_content_url('foo.jpeg', ['absolute' => TRUE])) . '" />',
       t('Use global settings when so configured on the format')
@@ -297,11 +297,11 @@ function _pathologic_content_url($path, $options) {
  *
  * @param $settings
  *   An array of settings for the Pathologic instance on the format.
- * @return
+ * @return string
  *   A format machine name (consisting of random characters) for the format.
  */
 function _pathologic_build_format($settings) {
-  $format_id = user_password();
+  $format_id = \Drupal::service('password_generator')->generate();
   $format = FilterFormat::create([
     'format' => $format_id,
     'name' => $format_id,

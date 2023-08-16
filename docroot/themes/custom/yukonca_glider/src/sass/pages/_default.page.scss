@@ -4,6 +4,22 @@
   }
 }
 
+h3 {
+  @apply mt-6 mb-3;
+}
+
 .page-title {
   @apply my-4;
+}
+
+.node {
+  .field:not(.field--label-inline) {
+    .field__label {
+      @apply my-6;
+    }
+  }
+}
+
+.breadcrumb {
+  @apply py-2;
 }

@@ -24,7 +24,7 @@ class PathologicUITest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->drupalCreateContentType(['type' => 'page', 'name' => 'Basic page']);
@@ -45,20 +45,21 @@ class PathologicUITest extends BrowserTestBase {
    */
   public function doTestSettingsForm() {
     $this->drupalGet('admin/config/content/pathologic');
-    $this->assertText('Pathologic configuration');
+    $this->assertSession()->pageTextContains('Pathologic configuration');
 
     // Test submit form.
-    $this->assertNoFieldChecked('edit-protocol-style-proto-rel');
+    $this->assertSession()->checkboxNotChecked('edit-protocol-style-proto-rel');
     $edit = [
       'protocol_style' => 'proto-rel',
       'local_paths' => 'http://example.com/',
     ];
-    $this->drupalPostForm(NULL, $edit, t('Save configuration'));
-    $this->assertText('The configuration options have been saved.');
-    $this->assertFieldChecked('edit-protocol-style-proto-rel');
-    $this->assertText('http://example.com/');
-    $this->clickLink('Pathologic’s documentation');
-    $this->assertResponse(200);
+    $this->submitForm($edit, t('Save configuration'));
+    $this->assertSession()->pageTextContains('The configuration options have been saved.');
+    $this->assertSession()->checkboxChecked('edit-protocol-style-proto-rel');
+    $this->assertSession()->pageTextContains('http://example.com/');
+    $docs_link = $this->getSession()->getPage()->findLink('Pathologic’s documentation');
+    $this->assertNotEmpty($docs_link);
+    $this->assertSame('https://www.drupal.org/node/257026', $docs_link->getAttribute('href'));
   }
 
   /**
@@ -70,26 +71,26 @@ class PathologicUITest extends BrowserTestBase {
     $this->drupalGet('/admin/config/content/formats/manage/plain_text');
 
     // Select pathologic option.
-    $this->assertText('Correct URLs with Pathologic');
-    $this->assertNoFieldChecked('edit-filters-filter-pathologic-status');
-    $this->drupalPostForm(NULL, [
+    $this->assertSession()->pageTextContains('Correct URLs with Pathologic');
+    $this->assertSession()->checkboxNotChecked('edit-filters-filter-pathologic-status');
+    $this->submitForm([
       'filters[filter_html_escape][status]' => FALSE,
       'filters[filter_pathologic][status]' => '1',
     ], t('Save configuration'));
 
     $this->drupalGet('/admin/config/content/formats/manage/plain_text');
-    $this->assertRaw('In most cases, Pathologic should be the <em>last</em> filter in the &ldquo;Filter processing order&rdquo; list.');
-    $this->assertText('Select whether Pathologic should use the global Pathologic settings');
-    $this->assertFieldChecked('edit-filters-filter-pathologic-status');
-    $this->drupalPostForm(NULL, [
+    $this->assertSession()->responseContains('In most cases, Pathologic should be the <em>last</em> filter in the &ldquo;Filter processing order&rdquo; list.');
+    $this->assertSession()->pageTextContains('Select whether Pathologic should use the global Pathologic settings');
+    $this->assertSession()->checkboxChecked('edit-filters-filter-pathologic-status');
+    $this->submitForm([
       'filters[filter_pathologic][settings][settings_source]' => 'local',
       'filters[filter_pathologic][settings][local_settings][protocol_style]' => 'full',
       ], t('Save configuration'));
 
     $this->drupalGet('/admin/config/content/formats/manage/plain_text');
-    $this->assertFieldChecked('edit-filters-filter-pathologic-settings-settings-source-local');
-    $this->assertFieldChecked('edit-filters-filter-pathologic-settings-local-settings-protocol-style-full');
-    $this->assertText('Custom settings for this text format');
+    $this->assertSession()->checkboxChecked('edit-filters-filter-pathologic-settings-settings-source-local');
+    $this->assertSession()->checkboxChecked('edit-filters-filter-pathologic-settings-local-settings-protocol-style-full');
+    $this->assertSession()->pageTextContains('Custom settings for this text format');
   }
 
   /**
@@ -101,11 +102,12 @@ class PathologicUITest extends BrowserTestBase {
       'title[0][value]' => 'Test pathologic',
       'body[0][value]' => '<a href="node/1">Test link</a>',
     ];
-    $this->drupalPostForm('node/add/page', $edit, t('Save'));
+    $this->drupalGet('node/add/page');
+    $this->submitForm($edit, t('Save'));
 
     // Assert that the link is processed with Pathologic.
     $this->clickLink('Test link');
-    $this->assertTitle('Test pathologic | Drupal');
+    $this->assertSession()->titleEquals('Test pathologic | Drupal');
   }
 
 }

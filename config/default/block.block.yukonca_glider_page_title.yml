@@ -2,6 +2,9 @@ uuid: ff6a39b6-355c-4884-8531-9d94927903c8
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - system
   theme:
     - yukonca_glider
 _core:
@@ -9,7 +12,7 @@ _core:
 id: yukonca_glider_page_title
 theme: yukonca_glider
 region: content
-weight: -10
+weight: -19
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +20,17 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      homepage: homepage
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2

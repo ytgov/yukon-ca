@@ -2,10 +2,12 @@
 f2d712241b391489af266c755fbf772e570430d7 refs/heads/5.x-1.x
 9226b94c913b5ff9077694763b1c26423bdd2791 refs/heads/6.x-1.x
 3ee69a0c38ce4d801c22825fb7036aae5d6cc71c refs/heads/7.x-1.x
-4f6e4b7eae43d4f1a595d96f4b1afc6fbee3fffb refs/heads/8.x-1.x
+0c368f84ff671e3678e247fcbefe8613d2fffac3 refs/heads/8.x-1.x
 1c86dede5a8f1ca915706cf735265ed36eb555dc refs/heads/master
 bd6d19c3b3ea36dbea49ccc8b550eacd590d5045 refs/merge-requests/1/head
 b6c6c9669e3fd33967cff84a04d6101c5501872c refs/merge-requests/1/merge
+5443e77e1205daa69cbb37e0a16edaa25cb43e13 refs/merge-requests/2/head
+c810efbd92ad7fa29406ef2466654f6490c34555 refs/merge-requests/2/merge
 677cbb0b92772eb1b4e53a46a48afacc3bb5cf34 refs/tags/5.x-1.0-beta1
 5134cc4ab73eb3c9d203e1ccbf1f27ac5f38e1e3 refs/tags/6.x-1.0
 6829e02ba623085dd1570abe1ac22e03e907d8a7 refs/tags/6.x-1.0-beta1
@@ -27,3 +29,4 @@ d4238e55f773c8d569847cb57042c60c906aec3c refs/tags/8.x-1.0-alpha1
 c7314c3046701bd79dede34c585dee2e78cb2c1e refs/tags/8.x-1.0-alpha2
 5f12c283c4d7ae48f9aeb57ff8bc7a376bc81595 refs/tags/8.x-1.0-beta1
 319aa06a1c1bf89417078cb6915b0a4433884ce6 refs/tags/8.x-1.1-alpha1
+0c368f84ff671e3678e247fcbefe8613d2fffac3 refs/tags/8.x-1.1-alpha2

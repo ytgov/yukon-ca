@@ -1,0 +1,28 @@
+uuid: 92d5622c-6dd3-4817-b40c-3cbbf2541e1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.find_a_campground_or_recreation_site
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedformfind_a_campground_or_recreation_siteblock_campgrounds
+theme: yukonca_glider
+region: sidebar_second
+weight: -17
+provider: null
+plugin: 'views_exposed_filter_block:find_a_campground_or_recreation_site-block_campgrounds'
+settings:
+  id: 'views_exposed_filter_block:find_a_campground_or_recreation_site-block_campgrounds'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/48419

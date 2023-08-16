@@ -1,0 +1,22 @@
+blog_type_info:
+  label: 'Blog Type Info'
+  description: Blog information displayed at the top of a blog page.
+  fields:
+    image:
+      type: string
+      label: Image URL
+      description: URL to the image.
+      preview:
+        theme: image
+        uri: https://picsum.photos/1280/560
+    content:
+      type: mixed
+      label: Content
+      description: Text to be displayed with the title.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sem nunc, tempus a dictum et, finibus porta elit.'
+  libraries:
+    -
+      blog_type_info:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: true }

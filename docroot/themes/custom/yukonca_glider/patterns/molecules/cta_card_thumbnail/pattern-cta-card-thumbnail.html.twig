@@ -1,0 +1,26 @@
+{% set prefix = 'cta-card' %}
+
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  'border-solid border-0 border-b-4 border-gray-light',
+  'mb-9 md:mb-11',
+  'pb-9 md:pb-11',
+  additionalClass,
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="md:flex flex-row w-full">
+    <div class="thumbnail">
+      {{ thumbnail }}
+    </div>
+    <div class="content md:pl-16 basis-3/4 flex flex-col justify-center">
+      <div class="title">
+        <a class="text-xl text-blue-500 hover:text-blue-500 no-underline hover:underline" href="{{ url }}" class="">{{ title }}</a>
+      </div>
+      <div class="description">{{ content }}</div>
+    </div>
+  </div>
+</div>

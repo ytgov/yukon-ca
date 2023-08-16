@@ -12,11 +12,11 @@
   }
 
   h2 {
-    @apply text-3xl font-normal;
+    @apply text-3xl font-medium;
   }
 
   h3 {
-    @apply text-2xl font-normal;
+    @apply text-2xl font-medium;
   }
 
   h4 {
@@ -43,18 +43,20 @@
 
   }
 
-  .field--name-body,
-  .field-item-content {
-    @apply leading-relaxed;
+  .node__content {
+    .field--name-body,
+    .field-item-content {
+      @apply leading-relaxed;
 
-    h2,
-    .h2 {
-      @apply pt-10;
-    }
+      h2,
+      .h2 {
+        @apply pt-10;
+      }
 
-    h3,
-    .h3 {
-      @apply font-medium pt-5;
+      h3,
+      .h3 {
+        @apply font-medium pt-5;
+      }
     }
   }
 }

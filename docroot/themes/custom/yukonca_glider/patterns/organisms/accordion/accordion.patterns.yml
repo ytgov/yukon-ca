@@ -62,6 +62,10 @@ accordion_item:
       label: Default
       description: The blog card with linked category image, date, title and summary.
   fields:
+    title:
+      type: string
+      label: Title
+      preview: "Accordion Item"
     content:
       type: text
       label: Content

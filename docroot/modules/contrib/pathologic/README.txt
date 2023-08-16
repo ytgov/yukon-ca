@@ -18,4 +18,4 @@ Installation & Configuration
 
 For full installation and configuration instructions, please see this page in
 the Drupal online manual:
-http://drupal.org/node/257026
+https://drupal.org/node/257026

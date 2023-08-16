@@ -21,8 +21,13 @@ process:
                 source: target_id
                 migration:
                     - yukon_migrate_basic_page
+                    - yukon_migrate_campaign_page
+                    - yukon_migrate_documents_page
                     - yukon_migrate_landing_page
-                    - yukon_migrate_landing_page_level_2
+                    - yukon_migrate_multi_step_page
+                    - yukon_migrate_news
+                    - yukon_migrate_places
+                    - yukon_migrate_topics_page
 
 destination:
   plugin: entity_reference_revisions:paragraph
