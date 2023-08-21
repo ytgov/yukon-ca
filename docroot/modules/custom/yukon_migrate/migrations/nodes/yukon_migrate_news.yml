@@ -2,7 +2,7 @@ id: yukon_migrate_news
 label: Yukon Migrate News Nodes Translations
 migration_tags:
   - Drupal 7
-  - Content
+  - node
   - News
 migration_group: legacy
 source:

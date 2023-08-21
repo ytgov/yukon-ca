@@ -2,7 +2,7 @@ id: yukon_migrate_blog
 label: Yukon Migrate Blog Nodes
 migration_tags:
   - Drupal 7
-  - Content
+  - node
   - Blog
 migration_group: legacy
 source:
