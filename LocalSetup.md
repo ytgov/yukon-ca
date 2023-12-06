@@ -2,11 +2,10 @@
 
 This document will walk you through the process of setting up the project locally.
 
-[[_TOC_]]
 
 ## Quick start
 
-If you already have Docksal installed, just run:
+If you already have Docksal installed and the EW docksal stacks installed, just run:
 
    ```
    $ fin init
@@ -24,7 +23,7 @@ To use composer and drush within the container (recommended):
 
 ### Pantheon access
 
-This setup uses Drush to synchronize DB, make sure you have access to the Yukon D10 Pantheon site.
+**This setup uses Drush to synchronize DB, make sure you have access to the Yukon D10 Pantheon site, add you ssh key and have the token to use terminus on your local environment https://dashboard.pantheon.io/personal-settings/machine-tokens, and https://dashboard.pantheon.io/personal-settings/ssh-keys.**
 
 ### Install Docksal
 
@@ -156,6 +155,12 @@ Displays all the available BLT commands.
 
 The blt configuration is stored in blt folder at the root of project codebase.
 
+# Known issues
+
+ - For mac Creating a container with the port 53 fails with the error address already in use. As a workaround, deactivate network acceleration by adding "kernelForUDP": false, in the settings.json file located at ~/Library/Group Containers/group.com.docker/settings.json.
+ - Fin setup can fail, you can see the command here: .docksal/commands/setup you can execute the next command on the list to restart the process without re-run everything again, for example, if the process stop on the gulp lint, you can continue importing the db with `fin import db` and then you can sync the files with `fin sync files`, those sync process are using dev by default, but you can sync with an environment using command parameter like `fin sync files test` `fin sync db test`.
+
 # Resources
 
-Docksal Commands - https://docs.docksal.io/fin/fin-help/
+ - Docksal Commands - https://docs.docksal.io/fin/fin-help/
+ - Docker known issues - https://docs.docker.com/desktop/release-notes/#known-issues
