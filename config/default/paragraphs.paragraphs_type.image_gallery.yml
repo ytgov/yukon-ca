@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: image_gallery
-label: 'Slide'
+label: 'Image Gallery'
 icon_uuid: null
 icon_default: null
 description: ''
