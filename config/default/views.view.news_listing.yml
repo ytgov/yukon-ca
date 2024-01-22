@@ -1542,7 +1542,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
-      title: 'Latest news'
+      title: 'Latest News'
       fields:
         title:
           id: title
