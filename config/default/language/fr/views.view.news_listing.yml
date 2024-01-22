@@ -1,0 +1,15 @@
+display:
+  default:
+    display_options:
+      filters:
+        field_featured_content_value:
+          expose:
+            description: ''
+  block_latest_news:
+    display_title: 'Nouvelles récentes'
+    display_options:
+      title: 'Nouvelles récentes'
+      header:
+        area_text_custom:
+          content: '<h2>[view:title]</h2> <a href="/news" class="btn btn-link">Autres nouvelles <i class="fa fa-chevron-right" aria-hidden="true"></i></a>'
+      block_description: 'Nouvelles récentes'
