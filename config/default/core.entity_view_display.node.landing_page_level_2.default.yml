@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.landing_page_level_2.field_icon_dark
     - field.field.node.landing_page_level_2.field_icon_light
     - field.field.node.landing_page_level_2.field_meta_tags
+    - field.field.node.landing_page_level_2.field_opener_description
     - field.field.node.landing_page_level_2.field_page_description
     - field.field.node.landing_page_level_2.field_primary_content
     - field.field.node.landing_page_level_2.field_social_sharing
@@ -28,6 +29,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_opener_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
