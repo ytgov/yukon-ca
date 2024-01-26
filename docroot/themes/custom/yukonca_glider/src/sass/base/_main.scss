@@ -11,3 +11,13 @@
     display: none;
   }
 }
+
+
+/* Issue #210 */
+
+#block-page-feedback-webform {
+    @apply mt-[20px] pt-[10px];
+    @apply border-t-[1px] border-solid border-[#d4c7cf];
+}
+
+/* Issue #210 End */
