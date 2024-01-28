@@ -275,7 +275,7 @@ function yukonca_glider_preprocess_page(&$variables) {
       return;
     }
 
-    if ($variables['node']->bundle() == 'blog') {
+    if ($variables['node']->bundle() == 'blog' || $variables['node']->bundle() == 'landing_page' || $variables['node']->bundle() == 'landing_page_level_2') {
       $tid = $node->field_blog_type->target_id;
       if (!empty($tid)) {
         $blog_type_term = \Drupal::entityTypeManager()
