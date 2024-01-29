@@ -173,6 +173,48 @@ display:
           group: 1
           expose:
             operator: ''
+        content_translation_source:
+          id: content_translation_source
+          table: node_field_data
+          field: content_translation_source
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: content_translation_source
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
       row:
@@ -182,10 +224,11 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: false
       header:
         area:
           id: area
@@ -217,12 +260,13 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
-        ajax_history: {  }
+        ajax_history:
+          enable_history: false
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
