@@ -13,11 +13,11 @@
 }
 
 
-/* Issue #210 */
+/* Issue #211 */
 
-#block-page-feedback-webform {
-    @apply mt-[20px] pt-[10px];
-    @apply border-t-[1px] border-solid border-[#d4c7cf];
+h1#heading {
+    @apply text-page-heading font-light ;
 }
 
-/* Issue #210 End */
+/* Issue #211 End */
+
