@@ -84,6 +84,5 @@ migration_dependencies:
     optional:
         - yukon_migrate_icon
         - yukon_migrate_primary_content
-        - yukon_migrate_secondary_content
         - yukon_migrate_department
         - yukon_migrate_teams
