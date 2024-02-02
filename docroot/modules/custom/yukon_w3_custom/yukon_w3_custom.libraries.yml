@@ -1,0 +1,5 @@
+yukon_w3_custom.css:
+  version: VERSION
+  css:
+    theme:
+      css/yukon_w3_custom.css: {}

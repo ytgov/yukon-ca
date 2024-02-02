@@ -1,0 +1,5 @@
+name: yukon w3 custom
+type: module
+description: 'yukon w3 custom'
+core_version_requirement: ^10 || ^9
+package: 'yukon'
