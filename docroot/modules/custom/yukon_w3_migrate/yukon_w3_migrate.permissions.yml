@@ -1,0 +1,4 @@
+Import form:
+  title: 'Add Import data settings Permission'
+  description: 'Permission for add import data form'
+  restrict access: true
