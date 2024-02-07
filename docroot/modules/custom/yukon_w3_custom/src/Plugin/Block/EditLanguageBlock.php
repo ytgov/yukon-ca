@@ -71,13 +71,15 @@ class EditLanguageBlock extends BlockBase implements ContainerFactoryPluginInter
     $node = $this->routeMatch->getParameter('node');
     $output = "";
     if ($node instanceof NodeInterface) {
-      $output = $node->Id();
+      if ($node->hasTranslation('fr')) {
+        $output = $node->Id();
+      }
     }
     $language = $this->languageManager->getCurrentLanguage()->getId();
 
     return [
       '#theme' => 'edit_language',
-      '#items' => $output,
+      '#item' => $output,
       '#language' => $language,
       '#cache' => ['max-age' => 0],
     ];

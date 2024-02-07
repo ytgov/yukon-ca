@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 function yukon_w3_custom_theme() {
   return [
     'edit_language' => [
-      'variables' => ['items' => NULL, 'language' => NULL],
+      'variables' => ['item' => NULL, 'language' => NULL],
       'template' => 'edit-language',
     ],
   ];
