@@ -1,0 +1,7 @@
+yukon_w3_migrate.migrate:
+  path: '/custom_migrate'
+  defaults:
+    _title: 'Migrate Data'
+    _controller: '\Drupal\yukon_w3_migrate\Controller\ImportDataController::content'
+  requirements:
+    _permission: 'Import form'
