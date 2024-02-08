@@ -20,3 +20,17 @@ h1#heading {
 }
 
 /* Issue #211 End */
+
+
+.view-content {
+    .views-row {
+        .views-field-title {
+            a {
+                @apply mb-5 font-medium block;
+            }
+        }
+        
+    }
+    
+}
+
