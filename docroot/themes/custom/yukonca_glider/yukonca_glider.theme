@@ -274,6 +274,10 @@ function yukonca_glider_preprocess_page(&$variables) {
       $variables['type'] = "topics_page";
     }
 
+    if ($variables['node']->bundle() == 'basic_page') {
+      $variables['type'] = "basic_page";
+    }
+
     /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {

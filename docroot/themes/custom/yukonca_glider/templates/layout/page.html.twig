@@ -127,6 +127,10 @@
       {{ page.post_content }}
     {% endif %}
 
+    {% if type == "basic_page" %}
+      <span class="aurora--mini"></span>
+    {% endif %}
+
   </main>
 
   {% if page.footer_logo or page.footer_menu or page.footer_legal %}
