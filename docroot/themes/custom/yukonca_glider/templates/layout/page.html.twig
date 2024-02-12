@@ -59,7 +59,15 @@
 
   {{ page.secondary_menu }}
 
-  {% if header_image %}
+  {% if type == "topics_page" %}
+    {{
+      pattern('hero', {
+        title: node.label,
+        image: header_image,
+        variant: 'image',
+      })
+    }}
+  {% elseif header_image %}
     {{
       pattern('hero', {
         title: node.label,
