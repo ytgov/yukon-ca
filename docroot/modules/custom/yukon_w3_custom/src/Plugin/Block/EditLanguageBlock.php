@@ -70,8 +70,13 @@ class EditLanguageBlock extends BlockBase implements ContainerFactoryPluginInter
   public function build() {
     $node = $this->routeMatch->getParameter('node');
     $output = "";
+
     if ($node instanceof NodeInterface) {
-      if ($node->hasTranslation('fr')) {
+      $original_language = $node->get('langcode')->value;
+      if ($node->hasTranslation('fr') && $original_language == 'en') {
+        $output = $node->Id();
+      }
+      if ($node->hasTranslation('en') && $original_language == 'fr') {
         $output = $node->Id();
       }
     }
