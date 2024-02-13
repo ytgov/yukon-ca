@@ -11,3 +11,13 @@
     display: none;
   }
 }
+
+
+/* Issue #211 */
+
+h1#heading {
+    @apply text-page-heading font-light ;
+}
+
+/* Issue #211 End */
+

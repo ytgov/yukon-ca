@@ -394,4 +394,22 @@
   }
 }
 
+
+/* Issue #128 */
+.media--type-icon {
+  .field--name-field-media-image {
+    img {
+        @apply h-[120px];
+    }
+  }
+}
+
+.node--view-mode-secondary-item-block {
+  h2 {
+    @apply px-[26]
+  }
+}
+
+/* Issue #128 End */
+
 /* stylelint-enable no-descending-specificity */
