@@ -19,3 +19,23 @@
     @apply w-auto h-[85px] md:h-[120px];
   }
 }
+
+
+.aurora-waves {
+    max-width: calc(60% - 80px);
+    
+    #heading {
+        @apply py-7 font-normal;
+    }
+    
+}
+
+body:not(.page-node-type-homepage) {
+    .media--type-icon {
+      .field--name-field-media-image {
+        img {
+            @apply h-[120px] w-[120px];
+        }
+      }
+    }
+}
