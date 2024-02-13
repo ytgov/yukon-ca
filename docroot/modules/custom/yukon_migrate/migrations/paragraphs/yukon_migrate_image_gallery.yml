@@ -13,9 +13,9 @@ source:
 process:
   field_title: title_field
 
-  field_description/value: field_description/0/value
+  field_description_plain/value: field_description/0/value
 
-  field_link:
+  field_link_image:
     plugin: yukon_migrate_links
     source: field_link
 
