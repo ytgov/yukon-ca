@@ -73,6 +73,10 @@ module.exports = {
         'default-base': ['1rem', '1.25rem'],
         grande: ['1.25rem', '1.625rem'],
         legendes: ['0.813rem', '1.25rem'],
+
+        /* Issue 211 */
+        'page-heading': ['2rem', '2rem'],
+        /* Issue 211 End */
       },
       fontFamily: {
         base: ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
