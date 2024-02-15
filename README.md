@@ -41,3 +41,22 @@ Upon pushing to a branch, you can create a Pull Request for EW to review. Branch
 * Dev site - `TODO` Add dev site URL here.
 * Stage site - `TODO` Add stage site URL here.
 * Prod site - `TODO` Add prod site URL here.
+
+## About Issue #126
+This issue is related to incomplete migration.  This will be fixed either by re-running the complete migration or by using the steps below: 
+
+### Rollback and Import Primary Content:
+
+./vendor/bin/drush migrate:rollback yukon_migrate_primary_content
+
+./vendor/bin/drush migrate:import yukon_migrate_primary_content
+
+### Rollback and Import Landing Page:
+
+./vendor/bin/drush migrate:rollback yukon_migrate_landing_page
+
+./vendor/bin/drush migrate:rollback yukon_migrate_landing_page_translations
+
+./vendor/bin/drush migrate:import yukon_migrate_landing_page
+
+./vendor/bin/drush migrate:import yukon_migrate_landing_page_translations

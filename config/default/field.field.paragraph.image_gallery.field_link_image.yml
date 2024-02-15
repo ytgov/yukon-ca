@@ -1,23 +1,18 @@
-uuid: 0ccebe18-1918-47ef-bd9f-4bb348d2402e
+uuid: a7136663-2457-46dc-8c10-15b85e49def2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_link
+    - field.storage.paragraph.field_link_image
     - paragraphs.paragraphs_type.image_gallery
   module:
-    - epp
     - link
-third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
-id: paragraph.image_gallery.field_link
-field_name: field_link
+id: paragraph.image_gallery.field_link_image
+field_name: field_link_image
 entity_type: paragraph
 bundle: image_gallery
 label: Link
-description: ''
+description: 'Start typing the URL where link goes to.'
 required: false
 translatable: true
 default_value: {  }

@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.image_gallery.field_description_plain
     - field.field.paragraph.image_gallery.field_image
-    - field.field.paragraph.image_gallery.field_link
+    - field.field.paragraph.image_gallery.field_link_image
     - field.field.paragraph.image_gallery.field_title
     - paragraphs.paragraphs_type.image_gallery
   module:
@@ -31,9 +31,9 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_link:
+  field_link_image:
     type: link
-    label: hidden
+    label: above
     settings:
       trim_length: 80
       url_only: false
@@ -41,7 +41,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   field_title:
     type: string
