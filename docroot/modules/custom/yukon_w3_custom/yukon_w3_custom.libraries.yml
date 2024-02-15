@@ -1,0 +1,6 @@
+yukon_w3_custom.css:
+  version: VERSION
+  css:
+    theme:
+      css/_variables.css: {}
+      css/yukon_w3_custom.css: {}

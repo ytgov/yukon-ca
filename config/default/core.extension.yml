@@ -139,6 +139,7 @@ module:
   yukon_department: 0
   yukon_migrate: 0
   yukon_w3_migrate: 0
+  yukon_w3_custom: 0
   pathauto: 1
   content_translation: 10
   password_policy: 10
