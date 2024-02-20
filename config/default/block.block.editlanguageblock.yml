@@ -9,7 +9,7 @@ dependencies:
 id: editlanguageblock
 theme: claro
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: edit_language_block
 settings:
