@@ -241,7 +241,7 @@ display:
           empty: false
           content:
             value: '<h4>What are you looking for?</h4>'
-            format: wysiwyg_ckeditor
+            format: full_html
           tokenize: false
       footer: {  }
       display_extenders: {  }

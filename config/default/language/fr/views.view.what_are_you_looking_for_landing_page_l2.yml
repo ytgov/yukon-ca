@@ -1,0 +1,8 @@
+display:
+  default:
+    display_options:
+      header:
+        area:
+          content:
+            value: '<h4>Que cherchez-vous?</h4>'
+            format: full_html
