@@ -26,10 +26,10 @@ mode: default
 content:
   body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 103
     region: content
   field_department_term:
     type: entity_reference_label
@@ -37,7 +37,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 110
     region: content
   field_image:
     type: entity_reference_label
@@ -45,27 +45,34 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 104
     region: content
   field_meta_tags:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 102
+    region: content
+  field_page_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 108
     region: content
   field_top_task:
     type: link
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -73,15 +80,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 107
     region: content
   field_whats_new_header:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 106
     region: content
   field_yukon_editorial_team:
     type: entity_reference_label
@@ -89,15 +96,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 105
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 100
     region: content
 hidden:
   addtoany: true
-  field_page_description: true
   langcode: true
   search_api_excerpt: true
