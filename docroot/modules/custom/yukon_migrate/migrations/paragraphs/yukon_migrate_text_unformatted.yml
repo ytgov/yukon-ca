@@ -4,7 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
-migration_group: legacy
+migration_group: legacy_paragraphs
 source:
   plugin: d7_paragraphs_item
   bundle: text_only_block_unformatted
