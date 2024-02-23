@@ -319,6 +319,7 @@ function yukonca_glider_preprocess_page(&$variables) {
         'label' => 'hidden',
       ]);
     }
+    $variables['content_type'] = $variables['node']->bundle();
   }
 }
 
