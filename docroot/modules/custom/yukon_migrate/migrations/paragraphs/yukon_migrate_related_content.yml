@@ -4,7 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
-migration_group: legacy
+migration_group: legacy_paragraphs
 source:
   plugin: d7_field_collection_item
   field_name: field_related_content

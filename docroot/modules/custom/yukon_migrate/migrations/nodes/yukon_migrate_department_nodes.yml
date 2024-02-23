@@ -6,7 +6,7 @@ migration_tags:
   - Drupal 7
   - node
   - Department
-migration_group: legacy
+migration_group: legacy_nodes
 source:
   plugin: d7_node
   node_type: department

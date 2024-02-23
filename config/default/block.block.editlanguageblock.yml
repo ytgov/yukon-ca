@@ -1,0 +1,20 @@
+uuid: 1f37f842-4fe0-4cd6-8103-198cda0cd067
+langcode: en
+status: true
+dependencies:
+  module:
+    - yukon_w3_custom
+  theme:
+    - claro
+id: editlanguageblock
+theme: claro
+region: content
+weight: -3
+provider: null
+plugin: edit_language_block
+settings:
+  id: edit_language_block
+  label: 'Edit Language Block'
+  label_display: '0'
+  provider: yukon_w3_custom
+visibility: {  }

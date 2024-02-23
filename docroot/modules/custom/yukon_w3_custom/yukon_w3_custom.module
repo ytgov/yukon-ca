@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Yukon w3 migrate module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function yukon_w3_custom_theme() {
+  return [
+    'edit_language' => [
+      'variables' => ['item' => NULL, 'language' => NULL],
+      'template' => 'edit-language',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.css';
+  }
+}

@@ -1,0 +1,6 @@
+id: legacy_user_role
+label: Yukon.ca legacy user role site
+source_type: Drupal 7
+shared_configuration:
+  migration_tags:
+    - Drupal 7
