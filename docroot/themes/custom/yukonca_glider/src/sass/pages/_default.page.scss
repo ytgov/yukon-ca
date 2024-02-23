@@ -22,4 +22,18 @@ h3 {
 
 .breadcrumb {
   @apply py-2;
+
+  li {
+    @apply text-sm;
+
+    &:before {
+      font-family: "Glyphicons Halflings", sans-serif;
+      content: "/";
+      padding: 0 5px;
+    }
+
+    a {
+      font-size: inherit;
+    }
+  }
 }

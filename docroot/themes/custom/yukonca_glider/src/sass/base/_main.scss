@@ -34,3 +34,106 @@ h1#heading {
     
 }
 
+/* Custom CSSS */
+
+.view {
+  &.view-what-are-you-looking-for-landing-page-l2 {
+    @apply pb-24 pt-[30px];
+
+    .view-header {
+      @apply mb-0;
+
+      h4 {
+        @apply text-lg pb-2.5 mb-3 mt-[15px] border-b border-gray-lightborder leading-1.1;
+      }
+    }
+  }
+}
+
+.page-node-type-basic-page {
+  .region {
+    &.region-content {
+      @apply pt-3.75;
+    }
+  }
+}
+
+.field {
+  &.field--name-field-popular-links {
+    .field__item {
+      @apply m-1 min-h-20;
+
+      &:first-child {
+        @apply ml-0
+      }
+
+      &:last-child {
+        @apply mr-0
+      }
+
+      .quicklink-card {
+        a {
+          @apply p-5;
+
+          &:hover {
+            @apply border-blue-200;
+          }
+        }
+      }
+    }
+  }
+}
+
+.col2list {
+  .field--name-field-link {
+    .field__item {
+      @apply mb-5;
+
+      &:last-child {
+        @apply mb-0;
+      }
+
+      a {
+        @apply font-medium;
+      }
+    }
+  }
+}
+
+.webform-submission-page-feedback-node-8252-form {
+  @apply my-5 border-t border-gray-lightborder;
+
+  .yes-no-trigger {
+    @apply inline-flex pt-2.5;
+
+    &.yes-no-trigger-wrapper {
+      legend {
+        span {
+          @apply font-medium text-black;
+        }
+      }
+
+      .fieldset-wrapper {
+        .form-radios {
+          @apply flex;
+
+          .form-type-radio {
+            @apply pl-5;
+          }
+        }
+      }
+    }
+  }
+}
+
+.callout-card {
+  .content {
+    p {
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+}
+
+/* End Custom CSSS */
