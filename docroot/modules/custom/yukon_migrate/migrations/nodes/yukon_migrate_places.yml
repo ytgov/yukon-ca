@@ -6,7 +6,7 @@ migration_tags:
   - Drupal 7
   - node
   - Places
-migration_group: legacy
+migration_group: legacy_nodes
 source:
   plugin: d7_node
   node_type: directory_records_places

@@ -1,6 +1,6 @@
 id: yukon_migrate_transactional_facility_type
 label: Transactional Facility type taxonomy terms
-migration_group: legacy
+migration_group: legacy_taxonomies
 migration_tags:
   - Drupal 7
   - taxonomy

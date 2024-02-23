@@ -1,6 +1,6 @@
 id: yukon_migrate_community_facilities_terms
 label: Community Facilities taxonomy terms
-migration_group: legacy
+migration_group: legacy_taxonomies
 migration_tags:
   - Drupal 7
   - taxonomy

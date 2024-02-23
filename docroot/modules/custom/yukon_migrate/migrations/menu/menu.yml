@@ -3,7 +3,7 @@ label: Menus
 migration_tags:
   - Drupal 7
   - Configuration
-migration_group: legacy
+migration_group: legacy_menu
 source:
   plugin: menu
 process:
