@@ -61,7 +61,7 @@ h1#heading {
 .field {
   &.field--name-field-popular-links {
     .field__item {
-      @apply m-1 min-h-20;
+      @apply m-1;
 
       &:first-child {
         @apply ml-0;
