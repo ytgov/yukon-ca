@@ -4,7 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Multilingual
-migration_group: legacy
+migration_group: legacy_menu
 source:
   plugin: d7_menu_link_translation
 process:

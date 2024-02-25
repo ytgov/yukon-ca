@@ -5,7 +5,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Media
-migration_group: legacy
+migration_group: legacy_media
 source:
   plugin: yukon_paragraphs_item
   bundle: video_and_text_block

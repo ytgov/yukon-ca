@@ -1,0 +1,39 @@
+uuid: c5f6caeb-d0ea-43d2-979f-9768e487bd35
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - node
+  theme:
+    - yukonca_glider
+id: mainnavigation
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation'
+  label_display: visible
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: root
+  level: 2
+  depth: 0
+  expand_all_items: false
+  parent: 'main:'
+  suggestion: main
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      basic_page: basic_page
