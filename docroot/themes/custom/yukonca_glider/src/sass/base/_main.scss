@@ -64,11 +64,11 @@ h1#heading {
       @apply m-1 min-h-20;
 
       &:first-child {
-        @apply ml-0
+        @apply ml-0;
       }
 
       &:last-child {
-        @apply mr-0
+        @apply mr-0;
       }
 
       .quicklink-card {
@@ -79,22 +79,6 @@ h1#heading {
             @apply border-blue-200;
           }
         }
-      }
-    }
-  }
-}
-
-.col2list {
-  .field--name-field-link {
-    .field__item {
-      @apply mb-5;
-
-      &:last-child {
-        @apply mb-0;
-      }
-
-      a {
-        @apply font-medium;
       }
     }
   }
