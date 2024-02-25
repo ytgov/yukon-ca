@@ -173,15 +173,15 @@ display:
           group: 1
           expose:
             operator: ''
-        content_translation_source:
-          id: content_translation_source
+        langcode:
+          id: langcode
           table: node_field_data
-          field: content_translation_source
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: content_translation_source
+          entity_field: langcode
           plugin_id: language
           operator: in
           value:
@@ -241,7 +241,7 @@ display:
           empty: false
           content:
             value: '<h4>What are you looking for?</h4>'
-            format: wysiwyg_ckeditor
+            format: full_html
           tokenize: false
       footer: {  }
       display_extenders: {  }
