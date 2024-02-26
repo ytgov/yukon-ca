@@ -19,7 +19,6 @@
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-<div class="col-sm-7 col-md-8">
 {% block field %}
 {%- if display_field_tag ~%}
   <{{ field_tag|default('div') }}{{ attributes.addClass(classes) }}>
@@ -36,28 +35,27 @@
   {%- endblock field_label -%}
 {%- endif -%}
 {%- block field_items -%}
-		{% if display_items_wrapper_tag ~%}
-			<{{ field_items_wrapper_tag|default('div') }}{{ field_items_wrapper_attributes.addClass('field__items') }}>
-		{%- endif -%}
-		{% for item in items %}
-			{%- block field_item -%}
-				{%- if display_item_tag ~%}
-					<{{ field_item_tag|default('div') }}{{ item.attributes.addClass('field__item') }}>
-				{%- endif -%}
-				{%- block field_value -%}
-					{{  item.content  }}
-				{%- endblock field_value -%}
-				{%- if display_item_tag -%}
-					</{{ field_item_tag|default('div') }}>
-				{%- endif -%}
-			{%- endblock field_item -%}
-		{% endfor %}
-		{%- if display_items_wrapper_tag ~%}
-			</{{ field_items_wrapper_tag|default('div') }}>
-		{%- endif -%}
+  {% if display_items_wrapper_tag ~%}
+    <{{ field_items_wrapper_tag|default('div') }}{{ field_items_wrapper_attributes.addClass('field__items') }}>
+  {%- endif -%}
+  {% for item in items %}
+    {%- block field_item -%}
+      {%- if display_item_tag ~%}
+        <{{ field_item_tag|default('div') }}{{ item.attributes.addClass('field__item') }}>
+      {%- endif -%}
+      {%- block field_value -%}
+        {{  item.content  }}
+      {%- endblock field_value -%}
+      {%- if display_item_tag -%}
+        </{{ field_item_tag|default('div') }}>
+      {%- endif -%}
+    {%- endblock field_item -%}
+  {% endfor %}
+  {%- if display_items_wrapper_tag ~%}
+    </{{ field_items_wrapper_tag|default('div') }}>
+  {%- endif -%}
 {%- endblock field_items -%}
 {% if display_field_tag ~%}
   </{{ field_tag|default('div') }}>
 {%- endif -%}
 {% endblock field %}
-</div>
