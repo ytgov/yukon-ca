@@ -36,6 +36,16 @@ h1#heading {
 
 /* Custom CSSS */
 
+.hero {
+  &--image {
+    @apply min-h-[120px] flex items-center;
+
+    #heading {
+      @apply font-medium;
+    }
+  }
+}
+
 .view {
   &.view-what-are-you-looking-for-landing-page-l2 {
     @apply pb-24 pt-[30px];
@@ -50,6 +60,8 @@ h1#heading {
   }
 }
 
+// breadcrumb task
+
 .page-node-type-basic-page {
   .region {
     &.region-content {
@@ -58,10 +70,12 @@ h1#heading {
   }
 }
 
+// archives page
+
 .field {
   &.field--name-field-popular-links {
     .field__item {
-      @apply m-1;
+      @apply m-1 min-h-20;
 
       &:first-child {
         @apply ml-0;
