@@ -49,6 +49,8 @@
     }
 
     .col2list {
+      @apply flex;
+
       &:first-child {
         @apply border-t-0;
       }
@@ -69,10 +71,12 @@
         }
 
         &.field--name-field-title {
-          @apply text-lg leading-1.1 mb-[11.5px];
+          @apply w-1/3 text-lg leading-1.1 mb-[11.5px] px-5;
         }
 
         &.field--name-field-link {
+          @apply w-2/3;
+
           .field__item {
             @apply mb-5;
 

@@ -41,7 +41,7 @@
   {% for item in items %}
     {%- block field_item -%}
       {%- if display_item_tag ~%}
-        <{{ field_item_tag|default('div') }}{{ item.attributes.addClass('field__item col2list row mx-0 pt-5 mt-[30px] border-t border-gray-lightborder') }}>
+        <{{ field_item_tag|default('div') }}{{ item.attributes.addClass('field__item col2list flex mx-0 pt-5 mt-[30px] border-t border-gray-lightborder') }}>
       {%- endif -%}
       {%- block field_value -%}
         {{  item.content  }}

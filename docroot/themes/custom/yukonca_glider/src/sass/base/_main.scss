@@ -16,25 +16,22 @@
 /* Issue #211 */
 
 h1#heading {
-    @apply text-page-heading font-light ;
+  @apply text-page-heading font-light ;
 }
 
 /* Issue #211 End */
 
-
 .view-content {
-    .views-row {
-        .views-field-title {
-            a {
-                @apply mb-5 font-medium block;
-            }
-        }
-        
-    }
-    
+  .views-row {
+    .views-field-title {
+      a {
+        @apply mb-5 font-medium block;
+      }
+    }   
+  }   
 }
 
-/* Custom CSSS */
+/* Custom SCSS */
 
 .hero {
   &--image {
@@ -60,8 +57,6 @@ h1#heading {
   }
 }
 
-// breadcrumb task
-
 .page-node-type-basic-page {
   .region {
     &.region-content {
@@ -70,12 +65,10 @@ h1#heading {
   }
 }
 
-// archives page
-
 .field {
   &.field--name-field-popular-links {
     .field__item {
-      @apply m-1 min-h-20;
+      @apply m-1 min-h-[80px];
 
       &:first-child {
         @apply ml-0;
@@ -134,4 +127,4 @@ h1#heading {
   }
 }
 
-/* End Custom CSSS */
+/* End Custom SCSS */
