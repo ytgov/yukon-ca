@@ -45,9 +45,12 @@
     'field--label-' ~ label_display,
     label_display == 'inline' ? 'clearfix',
     'field__item',
+    'm-0',
   ]
 %}
 
 {% for item in items %}
-  <h3{{ attributes.addClass(classes) }}>{{ item.content }}</h3>
+  <div class="col-sm-5 col-md-4">
+    <h3{{ attributes.addClass(classes) }}>{{ item.content }}</h3>
+  </div>
 {% endfor %}

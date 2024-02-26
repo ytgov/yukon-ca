@@ -75,28 +75,36 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    'pt-7',
-    'pb-5',
   ]
 %}
 {{ attach_library('classy/node') }}
-
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
-  {% if label and not page and not view_mode == 'teaser' %}
+  {% if label and not page %}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
-{% set icon %}
-  <i class="fa fa-exclamation-triangle text-[2.375rem]"></i>
-{% endset %}
 
-  {{ pattern('callout_card', {
-    title: label,
-    content: content,
-    icon: icon,
-  }, 'default') }}
+  {% if display_submitted %}
+    <footer class="node__meta mb-12 text-gray italic border-0 border-solid border-b border-gray">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Published {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content|without('field_whats_new_header', 'field_top_task', 'field_paragraphs') }}
+    <div class="topic-top-tasks">
+        {{ content.field_whats_new_header }}
+        {{ content.field_top_task }}
+    </div>
+        {{ content.field_paragraphs }}
+  </div>
+
 </article>

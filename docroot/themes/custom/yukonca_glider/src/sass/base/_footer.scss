@@ -3,3 +3,50 @@
     @apply bg-gray-600;
   }
 }
+
+/* 153 */
+.page-node-type-topics-page {
+  .hero {
+    & &--image {
+      @apply min-h-[120px];
+      
+      .aurora-waves {
+        #heading {
+          @apply font-medium;
+        }
+      }
+    }
+  }
+}
+
+.col2list {
+  .field {
+    @apply mt-[15px];
+    
+    > div {
+      @apply px-0;
+    }
+
+    &:first-child {
+      @apply border-t-0;
+    }
+    
+    &.field--name-field-title {
+      @apply text-lg leading-1.1;
+    }
+
+    &.field--name-field-link {
+      .field__item {
+        @apply mb-5;
+
+        &:last-child {
+          @apply mb-0;
+        }
+
+        a {
+          @apply font-medium;
+        }
+      }
+    }
+  }
+}
