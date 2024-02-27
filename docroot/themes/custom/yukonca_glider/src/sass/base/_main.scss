@@ -127,4 +127,27 @@ h1#heading {
   }
 }
 
+// Homepage
+.page-node-type-homepage {
+  #image-gallery {
+    .field {
+      &.field--name-field-image-gallery {
+        .carousel-item {
+          .slide-content {
+            .field--name-field-description-plain {
+              @apply mb-[11.5px];
+            }
+
+            .field--type-link {
+              a {
+                @apply font-medium;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* End Custom SCSS */
