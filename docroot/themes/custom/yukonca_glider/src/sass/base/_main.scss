@@ -62,6 +62,57 @@ h1#heading {
     &.region-content {
       @apply pt-3.75;
     }
+
+    // Start Sidebar design
+
+    &.region-sidebar-first {
+      .block-menu {
+        .block-title {
+          @apply font-medium pt-[15px] pb-[26.5px] mt-[15px] text-lg leading-1.1;
+        }
+        
+        > .menu {
+          @apply ml-0;
+          
+          > .menu-item {
+            @apply pt-0 list-none list-image-none;
+
+            [data-drupal-link-system-path] {
+              @apply py-[15px] px-[10px] inline-block w-full;
+            }
+
+            &::marker {
+              @apply hidden;
+            }
+
+            &:nth-child(odd) {
+              > [data-drupal-link-system-path] {
+                @apply bg-[#F1F1F1];
+              }
+            }
+
+            >.menu {
+              >.menu-item {
+                [data-drupal-link-system-path] {
+                  @apply flex;
+
+                  &:before {
+                    padding-right: 10px;
+                    content: ">";
+                  }
+
+                  &.is-active {
+                    @apply font-semibold text-blue-500;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // End Sidebar design
   }
 }
 
