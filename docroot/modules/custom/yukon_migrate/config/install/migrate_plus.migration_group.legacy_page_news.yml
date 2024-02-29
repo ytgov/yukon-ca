@@ -1,0 +1,6 @@
+id: legacy_page_news
+label: Yukon.ca legacy page news site
+source_type: Drupal 7
+shared_configuration:
+  migration_tags:
+    - Drupal 7
