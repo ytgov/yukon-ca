@@ -75,7 +75,7 @@ h1#heading {
           @apply ml-0;
           
           > .menu-item {
-            @apply pt-0 list-none list-image-none;
+            @apply pt-0 list-none;
 
             [data-drupal-link-system-path] {
               @apply py-[15px] px-[10px] inline-block w-full;
