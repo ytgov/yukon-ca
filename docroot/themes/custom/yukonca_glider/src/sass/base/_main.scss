@@ -87,7 +87,7 @@ h1#heading {
 
             &:nth-child(odd) {
               > [data-drupal-link-system-path] {
-                @apply bg-[#F1F1F1];
+                @apply bg-gray-light;
               }
             }
 
