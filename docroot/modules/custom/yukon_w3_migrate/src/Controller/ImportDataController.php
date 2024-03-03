@@ -174,7 +174,7 @@ class ImportDataController extends ControllerBase {
         }
       }
     }
-    // For secondary content
+    // For secondary content.
     foreach ($results as $result) {
       $query = $db->select("node__field_secondary_content", "p");
       $query->fields("p", []);
@@ -183,25 +183,24 @@ class ImportDataController extends ControllerBase {
       $query->condition("p.langcode", "fr");
       $primary_cont = $query->execute()->fetchAll();
 
-      foreach($primary_cont as $secondary_cont) {
-          $query = $db->select("paragraphs_item_field_data", "i");
-          $query->fields("i", []);
-          $query->condition("i.type", "secondary_content");
-          $query->condition(
-                "i.id",
-                $secondary_cont->field_secondary_content_target_id
-            );
-          $query->condition("i.langcode", "fr");
-          $primary_fr = $query->execute()->fetchAll();
-           
-          if (empty($primary_fr)) {
+      foreach ($primary_cont as $secondary_cont) {
+        $query = $db->select("paragraphs_item_field_data", "i");
+        $query->fields("i", []);
+        $query->condition("i.type", "secondary_content");
+        $query->condition(
+            "i.id",
+            $secondary_cont->field_secondary_content_target_id
+        );
+        $query->condition("i.langcode", "fr");
+        $primary_fr = $query->execute()->fetchAll();
+        if (empty($primary_fr)) {
             $query = $db->select("paragraphs_item_field_data", "i");
             $query->fields("i", []);
             $query->condition("i.type", "secondary_content");
             $query->condition(
               "i.id",
               $secondary_cont->field_secondary_content_target_id
-              );
+            );
             $query->condition("i.langcode", "en");
             $primary_en = $query->execute()->fetchAll();
 
