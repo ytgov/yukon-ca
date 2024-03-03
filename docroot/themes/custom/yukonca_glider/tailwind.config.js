@@ -84,36 +84,40 @@ module.exports = {
       },
       margin: {
         15: rem(15 * 4),
+        7.5: rem(7.5 * 4),
       },
       padding: {
         2.5: rem(2.5 * 4),
+        3.75: rem(3.75 * 4),
+        7.5: rem(7.5 * 4),
       },
       width: {
         '8.5/12': '70%',
       },
       minWidth: {
-        '8': rem(8 * 4),
+        8: rem(8 * 4),
       },
       lineHeight: {
         12: rem(12 * 4),
+        1.1: '1.1',
       },
       backgroundSize: {
         full: '100%',
       },
       textDecoration: ['focus-visible'],
       boxShadow: {
-        card    : '4px 2px 5px 0 rgb(81 42 68 / 25%)',
-        footer  : '0 0px 5px -10px rgba(0, 0, 0, 0.04), 0 6px 12px -10px rgba(0, 0, 0, 0.05)',
-        toast   : '0px 9px 42px rgba(102, 116, 137, 0.05), 0px 3.75998px 17.5466px rgba(102, 116, 137, 0.0359427), 0px 2.01027px 9.38125px rgba(102, 116, 137, 0.0298054), 0px 1.12694px 5.25905px rgba(102, 116, 137, 0.025), 0px 0.598509px 2.79304px rgba(102, 116, 137, 0.0201946), 0px 0.249053px 1.16225px rgba(102, 116, 137, 0.0140573)',
+        card: '4px 2px 5px 0 rgb(81 42 68 / 25%)',
+        footer:
+          '0 0px 5px -10px rgba(0, 0, 0, 0.04), 0 6px 12px -10px rgba(0, 0, 0, 0.05)',
+        toast:
+          '0px 9px 42px rgba(102, 116, 137, 0.05), 0px 3.75998px 17.5466px rgba(102, 116, 137, 0.0359427), 0px 2.01027px 9.38125px rgba(102, 116, 137, 0.0298054), 0px 1.12694px 5.25905px rgba(102, 116, 137, 0.025), 0px 0.598509px 2.79304px rgba(102, 116, 137, 0.0201946), 0px 0.249053px 1.16225px rgba(102, 116, 137, 0.0140573)',
       },
 
       /* Issue 210 */
       borderWidth: {
-        1 : '1px',
+        1: '1px',
       },
       /* Issue 210 End */
-      
-
     },
     screens: {
       xs: '576px',
@@ -131,9 +135,9 @@ module.exports = {
     },
   },
   corePlugins: {
-    container : false,
-    preflight : false,
+    container: false,
+    preflight: false,
   },
   /* https://tailwindcss.com/docs/content-configuration#safelisting-classes */
   safelist: [],
-};
+}

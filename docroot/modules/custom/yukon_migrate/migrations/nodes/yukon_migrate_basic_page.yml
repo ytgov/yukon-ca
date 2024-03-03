@@ -6,7 +6,7 @@ migration_tags:
   - Drupal 7
   - node
   - Basic Pages
-migration_group: legacy_nodes
+migration_group: legacy_basic_page
 source:
   plugin: d7_node
   node_type: wetkit_page
