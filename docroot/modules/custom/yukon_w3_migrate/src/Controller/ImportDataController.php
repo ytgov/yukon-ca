@@ -78,9 +78,7 @@ class ImportDataController extends ControllerBase {
           );
         $query->condition("i.langcode", "en");
         $primary_en = $query->execute()->fetchAll();
-        
         if (!empty($primary_en[0]->id)) {
-            
           $db->update("paragraphs_item_field_data")
             ->fields([
               "revision_translation_affected" => NULL,
@@ -176,7 +174,6 @@ class ImportDataController extends ControllerBase {
         }
       }
     }
-    
     // For secondary content
     foreach ($results as $result) {
       $query = $db->select("node__field_secondary_content", "p");
