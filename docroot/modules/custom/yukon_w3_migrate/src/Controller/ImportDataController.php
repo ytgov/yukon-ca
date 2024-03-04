@@ -77,10 +77,8 @@ class ImportDataController extends ControllerBase {
           $primary_cont[0]->field_primary_content_target_id
           );
         $query->condition("i.langcode", "en");
-        $primary_en = $query->execute()->fetchAll();
-        
-        if (!empty($primary_en[0]->id)) {
-            
+        $primary_en = $query->execute()->fetchAll();  
+        if (!empty($primary_en[0]->id)) {     
           $db->update("paragraphs_item_field_data")
             ->fields([
               "revision_translation_affected" => NULL,
@@ -175,8 +173,7 @@ class ImportDataController extends ControllerBase {
           }
         }
       }
-    }
-    
+    } 
     // For landing page level 2.
     $db = Database::getConnection();
     $query = $db->select("node_field_data", "n");
