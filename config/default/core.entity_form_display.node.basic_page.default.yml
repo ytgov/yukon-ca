@@ -82,7 +82,7 @@ content:
     third_party_settings: {  }
   field_collapsible_items:
     type: paragraphs
-    weight: 18
+    weight: 19
     region: content
     settings:
       title: Paragraph
@@ -101,7 +101,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: text_textarea
-    weight: 20
+    weight: 18
     region: content
     settings:
       rows: 3
@@ -184,7 +184,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
