@@ -2,6 +2,13 @@
   main {
     @apply bg-transparent;
   }
+
+  .list-style-image-none {
+    li {
+      list-style: none;
+      list-style-image: none;
+    }
+  }
 }
 
 .collapse {
@@ -75,7 +82,7 @@ h1#heading {
           @apply ml-0;
           
           > .menu-item {
-            @apply pt-0 list-none;
+            @apply pt-0 list-style-image-none;
 
             [data-drupal-link-system-path] {
               @apply py-[15px] px-[10px] inline-block w-full;
