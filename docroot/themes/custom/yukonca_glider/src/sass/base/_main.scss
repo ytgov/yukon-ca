@@ -201,4 +201,16 @@ h1#heading {
   }
 }
 
+/* Start Issue 183 */
+
+.single-news-release {
+  @apply mb-[50px];
+  
+  .field__label {
+    @apply my-[15px];
+  }
+}
+
+/* End Issue 183 */
+
 /* End Custom SCSS */

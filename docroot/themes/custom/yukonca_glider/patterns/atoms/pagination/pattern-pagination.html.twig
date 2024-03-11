@@ -31,7 +31,7 @@
  */
 #}
 {% if items %}
-  <nav class="pager" role="navigation" aria-labelledby="{{ heading_id }}">
+  <nav class="pager mt-[10px]" role="navigation" aria-labelledby="{{ heading_id }}">
     <h4 id="{{ heading_id }}" class="visually-hidden">{{ 'Pagination'|t }}</h4>
     <ul class="flex pager__items js-pager__items relative">
       {# Print previous item if we are not on the first page. #}
@@ -49,14 +49,14 @@
       {% endif %}
       {# Now generate the actual pager piece. #}
       {% for key, item in items.pages %}
-        <li class="{{ (loop.first and not items.previous ) ? 'ml-auto' }} {{ (loop.last and not items.next ) ? 'mr-auto' }} pager__item{{ current == key ? ' is-active' : '' }} p-0 pl-[10px] relative {{ (not loop.last) ? 'separator' }}">
+        <li class="{{ (loop.first and not items.previous ) ? 'ml-auto font-normal' }} {{ (loop.last and not items.next ) ? 'mr-auto' }} pager__item{{ current == key ? ' is-active' : '' }} font-medium p-0 pl-[10px] relative separator">
           {% if current == key %}
             {% set title = 'Current page'|t %}
           {% else %}
             {% set title = 'Go to page @key'|t({'@key': key}) %}
           {% endif %}
 
-          <a class="p-[10px] no-underline" href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
+          <a class="p-[10px] no-underline{{ current == key ? ' text-pagination-seprater font-normal' : '' }}" href="{{ item.href }}" title="{{ title }}"{{ item.attributes|without('href', 'title') }}>
             <span class="visually-hidden">
               {{ current == key ? 'Current page'|t : 'Page'|t }}
             </span>
@@ -66,12 +66,12 @@
       {% endfor %}
       {# Add an ellipsis if there are further next pages. #}
       {% if ellipses.next %}
-        <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
+        <li class="pager__item pager__item--ellipsis ml-[10px]" role="presentation">&hellip;</li>
       {% endif %}
       {# Print next item if we are not on the last page. #}
       {% if items.next %}
-        <li class="font-bold ml-auto pager__item pager__item--next">
-          <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes|without('href', 'title', 'rel') }}>
+        <li class="font-medium p-[10px] ml-auto pager__item pager__item--next">
+          <a class="lowercase no-underline" href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes|without('href', 'title', 'rel') }}>
             <span class="visually-hidden">{{ 'Next page'|t }}</span>
             <span aria-hidden="true">{{ items.next.text|default('Next ›'|t) }}</span>
           </a>
