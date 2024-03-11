@@ -2,13 +2,6 @@
   main {
     @apply bg-transparent;
   }
-
-  .list-style-image-none {
-    li {
-      list-style: none;
-      list-style-image: none;
-    }
-  }
 }
 
 .collapse {
@@ -82,7 +75,7 @@ h1#heading {
           @apply ml-0;
           
           > .menu-item {
-            @apply pt-0 list-style-image-none;
+            @apply pt-0 list-none;
 
             [data-drupal-link-system-path] {
               @apply py-[15px] px-[10px] inline-block w-full;
@@ -207,5 +200,17 @@ h1#heading {
     }
   }
 }
+
+/* Start Issue 183 */
+
+.single-news-release {
+  @apply mb-[50px];
+  
+  .field__label {
+    @apply my-[15px];
+  }
+}
+
+/* End Issue 183 */
 
 /* End Custom SCSS */
