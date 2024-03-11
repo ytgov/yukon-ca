@@ -56,6 +56,9 @@ module.exports = {
         500: '#008392',
         mid: '#72D0DC',
       },
+      pagination: {
+        seprater: '#7a7979',
+      },
     },
     extend: {
       fontSize: {
