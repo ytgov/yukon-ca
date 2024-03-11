@@ -6,95 +6,119 @@
 
 /* Start issue 153 */
 
-.page-node-type-topics-page {
-  main {
-    > .row {
-      @apply pt-[75px];
-    }
+body {
+  /* Start Issue 182 */
 
-    p {
-      &:last-child {
-        @apply mb-0;
-      }
-    }
-
-    .hero {
-      & &--image {
-        @apply min-h-[120px];
-
-        .aurora-waves {
-          #heading {
+  &.page-node-type-news {
+    .node {
+      .field--name-field-related-link {
+        .field__label {
+          @apply pb-0 my-[15px];
+        }
+  
+        .field__item {
+          @apply my-2.5;
+  
+          a {
             @apply font-medium;
           }
         }
       }
     }
+  }
 
-    .topic-top-tasks {
-      @apply flex my-[35px] p-5 border rounded border-gray-lightborder;
+  /* End Issue 182 */
 
-      .field {
-        &.field--name-field-whats-new-header {
-          @apply text-lg leading-1.1 mt-[15px] mb-[11.5px] w-1/3;
-
-          .field__item {
-            @apply font-medium;
-          }
+  &.page-node-type-topics-page {
+    main {
+      > .row {
+        @apply pt-[75px];
+      }
+  
+      p {
+        &:last-child {
+          @apply mb-0;
         }
-
-        &.field--name-field-top-task {
-          @apply font-medium w-2/3 px-[15px];
-
-          .field__item {
-            @apply pb-5;
-
-            &:last-child {
-              @apply pb-0;
+      }
+  
+      .hero {
+        & &--image {
+          @apply min-h-[120px];
+  
+          .aurora-waves {
+            #heading {
+              @apply font-medium;
             }
           }
         }
       }
-    }
-
-    .field--name-field-paragraphs {
-      .col2list {
-        @apply flex;
   
-        &:first-child {
-          @apply border-t-0;
-        }
-  
-        >div {
-          @apply px-5;
-        }
+      .topic-top-tasks {
+        @apply flex my-[35px] p-5 border rounded border-gray-lightborder;
   
         .field {
-          @apply mt-[15px];
+          &.field--name-field-whats-new-header {
+            @apply text-lg leading-1.1 mt-[15px] mb-[11.5px] w-1/3;
   
-          >div {
-            @apply px-0;
+            .field__item {
+              @apply font-medium;
+            }
           }
   
+          &.field--name-field-top-task {
+            @apply font-medium w-2/3 px-[15px];
+  
+            .field__item {
+              @apply pb-5;
+  
+              &:last-child {
+                @apply pb-0;
+              }
+            }
+          }
+        }
+      }
+  
+      .field--name-field-paragraphs {
+        .col2list {
+          @apply flex;
+    
           &:first-child {
             @apply border-t-0;
           }
-  
-          &.field--name-field-title {
-            @apply w-1/3 text-lg leading-1.1 mb-[11.5px] px-5;
+    
+          >div {
+            @apply px-5;
           }
-  
-          &.field--name-field-link {
-            @apply w-2/3;
-  
-            .field__item {
-              @apply mb-5;
-  
-              &:last-child {
-                @apply mb-0;
-              }
-  
-              a {
-                @apply font-medium;
+    
+          .field {
+            @apply mt-[15px];
+    
+            >div {
+              @apply px-0;
+            }
+    
+            &:first-child {
+              @apply border-t-0;
+            }
+    
+            &.field--name-field-title {
+              @apply w-1/3 text-lg leading-1.1 mb-[11.5px] px-5;
+            }
+    
+            &.field--name-field-link {
+              @apply w-2/3;
+    
+              .field__item {
+                @apply mb-5;
+    
+                &:last-child {
+                  @apply mb-0;
+                }
+    
+                a {
+                  @apply font-medium;
+                }
               }
             }
           }
@@ -105,3 +129,25 @@
 }
 
 /* End issue 153 */
+
+/* Start Issue 182 */
+
+/*
+.field {
+  &.field--name-field-related-link {
+    &.single-related-post {
+      @apply m-0;
+
+      .field__item {
+        @apply my-[10px];
+
+        a {
+          @apply font-medium;
+        }
+      }
+    }
+  }
+}
+*/
+
+/* End Issue 182 */
