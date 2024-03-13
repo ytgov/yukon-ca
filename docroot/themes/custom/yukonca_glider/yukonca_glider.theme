@@ -6,8 +6,8 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\node\NodeInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_preprocess_html().
