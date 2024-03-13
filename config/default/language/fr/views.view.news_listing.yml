@@ -1,10 +1,4 @@
 display:
-  default:
-    display_options:
-      filters:
-        field_featured_content_value:
-          expose:
-            description: ''
   block_latest_news:
     display_title: 'Nouvelles récentes'
     display_options:
@@ -13,3 +7,27 @@ display:
         area_text_custom:
           content: '<h2>[view:title]</h2> <a href="/news" class="btn btn-link">Autres nouvelles <i class="fa fa-chevron-right" aria-hidden="true"></i></a>'
       block_description: 'Nouvelles récentes'
+  default:
+    display_options:
+      filters:
+        field_category_target_id:
+          expose:
+            label: Catégorie
+        field_yukon_editorial_team_target_id:
+          expose:
+            label: Département
+        field_news_type_target_id:
+          expose:
+            label: "Type d'actualité"
+  block_news_listing:
+    display_options:
+      filters:
+        created:
+          expose:
+            label: Date
+        field_department_term_target_id:
+          expose:
+            label: Département
+        field_news_type_target_id:
+          expose:
+            label: "Type d'actualité"
