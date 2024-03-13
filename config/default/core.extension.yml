@@ -73,6 +73,7 @@ module:
   media_library: 0
   media_library_edit: 0
   menu_block: 0
+  menu_breadcrumb: 0
   menu_link_attributes: 0
   menu_link_content: 0
   menu_ui: 0
@@ -138,8 +139,8 @@ module:
   yukon_base: 0
   yukon_department: 0
   yukon_migrate: 0
-  yukon_w3_migrate: 0
   yukon_w3_custom: 0
+  yukon_w3_migrate: 0
   pathauto: 1
   content_translation: 10
   password_policy: 10
