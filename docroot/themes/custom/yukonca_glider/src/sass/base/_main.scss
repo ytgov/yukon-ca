@@ -140,6 +140,11 @@ h1#heading {
       }
     }
   }
+&.news-field-featured-image {
+    img {
+      @apply float-right ml-25 mb-12.5;
+    }
+  }
 }
 
 .webform-submission-page-feedback-node-8252-form {
