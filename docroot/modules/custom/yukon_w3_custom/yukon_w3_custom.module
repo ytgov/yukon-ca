@@ -28,7 +28,6 @@ function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $for
   }
 }
 
-
 /**
  * Implements hook_views_data().
  */
