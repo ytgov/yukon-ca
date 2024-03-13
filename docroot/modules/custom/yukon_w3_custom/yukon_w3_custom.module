@@ -27,3 +27,22 @@ function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $for
     $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.css';
   }
 }
+
+
+/**
+ * Implements hook_views_data().
+ */
+function yukon_w3_custom_views_data() {
+  $data = [];
+
+  $data['views']['month_filter'] = [
+    'title' => t('Month filter - Custom Filter'),
+    'filter' => [
+      'title' => t('Month filter - Custom Filter'),
+      'field' => 'created',
+      'id' => 'month_filter',
+    ],
+  ];
+
+  return $data;
+}
