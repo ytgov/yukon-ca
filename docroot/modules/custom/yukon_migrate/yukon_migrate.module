@@ -5,11 +5,11 @@
  * Controls the migration process.
  */
 
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Row;
 use Drupal\node\Plugin\migrate\source\d7\Node;
 use Drupal\node\Plugin\migrate\source\d7\NodeEntityTranslation;
-use Drupal\migrate\Plugin\MigrateSourceInterface;
-use Drupal\migrate\Row;
-use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\taxonomy\Plugin\migrate\source\d7\Term;
 
 /**
