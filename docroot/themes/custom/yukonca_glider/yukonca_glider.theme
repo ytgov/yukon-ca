@@ -6,8 +6,8 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Render\Markup;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_html().
@@ -268,15 +268,8 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
-  $active_trail = \Drupal::service('menu.active_trail');
-  $menu_level = count($active_trail->getActiveTrailIds('main'));
-  $variables['menu_sidebar'] = 'yes';
-  if ($menu_level === 1) {
-    $variables['menu_sidebar'] = 'no';
-  }
-
   if (!empty($variables['node'])) {
-
+    $variables['content_type'] = $variables['node']->bundle();
     if ($variables['node']->bundle() == 'topics_page') {
       $variables['type'] = "topics_page";
     }
@@ -326,7 +319,6 @@ function yukonca_glider_preprocess_page(&$variables) {
         'label' => 'hidden',
       ]);
     }
-    $variables['content_type'] = $variables['node']->bundle();
   }
 }
 
