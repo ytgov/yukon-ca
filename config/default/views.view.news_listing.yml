@@ -2347,7 +2347,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: null
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -2391,7 +2391,7 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: department
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: false
