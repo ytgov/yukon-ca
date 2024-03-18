@@ -24,7 +24,7 @@ display:
       filters:
         created:
           expose:
-            label: Date
+            placeholder: '- Année -'
         field_department_term_target_id:
           expose:
             label: Département
