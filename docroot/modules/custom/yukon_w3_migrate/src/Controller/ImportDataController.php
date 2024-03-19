@@ -41,9 +41,15 @@ class ImportDataController extends ControllerBase {
    * Update the translation for primary links.
    */
   public function content() {
-
-    // For landing page.
     $db = Database::getConnection();
+    // Update format of the quick facts
+    $db->update("paragraph__field_facts")
+        ->fields([
+          "field_facts_format" => "full_html",
+        ])
+        ->execute();
+    
+    // For landing page.
     $query = $db->select("node_field_data", "n");
     $query->fields("n", ["nid", "title"]);
     $query->condition("n.type", "landing_page");
