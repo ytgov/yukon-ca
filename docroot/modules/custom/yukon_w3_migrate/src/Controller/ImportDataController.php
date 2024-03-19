@@ -42,13 +42,13 @@ class ImportDataController extends ControllerBase {
    */
   public function content() {
     $db = Database::getConnection();
-    // Update format of the quick facts
+    // Update format of the quick facts.
     $db->update("paragraph__field_facts")
-        ->fields([
-          "field_facts_format" => "full_html",
-        ])
-        ->execute();
-    
+      ->fields([
+        "field_facts_format" => "full_html",
+      ])
+      ->execute();
+
     // For landing page.
     $query = $db->select("node_field_data", "n");
     $query->fields("n", ["nid", "title"]);
