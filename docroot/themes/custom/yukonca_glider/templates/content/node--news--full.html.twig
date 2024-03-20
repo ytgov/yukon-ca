@@ -92,7 +92,7 @@
     <footer class="node__meta mb-12 text-gray italic border-0 border-solid border-b border-gray">
       {{ author_picture }}
       <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Published {{ date }}{% endtrans %}
+        {% trans %}Published {% endtrans %} {{ node.created.value|date('d/m/Y') }}
         {{ metadata }}
       </div>
     </footer>

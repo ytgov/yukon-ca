@@ -6,17 +6,16 @@ dependencies:
     - field.storage.node.field_contact
     - node.type.news
   module:
-    - epp
+    - allowed_formats
     - text
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  allowed_formats:
+    allowed_formats: {  }
 id: node.news.field_contact
 field_name: field_contact
 entity_type: node
 bundle: news
-label: Contact
+label: 'Media contact'
 description: ''
 required: false
 translatable: true
