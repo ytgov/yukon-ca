@@ -44,7 +44,7 @@
   <figure class="paragraph-items content">
     <div id="chart-graph-{{ paragraph.id() }}" class="chart-graph"></div>
     <div class="chart-description">
-      <div id="chart-description-25016" aria-hidden="true" class="highcharts-linked-description">
+      <div aria-hidden="true" class="highcharts-linked-description">
         <p>
           <strong class="chart-stat">{{ paragraph.field_highlighted_stat.value|raw }}</strong>
         </p>
@@ -58,7 +58,7 @@
       <section class="yukon-department-sections basic-page-collapsable">
         <div class="panel-group" id="accordion-{{ paragraph.id() }}" role="tablist">
           <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="Employment-insurance-EI-beneficiaries-in-the-Yukon-by-gender">
+            <div class="panel-heading" role="tab">
               <h4 class="panel-title">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion-{{ paragraph.id() }}" href="#accordion-content-{{ paragraph.id() }}" aria-expanded="false" aria-controls="accordion-content-{{ paragraph.id() }}">
                   {{ 'Source and notes on data'|t }} <span class="float-right text-blue-400 title-icon"><i class="fa fa-plus-square"></i></span>
