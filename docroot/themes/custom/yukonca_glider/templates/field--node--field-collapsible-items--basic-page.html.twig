@@ -38,6 +38,16 @@
   {% if display_items_wrapper_tag ~%}
     <{{ field_items_wrapper_tag|default('div') }}{{ field_items_wrapper_attributes.addClass('field__items') }}>
   {%- endif -%}
+  <div class="yukon-accordion">
+    <div class="yukon-accordion__buttons">
+      <button class="yukon-accordion__expand">
+        <i class="fa fa-plus-square" aria-hidden="true"></i> Expand all
+      </button>
+      <button class="yukon-accordion__collapse">
+        <i class="fa fa-minus-square" aria-hidden="true"></i> Collapse all
+      </button>
+    </div>
+  </div>
   {{ pattern('accordion', {items: items}) }}
   {%- if display_items_wrapper_tag ~%}
     </{{ field_items_wrapper_tag|default('div') }}>
