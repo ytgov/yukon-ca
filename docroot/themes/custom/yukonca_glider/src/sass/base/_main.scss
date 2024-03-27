@@ -57,10 +57,56 @@ h1#heading {
   }
 }
 
+.callout-card {
+  .content {
+    p {
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+}
+
+/* Start Issue 183 */
+
+.single-news-release {
+  @apply mb-[50px];
+
+  .field__label {
+    @apply my-[15px];
+  }
+}
+
+/* End Issue 183 */
+
 .page-node-type-basic-page {
   .region {
     &.region-content {
       @apply pt-3.75;
+
+      .node--type-basic-page {
+          .node__content {
+            >h2 {
+              @apply pt-10 mt-[15px] mb-[11px] text-[26px] leading-1.1;
+            }
+      
+            >p {
+              @apply mb-[11px];
+            }
+      
+            .accordion {
+              @apply mb-[23px];
+            }
+      
+            .field--name-field-related-tasks {
+              @apply pb-[30px] pt-[15px];
+      
+              .field__label {
+                @apply mb-0 mt-[15px];
+              }
+            }
+          }
+        }
     }
 
     // Start Sidebar design
@@ -174,16 +220,6 @@ h1#heading {
   }
 }
 
-.callout-card {
-  .content {
-    p {
-      &:last-child {
-        @apply mb-0;
-      }
-    }
-  }
-}
-
 // Homepage
 .page-node-type-homepage {
   #image-gallery {
@@ -207,18 +243,4 @@ h1#heading {
   }
 }
 
-/* Start Issue 183 */
-
-.single-news-release {
-  @apply mb-[50px];
-  
-  .field__label {
-    @apply my-[15px];
-  }
-}
-
-/* End Issue 183 */
-
 /* End Custom SCSS */
-
-@import "partials/accordion";
