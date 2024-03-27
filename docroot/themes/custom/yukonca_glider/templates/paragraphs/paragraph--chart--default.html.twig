@@ -38,7 +38,7 @@
  * @ingroup themeable
  */
 #}
-
+{{ attach_library('yukon_w3_custom/yukon_w3_custom.chart_js') }}
 <div class="chart">
   <h2>{{ paragraph.field_title.value|raw }}</h2>
   <figure class="paragraph-items content">
@@ -80,17 +80,3 @@
     </div>
   </figure>
 </div>
-
-<script>
-let options{{  paragraph.id() }} = {{ paragraph.field_chart_data.value|raw }}
-
-options{{  paragraph.id() }}.accessibility = {
-  linkedDescription: "#chart-graph-{{  paragraph.id() }}"
-};
-
-options{{  paragraph.id() }}.credits = {
-  enabled: false
-};
-
-Highcharts.chart('chart-graph-{{  paragraph.id() }}', options{{  paragraph.id() }});
-</script>
