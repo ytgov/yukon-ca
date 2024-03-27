@@ -15,8 +15,7 @@ process:
   langcode:
     plugin: default_value
     default_value: "en"
-  field_facts/value: field_facts/0/value
-  field_facts/format: constants/default_text_format
+  field_facts: field_facts
 
 destination:
   plugin: entity_reference_revisions:paragraph
