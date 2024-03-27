@@ -2,6 +2,10 @@
   main {
     @apply bg-transparent;
   }
+
+  .appearance-auto {
+    appearance: auto;
+  }
 }
 
 .collapse {
@@ -107,6 +111,10 @@ h1#heading {
             }
           }
         }
+
+      .page-title {
+        @apply text-3.5xl mt-[15px] mb-[23px];
+      }
     }
 
     // Start Sidebar design
@@ -121,7 +129,7 @@ h1#heading {
           @apply ml-0;
           
           > .menu-item {
-            @apply pt-0 list-none;
+            @apply pt-0 list-none appearance-auto;
 
             [data-drupal-link-system-path] {
               @apply py-[15px] px-[10px] inline-block w-full;
@@ -244,3 +252,5 @@ h1#heading {
 }
 
 /* End Custom SCSS */
+
+@import "partials/accordion";
