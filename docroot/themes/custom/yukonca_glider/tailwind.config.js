@@ -76,6 +76,7 @@ module.exports = {
         'default-base': ['1rem', '1.25rem'],
         grande: ['1.25rem', '1.625rem'],
         legendes: ['0.813rem', '1.25rem'],
+        '3.5xl': ['2.125rem', '2.3375rem'],
 
         /* Issue 211 */
         'page-heading': ['2rem', '2rem'],
