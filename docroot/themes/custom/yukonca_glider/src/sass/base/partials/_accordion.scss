@@ -1,0 +1,106 @@
+.yukon-department-sections {
+	@apply pt-10;
+}
+
+.yukon-accordion {
+	@apply mb-2.5 pt-10 mt-12;
+
+	& &__buttons {
+		@apply flex justify-end;
+	}
+
+	& &__expand,
+	& &__collapse {
+		@apply bg-transparent py-1.5 px-5 rounded-[100px] h-8 hover:text-white hover:bg-blue-600 text-sm leading-none transition-all duration-300 ease-in-out;
+
+		svg {
+			@apply text-blue-icon;
+		}
+
+		&:hover {
+			svg {
+				@apply text-white;
+			}
+		}
+	}
+}
+
+.accordion {
+	.accordion-item {
+		&:not(.inner) {
+			@apply mt-[5px] rounded;
+			
+			&:first-child {
+				@apply mt-0;
+			}
+		
+			.accordion-header {
+				.accordion-button {
+					@apply bg-gray-100 text-black px-[15px] py-[10px] text-lg leading-1.1 font-medium;
+		
+					&:hover {
+						@apply underline;
+					}
+		
+					&:focus {
+						@apply shadow-none;
+					}
+		
+					&:after {
+						@apply hidden;
+					}
+				}
+			}
+		
+			.accordion-body {
+				@apply p-[15px];
+		
+				.chart {
+					h2 {
+						@apply text-h2-mobile pt-10 mt-7.5 mb-[11px];
+					}
+		
+					.content {
+						@apply border border-gray-400 rounded-md;
+					}
+		
+					&-graph {
+						@apply border-b border-gray-400;
+					}
+		
+					&-description {
+						@apply px-10 py-[35px];
+		
+						.chart-stat {
+							@apply text-blue-500 text-[80px] leading-none font-bold;
+						}
+
+						.panel-group {
+							.panel {
+								@apply border border-gray-400 rounded;
+
+								.panel-title {
+									@apply bg-gray-100 px-[15px] py-[10px] text-lg leading-1.1 font-medium mt-0;
+
+									a {
+										@apply no-underline text-black-light;
+									}
+								}
+
+								.panel-body {
+									@apply p-[15px];
+
+									.field-name-field-source-notes {
+										> .field-items {
+											@apply mt-[15px];
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
