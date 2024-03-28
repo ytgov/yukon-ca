@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_theme().
@@ -44,4 +45,24 @@ function yukon_w3_custom_views_data() {
   ];
 
   return $data;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function yukon_w3_custom_page_attachments(array &$page) {
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!empty($node)) {
+    if (isset($node->field_collapsible_items)) {
+      $items = $node->field_collapsible_items->getValue();
+      foreach ($items as $item) {
+        $p = Paragraph::load($item['target_id']);
+        $chart = Paragraph::load($p->field_paragraphs->target_id);
+        $chart_data[$chart->id()] = $chart->field_chart_data->value;
+
+      }
+      $page['#attached']['drupalSettings']['chart_data'] = $chart_data;
+    }
+  }
 }

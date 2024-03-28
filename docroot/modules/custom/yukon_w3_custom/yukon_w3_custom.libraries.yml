@@ -4,3 +4,7 @@ yukon_w3_custom.css:
     theme:
       css/_variables.css: {}
       css/yukon_w3_custom.css: {}
+
+yukon_w3_custom.chart_js:
+  js:
+    js/charts.js: {}
