@@ -251,6 +251,14 @@ h1#heading {
   }
 }
 
+.js {
+  .js-form-wrapper {
+    .js-hide {
+      @apply hidden;
+    }
+  }
+}
+
 /* End Custom SCSS */
 
 @import "partials/accordion";
