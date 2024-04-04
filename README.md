@@ -42,7 +42,10 @@ Upon pushing to a branch, you can create a Pull Request for EW to review. Branch
 * Stage site - `TODO` Add stage site URL here.
 * Prod site - `TODO` Add prod site URL here.
 
-# Setup a blank Druapl 10 website
+----------------------------------
+----------------------------------
+
+# Setup Druapl 10 website
 
 The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a blank Drupal 10 website by using the following steps:
 
@@ -56,13 +59,13 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 
 ## Migrating the data from Yukon.ca Drupal 7 version to Drupal 10:
 
-Once blank Drupal 10 website is done, data import can be initiated by adding database credentials of the Drupal 7 website in the sites/default/settings.php file. Do not remove the Drupal 10 database credentials and instead use 
+Once blank Drupal 10 website is done, data import can be initiated by adding database credentials of the Drupal 7 website in the sites/default/settings.php file. Do not remove the Drupal 10 database credentials and instead add Drupal 7 credentials in migrate database (second database credentails). 
 
-## Migration - Overall process
+### Migration - Overall process
 
 There are more than 30K nodes on the D7 version and it can take anywhere between 10 to 15 hours to run the complete migration.  The speed of migration depends on the server (both D7 and D10) and on the size of data. It needs manual monitoring and validation to confirm that data migration was completed as required. To make this process feasible, the migration process has been divided into 10 batches and we need to run this migration at least two times (10 batches x 2 times). In the first round we get the migration data and in the second round, we fix the missing relationships between the nodes.    
  
-## Migration - 1st Round to migrate initial data
+#### Migration - 1st Round to migrate initial data
 
 Running the following 10 commands will import the data from Drupal 7 to Druapl 10. Please note that this is the start of migration where Drupal 10 has no data from the production website. Running these commands for the second time is recommended only if data import was not complete or got corrupted. Partial imports can be done by running individual commands where all previous node IDs will be updated (assigned new).
 
@@ -87,7 +90,7 @@ Running the following 10 commands will import the data from Drupal 7 to Druapl 1
 ./vendor/bin/drush migrate:import --group=legacy_files --continue-on-failure
 
 
-## Reset migration in case of failure
+##### Reset migration in case of failure
 
 Migrations can fail to complete due to multiple reasons and when it happens, it display the name of the table for which migration stopped working.  Rerunning (resume) the migration is only possible after resetting the migration using a command like below where “yukon_migrate_landing_page” is the name of the failed table. 
 
@@ -115,6 +118,8 @@ Migrations can fail to complete due to multiple reasons and when it happens, it 
 ./vendor/bin/drush migrate:import --group=legacy_menu --update continue-on-failure
 
 ./vendor/bin/drush migrate:import --group=legacy_files --update --continue-on-failure
+
+Running the above commands more than once is recommended.
 
 ## About Issue #126
 
