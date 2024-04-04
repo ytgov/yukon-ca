@@ -57,7 +57,7 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 7. Hit the website URL to complete the installation process
 8. Please note that while setting up the website, we need to select "minimal" profile. Selecting other profiles will generate issues.
 
-# Migrating the data from Yukon.ca Drupal 7 version to Drupal 10:
+# Migrating the data from Yukon.ca Drupal 7 version to Drupal 10
 
 Once blank Drupal 10 website is done, data import can be initiated by adding database credentials of the Drupal 7 website in the sites/default/settings.php file. Do not remove the Drupal 10 database credentials and instead add Drupal 7 credentials in migrate database (second database credentails). 
 
@@ -90,7 +90,7 @@ Running the following 10 commands will import the data from Drupal 7 to Druapl 1
 ./vendor/bin/drush migrate:import --group=legacy_files --continue-on-failure
 
 
-#### Reset migration in case of failure
+### Reset migration in case of failure
 
 Migrations can fail to complete due to multiple reasons and when it happens, it display the name of the table for which migration stopped working.  Rerunning (resume) the migration is only possible after resetting the migration using a command like below where “yukon_migrate_landing_page” is the name of the failed table. 
 
