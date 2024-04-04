@@ -45,7 +45,7 @@ Upon pushing to a branch, you can create a Pull Request for EW to review. Branch
 ----------------------------------
 ----------------------------------
 
-# Setup Druapl 10 website
+## Setup Druapl 10 website
 
 The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a blank Drupal 10 website by using the following steps:
 
@@ -57,7 +57,7 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 7. Hit the website URL to complete the installation process
 8. Please note that while setting up the website, we need to select "minimal" profile. Selecting other profiles will generate issues.
 
-# Migrating the data from Yukon.ca Drupal 7 version to Drupal 10
+## Migrating the data from Yukon.ca Drupal 7 version to Drupal 10
 
 Once blank Drupal 10 website is done, data import can be initiated by adding database credentials of the Drupal 7 website in the sites/default/settings.php file. Do not remove the Drupal 10 database credentials and instead add Drupal 7 credentials in migrate database (second database credentails). 
 
