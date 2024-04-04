@@ -53,11 +53,17 @@ Migration involves 103 database tables which are divided in to 7 different batch
 ## Migration - 1st Round to migrate initial data
 
 ./vendor/bin/drush migrate:import --group=legacy_taxonomies --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_media --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_paragraphs --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_nodes --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_documents --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_basic_page --continue-on-failure
+
 ./vendor/bin/drush migrate:import --group=legacy_page_news --continue-on-failure
 ./vendor/bin/drush migrate:import --group=legacy_user_role --continue-on-failure
 ./vendor/bin/drush migrate:import --group=legacy_menu continue-on-failure
