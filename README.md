@@ -42,6 +42,47 @@ Upon pushing to a branch, you can create a Pull Request for EW to review. Branch
 * Stage site - `TODO` Add stage site URL here.
 * Prod site - `TODO` Add prod site URL here.
 
+Migrating the data from Yukon.ca Drupal 7 version to Drupal 10:
+
+There are more than 30K nodes on the D7 version and it can take anywhere between 10 to 15 hours to run the complete migration.  The speed of migration depends on the server (both D7 and D10) and on the size of data. It needs manual monitoring and validation to confirm that data migration was completed as required. To make this process feasible, the migration process has been divided into 10 batches and we need to run this migration at least two times (10 batches x 2 times). In the first round we get the migration data and in the second round, we fix the missing relationships between the nodes.    
+
+# Migration - Overall process
+
+Migration involves 103 database tables which are divided in to 7 different batches 
+ 
+## Migration - 1st Round to migrate initial data
+
+./vendor/bin/drush migrate:import --group=legacy_taxonomies --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_media --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_paragraphs --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_nodes --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_documents --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_basic_page --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_page_news --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_user_role --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_menu continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_files --continue-on-failure
+
+## Reset migration in case of failure
+
+Migrations can fail to complete due to multiple reasons and when it happens, it display the name of the table for which migration stopped working.  Rerunning the migration is only possible after resetting the migration using a command like below where “yukon_migrate_landing_page” is the name of the failed table.
+
+./vendor/bin/drush migrate:reset-status yukon_migrate_landing_page
+
+
+## Update - 2nd Round to update relationships
+
+./vendor/bin/drush migrate:import --group=legacy_taxonomies --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_media --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_paragraphs --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_nodes --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_documents --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_basic_page --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_page_news --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_user_role --update --continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_menu --update continue-on-failure
+./vendor/bin/drush migrate:import --group=legacy_files --update --continue-on-failure
+
 ## About Issue #126
 This issue is related to incomplete migration.  This will be fixed either by re-running the complete migration or by using the steps below: 
 
