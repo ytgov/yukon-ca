@@ -57,15 +57,15 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 7. Hit the website URL to complete the installation process
 8. Please note that while setting up the website, we need to select "minimal" profile. Selecting other profiles will generate issues.
 
-## Migrating the data from Yukon.ca Drupal 7 version to Drupal 10:
+# Migrating the data from Yukon.ca Drupal 7 version to Drupal 10:
 
 Once blank Drupal 10 website is done, data import can be initiated by adding database credentials of the Drupal 7 website in the sites/default/settings.php file. Do not remove the Drupal 10 database credentials and instead add Drupal 7 credentials in migrate database (second database credentails). 
 
-### Migration - Overall process
+## Migration - Overall process
 
 There are more than 30K nodes on the D7 version and it can take anywhere between 10 to 15 hours to run the complete migration.  The speed of migration depends on the server (both D7 and D10) and on the size of data. It needs manual monitoring and validation to confirm that data migration was completed as required. To make this process feasible, the migration process has been divided into 10 batches and we need to run this migration at least two times (10 batches x 2 times). In the first round we get the migration data and in the second round, we fix the missing relationships between the nodes.    
  
-#### Migration - 1st Round to migrate initial data
+### Migration - 1st Round to migrate initial data
 
 Running the following 10 commands will import the data from Drupal 7 to Druapl 10. Please note that this is the start of migration where Drupal 10 has no data from the production website. Running these commands for the second time is recommended only if data import was not complete or got corrupted. Partial imports can be done by running individual commands where all previous node IDs will be updated (assigned new).
 
@@ -90,14 +90,14 @@ Running the following 10 commands will import the data from Drupal 7 to Druapl 1
 ./vendor/bin/drush migrate:import --group=legacy_files --continue-on-failure
 
 
-##### Reset migration in case of failure
+#### Reset migration in case of failure
 
 Migrations can fail to complete due to multiple reasons and when it happens, it display the name of the table for which migration stopped working.  Rerunning (resume) the migration is only possible after resetting the migration using a command like below where “yukon_migrate_landing_page” is the name of the failed table. 
 
 ./vendor/bin/drush migrate:reset-status yukon_migrate_landing_page
 
 
-## Update - 2nd Round to update relationships
+### Update - 2nd Round to update relationships
 
 ./vendor/bin/drush migrate:import --group=legacy_taxonomies --update --continue-on-failure
 
@@ -121,6 +121,19 @@ Migrations can fail to complete due to multiple reasons and when it happens, it 
 
 Running the above commands more than once is recommended.
 
+## Run the following commands after migrating the data:
+
+After completing the data migration and its update, the following commands may be run to setup the theme files.
+
+npm run build command inside [web-root]/docroot/themes/custom/yukonca_glider
+
+Clear Drupal cache using drush cr
+
+Drupal 10 website should be ready at this point
+
+----------------------------------
+----------------------------------
+
 ## About Issue #126
 
 This issue is related to incomplete migration.  This will be fixed either by re-running the complete migration or by using the steps below: 
@@ -136,13 +149,3 @@ Please note that roll back commands will assign new node IDs and will need migra
 ### Rollback and Import Landing Page:
 
 ./vendor/bin/drush migrate:rollback yukon_migrate_landing_page
-
-## Run the following commands after migrating the data:
-
-After completing the data migration and its update, the following commands may be run to setup the theme files.
-
-npm run build command inside [web-root]/docroot/themes/custom/yukonca_glider
-
-Clear Drupal cache using drush cr
-
-
