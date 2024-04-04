@@ -149,3 +149,9 @@ Please note that roll back commands will assign new node IDs and will need migra
 ### Rollback and Import Landing Page:
 
 ./vendor/bin/drush migrate:rollback yukon_migrate_landing_page
+
+./vendor/bin/drush migrate:rollback yukon_migrate_landing_page_translations
+
+./vendor/bin/drush migrate:import yukon_migrate_landing_page
+
+./vendor/bin/drush migrate:import yukon_migrate_landing_page_translations
