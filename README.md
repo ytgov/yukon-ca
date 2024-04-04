@@ -110,6 +110,8 @@ This issue is related to incomplete migration.  This will be fixed either by re-
 
 ### Rollback and Import Primary Content:
 
+Please note that roll back commands will assign new node IDs and will need migration update cammands to be re-run.
+
 ./vendor/bin/drush migrate:rollback yukon_migrate_primary_content
 
 ./vendor/bin/drush migrate:import yukon_migrate_primary_content
