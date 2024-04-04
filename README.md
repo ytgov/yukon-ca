@@ -120,8 +120,12 @@ Please note that roll back commands will assign new node IDs and will need migra
 
 ./vendor/bin/drush migrate:rollback yukon_migrate_landing_page
 
-./vendor/bin/drush migrate:rollback yukon_migrate_landing_page_translations
+## Run the following commands after migrating the data:
 
-./vendor/bin/drush migrate:import yukon_migrate_landing_page
+After completing the data migration and its update, the following commands may be run to setup the theme files.
 
-./vendor/bin/drush migrate:import yukon_migrate_landing_page_translations
+npm run build command inside [web-root]/docroot/themes/custom/yukonca_glider
+
+Clear Drupal cache using drush cr
+
+
