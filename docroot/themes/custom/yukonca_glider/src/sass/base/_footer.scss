@@ -4,6 +4,16 @@
   }
 }
 
+.region {
+  &.region-footer-logo {
+    .field--name-field-media-image {
+      img {
+        @apply w-[158px] h-[62px];
+      }
+    }
+  }
+}
+
 /* Start issue 153 */
 
 body {
