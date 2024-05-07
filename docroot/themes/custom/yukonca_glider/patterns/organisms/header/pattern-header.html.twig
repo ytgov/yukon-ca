@@ -20,7 +20,7 @@
           {{ languageswitcher }}
         {% endif %}
         {% if menus %}
-          <button class="bg-transparent border-none gap-x-4 flex px-8 items-baseline md:mr-9" aria-controls="{{ unique_id }}" aria-haspopup="true" id="menu-button"
+          <button class="bg-transparent border-none gap-x-[19px] pl-7.5 flex px-8 items-baseline md:mr-9" aria-controls="{{ unique_id }}" aria-haspopup="true" id="menu-button"
                   data-bs-toggle="offcanvas" data-bs-target="#{{ unique_id }}"
                   title="Search and menus" aria-label="Menu collapsed">
                   <span class="menu-icon" aria-hidden="true">
@@ -32,7 +32,7 @@
                       </g>
                     </svg>
                   </span>
-            <span class="gov-serv hidden xs:block">{{ 'Menu'|t }}</span>
+            <span class="gov-serv hidden xs:block mr-[1px] leading-8">{{ 'Menu'|t }}</span>
           </button>
         {% endif %}
       </div>

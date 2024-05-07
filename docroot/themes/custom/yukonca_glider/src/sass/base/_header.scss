@@ -1,3 +1,16 @@
 /**
  * For header animation, base on class .js-did-scroll which is added to <body> via JS.
  */
+.header {
+	.site-nav-toggle {
+		.links {
+			li {
+				@apply mr-5;
+			}
+		}
+
+		>button {
+			@apply mr-6;
+		}
+	}
+}
