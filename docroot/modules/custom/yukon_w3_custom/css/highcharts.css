@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  max-height: 400px !Important;
   height: 100%;
   text-align: left;
   line-height: normal;
