@@ -38,8 +38,8 @@ third_party_settings:
     group_title_and_description:
       children:
         - title
-        - field_page_description
         - field_meta_tags
+        - field_page_description
       label: 'Title and description'
       region: content
       parent_name: ''
@@ -313,23 +313,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 11
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 15
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 13
     region: content
     settings:
       display_label: true
@@ -363,7 +349,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  promote: true
   publish_on: true
   publish_state: true
+  sticky: true
   unpublish_on: true
   unpublish_state: true
