@@ -4,15 +4,15 @@ status: true
 dependencies:
   config:
     - config_pages.type.metatag
-    - field.field.config_pages.metatag.field_wetkit_metatag_creator
+    - field.field.config_pages.metatag.field_metatag_creator
 id: config_pages.metatag.default
 targetEntityType: config_pages
 bundle: metatag
 mode: default
 content:
-  field_wetkit_metatag_creator:
+  field_metatag_creator:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
