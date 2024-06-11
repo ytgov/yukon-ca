@@ -10,6 +10,7 @@ module:
   allowed_formats: 0
   better_exposed_filters: 0
   big_pipe: 0
+  bigmenu: 0
   blinker_addons_link_attributes: 0
   blinker_addons_node: 0
   blinker_addons_paragraphs: 0
