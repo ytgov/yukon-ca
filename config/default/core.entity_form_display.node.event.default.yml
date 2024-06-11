@@ -28,7 +28,8 @@ dependencies:
     - content_moderation
     - date_recur
     - field_group
-    - link
+    - linkit
+    - maxlength
     - media_library
     - metatag
     - path
@@ -38,8 +39,8 @@ third_party_settings:
     group_title_and_description:
       children:
         - title
-        - field_page_description
         - field_meta_tags
+        - field_page_description
       label: 'Title and description'
       region: content
       parent_name: ''
@@ -249,13 +250,18 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_link_title:
-    type: link_default
+    type: linkit
     weight: 24
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
+      linkit_profile: link_field
+      linkit_auto_link_text: false
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
   field_meta_tags:
     type: metatag_firehose
     weight: 1
@@ -281,13 +287,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_website:
-    type: link_default
+    type: linkit
     weight: 11
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
+      linkit_profile: link_field
+      linkit_auto_link_text: false
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
   field_yukon_editorial_team:
     type: options_select
     weight: 7
