@@ -114,6 +114,13 @@ module:
   tamper: 0
   taxonomy: 0
   text: 0
+  tmgmt: 0
+  tmgmt_config: 0
+  tmgmt_content: 0
+  tmgmt_diff: 0
+  tmgmt_file: 0
+  tmgmt_language_combination: 0
+  tmgmt_locale: 0
   token: 0
   toolbar: 0
   twig_tweak: 0
