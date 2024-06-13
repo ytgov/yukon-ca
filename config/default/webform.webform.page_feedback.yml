@@ -11,7 +11,7 @@ archive: false
 id: page_feedback
 title: 'Page feedback'
 description: ''
-category: ''
+categories: {  }
 elements: |-
   page_title:
     '#type': value
