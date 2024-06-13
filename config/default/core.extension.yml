@@ -117,6 +117,7 @@ module:
   tmgmt: 0
   tmgmt_config: 0
   tmgmt_content: 0
+  tmgmt_diff: 0
   tmgmt_file: 0
   tmgmt_language_combination: 0
   tmgmt_locale: 0

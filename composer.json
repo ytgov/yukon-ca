@@ -83,6 +83,7 @@
         "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^3.0",
         "drupal/tmgmt": "^1.15",
+        "drupal/tmgmt_diff": "^1.0@alpha",
         "drupal/token": "^1.11",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.2",
