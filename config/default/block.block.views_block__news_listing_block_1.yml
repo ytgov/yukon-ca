@@ -2,11 +2,8 @@ uuid: ca94b343-e96d-4c2f-9c93-fdcdc5556c51
 langcode: fr
 status: true
 dependencies:
-  config:
-    - views.view.news_listing
   module:
     - system
-    - views
   theme:
     - yukonca_glider
 id: views_block__news_listing_block_1

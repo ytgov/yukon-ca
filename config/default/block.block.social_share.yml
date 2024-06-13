@@ -18,10 +18,10 @@ settings:
   label: 'Share on social media'
   label_display: visible
   provider: addtoany
+  buttons_size: null
+  addtoany_html: ''
   link_url: ''
   link_title: ''
-  buttons_size: ''
-  addtoany_html: ''
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
