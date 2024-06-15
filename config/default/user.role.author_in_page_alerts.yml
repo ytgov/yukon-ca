@@ -3,10 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.wysiwyg_ckeditor
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
+    - filter
     - path
     - system
     - toolbar
@@ -31,6 +35,9 @@ permissions:
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format wysiwyg_ckeditor'
   - 'use workbench access'
   - 'view any unpublished content'
   - 'view the administration theme'
