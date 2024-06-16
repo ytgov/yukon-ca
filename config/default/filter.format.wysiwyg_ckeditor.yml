@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - linkit
+    - media
     - pathologic
 name: 'WYSIWYG CKEDITOR'
 format: wysiwyg_ckeditor
@@ -55,3 +56,14 @@ filters:
         protocol_style: full
         local_paths: "/en/\r\n/fr/\r\nhttps://yukon.ca/en/\r\nhttps://yukon.ca/fr/"
         keep_language_prefix: true
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        default: default
+      allowed_media_types:
+        image: image
