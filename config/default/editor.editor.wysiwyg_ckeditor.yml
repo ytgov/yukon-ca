@@ -23,16 +23,16 @@ settings:
       - outdent
       - blockQuote
       - link
+      - DivManager
       - undo
       - redo
       - findAndReplace
       - removeFormat
-      - selectAll
       - anchor
       - horizontalLine
       - insertTable
       - ShowBlocks
-      - DivManager
+      - selectAll
       - sourceEditing
       - fullScreen
   plugins:
