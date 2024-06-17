@@ -14,13 +14,35 @@ settings:
       - heading
       - bold
       - italic
+      - subscript
+      - superscript
+      - alignment
+      - fontSize
       - bulletedList
       - numberedList
+      - indent
+      - outdent
+      - blockQuote
       - link
-      - underline
-      - sourceEditing
+      - DivManager
+      - undo
+      - redo
+      - findAndReplace
       - removeFormat
+      - anchor
+      - horizontalLine
+      - insertTable
+      - ShowBlocks
+      - selectAll
+      - sourceEditing
+      - fullScreen
   plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
     ckeditor5_heading:
       enabled_headings:
         - heading2
@@ -31,8 +53,13 @@ settings:
     ckeditor5_list:
       reversed: true
       startIndex: true
+    ckeditor5_plugin_pack_font__font_size:
+      options: ''
+    ckeditor5_show_block_show_block:
+      enable_show_block_default: 0
     ckeditor5_sourceEditing:
       allowed_tags: {  }
     linkit_extension:
-      linkit_enabled: false
+      linkit_enabled: true
+      linkit_profile: default
 image_upload: {  }

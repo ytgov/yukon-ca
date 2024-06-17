@@ -1,6 +1,6 @@
 uuid: 74861d14-0377-44fb-add4-ec40458c77e2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - filter.format.wysiwyg_ckeditor
