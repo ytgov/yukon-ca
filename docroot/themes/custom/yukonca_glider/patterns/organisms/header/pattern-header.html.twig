@@ -37,9 +37,19 @@
         {% endif %}
       </div>
     </div>
-
   </div>
-
+  {{ pattern('offcanvas', {
+    offcanvas_id: unique_id,
+    heading: offcanvas_heading,
+    content: menus,
+  }) }}
+  <div class="container-lg navbar">
+    <div class="row items-center">
+      <div class="header-search col-sm-6">
+        {{ search }}
+      </div>
+    </div>
+  </div>
 
   {{ pattern('offcanvas', {
     offcanvas_id: unique_id,
@@ -47,5 +57,4 @@
     content: menus,
   }) }}
 
-  {{ search }}
 </header>

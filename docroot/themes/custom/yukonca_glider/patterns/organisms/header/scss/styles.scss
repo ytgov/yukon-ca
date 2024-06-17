@@ -46,4 +46,30 @@
       }
     }
   }
+
+  .header-search {
+    h2 {
+      @apply hidden;
+    }
+
+    form {
+      .form {
+        display: flex;
+        align-items: center;
+
+        .form-submit {
+          margin-top: 0;
+        }
+      }
+
+      .fieldgroup {
+        @apply hidden;
+      }
+
+      .form-item-department {
+        @apply hidden;
+      }
+    }
+
+  }
 }

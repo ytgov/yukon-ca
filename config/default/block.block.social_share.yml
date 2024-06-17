@@ -10,7 +10,7 @@ dependencies:
 id: social_share
 theme: yukonca_glider
 region: sidebar_first
-weight: -12
+weight: -14
 provider: null
 plugin: addtoany_block
 settings:

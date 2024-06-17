@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_department_term
+    - field.storage.node.field_document_type
     - field.storage.node.field_fax
     - field.storage.node.field_engagement_feedback
     - field.storage.node.field_engagement_participate
@@ -88,6 +89,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_department_term
+  field_document_type:
+    label: 'Document Type'
+    datasource_id: 'entity:node'
+    property_path: field_document_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_document_type
   field_engagement_feedback:
     label: 'Give your feedback on the engagement process'
     datasource_id: 'entity:node'
@@ -132,7 +141,7 @@ field_settings:
     label: Fax
     datasource_id: 'entity:node'
     property_path: field_fax
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_fax
