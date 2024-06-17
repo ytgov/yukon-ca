@@ -5,6 +5,7 @@ dependencies:
   module:
     - editor
     - linkit
+    - media
     - pathologic
 _core:
   default_config_hash: hewPmBgni9jlDK_IjLxUx1HsTbinK-hdl0lOwjbteIY
@@ -76,3 +77,14 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        default: default
+      allowed_media_types:
+        image: image
