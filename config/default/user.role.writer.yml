@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
     - filter.format.full_html
     - workflows.workflow.content
   module:
@@ -38,7 +37,6 @@ permissions:
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
   - 'use content transition submit_for_review'
-  - 'use text format basic_html'
   - 'use text format full_html'
   - 'use workbench access'
   - 'view all revisions'

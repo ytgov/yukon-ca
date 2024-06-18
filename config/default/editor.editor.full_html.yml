@@ -17,22 +17,20 @@ settings:
       - subscript
       - superscript
       - alignment
-      - fontSize
       - bulletedList
       - numberedList
       - indent
       - outdent
       - blockQuote
       - link
-      - DivManager
       - undo
       - redo
-      - findAndReplace
+      - insertTable
       - removeFormat
       - anchor
       - horizontalLine
-      - insertTable
       - ShowBlocks
+      - findAndReplace
       - selectAll
       - sourceEditing
       - fullScreen
@@ -53,8 +51,6 @@ settings:
     ckeditor5_list:
       reversed: true
       startIndex: true
-    ckeditor5_plugin_pack_font__font_size:
-      options: ''
     ckeditor5_show_block_show_block:
       enable_show_block_default: 0
     ckeditor5_sourceEditing:

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
     - filter.format.full_html
   module:
     - contextual
@@ -31,7 +30,6 @@ permissions:
   - 'administer workbench access'
   - 'assign workbench access'
   - 'batch update workbench access'
-  - 'use text format basic_html'
   - 'use text format full_html'
   - 'use workbench access'
   - 'view own unpublished content'
