@@ -14,22 +14,22 @@ settings:
       - heading
       - bold
       - italic
-      - subscript
-      - superscript
       - alignment
       - bulletedList
       - numberedList
+      - drupalMedia
       - indent
       - outdent
       - blockQuote
       - link
       - undo
       - redo
-      - drupalMedia
       - insertTable
       - removeFormat
       - anchor
       - horizontalLine
+      - superscript
+      - subscript
       - ShowBlocks
       - findAndReplace
       - selectAll
