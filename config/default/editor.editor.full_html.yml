@@ -25,6 +25,7 @@ settings:
       - link
       - undo
       - redo
+      - drupalMedia
       - insertTable
       - removeFormat
       - anchor
