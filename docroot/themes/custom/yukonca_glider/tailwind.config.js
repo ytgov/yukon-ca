@@ -36,7 +36,10 @@ module.exports = {
         darker: '#595A59',
       },
       purple: '#643F5D',
-      yellow: '#FFCD57',
+      yellow: {
+        DEFAULT: '#FFCD57',
+        dark: '#F3B229',
+      },
       alert: {
         background: '#FFF4E4',
         text: '#444142',
