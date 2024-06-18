@@ -579,7 +579,7 @@ display:
           empty: true
           content:
             value: 'No events found. Try removing or changing a filter.'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         field_event_start_time_value:
@@ -885,7 +885,7 @@ display:
           empty: false
           content:
             value: '<h2>Featured events</h2>'
-            format: basic_html
+            format: full_html
           tokenize: false
       footer: {  }
       display_extenders: {  }

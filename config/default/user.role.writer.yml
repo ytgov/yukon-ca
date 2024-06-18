@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
     - filter.format.full_html
-    - filter.format.wysiwyg_ckeditor
     - workflows.workflow.content
   module:
     - content_moderation
@@ -39,9 +37,7 @@ permissions:
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
   - 'use content transition submit_for_review'
-  - 'use text format basic_html'
   - 'use text format full_html'
-  - 'use text format wysiwyg_ckeditor'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'

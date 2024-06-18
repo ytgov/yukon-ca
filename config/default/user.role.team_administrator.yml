@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
     - filter.format.full_html
-    - filter.format.wysiwyg_ckeditor
   module:
     - contextual
     - filter
@@ -32,9 +30,7 @@ permissions:
   - 'administer workbench access'
   - 'assign workbench access'
   - 'batch update workbench access'
-  - 'use text format basic_html'
   - 'use text format full_html'
-  - 'use text format wysiwyg_ckeditor'
   - 'use workbench access'
   - 'view own unpublished content'
   - 'view the administration theme'
