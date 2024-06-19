@@ -27,5 +27,5 @@ type: site_wide_alert
 description: 'This alert is displayed at the top of all pages, to share urgent announcements with users. Images should not be used.'
 help: ''
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false
