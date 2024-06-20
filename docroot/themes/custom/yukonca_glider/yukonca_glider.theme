@@ -293,7 +293,7 @@ function yukonca_glider_preprocess_page(&$variables) {
         'Date modified: @date',
         ['@date' => \Drupal::getContainer()->get('date.formatter')->format($modified_date, 'custom', 'Y-m-d')]
       );
-      }
+    }
 
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
       return;
