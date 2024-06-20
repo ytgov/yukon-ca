@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file Module's install file to implement install, update, etc hooks.
+ */
+
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -35,9 +39,9 @@ function yukon_taxonomy_update_10000(&$sandbox) {
  * @param string $vid
  *   Taxonomy vocabulary ID.
  * @param array $additional_data
- *   Additional data to set during
+ *   Additional data to set during.
  * @param string $langcode
- *  Term langcode.
+ *   Term langcode.
  *
  * @return int|void|null
  *   Return status for saving which involved creating a new item - SAVED_NEW.
