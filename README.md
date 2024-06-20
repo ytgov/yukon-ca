@@ -155,3 +155,16 @@ Please note that roll back commands will assign new node IDs and will need migra
 ./vendor/bin/drush migrate:import yukon_migrate_landing_page
 
 ./vendor/bin/drush migrate:import yukon_migrate_landing_page_translations
+
+### Export and Import of the custom translations:
+
+Export:
+```bash
+drush locale-export fr --types=customized > config/translations/fr.customized.po
+```
+
+Import:
+```bash
+drush locale-import fr --types=customized config/translations/fr.customized.po
+```
+
