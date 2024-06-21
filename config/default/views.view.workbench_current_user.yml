@@ -424,7 +424,7 @@ display:
           empty: false
           content:
             value: "<h3>{{ name }}'s profile</h3>"
-            format: basic_html
+            format: full_html
           tokenize: true
       footer: {  }
       display_extenders: {  }

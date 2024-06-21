@@ -510,7 +510,7 @@ display:
           empty: true
           content:
             value: 'No news items found. Try removing or changing a filter.'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         created:
@@ -3253,7 +3253,7 @@ display:
             empty: true
             content:
               value: 'No news items found. Try removing or changing a filter.'
-              format: basic_html
+              format: plain_text
             tokenize: false
         sorts:
           created:

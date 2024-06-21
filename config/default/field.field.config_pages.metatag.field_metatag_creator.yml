@@ -1,0 +1,19 @@
+uuid: fb50e033-bc9b-4cb1-a453-880f914ba2c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.metatag
+    - field.storage.config_pages.field_metatag_creator
+id: config_pages.metatag.field_metatag_creator
+field_name: field_metatag_creator
+entity_type: config_pages
+bundle: metatag
+label: 'Metatag: Creator'
+description: 'This text is  displayed in the Dublin Core Creator (dcterms.creator) metatag area.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

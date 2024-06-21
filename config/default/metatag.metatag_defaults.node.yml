@@ -8,7 +8,7 @@ id: node
 label: Content
 tags:
   canonical_url: '[node:url]'
-  dcterms_creator: '[config_page:metatag:field_wetkit_metatag_creator]'
+  dcterms_creator: '[config_page:metatag:field_metatag_creator]'
   dcterms_date: '[node:bilingual_date_published]'
   dcterms_description: '[node:improved_summary]'
   dcterms_language: '[current-page:bilingual_prefix]'

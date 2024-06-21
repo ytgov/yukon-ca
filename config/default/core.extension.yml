@@ -8,8 +8,10 @@ module:
   advanced_help: 0
   ajax_comments: 0
   allowed_formats: 0
+  anchor_link: 0
   better_exposed_filters: 0
   big_pipe: 0
+  bigmenu: 0
   blinker_addons_link_attributes: 0
   blinker_addons_node: 0
   blinker_addons_paragraphs: 0
@@ -19,6 +21,13 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  ckeditor5_plugin_pack: 0
+  ckeditor5_plugin_pack_find_and_replace: 0
+  ckeditor5_plugin_pack_font: 0
+  ckeditor5_plugin_pack_select_all: 0
+  ckeditor5_premium_features_fullscreen: 0
+  ckeditor5_show_block: 0
+  ckeditor_div_manager: 0
   color_field: 0
   comment: 0
   config: 0
@@ -142,6 +151,7 @@ module:
   yukon_w3_custom: 0
   yukon_w3_migrate: 0
   pathauto: 1
+  cshs_menu_link: 5
   content_translation: 10
   password_policy: 10
   views: 10
