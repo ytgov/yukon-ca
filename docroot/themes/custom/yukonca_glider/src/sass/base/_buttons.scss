@@ -146,9 +146,10 @@
 }
 
 .more-link {
+  @extend .btn-link;
+
   margin: 0 auto;
   display: table;
   padding-top: 60px;
-
-  @extend .btn-link;
+  text-decoration: none;
 }
