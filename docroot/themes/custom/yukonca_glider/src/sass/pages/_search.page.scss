@@ -1,6 +1,6 @@
 .path-search {
   h1 {
-    @apply mb-6 mt-0.5;
+    @apply mb-6 mt-3.5;
   }
 
   .region-sidebar-first {
@@ -8,15 +8,15 @@
       @apply mt-1;
 
       .title {
-        @apply mb-4 cursor-pointer;
+        @apply mb-4 cursor-pointer sm:cursor-default;
 
         svg {
           @apply inline sm:hidden;
         }
 
-        &.expanded {
+        &.collapsed {
           svg {
-            transform: rotate(180);
+            transform: rotate(180deg);
           }
         }
       }

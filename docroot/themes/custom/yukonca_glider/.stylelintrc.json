@@ -4,7 +4,7 @@
     "stylelint-scss"
   ],
   "rules": {
-    "unit-allowed-list": ["px", "rem", "s", "%", "vh", "fr"],
+    "unit-allowed-list": ["px", "rem", "s", "%", "vh", "fr", "deg"],
     "selector-max-empty-lines": 0,
     "function-max-empty-lines": 0,
     "value-list-max-empty-lines": 0,
