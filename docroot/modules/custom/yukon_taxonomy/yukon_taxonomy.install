@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Module's install file to implement install, update, etc hooks.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ */
+function yukon_taxonomy_install($is_syncing) {
+  // Create 'All communities' term for 'Community' vocabulary.
+  _yukon_taxonomy_create_term(
+    'All communities',
+    'community',
+    'en',
+    ['weight' => 0]
+  );
+}
+
+/**
+ * Create 'All communities' term for 'Community' vocabulary.
+ */
+function yukon_taxonomy_update_10000(&$sandbox) {
+  _yukon_taxonomy_create_term(
+    'All communities',
+    'community',
+    'en',
+    ['weight' => 0]
+  );
+}
+
+/**
+ * Create taxonomy term if it doesn't exist.
+ *
+ * @param string $name
+ *   Term name.
+ * @param string $vid
+ *   Taxonomy vocabulary ID.
+ * @param string $langcode
+ *   Term langcode.
+ * @param array $additional_data
+ *   Additional data to set during.
+ *
+ * @return int|void|null
+ *   Return status for saving which involved creating a new item - SAVED_NEW.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _yukon_taxonomy_create_term(string $name, string $vid, string $langcode = 'en', array $additional_data = []) {
+  // Check term isn't already created.
+  $exists = \Drupal::entityQuery('taxonomy_term')
+    ->accessCheck(FALSE)
+    ->condition('name', $name)
+    ->condition('vid', $vid)
+    ->condition('langcode', $langcode)
+    ->execute();
+  if (empty($exists)) {
+    $data = [
+      'name' => $name,
+      'vid' => $vid,
+    ];
+    $data += $additional_data;
+    return Term::create($data)->save();
+  }
+}

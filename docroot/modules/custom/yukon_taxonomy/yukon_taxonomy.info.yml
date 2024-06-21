@@ -1,0 +1,7 @@
+name: 'Yukon Taxonomy'
+type: module
+description: 'Provides customisations, correctives and amends related to taxonomy functionality.'
+package: 'Custom'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:taxonomy
