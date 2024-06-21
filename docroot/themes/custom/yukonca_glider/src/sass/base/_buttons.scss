@@ -131,35 +131,25 @@
 .btn-link {
   color: $color-blue400;
 
+  &:visited {
+    color: $color-purple;
+  }
+
+  &:active {
+    color: $color-blue200 !important;
+  }
+
   &:hover,
   &:focus {
-    color: darken($color-blue400, 10%);
+    color: $color-blue500;
   }
 }
 
 .more-link {
+  @extend .btn-link;
+
   margin: 0 auto;
   display: table;
   padding-top: 60px;
-
-  a {
-    color: $black !important;
-    background-color: $color-yellow !important;
-    font-weight: 500;
-    @extend .btn;
-    @extend .btn-primary;
-
-    &:hover {
-      color: white !important;
-      background-color: $yellow !important;
-    }
-
-    &:after {
-      content: "\f054";
-      position: relative;
-      font-family: "FontAwesome", sans-serif;
-      left: 0;
-      padding-right: 5px;
-    }
-  }
+  text-decoration: none;
 }
