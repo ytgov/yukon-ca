@@ -8,7 +8,21 @@
       @apply mt-1;
 
       .title {
-        @apply mb-4;
+        @apply mb-4 cursor-pointer;
+
+        svg {
+          @apply inline sm:hidden;
+        }
+
+        &.expanded {
+          svg {
+            transform: rotate(180);
+          }
+        }
+      }
+
+      form {
+        @apply hidden sm:block;
       }
 
       .form-type-textfield {
