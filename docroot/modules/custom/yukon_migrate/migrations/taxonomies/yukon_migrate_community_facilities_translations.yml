@@ -1,5 +1,5 @@
-id: yukon_migrate_category_translations
-label: Category taxonomy terms translations
+id: yukon_migrate_community_facilities_translations
+label: Community facilities taxonomy terms translations
 migration_group: legacy_taxonomies
 migration_tags:
   - Drupal 7
@@ -8,13 +8,13 @@ migration_tags:
 
 source:
   plugin: d7_term_localized_translation
-  bundle: category
+  bundle: community_facilities
   translations: true
 
 process:
   tid:
     plugin: migration_lookup
-    migration: yukon_migrate_category
+    migration: yukon_migrate_community_facilities_terms
     source: tid
     no_stub: true
   langcode: ltlanguage
@@ -41,9 +41,9 @@ process:
 
 destination:
   plugin: entity:taxonomy_term
-  default_bundle: category
+  default_bundle: community_facilities
   translations: true
 
 migration_dependencies:
   required:
-    - yukon_migrate_category
+    - yukon_migrate_community_facilities_terms
