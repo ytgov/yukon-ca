@@ -1,22 +1,22 @@
-uuid: 04a16a1a-4f3f-4972-859f-adc65cd6d87e
+uuid: 3c8dc3b2-cb55-46bd-8bae-6a3eda2cbd83
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.search
+    - views.view.documents_browse_search_api
   module:
     - system
     - views
   theme:
     - yukonca_glider
-id: exposedformsearchpage_sidebar
+id: exposedformdocuments_browse_search_apipage
 theme: yukonca_glider
 region: sidebar_first
-weight: -11
+weight: -17
 provider: null
-plugin: 'views_exposed_filter_block:search-page_1'
+plugin: 'views_exposed_filter_block:documents_browse_search_api-page'
 settings:
-  id: 'views_exposed_filter_block:search-page_1'
+  id: 'views_exposed_filter_block:documents_browse_search_api-page'
   label: ''
   label_display: visible
   provider: views
@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /search
+    pages: /documents-browse
