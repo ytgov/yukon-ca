@@ -158,13 +158,36 @@ Please note that roll back commands will assign new node IDs and will need migra
 
 ### Export and Import of the custom translations:
 
-Export (example):
+#### Examples
+
+##### Export
+- Local
 ```bash
 drush locale-export fr --type=customized > config/translations/fr.customized.po
 ```
+- Pantheon
+```bash
+drush locale-export fr --type=customized > /code/config/translations/fr.customized.po
+```
 
-Import (example):
+##### Import:
+- Local
 ```bash
 drush locale-import fr --type=customized /var/www/html/config/translations/fr.customized.po
 ```
+- Pantheon
+```bash
+drush locale-import fr --type=customized /code/config/translations/fr.customized.po
+```
+
+##### Import with override:
+- Local
+```bash
+drush locale-import fr --type=customized --override=customized /var/www/html/config/translations/fr.customized.po
+```
+- Pantheon
+```bash
+drush locale-import fr --type=customized --override=customized /code/config/translations/fr.customized.po
+```
+
 
