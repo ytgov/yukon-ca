@@ -9,6 +9,7 @@ use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Url;
 use Drupal\views\Plugin\views\area\AreaPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -30,7 +31,7 @@ class ExposedFormSelectedFilters extends AreaPluginBase {
    *
    * @var \Symfony\Component\HttpFoundation\Request|null
    */
-  protected ?\Symfony\Component\HttpFoundation\Request $currentRequest;
+  protected ?Request $currentRequest;
 
   /**
    * {@inheritdoc}
@@ -49,7 +50,7 @@ class ExposedFormSelectedFilters extends AreaPluginBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
+    return new self(
       $configuration,
       $plugin_id,
       $plugin_definition,
