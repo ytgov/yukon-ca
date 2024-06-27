@@ -1,4 +1,4 @@
-uuid: 3c8dc3b2-cb55-46bd-8bae-6a3eda2cbd83
+uuid: ed780265-286e-4b7b-a8c6-0f9b732ada53
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ dependencies:
     - views
   theme:
     - yukonca_glider
-id: exposedformdocuments_browse_search_apipage
+id: exposedformdocuments_browse_search_apipage_2
 theme: yukonca_glider
 region: sidebar_first
-weight: -17
+weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:documents_browse_search_api-page'
 settings:
@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /documents-browse
+    pages: /documents

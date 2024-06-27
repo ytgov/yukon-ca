@@ -98,14 +98,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_last_updated
-  langcode:
-    label: Language
-    datasource_id: 'entity:node'
-    property_path: langcode
-    type: string
-    dependencies:
-      module:
-        - node
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -113,6 +105,10 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  saa_field_document_upload:
+    label: 'Search api attachments: Document upload'
+    property_path: saa_field_document_upload
+    type: text
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -167,6 +163,18 @@ processor_settings:
     max_filesize: '0'
     excluded_private: 1
     excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields:
+      - saa_field_document_upload
+    highlight: always
+    highlight_partial: false
   html_filter:
     weights:
       preprocess_index: -15
@@ -179,12 +187,10 @@ processor_settings:
     alt: true
     tags:
       b: 2
-      em: 1
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      u: 1
   language_with_fallback: {  }
   rendered_item: {  }
   solr_date_range:
