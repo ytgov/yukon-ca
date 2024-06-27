@@ -1,0 +1,21 @@
+display:
+  default:
+    display_options:
+      title: 'Les documents'
+      pager:
+        options:
+          tags:
+            next: 'suivant ›'
+            previous: '‹ précédent'
+      filters:
+        search_api_fulltext:
+          expose:
+            label: Mots-clés
+        field_department_term:
+          expose:
+            label: Ministères
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'
+        exposed_form_selected_filters:
+          label: Filtrer
