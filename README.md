@@ -158,13 +158,13 @@ Please note that roll back commands will assign new node IDs and will need migra
 
 ### Export and Import of the custom translations:
 
-Export:
+Export (example):
 ```bash
-drush locale-export fr --types=customized > config/translations/fr.customized.po
+drush locale-export fr --type=customized > config/translations/fr.customized.po
 ```
 
-Import:
+Import (example):
 ```bash
-drush locale-import fr --types=customized config/translations/fr.customized.po
+drush locale-import fr --type=customized /var/www/html/config/translations/fr.customized.po
 ```
 

@@ -1387,6 +1387,6 @@ msgid "Dec"
 msgstr "Déc"
 
 msgid "Date modified: @date"
-msgstr "Date modifiée: @date"
+msgstr "Date de modification: @date"
 
 
