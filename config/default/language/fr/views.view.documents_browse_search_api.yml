@@ -19,3 +19,8 @@ display:
           content: 'Résultats @start - @end de @total'
         exposed_form_selected_filters:
           label: Filtrer
+      empty:
+        area:
+          content:
+            value: "Désolé, aucun résultat n'a été trouvé. Essayez d'éliminer l'un des filtres appliqués."
+            format: basic_html
