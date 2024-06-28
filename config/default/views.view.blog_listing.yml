@@ -616,7 +616,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: yg_long
+            date_format: medium_format
             custom_date_format: ''
             timezone: ''
           group_column: value
