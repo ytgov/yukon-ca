@@ -337,7 +337,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: long_format
+            format_type: medium_format
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -829,7 +829,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: long_format
+            format_type: medium_format
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1343,7 +1343,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: long_format
+            format_type: medium_format
           group_column: value
           group_columns: {  }
           group_rows: true
