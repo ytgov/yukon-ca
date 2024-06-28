@@ -542,7 +542,7 @@ display:
             identifier: type
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
             reduce: false
@@ -590,9 +590,10 @@ display:
                 value:
                   directory_records_places: directory_records_places
               6:
-                title: ''
+                title: Blogs
                 operator: or
-                value: {  }
+                value:
+                  blog: blog
           reduce_duplicates: false
         field_document_type:
           id: field_document_type
