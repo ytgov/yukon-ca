@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.long_with_time
+    - core.date_format.medium
     - core.date_format.short
     - core.date_format.time_am_pm
     - core.date_format.medium_format
@@ -968,11 +968,11 @@ display:
           type: date_recur_basic_formatter
           settings:
             timezone_override: America/Whitehorse
-            format_type: long_with_time
+            format_type: medium
             separator: to
             show_next: 5
             count_per_item: true
-            occurrence_format_type: long_with_time
+            occurrence_format_type: medium
             same_end_date_format_type: time_am_pm
             interpreter: ''
           group_column: value
@@ -1101,11 +1101,11 @@ display:
           type: date_recur_basic_formatter
           settings:
             timezone_override: America/Whitehorse
-            format_type: long_with_time
+            format_type: medium
             separator: to
             show_next: 5
             count_per_item: true
-            occurrence_format_type: long_with_time
+            occurrence_format_type: medium
             same_end_date_format_type: time_am_pm
             interpreter: ''
           group_column: value
