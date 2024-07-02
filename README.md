@@ -110,6 +110,10 @@ The script `migrate_update.sh` does the above.
 
 Running the above commands more than once is recommended.
 
+### Post-import cleanup
+
+The `custom_migrate` module does some post-migration clean up work. Visit `[root-URL]/custom_migrate` to execute that code.
+
 ## Run the following commands after migrating the data:
 
 After completing the data migration and its update, the following commands may be run to setup the theme files.
