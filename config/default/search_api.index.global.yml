@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.body
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_section_content
     - field.storage.node.field_department_term
     - field.storage.node.field_document_type
     - field.storage.node.field_fax
@@ -19,6 +22,7 @@ dependencies:
   module:
     - search_api_solr
     - node
+    - paragraphs
     - search_api
     - search_api_attachments
 third_party_settings:
@@ -73,6 +77,14 @@ name: Global
 description: ''
 read_only: false
 field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -178,6 +190,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_page_description
+  field_section_content:
+    label: 'Campaign site » Paragraph » Section Content'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_section_content'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_section_content
+      module:
+        - paragraphs
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
