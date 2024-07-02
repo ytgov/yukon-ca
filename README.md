@@ -69,55 +69,44 @@ There are more than 30K nodes on the D7 version and it can take anywhere between
 
 Running the following 10 commands will import the data from Drupal 7 to Druapl 10. Please note that this is the start of migration where Drupal 10 has no data from the production website. Running these commands for the second time is recommended only if data import was not complete or got corrupted. Partial imports can be done by running individual commands where all previous node IDs will be updated (assigned new).
 
+```
 ./vendor/bin/drush migrate:import --group=legacy_taxonomies --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_media --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_paragraphs --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_nodes --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_documents --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_basic_page --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_page_news --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_user_role --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_menu continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_files --continue-on-failure
+```
 
+The script `migrate_initial.sh` does the above.
 
 ### Reset migration in case of failure
 
 Migrations can fail to complete due to multiple reasons and when it happens, it display the name of the table for which migration stopped working.  Rerunning (resume) the migration is only possible after resetting the migration using a command like below where “yukon_migrate_landing_page” is the name of the failed table. 
 
-./vendor/bin/drush migrate:reset-status yukon_migrate_landing_page
+    ./vendor/bin/drush migrate:reset-status yukon_migrate_landing_page
 
 
 ### Update - 2nd Round to update relationships
 
+```
 ./vendor/bin/drush migrate:import --group=legacy_taxonomies --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_media --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_paragraphs --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_nodes --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_documents --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_basic_page --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_page_news --update --continue-on-failure
-
 ./vendor/bin/drush migrate:import --group=legacy_user_role --update --continue-on-failure
-
-./vendor/bin/drush migrate:import --group=legacy_menu --update continue-on-failure
-
+./vendor/bin/drush migrate:import --group=legacy_menu --update --continue-on-failure
 ./vendor/bin/drush migrate:import --group=legacy_files --update --continue-on-failure
+```
+
+The script `migrate_update.sh` does the above.
 
 Running the above commands more than once is recommended.
 
