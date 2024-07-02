@@ -102,7 +102,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
+      format_type: medium_format
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -120,7 +120,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
+      format_type: medium_format
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -193,7 +193,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
+      format_type: medium_format
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -211,7 +211,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: yg_long
+      format_type: medium_format
     third_party_settings:
       fences:
         fences_field_tag: div
