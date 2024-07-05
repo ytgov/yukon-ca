@@ -351,13 +351,17 @@ function yukonca_glider_preprocess_file_link(&$variables) {
  * Limit the text length of the last breadcrumb item.
  */
 function yukonca_glider_preprocess_breadcrumb(&$variables) {
-  $max_length = 100;
-  $index = array_key_last($variables['breadcrumb']);
-  $title = $variables['breadcrumb'][$index]['text'];
-  if (strlen($title) > $max_length) {
-    $variables['breadcrumb'][$index]['text'] = substr($title, 0, $max_length) . '...';
+  $route = \Drupal::routeMatch();
+  $node = $route->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $max_length = 100;
+    $index = array_key_last($variables['breadcrumb']);
+    $title = $variables['breadcrumb'][$index]['text'];
+    if (strlen($title) > $max_length) {
+      $variables['breadcrumb'][$index]['text'] = substr($title, 0, $max_length) . '...';
+    }
+    // Add the cache tag to update the breadcrumb if the node title changes.
+    $nid = \Drupal::routeMatch()->getRawParameter('node');
+    $variables['#cache']['tags'][] = 'node:' . $nid;
   }
-  // Add the cache tag to update the breadcrumb if the node title changes.
-  $nid = \Drupal::routeMatch()->getRawParameter('node');
-  $variables['#cache']['tags'][] = 'node:' . $nid;
 }
