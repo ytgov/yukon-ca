@@ -26,6 +26,8 @@
 
   &.view-display-id-block_1 {
     .views-row {
+      @apply p-2;
+
       &.odd {
         @apply bg-gray-light;
       }

@@ -1,7 +1,9 @@
 uuid: 1f65d5f0-563d-4438-9bd8-9b6b19e9c3f0
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - pathologic
 _core:
   default_config_hash: KUjJ8Ti_ZJSlhGM88E_mhJP-8mmQRNUB6RFof615Kt0
 name: 'Restricted HTML'
@@ -14,7 +16,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
+      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang href> <blockquote cite> <ul type> <ol type start> <strong> <em> <code> <li>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -30,3 +32,14 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
+  filter_pathologic:
+    id: filter_pathologic
+    provider: pathologic
+    status: false
+    weight: 50
+    settings:
+      settings_source: global
+      local_settings:
+        protocol_style: full
+        local_paths: ''
+        keep_language_prefix: true
