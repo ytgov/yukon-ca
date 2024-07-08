@@ -8,6 +8,7 @@
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
 use Drupal\node\NodeInterface;
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 
 /**
  * Implements hook_preprocess_html().
@@ -257,7 +258,7 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
         ->getStorage('file')
         ->load($media_file->get('field_media_file')->getString());
       if (!empty($file)) {
-        $variables['document_size'] = format_size($file->getSize());
+        $variables['document_size'] = ByteSizeMarkup::create($file->getSize() ?? 0);
         $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
       }
     }
