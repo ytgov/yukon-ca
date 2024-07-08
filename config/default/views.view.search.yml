@@ -568,6 +568,8 @@ display:
                   department: department
                   engagement: engagement
                   homepage: homepage
+                  landing_page: landing_page
+                  landing_page_level_2: landing_page_level_2
                   multi_step_page: multi_step_page
               2:
                 title: Documents

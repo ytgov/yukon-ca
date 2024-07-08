@@ -4,20 +4,20 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_paragraphs
-    - field.storage.paragraph.field_section_content
     - field.storage.node.field_department_term
     - field.storage.node.field_document_type
-    - field.storage.node.field_fax
     - field.storage.node.field_engagement_feedback
-    - field.storage.node.field_engagement_participate
-    - field.storage.node.field_engagement_info_use
-    - field.storage.node.field_main_telephone
-    - field.storage.node.field_page_description
-    - field.storage.node.field_news_release
-    - field.storage.node.field_engagement_results
-    - field.storage.node.field_minister_telephone
     - field.storage.node.field_engagement_find_info
+    - field.storage.node.field_engagement_info_use
+    - field.storage.node.field_engagement_participate
+    - field.storage.node.field_engagement_results
+    - field.storage.node.field_fax
+    - field.storage.node.field_main_telephone
+    - field.storage.node.field_minister_telephone
+    - field.storage.node.field_news_release
+    - field.storage.node.field_page_description
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_section_content
     - search_api.server.pantheon_solr8
   module:
     - search_api_solr
@@ -265,6 +265,8 @@ datasource_settings:
         - engagement
         - event
         - homepage
+        - landing_page
+        - landing_page_level_2
         - multi_step_page
         - news
         - topics_page
