@@ -7,11 +7,6 @@ dependencies:
     - node.type.campground_directory_record
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
-  content:
-    - 'taxonomy_term:site_type:464b2caa-cf1d-46da-800f-0cace9d7a7f6'
-    - 'taxonomy_term:site_type:d7b69697-152b-4ef3-b853-2d6ad1340491'
-    - 'taxonomy_term:site_type:f2f63b8d-2f0e-469b-a64b-fe1e0922cdc6'
-    - 'taxonomy_term:site_type:f7783847-bf85-45a1-8f05-21e8240a4759'
   module:
     - better_exposed_filters
     - node
@@ -101,6 +96,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -130,15 +126,19 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
               field_region_target_id:
                 plugin_id: default
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
                   is_secondary: false
+                  collapsible_disable_automatic_open: false
       access:
         type: perm
         options:
@@ -786,7 +786,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1365,7 +1364,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1975,7 +1973,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

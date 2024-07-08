@@ -8,20 +8,6 @@ dependencies:
     - taxonomy.vocabulary.education_facilities
     - taxonomy.vocabulary.health_facilities
     - taxonomy.vocabulary.sanitary_facilities
-  content:
-    - 'taxonomy_term:community_facilities:40abe129-7e5c-433f-86d1-b5e34a2c2517'
-    - 'taxonomy_term:community_facilities:4e56f23a-ab12-484a-8700-d0528c3a4feb'
-    - 'taxonomy_term:community_facilities:9125b3ae-6671-43c2-8ad9-2d9fcaa4c086'
-    - 'taxonomy_term:community_facilities:997c6294-6736-45f8-a800-3d76d82ba733'
-    - 'taxonomy_term:community_facilities:a904338c-8486-4be4-9bbf-fe309f435b71'
-    - 'taxonomy_term:community_facilities:d80f1e60-9ae0-45f7-af12-d52085392cbe'
-    - 'taxonomy_term:community_facilities:ed34145d-4289-4b5e-af9b-53fbb29a0770'
-    - 'taxonomy_term:education_facilities:35ab87dd-20dc-45e7-8783-de22f3071b5d'
-    - 'taxonomy_term:education_facilities:9f45d6d0-3d8f-4076-831c-b33c3ab95ff6'
-    - 'taxonomy_term:education_facilities:d809cada-9cf2-4f68-941a-d208ad128b08'
-    - 'taxonomy_term:health_facilities:6a1b308d-d93e-46e3-8c59-84fdbb89cc59'
-    - 'taxonomy_term:sanitary_facilities:009480af-c5cd-4bd8-9d3f-b19f72426532'
-    - 'taxonomy_term:sanitary_facilities:550dd456-de93-409f-b3ac-f6bf71923a80'
   module:
     - node
     - paragraphs
@@ -267,7 +253,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -285,7 +270,6 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -384,7 +368,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -483,7 +466,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -582,7 +564,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -682,7 +663,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -781,7 +761,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -880,7 +859,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -979,7 +957,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1080,7 +1057,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1179,7 +1155,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1277,7 +1252,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1377,7 +1351,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1477,7 +1450,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1576,7 +1548,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1675,7 +1646,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1774,7 +1744,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
