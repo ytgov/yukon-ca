@@ -5,9 +5,9 @@
  * Theme specific functionality.
  */
 
-use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\node\NodeInterface;
 
 /**
