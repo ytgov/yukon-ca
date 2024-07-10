@@ -5,10 +5,10 @@
  * Theme specific functionality.
  */
 
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
 use Drupal\node\NodeInterface;
-use Drupal\Core\StringTranslation\ByteSizeMarkup;
 
 /**
  * Implements hook_preprocess_html().
