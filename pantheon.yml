@@ -16,6 +16,10 @@ web_docroot: true
 database:
   version: 10.6
 
+# SOLR version
+search:
+  version: 8
+
 workflows:
   sync_code:
     after:

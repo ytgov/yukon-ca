@@ -1,4 +1,4 @@
-uuid: 7ab578b6-36fb-4975-b377-e9f660591053
+uuid: f51a08ef-ea97-47a2-b7fc-28bc2b024cc9
 langcode: en
 status: true
 dependencies:
@@ -30,8 +30,10 @@ settings:
         - heading5
         - heading6
     ckeditor5_list:
-      reversed: false
-      startIndex: true
+      properties:
+        reversed: false
+        startIndex: true
+      multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
@@ -52,4 +54,5 @@ settings:
     linkit_extension:
       linkit_enabled: true
       linkit_profile: ckeditor
-image_upload: {  }
+image_upload:
+  status: false

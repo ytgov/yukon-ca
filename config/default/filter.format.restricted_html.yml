@@ -10,28 +10,21 @@ name: 'Restricted HTML'
 format: restricted_html
 weight: 0
 filters:
-  filter_html:
-    id: filter_html
-    provider: filter
-    status: true
-    weight: -10
-    settings:
-      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang href data-entity-type data-entity-uuid data-entity-substitution> <blockquote cite> <ul type> <ol type start> <strong> <em> <code> <li>'
-      filter_html_help: true
-      filter_html_nofollow: false
   filter_autop:
     id: filter_autop
     provider: filter
     status: true
     weight: 0
     settings: {  }
-  filter_url:
-    id: filter_url
+  filter_html:
+    id: filter_html
     provider: filter
     status: true
-    weight: 0
+    weight: -10
     settings:
-      filter_url_length: 72
+      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang href> <blockquote cite> <ul type> <ol type start> <strong> <em> <code> <li>'
+      filter_html_help: true
+      filter_html_nofollow: false
   filter_pathologic:
     id: filter_pathologic
     provider: pathologic
@@ -43,3 +36,10 @@ filters:
         protocol_style: full
         local_paths: ''
         keep_language_prefix: true
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
