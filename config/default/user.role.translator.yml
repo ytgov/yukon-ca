@@ -10,6 +10,8 @@ dependencies:
     - content_translation
     - contextual
     - filter
+    - file
+    - help
     - linkchecker
     - locale
     - media
@@ -29,6 +31,7 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
@@ -42,6 +45,7 @@ permissions:
   - 'create content translations'
   - 'create media'
   - 'create url aliases'
+  - 'delete own files'
   - 'translate any entity'
   - 'translate any entity'
   - 'translate editable entities'

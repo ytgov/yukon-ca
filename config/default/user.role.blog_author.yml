@@ -10,6 +10,8 @@ dependencies:
     - content_translation
     - contextual
     - filter
+    - file
+    - help
     - media
     - node
     - path
@@ -25,12 +27,14 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
   - 'administer nodes'
   - 'create media'
   - 'create url aliases'
+  - 'delete own files'
   - 'translate any entity'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'

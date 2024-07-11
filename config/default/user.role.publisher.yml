@@ -9,6 +9,8 @@ dependencies:
     - content_moderation
     - contextual
     - filter
+    - file
+    - help
     - linkchecker
     - media
     - node
@@ -26,6 +28,7 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
@@ -35,6 +38,7 @@ permissions:
   - 'administer nodes'
   - 'create media'
   - 'create url aliases'
+  - 'delete own files'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'

@@ -7,12 +7,15 @@ dependencies:
     - workflows.workflow.content
   module:
     - block
+    - block_content
     - comment
     - content_moderation
     - content_translation
     - contextual
     - field_ui
+    - file
     - filter
+    - help
     - image
     - language
     - linkchecker
@@ -41,16 +44,20 @@ weight: 9
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access block library'
   - 'access broken links report'
   - 'access comments'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access site reports'
   - 'access toolbar'
   - 'access user profiles'
   - 'access workbench'
+  - 'administer block content'
+  - 'administer block types'
   - 'administer blocks'
   - 'administer comments'
   - 'administer content translation'
@@ -87,6 +94,7 @@ permissions:
   - 'create media'
   - 'create url aliases'
   - 'delete any webform submission'
+  - 'delete own files'
   - 'delete own webform submission'
   - 'edit any webform submission'
   - 'edit linkchecker link settings'

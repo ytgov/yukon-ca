@@ -7,6 +7,8 @@ dependencies:
   module:
     - contextual
     - filter
+    - file
+    - help
     - linkchecker
     - node
     - system
@@ -22,6 +24,7 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
@@ -30,6 +33,7 @@ permissions:
   - 'administer workbench access'
   - 'assign workbench access'
   - 'batch update workbench access'
+  - 'delete own files'
   - 'use text format full_html'
   - 'use workbench access'
   - 'view own unpublished content'
