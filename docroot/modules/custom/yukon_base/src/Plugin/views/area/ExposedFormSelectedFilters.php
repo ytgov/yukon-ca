@@ -36,11 +36,7 @@ class ExposedFormSelectedFilters extends AreaPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration,
-                              $plugin_id,
-                              $plugin_definition,
-                              CurrentPathStack $current_path,
-                              RequestStack $request_stack) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CurrentPathStack $current_path, RequestStack $request_stack) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->currentPath = $current_path;
     $this->currentRequest = $request_stack->getCurrentRequest();
