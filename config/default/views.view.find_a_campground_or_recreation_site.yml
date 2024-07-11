@@ -7,6 +7,11 @@ dependencies:
     - node.type.campground_directory_record
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
+  content:
+    - 'taxonomy_term:site_type:1f7013e6-5e46-47db-928e-4028ba0709e0'
+    - 'taxonomy_term:site_type:413c219f-06ae-4e48-bdcf-9ac793fef9af'
+    - 'taxonomy_term:site_type:7fddc5fe-9e17-49b1-a66f-c846be24c025'
+    - 'taxonomy_term:site_type:e8f625c2-ccf8-4118-81d5-0505ad2ceed2'
   module:
     - better_exposed_filters
     - node
@@ -892,8 +897,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2838: 2838
-            2839: 2839
+            347: 347
+            348: 348
           group: 1
           exposed: true
           expose:
@@ -958,8 +963,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2838: 2838
-            2839: 2839
+            347: 347
+            348: 348
           group: 1
           exposed: false
           expose:
@@ -1501,8 +1506,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2840: 2840
-            2841: 2841
+            345: 345
+            346: 346
           group: 1
           exposed: true
           expose:
@@ -1567,8 +1572,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2840: 2840
-            2841: 2841
+            345: 345
+            346: 346
           group: 1
           exposed: false
           expose:
