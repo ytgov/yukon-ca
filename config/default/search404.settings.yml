@@ -1,5 +1,6 @@
 _core:
   default_config_hash: vq9mcj5D7fRgDz1tJi52q1-S6QkQehsBBYPRN8tb85Y
+langcode: en
 search404_redirect_301: false
 search404_do_custom_search: false
 search404_custom_search_path: search/@keys

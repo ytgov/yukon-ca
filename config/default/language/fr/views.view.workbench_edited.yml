@@ -7,8 +7,6 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -21,33 +19,20 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
-        nid:
-          separator: ', '
         title:
           label: Titre
-          separator: ', '
-        type:
-          label: Type
-          separator: ', '
         status:
           label: Publié
-          separator: ', '
         changed:
           label: 'Dernière mise à jour'
-          separator: ', '
         uid:
           label: Auteur
-          separator: ', '
         revision_uid:
           label: 'Revu par'
-          separator: ', '
       filters:
         title:
           expose:
             label: Titre
-        type:
-          expose:
-            label: Type
         status:
           expose:
             label: Publié

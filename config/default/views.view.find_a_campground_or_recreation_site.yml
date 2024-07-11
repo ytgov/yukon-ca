@@ -8,10 +8,10 @@ dependencies:
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
   content:
-    - 'taxonomy_term:site_type:464b2caa-cf1d-46da-800f-0cace9d7a7f6'
-    - 'taxonomy_term:site_type:d7b69697-152b-4ef3-b853-2d6ad1340491'
-    - 'taxonomy_term:site_type:f2f63b8d-2f0e-469b-a64b-fe1e0922cdc6'
-    - 'taxonomy_term:site_type:f7783847-bf85-45a1-8f05-21e8240a4759'
+    - 'taxonomy_term:site_type:1f7013e6-5e46-47db-928e-4028ba0709e0'
+    - 'taxonomy_term:site_type:413c219f-06ae-4e48-bdcf-9ac793fef9af'
+    - 'taxonomy_term:site_type:7fddc5fe-9e17-49b1-a66f-c846be24c025'
+    - 'taxonomy_term:site_type:e8f625c2-ccf8-4118-81d5-0505ad2ceed2'
   module:
     - better_exposed_filters
     - node
@@ -84,6 +84,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -130,14 +131,18 @@ display:
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               field_region_target_id:
                 plugin_id: default
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
       access:
         type: perm
@@ -786,7 +791,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -893,8 +897,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2838: 2838
-            2839: 2839
+            347: 347
+            348: 348
           group: 1
           exposed: true
           expose:
@@ -959,8 +963,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2838: 2838
-            2839: 2839
+            347: 347
+            348: 348
           group: 1
           exposed: false
           expose:
@@ -1365,7 +1369,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1503,8 +1506,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2840: 2840
-            2841: 2841
+            345: 345
+            346: 346
           group: 1
           exposed: true
           expose:
@@ -1569,8 +1572,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2840: 2840
-            2841: 2841
+            345: 345
+            346: 346
           group: 1
           exposed: false
           expose:
@@ -1975,7 +1978,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

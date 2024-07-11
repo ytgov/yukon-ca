@@ -6,3 +6,4 @@ name: 'Sub Category'
 vid: sub_category
 description: 'Category used for blog agencies'
 weight: 0
+new_revision: false

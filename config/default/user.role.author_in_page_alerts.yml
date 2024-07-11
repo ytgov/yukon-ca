@@ -7,6 +7,8 @@ dependencies:
   module:
     - content_moderation
     - contextual
+    - file
+    - help
     - path
     - system
     - toolbar
@@ -19,10 +21,12 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access contextual links'
+  - 'access help pages'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
   - 'create url aliases'
+  - 'delete own files'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
