@@ -1,6 +1,6 @@
 uuid: f51a08ef-ea97-47a2-b7fc-28bc2b024cc9
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - filter.format.basic_html
@@ -52,6 +52,7 @@ settings:
         - '<h5 id>'
         - '<h6 id>'
     linkit_extension:
-      linkit_enabled: false
+      linkit_enabled: true
+      linkit_profile: ckeditor
 image_upload:
   status: false

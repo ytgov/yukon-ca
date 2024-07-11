@@ -376,7 +376,7 @@ display:
           empty: true
           content:
             value: 'No blog posts found. Try removing or changing a filter.'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         created:
