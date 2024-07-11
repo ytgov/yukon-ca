@@ -22,3 +22,4 @@ name: 'Media Folders'
 vid: media_folders
 description: 'Use media folders to organize your media'
 weight: 0
+new_revision: false

@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.department.field_minister_photo
     - field.field.node.department.field_minister_telephone
     - field.field.node.department.field_optional_internal_related
+    - field.field.node.department.field_page_description
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
     - field.field.node.department.field_yukon_editorial_team
