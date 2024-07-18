@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.primary_top_tasks
 label: 'Primary Top Tasks'
+description: ''
 targetEntityType: paragraph
 cache: true
