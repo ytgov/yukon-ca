@@ -975,7 +975,8 @@ display:
           settings:
             timezone_override: America/Whitehorse
             format_type: long_with_time
-            separator: to
+            from_to: both
+            separator: 'to '
             show_next: 5
             count_per_item: true
             occurrence_format_type: long_with_time
@@ -1108,7 +1109,8 @@ display:
           settings:
             timezone_override: America/Whitehorse
             format_type: long_with_time
-            separator: to
+            from_to: both
+            separator: 'to '
             show_next: 5
             count_per_item: true
             occurrence_format_type: long_with_time
