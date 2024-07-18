@@ -26,7 +26,7 @@ third_party_settings:
 name: Department
 type: department
 description: 'Use for information about Yukon departments and their branches. Includes contact information, branch information, top tasks and services.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

@@ -6,5 +6,6 @@ dependencies:
     - node
 id: node.primary_item_block
 label: 'Primary item block'
+description: ''
 targetEntityType: node
 cache: true

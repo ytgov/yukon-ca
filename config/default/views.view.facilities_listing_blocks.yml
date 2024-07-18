@@ -9,19 +9,21 @@ dependencies:
     - taxonomy.vocabulary.health_facilities
     - taxonomy.vocabulary.sanitary_facilities
   content:
-    - 'taxonomy_term:community_facilities:40abe129-7e5c-433f-86d1-b5e34a2c2517'
-    - 'taxonomy_term:community_facilities:4e56f23a-ab12-484a-8700-d0528c3a4feb'
-    - 'taxonomy_term:community_facilities:9125b3ae-6671-43c2-8ad9-2d9fcaa4c086'
-    - 'taxonomy_term:community_facilities:997c6294-6736-45f8-a800-3d76d82ba733'
-    - 'taxonomy_term:community_facilities:a904338c-8486-4be4-9bbf-fe309f435b71'
-    - 'taxonomy_term:community_facilities:d80f1e60-9ae0-45f7-af12-d52085392cbe'
-    - 'taxonomy_term:community_facilities:ed34145d-4289-4b5e-af9b-53fbb29a0770'
-    - 'taxonomy_term:education_facilities:35ab87dd-20dc-45e7-8783-de22f3071b5d'
-    - 'taxonomy_term:education_facilities:9f45d6d0-3d8f-4076-831c-b33c3ab95ff6'
-    - 'taxonomy_term:education_facilities:d809cada-9cf2-4f68-941a-d208ad128b08'
-    - 'taxonomy_term:health_facilities:6a1b308d-d93e-46e3-8c59-84fdbb89cc59'
-    - 'taxonomy_term:sanitary_facilities:009480af-c5cd-4bd8-9d3f-b19f72426532'
-    - 'taxonomy_term:sanitary_facilities:550dd456-de93-409f-b3ac-f6bf71923a80'
+    - 'taxonomy_term:community_facilities:1e1763c5-91f4-447d-a445-057fbbe35b18'
+    - 'taxonomy_term:community_facilities:318ff2d0-5c30-4e8d-a81d-5a96d0c835e7'
+    - 'taxonomy_term:community_facilities:5a904fb7-9f70-43fe-9e14-4dc2b636f57f'
+    - 'taxonomy_term:community_facilities:8891fb2b-866f-451d-aa56-11aa3a810b3e'
+    - 'taxonomy_term:community_facilities:b0f32d4c-e44d-4d19-b9e3-0b10ef9e464c'
+    - 'taxonomy_term:community_facilities:b391cce3-d76b-4bc9-b0e9-7f13b662a9e4'
+    - 'taxonomy_term:community_facilities:f9d609af-6d50-4ab6-b50c-fe7802af1dbd'
+    - 'taxonomy_term:education_facilities:f2f17c5a-7e90-41ee-ae73-30706ed17638'
+    - 'taxonomy_term:education_facilities:f55e6294-d908-4163-ab70-8e69a49bbe70'
+    - 'taxonomy_term:health_facilities:65dd8a01-5726-42b2-80c3-6f17998d2420'
+    - 'taxonomy_term:health_facilities:b9f04296-9820-4e52-8697-a36c625a1f4e'
+    - 'taxonomy_term:health_facilities:d32850b4-9f0d-4799-b87b-870f7ae5a97b'
+    - 'taxonomy_term:sanitary_facilities:7652b2c5-ad1c-45d8-8672-8f1e770be1ce'
+    - 'taxonomy_term:sanitary_facilities:cf75324d-939f-4864-af72-2fc44d791fa5'
+    - 'taxonomy_term:sanitary_facilities:ffe76513-eec7-4211-9d78-62a492036ec0'
   module:
     - node
     - paragraphs
@@ -267,7 +269,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -277,6 +278,88 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            directory_records_places: directory_records_places
+          group: 1
+        field_health_facility_type_target_id:
+          id: field_health_facility_type_target_id
+          table: paragraph__field_health_facility_type
+          field: field_health_facility_type_target_id
+          relationship: field_places_record_type
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            355: 355
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: health_facilities
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
       display_description: ''
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
@@ -285,7 +368,6 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -326,7 +408,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2794'
+          value:
+            284: 284
           group: 1
           exposed: false
           expose:
@@ -358,7 +441,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -384,7 +467,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -425,7 +507,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2795'
+          value:
+            285: 285
           group: 1
           exposed: false
           expose:
@@ -457,7 +540,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -483,7 +566,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -524,7 +606,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2796'
+          value:
+            286: 286
           group: 1
           exposed: false
           expose:
@@ -556,7 +639,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -582,7 +665,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -624,7 +706,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            - 2788
+            278: 278
           group: 1
           exposed: false
           expose:
@@ -682,7 +764,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -723,7 +804,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2789'
+          value:
+            280: 280
           group: 1
           exposed: false
           expose:
@@ -755,7 +837,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: sanitary_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -781,7 +863,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -822,7 +903,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2796'
+          value:
+            286: 286
           group: 1
           exposed: false
           expose:
@@ -854,7 +936,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -880,7 +962,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -921,7 +1002,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2797'
+          value:
+            287: 287
           group: 1
           exposed: false
           expose:
@@ -953,7 +1035,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -979,7 +1061,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1021,7 +1102,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2783: 2783
+            354: 354
           group: 1
           exposed: false
           expose:
@@ -1080,7 +1161,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1121,7 +1201,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            2783: 2783
+            353: 353
           group: 1
           exposed: false
           expose:
@@ -1179,7 +1259,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1219,7 +1298,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2789'
+          value:
+            279: 279
           group: 1
           exposed: false
           expose:
@@ -1251,7 +1331,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: sanitary_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -1277,7 +1357,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1319,7 +1398,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            - 2778
+            349: 349
           group: 1
           exposed: false
           expose:
@@ -1377,7 +1456,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1419,7 +1497,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            - 2779
+            350: 350
           group: 1
           exposed: false
           expose:
@@ -1477,7 +1555,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1518,7 +1595,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2791'
+          value:
+            281: 281
           group: 1
           exposed: false
           expose:
@@ -1550,7 +1628,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -1576,7 +1654,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1617,7 +1694,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2792'
+          value:
+            282: 282
           group: 1
           exposed: false
           expose:
@@ -1649,7 +1727,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -1675,7 +1753,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -1716,7 +1793,8 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: '2793'
+          value:
+            283: 283
           group: 1
           exposed: false
           expose:
@@ -1748,7 +1826,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: community_facilities
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -1774,7 +1852,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

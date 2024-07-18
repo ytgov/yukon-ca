@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.in_page_alert.field_yukon_editorial_team
     - node.type.in_page_alert
   module:
-    - metatag
     - text
     - user
 id: node.in_page_alert.default
