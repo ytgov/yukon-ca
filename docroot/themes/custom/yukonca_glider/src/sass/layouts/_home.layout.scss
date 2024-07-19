@@ -36,7 +36,7 @@
     background-image: url("../../images/svg/Aurora-main.svg");
     background-repeat: no-repeat;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
       position: absolute;
       top: -30px;
       right: -62%;
@@ -107,7 +107,7 @@
     margin-top: 0;
     text-align: center;
     line-height: normal;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
       font-size: 24px;
     }
 
@@ -212,7 +212,7 @@
             content: "";
 
             background: $color-blue200;
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(sm) {
               margin: 0;
             }
           }
@@ -265,25 +265,28 @@
 }
 
 .primary-items {
-  @apply mb-0 md:mb-4 overflow-auto;
+  @apply mb-0 sm:mb-4 overflow-auto;
 
   .box-items {
-    @apply h-auto md:h-64;
+    @apply h-auto sm:h-64;
   }
 
   .primary_block_item {
     @apply p-3;
-    @apply col-span-2 md:col-span-1;
+    @apply col-span-2 xs:col-span-1;
 
     .front-svg {
       @apply p-0;
     }
 
     .primary-single-item {
-      @apply md:flex relative overflow-hidden text-center;
+      @apply sm:flex relative overflow-hidden text-center;
 
       .front-primary-links {
         @apply flex flex-col justify-center pl-0 text-center;
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
 
         h2 {
           @apply hidden;
@@ -306,7 +309,7 @@
       .faded-box {
         &:after {
           @apply content-[""] block absolute right-5 left-5 bottom-0;
-          @apply h-3 w-[70%] md:w-[185px];
+          @apply h-3 w-[70%] sm:w-[185px];
           @apply my-0 mx-auto;
           background: $color-blue200;
         }
@@ -319,10 +322,13 @@
     }
 
     &:nth-child(3n-8) {
-      @apply md:col-span-2;
+      @apply sm:col-span-2;
 
       .front-primary-links {
-        @apply md:w-1/2 md:pl-7 md:text-left;
+        @apply sm:w-1/2 sm:pl-7 sm:text-left;
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
       }
 
       .faded-box {
@@ -331,7 +337,7 @@
     }
 
     &:not(:nth-child(3n-8)) {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         .front-primary-content {
           @apply float-left w-full text-center;
           transition: transform 0.4s ease;
@@ -339,11 +345,11 @@
 
         .front-primary-links {
           @apply absolute z-10 top-0 left-full w-full h-full;
-          @apply md:pb-4 md:px-1;
+          @apply sm:pb-4 sm:px-1;
           transition: transform 0.4s ease;
 
           h2 {
-            @apply md:block;
+            @apply sm:block;
           }
         }
 
@@ -365,14 +371,14 @@
 
 .secondary-items {
   margin-bottom: 0;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     margin-bottom: 15px;
   }
 
   .field-item {
     width: 100%;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
       width: 33%;
     }
   }
@@ -382,12 +388,12 @@
   }
 
   .secondary-single-item {
-    @apply md:relative hidden md:block md:overflow-hidden md:text-center;
+    @apply sm:relative hidden sm:block sm:overflow-hidden sm:text-center;
 
     .faded-box {
       &:after {
         @apply absolute block right-5 left-5 bottom-0 content-[""];
-        @apply w-8/12 md:w-44 h-3 my-0 mx-auto;
+        @apply w-8/12 sm:w-44 h-3 my-0 mx-auto;
         background: $color-blue200;
       }
     }
