@@ -14,7 +14,10 @@ process:
   field_title: field_section_title
   field_display_section_title: field_display_section_title
 
-  field_section_content/value: field_text_block/0/value
+  field_section_content/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_text_block/0/value
   field_section_content/format: constants/default_text_format
 destination:
   plugin: entity_reference_revisions:paragraph

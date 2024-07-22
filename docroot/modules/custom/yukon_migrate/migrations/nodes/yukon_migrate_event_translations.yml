@@ -35,7 +35,10 @@ process:
     method: row
     source: title
 
-  field_page_description/value: field_description/0/value
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
   field_page_description/format: constants/default_text_format
 
   # to_timezone uses America/Vancouver to avoid times being off by an hour.
@@ -84,7 +87,10 @@ process:
 
   field_cost: field_cost
 
-  field_event_description/value: field_event_description/0/value
+  field_event_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_event_description/0/value
   field_event_description/format: constants/default_text_format
 
   field_featured_content: field_featured_event

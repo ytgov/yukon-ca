@@ -53,7 +53,10 @@ process:
   field_department_mandate/value: field_department_mandate/0/value
   field_department_mandate/format: constants/default_text_format
 
-  field_page_description/value: field_page_description/0/value
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
   field_page_description/format: constants/default_text_format
 
   # paragraphs

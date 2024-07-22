@@ -30,16 +30,28 @@ process:
   revision_log: log
   title: title
 
-  field_page_description/value: field_description/0/value
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
   field_page_description/format: constants/default_text_format
 
-  body/value: body/0/value
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
   body/format: constants/default_text_format
 
-  field_contact/value: field_contact/0/value
+  field_contact/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
-  field_backgrounder/value: field_backgrounder/0/value
+  field_backgrounder/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_backgrounder/0/value
   field_backgrounder/format: constants/default_text_format
 
   field_news_release: field_news_release_

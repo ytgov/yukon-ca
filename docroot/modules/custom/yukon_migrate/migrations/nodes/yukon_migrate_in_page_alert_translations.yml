@@ -34,7 +34,10 @@ process:
   langcode: language
   title: title
 
-  body/value: body/0/value
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
   body/format: constants/default_text_format
 
   field_department_term:

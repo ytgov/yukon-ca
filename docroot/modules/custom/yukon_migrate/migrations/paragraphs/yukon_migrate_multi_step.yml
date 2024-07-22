@@ -13,7 +13,10 @@ source:
 process:
   field_title: field_title
 
-  field_section_content/value: field_section_content/0/value
+  field_section_content/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_section_content/0/value
   field_section_content/format: constants/default_text_format
 
   # Todo: field_paragraphs on D7 site is empty for all paragraphs. Remove below code if it is not needed.

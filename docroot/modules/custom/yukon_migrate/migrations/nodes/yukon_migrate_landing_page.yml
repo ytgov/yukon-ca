@@ -32,9 +32,15 @@ process:
     promote: promote
     sticky: sticky
     revision_log: log
-    field_page_description/value: field_page_description/0/value
+    field_page_description/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_page_description/0/value
     field_page_description/format: constants/default_text_format
-    body/value: field_opener_description/0/value
+    body/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_opener_description/0/value
     body/format: constants/default_text_format
 
     field_icon_dark:

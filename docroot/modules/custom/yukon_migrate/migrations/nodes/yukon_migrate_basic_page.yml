@@ -26,7 +26,10 @@ process:
   promote: promote
   sticky: sticky
 
-  body/value: body/0/value
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
   body/format: constants/default_text_format
 
   pseudo_field_collapsible_items:
@@ -65,12 +68,19 @@ process:
       target_id: 'paragraph/0'
       target_revision_id: 'paragraph/1'
 
-  field_contact/value: field_contact/0/value
+  field_contact/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
   field_full_width: field_full_width
 
-  field_page_description: field_page_description
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
+  field_page_description/format: constants/default_text_format
 
   field_related_tasks:
     plugin: yukon_migrate_links

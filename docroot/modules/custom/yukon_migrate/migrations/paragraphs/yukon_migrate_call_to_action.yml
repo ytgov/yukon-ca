@@ -20,7 +20,10 @@ process:
     migration: yukon_migrate_images
     no_stub: true
 
-  field_description/value: field_call_to_action_description/0/value
+  field_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_call_to_action_description/0/value
   field_description/format: constants/default_text_format
 
   field_button_text: field_button_text

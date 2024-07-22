@@ -1,0 +1,44 @@
+<?php
+
+namespace Drupal\yukon_migrate\Plugin\migrate\process;
+
+use Drupal\migrate\MigrateExecutableInterface;
+use Drupal\migrate\ProcessPluginBase;
+use Drupal\migrate\Row;
+
+/**
+ * Provides a yukon_migrate_uri_transform plugin.
+ *
+ * Usage:
+ *
+ * @code
+ * process:
+ *   bar:
+ *     plugin: yukon_migrate_uri_transform
+ *     source: foo
+ * @endcode
+ *
+ * @MigrateProcessPlugin(
+ *   id = "yukon_migrate_uri_transform"
+ * )
+ *
+ * @DCG
+ * ContainerFactoryPluginInterface is optional here. If you have no need for
+ * external services just remove it and all other stuff except transform()
+ * method.
+ */
+class UriTransform extends ProcessPluginBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function transformUri($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+
+    $value = str_ireplace('"https://www.yukon.ca', '"', $value);
+    $value = str_ireplace('"http://www.yukon.ca', '"', $value);
+    $value = str_ireplace('"https://yukon.ca', '"', $value);
+    $value = str_ireplace('"http://yukon.ca', '"', $value);
+
+    return $value;
+  }
+}

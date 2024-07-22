@@ -25,8 +25,11 @@ process:
   promote: promote
   sticky: sticky
 
-  body/value: body/0/value
-  body/format: constants/default_text_format
+  body/0/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
+  body/0/format: constants/default_text_format
 
   field_engagement_dates:
     plugin: sub_process
@@ -54,19 +57,34 @@ process:
   path/alias: alias
   path/pathauto: pathauto
 
-  field_engagement_participate/value: field_engagement_participate/0/value
+  field_engagement_participate/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_engagement_participate/0/value
   field_engagement_participate/format: constants/default_text_format
 
-  field_engagement_info_use/value: field_engagement_info_use/0/value
+  field_engagement_info_use/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_engagement_info_use/0/value
   field_engagement_info_use/format: constants/default_text_format
 
-  field_engagement_find_info/value: field_engagement_find_info/0/value
+  field_engagement_find_info/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_engagement_find_info/0/value
   field_engagement_find_info/format: constants/default_text_format
 
-  field_engagement_find_results/value: field_engagement_find_results/0/value
+  field_engagement_find_results/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_engagement_find_results/0/value
   field_engagement_find_results/format: constants/default_text_format
 
-  field_engagement_feedback/value: field_engagement_feedback/0/value
+  field_engagement_feedback/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_engagement_feedback/0/value
   field_engagement_feedback/format: constants/default_text_format
 
   field_yukon_editorial_team:
