@@ -272,6 +272,7 @@
   }
 
   .primary_block_item {
+    @apply flex;
     @apply p-3;
     @apply col-span-2 xs:col-span-1;
 
@@ -280,7 +281,7 @@
     }
 
     .primary-single-item {
-      @apply sm:flex relative overflow-hidden text-center;
+      @apply sm:flex relative overflow-hidden text-center grow;
 
       .front-primary-links {
         @apply flex flex-col justify-center pl-0 text-center;
