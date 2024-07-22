@@ -41,4 +41,5 @@ class UriTransform extends ProcessPluginBase {
 
     return $value;
   }
+
 }
