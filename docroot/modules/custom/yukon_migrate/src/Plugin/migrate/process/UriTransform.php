@@ -39,6 +39,22 @@ class UriTransform extends ProcessPluginBase {
     $value = str_ireplace('"https://yukon.ca', '"', $value);
     $value = str_ireplace('"http://yukon.ca', '"', $value);
 
+    // [uuid-link:node:ba5dac36-a2a6-48df-a92c-dcba01cb40e5]
+    $matches = [];
+    while (preg_match('/\[uuid-link:node:([a-z0-9\-]+)\]/i', $value, $matches)) {
+
+        $uuid = $matches[1];
+
+        $node = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['uuid' => $uuid]);
+        if ($node) {
+          $value = str_ireplace($matches[0], '/node/' . $node->id(), $value);
+        }
+        else {
+          $value = str_ireplace($matches[0], 'UUID_NOT_FOUND', $value);
+        }
+
+    }
+
     return $value;
   }
 
