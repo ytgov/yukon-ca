@@ -270,17 +270,32 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   if (!empty($variables['node'])) {
-    $variables['content_type'] = $variables['node']->bundle();
-    if ($variables['node']->bundle() == 'topics_page') {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['node'];
+
+    $variables['content_type'] = $node->bundle();
+    if ($node->bundle() == 'topics_page') {
       $variables['type'] = "topics_page";
     }
 
-    if ($variables['node']->bundle() == 'basic_page') {
+    if ($node->bundle() == 'basic_page') {
       $variables['type'] = "basic_page";
     }
 
-    /** @var \Drupal\node\NodeInterface $node */
-    $node = $variables['node'];
+    // Do not show at Homepage.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}");
+    $front_page_setting = \Drupal::getContainer()->get('config.factory')->get('system.site')->get('page.front');
+    if (empty($variables['is_front']) && $front_page_setting != $current_path && $front_page_setting != $current_alias) {
+      // Get node modified date and populate it to display at the bottom of the
+      // page in template files.
+      $modified_date = $node->get('changed')->value;
+      $variables['node_date_modified'] = t(
+        'Date modified: @date',
+        ['@date' => \Drupal::getContainer()->get('date.formatter')->format($modified_date, 'custom', 'Y-m-d')]
+      );
+    }
+
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
       return;
     }
