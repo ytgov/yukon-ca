@@ -1,0 +1,155 @@
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.4375;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &-lg {
+    padding: 15px 30px;
+  }
+}
+
+.btn-default,
+.btn-default:visited {
+  color: $color-blue400;
+  background-color: $color-white;
+  border-color: $color-blue400;
+
+  &:hover,
+  &.active,
+  &.focus {
+    color: darken($color-blue400, 10%);
+    border-color: darken($color-blue400, 10%);
+    background-color: $color-white;
+  }
+}
+
+.btn-primary {
+  color: $color-white;
+  background-color: $color-blue300;
+  border-color: $color-blue300;
+
+  &:focus,
+  &:hover,
+  &.active {
+    background-color: $blue-sherpa;
+    border-color: $blue-sherpa;
+  }
+}
+
+.btn-primary:visited {
+  @extend .btn-primary;
+}
+
+.node__content {
+  .btn-primary,
+  &:visited {
+    padding: 15px 30px;
+  }
+}
+
+.btn-success {
+  color: $color-white;
+  background-color: $green-jade;
+  border-color: $green-jade;
+
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: darken($green-jade, 10%);
+    border-color: darken($green-jade, 10%);
+  }
+}
+
+.btn-success:visited {
+  @extend .btn-success;
+}
+
+.btn-info {
+  color: $color-white;
+  background-color: $color-black;
+  border-color: $color-black;
+
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: darken($color-black, 10%);
+    border-color: darken($color-black, 10%);
+  }
+}
+
+.btn-info:visited {
+  @extend .btn-info;
+}
+
+.btn-warning {
+  color: $color-black;
+  background-color: $yellow-sun;
+  border-color: $yellow-sun;
+
+  &:hover,
+  &:focus {
+    background-color: darken($yellow-sun, 10%);
+    border-color: darken($yellow-sun, 10%);
+  }
+}
+
+.btn-warning:visited {
+  @extend .btn-warning;
+}
+
+.btn-danger {
+  color: $color-white;
+  background-color: $orange-trinidad;
+  border-color: $orange-trinidad;
+
+  &:hover,
+  &:focus {
+    background-color: darken($orange-trinidad, 10%);
+    border-color: darken($orange-trinidad, 10%);
+  }
+}
+
+.btn-danger:visited {
+  @extend .btn-danger;
+}
+
+.btn-link {
+  color: $color-blue400;
+
+  &:visited {
+    color: $color-purple;
+  }
+
+  &:active {
+    color: $color-blue200 !important;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-blue500;
+  }
+}
+
+.more-link {
+  @extend .btn-link;
+
+  margin: 0 auto;
+  display: table;
+  padding-top: 60px;
+  text-decoration: none;
+}
