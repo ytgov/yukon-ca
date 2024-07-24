@@ -82,6 +82,7 @@
         "drupal/single_content_sync": "^1.3",
         "drupal/smtp": "^1.2",
         "drupal/stage_file_proxy": "^1.0",
+        "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
         "drupal/token": "^1.11",
         "drupal/twig_field_value": "^2.0",
@@ -104,6 +105,7 @@
         "evolvingweb/blinker_core": "^2.0",
         "evolvingweb/drupal-ci": "^2.0",
         "evolvingweb/glider": "^3.6",
+        "lobsterr/drupal-superfish": "^2.3",
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^10.0",
         "yukon/module_missing_message_fixer": "2.x-dev"
@@ -202,6 +204,19 @@
                     "url": "https://git.drupalcode.org/project/module_missing_message_fixer",
                     "type": "git",
                     "reference": "2.0.x"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "lobsterr/drupal-superfish",
+                "type": "type:drupal-library",
+                "version": "2.3.1",
+                "source": {
+                    "url": "https://github.com/LOBsTerr/drupal-superfish.git",
+                    "type": "git",
+                    "reference": "2.3.1"
                 }
             }
         }
