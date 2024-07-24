@@ -7,8 +7,6 @@
  * @param document document Current document object
  */
 
-const { container } = require("webpack");
-
 (function ($, Drupal, window/* , document */) {
   const $window = $(window);
   /**
