@@ -7,3 +7,36 @@
     @apply mt-0 font-bold;
   }
 }
+
+/* Styles for Documents search-page. */
+.path-documents {
+  .view {
+    .view-content {
+      .views-row {
+        &:last-child {
+          @apply border-b border-solid border-gray-lightborder;
+        }
+
+        .views-field-title {
+          .field-content {
+            @apply mb-0;
+
+            a {
+              @apply no-underline mb-0;
+            }
+          }
+        }
+
+        .views-field-field-last-updated {
+          .document-browse--date-meta {
+            @apply text-gray-dark text-sm mb-2 block;
+          }
+        }
+      }
+    }
+
+    .pager {
+      @apply border-b border-solid border-gray-lightborder;
+    }
+  }
+}

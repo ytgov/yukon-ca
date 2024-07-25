@@ -11,7 +11,7 @@ dependencies:
 id: mainmenusecondary
 theme: yukonca_glider
 region: header_menu
-weight: 0
+weight: -19
 provider: null
 plugin: 'menu_block:main-menu-secondary'
 settings:

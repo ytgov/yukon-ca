@@ -1,0 +1,25 @@
+.applied_filters {
+  @apply mx-0 mt-1.5 mb-6;
+
+  p {
+    @apply mb-2;
+  }
+
+  ul {
+    @apply my-0 -mx-1.5 p-0 list-none;
+
+    li {
+      @apply inline-block mb-2 mx-1.5 pl-2.5;
+    }
+
+    a {
+      @apply relative pr-10;
+
+      &:after {
+        font-family: "Glyphicons Halflings", sans-serif;
+        content: "\e014";
+        @apply text-sm absolute top-[calc(50%-10px)] right-3
+      }
+    }
+  }
+}

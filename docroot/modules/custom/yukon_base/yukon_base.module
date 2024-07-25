@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function yukon_base_views_data_alter(array &$data) {
+  $data['views']['exposed_form_selected_filters'] = [
+    'title' => t('Exposed form - Selected filters'),
+    'help' => '',
+    'area' => [
+      'id' => 'exposed_form_selected_filters',
+    ],
+  ];
+}
