@@ -60,6 +60,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_scanner": "^1.0",
         "drupal/migrate_tools": "^6.0",
+        "drupal/moderation_scheduler": "^9.1",
         "drupal/page_manager": "^4.0@RC",
         "drupal/pantheon_advanced_page_cache": "^2.1",
         "drupal/paragraphs": "^1.12",

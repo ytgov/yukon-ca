@@ -85,6 +85,7 @@ module:
   migrate_plus: 0
   migrate_scanner: 0
   migrate_tools: 0
+  moderation_scheduler: 0
   module_missing_message_fixer: 0
   mysql: 0
   node: 0

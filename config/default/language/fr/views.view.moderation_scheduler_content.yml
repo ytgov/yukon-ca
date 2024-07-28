@@ -1,4 +1,3 @@
-label: Flux
 display:
   default:
     display_title: Maître
@@ -13,35 +12,25 @@ display:
       pager:
         options:
           tags:
-            previous: "‹\_précédent"
-            next: "suivant\_›"
-            first: "«\_premier"
-            last: "dernier\_»"
+            previous: ‹‹
+            next: ››
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
-        feeds_feed_bulk_form:
-          label: 'Mise à jour en masse'
-          action_title: 'Pour la sélection'
+        revision:
+          label: Version
+          format_plural_string: !!binary MQNAY291bnQ=
         title:
           label: Titre
-        name:
+        content_type:
+          label: 'Type de contenu'
+        author:
           label: Auteur
-        changed:
-          label: 'Mis à jour'
-        imported:
-          label: Importé
-        operations:
-          label: Actions
-      filters:
-        title:
-          expose:
-            label: Titre
-      title: Flux
+        status:
+          label: État
   page_1:
     display_title: Page
-    display_options:
-      menu:
-        title: Flux

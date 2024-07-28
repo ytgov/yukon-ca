@@ -25,6 +25,8 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       arguments:
         tid:
           exception:
@@ -32,5 +34,7 @@ display:
     display_title: 'Par défaut'
   feed_1:
     display_title: Flux
+  page_1:
+    display_title: Page
 label: 'Terme de taxonomie'
 description: 'Contenu associé à un terme de taxonomie donné.'

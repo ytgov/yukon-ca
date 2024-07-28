@@ -7,6 +7,8 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -60,12 +62,14 @@ display:
         title: 'Contenu(s) planifié(s)'
       tab_options:
         title: Contenu
+        description: 'Chercher et gérer le contenu planifié'
   user_page:
     display_options:
       menu:
         title: Planifié
       tab_options:
         title: Contenu
+        description: 'Chercher et gérer le contenu planifié'
       arguments:
         uid:
           exception:

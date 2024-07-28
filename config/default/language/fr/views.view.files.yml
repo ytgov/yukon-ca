@@ -38,6 +38,8 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       empty:
         area_text_custom:
           content: 'Aucun fichier disponible.'
@@ -69,6 +71,7 @@ display:
           label: 'Enregistrement du module'
         count:
           label: "Nombre d'utilisations"
+          format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:
