@@ -143,6 +143,7 @@ module:
   yukon_base: 0
   yukon_department: 0
   yukon_migrate: 0
+  yukon_taxonomy: 0
   yukon_w3_custom: 0
   yukon_w3_migrate: 0
   pathauto: 1
