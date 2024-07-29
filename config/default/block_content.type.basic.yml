@@ -6,5 +6,5 @@ _core:
   default_config_hash: Lvq8VtFTIREB3B5lAotlMLJQvnUAwauXeLzPryq-0kg
 id: basic
 label: Basic
-revision: 1
+revision: true
 description: 'A basic block with a title and a body.'

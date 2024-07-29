@@ -18,7 +18,7 @@ dependencies:
   module:
     - content_moderation
     - field_group
-    - link
+    - linkit
     - maxlength
     - metatag
     - paragraphs
@@ -151,17 +151,18 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
   field_related_tasks:
-    type: link_default
+    type: linkit
     weight: 4
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: link_field
+      linkit_auto_link_text: false
     third_party_settings:
       maxlength:
         maxlength_js: null
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-        maxlength_js_enforce: false
   field_sequential_non_sequential:
     type: options_select
     weight: 5
@@ -200,13 +201,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 16
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   publish_on:
     type: datetime_timestamp
     weight: 13
@@ -216,13 +210,6 @@ content:
   status:
     type: boolean_checkbox
     weight: 14
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 17
     region: content
     settings:
       display_label: true
@@ -256,6 +243,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  promote: true
   publish_state: true
+  sticky: true
   unpublish_on: true
   unpublish_state: true

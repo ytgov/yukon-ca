@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: icon
 label: Icon
-revision: 0
+revision: false
 description: ''

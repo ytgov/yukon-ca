@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Education facilities'
 vid: education_facilities
-description: ''
+description: null
 weight: 0
+new_revision: false
