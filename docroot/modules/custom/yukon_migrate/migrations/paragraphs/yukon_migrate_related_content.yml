@@ -11,7 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+    uuid: uuid
     field_external_related_content:
         plugin: sub_process
         source: field_department_related_content

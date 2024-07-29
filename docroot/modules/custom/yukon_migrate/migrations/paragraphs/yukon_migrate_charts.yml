@@ -11,6 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   field_title: title_field
   field_chart_data: field_chart_data
   field_highlighted_stat: field_highlighted_stat

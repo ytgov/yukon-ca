@@ -25,6 +25,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
   # booleans
   field_social_sharing: field_social_sharing

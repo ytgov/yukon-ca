@@ -24,6 +24,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
   body/0/value:
     plugin: yukon_migrate_uri_transform

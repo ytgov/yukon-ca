@@ -21,7 +21,8 @@ process:
   changed: changed
   promote: promote
   sticky: sticky
-  revision_log: logz
+  uuid: uuid
+  revision_log: log
   title:
     plugin: skip_on_empty
     method: row

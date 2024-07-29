@@ -26,6 +26,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
   revision_uid: revision_uid
   revision_log: log
   revision_timestamp: timestamp

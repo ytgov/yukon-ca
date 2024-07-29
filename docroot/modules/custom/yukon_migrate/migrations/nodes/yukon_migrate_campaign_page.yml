@@ -24,6 +24,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
   path/alias: alias
   path/pathauto: pathauto

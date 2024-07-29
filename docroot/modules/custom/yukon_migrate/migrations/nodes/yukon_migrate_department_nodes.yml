@@ -25,6 +25,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
   # dates
   field_review_date:

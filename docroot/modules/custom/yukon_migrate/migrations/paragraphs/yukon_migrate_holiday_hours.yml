@@ -11,7 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+    uuid: uuid
     field_open: field_open
     field_holiday: field_holiday
 
