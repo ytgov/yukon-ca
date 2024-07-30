@@ -10,19 +10,44 @@ dependencies:
     - field.field.node.documents.field_document_type
     - field.field.node.documents.field_document_upload
     - field.field.node.documents.field_documents_non_branded
+    - field.field.node.documents.field_editor_publisher
     - field.field.node.documents.field_feedback_form
     - field.field.node.documents.field_last_updated
     - field.field.node.documents.field_page_description
     - field.field.node.documents.field_pages
+    - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
+    - workflows.workflow.content
   module:
     - content_moderation
     - datetime
+    - field_group
     - media_library
     - path
     - text
+third_party_settings:
+  field_group:
+    group_publishing_options:
+      children:
+        - moderation_state
+        - field_publisher
+        - field_editor_publisher
+        - field_scheduled_time
+      label: 'Publishing Options'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
 id: node.documents.default
 targetEntityType: node
 bundle: documents
@@ -30,7 +55,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 12
+    weight: 11
     region: content
     settings:
       rows: 9
@@ -40,19 +65,19 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_category:
     type: options_select
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact:
     type: text_textarea
-    weight: 19
+    weight: 18
     region: content
     settings:
       rows: 5
@@ -60,19 +85,19 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 18
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   field_document_type:
     type: options_buttons
-    weight: 23
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   field_document_upload:
     type: media_library_widget
-    weight: 14
+    weight: 13
     region: content
     settings:
       media_types: {  }
@@ -84,22 +109,28 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_editor_publisher:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_feedback_form:
     type: boolean_checkbox
-    weight: 22
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_last_updated:
     type: datetime_default
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_page_description:
     type: string_textarea
-    weight: 13
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -107,21 +138,33 @@ content:
     third_party_settings: {  }
   field_pages:
     type: number
-    weight: 16
+    weight: 15
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_publisher:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_scheduled_time:
+    type: datetime_default
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
-    weight: 20
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -138,19 +181,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -164,7 +207,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -179,7 +222,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }

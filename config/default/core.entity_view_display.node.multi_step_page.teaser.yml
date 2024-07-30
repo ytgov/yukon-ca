@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.multi_step_page.body
     - field.field.node.multi_step_page.field_contact
     - field.field.node.multi_step_page.field_department_term
+    - field.field.node.multi_step_page.field_editor_publisher
     - field.field.node.multi_step_page.field_full_width
     - field.field.node.multi_step_page.field_meta_tags
     - field.field.node.multi_step_page.field_page_description
     - field.field.node.multi_step_page.field_paragraphs
+    - field.field.node.multi_step_page.field_publisher
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
@@ -32,6 +34,11 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -41,10 +48,12 @@ hidden:
   addtoany: true
   field_contact: true
   field_department_term: true
+  field_editor_publisher: true
   field_full_width: true
   field_meta_tags: true
   field_page_description: true
   field_paragraphs: true
+  field_publisher: true
   field_related_tasks: true
   field_sequential_non_sequential: true
   field_social_sharing: true

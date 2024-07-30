@@ -5,13 +5,39 @@ dependencies:
   config:
     - field.field.node.site_wide_alert.body
     - field.field.node.site_wide_alert.field_department_term
+    - field.field.node.site_wide_alert.field_editor_publisher
+    - field.field.node.site_wide_alert.field_publisher
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
+    - workflows.workflow.content
   module:
     - allowed_formats
     - content_moderation
+    - datetime
+    - field_group
     - maxlength
     - text
+third_party_settings:
+  field_group:
+    group_publishing_options:
+      children:
+        - moderation_state
+        - field_publisher
+        - field_editor_publisher
+        - field_scheduled_time
+      label: 'Publishing Options'
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
 id: node.site_wide_alert.default
 targetEntityType: node
 bundle: site_wide_alert
@@ -38,13 +64,31 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_department_term:
     type: options_select
     weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editor_publisher:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_publisher:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_scheduled_time:
+    type: datetime_default
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -83,7 +127,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.news.field_charts
     - field.field.node.news.field_contact
     - field.field.node.news.field_department_term
+    - field.field.node.news.field_editor_publisher
     - field.field.node.news.field_featured_content
     - field.field.node.news.field_featured_image
     - field.field.node.news.field_featured_to_homepage
@@ -17,6 +18,7 @@ dependencies:
     - field.field.node.news.field_news_release
     - field.field.node.news.field_news_type
     - field.field.node.news.field_page_description
+    - field.field.node.news.field_publisher
     - field.field.node.news.field_quick_facts
     - field.field.node.news.field_related_link
     - field.field.node.news.field_social_sharing
@@ -38,6 +40,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_backgrounder:
     type: text_default
@@ -61,6 +68,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_featured_image:
     type: entity_reference_entity_view
@@ -87,6 +102,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_quick_facts:
     type: entity_reference_revisions_entity_view
