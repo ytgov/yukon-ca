@@ -24,7 +24,7 @@ process:
   langcode:
     plugin: default_value
     default_value: "fr"
-  uuid: uuid
+
 destination:
   plugin: entity:media
   default_bundle: video

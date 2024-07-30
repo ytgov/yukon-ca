@@ -29,7 +29,6 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
-  uuid: uuid
 
   # booleans
   field_one_wheelchair_camp: field_one_wheelchair_camp

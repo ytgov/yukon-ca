@@ -29,7 +29,6 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
-  uuid: uuid
 
   # meta
   field_page_description/value:

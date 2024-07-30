@@ -27,7 +27,6 @@ process:
   changed: changed
   promote: promote
   sticky: sticky
-  uuid: uuid
   revision_log: log
   title: title
 

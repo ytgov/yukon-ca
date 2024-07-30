@@ -27,7 +27,6 @@ process:
     changed: timestamp
     promote: promote
     sticky: sticky
-    uuid: uuid
     status:
         plugin: skip_on_value
         method: row

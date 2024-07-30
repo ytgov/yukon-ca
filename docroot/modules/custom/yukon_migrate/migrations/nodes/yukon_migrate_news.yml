@@ -24,7 +24,15 @@ process:
   changed: changed
   promote: promote
   sticky: sticky
-  uuid: uuid
+  uuid:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: uuid
+    -
+      plugin: migration_lookup
+      migration: yukon_migrate_news
+      source: uuid
   revision_log: log
   title: title
 

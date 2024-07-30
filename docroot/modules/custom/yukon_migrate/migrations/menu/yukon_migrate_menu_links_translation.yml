@@ -39,7 +39,6 @@ process:
     -
       plugin: callback
       callable: current
-  uuid: uuid
 destination:
   plugin: entity:menu_link_content
   default_bundle: menu_link_content

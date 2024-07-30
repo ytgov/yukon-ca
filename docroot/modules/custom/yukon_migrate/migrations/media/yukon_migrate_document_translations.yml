@@ -51,7 +51,6 @@ process:
   content_translation_source: source
   content_translation_outdated: translate
   langcode: language
-  uuid: uuid
 
 destination:
   plugin: entity:media
