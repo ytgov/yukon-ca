@@ -37,6 +37,9 @@ display:
         operations:
           label: Actions
       filters:
+        bundle:
+          expose:
+            label: Type
         status:
           expose:
             label: État
@@ -52,3 +55,5 @@ display:
             label: Langue
   user_page:
     display_title: Utilisateur
+    display_options:
+      display_comment: 'Access to the user view is controlled via a custom RouteSubscriber. The high-level "view media" permission is added to satisfy the security_review module'

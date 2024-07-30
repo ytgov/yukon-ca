@@ -3,6 +3,8 @@ display:
     display_title: 'Par défaut'
     display_options:
       fields:
+        bundle:
+          label: Type
         uid:
           label: Auteur
         status:
@@ -33,6 +35,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       filters:
+        bundle:
+          expose:
+            label: Type
         status:
           group_info:
             label: 'Statut de publication'

@@ -36,6 +36,8 @@ display:
     display_title: Page
     display_options:
       fields:
+        edit_media:
+          text: Edit
         delete_media:
           text: Supprimer
   widget:
