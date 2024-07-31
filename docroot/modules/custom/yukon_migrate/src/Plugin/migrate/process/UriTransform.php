@@ -71,6 +71,7 @@ class UriTransform extends ProcessPluginBase {
    * @return static
    */
   public static function create(ContainerInterface $container, array $configuration, string $plugin_id, mixed $plugin_definition) {
+    //phpcs:ignore
     return new static(
       $configuration,
       $plugin_id,
