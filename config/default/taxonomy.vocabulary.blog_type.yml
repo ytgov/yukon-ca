@@ -6,3 +6,4 @@ name: 'Government of Yukon blogs'
 vid: blog_type
 description: 'Different government programs, branches and units publish blogs. They’re another way for us to share information with you. Find, follow or share a blog in the list below. '
 weight: 0
+new_revision: false

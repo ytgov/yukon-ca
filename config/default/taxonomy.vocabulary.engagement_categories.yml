@@ -22,3 +22,4 @@ name: 'Engagement Categories'
 vid: engagement_categories
 description: 'Types of engagements'
 weight: 0
+new_revision: false

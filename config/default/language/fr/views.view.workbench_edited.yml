@@ -21,8 +21,6 @@ display:
       fields:
         title:
           label: Titre
-        type:
-          label: Type
         status:
           label: Publié
         changed:
@@ -35,9 +33,6 @@ display:
         title:
           expose:
             label: Titre
-        type:
-          expose:
-            label: Type
         status:
           expose:
             label: Publié
@@ -55,6 +50,8 @@ display:
       pager:
         options:
           tags:
+            previous: ‹‹
+            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
