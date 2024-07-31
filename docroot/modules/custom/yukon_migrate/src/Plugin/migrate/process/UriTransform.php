@@ -2,6 +2,7 @@
 
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
+use Drupal\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
@@ -29,6 +30,54 @@ use Drupal\migrate\Row;
  * method.
  */
 class UriTransform extends ProcessPluginBase {
+
+  /**
+   * The database.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
+   * Constructs a new instance.
+   *
+   * @param array $configuration
+   *   The plugin configuration.
+   * @param string $plugin_id
+   *   The plugin ID.
+   * @param mixed $plugin_definition
+   *   The plugin definition.
+   * @param \Drupal\Core\Database\Database $database
+   *   The database.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->database = $database->getConnection();
+  }
+
+  /**
+   * Create a new instance of the plugin.
+   *
+   * @param \Drupal\Component\DependencyInjection\ContainerInterface $container
+   *   The container.
+   * @param array $configuration
+   *   The plugin configuration.
+   * @param string $plugin_id
+   *   The plugin ID.
+   * @param mixed $plugin_definition
+   *   The plugin definition.
+   *
+   * @return static
+   */
+  public static function create(ContainerInterface $container, array $configuration, string $plugin_id, mixed $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('database')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -76,7 +125,7 @@ class UriTransform extends ProcessPluginBase {
       $migrateQuery->condition('n.uuid', $uuid);
       $migrateResult = $migrateQuery->execute()->fetchAssoc();
 
-      $query = \Drupal::database()
+      $query = $this->database
         ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
       $query->fields('m', ['destid1']);
       $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
