@@ -29,7 +29,7 @@ use Drupal\migrate\Row;
  * external services just remove it and all other stuff except transform()
  * method.
  */
-class UriTransform extends ProcessPluginBase {
+final class UriTransform extends ProcessPluginBase {
 
   /**
    * The database.
