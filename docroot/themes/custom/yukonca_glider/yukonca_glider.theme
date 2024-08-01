@@ -36,7 +36,7 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 function yukonca_glider_preprocess_comment(&$variables) {
   $date_formatter = \Drupal::service('date.formatter');
   $comment = $variables['elements']['#comment'];
-  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'medium_format');
 }
 
 /**

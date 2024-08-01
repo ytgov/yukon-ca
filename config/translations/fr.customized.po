@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2024-06-20 09:31+0000\n"
-"PO-Revision-Date: 2024-06-20 09:31+0000\n"
+"POT-Creation-Date: 2024-07-08 15:36+0000\n"
+"PO-Revision-Date: 2024-07-08 15:36+0000\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -1389,4 +1389,23 @@ msgstr "Déc"
 msgid "Date modified: @date"
 msgstr "Date de modification : @date"
 
+msgid "Sunday"
+msgstr "dimanche"
 
+msgid "Monday"
+msgstr "lundi"
+
+msgid "Tuesday"
+msgstr "mardi"
+
+msgid "Wednesday"
+msgstr "mercredi"
+
+msgid "Thursday"
+msgstr "jeudi"
+
+msgid "Friday"
+msgstr "vendredi"
+
+msgid "Saturday"
+msgstr "samedi"
