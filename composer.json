@@ -113,6 +113,7 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
+                "2321071 - BaseFieldOverride fails to take into account ContentEntityInterface::bundleFieldDefinitions() when invoking onFieldDefinitionUpdate()": "https://www.drupal.org/files/issues/2023-11-02/2321071-71.patch",
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
                 "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch"
