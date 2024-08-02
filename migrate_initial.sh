@@ -26,10 +26,16 @@ fi
 # Enable errtrace or the error trap handler will not work as expected
 set -o errtrace         # Ensure the error trap handler is inherited
 
+usage () {
+  echo "Usage: ./migrate_rollback.sh ddev\n"
+  echo "       ./migrate_rollback.sh local\n"
+  echo "       ./migrate_rollback.sh terminus dev|test|live\n\n"
+  exit 1
+}
+
 if [ "$#" -gt 2 ]
 then
-  echo "Usage: ./migrate_rollback.sh ddev|local|terminus [dev|test|live]\n\n"
-  exit 1
+  usage
 fi
 
 case "$1" in
@@ -40,6 +46,11 @@ case "$1" in
     COMMAND="drush"
     ;;
   terminus)
+    if [ "$#" -ne 2 ]
+    then
+      usage
+    fi
+
     COMMAND="terminus drush yukon-drupal-10.$2 --"
     ;;
   *)
@@ -47,8 +58,7 @@ case "$1" in
     then
       COMMAND="ddev drush"
     else
-      echo "Usage: ./migrate_rollback.sh ddev|local|terminus [dev|test|live]\n\n"
-      exit 1
+      usage
     fi
     ;;
 esac
