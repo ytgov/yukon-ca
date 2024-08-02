@@ -1,10 +1,10 @@
 #!/opt/homebrew/bin/bash
 
 usage () {
-  echo "Usage: ./migrate_rollback.sh  (This uses ddev by default.)\n"
-  echo "       ./migrate_rollback.sh ddev\n"
-  echo "       ./migrate_rollback.sh local\n"
-  echo "       ./migrate_rollback.sh terminus dev|test|live\n\n"
+  echo "Usage: ./migrate_rollback.sh  (This uses ddev by default.)"
+  echo "       ./migrate_rollback.sh ddev"
+  echo "       ./migrate_rollback.sh local"
+  echo "       ./migrate_rollback.sh terminus dev|test|live"
   exit 1
 }
 
