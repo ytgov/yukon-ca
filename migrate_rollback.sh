@@ -1,16 +1,31 @@
 #!/opt/homebrew/bin/bash
 
-if [ "$#" -gt 1 ]
+if [ "$#" -gt 2 ]
 then
-echo "Usage: ./migrate_rollback.sh [dev|test|live]\n\n"
+echo "Usage: ./migrate_rollback.sh ddev|local|terminus [dev|test|live]\n\n"
 exit 1
 fi
 
-COMMAND="ddev drush "
-if [ "$#" -ne 0 ]
-then
-  COMMAND="terminus drush yukon-drupal-10.$1 -- "
-fi
+case "$1" in
+  ddev)
+    COMMAND="ddev drush"
+    ;;
+  local)
+    COMMAND="drush"
+    ;;
+  terminus)
+    COMMAND="terminus drush yukon-drupal-10.$2 --"
+    ;;
+  *)
+    if [ "$#" -eq 0 ]
+    then
+      COMMAND="ddev drush"
+    else
+      echo "Usage: ./migrate_rollback.sh ddev|local|terminus [dev|test|live]\n\n"
+      exit 1
+    fi
+    ;;
+esac
 
 $COMMAND mr yukon_migrate_files__public
 $COMMAND mr yukon_migrate_documents_page_translations
