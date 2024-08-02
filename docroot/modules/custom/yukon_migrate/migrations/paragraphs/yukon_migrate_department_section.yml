@@ -11,7 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+    uuid: uuid
     field_section_title: field_title
     field_section_email: field_branch_email/0/email
     field_section_fax_number: field_fax_number
@@ -22,9 +22,15 @@ process:
     field_secondary_phone_extension: field_secondary_phone_extension
     field_toll_free_phone: field_toll_free_phone
     field_toll_free_phone_extension: field_toll_free_phone_extension
-    field_section_description/value: field_section_description/0/value
+    field_section_description/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_section_description/0/value
     field_section_description/format: constants/default_text_format
-    field_links_to_services_provided/value: field_links_to_services_provided/0/value
+    field_links_to_services_provided/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_links_to_services_provided/0/value
     field_links_to_services_provided/format: constants/default_text_format
     field_section_type:
         plugin: migration_lookup

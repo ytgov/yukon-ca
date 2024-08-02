@@ -28,7 +28,7 @@ function yukon_department_form_webform_submission_page_feedback_form_alter(&$for
         continue;
       }
       $department = $node->get($department_field_name)->entity;
-      $form['elements']['department']['#value'] = $department->label();
+      $form['elements']['department']['#value'] = !empty($department) ? $department->label() : '';
       break;
     }
   }

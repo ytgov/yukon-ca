@@ -140,8 +140,9 @@ content:
     label: hidden
     settings:
       timezone_override: America/Whitehorse
-      format_type: medium
-      separator: to
+      format_type: long_with_time
+      from_to: both
+      separator: 'to '
       show_next: 5
       count_per_item: true
       occurrence_format_type: medium

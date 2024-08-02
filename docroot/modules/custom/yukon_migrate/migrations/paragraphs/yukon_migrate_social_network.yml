@@ -9,6 +9,7 @@ source:
   plugin: d7_paragraphs_item
   bundle: social_network
 process:
+  uuid: uuid
   field_social_network_name: field_social_network_name
   field_social_campaign_tag: field_social_campaign_tag
 

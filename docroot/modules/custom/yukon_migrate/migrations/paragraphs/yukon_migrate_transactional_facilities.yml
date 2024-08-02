@@ -11,13 +11,16 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+  uuid: uuid
   field_transactional_facility_typ:
     plugin: migration_lookup
     migration: yukon_migrate_transactional_facility_type
     source: field_transactional_facility_typ
     no_stub: true
-  field_tf_services/value: field_tf_services/0/value
+  field_tf_services/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_tf_services/0/value
   field_tf_services/format: constants/default_text_format
 
 destination:

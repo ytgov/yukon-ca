@@ -11,9 +11,13 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   field_title: field_cf_title
 
-  field_description/value: field_cf_description/0/value
+  field_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_cf_description/0/value
   field_description/format: constants/default_text_format
 
   pseudo_field_paragraphs:

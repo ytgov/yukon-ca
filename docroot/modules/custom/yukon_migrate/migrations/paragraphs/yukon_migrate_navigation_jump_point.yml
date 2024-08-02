@@ -9,6 +9,7 @@ source:
   plugin: d7_paragraphs_item
   bundle: navigation_jump_point
 process:
+  uuid: uuid
   field_add_navigation_jump_point: field_add_navigation_jump_point
   field_icon_name: field_add_navigation_jump_point_/0/icon
 destination:

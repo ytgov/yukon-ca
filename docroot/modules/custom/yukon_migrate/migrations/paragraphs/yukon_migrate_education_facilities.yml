@@ -11,7 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+  uuid: uuid
   field_education_facility_type:
     plugin: migration_lookup
     migration: yukon_migrate_education_facilities_terms

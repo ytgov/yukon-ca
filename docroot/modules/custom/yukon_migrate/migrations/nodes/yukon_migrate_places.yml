@@ -47,10 +47,16 @@ process:
   field_place_accessibility/value: field_place_accessibility/0/value
   field_place_accessibility/format: constants/default_text_format
 
-  field_additional_related_info/value: field_additional_related_informa/0/value
+  field_additional_related_info/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_additional_related_informa/0/value
   field_additional_related_info/format: constants/default_text_format
 
-  field_page_description/value: field_description/0/value
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
   field_page_description/format: constants/default_text_format
 
   # paragraphs
