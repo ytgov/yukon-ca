@@ -26,17 +26,29 @@ fi
 # Enable errtrace or the error trap handler will not work as expected
 set -o errtrace         # Ensure the error trap handler is inherited
 
+if [ "$#" -gt 1 ]
+then
+echo "Usage: ./migrate_initial.sh [dev|test|live]\n\n"
+exit 1
+fi
+
+COMMAND="ddev drush "
+if [ "$#" -ne 0 ]
+then
+  COMMAND="terminus drush yukon-drupal-10.$1 -- "
+fi
+
 date
 
-time drush migrate:import --group=legacy_taxonomies --continue-on-failure
-time drush migrate:import --group=legacy_media --continue-on-failure
-time drush migrate:import --group=legacy_paragraphs --continue-on-failure
-time drush migrate:import --group=legacy_nodes --continue-on-failure
-time drush migrate:import --group=legacy_documents --continue-on-failure
-time drush migrate:import --group=legacy_basic_page --continue-on-failure
-time drush migrate:import --group=legacy_page_news --continue-on-failure
-time drush migrate:import --group=legacy_user_role --continue-on-failure
-time drush migrate:import --group=legacy_menu --continue-on-failure
-time drush migrate:import --group=legacy_files --continue-on-failure
+time $COMMAND migrate:import --group=legacy_taxonomies --continue-on-failure
+time $COMMAND migrate:import --group=legacy_media --continue-on-failure
+time $COMMAND migrate:import --group=legacy_paragraphs --continue-on-failure
+time $COMMAND migrate:import --group=legacy_nodes --continue-on-failure
+time $COMMAND migrate:import --group=legacy_documents --continue-on-failure
+time $COMMAND migrate:import --group=legacy_basic_page --continue-on-failure
+time $COMMAND migrate:import --group=legacy_page_news --continue-on-failure
+time $COMMAND migrate:import --group=legacy_user_role --continue-on-failure
+time $COMMAND migrate:import --group=legacy_menu --continue-on-failure
+time $COMMAND migrate:import --group=legacy_files --continue-on-failure
 
 date
