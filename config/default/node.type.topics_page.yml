@@ -28,5 +28,5 @@ type: topics_page
 description: 'Use for a collection of related links.'
 help: null
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

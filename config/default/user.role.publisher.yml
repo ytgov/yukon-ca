@@ -3,12 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.blog
+    - node.type.campaign_page
+    - node.type.campground_directory_record
+    - node.type.department
+    - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
+    - node.type.event
+    - node.type.in_page_alert
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.multi_step_page
+    - node.type.news
+    - node.type.topics_page
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
-    - file
-    - help
     - linkchecker
     - media
     - node
@@ -26,7 +38,6 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
-  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
@@ -34,9 +45,76 @@ permissions:
   - 'administer media'
   - 'administer menu'
   - 'administer nodes'
+  - 'create blog content'
+  - 'create campaign_page content'
+  - 'create campground_directory_record content'
+  - 'create department content'
+  - 'create directory_records_places content'
+  - 'create documents content'
+  - 'create engagement content'
+  - 'create event content'
+  - 'create in_page_alert content'
+  - 'create landing_page content'
+  - 'create landing_page_level_2 content'
   - 'create media'
+  - 'create multi_step_page content'
+  - 'create news content'
+  - 'create topics_page content'
   - 'create url aliases'
-  - 'delete own files'
+  - 'delete any campaign_page content'
+  - 'delete any campground_directory_record content'
+  - 'delete any department content'
+  - 'delete any directory_records_places content'
+  - 'delete any documents content'
+  - 'delete any engagement content'
+  - 'delete any event content'
+  - 'delete any in_page_alert content'
+  - 'delete any landing_page content'
+  - 'delete any landing_page_level_2 content'
+  - 'delete any multi_step_page content'
+  - 'delete any news content'
+  - 'delete any topics_page content'
+  - 'delete own campaign_page content'
+  - 'delete own campground_directory_record content'
+  - 'delete own department content'
+  - 'delete own directory_records_places content'
+  - 'delete own documents content'
+  - 'delete own engagement content'
+  - 'delete own event content'
+  - 'delete own in_page_alert content'
+  - 'delete own landing_page content'
+  - 'delete own landing_page_level_2 content'
+  - 'delete own multi_step_page content'
+  - 'delete own news content'
+  - 'delete own topics_page content'
+  - 'edit any blog content'
+  - 'edit any campaign_page content'
+  - 'edit any campground_directory_record content'
+  - 'edit any department content'
+  - 'edit any directory_records_places content'
+  - 'edit any documents content'
+  - 'edit any engagement content'
+  - 'edit any event content'
+  - 'edit any in_page_alert content'
+  - 'edit any landing_page content'
+  - 'edit any landing_page_level_2 content'
+  - 'edit any multi_step_page content'
+  - 'edit any news content'
+  - 'edit any topics_page content'
+  - 'edit own blog content'
+  - 'edit own campaign_page content'
+  - 'edit own campground_directory_record content'
+  - 'edit own department content'
+  - 'edit own directory_records_places content'
+  - 'edit own documents content'
+  - 'edit own engagement content'
+  - 'edit own event content'
+  - 'edit own in_page_alert content'
+  - 'edit own landing_page content'
+  - 'edit own landing_page_level_2 content'
+  - 'edit own multi_step_page content'
+  - 'edit own news content'
+  - 'edit own topics_page content'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'

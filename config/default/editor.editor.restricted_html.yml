@@ -50,7 +50,6 @@ settings:
         - '<h5 id>'
         - '<h6 id>'
     linkit_extension:
-      linkit_enabled: true
-      linkit_profile: ckeditor
+      linkit_enabled: false
 image_upload:
   status: false

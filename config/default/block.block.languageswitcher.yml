@@ -9,7 +9,7 @@ dependencies:
 id: languageswitcher
 theme: yukonca_glider
 region: header_menu
-weight: -21
+weight: 0
 provider: null
 plugin: 'language_block:language_interface'
 settings:

@@ -2,10 +2,10 @@ uuid: a56cab3a-05bd-4ea2-a584-61ebfc84d307
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.blog
   module:
     - contextual
-    - file
-    - help
     - linkchecker
     - node
     - system
@@ -21,7 +21,6 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
-  - 'access help pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
@@ -30,7 +29,11 @@ permissions:
   - 'administer workbench access'
   - 'assign workbench access'
   - 'batch update workbench access'
-  - 'delete own files'
+  - 'create blog content'
+  - 'delete any blog content'
+  - 'delete own blog content'
+  - 'edit any blog content'
+  - 'edit own blog content'
   - 'use workbench access'
   - 'view own unpublished content'
   - 'view the administration theme'

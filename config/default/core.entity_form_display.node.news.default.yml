@@ -24,8 +24,7 @@ dependencies:
     - node.type.news
   module:
     - content_moderation
-    - linkit
-    - maxlength
+    - link
     - media_library
     - metatag
     - paragraphs
@@ -189,18 +188,13 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
   field_related_link:
-    type: linkit
+    type: link_default
     weight: 8
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
-    third_party_settings:
-      maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+    third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
     weight: 19
@@ -247,6 +241,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 24
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -278,6 +279,5 @@ content:
 hidden:
   publish_on: true
   publish_state: true
-  sticky: true
   unpublish_on: true
   unpublish_state: true

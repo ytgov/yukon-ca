@@ -154,7 +154,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium_format
+            date_format: yg_long
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -1412,7 +1412,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium_format
+            date_format: yg_long
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -1912,7 +1912,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium_format
+            date_format: yg_long
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -2980,7 +2980,7 @@ display:
             click_sort_column: value
             type: timestamp
             settings:
-              date_format: medium_format
+              date_format: yg_long
               custom_date_format: ''
               timezone: ''
             group_column: value
@@ -4342,7 +4342,7 @@ display:
             click_sort_column: value
             type: timestamp
             settings:
-              date_format: medium_format
+              date_format: yg_long
               custom_date_format: ''
               timezone: ''
             group_column: value

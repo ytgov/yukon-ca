@@ -1,2 +1,2 @@
 label: 'Date moyenne par défaut'
-pattern: 'j F Y - G \h i'
+pattern: 'D d/m/Y - H:i'

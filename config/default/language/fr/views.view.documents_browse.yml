@@ -1,4 +1,45 @@
 display:
+  block:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+      filters:
+        combine:
+          expose:
+            label: Mots-clés
+        field_department_term_target_id:
+          expose:
+            label: ' Ministères'
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'
+  page:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<p>Désolé, aucun résultat n'a été trouvé. Essayez d'éliminer l'un des filtres appliqués.</p>"
+            format: full_html
+      header:
+        result:
+          content: 'Résultats  @start - @end de @total'
+      pager:
+        options:
+          tags:
+            next: 'suivant ›'
+            last: Last
+          expose:
+            items_per_page_options_all_label: '- Tout -'
+      filters:
+        combine:
+          expose:
+            label: Mots-clés
+        field_department_term_target_id:
+          expose:
+            label: Ministères
   page_1:
     display_options:
       empty:

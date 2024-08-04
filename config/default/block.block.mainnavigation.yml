@@ -13,7 +13,7 @@ dependencies:
 id: mainnavigation
 theme: yukonca_glider
 region: sidebar_first
-weight: -12
+weight: 0
 provider: null
 plugin: 'menu_block:main'
 settings:

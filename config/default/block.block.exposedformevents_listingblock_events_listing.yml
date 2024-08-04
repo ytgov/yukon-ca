@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /arts-and-culture/events
+    pages: /node/48701

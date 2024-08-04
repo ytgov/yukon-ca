@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: AlzeyytA8InBgxIG9H2UDJYs3CG98Zj6yRsDKmlbZwA
 id: short
-label: 'Short with Time'
+label: 'Default short date'
 locked: false
-pattern: 'Y-d-m - g:i a'
+pattern: 'm/d/Y - H:i'

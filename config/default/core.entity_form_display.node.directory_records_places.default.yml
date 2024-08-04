@@ -31,8 +31,7 @@ dependencies:
     - content_moderation
     - field_group
     - leaflet
-    - linkit
-    - maxlength
+    - link
     - metatag
     - paragraphs
     - path
@@ -260,17 +259,14 @@ content:
       reset_map:
         control: false
         options: '{"position": "topleft", "title": "Reset View"}'
-      map_scale:
-        control: false
-        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
-      fullscreen:
-        control: false
-        options: '{"position":"topleft","pseudoFullscreen":false}'
-      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
       locate:
         control: false
         options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
         automatic: false
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
       geocoder:
         control: false
         settings:
@@ -283,6 +279,62 @@ content:
           popup: false
           options: ''
       geometry_validation: false
+      multiple_map: false
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+      popup: false
+      popup_content: ''
+      leaflet_popup:
+        value: ''
+        options: '{"maxWidth":"300","minWidth":"50", "autoPan": true}'
+        view_mode: full
+        control: false
+        content: ''
+      leaflet_tooltip:
+        value: ''
+        options: '{"permanent":false,"direction":"center"}'
+      map_position:
+        force: false
+        center:
+          lat: 0
+          lon: 0
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+      weight: null
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: null
+          'y': null
+        iconAnchor:
+          x: null
+          'y': null
+        shadowSize:
+          x: null
+          'y': null
+        shadowAnchor:
+          x: null
+          'y': null
+        popupAnchor:
+          x: null
+          'y': null
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius": 100, "color": "red", "fillColor": "#f03", "fillOpacity": 0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        excluded: false
+        include_path: false
       feature_properties:
         values: ''
     third_party_settings: {  }
@@ -375,18 +427,13 @@ content:
       display_label: true
     third_party_settings: {  }
   field_statutory_holiday_link:
-    type: linkit
+    type: link_default
     weight: 9
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
-    third_party_settings:
-      maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+    third_party_settings: {  }
   field_street_address:
     type: string_textfield
     weight: 10
@@ -396,18 +443,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_website:
-    type: linkit
+    type: link_default
     weight: 11
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
-    third_party_settings:
-      maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
     weight: 10
@@ -433,9 +475,23 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -469,9 +525,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  promote: true
   publish_on: true
   publish_state: true
-  sticky: true
   unpublish_on: true
   unpublish_state: true
