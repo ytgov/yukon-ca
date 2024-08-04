@@ -1,0 +1,10 @@
+uuid: 1bb33e29-925c-4074-b35e-a803ca0410cf
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_nodes
+label: legacy_nodes
+description: ''
+source_type: null
+module: null
+shared_configuration: null
