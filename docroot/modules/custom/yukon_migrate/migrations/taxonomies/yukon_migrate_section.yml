@@ -32,7 +32,3 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: section
-
-migration_dependencies:
-  required:
-    - yukon_migrate_vocabulary

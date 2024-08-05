@@ -48,5 +48,4 @@ destination:
 
 migration_dependencies:
   required:
-    - yukon_migrate_vocabulary
     - yukon_migrate_images

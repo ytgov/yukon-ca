@@ -29,7 +29,3 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: media_folders
-
-migration_dependencies:
-  required:
-    - yukon_migrate_vocabulary

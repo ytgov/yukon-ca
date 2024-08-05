@@ -32,7 +32,3 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: recreation_site_type
-
-migration_dependencies:
-  required:
-    - yukon_migrate_vocabulary
