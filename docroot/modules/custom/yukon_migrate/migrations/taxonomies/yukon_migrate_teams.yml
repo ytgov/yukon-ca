@@ -30,3 +30,7 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: teams
+
+migration_dependencies:
+  required:
+    - yukon_migrate_vocabulary

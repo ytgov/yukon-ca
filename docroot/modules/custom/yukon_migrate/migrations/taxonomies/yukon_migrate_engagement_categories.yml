@@ -43,4 +43,5 @@ destination:
   default_bundle: engagement_categories
 migration_dependencies:
   required:
+    - yukon_migrate_vocabulary
     - yukon_migrate_images

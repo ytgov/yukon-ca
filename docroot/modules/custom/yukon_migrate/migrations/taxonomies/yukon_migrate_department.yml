@@ -31,3 +31,7 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: department
+
+migration_dependencies:
+  required:
+    - yukon_migrate_vocabulary

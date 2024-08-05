@@ -53,7 +53,7 @@ final class UriTransform extends ProcessPluginBase {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->database = $database->getConnection();
+    $this->database = $database;
   }
 
   /**
