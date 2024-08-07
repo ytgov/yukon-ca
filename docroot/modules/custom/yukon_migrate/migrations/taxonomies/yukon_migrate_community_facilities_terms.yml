@@ -32,4 +32,3 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: community_facilities
-

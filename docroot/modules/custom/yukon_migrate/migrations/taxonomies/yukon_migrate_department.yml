@@ -31,4 +31,3 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: department
-
