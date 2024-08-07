@@ -1,0 +1,31 @@
+uuid: b6ce80ce-6e61-4a95-9e67-a9bbbef42a95
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - yukonca_glider
+id: megamenu
+theme: yukonca_glider
+region: header_menu
+weight: -20
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Mega Menu'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'main:'
+  suggestion: main
+visibility: {  }

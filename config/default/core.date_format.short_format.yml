@@ -1,0 +1,8 @@
+uuid: 7a2a1ff1-2b96-4bb5-8e86-be6bb071e3a9
+langcode: en
+status: true
+dependencies: {  }
+id: short_format
+label: Short
+locked: false
+pattern: Y-d-m

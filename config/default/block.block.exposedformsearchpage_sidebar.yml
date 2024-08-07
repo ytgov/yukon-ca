@@ -1,0 +1,28 @@
+uuid: 04a16a1a-4f3f-4972-859f-adc65cd6d87e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: exposedformsearchpage_sidebar
+theme: yukonca_glider
+region: sidebar_first
+weight: -11
+provider: null
+plugin: 'views_exposed_filter_block:search-page_1'
+settings:
+  id: 'views_exposed_filter_block:search-page_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search

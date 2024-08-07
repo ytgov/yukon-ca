@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.in_page_alert
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
-    - node
+    - file
+    - help
     - path
     - system
     - toolbar
@@ -21,13 +21,12 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access contextual links'
+  - 'access help pages'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'create in_page_alert content'
   - 'create url aliases'
-  - 'edit any in_page_alert content'
-  - 'edit own in_page_alert content'
+  - 'delete own files'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'

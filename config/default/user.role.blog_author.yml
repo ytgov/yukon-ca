@@ -3,12 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.blog
     - workflows.workflow.content
   module:
     - content_moderation
     - content_translation
     - contextual
+    - file
+    - help
     - media
     - node
     - path
@@ -24,15 +25,14 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
   - 'administer nodes'
-  - 'create blog content'
   - 'create media'
   - 'create url aliases'
-  - 'delete own blog content'
-  - 'edit own blog content'
+  - 'delete own files'
   - 'translate any entity'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
