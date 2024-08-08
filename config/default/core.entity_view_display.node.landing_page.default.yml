@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_department_term
+    - field.field.node.landing_page.field_editor_publisher
     - field.field.node.landing_page.field_icon_dark
     - field.field.node.landing_page.field_icon_light
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
+    - field.field.node.landing_page.field_publisher
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
@@ -31,6 +33,19 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
     label: above
@@ -39,6 +54,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_secondary_content:
     type: entity_reference_revisions_entity_view

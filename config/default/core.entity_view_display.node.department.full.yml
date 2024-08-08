@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.department.field_add_secondary_top_tasks
     - field.field.node.department.field_department_mandate
     - field.field.node.department.field_department_term
+    - field.field.node.department.field_editor_publisher
     - field.field.node.department.field_legislative_assembly_web
     - field.field.node.department.field_meta_tags
     - field.field.node.department.field_minister_email
@@ -19,6 +20,7 @@ dependencies:
     - field.field.node.department.field_minister_telephone
     - field.field.node.department.field_optional_internal_related
     - field.field.node.department.field_page_description
+    - field.field.node.department.field_publisher
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
     - field.field.node.department.field_yukon_editorial_team
@@ -68,6 +70,11 @@ targetEntityType: node
 bundle: department
 mode: full
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_add_branch:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -207,8 +214,10 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_editor_publisher: true
   field_meta_tags: true
   field_page_description: true
+  field_publisher: true
   field_review_date: true
   field_yukon_editorial_team: true
   langcode: true

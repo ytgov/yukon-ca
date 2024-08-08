@@ -34,6 +34,8 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       empty:
         area_text_custom:
           content: "Aucun contenu modéré disponible. Seules les versions de contenu en attente, telles que 'Brouillon', sont listées ici."

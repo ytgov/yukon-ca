@@ -1,0 +1,41 @@
+uuid: 83a6677b-e740-4688-9fd3-4384c4d1808c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editor_publisher
+    - node.type.documents
+id: node.documents.field_editor_publisher
+field_name: field_editor_publisher
+entity_type: node
+bundle: documents
+label: 'Editor, Publisher'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        editor: editor
+        publisher: publisher
+        administrator: '0'
+        writer: '0'
+        translator: '0'
+        team_administrator: '0'
+        site_administrator: '0'
+        dis_blog: '0'
+        _webform_manager: '0'
+        author_in_page_alerts: '0'
+        blog_author: '0'
+    include_anonymous: false
+field_type: entity_reference

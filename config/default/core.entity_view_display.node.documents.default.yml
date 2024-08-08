@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.documents.field_document_type
     - field.field.node.documents.field_document_upload
     - field.field.node.documents.field_documents_non_branded
+    - field.field.node.documents.field_editor_publisher
     - field.field.node.documents.field_feedback_form
     - field.field.node.documents.field_last_updated
     - field.field.node.documents.field_page_description
     - field.field.node.documents.field_pages
+    - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
@@ -33,6 +35,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_category:
     type: entity_reference_label
@@ -69,6 +76,14 @@ content:
         fences_label_classes: ''
     weight: 3
     region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
   field_last_updated:
     type: datetime_default
     label: inline
@@ -95,6 +110,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_social_sharing:
     type: boolean

@@ -1,0 +1,27 @@
+uuid: fa2d9dab-4264-4214-93b8-89d5578ca677
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publisher
+    - workflows.workflow.content
+id: draft_to_ready_to_publish
+label: 'Ready to Publish'
+format: plain_text
+subject: 'Content is ready to publish: [node:title]'
+recipient_types:
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_publisher'
+bundles: {  }
+body:
+  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
+  format: plain_text
+replyTo: ''
+transitions:
+  content:
+    submit_for_publish: submit_for_publish

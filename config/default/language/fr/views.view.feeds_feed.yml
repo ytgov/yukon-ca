@@ -8,6 +8,8 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -25,6 +27,8 @@ display:
           action_title: 'Pour la sélection'
         title:
           label: Titre
+        type:
+          label: Type
         name:
           label: Auteur
         changed:
@@ -37,8 +41,12 @@ display:
         title:
           expose:
             label: Titre
+        type:
+          expose:
+            label: Type
       title: Flux
   page_1:
+    display_title: Page
     display_options:
       menu:
         title: Flux

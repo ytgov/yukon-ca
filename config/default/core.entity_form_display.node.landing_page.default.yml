@@ -5,18 +5,22 @@ dependencies:
   config:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_department_term
+    - field.field.node.landing_page.field_editor_publisher
     - field.field.node.landing_page.field_icon_dark
     - field.field.node.landing_page.field_icon_light
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
+    - field.field.node.landing_page.field_publisher
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
+    - workflows.workflow.content
   module:
     - content_moderation
+    - datetime
     - field_group
     - linkit
     - maxlength
@@ -43,6 +47,25 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_publishing_options:
+      children:
+        - moderation_state
+        - field_publisher
+        - field_editor_publisher
+        - field_scheduled_time
+      label: 'Publishing Options'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -60,13 +83,19 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_department_term:
     type: options_select
     weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_editor_publisher:
+    type: options_select
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -90,7 +119,7 @@ content:
         show_edit: '1'
   field_meta_tags:
     type: metatag_firehose
-    weight: 19
+    weight: 18
     region: content
     settings:
       sidebar: true
@@ -122,12 +151,24 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+  field_publisher:
+    type: options_select
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_redirection:
     type: boolean_checkbox
     weight: 12
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_scheduled_time:
+    type: datetime_default
+    weight: 22
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_secondary_content:
     type: paragraphs
@@ -175,19 +216,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -216,7 +257,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }

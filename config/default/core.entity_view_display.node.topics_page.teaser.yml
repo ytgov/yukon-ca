@@ -6,10 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.topics_page.body
     - field.field.node.topics_page.field_department_term
+    - field.field.node.topics_page.field_editor_publisher
     - field.field.node.topics_page.field_image
     - field.field.node.topics_page.field_meta_tags
     - field.field.node.topics_page.field_page_description
     - field.field.node.topics_page.field_paragraphs
+    - field.field.node.topics_page.field_publisher
     - field.field.node.topics_page.field_top_task
     - field.field.node.topics_page.field_whats_new_header
     - field.field.node.topics_page.field_yukon_editorial_team
@@ -21,6 +23,11 @@ targetEntityType: node
 bundle: topics_page
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -30,10 +37,12 @@ hidden:
   addtoany: true
   body: true
   field_department_term: true
+  field_editor_publisher: true
   field_image: true
   field_meta_tags: true
   field_page_description: true
   field_paragraphs: true
+  field_publisher: true
   field_top_task: true
   field_whats_new_header: true
   field_yukon_editorial_team: true

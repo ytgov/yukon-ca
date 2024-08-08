@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.campaign_page.field_copyright_notice_text
     - field.field.node.campaign_page.field_department_term
     - field.field.node.campaign_page.field_display_copyright_notice
+    - field.field.node.campaign_page.field_editor_publisher
     - field.field.node.campaign_page.field_hero_image
     - field.field.node.campaign_page.field_highlight_color
     - field.field.node.campaign_page.field_image
@@ -22,15 +23,18 @@ dependencies:
     - field.field.node.campaign_page.field_page_description
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
+    - field.field.node.campaign_page.field_publisher
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
     - field.field.node.campaign_page.field_use_navigation_jump_points
     - field.field.node.campaign_page.field_yukon_editorial_team
     - node.type.campaign_page
+    - workflows.workflow.content
   module:
     - allowed_formats
     - color_field
     - content_moderation
+    - datetime
     - field_group
     - link
     - maxlength
@@ -113,6 +117,25 @@ third_party_settings:
         open: true
         description: ''
         required_fields: true
+    group_publishing_options:
+      children:
+        - moderation_state
+        - field_publisher
+        - field_editor_publisher
+        - field_scheduled_time
+      label: 'Publishing Options'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
 id: node.campaign_page.default
 targetEntityType: node
 bundle: campaign_page
@@ -120,7 +143,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -182,6 +205,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_editor_publisher:
+    type: options_select
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_hero_image:
     type: media_library_widget
     weight: 26
@@ -236,7 +265,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 21
+    weight: 20
     region: content
     settings:
       sidebar: true
@@ -293,6 +322,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_publisher:
+    type: options_select
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_scheduled_time:
+    type: datetime_default
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_social_network:
     type: paragraphs
     weight: 16
@@ -345,19 +386,19 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 19
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 19
     region: content
     settings:
       display_label: true
@@ -371,7 +412,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -386,7 +427,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }

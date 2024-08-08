@@ -3,6 +3,8 @@ display:
     display_title: 'Par défaut'
     display_options:
       fields:
+        bundle:
+          label: Type
         uid:
           label: Auteur
         status:
@@ -30,7 +32,12 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       filters:
+        bundle:
+          expose:
+            label: Type
         status:
           group_info:
             label: 'Statut de publication'

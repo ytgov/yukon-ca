@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_change_room
     - field.field.node.campground_directory_record.field_cook_shelter
     - field.field.node.campground_directory_record.field_department_term
+    - field.field.node.campground_directory_record.field_editor_publisher
     - field.field.node.campground_directory_record.field_fire_ring
     - field.field.node.campground_directory_record.field_gate_closed_date
     - field.field.node.campground_directory_record.field_gate_open_date
@@ -40,6 +41,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
+    - field.field.node.campground_directory_record.field_publisher
     - field.field.node.campground_directory_record.field_pull_through
     - field.field.node.campground_directory_record.field_recreation_site_type
     - field.field.node.campground_directory_record.field_region
@@ -73,6 +75,11 @@ targetEntityType: node
 bundle: campground_directory_record
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_august_availability:
     type: list_default
     label: above
@@ -235,6 +242,7 @@ hidden:
   field_change_room: true
   field_cook_shelter: true
   field_department_term: true
+  field_editor_publisher: true
   field_fire_ring: true
   field_gps_coordinate_n: true
   field_gps_coordinate_w: true
@@ -254,6 +262,7 @@ hidden:
   field_photo_credit: true
   field_picnic_tables: true
   field_playground: true
+  field_publisher: true
   field_pull_through: true
   field_recreation_site_type: true
   field_registration_required: true

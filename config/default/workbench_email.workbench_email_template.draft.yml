@@ -1,0 +1,26 @@
+uuid: 0304e9db-2e1b-4c86-ba22-2e174df8fcc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.content
+id: draft
+label: Draft
+format: plain_text
+subject: 'Content edits are required: [node:title]'
+recipient_types:
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:uid'
+bundles: {  }
+body:
+  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
+  format: plain_text
+replyTo: ''
+transitions:
+  content:
+    create_new_draft: create_new_draft

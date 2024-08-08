@@ -1,0 +1,26 @@
+uuid: 546b7fba-b88f-4408-835d-5b393c93af8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.content
+id: published
+label: Published
+format: plain_text
+subject: 'Content has been published: [node:title]'
+recipient_types:
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:uid'
+bundles: {  }
+body:
+  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
+  format: plain_text
+replyTo: ''
+transitions:
+  content:
+    publish: publish

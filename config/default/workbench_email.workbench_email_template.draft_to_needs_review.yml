@@ -1,0 +1,27 @@
+uuid: 33b6c02c-0475-4a77-b2a7-959c19b272f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editor_publisher
+    - workflows.workflow.content
+id: draft_to_needs_review
+label: 'Needs review'
+format: plain_text
+subject: 'Content is ready for review: [node:title]'
+recipient_types:
+  entity_reference_user:
+    id: entity_reference_user
+    provider: workbench_email
+    status: true
+    settings:
+      fields:
+        - 'node:field_editor_publisher'
+bundles: {  }
+body:
+  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
+  format: plain_text
+replyTo: ''
+transitions:
+  content:
+    submit_for_review: submit_for_review

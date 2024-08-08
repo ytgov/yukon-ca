@@ -6,10 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.homepage.body
     - field.field.node.homepage.field_department_term
+    - field.field.node.homepage.field_editor_publisher
     - field.field.node.homepage.field_image_gallery
     - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_page_description
     - field.field.node.homepage.field_primary_item_blocks
+    - field.field.node.homepage.field_publisher
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
     - field.field.node.homepage.field_yukon_editorial_team
@@ -30,13 +32,20 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
   addtoany: true
   field_department_term: true
+  field_editor_publisher: true
   field_image_gallery: true
   field_meta_tags: true
   field_page_description: true
   field_primary_item_blocks: true
+  field_publisher: true
   field_secondary_item_blocks: true
   field_tertiary_item_blocks: true
   field_yukon_editorial_team: true

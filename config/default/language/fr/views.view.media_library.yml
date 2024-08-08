@@ -15,6 +15,8 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       filters:
         status:
           group_info:
@@ -31,8 +33,11 @@ display:
           expose:
             label: Langue
   page:
+    display_title: Page
     display_options:
       fields:
+        edit_media:
+          text: Edit
         delete_media:
           text: Supprimer
   widget:
