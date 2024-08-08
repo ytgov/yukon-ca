@@ -116,6 +116,8 @@ final class UriTransform extends ProcessPluginBase {
         'webform' => 'contact',
       ];
 
+      $typeKeys = array_keys($types);
+
       // SELECT  d.destid1 FROM db.migrate_map_yukon_migrate_basic_page d
       // LEFT JOIN migrate.node m ON d.sourceid1 = m.nid WHERE
       // m.uuid = '38d3c77f-cfd7-4dcf-8bce-c26de6eca988'.
@@ -125,17 +127,33 @@ final class UriTransform extends ProcessPluginBase {
       $migrateQuery->condition('n.uuid', $uuid);
       $migrateResult = $migrateQuery->execute()->fetchAssoc();
 
-      $query = $this->database
-        ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
-      $query->fields('m', ['destid1']);
-      $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
-      $nid = $query->execute()->fetchField();
+      if ($migrateResult) {
+        if ($this->database && method_exists($this->database, 'select')) {
+          if (in_array($migrateResult['type'], $typeKeys)) {
+            $query = $this->database
+              ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
+            $query->fields('m', ['destid1']);
+            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
+            $nid = $query->execute()->fetchField();
 
-      if ($nid && $nid != 16158) {
-        $value = str_ireplace($matches[0], '/node/' . $nid, $value);
+            if ($nid && $nid != 16158) {
+              $value = str_ireplace($matches[0], '/node/' . $nid, $value);
+            }
+            else {
+              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid, $value);
+            }
+          }
+          else {
+            $this->messenger()
+              ->addError('Unknown type: ' . $migrateResult['type']);
+          }
+        }
+        else {
+          $this->messenger()->addError('Not a database object.');
+        }
       }
       else {
-        $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid, $value);
+        $this->messenger()->addWarning('UUID not found: ' . $uuid);
       }
     }
 
