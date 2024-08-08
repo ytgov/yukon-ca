@@ -26,10 +26,18 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
-  field_page_description: field_description
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
+  field_page_description/format: constants/default_text_format
 
-  body/value: field_document_description/0/value
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_document_description/0/value
   body/format: constants/default_text_format
 
   field_document_upload:
@@ -58,7 +66,10 @@ process:
     source: field_department_term
     no_stub: true
 
-  field_contact/value: field_contact/0/value
+  field_contact/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
   path/alias: alias

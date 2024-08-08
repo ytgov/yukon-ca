@@ -1,0 +1,2 @@
+label: 'Time am/pm'
+pattern: 'G \h i'

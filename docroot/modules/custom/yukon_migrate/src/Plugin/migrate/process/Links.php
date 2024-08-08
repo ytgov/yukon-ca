@@ -121,6 +121,11 @@ class Links extends MigrationLookup implements ContainerFactoryPluginInterface {
       }
     }
 
+    $uri = str_ireplace('https://www.yukon.ca', '', $uri);
+    $uri = str_ireplace('http://www.yukon.ca', '', $uri);
+    $uri = str_ireplace('https://yukon.ca', '', $uri);
+    $uri = str_ireplace('http://yukon.ca', '', $uri);
+
     if (is_string($value)) {
       return $uri;
     }

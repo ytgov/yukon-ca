@@ -13,6 +13,7 @@ source:
   constants:
     source_base_path: 'https://yukon.ca/'
 process:
+  uuid: uuid
   filename: filename
   source_full_path:
     -

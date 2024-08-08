@@ -11,7 +11,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+    uuid: uuid
     field_category_title: field_category_title
     field_subcategory_links:
         plugin: yukon_migrate_links

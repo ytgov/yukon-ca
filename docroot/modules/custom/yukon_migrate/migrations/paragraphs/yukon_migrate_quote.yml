@@ -11,10 +11,14 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   field_attributor/value: field_attributor/0/value
   field_attributor/format: constants/default_text_format
 
-  field_section_content/value: field_quote_block/0/value
+  field_section_content/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_quote_block/0/value
   field_section_content/format: constants/default_text_format
 destination:
   plugin: entity_reference_revisions:paragraph

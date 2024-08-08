@@ -38,6 +38,7 @@ process:
   status: status
   created: timestamp
   changed: timestamp
+  uuid: uuid
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
   langcode: source_language

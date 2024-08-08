@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.long_with_time
+    - core.date_format.medium
     - core.date_format.time_am_pm
     - field.field.node.event.field_building_name
     - field.field.node.event.field_category
@@ -156,10 +156,11 @@ content:
     settings:
       timezone_override: America/Whitehorse
       format_type: long_with_time
-      separator: to
+      from_to: both
+      separator: 'to '
       show_next: 5
       count_per_item: true
-      occurrence_format_type: long_with_time
+      occurrence_format_type: medium
       same_end_date_format_type: time_am_pm
       interpreter: ''
     third_party_settings:

@@ -22,5 +22,6 @@ process:
     plugin: default_value
     source: language
     default_value: en
+  uuid: uuid
 destination:
   plugin: entity:menu

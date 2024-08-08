@@ -11,11 +11,15 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   field_title: title_field
   field_chart_data: field_chart_data
   field_highlighted_stat: field_highlighted_stat
 
-  field_description/value: field_chart_description/0/value
+  field_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_chart_description/0/value
   field_description/format: constants/default_text_format
 
   field_source_notes/value: field_source_notes/0/value

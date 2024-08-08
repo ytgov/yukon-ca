@@ -11,6 +11,7 @@ source:
   translation: false
 
 process:
+  uuid: uuid
   language: language
   name: name
   description: description
