@@ -5,6 +5,8 @@
  * Controls the migration process.
  */
 
+use Drupal\migrate\MigrateSkipProcessException;
+use Drupal\migrate\MigrateSkipRowException;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
@@ -18,6 +20,37 @@ use Drupal\taxonomy\Plugin\migrate\source\d7\Term;
  * @throws \Exception
  */
 function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  if (!empty($row->get('nid'))) {
+    \Drush\Drush::output()
+      ->writeln($row->get('nid') . " -  " . print_r($row->get('type'), TRUE));
+
+    if (in_array($row->get('type'), [
+      'documents',
+      'documents_not_branded',
+      'engagement',
+      'collapsable_field_basic_page'
+    ])) {
+      throw new MigrateSkipRowException();
+    }
+
+    $skipNids = [
+      490,
+      778,
+      1126,
+      1128,
+      1130,
+      1132,
+      1134,
+      1136,
+      1138,
+      1140,
+
+    ];
+
+    if (in_array($row->get('nid'), $skipNids)) {
+      throw new MigrateSkipRowException();
+    }
+  }
   $migration_type = ($source instanceof Node or $source instanceof NodeEntityTranslation) ? 'node' : NULL;
   if (empty($migration_type)) {
     $migration_type = $source instanceof Term ? 'taxonomy_term' : NULL;

@@ -5,6 +5,7 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
+  - Ordered Migration
 migration_group: legacy_nodes
 
 source:

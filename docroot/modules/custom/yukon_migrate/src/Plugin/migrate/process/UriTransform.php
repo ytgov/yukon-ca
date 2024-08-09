@@ -83,6 +83,8 @@ final class UriTransform extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transformUri($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    if (empty($value)) { return ''; }
+
     $value = str_ireplace('"https://www.yukon.ca', '"', $value);
     $value = str_ireplace('"http://www.yukon.ca', '"', $value);
     $value = str_ireplace('"https://yukon.ca', '"', $value);
@@ -149,7 +151,7 @@ final class UriTransform extends ProcessPluginBase {
           }
         }
         else {
-          $this->messenger()->addError('Not a database object.');
+          $this->messenger()->addError('Not a database object: ' . gettype($this->database));
         }
       }
       else {

@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - node
   - News
+  - Ordered Migration
 migration_group: legacy_page_news
 source:
   plugin: d7_node_entity_translation

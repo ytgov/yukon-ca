@@ -5,6 +5,7 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
+  - Ordered Migration
 migration_group: legacy_documents
 source:
   plugin: d7_node
@@ -21,7 +22,10 @@ process:
   title: title_field
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: node_uid
-  status: status
+  status:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: status
   created: created
   changed: timestamp
   promote: promote
@@ -35,16 +39,22 @@ process:
   field_page_description/format: constants/default_text_format
 
   body/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_document_description/0/value
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_document_description/0/value
+    -
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_document_description/0/value
+
   body/format: constants/default_text_format
 
   field_document_upload:
-    plugin: migration_lookup
-    source: field_document_upload/0/fid
-    migration: yukon_migrate_document
-    no_stub: true
+      plugin: migration_lookup
+      source: field_document_upload/0/fid
+      migration: yukon_migrate_document
+      no_stub: true
 
   field_last_updated:
     plugin: format_date
@@ -67,9 +77,14 @@ process:
     no_stub: true
 
   field_contact/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_contact/0/value
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_contact/0/value
+    -
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
   path/alias: alias
@@ -79,6 +94,9 @@ process:
   field_social_sharing: field_social_sharing
 
   field_yukon_editorial_team:
+    - plugin: skip_on_empty
+      method: process
+      source: field_yukon_editorial_team
     - plugin: migration_lookup
       source: field_yukon_editorial_team
       migration: yukon_migrate_teams

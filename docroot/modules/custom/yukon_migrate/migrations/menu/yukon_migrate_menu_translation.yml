@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - Configuration
   - Multilingual
+  - Ordered Migration
 migration_group: legacy_menu
 source:
   plugin: d7_menu_translation
