@@ -103,7 +103,7 @@ echo "Updating yukon_migrate_teams..."
 time $COMMAND migrate:import --update --continue-on-failure yukon_migrate_teams
 
 echo "Updating yukon_migrate_documents_page..."
-time $COMMAND migrate:import --update --continue-on-failure -vvv yukon_migrate_documents_page
+time $COMMAND migrate:import --update --continue-on-failure yukon_migrate_documents_page
 
 echo "Updating yukon_migrate_documents_page_translations..."
 time $COMMAND migrate:import --update --continue-on-failure yukon_migrate_documents_page_translations

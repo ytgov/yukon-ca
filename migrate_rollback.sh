@@ -77,7 +77,7 @@ echo "Rolling back yukon_migrate_teams..."
 time $COMMAND migrate:rollback --continue-on-failure yukon_migrate_teams
 
 echo "Rolling back yukon_migrate_documents_page..."
-time $COMMAND migrate:rollback --continue-on-failure -vvv yukon_migrate_documents_page
+time $COMMAND migrate:rollback --continue-on-failure yukon_migrate_documents_page
 
 echo "Rolling back yukon_migrate_documents_page_translations..."
 time $COMMAND migrate:rollback --continue-on-failure yukon_migrate_documents_page_translations
