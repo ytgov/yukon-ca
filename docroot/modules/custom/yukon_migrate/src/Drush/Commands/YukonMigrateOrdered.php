@@ -54,16 +54,6 @@ final class YukonMigrateOrdered extends DrushCommands {
       $this->output()->writeln('echo "Migrating ' . $migration . '..."');
       $this->output()->writeln('time $COMMAND migrate:import --continue-on-failure ' . $migration);
       $this->output()->writeln('');
-
-      // $message = new DrushLogMigrateMessage($this->output());
-      // $migration = $this->migrationPluginManager->createInstance($migration);
-      // $executable = new MigrateExecutable($migration, $message, [
-      // 'continue-on-failure' => TRUE,
-      // 'process' => TRUE,
-      // ]);
-      // $executable->import();
-      // $this->output()->writeln('Processed: '
-      // . $executable->getProcessedCount());
     }
   }
 

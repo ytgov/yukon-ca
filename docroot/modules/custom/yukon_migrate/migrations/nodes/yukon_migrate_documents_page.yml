@@ -48,10 +48,10 @@ process:
   body/format: constants/default_text_format
 
   field_document_upload:
-      plugin: migration_lookup
-      source: field_document_upload/0/fid
-      migration: yukon_migrate_document
-      no_stub: true
+    plugin: migration_lookup
+    source: field_document_upload/0/fid
+    migration: yukon_migrate_document
+    no_stub: true
 
   field_last_updated:
     plugin: format_date

@@ -122,9 +122,6 @@ final class UriTransform extends ProcessPluginBase {
 
       $typeKeys = array_keys($types);
 
-      // SELECT  d.destid1 FROM db.migrate_map_yukon_migrate_basic_page d
-      // LEFT JOIN migrate.node m ON d.sourceid1 = m.nid WHERE
-      // m.uuid = '38d3c77f-cfd7-4dcf-8bce-c26de6eca988'.
       $migrateDB = Database::getConnection('default', 'migrate');
       $migrateQuery = $migrateDB->select('node', 'n');
       $migrateQuery->fields('n', ['nid', 'type']);
