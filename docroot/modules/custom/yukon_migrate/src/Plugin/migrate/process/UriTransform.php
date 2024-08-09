@@ -53,7 +53,7 @@ final class UriTransform extends ProcessPluginBase {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->database = $database->getConnection();
+    $this->database = $database;
   }
 
   /**
@@ -83,6 +83,10 @@ final class UriTransform extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transformUri($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    if (empty($value)) {
+      return '';
+    }
+
     $value = str_ireplace('"https://www.yukon.ca', '"', $value);
     $value = str_ireplace('"http://www.yukon.ca', '"', $value);
     $value = str_ireplace('"https://yukon.ca', '"', $value);
@@ -90,7 +94,7 @@ final class UriTransform extends ProcessPluginBase {
 
     // [uuid-link:node:ba5dac36-a2a6-48df-a92c-dcba01cb40e5]
     $matches = [];
-    while (preg_match('/\[uuid-link:node:([a-z0-9\-]+)\]/i', $value, $matches)) {
+    while (preg_match('/\[uuid-link:node:([^]]*)]/i', $value, $matches)) {
       $uuid = $matches[1];
 
       $types = [
@@ -116,26 +120,44 @@ final class UriTransform extends ProcessPluginBase {
         'webform' => 'contact',
       ];
 
-      // SELECT  d.destid1 FROM db.migrate_map_yukon_migrate_basic_page d
-      // LEFT JOIN migrate.node m ON d.sourceid1 = m.nid WHERE
-      // m.uuid = '38d3c77f-cfd7-4dcf-8bce-c26de6eca988'.
+      $typeKeys = array_keys($types);
+
       $migrateDB = Database::getConnection('default', 'migrate');
       $migrateQuery = $migrateDB->select('node', 'n');
       $migrateQuery->fields('n', ['nid', 'type']);
       $migrateQuery->condition('n.uuid', $uuid);
       $migrateResult = $migrateQuery->execute()->fetchAssoc();
 
-      $query = $this->database
-        ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
-      $query->fields('m', ['destid1']);
-      $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
-      $nid = $query->execute()->fetchField();
+      if ($migrateResult) {
+        if ($this->database && method_exists($this->database, 'select')) {
+          if (in_array($migrateResult['type'], $typeKeys)) {
+            $query = $this->database
+              ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
+            $query->fields('m', ['destid1']);
+            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
+            $nid = $query->execute()->fetchField();
 
-      if ($nid && $nid != 16158) {
-        $value = str_ireplace($matches[0], '/node/' . $nid, $value);
+            if ($nid && $nid != 16158) {
+              $value = str_ireplace($matches[0], '/node/' . $nid, $value);
+            }
+            else {
+              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
+            }
+          }
+          else {
+            $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
+            $this->messenger()
+              ->addError('Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid'));
+          }
+        }
+        else {
+          $value = str_ireplace($matches[0], 'NOT A DB OBJECT ' . '  Source nid: ' . $row->get('nid'), gettype($value));
+          $this->messenger()->addError('Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid'));
+        }
       }
       else {
-        $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid, $value);
+        $value = str_ireplace($matches[0], 'UUID not found : ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
+        $this->messenger()->addWarning('UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
       }
     }
 

@@ -5,6 +5,7 @@ migration_tags:
   - Drupal 7
   - node
   - Basic Pages
+  - Ordered Migration
 migration_group: legacy_basic_page
 source:
   plugin: d7_node_entity_translation
