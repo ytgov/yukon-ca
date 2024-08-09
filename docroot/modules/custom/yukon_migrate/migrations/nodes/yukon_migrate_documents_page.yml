@@ -22,10 +22,7 @@ process:
   title: title_field
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: node_uid
-  status:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: status
+  status: status
   created: created
   changed: timestamp
   promote: promote

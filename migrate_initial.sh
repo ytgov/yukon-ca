@@ -66,19 +66,6 @@ esac
 
 date
 
-#time $COMMAND migrate:import --continue-on-failure yukon_migrate_files__public
-#
-#time $COMMAND migrate:import --group=legacy_taxonomies --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_media --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_paragraphs --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_nodes --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_documents --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_basic_page --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_page_news --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_user_role --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_menu --continue-on-failure
-#time $COMMAND migrate:import --group=legacy_files --continue-on-failure
-
 echo "Migrating menu..."
 time $COMMAND migrate:import --continue-on-failure menu
 

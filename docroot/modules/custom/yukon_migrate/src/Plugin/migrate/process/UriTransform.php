@@ -92,7 +92,7 @@ final class UriTransform extends ProcessPluginBase {
 
     // [uuid-link:node:ba5dac36-a2a6-48df-a92c-dcba01cb40e5]
     $matches = [];
-    while (preg_match('/\[uuid-link:node:([a-z0-9\-]+)\]/i', $value, $matches)) {
+    while (preg_match('/\[uuid-link:node:([^]]*)]/i', $value, $matches)) {
       $uuid = $matches[1];
 
       $types = [
@@ -142,20 +142,23 @@ final class UriTransform extends ProcessPluginBase {
               $value = str_ireplace($matches[0], '/node/' . $nid, $value);
             }
             else {
-              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid, $value);
+              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
             }
           }
           else {
+            $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
             $this->messenger()
-              ->addError('Unknown type: ' . $migrateResult['type']);
+              ->addError('Unknown type: ' . $migrateResult['type']  . '  Source nid: ' . $row->get('nid'));
           }
         }
         else {
-          $this->messenger()->addError('Not a database object: ' . gettype($this->database));
+          $value = str_ireplace($matches[0], 'NOT A DB OBJECT '  . '  Source nid: ' . $row->get('nid'), gettype($value));
+          $this->messenger()->addError('Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid'));
         }
       }
       else {
-        $this->messenger()->addWarning('UUID not found: ' . $uuid);
+        $value = str_ireplace($matches[0], 'UUID not found : ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
+        $this->messenger()->addWarning('UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
       }
     }
 
