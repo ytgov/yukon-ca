@@ -2,9 +2,7 @@
 
 namespace Drupal\yukon_migrate\Drush\Commands;
 
-use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
-use Drupal\migrate_tools\MigrateExecutable;
 use Drush\Attributes as CLI;
 use Drush\Commands\DrushCommands;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -30,6 +28,13 @@ final class YukonMigrateOrdered extends DrushCommands {
     $this->migrationPluginManager = $migration_plugin_manager;
   }
 
+  /**
+   * Dependency injection.
+   *
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *
+   * @return self
+   */
   public static function create(ContainerInterface $container): self {
     return new static(
       $container->get('plugin.manager.migration')
@@ -48,14 +53,14 @@ final class YukonMigrateOrdered extends DrushCommands {
       $this->output()->writeln('time $COMMAND migrate:import --continue-on-failure ' . $migration);
       $this->output()->writeln('');
 
-//      $message = new DrushLogMigrateMessage($this->output());
-//      $migration = $this->migrationPluginManager->createInstance($migration);
-//      $executable = new MigrateExecutable($migration, $message, [
-//        'continue-on-failure' => TRUE,
-//        'process' => TRUE,
-//        ]);
-//      $executable->import();
-//      $this->output()->writeln('Processed: ' . $executable->getProcessedCount());
+      // $message = new DrushLogMigrateMessage($this->output());
+      // $migration = $this->migrationPluginManager->createInstance($migration);
+      // $executable = new MigrateExecutable($migration, $message, [
+      //   'continue-on-failure' => TRUE,
+      //   'process' => TRUE,
+      // ]);
+      // $executable->import();
+      // $this->output()->writeln('Processed: ' . $executable->getProcessedCount());
     }
   }
 
@@ -72,7 +77,7 @@ final class YukonMigrateOrdered extends DrushCommands {
     $processed = [];
 
     while (!empty($unprocessed)) {
-      $progress = false;
+      $progress = FALSE;
 
       foreach ($unprocessed as $migration_id => $migration) {
         /** @var \Drupal\migrate\Plugin\MigrationInterface $migration */
@@ -83,7 +88,7 @@ final class YukonMigrateOrdered extends DrushCommands {
           $ordered_migrations[] = $migration_id;
           $processed[] = $migration_id;
           unset($unprocessed[$migration_id]);
-          $progress = true;
+          $progress = TRUE;
         }
       }
 
@@ -94,4 +99,5 @@ final class YukonMigrateOrdered extends DrushCommands {
 
     return $ordered_migrations;
   }
+
 }

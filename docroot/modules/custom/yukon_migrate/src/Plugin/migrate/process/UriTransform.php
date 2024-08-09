@@ -83,7 +83,9 @@ final class UriTransform extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transformUri($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    if (empty($value)) { return ''; }
+    if (empty($value)) {
+      return '';
+    }
 
     $value = str_ireplace('"https://www.yukon.ca', '"', $value);
     $value = str_ireplace('"http://www.yukon.ca', '"', $value);
@@ -148,11 +150,11 @@ final class UriTransform extends ProcessPluginBase {
           else {
             $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
             $this->messenger()
-              ->addError('Unknown type: ' . $migrateResult['type']  . '  Source nid: ' . $row->get('nid'));
+              ->addError('Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid'));
           }
         }
         else {
-          $value = str_ireplace($matches[0], 'NOT A DB OBJECT '  . '  Source nid: ' . $row->get('nid'), gettype($value));
+          $value = str_ireplace($matches[0], 'NOT A DB OBJECT ' . '  Source nid: ' . $row->get('nid'), gettype($value));
           $this->messenger()->addError('Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid'));
         }
       }

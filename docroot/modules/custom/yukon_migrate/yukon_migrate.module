@@ -5,8 +5,6 @@
  * Controls the migration process.
  */
 
-use Drupal\migrate\MigrateSkipProcessException;
-use Drupal\migrate\MigrateSkipRowException;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\Row;
