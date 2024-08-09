@@ -20,53 +20,17 @@ use Drupal\taxonomy\Plugin\migrate\source\d7\Term;
  * @throws \Exception
  */
 function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
-//  if (!empty($row->get('nid'))) {
-//    \Drush\Drush::output()
-//      ->writeln($row->get('nid') . " -  " . print_r($row->get('type'), TRUE));
-//
-//    // Failing migrations:
-//    // yukon_migrate_documents_page
-//    // yukon_migrate_engagement
-//    // yukon_migrate_basic_page
-//    // yukon_migrate_text
-//    // yukon_migrate_text_unformatted
-//    // yukon_migrate_text_and_image
-//    // yukon_migrate_video_and_text
-//    if (in_array($row->get('type'), [
-////      'documents',
-////      'documents_not_branded',
-//      'engagement',
-//      'collapsable_field_basic_page',
-//      'wetkit_page',
-//    ])) {
-//      throw new MigrateSkipRowException();
-//    }
-//
-//    if ($row->get('nid') > 490) {
-//      throw new MigrateSkipProcessException();
-//    }
-//    $skipNids = [
-//      // For the documents_page migration.
-//      490,
-//      778,
-//      1126,
-//      1128,
-//      1130,
-//      1132,
-//      1134,
-//      1136,
-//      1138,
-//      1140,
-//
-//    ];
-//
-////    if (in_array($row->get('nid'), $skipNids)) {
-////      throw new MigrateSkipRowException();
-////    }
-//  }
   $migration_type = ($source instanceof Node or $source instanceof NodeEntityTranslation) ? 'node' : NULL;
   if (empty($migration_type)) {
     $migration_type = $source instanceof Term ? 'taxonomy_term' : NULL;
+  }
+
+  if ($migration_type === 'node') {
+    $uuid = trim($row->getSourceProperty('uuid'));
+    if (empty($uuid)) {
+      $uuidService = \Drupal::service('uuid');
+      $row->setSourceProperty('uuid', $uuidService->generate());
+    }
   }
 
   /** @var \Drupal\Core\Database\Connection $database */

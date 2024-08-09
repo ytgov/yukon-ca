@@ -32,12 +32,7 @@ process:
     changed: changed
     promote: promote
     sticky: sticky
-    uuid:
-      - plugin: skip_on_empty
-        method: process
-        source: uuid
-      - plugin: default_value
-        default_value: 'No source uuid'
+    uuid: uuid
     revision_log: log
     field_page_description/value:
       plugin: yukon_migrate_uri_transform
