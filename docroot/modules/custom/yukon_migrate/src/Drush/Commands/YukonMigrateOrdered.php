@@ -32,8 +32,10 @@ final class YukonMigrateOrdered extends DrushCommands {
    * Dependency injection.
    *
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *   The container for the application.
    *
    * @return self
+   *   A new instance of the class.
    */
   public static function create(ContainerInterface $container): self {
     return new static(
@@ -56,11 +58,12 @@ final class YukonMigrateOrdered extends DrushCommands {
       // $message = new DrushLogMigrateMessage($this->output());
       // $migration = $this->migrationPluginManager->createInstance($migration);
       // $executable = new MigrateExecutable($migration, $message, [
-      //   'continue-on-failure' => TRUE,
-      //   'process' => TRUE,
+      // 'continue-on-failure' => TRUE,
+      // 'process' => TRUE,
       // ]);
       // $executable->import();
-      // $this->output()->writeln('Processed: ' . $executable->getProcessedCount());
+      // $this->output()->writeln('Processed: '
+      //   . $executable->getProcessedCount());
     }
   }
 
