@@ -3,8 +3,10 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Database\Connection;
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
+use Drupal\migrate\Plugin\Migration;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
@@ -128,21 +130,15 @@ final class UriTransform extends ProcessPluginBase {
       $migrateQuery->condition('n.uuid', $uuid);
       $migrateResult = $migrateQuery->execute()->fetchAssoc();
 
+      $nid = 0;
       if ($migrateResult) {
-        if ($this->database && method_exists($this->database, 'select')) {
+        if ($this->database instanceof Connection) {
           if (in_array($migrateResult['type'], $typeKeys)) {
             $query = $this->database
               ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
             $query->fields('m', ['destid1']);
             $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
             $nid = $query->execute()->fetchField();
-
-            if ($nid && $nid != 16158) {
-              $value = str_ireplace($matches[0], '/node/' . $nid, $value);
-            }
-            else {
-              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-            }
           }
           else {
             $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
@@ -150,14 +146,45 @@ final class UriTransform extends ProcessPluginBase {
               ->addError('Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid'));
           }
         }
+        elseif ($this->database instanceof Migration) {
+          $otherTypes = [
+            'documents' => 'document',
+            'engagement' => 'engagement',
+            'event' => 'event',
+            'campaign_page' => 'campaign_page',
+            'directory_records_places' => 'places',
+            'campground_directory_record' => 'campground_directory_record',
+            'wetkit_page' => 'basic_page',
+            'in_page_alert' => 'in_page_alert',
+            'multi_step_page' => 'multi_step_page',
+            'news' => 'news',
+            'collapsable_field_basic_page' => 'node',
+          ];
+
+          if (isset($otherTypes[$row->get('type')])) {
+            $query = Database::getConnection('default', 'default')
+              ->select('migrate_map_yukon_migrate_' . $otherTypes[$row->get('type')], 'm');
+            $query->fields('m', ['destid1']);
+            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
+            $nid = $query->execute()->fetchField();
+          }
+          else {
+            $this->messenger()->addMessage('Type: ' . $row->get('type'));
+            $value = str_ireplace($matches[0], 'Unmapped type: ' . $row->get('type') . '  Source nid: ' . $row->get('nid'), $value);
+          }
+        }
+
+        if ($nid) {
+          $value = str_ireplace($matches[0], '/node/' . $nid, $value);
+        }
         else {
-          $value = str_ireplace($matches[0], 'NOT A DB OBJECT ' . '  Source nid: ' . $row->get('nid'), gettype($value));
-          $this->messenger()->addError('Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid'));
+          $value = str_ireplace($matches[0], 'Broken link with UUID: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
+          $this->messenger()->addError('Broken link with UUID: ' . $uuid . '  Source nid: ' . $row->get('nid'));
         }
       }
       else {
-        $value = str_ireplace($matches[0], 'UUID not found : ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-        $this->messenger()->addWarning('UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
+        $value = str_ireplace($matches[0], 'Source UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
+        $this->messenger()->addWarning('Source UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
       }
     }
 
