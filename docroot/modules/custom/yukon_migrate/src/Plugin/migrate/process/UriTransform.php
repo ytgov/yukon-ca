@@ -41,6 +41,20 @@ final class UriTransform extends ProcessPluginBase {
   protected $database;
 
   /**
+   * The migration database.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $migrateDatabase;
+
+  /**
+   * Maps sourceid1 to destid1.
+   *
+   * @var array $mapping
+   */
+  public static array $mapping;
+
+  /**
    * Constructs a new instance.
    *
    * @param array $configuration
@@ -55,7 +69,32 @@ final class UriTransform extends ProcessPluginBase {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->database = $database;
+    // Sometimes the $database is a migration object.
+    $this->database = Database::getConnection('default', 'default');
+    $this->migrateDatabase = Database::getConnection('default', 'migrate');
+
+    if (empty(self::$mapping)) {
+      $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
+
+      $tables = [];
+      foreach ($result as $row) {
+        $tables[] = array_values((array)$row)[0];
+      }
+
+      $database = Database::getConnection('default', 'default');
+      foreach ($tables as $table) {
+        $result = $database->select($table, 't')
+          ->fields('t', ['sourceid1', 'destid1'])
+          ->execute()->fetchAll();
+
+        foreach ($result as $row) {
+          self::$mapping[$row->sourceid1] = $row->destid1;
+        }
+      }
+
+      $this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
+    }
+
   }
 
   /**
@@ -99,96 +138,66 @@ final class UriTransform extends ProcessPluginBase {
     while (preg_match('/\[uuid-link:node:([^]]*)]/i', $value, $matches)) {
       $uuid = $matches[1];
 
-      $types = [
-        'blog' => 'blog',
-        'campaign_page' => 'campaign_page',
-        'campground_directory_record' => 'campground_directory_record',
-        'department' => 'department',
-        'directory_records_places' => 'places',
-        'documents' => 'documents',
-        'engagement' => 'engagement',
-        'event' => 'event',
-        'in_page_alert' => 'in_page_alert',
-        'landing_page' => 'landing_page',
-        'landing_page_level_2' => 'landing_page_level_2',
-        'multi_step_page' => 'multi_step_page',
-        'news' => 'news',
-        'site_wide_alert' => 'site_wide_alert',
-        'topics_page' => 'topics_page',
-        'wetkit_page' => 'basic_page',
-        'contact' => 'contact',
-        'documents_non_branded' => 'documents',
-        'homepage' => 'homepage',
-        'webform' => 'contact',
-      ];
-
-      $typeKeys = array_keys($types);
-
-      $migrateDB = Database::getConnection('default', 'migrate');
-      $migrateQuery = $migrateDB->select('node', 'n');
-      $migrateQuery->fields('n', ['nid', 'type']);
-      $migrateQuery->condition('n.uuid', $uuid);
-      $migrateResult = $migrateQuery->execute()->fetchAssoc();
-
-      $nid = 0;
-      if ($migrateResult) {
-        if ($this->database instanceof Connection) {
-          if (in_array($migrateResult['type'], $typeKeys)) {
-            $query = $this->database
-              ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
-            $query->fields('m', ['destid1']);
-            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
-            $nid = $query->execute()->fetchField();
-          }
-          else {
-            $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
-            $this->messenger()
-              ->addError('Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid'));
-          }
-        }
-        elseif ($this->database instanceof Migration) {
-          $otherTypes = [
-            'documents' => 'document',
-            'engagement' => 'engagement',
-            'event' => 'event',
-            'campaign_page' => 'campaign_page',
-            'directory_records_places' => 'places',
-            'campground_directory_record' => 'campground_directory_record',
-            'wetkit_page' => 'basic_page',
-            'in_page_alert' => 'in_page_alert',
-            'multi_step_page' => 'multi_step_page',
-            'news' => 'news',
-            'collapsable_field_basic_page' => 'node',
-          ];
-
-          if (isset($otherTypes[$row->get('type')])) {
-            $query = Database::getConnection('default', 'default')
-              ->select('migrate_map_yukon_migrate_' . $otherTypes[$row->get('type')], 'm');
-            $query->fields('m', ['destid1']);
-            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
-            $nid = $query->execute()->fetchField();
-          }
-          else {
-            $this->messenger()->addMessage('Type: ' . $row->get('type'));
-            $value = str_ireplace($matches[0], 'Unmapped type: ' . $row->get('type') . '  Source nid: ' . $row->get('nid'), $value);
-          }
-        }
-
-        if ($nid) {
-          $value = str_ireplace($matches[0], '/node/' . $nid, $value);
-        }
-        else {
-          $value = str_ireplace($matches[0], 'Broken link with UUID: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-          $this->messenger()->addError('Broken link with UUID: ' . $uuid . '  Source nid: ' . $row->get('nid'));
-        }
+      $rowNid = $row->get('nid');
+      $rowType = $row->get('type');
+      $migration = $_SERVER['argv'][3] ?? 'unknown';
+      if ($migration === '--continue-on-failure') {
+        $migration = $_SERVER['argv'][4] ?? 'unknown';
       }
-      else {
-        $value = str_ireplace($matches[0], 'Source UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-        $this->messenger()->addWarning('Source UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
+      $message = "Migration: ${migration} UUID: ${uuid} RowNid: ${rowNid} RowType: ${rowType} ";
+
+      if (!$uuid) {
+        $message .= 'UUID not found';
+        $value = str_ireplace($matches[0], $message, $value);
+        $this->messenger()->addError($message);
+        continue;
       }
+
+      $sourceNid = $this->findSourceNid($uuid);
+
+      if (!$sourceNid) {
+        $message .= 'SourceNid not found';
+        $value = str_ireplace($matches[0], $message, $value);
+        $this->messenger()->addError($message);
+        continue;
+      }
+      $message .=  ' SourceNid: ' . $sourceNid;
+
+      $destNid = $this->findDestNid($sourceNid);
+      if ($destNid) {
+        $value = str_ireplace($matches[0], '/node/' . $destNid, $value);
+        if (!empty($mapping[$sourceNid])) {
+          $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
+        }
+        self::$mapping[$sourceNid] = $destNid;
+        continue;
+      }
+
+      $message .= ' DestNid not found';
+      $value = str_ireplace($matches[0], $message, $value);
+      $this->messenger()->addError($message);
     }
 
     return $value;
+  }
+  protected function findSourceNid(string $uuid) {
+    if (empty($uuid)) {
+      return '';
+    }
+
+    $migrateQuery = $this->migrateDatabase->select('node', 'n');
+    $migrateQuery->fields('n', ['nid']);
+    $migrateQuery->condition('n.uuid', $uuid);
+    return $migrateQuery->execute()->fetchField();
+  }
+
+  protected function findDestNid(string $sourceNid) {
+
+    if (!empty($sourceNid) && is_string($sourceNid) && !empty(self::$mapping[$sourceNid])) {
+      return self::$mapping[$sourceNid];
+    }
+
+    return 0;
   }
 
 }
