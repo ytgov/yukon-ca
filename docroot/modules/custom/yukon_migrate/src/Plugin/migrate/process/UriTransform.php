@@ -183,8 +183,11 @@ final class UriTransform extends ProcessPluginBase {
    * Get the source nid from the uuid.
    *
    * @param string $uuid
+   *   The source uuid.
    *
    * @return mixed|string
+   *   The source nid or 0 if not found.
+   *
    * @throws \Exception
    */
   protected function findSourceNid(string $uuid) {
@@ -202,8 +205,10 @@ final class UriTransform extends ProcessPluginBase {
    * Lookup the destination nid from the source nid.
    *
    * @param string $sourceNid
+   *   The source nid.
    *
    * @return int|mixed
+   *   The destination nid.
    */
   protected function findDestNid(string $sourceNid) {
 
