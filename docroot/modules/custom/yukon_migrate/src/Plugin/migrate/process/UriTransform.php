@@ -3,10 +3,8 @@
 namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\Database\Database;
 use Drupal\migrate\MigrateExecutableInterface;
-use Drupal\migrate\Plugin\Migration;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
@@ -50,7 +48,7 @@ final class UriTransform extends ProcessPluginBase {
   /**
    * Maps sourceid1 to destid1.
    *
-   * @var array $mapping
+   * @var array
    */
   public static array $mapping;
 
@@ -78,7 +76,7 @@ final class UriTransform extends ProcessPluginBase {
 
       $tables = [];
       foreach ($result as $row) {
-        $tables[] = array_values((array)$row)[0];
+        $tables[] = array_values((array) $row)[0];
       }
 
       $database = Database::getConnection('default', 'default');
@@ -161,7 +159,7 @@ final class UriTransform extends ProcessPluginBase {
         $this->messenger()->addError($message);
         continue;
       }
-      $message .=  ' SourceNid: ' . $sourceNid;
+      $message .= ' SourceNid: ' . $sourceNid;
 
       $destNid = $this->findDestNid($sourceNid);
       if ($destNid) {
@@ -180,6 +178,15 @@ final class UriTransform extends ProcessPluginBase {
 
     return $value;
   }
+
+  /**
+   * Get the source nid from the uuid.
+   *
+   * @param string $uuid
+   *
+   * @return mixed|string
+   * @throws \Exception
+   */
   protected function findSourceNid(string $uuid) {
     if (empty($uuid)) {
       return '';
@@ -191,6 +198,13 @@ final class UriTransform extends ProcessPluginBase {
     return $migrateQuery->execute()->fetchField();
   }
 
+  /**
+   * Lookup the destination nid from the source nid.
+   *
+   * @param string $sourceNid
+   *
+   * @return int|mixed
+   */
   protected function findDestNid(string $sourceNid) {
 
     if (!empty($sourceNid) && is_string($sourceNid) && !empty(self::$mapping[$sourceNid])) {
