@@ -28,6 +28,7 @@ module.exports = {
       gray: {
         DEFAULT: '#999',
         100: '#F5F5F5',
+        300: '#CCCCCC',
         400: '#DDDDDD',
         light: '#F1F1F1',
         lightgray: '#EEE',
@@ -89,6 +90,8 @@ module.exports = {
         base: ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
       },
       margin: {
+        1.25: rem(1.25 * 4),
+        3.75: rem(3.75 * 4),
         15: rem(15 * 4),
         7.5: rem(7.5 * 4),
       },
