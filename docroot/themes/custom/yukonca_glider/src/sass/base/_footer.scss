@@ -136,6 +136,89 @@ body {
       }
     }
   }
+
+  #block-page-feedback-webform {
+    @apply pt-2.5 mb-3.75 border-t border-gray-lightborder;
+
+    form {
+      .form-type-textarea {
+        @apply m-0;
+
+        label {
+          @apply mb-1.25 font-medium;
+        }
+
+        textarea {
+          @apply border-gray-300;
+        }
+      }
+
+      fieldset {
+        @apply m-0 items-center;
+
+        &.yes-no-trigger-wrapper {
+          @apply flex items-baseline mb-9;
+
+          legend {
+            @apply font-medium w-auto;
+          }
+        }
+
+        #edit-was-this-page-helpful {
+          @apply flex;
+
+          .form-item-was-this-page-helpful {
+            @apply m-0 pl-5;
+
+            label {
+              font-size: 0;
+          
+              &::after {
+                font-family: "FontAwesome", sans-serif;
+                font-size: 38px;
+                color: #B2B3B2;
+              }
+          
+              &[for="edit-was-this-page-helpful-yes"] {
+                &::after {
+                  content: "\f087";
+                }
+              }
+          
+              &[for="edit-was-this-page-helpful-no"] {
+                &::after {
+                  content: "\f088";
+                }
+              }
+            }
+
+            input {
+              @apply hidden;
+          
+              &:checked {
+                ~label {
+                  &:after,
+                  &:before {
+                    @apply text-blue-300;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .form-actions {
+        .webform-button--submit {
+          @apply py-3.75 px-7.5 bg-blue-300 text-white font-normal rounded-[4px];
+
+          &:hover {
+            @apply bg-blue-600;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* End issue 153 */

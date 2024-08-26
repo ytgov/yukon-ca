@@ -12,29 +12,8 @@ source:
   constants:
     default_text_format: full_html
 process:
-  uuid: uuid
   field_title: field_section_title
-  field_display_section_title: field_display_section_title
 
-  field_image:
-    plugin: migration_lookup
-    source: field_navigation_image/0/fid
-    migration: yukon_migrate_images
-    no_stub: true
-
-  field_description/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_call_to_action_description/0/value
-  field_description/format: constants/default_text_format
-
-  field_button_text: field_button_text
-  field_link:
-    plugin: yukon_migrate_links
-    source: field_call_to_action_link
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: call_to_action
-migration_dependencies:
-  required:
-    - yukon_migrate_images

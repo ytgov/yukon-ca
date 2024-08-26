@@ -26,6 +26,7 @@ process:
   promote: promote
   sticky: sticky
   uuid: uuid
+  nid: nid
 
   path/alias: alias
   path/pathauto: pathauto

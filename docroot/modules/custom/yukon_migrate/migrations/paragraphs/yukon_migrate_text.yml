@@ -12,12 +12,6 @@ source:
   constants:
     default_text_format: full_html
 process:
-  uuid:
-    - plugin: skip_on_empty
-      method: process
-      source: uuid
-    - plugin: default_value
-      default_value: 'No source uuid'
   field_title: field_section_title
   field_display_section_title: field_display_section_title
 

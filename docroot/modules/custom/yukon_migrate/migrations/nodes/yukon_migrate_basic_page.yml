@@ -21,6 +21,7 @@ process:
   title: title
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: node_uid
+  nid: nid
   status: status
   created: created
   changed: timestamp
