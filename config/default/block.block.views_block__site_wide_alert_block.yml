@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.site_wide_alert
   module:
+    - block_class
     - system
     - views
   theme:
@@ -26,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: "<front>\r\n/accueil\r\n/home"

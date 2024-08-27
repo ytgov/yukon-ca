@@ -59,6 +59,9 @@
   {# END OF HEADER #}
 
   {{ page.secondary_menu }}
+  
+  {{ page.highlighted }}
+  {{ page.pre_content }}
 
   {% if type == "topics_page" %}
     {{
@@ -84,8 +87,7 @@
     {% endif %}
   {% endif %}
 
-  {{ page.highlighted }}
-  {{ page.pre_content }}
+  
 
   {{ page.help }}
 
