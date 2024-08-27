@@ -121,6 +121,9 @@
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
+            },
+            "drupal/fontawesome": {
+                "fontawesome icon name": "patches/fontawesome.patch"
             }
         },
         "installer-paths": {

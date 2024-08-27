@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_class
     - system
   theme:
     - yukonca_glider
@@ -21,4 +22,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: '<front>'
+    pages: "<front>\r\n/accueil\r\n/home"
