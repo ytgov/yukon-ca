@@ -8,6 +8,7 @@ module:
   advanced_help: 0
   ajax_comments: 0
   allowed_formats: 0
+  anchor_link: 0
   better_exposed_filters: 0
   big_pipe: 0
   bigmenu: 0
@@ -20,6 +21,13 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  ckeditor5_plugin_pack: 0
+  ckeditor5_plugin_pack_find_and_replace: 0
+  ckeditor5_plugin_pack_font: 0
+  ckeditor5_plugin_pack_select_all: 0
+  ckeditor5_premium_features_fullscreen: 0
+  ckeditor5_show_block: 0
+  ckeditor_div_manager: 0
   color_field: 0
   comment: 0
   config: 0
@@ -53,6 +61,7 @@ module:
   geofield: 0
   geophp: 0
   help: 0
+  history: 0
   image: 0
   inline_form_errors: 0
   job_scheduler: 0
@@ -117,6 +126,13 @@ module:
   tamper: 0
   taxonomy: 0
   text: 0
+  tmgmt: 0
+  tmgmt_config: 0
+  tmgmt_content: 0
+  tmgmt_diff: 0
+  tmgmt_file: 0
+  tmgmt_language_combination: 0
+  tmgmt_locale: 0
   token: 0
   toolbar: 0
   twig_tweak: 0
