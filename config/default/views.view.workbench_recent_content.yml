@@ -452,7 +452,7 @@ display:
           empty: true
           content:
             value: 'There is no content available for you to edit.'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         changed:
@@ -1159,7 +1159,7 @@ display:
           empty: false
           content:
             value: '<h3>Recent content</h3>'
-            format: basic_html
+            format: full_html
           tokenize: false
       display_extenders: {  }
     cache_metadata:
