@@ -4,6 +4,7 @@ migration_group: legacy_taxonomies
 migration_tags:
   - Drupal 7
   - taxonomy
+  - Ordered Migration
 
 source:
   plugin: d7_taxonomy_term
@@ -46,6 +47,7 @@ process:
 destination:
   plugin: entity:taxonomy_term
   default_bundle: blog_type
+
 migration_dependencies:
-  optional:
+  required:
     - yukon_migrate_images

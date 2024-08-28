@@ -8,14 +8,19 @@ display:
       fields:
         title:
           label: Titre
+          separator: ', '
         type:
           label: 'Type de contenu'
+          separator: ', '
         name:
           label: Auteur
+          separator: ', '
         moderation_state:
           label: 'État de modération'
+          separator: ', '
         changed:
           label: 'Mis à jour'
+          separator: ', '
         operations:
           label: Actions
       pager:

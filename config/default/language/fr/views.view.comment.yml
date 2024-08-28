@@ -6,16 +6,26 @@ display:
     display_options:
       title: Commentaires
       fields:
+        comment_bulk_form:
+          action_title: Action
         subject:
           label: Objet
+          separator: ', '
+        uid:
+          separator: ', '
         name:
           label: Auteur
+          separator: ', '
         entity_id:
           label: 'Posté sur'
+          separator: ', '
         changed:
           label: 'Mis à jour'
+          separator: ', '
         operations:
           label: Actions
+        name_1:
+          separator: ', '
       pager:
         options:
           tags:
@@ -59,16 +69,26 @@ display:
     display_title: 'Commentaires non approuvés'
     display_options:
       fields:
+        comment_bulk_form:
+          action_title: Action
         subject:
           label: Objet
+          separator: ', '
+        uid:
+          separator: ', '
         name:
           label: Auteur
+          separator: ', '
         entity_id:
           label: 'Posté sur'
+          separator: ', '
         changed:
           label: 'Mis à jour'
+          separator: ', '
         operations:
           label: Actions
+        name_1:
+          separator: ', '
       filters:
         subject:
           expose:

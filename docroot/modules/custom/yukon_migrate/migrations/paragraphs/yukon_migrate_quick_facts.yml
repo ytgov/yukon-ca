@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
+  - Ordered Migration
 migration_group: legacy_paragraphs
 source:
   plugin: yukon_paragraphs_item

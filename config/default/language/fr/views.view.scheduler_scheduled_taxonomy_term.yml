@@ -23,19 +23,25 @@ display:
       fields:
         taxonomy_term_bulk_form:
           label: 'Mise à jour en masse'
+          action_title: Action
         name:
           label: Terme
+          separator: ', '
         vid:
           label: Vocabulaire
+          separator: ', '
         status:
           label: État
           settings:
             format_custom_true: Publié
             format_custom_false: 'Non publié'
+          separator: ', '
         publish_on:
           label: 'Publier le'
+          separator: ', '
         unpublish_on:
           label: 'Dépublier le'
+          separator: ', '
         operations:
           label: Actions
       filters:

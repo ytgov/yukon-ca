@@ -19,6 +19,9 @@ display:
           label: Rôles
         created:
           label: 'Membre depuis'
+          settings:
+            future_format: '@interval'
+            past_format: '@interval'
         access:
           label: 'Dernier accès'
           settings:
@@ -26,6 +29,8 @@ display:
             past_format: 'Il y a @interval'
         operations:
           label: Actions
+        mail:
+          separator: ', '
       pager:
         options:
           tags:

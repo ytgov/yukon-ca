@@ -3,6 +3,7 @@ label: User roles
 migration_tags:
   - Drupal 7
   - Configuration
+  - Ordered Migration
 migration_group: legacy_user_role
 source:
   plugin: d7_user_role

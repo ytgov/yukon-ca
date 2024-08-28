@@ -1,3 +1,4 @@
+label: Glossary
 description: 'Tous les contenus, triés par lettre.'
 display:
   default:
@@ -30,3 +31,6 @@ display:
     display_title: 'Élément joint'
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: Glossary

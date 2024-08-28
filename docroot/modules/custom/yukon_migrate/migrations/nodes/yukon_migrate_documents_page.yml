@@ -5,6 +5,7 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
+  - Ordered Migration
 migration_group: legacy_documents
 source:
   plugin: d7_node
@@ -35,9 +36,15 @@ process:
   field_page_description/format: constants/default_text_format
 
   body/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_document_description/0/value
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_document_description/0/value
+    -
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_document_description/0/value
+
   body/format: constants/default_text_format
 
   field_document_upload:
@@ -67,9 +74,14 @@ process:
     no_stub: true
 
   field_contact/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_contact/0/value
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_contact/0/value
+    -
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
   path/alias: alias
@@ -79,6 +91,9 @@ process:
   field_social_sharing: field_social_sharing
 
   field_yukon_editorial_team:
+    - plugin: skip_on_empty
+      method: process
+      source: field_yukon_editorial_team
     - plugin: migration_lookup
       source: field_yukon_editorial_team
       migration: yukon_migrate_teams

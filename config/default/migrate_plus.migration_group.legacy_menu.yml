@@ -1,0 +1,10 @@
+uuid: f9ec3319-d09e-4a4e-b12d-4f8eaf697005
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_menu
+label: legacy_menu
+description: ''
+source_type: null
+module: null
+shared_configuration: null

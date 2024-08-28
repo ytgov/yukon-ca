@@ -27,6 +27,7 @@ display:
           action_title: 'Pour la sélection'
         redirect_source__path:
           label: 'A partir de'
+          separator: ', '
         created:
           label: Créé
       filters:

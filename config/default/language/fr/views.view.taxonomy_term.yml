@@ -31,6 +31,7 @@ display:
         tid:
           exception:
             title: Tout
+          title: '{{ arguments.tid }}'
     display_title: 'Par défaut'
   feed_1:
     display_title: Flux

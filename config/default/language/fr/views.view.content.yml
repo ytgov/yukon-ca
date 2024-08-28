@@ -10,8 +10,7 @@ display:
           label: Titre
         type:
           label: 'Type de contenu'
-        name:
-          label: Auteur
+          separator: ', '
         status:
           label: État
           settings:

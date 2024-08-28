@@ -10,6 +10,7 @@ display:
           label: 'Identifiant (FID)'
         filename:
           label: Nom
+          separator: ', '
         filemime:
           label: 'Type MIME'
         filesize:
@@ -18,12 +19,15 @@ display:
           label: État
           settings:
             format_custom_false: Temporaire
+            format_custom_true: Permanent
         created:
           label: 'Date de transfert'
         changed:
           label: 'Date de modification'
         count:
           label: 'Utilisé dans'
+          alter:
+            path: 'admin/content/files/usage/{{ fid }}'
       pager:
         options:
           tags:

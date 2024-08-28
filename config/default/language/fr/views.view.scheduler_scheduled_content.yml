@@ -17,21 +17,29 @@ display:
             first: "«\_premier"
             last: "dernier\_»"
       fields:
+        node_bulk_form:
+          action_title: Action
         title:
           label: Titre
+          separator: ', '
         type:
           label: 'Type de contenu'
+          separator: ', '
         name:
           label: Auteur
+          separator: ', '
         status:
           label: État
           settings:
             format_custom_true: Publié
             format_custom_false: 'Non publié'
+          separator: ', '
         publish_on:
           label: 'Publier le'
+          separator: ', '
         unpublish_on:
           label: 'Dépublier le'
+          separator: ', '
         operations:
           label: Actions
       filters:
@@ -55,6 +63,9 @@ display:
           expose:
             label: Langue
       title: 'Contenu(s) planifié(s)'
+      empty:
+        area_text_custom:
+          content: 'Aucun contenu planifié.'
     display_title: Maître
   overview:
     display_options:
@@ -63,6 +74,7 @@ display:
       tab_options:
         title: Contenu
         description: 'Chercher et gérer le contenu planifié'
+    display_title: "Vue d'ensemble des contenus"
   user_page:
     display_options:
       menu:
