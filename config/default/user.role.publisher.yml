@@ -3,10 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
+    - filter
     - file
     - help
     - linkchecker
@@ -45,6 +47,7 @@ permissions:
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'

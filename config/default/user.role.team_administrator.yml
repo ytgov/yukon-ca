@@ -2,8 +2,11 @@ uuid: a56cab3a-05bd-4ea2-a584-61ebfc84d307
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.full_html
   module:
     - contextual
+    - filter
     - file
     - help
     - linkchecker
@@ -31,6 +34,7 @@ permissions:
   - 'assign workbench access'
   - 'batch update workbench access'
   - 'delete own files'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view own unpublished content'
   - 'view the administration theme'
