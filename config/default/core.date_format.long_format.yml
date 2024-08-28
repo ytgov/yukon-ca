@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: long_format
-label: Long
+label: Medium
 locked: false
 pattern: 'l, F j, Y'
