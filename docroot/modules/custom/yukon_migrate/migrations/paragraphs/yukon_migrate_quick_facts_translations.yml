@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
+  - Ordered Migration
 migration_group: legacy_paragraphs
 source:
   plugin: d7_paragraphs_item
@@ -11,10 +12,15 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   langcode:
     plugin: default_value
     default_value: "fr"
-  field_facts: field_facts
+  field_facts/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_facts/value
+  field_facts/format: constants/default_text_format
 
 destination:
   plugin: entity_reference_revisions:paragraph

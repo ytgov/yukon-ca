@@ -1,0 +1,10 @@
+uuid: 2f174da9-1386-4d52-acf8-fe5549e6dba3
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_files
+label: legacy_files
+description: ''
+source_type: null
+module: null
+shared_configuration: null

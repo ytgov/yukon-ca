@@ -1,0 +1,21 @@
+uuid: 4e5a78f9-bb44-44bb-83ff-b249b291191d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+label: CKEditor
+id: ckeditor
+description: 'Used in CKEditor'
+matchers:
+  957b1038-a74d-4c46-93d8-eb0a232c7bc1:
+    id: 'entity:node'
+    uuid: 957b1038-a74d-4c46-93d8-eb0a232c7bc1
+    settings:
+      metadata: '[node:title]'
+      bundles: {  }
+      group_by_bundle: false
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: true
+    weight: 0

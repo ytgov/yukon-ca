@@ -5,6 +5,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Files
+  - Ordered Migration
 migration_group: legacy_files
 source:
   plugin: d7_file
@@ -13,6 +14,7 @@ source:
   constants:
     source_base_path: 'https://yukon.ca/'
 process:
+  uuid: uuid
   filename: filename
   source_full_path:
     -

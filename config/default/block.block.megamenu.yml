@@ -11,7 +11,7 @@ dependencies:
 id: megamenu
 theme: yukonca_glider
 region: header_menu
-weight: 0
+weight: -20
 provider: null
 plugin: 'menu_block:main'
 settings:

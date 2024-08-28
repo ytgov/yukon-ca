@@ -4,13 +4,14 @@ migration_group: legacy_taxonomies
 migration_tags:
   - Drupal 7
   - taxonomy
-
+  - Ordered Migration
 source:
   plugin: d7_taxonomy_term
   bundle: category
   translation: false
 
 process:
+  uuid: uuid
   language: language
   name: name
   description: description

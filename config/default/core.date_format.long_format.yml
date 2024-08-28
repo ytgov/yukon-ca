@@ -5,4 +5,4 @@ dependencies: {  }
 id: long_format
 label: Medium
 locked: false
-pattern: 'F j, Y'
+pattern: 'l, F j, Y'

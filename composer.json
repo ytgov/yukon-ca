@@ -75,6 +75,7 @@
         "drupal/scheduler_content_moderation_integration": "^2.0@beta",
         "drupal/search404": "^2.1",
         "drupal/search_api_attachments": "^9.0",
+        "drupal/search_api_pantheon": "^8.1",
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
@@ -82,6 +83,7 @@
         "drupal/single_content_sync": "^1.3",
         "drupal/smtp": "^1.2",
         "drupal/stage_file_proxy": "^1.0",
+        "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
         "drupal/tmgmt": "^1.15",
         "drupal/tmgmt_diff": "^1.0@alpha",
@@ -114,6 +116,7 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
+                "2321071 - BaseFieldOverride fails to take into account ContentEntityInterface::bundleFieldDefinitions() when invoking onFieldDefinitionUpdate()": "https://www.drupal.org/files/issues/2023-11-02/2321071-71.patch",
                 "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
                 "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch"
