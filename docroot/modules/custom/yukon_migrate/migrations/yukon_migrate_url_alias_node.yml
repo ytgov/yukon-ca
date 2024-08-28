@@ -1,0 +1,121 @@
+id: yukon_migrate_url_alias_node
+label: 'URL aliases (Nodes)'
+migration_group: legacy_url_alias
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - Alias
+
+source:
+  plugin: d7_url_alias
+  constants:
+    slash: /
+    type: node
+  entity_type_id: node
+process:
+  _source_id:
+    -
+      plugin: explode
+      source: source
+      delimiter: /
+    -
+      plugin: extract
+      default: INVALID_NID
+      index:
+        - 1
+  _dest_id:
+    -
+      plugin: migration_lookup
+      migration:
+        - yukon_migrate_basic_page
+        - yukon_migrate_blog
+        - yukon_migrate_campaign_page
+        - yukon_migrate_campground_directory_record
+        - yukon_migrate_department_nodes
+        - yukon_migrate_documents_page
+        - yukon_migrate_engagement
+        - yukon_migrate_event
+        - yukon_migrate_home_page
+        - yukon_migrate_in_page_alert
+        - yukon_migrate_landing_page
+        - yukon_migrate_landing_page_level_2
+        - yukon_migrate_multi_step_page
+        - yukon_migrate_news
+        - yukon_migrate_places
+        - yukon_migrate_topics_page
+      source: '@_source_id'
+      no_stub: true
+    -
+      plugin: node_complete_node_lookup
+    -
+      plugin: skip_on_empty
+      method: row
+  _path:
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - constants/type
+        - constants/slash
+        - '@_dest_id'
+  alias:
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - alias
+  node_translation:
+    -
+      plugin: migration_lookup
+      source: '@_source_id'
+      migration:
+        - yukon_migrate_basic_page_translations
+        - yukon_migrate_blog_translations
+        - yukon_migrate_campaign_page_translations
+        - yukon_migrate_campground_directory_record_translations
+        - yukon_migrate_department_nodes_translations
+        - yukon_migrate_documents_page_translations
+        - yukon_migrate_engagement_translations
+        - yukon_migrate_event_translations
+        - yukon_migrate_home_page_translations
+        - yukon_migrate_in_page_alert_translations
+        - yukon_migrate_landing_page_translations
+        - yukon_migrate_landing_page_level_2_translations
+        - yukon_migrate_multi_step_page_translations
+        - yukon_migrate_news_translations
+        - yukon_migrate_places_translations
+        - yukon_migrate_topics_page_translations
+      no_stub: true
+    -
+      plugin: node_complete_node_translation_lookup
+  langcode:
+    -
+      plugin: get
+      source: language
+  path:
+    -
+      plugin: path_set_translated
+      source:
+        - '@_path'
+        - '@node_translation'
+destination:
+  plugin: 'entity:path_alias'
+migration_dependencies:
+  required: {  }
+  optional:
+    - yukon_migrate_basic_page
+    - yukon_migrate_blog
+    - yukon_migrate_campaign_page
+    - yukon_migrate_campground_directory_record
+    - yukon_migrate_department_nodes
+    - yukon_migrate_documents_page
+    - yukon_migrate_engagement
+    - yukon_migrate_event
+    - yukon_migrate_home_page
+    - yukon_migrate_in_page_alert
+    - yukon_migrate_landing_page
+    - yukon_migrate_landing_page_level_2
+    - yukon_migrate_multi_step_page
+    - yukon_migrate_news
+    - yukon_migrate_places
+    - yukon_migrate_topics_page

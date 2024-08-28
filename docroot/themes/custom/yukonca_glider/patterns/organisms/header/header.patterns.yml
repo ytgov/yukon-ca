@@ -20,6 +20,10 @@ header:
       type: mixed
       label: Language switcher block
       preview: ''
+    search:
+      type: mixed
+      label: Search block
+      preview: ''
     offcanvas_heading:
       type: text
       label: Off Canvas Heading text

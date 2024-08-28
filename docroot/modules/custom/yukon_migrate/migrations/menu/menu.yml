@@ -3,6 +3,7 @@ label: Menus
 migration_tags:
   - Drupal 7
   - Configuration
+  - Ordered Migration
 migration_group: legacy_menu
 source:
   plugin: menu
@@ -22,5 +23,6 @@ process:
     plugin: default_value
     source: language
     default_value: en
+  uuid: uuid
 destination:
   plugin: entity:menu

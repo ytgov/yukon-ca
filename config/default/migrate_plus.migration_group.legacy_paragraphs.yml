@@ -1,0 +1,10 @@
+uuid: 38ffd43b-88a5-45f3-afdf-fd43e3e7499f
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_paragraphs
+label: legacy_paragraphs
+description: ''
+source_type: null
+module: null
+shared_configuration: null

@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
+  - Ordered Migration
 migration_group: legacy_paragraphs
 source:
   plugin: d7_field_collection_item
@@ -11,7 +12,7 @@ source:
   constants:
     default_text_format: full_html
 process:
-
+    uuid: uuid
     field_external_related_content:
         plugin: sub_process
         source: field_department_related_content

@@ -1,5 +1,43 @@
 #!/bin/bash
 
+usage () {
+  echo "Usage: ./migrate_update.sh  (This uses ddev by default.)"
+  echo "       ./migrate_update.sh ddev"
+  echo "       ./migrate_update.sh local"
+  echo "       ./migrate_update.sh terminus dev|test|live"
+  exit 1
+}
+
+if [ "$#" -gt 2 ]
+then
+  usage
+fi
+
+case "$1" in
+  ddev)
+    COMMAND="ddev drush"
+    ;;
+  local)
+    COMMAND="drush"
+    ;;
+  terminus)
+    if [ "$#" -ne 2 ]
+    then
+      usage
+    fi
+
+    COMMAND="terminus drush yukon-drupal-10.$2 --"
+    ;;
+  *)
+    if [ "$#" -eq 0 ]
+    then
+      COMMAND="ddev drush"
+    else
+      usage
+    fi
+    ;;
+esac
+
 # From https://github.com/ralish/bash-script-template
 #
 # A best practices Bash script template with many useful functions. This file
@@ -28,15 +66,15 @@ set -o errtrace         # Ensure the error trap handler is inherited
 
 date
 
-time drush migrate:import --group=legacy_taxonomies  --update --continue-on-failure
-time drush migrate:import --group=legacy_media       --update --continue-on-failure
-time drush migrate:import --group=legacy_paragraphs  --update --continue-on-failure
-time drush migrate:import --group=legacy_nodes       --update --continue-on-failure
-time drush migrate:import --group=legacy_documents   --update --continue-on-failure
-time drush migrate:import --group=legacy_basic_page  --update --continue-on-failure
-time drush migrate:import --group=legacy_page_news   --update --continue-on-failure
-time drush migrate:import --group=legacy_user_role   --update --continue-on-failure
-time drush migrate:import --group=legacy_menu        --update --continue-on-failure
-time drush migrate:import --group=legacy_files       --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_taxonomies  --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_media       --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_paragraphs  --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_nodes       --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_documents   --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_basic_page  --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_page_news   --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_user_role   --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_menu        --update --continue-on-failure
+time $COMMAND migrate:import --group=legacy_files       --update --continue-on-failure
 
 date

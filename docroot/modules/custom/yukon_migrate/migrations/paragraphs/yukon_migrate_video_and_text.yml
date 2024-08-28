@@ -4,6 +4,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
+  - Ordered Migration
 migration_group: legacy_paragraphs
 source:
   plugin: d7_paragraphs_item
@@ -11,6 +12,7 @@ source:
   constants:
     default_text_format: full_html
 process:
+  uuid: uuid
   field_title: field_section_title
   field_display_section_title: field_display_section_title
   field_source_credit: field_source_credit
@@ -21,7 +23,10 @@ process:
     migration: yukon_migrate_media_video_from_video_and_text
     no_stub: true
 
-  field_section_content/value: field_text_block/0/value
+  field_section_content/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_text_block/0/value
   field_section_content/format: constants/default_text_format
 
   field_position_on_page: field_position_on_page

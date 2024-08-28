@@ -4,6 +4,7 @@ audit: true
 migration_tags:
   - Drupal 7
   - node
+  - Ordered Migration
 migration_group: legacy_nodes
 source:
   plugin: d7_node_entity_translation
@@ -34,7 +35,10 @@ process:
 
   field_sequential_non_sequential: field_sequential_non_sequential
 
-  body/value: body/0/value
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
   body/format: constants/default_text_format
 
   pseudo_field_paragraphs:
@@ -59,7 +63,10 @@ process:
 
   field_social_sharing: field_social_sharing
 
-  field_contact/value: field_contact/0/value
+  field_contact/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_contact/0/value
   field_contact/format: constants/default_text_format
 
   field_yukon_editorial_team:
@@ -77,7 +84,11 @@ process:
       target_id: tid
 
 #  Meta tags Description
-  field_page_description: field_description
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
+  field_page_description/format: constants/default_text_format
 
   field_related_tasks:
     plugin: yukon_migrate_links

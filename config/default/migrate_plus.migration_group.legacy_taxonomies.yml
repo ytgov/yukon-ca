@@ -1,0 +1,10 @@
+uuid: 560fe3b8-5051-4336-b693-735d3c72b0d5
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_taxonomies
+label: legacy_taxonomies
+description: ''
+source_type: null
+module: null
+shared_configuration: null

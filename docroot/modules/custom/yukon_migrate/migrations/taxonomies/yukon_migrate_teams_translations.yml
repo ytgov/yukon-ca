@@ -1,0 +1,50 @@
+id: yukon_migrate_teams_translations
+label: Teams taxonomy terms translations
+migration_group: legacy_taxonomies
+migration_tags:
+  - Drupal 7
+  - taxonomy
+  - taxonomy translation
+  - Ordered Migration
+
+source:
+  plugin: d7_term_localized_translation
+  bundle: teams
+  translations: true
+
+process:
+  tid:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: tid
+    no_stub: true
+  langcode: ltlanguage
+  name:
+    -
+      plugin: callback
+      source:
+        - name_translated
+        - name
+      callable: array_filter
+    -
+      plugin: callback
+      callable: current
+  description:
+    -
+      plugin: callback
+      source:
+        - description_translated
+        - description
+      callable: array_filter
+    -
+      plugin: callback
+      callable: current
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: teams
+  translations: true
+
+migration_dependencies:
+  required:
+    - yukon_migrate_teams

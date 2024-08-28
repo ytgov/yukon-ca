@@ -5,6 +5,7 @@ migration_tags:
     - Drupal 7
     - node
     - Home Page
+    - Ordered Migration
 migration_group: legacy_nodes
 source:
     plugin: d7_node_entity_translation
@@ -34,9 +35,15 @@ process:
         value: 1
         source: status
     langcode: language
-    field_page_description/value: field_page_description/0/value
+    field_page_description/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: field_page_description/0/value
     field_page_description/format: constants/default_text_format
-    body/value: body/0/value
+    body/value:
+      plugin: yukon_migrate_uri_transform
+      method: transformUri
+      source: body/0/value
     body/format: constants/default_text_format
     field_primary_item_blocks:
         plugin: sub_process

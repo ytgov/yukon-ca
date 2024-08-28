@@ -4,6 +4,7 @@ audit: true
 migration_tags:
   - Drupal 7
   - Media
+  - Ordered Migration
 migration_group: legacy_media
 
 source:

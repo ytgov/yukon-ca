@@ -74,7 +74,7 @@ content:
     label: inline
     settings:
       timezone_override: ''
-      format_type: long_format
+      format_type: medium_format
     third_party_settings:
       fences:
         fences_field_tag: none
