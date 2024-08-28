@@ -148,3 +148,39 @@ Please note that roll back commands will assign new node IDs and will need migra
 ./vendor/bin/drush migrate:import yukon_migrate_landing_page
 
 ./vendor/bin/drush migrate:import yukon_migrate_landing_page_translations
+
+### Export and Import of the custom translations:
+
+#### Examples
+
+##### Export
+- Local
+```bash
+drush locale-export fr --type=customized > config/translations/fr.customized.po
+```
+- Pantheon
+```bash
+drush locale-export fr --type=customized > /code/config/translations/fr.customized.po
+```
+
+##### Import:
+- Local
+```bash
+drush locale-import fr --type=customized /var/www/html/config/translations/fr.customized.po
+```
+- Pantheon
+```bash
+drush locale-import fr --type=customized /code/config/translations/fr.customized.po
+```
+
+##### Import with override:
+- Local
+```bash
+drush locale-import fr --type=customized --override=customized /var/www/html/config/translations/fr.customized.po
+```
+- Pantheon
+```bash
+drush locale-import fr --type=customized --override=customized /code/config/translations/fr.customized.po
+```
+
+

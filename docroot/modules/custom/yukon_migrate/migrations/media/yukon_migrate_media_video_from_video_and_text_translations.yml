@@ -5,6 +5,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Media
+  - Ordered Migration
 migration_group: legacy_media
 source:
   plugin: yukon_paragraphs_item
@@ -24,6 +25,7 @@ process:
   langcode:
     plugin: default_value
     default_value: "fr"
+
 destination:
   plugin: entity:media
   default_bundle: video

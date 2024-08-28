@@ -4,11 +4,13 @@ migration_tags:
   - Drupal 7
   - Content
   - Paragraphs Content
+  - Ordered Migration
 migration_group: legacy_paragraphs
 source:
   plugin: d7_paragraphs_item
   bundle: social_network
 process:
+  uuid: uuid
   field_social_network_name: field_social_network_name
   field_social_campaign_tag: field_social_campaign_tag
 

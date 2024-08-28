@@ -5,6 +5,7 @@ migration_tags:
   - Drupal 7
   - Content
   - Media
+  - Ordered Migration
 migration_group: legacy_media
 source:
   plugin: yukon_migrate_file
@@ -41,6 +42,7 @@ process:
   # Todo: Replace this part with migration lookup after we migrate users.
   uid: uid
   langcode: source_language
+  uuid: uuid
 destination:
   plugin: entity:media
   default_bundle: icon

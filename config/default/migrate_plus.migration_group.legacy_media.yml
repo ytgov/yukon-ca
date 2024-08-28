@@ -1,0 +1,10 @@
+uuid: fb4afb58-916a-4185-b758-d4ffee7f210c
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_media
+label: legacy_media
+description: ''
+source_type: null
+module: null
+shared_configuration: null
