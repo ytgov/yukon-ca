@@ -36,7 +36,7 @@ function yukonca_glider_preprocess_links__language_block(&$variables) {
 function yukonca_glider_preprocess_comment(&$variables) {
   $date_formatter = \Drupal::service('date.formatter');
   $comment = $variables['elements']['#comment'];
-  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'yg_long');
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime(), 'medium_format');
 }
 
 /**
@@ -270,17 +270,32 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   if (!empty($variables['node'])) {
-    $variables['content_type'] = $variables['node']->bundle();
-    if ($variables['node']->bundle() == 'topics_page') {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['node'];
+
+    $variables['content_type'] = $node->bundle();
+    if ($node->bundle() == 'topics_page') {
       $variables['type'] = "topics_page";
     }
 
-    if ($variables['node']->bundle() == 'basic_page') {
+    if ($node->bundle() == 'basic_page') {
       $variables['type'] = "basic_page";
     }
 
-    /** @var \Drupal\node\NodeInterface $node */
-    $node = $variables['node'];
+    // Do not show at Homepage.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}");
+    $front_page_setting = \Drupal::getContainer()->get('config.factory')->get('system.site')->get('page.front');
+    if (empty($variables['is_front']) && $front_page_setting != $current_path && $front_page_setting != $current_alias) {
+      // Get node modified date and populate it to display at the bottom of the
+      // page in template files.
+      $modified_date = $node->get('changed')->value;
+      $variables['node_date_modified'] = t(
+        'Date modified: @date',
+        ['@date' => \Drupal::getContainer()->get('date.formatter')->format($modified_date, 'custom', 'Y-m-d')]
+      );
+    }
+
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
       return;
     }
@@ -344,4 +359,25 @@ function yukonca_glider_preprocess_file_link(&$variables) {
   $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
   $variables['link']['#attributes']['target'] = '_blank';
   $variables['filename'] = $filename;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Limit the text length of the last breadcrumb item.
+ */
+function yukonca_glider_preprocess_breadcrumb(&$variables) {
+  $route = \Drupal::routeMatch();
+  $node = $route->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $max_length = 100;
+    $index = array_key_last($variables['breadcrumb']);
+    $title = $variables['breadcrumb'][$index]['text'];
+    if (strlen($title) > $max_length) {
+      $variables['breadcrumb'][$index]['text'] = substr($title, 0, $max_length) . '...';
+    }
+    // Add the cache tag to update the breadcrumb if the node title changes.
+    $nid = \Drupal::routeMatch()->getRawParameter('node');
+    $variables['#cache']['tags'][] = 'node:' . $nid;
+  }
 }

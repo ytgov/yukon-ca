@@ -1,0 +1,7 @@
+services:
+  yukon_migrate.migrate_commands:
+    class: Drupal\yukon_migrate\Drush\Commands\YukonMigrateOrdered
+    arguments:
+      - '@plugin.manager.migration'
+    tags:
+      - { name: drush.command }

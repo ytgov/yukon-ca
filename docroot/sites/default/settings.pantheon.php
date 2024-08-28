@@ -120,6 +120,9 @@ if (isset($_SERVER['PRESSFLOW_SETTINGS'])) {
         $databases = array();
       }
       $databases = array_replace_recursive($databases, $value);
+
+      $databases['migrate'] = $databases['default'];
+      $databases['migrate']['default']['database'] = "migrate";
     }
     else {
       $$key = $value;

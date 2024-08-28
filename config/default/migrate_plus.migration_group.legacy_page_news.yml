@@ -1,0 +1,10 @@
+uuid: 0df07826-ca86-4092-acec-f785fa0d2c0a
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_page_news
+label: legacy_page_news
+description: ''
+source_type: null
+module: null
+shared_configuration: null

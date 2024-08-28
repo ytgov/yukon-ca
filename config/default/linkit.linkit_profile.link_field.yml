@@ -1,0 +1,21 @@
+uuid: 3776fc30-bdb5-4972-9285-b0b728fed96b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+label: 'Link field'
+id: link_field
+description: 'Used in field widget'
+matchers:
+  c6a9f5d2-ac04-4b52-b964-fe1ccd321823:
+    id: 'entity:node'
+    uuid: c6a9f5d2-ac04-4b52-b964-fe1ccd321823
+    settings:
+      metadata: '[node:title]'
+      bundles: {  }
+      group_by_bundle: false
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: false
+    weight: 0

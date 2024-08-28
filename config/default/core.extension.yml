@@ -53,6 +53,7 @@ module:
   geofield: 0
   geophp: 0
   help: 0
+  history: 0
   image: 0
   inline_form_errors: 0
   job_scheduler: 0
@@ -105,6 +106,7 @@ module:
   search404: 0
   search_api: 0
   search_api_attachments: 0
+  search_api_pantheon: 0
   search_api_solr: 0
   search_api_spellcheck: 0
   security_review: 0
@@ -117,6 +119,13 @@ module:
   tamper: 0
   taxonomy: 0
   text: 0
+  tmgmt: 0
+  tmgmt_config: 0
+  tmgmt_content: 0
+  tmgmt_diff: 0
+  tmgmt_file: 0
+  tmgmt_language_combination: 0
+  tmgmt_locale: 0
   token: 0
   toolbar: 0
   twig_tweak: 0
@@ -142,6 +151,7 @@ module:
   yukon_base: 0
   yukon_department: 0
   yukon_migrate: 0
+  yukon_taxonomy: 0
   yukon_w3_custom: 0
   yukon_w3_migrate: 0
   pathauto: 1

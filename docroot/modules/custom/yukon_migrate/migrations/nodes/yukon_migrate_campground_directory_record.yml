@@ -6,6 +6,7 @@ migration_tags:
   - Drupal 7
   - node
   - Campground and Recreation Site
+  - Ordered Migration
 migration_group: legacy_nodes
 source:
   plugin: d7_node
@@ -25,6 +26,7 @@ process:
   changed: timestamp
   promote: promote
   sticky: sticky
+  uuid: uuid
 
   # booleans
   field_one_wheelchair_camp: field_one_wheelchair_camp
@@ -131,19 +133,28 @@ process:
   field_total_sites: field_total_sites
 
   # long text fields
-  field_site_description/value: field_campground_description/0/value
+  field_site_description/0/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_site_description_app_/0/value
   field_site_description/format: constants/default_text_format
 
   field_site_description_app/value: field_site_description_app_/0/value
   field_site_description_app/format: constants/default_text_format
 
-  field_site_directions/value: field_site_directions/0/value
+  field_site_directions/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_site_directions/0/value
   field_site_directions/format: constants/default_text_format
 
   field_warning/value: field_warning/0/value
   field_warning/format: constants/default_text_format
 
-  field_page_description/value: field_page_description/0/value
+  field_page_description/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: field_page_description/0/value
   field_page_description/format: constants/default_text_format
 
   # taxonomy

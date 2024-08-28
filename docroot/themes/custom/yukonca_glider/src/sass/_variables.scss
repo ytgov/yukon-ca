@@ -36,8 +36,8 @@ $container-max-widths: (
   xxs: 100%,
   xs: 544px,
   sm: 644px,
-  md: 720px,
-  lg: 960px,
+  md: 750px,
+  lg: 970px,
   xl: 1168px,
 );
 
@@ -55,12 +55,18 @@ $color-blue200: #005A65;
 $color-blue300: #00616D;
 $color-blue400: #00818F;
 $color-blue500: #008392;
+$blue-sherpa: #00454E;
 
 $gray: #999;
 $light-gray: #F1F1F1;
 $dark-gray: #747474;
 $darker-gray: #595A59;
 
+$green-jade: #00A964;
+
+$yellow-sun: #FDB813;
+
+$orange-trinidad: #DC4405;
 
 // Ported over from D7 site.
 $light-border: #D4C7CF;
