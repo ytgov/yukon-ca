@@ -24,7 +24,7 @@ function yukon_migrate_migrate_prepare_row(Row $row, MigrateSourceInterface $sou
   }
 
   if ($migration_type === 'node') {
-    $uuid = trim($row->getSourceProperty('uuid') ?? '');
+    $uuid = trim($row->getSourceProperty('uuid'));
     if (empty($uuid)) {
       $uuidService = \Drupal::service('uuid');
       $row->setSourceProperty('uuid', $uuidService->generate());

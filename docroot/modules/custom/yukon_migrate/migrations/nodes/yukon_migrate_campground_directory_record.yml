@@ -27,6 +27,7 @@ process:
   promote: promote
   sticky: sticky
   uuid: uuid
+  nid: nid
 
   # booleans
   field_one_wheelchair_camp: field_one_wheelchair_camp

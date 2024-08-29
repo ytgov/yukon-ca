@@ -10,7 +10,6 @@ source:
   plugin: d7_paragraphs_item
   bundle: sub_heading
 process:
-  uuid: uuid
   field_title: field_sub_header
   field_link:
     plugin: yukon_migrate_links

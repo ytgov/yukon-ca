@@ -136,6 +136,69 @@ body {
       }
     }
   }
+
+  #block-page-feedback-webform {
+    @apply pt-2.5 mb-3.75 border-t border-gray-lightborder;
+
+    form {
+      .form-type-textarea {
+        @apply m-0;
+
+        label {
+          @apply mb-1.25 font-medium;
+        }
+
+        textarea {
+          @apply border-gray-300;
+        }
+      }
+
+      fieldset {
+        @apply m-0 items-center;
+
+        &.yes-no-trigger-wrapper {
+          @apply flex;
+
+          legend {
+            @apply font-medium w-auto;
+          }
+        }
+
+        #edit-was-this-page-helpful {
+          @apply flex;
+
+          .form-item-was-this-page-helpful {
+            @apply m-0 pl-5;
+
+            input {
+              @apply hidden;
+            }
+
+            label {
+              font-size: 0;
+
+              &::after {
+                content: "\f164";
+                font-family: "Font Awesome", sans-serif;
+                font-size: 38px;
+                color: #B2B3B2;
+              }
+            }
+          }
+        }
+      }
+
+      .form-actions {
+        .webform-button--submit {
+          @apply py-3.75 px-7.5 bg-blue-300 text-white font-normal rounded-[4px];
+
+          &:hover {
+            @apply bg-blue-600;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* End issue 153 */
