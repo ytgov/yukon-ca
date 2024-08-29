@@ -1,0 +1,10 @@
+uuid: cab0d6d6-0223-47ac-87ee-05983b930c2e
+langcode: en
+status: true
+dependencies: {  }
+id: legacy_url_alias
+label: legacy_url_alias
+description: ''
+source_type: null
+module: null
+shared_configuration: null

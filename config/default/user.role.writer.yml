@@ -3,16 +3,36 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
+    - node.type.basic_page
+    - node.type.blog
+    - node.type.campaign_page
+    - node.type.campground_directory_record
+    - node.type.department
+    - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
+    - node.type.event
+    - node.type.homepage
+    - node.type.in_page_alert
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.multi_step_page
+    - node.type.news
+    - node.type.site_wide_alert
+    - node.type.topics_page
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
+    - filter
     - file
     - help
     - linkchecker
     - media
     - node
     - path
+    - scheduler
     - system
     - toolbar
     - workbench
@@ -33,16 +53,86 @@ permissions:
   - 'access workbench'
   - 'administer menu'
   - 'administer nodes'
+  - 'create basic_page content'
+  - 'create blog content'
+  - 'create campaign_page content'
+  - 'create campground_directory_record content'
+  - 'create department content'
+  - 'create directory_records_places content'
+  - 'create documents content'
+  - 'create engagement content'
+  - 'create event content'
+  - 'create homepage content'
+  - 'create in_page_alert content'
+  - 'create landing_page content'
+  - 'create landing_page_level_2 content'
   - 'create media'
+  - 'create multi_step_page content'
+  - 'create news content'
+  - 'create site_wide_alert content'
+  - 'create topics_page content'
   - 'create url aliases'
+  - 'delete own basic_page content'
+  - 'delete own blog content'
+  - 'delete own campaign_page content'
+  - 'delete own campground_directory_record content'
+  - 'delete own department content'
+  - 'delete own directory_records_places content'
+  - 'delete own documents content'
+  - 'delete own engagement content'
+  - 'delete own event content'
   - 'delete own files'
+  - 'delete own homepage content'
+  - 'delete own in_page_alert content'
+  - 'delete own landing_page content'
+  - 'delete own landing_page_level_2 content'
+  - 'delete own multi_step_page content'
+  - 'delete own news content'
+  - 'delete own site_wide_alert content'
+  - 'delete own topics_page content'
+  - 'edit own basic_page content'
+  - 'edit own blog content'
+  - 'edit own campaign_page content'
+  - 'edit own campground_directory_record content'
+  - 'edit own department content'
+  - 'edit own directory_records_places content'
+  - 'edit own documents content'
+  - 'edit own engagement content'
+  - 'edit own event content'
+  - 'edit own homepage content'
+  - 'edit own in_page_alert content'
+  - 'edit own landing_page content'
+  - 'edit own landing_page_level_2 content'
+  - 'edit own multi_step_page content'
+  - 'edit own news content'
+  - 'edit own site_wide_alert content'
+  - 'edit own topics_page content'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
   - 'use content transition submit_for_review'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view basic_page revisions'
+  - 'view blog revisions'
+  - 'view campaign_page revisions'
+  - 'view campground_directory_record revisions'
+  - 'view department revisions'
+  - 'view directory_records_places revisions'
+  - 'view documents revisions'
+  - 'view engagement revisions'
+  - 'view event revisions'
+  - 'view homepage revisions'
+  - 'view in_page_alert revisions'
+  - 'view landing_page revisions'
+  - 'view landing_page_level_2 revisions'
+  - 'view multi_step_page revisions'
+  - 'view news revisions'
   - 'view own unpublished content'
+  - 'view scheduled content'
+  - 'view site_wide_alert revisions'
   - 'view the administration theme'
+  - 'view topics_page revisions'
   - 'view workbench access information'
