@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.site_wide_alert.body
     - field.field.node.site_wide_alert.field_department_term
+    - field.field.node.site_wide_alert.field_editor_publisher
+    - field.field.node.site_wide_alert.field_publisher
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
   module:
@@ -23,9 +25,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
   addtoany: true
   field_department_term: true
+  field_editor_publisher: true
+  field_publisher: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

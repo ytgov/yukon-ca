@@ -3,6 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.basic_page.field_yukon_editorial_team
+    - field.field.node.blog.field_yukon_editorial_team
+    - field.field.node.campaign_page.field_yukon_editorial_team
+    - field.field.node.campground_directory_record.field_yukon_editorial_team
+    - field.field.node.department.field_yukon_editorial_team
+    - field.field.node.directory_records_places.field_yukon_editorial_team
+    - field.field.node.documents.field_yukon_editorial_team
+    - field.field.node.engagement.field_yukon_editorial_team
+    - field.field.node.event.field_yukon_editorial_team
+    - field.field.node.homepage.field_yukon_editorial_team
+    - field.field.node.in_page_alert.field_yukon_editorial_team
+    - field.field.node.landing_page.field_yukon_editorial_team
+    - field.field.node.landing_page_level_2.field_yukon_editorial_team
+    - field.field.node.multi_step_page.field_yukon_editorial_team
+    - field.field.node.news.field_yukon_editorial_team
+    - field.field.node.site_wide_alert.field_yukon_editorial_team
+    - field.field.node.topics_page.field_yukon_editorial_team
     - taxonomy.vocabulary.teams
 id: team
 plural_label: Teams
@@ -11,4 +28,72 @@ scheme: taxonomy
 scheme_settings:
   vocabularies:
     - teams
-  fields: {  }
+  fields:
+    -
+      entity_type: node
+      bundle: basic_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: in_page_alert
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: multi_step_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: landing_page_level_2
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: landing_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: homepage
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: news
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: event
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: blog
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: topics_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: site_wide_alert
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: engagement
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: documents
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: directory_records_places
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: department
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: campground_directory_record
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: campaign_page
+      field: field_yukon_editorial_team

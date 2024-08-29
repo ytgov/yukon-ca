@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.campaign_page.field_copyright_notice_text
     - field.field.node.campaign_page.field_department_term
     - field.field.node.campaign_page.field_display_copyright_notice
+    - field.field.node.campaign_page.field_editor_publisher
     - field.field.node.campaign_page.field_hero_image
     - field.field.node.campaign_page.field_highlight_color
     - field.field.node.campaign_page.field_image
@@ -22,6 +23,7 @@ dependencies:
     - field.field.node.campaign_page.field_page_description
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
+    - field.field.node.campaign_page.field_publisher
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
     - field.field.node.campaign_page.field_use_navigation_jump_points
@@ -40,6 +42,11 @@ targetEntityType: node
 bundle: campaign_page
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_add_social_media_channels:
     type: boolean
     label: above
@@ -112,6 +119,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_hero_image:
     type: entity_reference_entity_view
@@ -203,6 +218,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 121
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_social_network:
     type: entity_reference_revisions_entity_view

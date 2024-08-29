@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Yukon Moderation module.
+ *
+ * Provides moderation features for the Yukon project.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function yukon_moderation_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check if the form ID matches the pattern for node edit forms.
+  if (strpos($form_id, 'node_') === 0) {
+    // Set the visibility state for the field_publisher element.
+    $form['field_editor_publisher']['#states'] = [
+      'visible' => [
+        ':input[name="moderation_state[0][state]"]' => ['value' => 'needs_review'],
+      ],
+    ];
+    $form['field_publisher']['#states'] = [
+      'visible' => [
+        ':input[name="moderation_state[0][state]"]' => ['value' => 'ready_to_publish'],
+      ],
+    ];
+  }
+}

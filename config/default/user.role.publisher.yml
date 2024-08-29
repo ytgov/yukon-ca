@@ -3,6 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.basic_page
+    - node.type.blog
+    - node.type.campaign_page
+    - node.type.campground_directory_record
+    - node.type.department
+    - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
+    - node.type.event
+    - node.type.homepage
+    - node.type.in_page_alert
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.multi_step_page
+    - node.type.news
+    - node.type.site_wide_alert
+    - node.type.topics_page
     - filter.format.full_html
     - workflows.workflow.content
   module:
@@ -15,6 +32,7 @@ dependencies:
     - media
     - node
     - path
+    - scheduler
     - system
     - toolbar
     - workbench
@@ -36,9 +54,27 @@ permissions:
   - 'administer media'
   - 'administer menu'
   - 'administer nodes'
+  - 'create basic_page content'
+  - 'create blog content'
+  - 'create campaign_page content'
+  - 'create campground_directory_record content'
+  - 'create department content'
+  - 'create directory_records_places content'
+  - 'create documents content'
+  - 'create engagement content'
+  - 'create event content'
+  - 'create homepage content'
+  - 'create in_page_alert content'
+  - 'create landing_page content'
+  - 'create landing_page_level_2 content'
   - 'create media'
+  - 'create multi_step_page content'
+  - 'create news content'
+  - 'create site_wide_alert content'
+  - 'create topics_page content'
   - 'create url aliases'
   - 'delete own files'
+  - 'schedule publishing of nodes'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
@@ -52,7 +88,25 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view basic_page revisions'
+  - 'view blog revisions'
+  - 'view campaign_page revisions'
+  - 'view campground_directory_record revisions'
+  - 'view department revisions'
+  - 'view directory_records_places revisions'
+  - 'view documents revisions'
+  - 'view engagement revisions'
+  - 'view event revisions'
+  - 'view homepage revisions'
+  - 'view in_page_alert revisions'
+  - 'view landing_page revisions'
+  - 'view landing_page_level_2 revisions'
   - 'view media'
+  - 'view multi_step_page revisions'
+  - 'view news revisions'
   - 'view own unpublished content'
+  - 'view scheduled content'
+  - 'view site_wide_alert revisions'
   - 'view the administration theme'
+  - 'view topics_page revisions'
   - 'view workbench access information'
