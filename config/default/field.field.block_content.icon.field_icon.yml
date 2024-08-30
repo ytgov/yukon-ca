@@ -91,4 +91,7 @@ settings:
   webform_submission:
     handler: 'default:webform_submission'
     handler_settings: {  }
+  config_pages:
+    handler: 'default:config_pages'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

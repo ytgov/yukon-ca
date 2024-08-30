@@ -9,6 +9,20 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+    $form['Footer_text'] = array(
+      '#type' => 'textfield',
+      '#title' => 'Footer Text',
+      '#default_value' => !empty(theme_get_setting('Footer_text'))? theme_get_setting('Footer_text') : "Government of Yukon",
+    );
+
+}
 
 /**
  * Implements hook_preprocess_html().
@@ -269,6 +283,8 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
+  $variables['Footer_text'] = theme_get_setting('Footer_text');
+
   if (!empty($variables['node'])) {
     /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];
@@ -301,18 +317,20 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
 
     if ($variables['node']->bundle() == 'blog' || $variables['node']->bundle() == 'landing_page' || $variables['node']->bundle() == 'landing_page_level_2') {
+      if (!empty($node->field_blog_type)) {
       $tid = $node->field_blog_type->target_id;
-      if (!empty($tid)) {
-        $blog_type_term = \Drupal::entityTypeManager()
-          ->getStorage('taxonomy_term')
-          ->load($tid);
-        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
-          $image = $blog_type_term->field_agency_logo[0]->view([
-            'type' => 'entity_reference_entity_view',
-            'label' => 'hidden',
-          ]);
-          $variables['logo_url'] = $image;
-        }
+          if (!empty($tid)) {
+            $blog_type_term = \Drupal::entityTypeManager()
+              ->getStorage('taxonomy_term')
+              ->load($tid);
+            if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
+              $image = $blog_type_term->field_agency_logo[0]->view([
+                'type' => 'entity_reference_entity_view',
+                'label' => 'hidden',
+              ]);
+              $variables['logo_url'] = $image;
+            }
+          }
       }
 
       $variables['blog_category_subcategory'] = [];
@@ -336,6 +354,7 @@ function yukonca_glider_preprocess_page(&$variables) {
       ]);
     }
   }
+
 }
 
 /**

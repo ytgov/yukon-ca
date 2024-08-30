@@ -51,7 +51,7 @@
     logo: page.header_branding,
     unique_id: menuSectionId,
     languageswitcher: page.header_menu.languageswitcher,
-    menus: page.header_menu|without('languageswitcher'),
+    menus: page.header_menu.megamenu,
     offcanvas_heading: 'Government services <br>and information'|t,
     search: page.header_menu.exposedformsearchpage_1,
   }) }}
@@ -60,6 +60,8 @@
 
   {{ page.secondary_menu }}
 
+  {{ page.highlighted }}
+  {{ page.pre_content }}
   {% if type == "topics_page" %}
     {{
       pattern('hero', {
@@ -84,8 +86,7 @@
     {% endif %}
   {% endif %}
 
-  {{ page.highlighted }}
-  {{ page.pre_content }}
+  
 
   {{ page.help }}
 
@@ -144,9 +145,9 @@
 
   {% if page.footer_logo or page.footer_menu or page.footer_legal %}
     {{ pattern('footer', {
-      logo: page.footer_logo,
+      logo: Footer_logo,
       menus: page.footer_menu,
-      legal_link: page.footer_legal
+      legal_link: Footer_text
     }, 'default') }}
   {% endif %}
 

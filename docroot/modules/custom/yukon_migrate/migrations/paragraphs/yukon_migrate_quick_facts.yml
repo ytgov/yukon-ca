@@ -13,7 +13,6 @@ source:
     default_text_format: full_html
     translation_language: 'en'
 process:
-  uuid: uuid
   langcode:
     plugin: default_value
     default_value: "en"

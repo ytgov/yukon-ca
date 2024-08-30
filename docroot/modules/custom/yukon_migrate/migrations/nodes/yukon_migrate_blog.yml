@@ -15,6 +15,7 @@ destination:
   plugin: entity:node
   default_bundle: blog
 process:
+  nid: nid
   uid: node_uid
   status: status
   langcode:

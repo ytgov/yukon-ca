@@ -1,4 +1,26 @@
 /* Styles here */
+#header-main-navigaion {
+  @apply right-[-18px];
+
+  .offcanvas-header {
+    #header-main-navigaionLabel {
+      @apply mt-0;
+    }
+
+    button {
+      @apply py-0;
+    }
+  }
+
+  ul {
+    &.menu {
+      li {
+        @apply pt-0;
+      }
+    }
+  }
+}
+
 .menu {
   color: $black;
 }

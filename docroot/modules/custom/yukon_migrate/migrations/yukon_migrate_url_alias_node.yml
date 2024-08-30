@@ -17,7 +17,7 @@ process:
     -
       plugin: explode
       source: source
-      delimiter: /
+      delimiter: node/
     -
       plugin: extract
       default: INVALID_NID

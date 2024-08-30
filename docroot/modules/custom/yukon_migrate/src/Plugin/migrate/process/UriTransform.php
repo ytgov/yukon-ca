@@ -72,12 +72,33 @@ final class UriTransform extends ProcessPluginBase {
     $this->migrateDatabase = Database::getConnection('default', 'migrate');
 
     if (empty(self::$mapping)) {
-      $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
 
-      $tables = [];
-      foreach ($result as $row) {
-        $tables[] = array_values((array) $row)[0];
-      }
+    //   $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
+
+    //   $tables = [];
+    //   foreach ($result as $row) {
+    //     $tables[] = array_values((array) $row)[0];
+    //   }
+      
+      $tables = [
+        '0' => 'migrate_map_yukon_migrate_basic_page',
+        '1' => 'migrate_map_yukon_migrate_blog',
+        '2' => 'migrate_map_yukon_migrate_campground_directory_record',
+        '3' => 'migrate_map_yukon_migrate_department_nodes',
+        '4' => 'migrate_map_yukon_migrate_places',
+        '5' => 'migrate_map_yukon_migrate_documents_page',
+        '6' => 'migrate_map_yukon_migrate_engagement',
+        '7' => 'migrate_map_yukon_migrate_event',
+        '8' => 'migrate_map_yukon_migrate_in_page_alert',
+        '9' => 'migrate_map_yukon_migrate_landing_page',
+        '10' => 'migrate_map_yukon_migrate_landing_page_level_2',
+        '11' => 'migrate_map_yukon_migrate_multi_step_page',
+        '12' => 'migrate_map_yukon_migrate_news',
+        '13' => 'migrate_map_yukon_migrate_site_wide_alert',
+        '14' => 'migrate_map_yukon_migrate_topics_page',
+        '15' => 'migrate_map_yukon_migrate_campaign_page',
+        '16' => 'migrate_map_yukon_migrate_home_page',
+      ];
 
       $database = Database::getConnection('default', 'default');
       foreach ($tables as $table) {
@@ -155,7 +176,7 @@ final class UriTransform extends ProcessPluginBase {
 
       if (!$sourceNid) {
         $message .= 'SourceNid not found';
-        $value = str_ireplace($matches[0], $message, $value);
+        $value = str_ireplace($matches[0], "#", $value);
         $this->messenger()->addError($message);
         continue;
       }
@@ -172,7 +193,7 @@ final class UriTransform extends ProcessPluginBase {
       }
 
       $message .= ' DestNid not found';
-      $value = str_ireplace($matches[0], $message, $value);
+      $value = str_ireplace($matches[0], '/node/'.$sourceNid, $value);
       $this->messenger()->addError($message);
     }
 
