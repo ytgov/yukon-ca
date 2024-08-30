@@ -128,7 +128,7 @@ display:
           empty: true
           content:
             value: 'No open engagements found'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         created:

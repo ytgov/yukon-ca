@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.campaign_page.field_copyright_notice_text
     - field.field.node.campaign_page.field_department_term
     - field.field.node.campaign_page.field_display_copyright_notice
+    - field.field.node.campaign_page.field_editor_publisher
     - field.field.node.campaign_page.field_hero_image
     - field.field.node.campaign_page.field_highlight_color
     - field.field.node.campaign_page.field_image
@@ -23,6 +24,7 @@ dependencies:
     - field.field.node.campaign_page.field_page_description
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
+    - field.field.node.campaign_page.field_publisher
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
     - field.field.node.campaign_page.field_use_navigation_jump_points
@@ -35,6 +37,11 @@ targetEntityType: node
 bundle: campaign_page
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -50,6 +57,7 @@ hidden:
   field_copyright_notice_text: true
   field_department_term: true
   field_display_copyright_notice: true
+  field_editor_publisher: true
   field_hero_image: true
   field_highlight_color: true
   field_image: true
@@ -61,6 +69,7 @@ hidden:
   field_page_description: true
   field_paragraphs: true
   field_parent_campaign_page: true
+  field_publisher: true
   field_social_network: true
   field_source_credit: true
   field_use_navigation_jump_points: true

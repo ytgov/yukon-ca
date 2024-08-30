@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.directory_records_places.field_community
     - field.field.node.directory_records_places.field_contact_person
     - field.field.node.directory_records_places.field_department_term
+    - field.field.node.directory_records_places.field_editor_publisher
     - field.field.node.directory_records_places.field_fax
     - field.field.node.directory_records_places.field_gps_coordinate_n
     - field.field.node.directory_records_places.field_gps_coordinate_w
@@ -20,6 +21,7 @@ dependencies:
     - field.field.node.directory_records_places.field_place_accessibility
     - field.field.node.directory_records_places.field_places_record_type
     - field.field.node.directory_records_places.field_postal_code
+    - field.field.node.directory_records_places.field_publisher
     - field.field.node.directory_records_places.field_region
     - field.field.node.directory_records_places.field_social_sharing
     - field.field.node.directory_records_places.field_statutory_holiday_link
@@ -96,6 +98,11 @@ targetEntityType: node
 bundle: directory_records_places
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_additional_number:
     type: string
     label: inline
@@ -136,6 +143,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_fax:
     type: string
@@ -297,6 +312,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_region:
     type: entity_reference_label

@@ -9,6 +9,8 @@ display:
           admin_label: Icône
         severity:
           label: Importance
+        type:
+          label: Type
         name:
           label: Utilisateur
         link:
@@ -27,11 +29,18 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       empty:
         area:
           admin_label: "Aucune entrée du journal n'est disponible."
           content: "Aucune entrée du journal n'est disponible."
       filters:
+        type:
+          expose:
+            label: Type
         severity:
           expose:
             label: Importance
+  page:
+    display_title: Page

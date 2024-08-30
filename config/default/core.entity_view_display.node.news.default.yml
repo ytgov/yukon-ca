@@ -9,14 +9,17 @@ dependencies:
     - field.field.node.news.field_charts
     - field.field.node.news.field_contact
     - field.field.node.news.field_department_term
+    - field.field.node.news.field_editor_publisher
     - field.field.node.news.field_featured_content
     - field.field.node.news.field_featured_image
     - field.field.node.news.field_featured_to_homepage
     - field.field.node.news.field_meta_tags
+    - field.field.node.news.field_news_logos
     - field.field.node.news.field_news_quote
     - field.field.node.news.field_news_release
     - field.field.node.news.field_news_type
     - field.field.node.news.field_page_description
+    - field.field.node.news.field_publisher
     - field.field.node.news.field_quick_facts
     - field.field.node.news.field_related_link
     - field.field.node.news.field_social_sharing
@@ -37,14 +40,19 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_backgrounder:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_charts:
     type: entity_reference_revisions_entity_view
@@ -53,14 +61,22 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_contact:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 6
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_featured_image:
     type: entity_reference_entity_view
@@ -71,6 +87,15 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_news_logos:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_news_quote:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -78,7 +103,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_news_release:
     type: string
@@ -86,7 +111,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 7
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_quick_facts:
     type: entity_reference_revisions_entity_view
@@ -95,7 +128,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_related_link:
     type: link
@@ -107,7 +140,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
 hidden:
   addtoany: true

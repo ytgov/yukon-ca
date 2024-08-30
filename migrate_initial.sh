@@ -103,7 +103,7 @@ echo "Migrating yukon_migrate_teams..."
 time $COMMAND migrate:import --continue-on-failure yukon_migrate_teams
 
 echo "Migrating yukon_migrate_documents_page..."
-time $COMMAND migrate:import --continue-on-failure -vvv yukon_migrate_documents_page
+time $COMMAND migrate:import --continue-on-failure yukon_migrate_documents_page
 
 echo "Migrating yukon_migrate_documents_page_translations..."
 time $COMMAND migrate:import --continue-on-failure yukon_migrate_documents_page_translations
@@ -350,6 +350,9 @@ time $COMMAND migrate:import --continue-on-failure yukon_migrate_quick_facts_tra
 
 echo "Migrating yukon_migrate_news_translations..."
 time $COMMAND migrate:import --continue-on-failure yukon_migrate_news_translations
+
+echo "Migrating yukon_migrate_url_alias_node..."
+time $COMMAND migrate:import --continue-on-failure yukon_migrate_url_alias_node
 
 echo "Migrating yukon_migrate_full_width_image..."
 time $COMMAND migrate:import --continue-on-failure yukon_migrate_full_width_image

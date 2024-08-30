@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_change_room
     - field.field.node.campground_directory_record.field_cook_shelter
     - field.field.node.campground_directory_record.field_department_term
+    - field.field.node.campground_directory_record.field_editor_publisher
     - field.field.node.campground_directory_record.field_fire_ring
     - field.field.node.campground_directory_record.field_gate_closed_date
     - field.field.node.campground_directory_record.field_gate_open_date
@@ -39,6 +40,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_photo_credit
     - field.field.node.campground_directory_record.field_picnic_tables
     - field.field.node.campground_directory_record.field_playground
+    - field.field.node.campground_directory_record.field_publisher
     - field.field.node.campground_directory_record.field_pull_through
     - field.field.node.campground_directory_record.field_recreation_site_type
     - field.field.node.campground_directory_record.field_region
@@ -77,6 +79,11 @@ targetEntityType: node
 bundle: campground_directory_record
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_at_least_one_wheelchair_ac:
     type: boolean
     label: inline
@@ -180,6 +187,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 30
+    region: content
+  field_editor_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_fire_ring:
     type: boolean
@@ -434,6 +449,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 36
+    region: content
+  field_publisher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_pull_through:
     type: string

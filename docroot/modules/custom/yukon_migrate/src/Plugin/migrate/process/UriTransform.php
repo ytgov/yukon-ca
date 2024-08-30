@@ -72,6 +72,7 @@ final class UriTransform extends ProcessPluginBase {
     $this->migrateDatabase = Database::getConnection('default', 'migrate');
 
     if (empty(self::$mapping)) {
+
     //   $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
 
     //   $tables = [];
@@ -194,7 +195,6 @@ final class UriTransform extends ProcessPluginBase {
       $message .= ' DestNid not found';
       $value = str_ireplace($matches[0], '/node/'.$sourceNid, $value);
       $this->messenger()->addError($message);
-      
     }
 
     return $value;
