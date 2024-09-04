@@ -59,9 +59,10 @@
   {# END OF HEADER #}
 
   {{ page.secondary_menu }}
-
+  
   {{ page.highlighted }}
   {{ page.pre_content }}
+
   {% if type == "topics_page" %}
     {{
       pattern('hero', {
@@ -79,7 +80,7 @@
       })
     }}
   {% else %}
-    {% if content_type != "news" %}
+    {% if content_type != "news" and content_type != "documents" %}
         <div class="aurora-town {{ content_type }}">
           <span class="aurora--main"></span>
         </div>
@@ -136,9 +137,9 @@
     {% endif %}
 
     {% if node_date_modified %}
-      <div class="node-date-modified py-4">
+      {# <div class="node-date-modified py-4">
         {{ node_date_modified }}
-      </div>
+      </div> #}
     {% endif %}
 
   </main>

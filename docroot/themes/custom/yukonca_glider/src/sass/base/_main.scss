@@ -175,13 +175,13 @@ h1#heading {
     .field__item {
       @apply m-1 min-h-[80px];
 
-      &:first-child {
-        @apply ml-0;
-      }
+      // &:first-child {
+      //   @apply ml-0;
+      // }
 
-      &:last-child {
-        @apply mr-0;
-      }
+      // &:last-child {
+      //   @apply mr-0;
+      // }
 
       .quicklink-card {
         a {

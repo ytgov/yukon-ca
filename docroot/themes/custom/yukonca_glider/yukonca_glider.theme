@@ -10,17 +10,18 @@ use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Form\FormStateInterface;
-
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
 function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
-    $form['Footer_text'] = array(
-      '#type' => 'textfield',
-      '#title' => 'Footer Text',
-      '#default_value' => !empty(theme_get_setting('Footer_text'))? theme_get_setting('Footer_text') : "Government of Yukon",
-    );
+  $form['Footer_text'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Footer Text',
+    '#default_value' => !empty(theme_get_setting('Footer_text'))? theme_get_setting('Footer_text') : "Government of Yukon",
+  );
 
 }
 
@@ -31,6 +32,14 @@ function yukonca_glider_preprocess_html(&$variables) {
   $logged_in = \Drupal::currentUser()->isAuthenticated();
   if ($logged_in) {
     $variables['#attached']['library'][] = 'yukonca_glider/administrator';
+  }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (is_object($node)) {
+    
+    if ($node->bundle() == 'campaign_page') {
+       $variables['highlight_color'] = $node->field_highlight_color->color;
+       $variables['link_color'] = $node->field_link_color->color;
+    }
   }
 }
 
@@ -264,16 +273,21 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_node__documents(&$variables) {
+    
   $node = $variables['node'];
   if ($node->hasField('field_document_upload') && !$node->get('field_document_upload')->isEmpty()) {
+      
     $media_file = $node->get('field_document_upload')->entity;
+    
     if (!empty($media_file) && $media_file->hasField('field_media_file') && !$media_file->get('field_media_file')->isEmpty()) {
-      $file = \Drupal::entityTypeManager()
-        ->getStorage('file')
-        ->load($media_file->get('field_media_file')->getString());
+        
+      $fid = $media_file->field_media_file->target_id;
+        $file = File::load($fid);
+      //dump($file); die;
       if (!empty($file)) {
         $variables['document_size'] = ByteSizeMarkup::create($file->getSize() ?? 0);
         $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
+        $variables['file_url'] = $file->createFileUrl();
       }
     }
   }
@@ -284,7 +298,6 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   $variables['Footer_text'] = theme_get_setting('Footer_text');
-
   if (!empty($variables['node'])) {
     /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];
@@ -296,6 +309,68 @@ function yukonca_glider_preprocess_page(&$variables) {
 
     if ($node->bundle() == 'basic_page') {
       $variables['type'] = "basic_page";
+    }
+    
+    if ($node->bundle() == 'campaign_page') {
+      $variables['campaign_type'] = $node->field_campaign_type->value;
+      $variables['copyright_notice'] = $node->field_display_copyright_notice->value;
+      $variables['copyright_notice_text'] = $node->field_copyright_notice_text->value;
+      
+     if ($variables['campaign_type'] == 'government_of_yukon') {
+         $img = $node->field_image->target_id;
+         $media = Media::load($img);
+        if (isset($media->field_media_image_1)) {
+            $fid = $media->field_media_image_1->target_id;
+            $file = File::load($fid);
+            
+            $url = $file->createFileUrl();
+            $variables['logo_url'] = $url;
+        }
+     }
+     
+     
+     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId(); 
+     if ($langcode == 'en') {
+        $parent_page = $node->field_parent_campaign_page->target_id;
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$parent_page);
+        
+        if (!empty($parent_page)) {
+            $node_parent = \Drupal\node\Entity\Node::load($parent_page);
+            $child_cam = $node_parent->field_child_campaign_pages->getValue();
+            $i = 1;
+            if (!empty($child_cam)) {
+                $variables['campaign_menu'][0] = ['0' => 'Home', '1' => $alias];  
+                foreach ($child_cam as $child) {
+                  $node_child = \Drupal\node\Entity\Node::load($child['target_id']);
+                  $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$child['target_id']);
+                  $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(),  '1' => $child_alias];
+                  $i++;
+                }
+            }
+        }
+     }
+     else {
+        $parent_page = $node->field_parent_campaign_page->target_id;
+        
+        if (!empty($parent_page)) {
+            $node_parent = \Drupal\node\Entity\Node::load($parent_page);
+            $translated_entity = $node_parent->getTranslation($langcode);
+            $alias_fr = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$parent_page, $langcode);
+            
+            $child_cam = $translated_entity->field_child_campaign_pages->getValue();
+            if (!empty($child_cam)) {
+                $variables['campaign_menu'][0] = [0 => 'Accueil', 1 => $alias_fr];
+                $i = 1;
+                foreach ($child_cam as $child) {
+                  $node_child = \Drupal\node\Entity\Node::load($child['target_id']);
+                  $translated_entity_child = $node_child->getTranslation($langcode);
+                  $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$child['target_id'], $langcode);
+                  $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => $child_alias];
+                  $i++;
+                }
+            }
+        }
+      }
     }
 
     // Do not show at Homepage.
@@ -317,20 +392,18 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
 
     if ($variables['node']->bundle() == 'blog' || $variables['node']->bundle() == 'landing_page' || $variables['node']->bundle() == 'landing_page_level_2') {
-      if (!empty($node->field_blog_type)) {
       $tid = $node->field_blog_type->target_id;
-          if (!empty($tid)) {
-            $blog_type_term = \Drupal::entityTypeManager()
-              ->getStorage('taxonomy_term')
-              ->load($tid);
-            if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
-              $image = $blog_type_term->field_agency_logo[0]->view([
-                'type' => 'entity_reference_entity_view',
-                'label' => 'hidden',
-              ]);
-              $variables['logo_url'] = $image;
-            }
-          }
+      if (!empty($tid)) {
+        $blog_type_term = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->load($tid);
+        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
+          $image = $blog_type_term->field_agency_logo[0]->view([
+            'type' => 'entity_reference_entity_view',
+            'label' => 'hidden',
+          ]);
+          $variables['logo_url'] = $image;
+        }
       }
 
       $variables['blog_category_subcategory'] = [];
@@ -354,7 +427,6 @@ function yukonca_glider_preprocess_page(&$variables) {
       ]);
     }
   }
-
 }
 
 /**

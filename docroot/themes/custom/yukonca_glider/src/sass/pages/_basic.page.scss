@@ -1,0 +1,23 @@
+main {
+	> .row {
+		@apply pt-[60px];
+
+		.layout-content {
+			.region-content {
+				@apply pt-0;
+
+				.block {
+					&.block-system-main-block {
+						@apply mt-3.75 mb-12;
+					}
+				}
+			}
+
+			.block-views-blockplaces-listing-block-places-listing {
+				.block-title {
+					@apply mt-3.75 mb-3 text-[26px] font-medium capitalize;
+				}
+			}
+		}
+	}
+}

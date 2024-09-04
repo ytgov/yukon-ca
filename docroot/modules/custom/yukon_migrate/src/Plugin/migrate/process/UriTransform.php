@@ -111,7 +111,7 @@ final class UriTransform extends ProcessPluginBase {
         }
       }
 
-      $this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
+      //$this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
     }
 
   }

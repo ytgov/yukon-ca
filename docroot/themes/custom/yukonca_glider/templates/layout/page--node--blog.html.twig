@@ -51,7 +51,7 @@
     logo: page.header_branding,
     unique_id: menuSectionId,
     languageswitcher: page.header_menu.languageswitcher,
-    menus: page.header_menu.megamenu,
+    menus: page.header_menu|without('languageswitcher'),
     offcanvas_heading: 'Government services <br>and information'|t,
     search: page.header_menu.exposedformsearchpage_1,
   }) }}
@@ -112,9 +112,9 @@
     {% endif %}
 
     {% if node_date_modified %}
-      <div class="node-date-modified py-4">
+      {# <div class="node-date-modified py-4">
         {{ node_date_modified }}
-      </div>
+      </div> #}
     {% endif %}
 
   </main>

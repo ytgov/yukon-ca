@@ -17,3 +17,17 @@
     }
   }
 }
+
+.views-row.places-list-item {
+  @apply py-7.5 border-b-1 border-gray-lightborder;
+
+  .views-field-title {
+    a {
+      @apply mb-0 text-base font-normal;
+    }
+  }
+
+  .views-field-field-street-address {
+    @apply text-gray-600;
+  }
+}
