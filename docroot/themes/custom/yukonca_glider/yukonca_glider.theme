@@ -71,6 +71,11 @@ function yukonca_glider_preprocess_block(&$variables) {
     $pathinfo = pathinfo($logo_file);
     $variables['site_footer_logo'] = $pathinfo['dirname'] . '/images/svg/logo-white.svg';
   }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (is_object($node)) {
+    
+    $variables['content_type'] = $node->bundle();
+  }
 }
 
 /**

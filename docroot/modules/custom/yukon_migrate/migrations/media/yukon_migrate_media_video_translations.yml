@@ -13,7 +13,6 @@ source:
   constants:
     translation_language: 'fr'
 process:
-  uuid: uuid
   mid:
     - plugin: migration_lookup
       source: item_id
