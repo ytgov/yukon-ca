@@ -1,2 +1,2 @@
-pattern: 'l j F Y - G \h i'
 label: 'Format de date de repli'
+pattern: 'l j F Y - G \h i'

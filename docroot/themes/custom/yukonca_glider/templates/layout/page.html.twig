@@ -96,20 +96,20 @@
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <div class="row {% if content_type != "landing_page" and content_type != "topics_page" and content_type != "landing_page_level_2" and content_type != "news"  %}pt-20 {% endif %}">
       {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first col-sm-3 col-md-4 px-3.5 lg:pr-20" role="complementary">
+        <aside class="layout-sidebar-first col-sm-3 col-md-3 px-3.5" role="complementary">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}
 
       {% if page.sidebar_second %}
-        <aside class="layout-sidebar-second col-sm-3 col-lg-4 px-3.5 lg:pr-20" role="complementary">
+        <aside class="layout-sidebar-second col-sm-3 col-lg-3 px-3.5" role="complementary">
           <div id="sidebar-sticky" class="sidebar-sticky sticky top-0">
             {{ page.sidebar_second }}
           </div>
         </aside>
       {% endif %}
 
-      <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-lg-8' : '' }} px-3.5">
+      <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-md-8 offset-md-1' : '' }} px-3.5">
         {% if node.type[0].target_id == 'blog' %}
           {% set defualt_logo %}
               <img src="{{ '/' ~ active_theme_path() ~ '/logo.svg' }}">
@@ -124,6 +124,7 @@
         {% endif %}
 
         {{ page.content }}
+
       </div>{# /.layout-content #}
 
     </div>

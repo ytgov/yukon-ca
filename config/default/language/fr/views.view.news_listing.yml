@@ -22,9 +22,6 @@ display:
   block_news_listing:
     display_options:
       filters:
-        created:
-          expose:
-            placeholder: '- Année -'
         field_department_term_target_id:
           expose:
             label: Département

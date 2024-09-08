@@ -1,9 +1,9 @@
-uuid: 3f0faa36-0133-453a-b4e9-5bf0aa9cf10c
+uuid: 852c582b-ab7f-4b10-a6fd-4f975964b81e
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.in_page_alert
+    - node.type.site_wide_alert
     - workflows.workflow.content
   module:
     - content_moderation
@@ -14,9 +14,9 @@ dependencies:
     - toolbar
     - workbench
     - workbench_access
-id: author_in_page_alerts
-label: 'Author In-Page Alerts'
-weight: 12
+id: author_site_wide_alerts
+label: 'Author Site-Wide Alerts'
+weight: 14
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -24,10 +24,12 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'create in_page_alert content'
+  - 'create site_wide_alert content'
   - 'create url aliases'
-  - 'edit any in_page_alert content'
-  - 'edit own in_page_alert content'
+  - 'delete any site_wide_alert content'
+  - 'delete own site_wide_alert content'
+  - 'edit any site_wide_alert content'
+  - 'edit own site_wide_alert content'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'

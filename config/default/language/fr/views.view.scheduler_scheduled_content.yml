@@ -1,6 +1,7 @@
 label: 'Contenu(s) planifié(s)'
 display:
   default:
+    display_title: Maître
     display_options:
       exposed_form:
         options:
@@ -56,16 +57,16 @@ display:
       empty:
         area_text_custom:
           content: 'Aucun contenu planifié.'
-    display_title: Maître
   overview:
+    display_title: "Vue d'ensemble des contenus"
     display_options:
       menu:
         title: 'Contenu(s) planifié(s)'
       tab_options:
         title: Contenu
         description: 'Chercher et gérer le contenu planifié'
-    display_title: "Vue d'ensemble des contenus"
   user_page:
+    display_title: Utilisateur
     display_options:
       menu:
         title: Planifié
@@ -77,4 +78,3 @@ display:
           exception:
             title: Tout
       display_comment: 'Access to the user view is controlled via a custom RouteSubscriber. The high-level "view published content" permission is added to satisfy the security_review module'
-    display_title: Utilisateur

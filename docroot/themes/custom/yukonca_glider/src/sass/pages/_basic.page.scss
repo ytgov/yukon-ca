@@ -8,7 +8,7 @@ main {
 
 				.block {
 					&.block-system-main-block {
-						@apply mt-3.75 mb-12;
+						@apply mt-3.75 mb-12 inline-block w-full;
 					}
 				}
 			}

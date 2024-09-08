@@ -155,6 +155,7 @@ module.exports = {
       circle: 'circle',
       none: 'none',
       disc: 'disc',
+      decimal: 'decimal',
     },
   },
   corePlugins: {
