@@ -136,7 +136,7 @@ process:
   field_site_description/0/value:
     plugin: yukon_migrate_uri_transform
     method: transformUri
-    source: field_site_description_app_/0/value
+    source: field_campground_description/0/value
   field_site_description/format: constants/default_text_format
 
   field_site_description_app/value: field_site_description_app_/0/value
