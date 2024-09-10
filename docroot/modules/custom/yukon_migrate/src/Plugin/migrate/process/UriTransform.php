@@ -176,7 +176,7 @@ final class UriTransform extends ProcessPluginBase {
 
       if (!$sourceNid) {
         $message .= 'SourceNid not found';
-        $value = str_ireplace($matches[0], "#", $value);
+        $value = str_ireplace($matches[0], "puneet_node/".$rowNid, $value);
         $this->messenger()->addError($message);
         continue;
       }

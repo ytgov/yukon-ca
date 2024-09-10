@@ -107,6 +107,58 @@ h1#heading {
   }
 }
 
+.region {
+  // Start Sidebar design
+  &.region-sidebar-first {
+    .block-menu {
+      .block-title {
+        @apply font-medium py-3.75 my-3.75 text-lg leading-1.1;
+      }
+      
+      > .menu {
+        @apply ml-0;
+        @apply border-solid border-0 border-t-[12px] border-yellow;
+        
+        > .menu-item {
+          @apply pt-0 list-none appearance-auto;
+
+          [data-drupal-link-system-path] {
+            @apply py-3.75 px-[10px] inline-block w-full;
+          }
+
+          &::marker {
+            @apply hidden;
+          }
+
+          &:nth-child(odd) {
+            > [data-drupal-link-system-path] {
+              @apply bg-gray-light;
+            }
+          }
+
+          >.menu {
+            >.menu-item {
+              [data-drupal-link-system-path] {
+                @apply flex;
+
+                &:before {
+                  padding-right: 10px;
+                  content: ">";
+                }
+
+                &.is-active {
+                  @apply font-semibold text-blue-500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // End Sidebar design
+}
+
 .page-node-type-basic-page {
   .region {
     &.region-content {
@@ -149,58 +201,6 @@ h1#heading {
         @apply text-3.5xl mt-[15px] mb-[23px] pb-[5px];
       }
     }
-
-    // Start Sidebar design
-
-    &.region-sidebar-first {
-      .block-menu {
-        .block-title {
-          @apply font-medium py-3.75 my-3.75 text-lg leading-1.1;
-        }
-        
-        > .menu {
-          @apply ml-0;
-          @apply border-solid border-0 border-t-[12px] border-yellow;
-          
-          > .menu-item {
-            @apply pt-0 list-none appearance-auto;
-
-            [data-drupal-link-system-path] {
-              @apply py-3.75 px-[10px] inline-block w-full;
-            }
-
-            &::marker {
-              @apply hidden;
-            }
-
-            &:nth-child(odd) {
-              > [data-drupal-link-system-path] {
-                @apply bg-gray-light;
-              }
-            }
-
-            >.menu {
-              >.menu-item {
-                [data-drupal-link-system-path] {
-                  @apply flex;
-
-                  &:before {
-                    padding-right: 10px;
-                    content: ">";
-                  }
-
-                  &.is-active {
-                    @apply font-semibold text-blue-500;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    // End Sidebar design
   }
 }
 

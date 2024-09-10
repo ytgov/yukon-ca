@@ -53,7 +53,7 @@
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
                 <a href="/" rel="home" class="site-logo">
-                    <img src="{{ url("<front>")}}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                    <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
                 </a>
               </div>
 
@@ -77,8 +77,9 @@
           <div class="container-lg navbar">
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
-                <a href="/docroot/en" rel="home" class="site-logo">
-                    <img src="{{ logo_url }}" alt="Home">
+                <a href="{{ url("<front>")|render|split('/', -1)|join('/') }}" rel="home" class="site-logo">
+                    {#<img src="{{ logo_url }}" alt="Home">#}
+                     <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
                 </a>
               </div>
 
