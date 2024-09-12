@@ -79,21 +79,47 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
 
-  <div class="blog-credits mb-8">
-    {{ 'By'|t }} {{ node.owner.name.value ? node.owner.name.value : author_name }}
-    <div class="text-gray">{{ node.getCreatedTime() | date("F j, Y") }}</div>
-  </div>
-
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
-  <span class="aurora--mini"></span>
+	<div class="row">
+        <div class="col-md-6 col-sm-12">
+            {{ content.field_location }}
+            {{ node.field_additional_related_info.value|raw }}
+        </div>
+        <div class="col-lg-5 offset-1 col-md-6 col-sm-12">
+            <div class="field field-name-field-places-address field-type-text field-label-above">
+                <div class="field-label">Address</div>
+                <div class="field-items">
+                    <div class="field-item even">{{ node.field_street_address.value|raw }} {{ node.field_postal_code.value|raw }}</div>
+                    {{ content.field_community }}
+                </div>
+            </div>
+            {% if node.field_main_telephone.value is not empty %}
+                <div class="field field-name-field-main-telephone field-type-text field-label-above">
+                    <div class="field-label">Main Telephone</div>
+                    <div class="field-items">
+                        <div class="field-item even">{{ node.field_main_telephone.value|raw }}</div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if node.field_fax.value is not empty %}
+                <div class="field field-name-field-fax field-type-text field-label-above">
+                    <div class="field-label">Fax</div>
+                    <div class="field-items">
+                        <div class="field-item even">{{ node.field_fax.value|raw }}</div>
+                    </div>
+                </div>
+            {% endif %}
+            
+            {% if node.field_additional_number.value is not empty %}
+                <div class="field field-name-field-fax field-type-text field-label-above">
+                    <div class="field-label">Additional number</div>
+                    <div class="field-items">
+                        <div class="field-item even">{{ node.field_additional_number.value|raw }}</div>
+                    </div>
+                </div>
+            {% endif %}
+            {{ content.field_places_record_type }}
+            {{ content.field_website }}
+        </div>
+    </div>
 </article>

@@ -53,7 +53,11 @@
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
                 <a href="/" rel="home" class="site-logo">
-                    <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                    {% if logo_url is not empty %}
+                        <img src="{{ logo_url }}" alt="Home">
+                    {% else %}
+                        <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                    {% endif %}
                 </a>
               </div>
 
@@ -78,8 +82,11 @@
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
                 <a href="{{ url("<front>")|render|split('/', -1)|join('/') }}" rel="home" class="site-logo">
-                    {#<img src="{{ logo_url }}" alt="Home">#}
-                     <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                    {% if logo_url is not empty %}
+                        <img src="{{ logo_url }}" alt="Home">
+                    {% else %}
+                        <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                    {% endif %}
                 </a>
               </div>
 
@@ -216,11 +223,11 @@
         </footer>
 
     {% else %}
-        {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+         {% if page.footer_logo or page.footer_menu or page.footer_legal %}
             {{ pattern('footer', {
-              logo: page.footer_logo,
+              logo: Footer_logo,
               menus: page.footer_menu,
-              legal_link: page.footer_legal
+              legal_link: Footer_text
             }, 'default') }}
         {% endif %}
     {% endif %}

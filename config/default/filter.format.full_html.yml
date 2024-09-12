@@ -25,12 +25,6 @@ filters:
     status: false
     weight: 8
     settings: {  }
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
