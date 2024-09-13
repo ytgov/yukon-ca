@@ -1,0 +1,13 @@
+diff --git a/modules/contrib/fontawesome/src/Plugin/Field/FieldFormatter/FontAwesomeIconFormatter.php b/modules/contrib/fontawesome/src/Plugin/Field/FieldFormatter/FontAwesomeIconFormatter.php
+index dfc85029..44efbf22 100644
+--- a/modules/contrib/fontawesome/src/Plugin/Field/FieldFormatter/FontAwesomeIconFormatter.php
++++ b/modules/contrib/fontawesome/src/Plugin/Field/FieldFormatter/FontAwesomeIconFormatter.php
+@@ -184,7 +184,7 @@ public function viewElements(FieldItemListInterface $items, $langcode) {
+         '#iconset' => $iconset,
+         '#name' => 'fa-' . $item->get('icon_name')->getValue(),
+         '#style' => $item->get('style')->getValue(),
+-        '#settings' => implode(' ', array_filter($iconSettings)),
++        '#settings' => is_array($iconSettings) ? implode(' ', array_filter($iconSettings)) : "fa ",
+         '#transforms' => implode(' ', $iconTransforms),
+         '#mask' => $iconMask,
+         '#css' => implode(' ', $cssStyles),

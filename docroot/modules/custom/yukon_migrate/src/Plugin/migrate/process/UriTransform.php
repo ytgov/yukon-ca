@@ -52,8 +52,53 @@ final class UriTransform extends ProcessPluginBase {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
+    
+    // Sometimes the $database is a migration object.
+    $this->database = Database::getConnection('default', 'default');
+    $this->migrateDatabase = Database::getConnection('default', 'migrate');
 
-    $this->database = $database;
+    if (empty(self::$mapping)) {
+
+    //   $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
+
+    //   $tables = [];
+    //   foreach ($result as $row) {
+    //     $tables[] = array_values((array) $row)[0];
+    //   }
+      
+      $tables = [
+        '0' => 'migrate_map_yukon_migrate_basic_page',
+        '1' => 'migrate_map_yukon_migrate_blog',
+        '2' => 'migrate_map_yukon_migrate_campground_directory_record',
+        '3' => 'migrate_map_yukon_migrate_department_nodes',
+        '4' => 'migrate_map_yukon_migrate_places',
+        '5' => 'migrate_map_yukon_migrate_documents_page',
+        '6' => 'migrate_map_yukon_migrate_engagement',
+        '7' => 'migrate_map_yukon_migrate_event',
+        '8' => 'migrate_map_yukon_migrate_in_page_alert',
+        '9' => 'migrate_map_yukon_migrate_landing_page',
+        '10' => 'migrate_map_yukon_migrate_landing_page_level_2',
+        '11' => 'migrate_map_yukon_migrate_multi_step_page',
+        '12' => 'migrate_map_yukon_migrate_news',
+        '13' => 'migrate_map_yukon_migrate_site_wide_alert',
+        '14' => 'migrate_map_yukon_migrate_topics_page',
+        '15' => 'migrate_map_yukon_migrate_campaign_page',
+        '16' => 'migrate_map_yukon_migrate_home_page',
+      ];
+
+      $database = Database::getConnection('default', 'default');
+      foreach ($tables as $table) {
+        $result = $database->select($table, 't')
+          ->fields('t', ['sourceid1', 'destid1'])
+          ->execute()->fetchAll();
+
+        foreach ($result as $row) {
+          self::$mapping[$row->sourceid1] = $row->destid1;
+        }
+      }
+
+      //$this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
+    }
   }
 
   /**
@@ -97,82 +142,81 @@ final class UriTransform extends ProcessPluginBase {
     $matches = [];
     while (preg_match('/\[uuid-link:node:([^]]*)]/i', $value, $matches)) {
       $uuid = $matches[1];
+      $rowNid = $row->get('nid');
+      $rowType = $row->get('type');
+      $migration = $_SERVER['argv'][3] ?? 'unknown';
+      if ($migration === '--continue-on-failure') {
+        $migration = $_SERVER['argv'][4] ?? 'unknown';
+      }
+      $message = "Migration: ${migration} UUID: ${uuid} RowNid: ${rowNid} RowType: ${rowType} ";
 
-      $types = [
-        'blog' => 'blog',
-        'campaign_page' => 'campaign_page',
-        'campground_directory_record' => 'campground_directory_record',
-        'department' => 'department',
-        'directory_records_places' => 'places',
-        'documents' => 'documents',
-        'engagement' => 'engagement',
-        'event' => 'event',
-        'in_page_alert' => 'in_page_alert',
-        'landing_page' => 'landing_page',
-        'landing_page_level_2' => 'landing_page_level_2',
-        'multi_step_page' => 'multi_step_page',
-        'news' => 'news',
-        'site_wide_alert' => 'site_wide_alert',
-        'topics_page' => 'topics_page',
-        'wetkit_page' => 'basic_page',
-        'contact' => 'contact',
-        'documents_non_branded' => 'documents',
-        'homepage' => 'homepage',
-        'webform' => 'contact',
-      ];
+      if (!$uuid) {
+        $message .= 'UUID not found';
+        $value = str_ireplace($matches[0], $message, $value);
+        $this->messenger()->addError($message);
+        continue;
+      }
 
-      $typeKeys = array_keys($types);
+      $sourceNid = $this->findSourceNid($uuid);
 
-      $migrateDB = Database::getConnection('default', 'migrate');
-      $migrateQuery = $migrateDB->select('node', 'n');
-      $migrateQuery->fields('n', ['nid', 'type']);
-      $migrateQuery->condition('n.uuid', $uuid);
-      $migrateResult = $migrateQuery->execute()->fetchAssoc();
+      if (!$sourceNid) {
+        $message .= 'SourceNid not found';
+        $value = str_ireplace($matches[0], "puneet_node/".$rowNid, $value);
+        $this->messenger()->addError($message);
+        continue;
+      }
+      $message .= ' SourceNid: ' . $sourceNid;
 
-      if ($migrateResult) {
-        if ($this->database && method_exists($this->database, 'select')) {
-          if (in_array($migrateResult['type'], $typeKeys)) {
-            $query = $this->database
-              ->select('migrate_map_yukon_migrate_' . $types[$migrateResult['type']], 'm');
-            $query->fields('m', ['destid1']);
-            $migrateQuery->condition('m.sourceid1', $migrateResult['nid']);
-            $nid = $query->execute()->fetchField();
+      $destNid = $this->findDestNid($sourceNid);
+      if ($destNid) {
+        $value = str_ireplace($matches[0], '/node/' . $destNid, $value);
+        if (!empty($mapping[$sourceNid])) {
+          $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
+        }
+      }
 
-            if ($nid && $nid != 16158) {
-              $value = str_ireplace($matches[0], '/node/' . $nid, $value);
-            }
-            else {
-              $value = str_ireplace($matches[0], 'UUID_NOT_FOUND: ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-            }
-          }
-          else {
-            $value = str_ireplace($matches[0], 'UNKNOWN TYPE ' . '  Source nid: ' . $row->get('nid'), $value);
-            $this->messenger()
-              ->addError('Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid'));
-              
-            $migrateDB = Database::getConnection('default', 'default');
-            $query = $migrateDB->insert('migrate_error_log');
-            $query->fields([ 'type' => $row->get('type'), 'nid' => $row->get('nid'), 'error' => 'Unknown type: ' . $migrateResult['type'] . '  Source nid: ' . $row->get('nid')]);
-            $query->execute();
-          }
+      $message .= ' DestNid not found';
+      $value = str_ireplace($matches[0], '/node/'.$sourceNid, $value);
+      $this->messenger()->addError($message);
+    }
+    
+    while (preg_match('~\{"(?:[^{}]|(?R))*\}~', $value, $matches)) {
+        $data = json_decode($matches[0]);
+        
+
+        $db = Database::getConnection('default', 'migrate');
+        $migrateQuery = $db->select('file_managed', 'n');
+            $migrateQuery->fields('n', ['uri', 'filemime']);
+            $migrateQuery->condition('n.fid', $data->fid);
+        $result = $migrateQuery->execute()->fetchObject();
+        
+        $migrateQuery1 = $db->select('field_data_field_file_image_caption', 'n');
+            $migrateQuery1->fields('n', ['field_file_image_caption_value']);
+            $migrateQuery1->condition('n.entity_id', $data->fid);
+        $result1 = $migrateQuery1->execute()->fetchField();
+        
+        if ($result->filemime == "audio/mpeg") {
+            $url = \Drupal::service('file_url_generator')->generateAbsoluteString($result->uri);
+            $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $image = '<div class="media media-element-container media-default">
+            <audio controls="controls" controlslist=""><source src="'.$new_url.'" type="audio/mpeg"></audio><span class="caption">'.$result1.'</span></div>';
         }
         else {
-          $value = str_ireplace($matches[0], 'NOT A DB OBJECT ' . '  Source nid: ' . $row->get('nid'), gettype($value));
-          $this->messenger()->addError('Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid'));
-          $migrateDB = Database::getConnection('default', 'default');
-            $query = $migrateDB->insert('migrate_error_log');
-            $query->fields([ 'type' => $row->get('type'), 'nid' => $row->get('nid'), 'error' => 'Not a database object: ' . gettype($this->database) . '  Source nid: ' . $row->get('nid')]);
-            $query->execute();
+           $url = \Drupal::service('file_url_generator')->generateAbsoluteString($result->uri);
+            $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $style = '';
+            $alt = '';
+            if (isset($data->attributes->style)) {
+                $style = $data->attributes->style;
+            }
+            if (isset($data->attributes->alt)) {
+                $alt = $data->attributes->alt;
+            }
+            $image = "<div class='media media-element-container media-default'><img src='".$new_url."' class='".$data->attributes->class."' style='".$style."' alt='".$alt."'><span class='caption'>".$result1."</span></div>"; 
         }
-      }
-      else {
-        $value = str_ireplace($matches[0], 'UUID not found : ' . $uuid . '  Source nid: ' . $row->get('nid'), $value);
-        $this->messenger()->addWarning('UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid'));
-        $migrateDB = Database::getConnection('default', 'default');
-        $query = $migrateDB->insert('migrate_error_log');
-        $query->fields([ 'type' => $row->get('type'), 'nid' => $row->get('nid'), 'error' => 'UUID not found: ' . $uuid . '  Source nid: ' . $row->get('nid')]);
-        $query->execute();
-      }
+        
+
+        $value = str_ireplace("[[".$matches[0]."]]", $image, $value);
     }
 
     return $value;

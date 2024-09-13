@@ -1,0 +1,50 @@
+/* Styles for Documents search-page. */
+.path-forms {
+	.page-title {
+		@apply mb-6 text-3.5xl pb-[5px];
+	}
+
+	.view {
+		.view-content {
+			.views-row {
+				&:last-child {
+				@apply border-b border-solid border-gray-lightborder;
+				}
+
+				.views-field-title {
+					.field-content {
+						@apply mb-0;
+
+						a {
+							@apply no-underline mb-0;
+						}
+					}
+				}
+
+				.views-field-field-last-updated {
+					.document-browse--date-meta {
+						@apply text-gray-dark text-sm mb-2 block;
+					}
+				}
+
+				.views-field-body {
+					p {
+						@apply mb-0;
+
+						&.field-content {
+							@apply hidden;
+						}
+
+						&:empty {
+							@apply m-0 hidden;
+						}
+					}
+				}
+			}
+		}
+
+		.pager {
+			@apply border-b border-solid border-gray-lightborder;
+		}
+	}
+}

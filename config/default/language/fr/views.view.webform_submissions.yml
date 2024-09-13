@@ -10,8 +10,6 @@ display:
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
@@ -42,6 +40,8 @@ display:
           label: Verrouillé
         created:
           label: Créé
+        completed:
+          label: Terminé
         remote_addr:
           label: 'Adresse IP'
         operations:
@@ -62,6 +62,8 @@ display:
           label: Verrouillé
         created:
           label: Créé
+        completed:
+          label: Terminé
         remote_addr:
           label: 'Adresse IP'
         view_webform_submission:
@@ -86,6 +88,8 @@ display:
           label: Verrouillé
         created:
           label: Créé
+        completed:
+          label: Terminé
         remote_addr:
           label: 'Adresse IP'
         view_webform_submission:

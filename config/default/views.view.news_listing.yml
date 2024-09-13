@@ -422,6 +422,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -439,7 +440,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -451,7 +451,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
           text_input_required: 'Select any filter and click on Apply to see results'
-          text_input_required_format: basic_html
+          text_input_required_format: full_html
           bef:
             general:
               autosubmit: true
@@ -472,15 +472,18 @@ display:
                     filter_rewrite_values: '- Any -|- Month -'
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
-              created:
-                plugin_id: bef_datepicker
+                  is_secondary: false
+              year_filter:
+                plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: '- Any -|- Year -'
+                    filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_category_target_id:
                 plugin_id: default
                 advanced:
@@ -489,17 +492,18 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_department_term_target_id:
                 plugin_id: default
                 advanced:
+                  sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_news_type_target_id:
                 plugin_id: default
                 advanced:
@@ -508,8 +512,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
       access:
         type: perm
         options:
@@ -529,7 +533,7 @@ display:
           empty: true
           content:
             value: 'No news items found. Try removing or changing a filter.'
-            format: basic_html
+            format: plain_text
           tokenize: false
       sorts:
         created:
@@ -2249,33 +2253,27 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        year_filter:
+          id: year_filter
+          table: views
+          field: year_filter
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: year_filter
           operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date_year
+          value: '2024'
           group: 1
           exposed: true
           expose:
-            operator_id: created_op
+            operator_id: ''
             label: ''
             description: ''
             use_operator: false
-            operator: created_op
+            operator: year_filter_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: created
+            identifier: year_filter
             required: false
             remember: false
             multiple: false
@@ -2293,9 +2291,7 @@ display:
               _webform_manager: '0'
               author_in_page_alerts: '0'
               blog_author: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: '- Year -'
+              author_site_wide_alerts: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -2585,10 +2581,12 @@ display:
         groups:
           1: AND
       defaults:
+        use_ajax: false
         fields: false
         arguments: false
         filters: false
         filter_groups: false
+      use_ajax: true
       display_description: ''
       rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
@@ -3285,7 +3283,7 @@ display:
             empty: true
             content:
               value: 'No news items found. Try removing or changing a filter.'
-              format: basic_html
+              format: plain_text
             tokenize: false
         sorts:
           created:

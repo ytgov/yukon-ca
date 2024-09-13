@@ -1,0 +1,10 @@
+name: Yukon Moderation
+type: module
+description: Content moderation enhancements.
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:content_moderation
+  - drupal:block

@@ -54,10 +54,14 @@ process:
   field_link_color: field_link_color/0/rgb
 
   field_logos:
-    plugin: migration_lookup
-    source: field_multi_jurisdictional_logos/0/fid
-    migration: yukon_migrate_images
-    no_stub: true
+    plugin: sub_process
+    source: field_multi_jurisdictional_logos
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: fid
+        migration: yukon_migrate_images
+        no_stub: true
 
   field_display_copyright_notice: field_display_copyright_notice
 

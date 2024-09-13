@@ -1,3 +1,29 @@
+.filters {
+  @apply mt-[25px];
+
+  .title {
+    h2 {
+      @apply text-lg;
+      @apply mt-3.75 mb-3 pt-0 pb-2.5;
+    }
+  }
+
+  form {
+    .form-item {
+      @apply my-0 pt-5;
+
+      input,
+      select {
+        @apply rounded;
+      }
+
+      .select-wrapper {
+        @apply w-full;
+      }
+    }
+  }
+}
+
 .places-page-grid {
   @apply md:grid md:grid-cols-2;
 
@@ -15,5 +41,19 @@
     .facility-personnel {
       @apply my-6;
     }
+  }
+}
+
+.views-row.places-list-item {
+  @apply py-7.5 border-b-1 border-gray-lightborder;
+
+  .views-field-title {
+    a {
+      @apply mb-0 text-base font-normal;
+    }
+  }
+
+  .views-field-field-street-address {
+    @apply text-gray-600;
   }
 }

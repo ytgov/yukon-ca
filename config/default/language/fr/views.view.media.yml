@@ -1,8 +1,15 @@
+label: Média
+description: 'Trouver et gérer des media.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: Média
       fields:
+        thumbnail__target_id:
+          label: Vignette
+        name:
+          label: 'Nom du média'
         uid:
           label: Auteur
         status:
@@ -30,8 +37,16 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      empty:
+        area_text_custom:
+          content: 'Aucun média disponible.'
       filters:
+        name:
+          expose:
+            label: 'Nom du média'
         status:
+          expose:
+            label: Vrai
           group_info:
             label: 'Statut de publication'
             group_items:
@@ -42,3 +57,8 @@ display:
         langcode:
           expose:
             label: Langue
+  media_page_list:
+    display_title: Média
+    display_options:
+      menu:
+        title: Média

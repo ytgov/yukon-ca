@@ -10,8 +10,6 @@ display:
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
@@ -19,8 +17,14 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        entity_field:
+          label: 'Champs entité'
         entity_langcode:
           label: "Langue de l'entité"
+        last_check:
+          label: 'Vérifié pour la dernière fois'
+        method:
+          label: Méthode
         code:
           label: 'Code du statut'
         error:
@@ -45,3 +49,7 @@ display:
       footer:
         result:
           content: 'Affichage de @start à @end sur @total'
+  page_1:
+    display_options:
+      menu:
+        title: 'Liens brisés'

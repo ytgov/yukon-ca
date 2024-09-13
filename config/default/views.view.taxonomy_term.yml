@@ -37,8 +37,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: ››
+            previous: ‹‹
             first: '« First'
             last: 'Last »'
           expose:

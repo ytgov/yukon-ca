@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.main
   module:
+    - block_class
     - menu_block
     - node
     - system
@@ -29,7 +30,9 @@ settings:
   depth: 0
   expand_all_items: false
   parent: 'main:'
+  render_parent: false
   suggestion: main
+  hide_on_nonactive: false
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
@@ -38,6 +41,11 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       basic_page: basic_page
+      department: department
+      directory_records_places: directory_records_places
+      documents: documents
+      multi_step_page: multi_step_page
+      news: news
   request_path:
     id: request_path
     negate: true

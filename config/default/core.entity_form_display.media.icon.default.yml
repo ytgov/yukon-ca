@@ -20,6 +20,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  directory:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_media_image:
     type: image_image
     weight: 0
