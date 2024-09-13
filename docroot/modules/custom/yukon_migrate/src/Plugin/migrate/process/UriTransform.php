@@ -103,8 +103,6 @@ final class UriTransform extends ProcessPluginBase {
           self::$mapping[$row->sourceid1] = $row->destid1;
         }
       }
-
-      // $this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
     }
 
   }
