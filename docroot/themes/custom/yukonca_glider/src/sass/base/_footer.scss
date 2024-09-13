@@ -249,6 +249,14 @@ body {
   flex-wrap: wrap;
 }
 
+.btn {
+  &.button-primary {
+    &:active {
+      @apply bg-[#1c578a] border-[#091c2d] shadow-inner;
+    }
+  }
+}
+
 /* End issue 153 */
 
 /* Start Issue 182 */
