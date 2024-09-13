@@ -80,7 +80,7 @@
       })
     }}
   {% else %}
-    {% if content_type != "news" and content_type != "documents" %}
+    {% if content_type != "news" and content_type != "documents" and content_type != 'directory_records_places' %}
         <div class="aurora-town {{ content_type }}">
           <span class="aurora--main"></span>
         </div>
