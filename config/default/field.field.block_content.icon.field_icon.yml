@@ -94,4 +94,16 @@ settings:
   config_pages:
     handler: 'default:config_pages'
     handler_settings: {  }
+  tmgmt_job:
+    handler: 'default:tmgmt_job'
+    handler_settings: {  }
+  tmgmt_job_item:
+    handler: 'default:tmgmt_job_item'
+    handler_settings: {  }
+  tmgmt_message:
+    handler: 'default:tmgmt_message'
+    handler_settings: {  }
+  tmgmt_remote:
+    handler: 'default:tmgmt_remote'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

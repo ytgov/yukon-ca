@@ -1,1 +1,32 @@
 /* Add your code here */
+
+section {
+	&.video {
+		@apply border-b-1 border-gray-90 pb-20 mt-28;
+
+		.container {
+			@apply px-0 w-8/12 mx-auto;
+		}
+
+		.title {
+			@apply relative ml-3.75 mt-6 mb-3 text-gray-450;
+	
+			&:before {
+				content: "";
+				top: -7px;
+				left: -15px;
+				@apply absolute bg-blue-400 w-7.5 h-7.5 opacity-20 rounded-md;
+			}
+
+			h2 {
+				@apply text-gray-450;
+			}
+		}
+
+		.video {
+			iframe {
+				@apply w-full aspect-video min-h-[460px];
+			}
+		}
+	}
+}

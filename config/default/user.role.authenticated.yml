@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block
     - comment
-    - file
     - media
     - system
 _core:
@@ -16,7 +16,8 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'delete own files'
+  - 'administer blocks'
+  - 'administer blocks'
   - 'post comments'
   - 'view media'
   - 'view media'

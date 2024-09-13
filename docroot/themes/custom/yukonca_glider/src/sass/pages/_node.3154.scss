@@ -1,0 +1,135 @@
+.hero-img {
+	@apply relative w-screen h-[520px] left-1/2 right-1/2 mx-[-50vw] bg-no-repeat bg-cover;
+    background-position: center center;
+	z-index: -1;
+}
+
+.campaign-nav {
+	.campaign-nav__link {
+		@apply flex flex-col items-center justify-center border-b-8 border-blue-400 shadow-lg px-4 pt-8 pb-6 hover:no-underline text-blue-400 hover:text-gray-460 text-center rounded bg-white;
+
+		.icon {
+			@apply flex items-center justify-center bg-blue-400 text-white w-14 h-14 mb-8 rounded-full;
+
+			svg {
+				@apply text-3xl;
+			}
+		}
+
+		.text {
+			@apply text-[22px] leading-[1.18] font-medium min-h-[52px];
+		}
+	}
+}
+
+.campaign-section {
+	@apply mb-5;
+    
+    h2,
+	.title-design-1 {
+		@apply relative mt-6 mb-3 text-3.25xl text-gray-450;
+
+		&:before {
+			content: "";
+			@apply absolute bg-blue-400 w-7.5 h-7.5 opacity-20 rounded-md top-[-7px] left-[-15px];
+		}
+	}
+
+	ul {
+		@apply pl-12;
+	}
+
+	h3 {
+		@apply mt-6 mb-3 text-gray-450;
+	}
+
+	img {
+		@apply rounded;
+		box-shadow: 0 40px 40px 0 rgba(155,155,155,.4);
+	}
+
+	&.campaign-video-only {
+		.campaign-video-only-wrapper {
+			.title-design-1 {
+				@apply ml-3.75
+			}
+		}
+	}
+}
+
+.campaign-cta {
+	background-position: center center;
+	@apply relative py-16 w-screen left-1/2 right-1/2 mx-[-50vw] bg-no-repeat;
+
+	&:before {
+		content: "";
+		@apply absolute w-full h-full top-0 left-0 bg-[#3b3d48] opacity-75;
+	}
+
+	h2,
+	p {
+		@apply text-white;
+	}
+
+	h2 {
+		@apply text-3.5xl mt-6 mb-3;
+	}
+
+	p {
+		@apply mb-0;
+	}
+
+	.cta-link {
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+		text-decoration: none;
+		@apply bg-blue-400 hover:bg-[#006976] px-10 py-4 rounded transition-all mt-6 text-white font-medium;
+	}
+}
+
+.campaign-social-media {
+	.social-links {
+		@apply flex gap-2 flex-wrap;
+
+		.social-link {
+			@apply py-1 px-8 rounded bg-blue-400;
+
+			a {
+				@apply text-white;
+			}
+
+			&:hover {
+				a {
+					@apply no-underline;
+				}
+			}
+
+			&.twitter {
+				@apply bg-[#1DA1F2] hover:bg-[#4DB5F5];
+			}
+
+			&.facebook {
+				@apply bg-[#3B5998] hover:bg-[#4C70BA];
+			}
+
+			&.instagram {
+				@apply bg-[#262626] hover:bg-[#404040];
+			}
+
+			&.linkedin {
+				@apply bg-[#0077B5] hover:bg-[#0099E8]
+			}
+
+			&.vimeo {
+				@apply bg-[#1AB7EA] hover:bg-[#77D4F3]
+			}
+
+			&.youtube {
+				@apply bg-[#FF0000] hover:bg-[#F33]
+			}
+
+			&.google_plus {
+				@apply bg-[#DB4437] hover:bg-[#E36C62];
+			}
+		}
+	}
+}

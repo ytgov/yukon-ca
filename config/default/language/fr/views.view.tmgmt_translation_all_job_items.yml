@@ -7,8 +7,6 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           expose:
@@ -25,25 +23,18 @@ display:
           label: État
         label:
           label: Libellé
-        type:
-          label: Type
         source_language:
           label: 'A partir de'
-          separator: ', '
         target_language:
           label: À
-          separator: ', '
         progress:
           label: Progression
         word_count:
           label: Mot
-          separator: ', '
         tags_count:
           label: Étiquettes
-          separator: ', '
         changed:
           label: Modifié
-          separator: ', '
         operations:
           label: Actions
       filters:
@@ -59,13 +50,10 @@ display:
           group_info:
             label: 'Type de processus'
             group_items:
-              1:
-                title: Normal
               2:
                 title: Continu
       title: 'Éléments de travail'
   page_1:
-    display_title: Page
     display_options:
       menu:
         title: 'Éléments de travail'

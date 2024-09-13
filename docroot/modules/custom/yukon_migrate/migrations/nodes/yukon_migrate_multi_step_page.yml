@@ -77,11 +77,7 @@ process:
     no_stub: true
 
   #  Meta tags Description
-  field_page_description/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_page_description/0/value
-  field_page_description/format: constants/default_text_format
+  field_page_description: field_description
 
   path/alias: alias
   path/pathauto: pathauto

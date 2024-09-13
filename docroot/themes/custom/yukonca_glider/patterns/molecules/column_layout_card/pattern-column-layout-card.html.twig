@@ -1,5 +1,5 @@
 <div class="column-layout-card">
-  <h4 class="main-link border-solid border-b-1 border-gray-lightborder">
+  <h4 class="main-link border-solid border-b-1 border-gray-lightborder text-lg">
     {{ main_link }}
   </h4>
   <div class="subcategory-links mt-4">
@@ -12,13 +12,13 @@
     {% if links['#items'] %}
       {% for link in links['#items'] %}
         <div class="link-item">
-          {{ link(link.title, link.url) }}
+          {{ link(link.title, link.url, {'class': ['font-medium']}) }}
         </div>
       {% endfor %}
     {% else %}
       {% for link in links %}
         <div class="link-item">
-          {{ link(link.title, link.url) }}
+          {{ link(link.title, link.url, {'class': ['font-medium']}) }}
         </div>
       {% endfor %}
     {% endif %}

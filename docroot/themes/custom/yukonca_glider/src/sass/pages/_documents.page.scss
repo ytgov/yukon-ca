@@ -32,6 +32,20 @@
             @apply text-gray-dark text-sm mb-2 block;
           }
         }
+
+        .views-field-body {
+					p {
+						@apply mb-0;
+
+						&.field-content {
+							@apply hidden;
+						}
+
+						&:empty {
+							@apply m-0 hidden;
+						}
+					}
+				}
       }
     }
 

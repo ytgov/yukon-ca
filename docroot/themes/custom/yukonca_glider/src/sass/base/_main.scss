@@ -55,7 +55,7 @@ h1#heading {
       @apply mb-0;
 
       h4 {
-        @apply text-lg pb-2.5 mb-3 mt-[15px] border-b border-gray-lightborder leading-1.1;
+        @apply text-lg pb-2.5 mb-3 mt-3.75 border-b border-gray-lightborder leading-1.1;
       }
     }
   }
@@ -77,111 +77,16 @@ h1#heading {
   @apply mb-[50px];
 
   .field__label {
-    @apply my-[15px];
+    @apply my-3.75;
   }
 }
 
 /* End Issue 183 */
 
-.page-node-type-basic-page {
-  .region {
-    &.region-content {
-      @apply pt-3.75;
-
-      .node--type-basic-page {
-          .node__content {
-            >h2 {
-              @apply pt-10 mt-[15px] mb-[11px] text-[26px] leading-1.1;
-            }
-      
-            >p {
-              @apply mb-[11px];
-            }
-      
-            .accordion {
-              @apply mb-[23px];
-            }
-      
-            .field--name-field-related-tasks {
-              @apply pb-[30px] pt-[15px];
-      
-              .field__label {
-                @apply mb-0 mt-[15px];
-              }
-            }
-          }
-        }
-
-      .page-title {
-        @apply text-3.5xl mt-[15px] mb-[23px];
-      }
-    }
-
-    // Start Sidebar design
-
-    &.region-sidebar-first {
-      .block-menu {
-        .block-title {
-          @apply font-medium pt-[15px] pb-[26.5px] mt-[15px] text-lg leading-1.1;
-        }
-        
-        > .menu {
-          @apply ml-0;
-          
-          > .menu-item {
-            @apply pt-0 list-none appearance-auto;
-
-            [data-drupal-link-system-path] {
-              @apply py-[15px] px-[10px] inline-block w-full;
-            }
-
-            &::marker {
-              @apply hidden;
-            }
-
-            &:nth-child(odd) {
-              > [data-drupal-link-system-path] {
-                @apply bg-gray-light;
-              }
-            }
-
-            >.menu {
-              >.menu-item {
-                [data-drupal-link-system-path] {
-                  @apply flex;
-
-                  &:before {
-                    padding-right: 10px;
-                    content: ">";
-                  }
-
-                  &.is-active {
-                    @apply font-semibold text-blue-500;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    // End Sidebar design
-  }
-}
-
 .field {
   &.field--name-field-popular-links {
     .field__item {
       @apply m-1 min-h-[80px];
-
-      &:first-child {
-        @apply ml-0;
-      }
-
-      &:last-child {
-        @apply mr-0;
-      }
 
       .quicklink-card {
         a {
@@ -198,6 +103,103 @@ h1#heading {
 &.news-field-featured-image {
     img {
       @apply float-right ml-24 mb-12;
+    }
+  }
+}
+
+.region {
+  // Start Sidebar design
+  &.region-sidebar-first {
+    .block-menu {
+      .block-title {
+        @apply font-medium py-3.75 my-3.75 text-lg leading-1.1;
+      }
+      
+      > .menu {
+        @apply ml-0;
+        @apply border-solid border-0 border-t-[12px] border-yellow;
+        
+        > .menu-item {
+          @apply pt-0 list-none appearance-auto;
+
+          [data-drupal-link-system-path] {
+            @apply py-3.75 px-[10px] inline-block w-full;
+          }
+
+          &::marker {
+            @apply hidden;
+          }
+
+          &:nth-child(odd) {
+            > [data-drupal-link-system-path] {
+              @apply bg-gray-light;
+            }
+          }
+
+          >.menu {
+            >.menu-item {
+              [data-drupal-link-system-path] {
+                @apply flex;
+
+                &:before {
+                  padding-right: 10px;
+                  content: ">";
+                }
+
+                &.is-active {
+                  @apply font-semibold text-blue-500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // End Sidebar design
+}
+
+.page-node-type-basic-page {
+  .region {
+    &.region-content {
+      @apply pt-3.75;
+
+      .node--type-basic-page {
+          .node__content {
+            >h2 {
+              @apply pt-10 mt-3.75 mb-[11px] text-[26px] leading-1.1;
+            }
+      
+            >p {
+              @apply mb-[11px];
+            }
+      
+            .accordion {
+              @apply mb-[23px];
+            }
+      
+            .field--name-field-related-tasks {
+              @apply my-7.5;
+      
+              .field__label {
+                @apply mt-3.75 mb-0 text-lg border-b-1 border-gray-lightborder;
+              }
+    
+              .field__item {
+                @apply mt-3.75;
+    
+                a {
+                  display: block;
+                  @apply py-2.5;
+                }
+              }
+            }
+          }
+        }
+
+      .page-title {
+        @apply text-3.5xl mt-[15px] mb-[23px] pb-[5px];
+      }
     }
   }
 }

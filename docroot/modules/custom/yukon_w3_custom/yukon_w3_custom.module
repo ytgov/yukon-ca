@@ -43,6 +43,15 @@ function yukon_w3_custom_views_data() {
       'id' => 'month_filter',
     ],
   ];
+  
+  $data['views']['year_filter'] = [
+    'title' => t('Year filter - Custom Filter'),
+    'filter' => [
+      'title' => t('Year filter - Custom Filter'),
+      'field' => 'created',
+      'id' => 'year_filter',
+    ],
+  ];
 
   return $data;
 }

@@ -21,10 +21,10 @@ h3 {
 }
 
 .breadcrumb {
-  @apply py-2;
+  @apply py-2 w-3/5;
 
   li {
-    @apply text-sm;
+    @apply inline-block text-sm;
 
     &:before {
       font-family: "Glyphicons Halflings", sans-serif;

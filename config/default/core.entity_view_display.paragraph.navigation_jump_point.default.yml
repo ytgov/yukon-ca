@@ -15,7 +15,7 @@ mode: default
 content:
   field_add_navigation_jump_point:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -23,7 +23,7 @@ content:
     region: content
   field_icon_name:
     type: fontawesome_icon_formatter
-    label: above
+    label: hidden
     settings:
       layers: false
     third_party_settings: {  }

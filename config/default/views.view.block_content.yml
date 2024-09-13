@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: jvd5Pu6jy-lra4oMr-mR7zuY6CVDv9CaNeoj0Y70gV4
 id: block_content
-label: 'Content blocks'
+label: 'Custom block library'
 module: views
 description: 'Find and manage custom blocks.'
 tag: default

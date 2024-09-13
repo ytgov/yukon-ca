@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_class
     - node
     - system
   theme:
@@ -31,6 +32,7 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
+      campaign_page: campaign_page
       homepage: homepage
       landing_page: landing_page
       landing_page_level_2: landing_page_level_2
