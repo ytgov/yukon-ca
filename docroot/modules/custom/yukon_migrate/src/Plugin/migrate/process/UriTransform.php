@@ -39,20 +39,6 @@ final class UriTransform extends ProcessPluginBase {
   protected $database;
 
   /**
-   * The migration database.
-   *
-   * @var \Drupal\Core\Database\Connection
-   */
-  protected $migrateDatabase;
-
-  /**
-   * Maps sourceid1 to destid1.
-   *
-   * @var array
-   */
-  public static array $mapping;
-
-  /**
    * Constructs a new instance.
    *
    * @param array $configuration
@@ -66,7 +52,7 @@ final class UriTransform extends ProcessPluginBase {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $database) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-
+    
     // Sometimes the $database is a migration object.
     $this->database = Database::getConnection('default', 'default');
     $this->migrateDatabase = Database::getConnection('default', 'migrate');
@@ -113,7 +99,6 @@ final class UriTransform extends ProcessPluginBase {
 
       //$this->messenger()->addMessage('Mapping count: ' . count(self::$mapping));
     }
-
   }
 
   /**
@@ -143,10 +128,11 @@ final class UriTransform extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transformUri($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+     
     if (empty($value)) {
       return '';
     }
-
+     
     $value = str_ireplace('"https://www.yukon.ca', '"', $value);
     $value = str_ireplace('"http://www.yukon.ca', '"', $value);
     $value = str_ireplace('"https://yukon.ca', '"', $value);
@@ -156,7 +142,6 @@ final class UriTransform extends ProcessPluginBase {
     $matches = [];
     while (preg_match('/\[uuid-link:node:([^]]*)]/i', $value, $matches)) {
       $uuid = $matches[1];
-
       $rowNid = $row->get('nid');
       $rowType = $row->get('type');
       $migration = $_SERVER['argv'][3] ?? 'unknown';
@@ -188,8 +173,6 @@ final class UriTransform extends ProcessPluginBase {
         if (!empty($mapping[$sourceNid])) {
           $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
         }
-        self::$mapping[$sourceNid] = $destNid;
-        continue;
       }
 
       $message .= ' DestNid not found';
@@ -237,46 +220,6 @@ final class UriTransform extends ProcessPluginBase {
     }
 
     return $value;
-  }
-
-  /**
-   * Get the source nid from the uuid.
-   *
-   * @param string $uuid
-   *   The source uuid.
-   *
-   * @return mixed|string
-   *   The source nid or 0 if not found.
-   *
-   * @throws \Exception
-   */
-  protected function findSourceNid(string $uuid) {
-    if (empty($uuid)) {
-      return '';
-    }
-
-    $migrateQuery = $this->migrateDatabase->select('node', 'n');
-    $migrateQuery->fields('n', ['nid']);
-    $migrateQuery->condition('n.uuid', $uuid);
-    return $migrateQuery->execute()->fetchField();
-  }
-
-  /**
-   * Lookup the destination nid from the source nid.
-   *
-   * @param string $sourceNid
-   *   The source nid.
-   *
-   * @return int|mixed
-   *   The destination nid.
-   */
-  protected function findDestNid(string $sourceNid) {
-
-    if (!empty($sourceNid) && is_string($sourceNid) && !empty(self::$mapping[$sourceNid])) {
-      return self::$mapping[$sourceNid];
-    }
-
-    return 0;
   }
 
 }

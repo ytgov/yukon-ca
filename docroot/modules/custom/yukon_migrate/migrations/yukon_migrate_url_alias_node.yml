@@ -5,7 +5,7 @@ migration_tags:
   - 'Drupal 7'
   - Content
   - Alias
-  - Ordered Migration
+
 source:
   plugin: d7_url_alias
   constants:
