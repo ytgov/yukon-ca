@@ -13,14 +13,15 @@ source:
     default_text_format: full_html
     translation_language: 'en'
 process:
-  uuid: uuid
   langcode:
     plugin: default_value
     default_value: "en"
-  field_facts/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_facts/0/value
+  field_facts: field_facts
+  # old code
+  #field_facts/value:
+  #  plugin: yukon_migrate_uri_transform
+  #  method: transformUri
+  #  source: field_facts/0/value
   field_facts/format: constants/default_text_format
 
 destination:

@@ -20,118 +20,12 @@ base_table: node_revision__field_scheduled_time
 base_field: ''
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'edit moderation scheduler field'
-      cache:
-        type: none
-        options: {  }
-      query:
-        type: views_query
-        options: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 50
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-          pagination_heading_level: h4
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: true
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            revision: revision
-            title: title
-            content_type: content_type
-            author: author
-            status: status
-            field_scheduled_time: field_scheduled_time
-          info:
-            revision:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            content_type:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            author:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            status:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_scheduled_time:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: revision
-          empty_table: true
-      row:
-        type: fields
+      title: 'Moderation Scheduler content'
       fields:
         revision:
           id: revision
@@ -140,6 +34,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: numeric
           label: Revision
           exclude: false
           alter:
@@ -189,8 +85,6 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          entity_type: node
-          plugin_id: numeric
         title:
           id: title
           table: node_revision__field_scheduled_time
@@ -198,6 +92,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: standard
           label: Title
           exclude: false
           alter:
@@ -239,8 +135,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
         content_type:
           id: content_type
           table: node_revision__field_scheduled_time
@@ -248,6 +142,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: standard
           label: 'Content Type'
           exclude: false
           alter:
@@ -289,8 +185,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
         author:
           id: author
           table: node_revision__field_scheduled_time
@@ -298,6 +192,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: standard
           label: Author
           exclude: false
           alter:
@@ -339,8 +235,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
         status:
           id: status
           table: node_revision__field_scheduled_time
@@ -348,6 +242,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: standard
           label: Status
           exclude: false
           alter:
@@ -389,8 +285,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
         field_scheduled_time:
           id: field_scheduled_time
           table: node_revision__field_scheduled_time
@@ -398,6 +292,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: standard
           label: 'Scheduled Publish Time'
           exclude: false
           alter:
@@ -439,13 +335,45 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: node
-          plugin_id: standard
-      filters: {  }
-      sorts: {  }
-      title: 'Moderation Scheduler content'
-      header: {  }
-      footer: {  }
+      pager:
+        type: full
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 50
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'edit moderation scheduler field'
+      cache:
+        type: none
+        options: {  }
       empty:
         area_text_custom:
           id: area_text_custom
@@ -454,14 +382,86 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'No scheduled content available. To schedule content publish put date in field Moderation Scheduler Time.'
           plugin_id: text_custom
-      relationships: {  }
+          empty: true
+          content: 'No scheduled content available. To schedule content publish put date in field Moderation Scheduler Time.'
+          tokenize: false
+      sorts: {  }
       arguments: {  }
-      display_extenders: {  }
+      filters: {  }
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            revision: revision
+            title: title
+            content_type: content_type
+            author: author
+            status: status
+            field_scheduled_time: field_scheduled_time
+          default: revision
+          info:
+            revision:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            content_type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            author:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_scheduled_time:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: true
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options: {  }
+      relationships: {  }
       use_ajax: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -471,15 +471,15 @@ display:
         - user.permissions
       tags: {  }
   page_1:
-    display_plugin: page
     id: page_1
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: admin/content/scheduled
       rendering_language: '***LANGUAGE_entity_translation***'
       exposed_block: false
+      display_extenders: {  }
+      path: admin/content/scheduled
     cache_metadata:
       max-age: -1
       contexts:

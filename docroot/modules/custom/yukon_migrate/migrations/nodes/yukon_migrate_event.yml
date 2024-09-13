@@ -15,6 +15,7 @@ destination:
   plugin: entity:node
   default_bundle: event
 process:
+  nid: nid
   uid: node_uid
   status: status
   langcode: language

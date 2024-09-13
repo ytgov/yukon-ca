@@ -12,7 +12,6 @@ source:
   constants:
     default_text_format: full_html
 process:
-    uuid: uuid
     field_popular_links:
         plugin: sub_process
         source: field_popular_links

@@ -1,5 +1,6 @@
 display:
   page_1:
+    display_title: Formulaires
     display_options:
       empty:
         area:
@@ -27,7 +28,6 @@ display:
       header:
         result:
           content: 'Résultats @start - @end de @total'
-    display_title: Formulaires
   default:
     display_options:
       title: 'Les documents'

@@ -1,3 +1,9 @@
+.listing-list-item {
+  small {
+    @apply text-gray-dark;
+  }
+}
+
 .view-news-listing {
   &.view-display-id-block_news_listing {
     .views-row {
@@ -43,10 +49,31 @@
       }
     }
   }
-}
 
-.listing-list-item {
-  small {
-    @apply text-gray-dark;
+  
+  &.view-id-news_listing {
+    .view-header {
+      @apply mb-0;
+    }
+  
+    .view-content {
+      .listing-list-item {
+        @apply border-b-1 border-gray-lightborder py-10;
+    
+        .row {
+          .col-sm-8 {
+            h4 {
+              @apply mt-0 text-lg;
+            }
+    
+            p {
+              &:first-child {
+                @apply mb-3;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

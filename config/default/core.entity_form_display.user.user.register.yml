@@ -31,6 +31,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_last_password_reset: true
   field_password_expiration: true

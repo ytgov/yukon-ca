@@ -5,6 +5,8 @@ dependencies:
   config:
     - webform.webform.page_feedback
   module:
+    - block_class
+    - node
     - webform
   theme:
     - yukonca_glider
@@ -23,4 +25,11 @@ settings:
   default_data: ''
   redirect: false
   lazy: false
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      campaign_page: campaign_page

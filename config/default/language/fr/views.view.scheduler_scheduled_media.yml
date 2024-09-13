@@ -7,8 +7,6 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           expose:
@@ -23,37 +21,27 @@ display:
       fields:
         media_bulk_form:
           label: 'Mise à jour en masse'
-          action_title: Action
         name:
           label: 'Nom du média'
-          separator: ', '
         bundle:
           label: 'Type de média'
-          separator: ', '
         uid:
           label: Auteur
-          separator: ', '
         status:
           label: État
           settings:
             format_custom_true: Publié
             format_custom_false: 'Non publié'
-          separator: ', '
         publish_on:
           label: 'Publier le'
-          separator: ', '
         unpublish_on:
           label: 'Dépublier le'
-          separator: ', '
         operations:
           label: Actions
       filters:
         name:
           expose:
             label: 'Nom du média'
-        bundle:
-          expose:
-            label: Type
         status:
           expose:
             label: État

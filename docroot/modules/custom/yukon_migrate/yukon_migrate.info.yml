@@ -7,4 +7,3 @@ dependencies:
   - drupal:migrate_drupal
   - migrate_tools:migrate_tools
   - migrate_plus:migrate_plus
-  - drush:drush

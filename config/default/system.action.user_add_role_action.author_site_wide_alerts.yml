@@ -1,0 +1,14 @@
+uuid: 86ee3b6a-94a4-4587-949d-596a6b35de49
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.author_site_wide_alerts
+  module:
+    - user
+id: user_add_role_action.author_site_wide_alerts
+label: 'Add the Author Site-Wide Alerts role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: author_site_wide_alerts

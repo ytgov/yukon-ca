@@ -7,13 +7,9 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           tags:
-            previous: ‹‹
-            next: ››
             first: '« Premier'
             last: 'Dernier »'
           expose:
@@ -23,7 +19,6 @@ display:
       fields:
         revision:
           label: Version
-          format_plural_string: !!binary MQNAY291bnQ=
         title:
           label: Titre
         content_type:
@@ -32,5 +27,3 @@ display:
           label: Auteur
         status:
           label: État
-  page_1:
-    display_title: Page

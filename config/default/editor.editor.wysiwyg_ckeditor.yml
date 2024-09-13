@@ -52,8 +52,10 @@ settings:
         - heading5
         - heading6
     ckeditor5_list:
-      reversed: true
-      startIndex: true
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
     ckeditor5_plugin_pack_font__font_size:
       options: ''
     ckeditor5_show_block_show_block:
@@ -65,4 +67,5 @@ settings:
       linkit_profile: default
     media_media:
       allow_view_mode_override: false
-image_upload: {  }
+image_upload:
+  status: false

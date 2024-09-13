@@ -34,7 +34,9 @@
     {% else %}
       <ul class="menu">
     {% endif %}
+    {% set i = 1 %}
     {% for item in items %}
+      {#{% if i <= 16 %}#}
       {%
         set classes = [
           'menu-item',
@@ -49,7 +51,39 @@
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
+      {#{% set i = i + 1 %}#}
+      {#{% endif %}#}
     {% endfor %}
     </ul>
+    
+    {#<div class="global-secondary-nav-header"><h4 class="global-nav-header-h4">More on Yukon.ca</h4></div>#}
+    
+    {#{% if menu_level == 0 %}#}
+    {#  <ul{{ attributes.addClass('menu') }}>#}
+    {#{% else %}#}
+    {#  <ul class="menu">#}
+    {#{% endif %}#}
+    {#{% set i = 1 %}#}
+    {#{% for item in items %}#}
+    {#  {% if i > 16 %}#}
+    {#  {%#}
+    {#    set classes = [#}
+    {#      'menu-item',#}
+    {#      item.is_expanded ? 'menu-item--expanded',#}
+    {#      item.is_collapsed ? 'menu-item--collapsed',#}
+    {#      item.in_active_trail ? 'menu-item--active-trail',#}
+    {#    ]#}
+    {#  %}#}
+    {#  <li{{ item.attributes.addClass(classes) }}>#}
+    {#    {{ link(item.title, item.url) }}#}
+    {#    {% if item.below %}#}
+    {#      {{ menus.menu_links(item.below, attributes, menu_level + 1) }}#}
+    {#    {% endif %}#}
+    {#  </li>#}
+      
+    {#  {% endif %}#}
+    {#  {% set i = i + 1 %}#}
+    {#{% endfor %}#}
+    {#</ul>#}
   {% endif %}
 {% endmacro %}

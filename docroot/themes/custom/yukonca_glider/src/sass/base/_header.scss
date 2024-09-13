@@ -13,4 +13,24 @@
 			@apply mr-6;
 		}
 	}
+
+	.header-search {
+		@apply my-8;
+
+		.views-exposed-form {
+			.filters {
+				@apply mt-0;
+
+				form {
+					.form-item {
+						@apply pt-0;
+					}
+
+					.form-actions {
+						@apply my-0;
+					}
+				}
+			}
+		}
+	}
 }
