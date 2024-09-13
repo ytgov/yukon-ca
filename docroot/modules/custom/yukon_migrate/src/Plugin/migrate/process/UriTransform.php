@@ -72,13 +72,6 @@ final class UriTransform extends ProcessPluginBase {
     $this->migrateDatabase = Database::getConnection('default', 'migrate');
 
     if (empty(self::$mapping)) {
-
-    //   $result = $this->database->query("SHOW TABLES LIKE 'migrate_map_yukon_migrate_%'")->fetchAll();
-
-    //   $tables = [];
-    //   foreach ($result as $row) {
-    //     $tables[] = array_values((array) $row)[0];
-    //   }
       
       $tables = [
         '0' => 'migrate_map_yukon_migrate_basic_page',
