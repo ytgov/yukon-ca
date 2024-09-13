@@ -1,0 +1,59 @@
+.page-node-type-campaign-page {
+	@apply overflow-x-hidden;
+
+	header {
+		.campaign-menu {
+			ul {
+				@apply flex flex-wrap gap-5 list-none m-0 p-0;
+	
+				li {
+					@apply text-[13px];
+	
+					.menu-item {
+						@apply text-black uppercase no-underline;
+					}
+				}
+			}
+		}
+	
+		.language-switcher-language-url {
+			ul {
+				@apply list-none m-0 p-0 font-medium;
+			}
+		}
+	}
+
+	main {
+		> .row {
+			@apply pt-0;
+		}
+		
+	    .field__item {
+			&:nth-last-of-type(1) {
+				@apply mb-0;
+			}
+
+			&:has(.campaign-cta) {
+				@apply mb-20;
+			}
+    	}
+			
+		#block-mainpagecontent {
+			@apply my-0;
+			
+		}
+
+		.paragraph--type--text,
+		.paragraph--type--text-and-image {
+			@apply pb-20 mt-20 border-b-1 border-gray-90;
+			
+			a {
+				@apply transition-all ease-in-out;
+	
+				&:hover {
+					@apply opacity-50;
+				}
+			}
+		}
+	}
+}

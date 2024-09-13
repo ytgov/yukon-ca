@@ -51,7 +51,7 @@
     logo: page.header_branding,
     unique_id: menuSectionId,
     languageswitcher: page.header_menu.languageswitcher,
-    menus: page.header_menu|without('languageswitcher'),
+    menus: page.header_menu|without('languageswitcher', 'exposedformsearchpage_1'),
     offcanvas_heading: 'Government services <br>and information'|t,
     search: page.header_menu.exposedformsearchpage_1,
   }) }}
@@ -112,18 +112,18 @@
     {% endif %}
 
     {% if node_date_modified %}
-      <div class="node-date-modified py-4">
+      {# <div class="node-date-modified py-4">
         {{ node_date_modified }}
-      </div>
+      </div> #}
     {% endif %}
 
   </main>
 
-  {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+   {% if page.footer_logo or page.footer_menu or page.footer_legal %}
     {{ pattern('footer', {
-      logo: page.footer_logo,
+      logo: Footer_logo,
       menus: page.footer_menu,
-      legal_link: page.footer_legal
+      legal_link: Footer_text
     }, 'default') }}
   {% endif %}
 

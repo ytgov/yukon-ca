@@ -1,11 +1,26 @@
 /* Styles here */
-.menu {
-  color: $black;
-}
-
 #header-main-navigaion {
-  #block-exposedformsearchpage-1 {
-    display: none;
+  @apply right-[-18px];
+
+  .offcanvas-header {
+    #header-main-navigaionLabel {
+      @apply mt-0;
+    }
+
+    button {
+      @apply py-0;
+    }
+  }
+
+  ul {
+    &.menu {
+      li {
+        @apply pt-0;
+      }
+    }
   }
 }
 
+.menu {
+  color: $black;
+}

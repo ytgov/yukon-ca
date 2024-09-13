@@ -1,0 +1,60 @@
+# Migrates all revisions and all revision translations.
+id: yukon_migrate_site_wide_alert
+label: Yukon Migrate Site wide Alert Nodes
+audit: true
+migration_tags:
+  - Drupal 7
+  - node
+  - Site wide Alerts
+  - Ordered Migration
+migration_group: legacy_nodes
+source:
+  plugin: d7_node
+  node_type: site_wide_alert
+  constants:
+    default_text_format: full_html
+process:
+  nid: nid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: "en"
+  title: title
+  # Todo: Replace this part with migration lookup after we migrate users.
+  uid: node_uid
+  status: status
+  created: created
+  changed: timestamp
+  promote: promote
+  sticky: sticky
+  uuid: uuid
+
+  body/value:
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: body/0/value
+  body/format: constants/default_text_format
+
+  field_department_term:
+    plugin: migration_lookup
+    migration: yukon_migrate_department
+    source: field_department_term
+    no_stub: true
+  # Todo: Complete this field after adding migrations to all CTs.
+  field_yukon_editorial_team:
+    plugin: migration_lookup
+    migration: yukon_migrate_teams
+    source: field_yukon_editorial_team
+    no_stub: true
+  moderation_state: moderation_state
+
+  path/alias: alias
+  path/pathauto: pathauto
+destination:
+  plugin: entity:node
+  default_bundle: site_wide_alert
+migration_dependencies:
+  optional:
+    - yukon_migrate_basic_page
+    - yukon_migrate_department
+    - yukon_migrate_teams

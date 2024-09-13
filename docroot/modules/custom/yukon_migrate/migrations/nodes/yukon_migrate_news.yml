@@ -15,6 +15,7 @@ destination:
   plugin: entity:node
   default_bundle: news
 process:
+  nid: nid
   uid: node_uid
   status: status
   langcode:
@@ -25,15 +26,7 @@ process:
   changed: changed
   promote: promote
   sticky: sticky
-  uuid:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: uuid
-    -
-      plugin: migration_lookup
-      migration: yukon_migrate_news
-      source: uuid
+  uuid: uuid
   revision_log: log
   title: title
 

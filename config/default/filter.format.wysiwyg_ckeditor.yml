@@ -10,13 +10,12 @@ name: 'WYSIWYG CKEDITOR'
 format: wysiwyg_ckeditor
 weight: -10
 filters:
-  filter_url:
-    id: filter_url
+  filter_autop:
+    id: filter_autop
     provider: filter
     status: true
     weight: 0
-    settings:
-      filter_url_length: 72
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -26,25 +25,12 @@ filters:
       allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
     weight: 10
     settings: {  }
-  linkit:
-    id: linkit
-    provider: linkit
-    status: true
-    weight: 0
-    settings:
-      title: true
   filter_pathologic:
     id: filter_pathologic
     provider: pathologic
@@ -56,6 +42,20 @@ filters:
         protocol_style: full
         local_paths: "/en/\r\n/fr/\r\nhttps://yukon.ca/en/\r\nhttps://yukon.ca/fr/"
         keep_language_prefix: true
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true
   media_embed:
     id: media_embed
     provider: media

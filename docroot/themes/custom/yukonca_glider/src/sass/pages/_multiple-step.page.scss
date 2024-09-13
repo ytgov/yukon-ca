@@ -3,13 +3,13 @@
     ul,
     ol {
       li {
-        @apply list-disc pl-2.5;
+        @apply list-decimal pl-2.5;
 
         ul {
-          @apply pl-2.5;
+          @apply pl-12;
 
           li {
-            @apply list-circle;
+            @apply list-disc;
           }
         }
       }

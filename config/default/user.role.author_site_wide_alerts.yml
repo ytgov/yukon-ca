@@ -1,0 +1,44 @@
+uuid: 852c582b-ab7f-4b10-a6fd-4f975964b81e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.site_wide_alert
+    - workflows.workflow.content
+  module:
+    - content_moderation
+    - contextual
+    - node
+    - path
+    - system
+    - toolbar
+    - workbench
+    - workbench_access
+id: author_site_wide_alerts
+label: 'Author Site-Wide Alerts'
+weight: 14
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access contextual links'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access workbench'
+  - 'create site_wide_alert content'
+  - 'create url aliases'
+  - 'delete any site_wide_alert content'
+  - 'delete own site_wide_alert content'
+  - 'edit any site_wide_alert content'
+  - 'edit own site_wide_alert content'
+  - 'use content transition archived'
+  - 'use content transition create_new_draft'
+  - 'use content transition create_new_draft'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition publish'
+  - 'use content transition submit_for_publish'
+  - 'use content transition submit_for_review'
+  - 'use workbench access'
+  - 'view any unpublished content'
+  - 'view the administration theme'
+  - 'view workbench access information'

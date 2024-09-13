@@ -101,12 +101,15 @@
 
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="field field--label-inline"><span class="field__label">{{ 'Name'|t }}</span> {{ label }}</div>
-    {{ content.field_category }}
-    {{ content.field_last_updated}}
-    <div class="field field--label-inline"><span class="field__label">{{ 'Size'|t }}</span> {{ document_size }}</div>
-    <div class="field field--label-inline"><span class="field__label">{{ 'File Type'|t }}</span> {{ document_type }}</div>
-    {{ content.field_pages }}
-    {{ content.body }}
-    {{ content.field_document_upload }}
+    <div class="field field--label-inline"><span class="field__label">{{ 'Category'|t }}</span> {{ content.field_category.0 }}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'Last updated'|t }}</span> {{ content.field_last_updated.0}}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'Size'|t }}</span> &nbsp;{{ document_size }}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'File Type'|t }}</span> &nbsp;{{ document_type }}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'Number of pages'|t }}</span> {{ content.field_pages.0 }}</div>
+    <div class="field field--label-inline"><span class="field__label">{{ 'Document description'|t }}</span> <div class="inline-block">{{ content.body.0 }}</div></div>
+    <div class="mt-5 mb-10">
+      <a href="{{ file_url }}" class="btn btn-default">Download <i class="fa fa-download" aria-hidden="true"></i></a>
+    </div>
+    {# {{ content.field_document_upload }} #}
   </div>
 </article>
