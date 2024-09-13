@@ -57,3 +57,62 @@
     @apply text-gray-600;
   }
 }
+
+.page-node-type-directory-records-places {
+  main {
+    .row {
+      @apply pt-0;
+      
+      #block-mainpagecontent {
+        @apply mt-0 mb-15;
+      }
+      
+      .region-content {
+        .page-title {
+          @apply text-3.5xl mt-3.75 mb-[23px] pb-[5px];
+        }
+        
+        article {
+          .row {
+            > div {
+              @apply px-3.75;
+            }
+          }
+
+          .additional_related_info {
+            p {
+              @apply mb-0 mt-3.75;
+            }
+          }
+
+          .field {
+            .field-label {
+                @apply mt-3.75 text-base;
+            }
+
+            .field-items {
+                @apply mt-0;
+            }
+            
+            h3 {
+                @apply mt-3.75 mb-0 text-[22px];
+            }
+            
+            &.field--name-field-location {
+              @apply mt-3.75;
+            }
+            
+            &.field-name-field-places-principal,
+            &.field-name-field-places-superintendent {
+              @apply flex items-end;
+            }
+            
+            &.field--name-field-website {
+              @apply mt-3.75;
+            }
+          }
+        }
+      }
+    }
+  }
+}
