@@ -70,6 +70,7 @@ final class UriTransform extends ProcessPluginBase {
     // Sometimes the $database is a migration object.
     $this->database = Database::getConnection('default', 'default');
     $this->migrateDatabase = Database::getConnection('default', 'migrate');
+    $this->file_url_generator = \Drupal::service('file_url_generator');
 
     if (empty(self::$mapping)) {
       
@@ -206,13 +207,13 @@ final class UriTransform extends ProcessPluginBase {
         $result1 = $migrateQuery1->execute()->fetchField();
         
         if ($result->filemime == "audio/mpeg") {
-            $url = \Drupal::service('file_url_generator')->generateAbsoluteString($result->uri);
+            $url = $this->file_url_generator->generateAbsoluteString($result->uri);
             $new_url = str_replace("http://yukonca.docksal.site", "", $url);
             $image = '<div class="media media-element-container media-default">
             <audio controls="controls" controlslist=""><source src="'.$new_url.'" type="audio/mpeg"></audio><span class="caption">'.$result1.'</span></div>';
         }
         else {
-           $url = \Drupal::service('file_url_generator')->generateAbsoluteString($result->uri);
+           $url = $this->file_url_generator->generateAbsoluteString($result->uri);
             $new_url = str_replace("http://yukonca.docksal.site", "", $url);
             $style = '';
             $alt = '';

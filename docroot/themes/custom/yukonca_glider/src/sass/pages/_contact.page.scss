@@ -1,0 +1,11 @@
+.contact_page {
+	.region-content {
+	    #block-mainpagecontent {
+	        @apply mt-0;
+	    }
+
+		h3 {
+			@apply text-[22px] pt-5 mt-3.75 mb-3;
+		}
+	}
+}
