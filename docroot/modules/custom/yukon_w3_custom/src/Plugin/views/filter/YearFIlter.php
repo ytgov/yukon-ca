@@ -10,7 +10,7 @@ use Drupal\views\Plugin\views\filter\FilterPluginBase;
  *
  * @ViewsFilter("year_filter")
  */
-class YearFilter extends FilterPluginBase {
+class YearFIlter extends FilterPluginBase {
 
   /**
    * {@inheritdoc}
