@@ -4,6 +4,7 @@ namespace Drupal\yukon_migrate\Plugin\migrate\process;
 
 use Drupal\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Database\Database;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -44,6 +45,13 @@ final class UriTransform extends ProcessPluginBase {
    * @var \Drupal\Core\Database\Connection
    */
   protected $migrateDatabase;
+  
+  /**
+   * The migration database.
+   *
+   * @var \Drupal\Core\File\FileUrlGeneratorInterface
+   */
+  protected $file_url_generator;
 
   /**
    * Maps sourceid1 to destid1.
