@@ -12,6 +12,7 @@ dependencies:
     - taxonomy
     - user
     - yukon_w3_custom
+    - views_infinite_scroll
 _core:
   default_config_hash: YKgw0f77GEmCu6_6Om9Mbig0mON9JdfVuMxTtd0WQaI
 id: taxonomy_term
@@ -942,6 +943,29 @@ display:
         operator: AND
         groups:
           1: AND
+      pager:
+        type: infinite_scroll
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: 0
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
+            initially_load_all_pages: false
       query:
         type: views_query
         options: {  }
@@ -950,6 +974,7 @@ display:
         filters: false
         filter_groups: false
         footer: false
+        pager: false
       footer:
         area:
           id: area
