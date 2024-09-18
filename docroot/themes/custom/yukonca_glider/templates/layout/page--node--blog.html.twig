@@ -92,7 +92,7 @@
       <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-lg-8 offset-md-1' : '' }} px-3.5">
         {% if node.type[0].target_id == 'blog' %}
           {% set defualt_logo %}
-              <img src="{{ '/' ~ active_theme_path() ~ '/logo.svg' }}">
+            <div class="blog-default"></div>
           {% endset %}
           {% set logo_image = logo_url ? logo_url : defualt_logo  %}
           {{
