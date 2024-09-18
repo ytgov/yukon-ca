@@ -2,14 +2,50 @@
   .field--name-field-media-image-1 {
     @apply pb-8;
   }
-}
 
-.view-blog-listing {
-  .view-content {
-    @apply border-solid border-0 border-t-[12px] border-yellow;
+  aside {
+    .region-sidebar-first {
+      .view-blog-listing {
+        .view-content {
+          @apply border-solid border-0 border-t-[12px] border-yellow;
+        }
+      }
+  
+      .block-views {
+        @apply mt-10;
+  
+        .block-title {
+          @apply mt-3.75 pb-2.5 pr-3.75 pt-0 text-lg;
+        }
+        
+        &:first-child {
+          @apply mt-0;
+  
+          .block-title {
+            @apply mt-0;
+          }
+        }
+      }
+    }
+  
+    #block-social-share {
+      #block-social-share-heading {
+        @apply border-solid border-0 border-b-[12px] border-yellow;
+      }
+    }
   }
-
-  .region-sidebar-first h2.block-title {
-    @apply m-0 p-0 text-lg;
+  
+  article {
+    .node__content {
+      h2 {
+        @apply text-[26px] mb-3 mt-3.75 pt-10;
+      }
+    }
+    
+    &.media--type-image {
+      img {
+        @apply w-full h-full;
+      }
+    }
   }
 }

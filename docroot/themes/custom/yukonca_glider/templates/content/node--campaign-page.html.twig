@@ -108,7 +108,7 @@
 				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
 					<div class="campaign-text-only-wrapper">
 						<h1 class="mb-8 mt-0 text-4xl font-medium text-gray-450">{{ label }}</h1>
-						<p>{{ node.field_intro_text_block.value|raw }}</p>
+						{{ node.field_intro_text_block.value|raw }}
 					</div>
 				</div>
 			</div>
