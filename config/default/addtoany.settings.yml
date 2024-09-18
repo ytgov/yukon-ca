@@ -2,7 +2,7 @@ _core:
   default_config_hash: QUZHrnAKd4ixgLLVtD3JrrBMlwbmJ6VU-qKcOMDKatw
 langcode: en
 buttons_size: 32
-additional_html: "<a class=\"a2a_button_facebook\"></a>\r\n<a class=\"a2a_button_twitter\"></a>\r\n<a class=\"a2a_button_linkedin\"></a>\r\n"
+additional_html: "<a class=\"a2a_button_facebook\"></a>\r\n<a class=\"a2a_button_x\"></a>\r\n<a class=\"a2a_button_linkedin\"></a>\r\n"
 additional_css: ''
 additional_js: 'a2a_config.icon_color = "#01606D";'
 universal_button: none
@@ -29,3 +29,8 @@ entities:
   webform_submission: 0
   section_association: 0
   paragraph: 0
+  config_pages: 0
+  tmgmt_job_item: 0
+  tmgmt_remote: 0
+  tmgmt_job: 0
+  tmgmt_message: 0
