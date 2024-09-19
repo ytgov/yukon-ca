@@ -26,6 +26,9 @@ function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterf
 
 }
 
+/**
+ * Implements template_preprocess_field().
+ */
 function yukonca_glider_preprocess_field($variables) {
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $language;
@@ -480,43 +483,41 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
     // Add the cache tag to update the breadcrumb if the node title changes.
     $nid = \Drupal::routeMatch()->getRawParameter('node');
     $variables['#cache']['tags'][] = 'node:' . $nid;
-    
+
     if ($node->bundle() == 'blog') {
-        //dump($variables['breadcrumb']); die;
-        // Adding the title of the page in the breadcrumb
-        global $base_url;
-        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        
-        if ($language == "fr") {
-            $variables['breadcrumb'][1] = [
-                'text' => "Blogue sur les renseignements et les services en ligne",
-                'url' => $base_url . "/fr/blogs"  
-            ];
-        }
-        else {
-            $variables['breadcrumb'][1] = [
-                'text' => "Government of Yukon blogs",
-                'url' => $base_url . "/blogs"  
-            ]; 
-        }
-        
-        if (!empty($node->field_blog_type->target_id)) {
-            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_blog_type->target_id);
-            $title = $term->name->value;
-            $aliasManager = \Drupal::service('path_alias.manager');
-            $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$node->field_blog_type->target_id);
-            $variables['breadcrumb'][2] = [
-                'text' => $title,
-                'url' => $base_url . $alias
-            ];
-        }
-        
-        
-        
-        $variables['breadcrumb'][3] = [
-            'text' => $node->getTitle(),
+      // dump($variables['breadcrumb']); die;
+      // Adding the title of the page in the breadcrumb.
+      global $base_url;
+      $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+      if ($language == "fr") {
+        $variables['breadcrumb'][1] = [
+          'text' => "Blogue sur les renseignements et les services en ligne",
+          'url' => $base_url . "/fr/blogs",
         ];
+      }
+      else {
+        $variables['breadcrumb'][1] = [
+          'text' => "Government of Yukon blogs",
+          'url' => $base_url . "/blogs",
+        ];
+      }
+
+      if (!empty($node->field_blog_type->target_id)) {
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($node->field_blog_type->target_id);
+        $title = $term->name->value;
+        $aliasManager = \Drupal::service('path_alias.manager');
+        $alias = $aliasManager->getAliasByPath('/taxonomy/term/' . $node->field_blog_type->target_id);
+        $variables['breadcrumb'][2] = [
+          'text' => $title,
+          'url' => $base_url . $alias,
+        ];
+      }
+
+      $variables['breadcrumb'][3] = [
+        'text' => $node->getTitle(),
+      ];
     }
-    
+
   }
 }
