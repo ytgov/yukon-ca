@@ -88,75 +88,61 @@
 		{% endif %}
 	{{ title_suffix }}
 
-	{% if display_submitted %}
-		<footer class="node__meta">
-			{{ author_picture }}
-			<div{{ author_attributes.addClass('node__submitted') }}>
-				{% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-				{{ metadata }}
-			</div>
-		</footer>
-	{% endif %}
-
-	<div class="hero-img" style="background-image: url('{{ file_url(node.field_hero_image.entity.field_media_image_1.entity.uri.value) }}')">
-		
-	</div>
-
-	<div class="flex justify-center">
-		<div class="w-10/12">
-			<div class="campaign-intro-text mb-5 mt-[-180px]">
-				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
-					<div class="campaign-text-only-wrapper">
-						<h1 class="mb-8 mt-0 text-4xl font-medium text-gray-450">{{ label }}</h1>
-						{{ node.field_intro_text_block.value|raw }}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    {% if node.field_engagement_status.value == "Closed" or node.field_engagement_status.value == "Closed with results" %}
+        <section class="node node-in-page-alert clearfix in-page-alert site-alert-info">
+            <div class="site-alert-wrapper">
+                <div class="alert-content">
+                    <i class="fa fa-info-circle"></i>
+                    <p class="alert-title">This engagement is now closed.</p>
+                    <p>It ran from {{ content.field_engagement_dates }}.</p>
+                    <p>Check below for where to find results.</p>
+                </div>
+            </div>
+        </section>
+        {{ content.field_engagement_find_results }}
+        
+        {{ content.field_engagement_results }}
+        
+        <div class="field field-name-body field-type-text-with-summary field-label-above">
+            <div class="field-label">What was this engagement about?&nbsp;</div>
+                <div class="field-items">
+                    <div class="field-item even">
+                        {{ node.body.value|raw }}
+                    </div>
+            </div>
+        </div>
+        
+        {{ content.field_engagement_info_use }}
+        
+        {{ content.field_engagement_feedback }}
+        
+        {{ content.field_engagement_find_info }}
+    {% else %}
     
-    {% if node.field_navigation_jump_point.value is not empty %}
-		<div class="flex justify-center border-b-1 border-gray-90">
-			<div class="w-10/12">
-				<div class="campaign-nav mb-20">
-					<div class="flex gap-7">
-						{{ content.field_navigation_jump_point }}
-					</div>
-				</div>
-			</div>
-		</div>
+        {{ content.field_engagement_participate }}
+        
+        <div class="field field-name-body field-type-text-with-summary field-label-above">
+            <div class="field-label">What is this engagement about?&nbsp;</div>
+                <div class="field-items">
+                    <div class="field-item even">
+                        {{ node.body.value|raw }}
+                    </div>
+            </div>
+        </div>
+        
+        {{ content.field_engagement_info_use }}
+        
+        {{ content.field_engagement_find_info }}
+    
+        {{ content.field_engagement_find_results }}
+        
+        
+        
+        {{ content.field_engagement_feedback }}
+        
+        
     {% endif %}
-	
-	{{ content.field_paragraphs }}
-	
-	<div class="flex justify-center">
-		<div class="w-10/12">
-			<div class="campaign-social-media mb-5">
-				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
-					<div class="campaign-text-only-wrapper">
-						{% if node.field_add_social_media_channels.value == "1" and node.field_social_network is not empty %}
-							<h2 class="mb-3 mt-5 text-[22px] font-medium text-gray-450">Follow the campaign on</h2>
-							<div class="social-links border-b-1 border-gray-90 pb-6">
-								{{ content.field_social_network }}
-							</div>
-						{% endif %}
-						
-						<div class="feedback-form">
-							<h2 class="pt-8 mt-0 mb-3 text-[22px] text-gray-450">Give us your feedback</h2>
-							{{ drupal_entity('webform', 'page_feedback') }}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{% if node.field_logos.value is not empty %}
-		<div class="campaign-logos mt-24 mb-5">
-			<div class="flex justify-center">
-				{{ content.field_logos }}
-			</div>
-		</div>
-	{% endif %}
 
 </article>
+
+<span class="aurora--mini"></span>

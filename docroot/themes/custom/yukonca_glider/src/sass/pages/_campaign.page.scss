@@ -34,7 +34,7 @@
 			}
 
 			&:has(.campaign-cta) {
-				@apply mb-20;
+				@apply mb-5;
 			}
     	}
 			
@@ -55,5 +55,29 @@
 				}
 			}
 		}
+		
+		.layout-content {
+	        @apply p-0;
+	    }
+		
+		.campaign-text-only-wrapper {
+		    h1 {
+		        @apply text-[42px];
+		    }
+		    
+		    p {
+		        &:last-child {
+		            @apply mb-0;
+		        }
+		    }
+		}
+		
+		h2 {
+		    @apply text-3.25xl;
+		}
+	}
+	
+	.shadow-lg {
+	    box-shadow: 0 20px 20px 0 rgba(155,155,155,.21);
 	}
 }

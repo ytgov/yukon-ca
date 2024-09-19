@@ -14,6 +14,8 @@
   }
 
   .field--name-field-related-tasks {
+    @apply mt-[30px];
+      
     .field__label {
       @apply pb-1 border-solid border-0 border-b border-gray-light;
     }
@@ -21,5 +23,31 @@
     .field__item {
       @apply my-3;
     }
+  }
+  
+  #block-mainpagecontent {
+    @apply mt-0;  
+  }
+  
+  .region-content {
+    .page-title {
+        @apply text-3.5xl mb-0 mt-3.75 pb-[5px];
+    }
+
+    .node--type-campground-directory-record {
+        .field {
+            @apply mb-3.75;
+
+            .field__label {
+                @apply mt-0 mb-0;
+            }
+        }
+        
+        .btn {
+            &.btn-outline-primary {
+                @apply border border-blue-400 text-blue-400 bg-transparent hover:border-blue-50 hover:text-blue-50;
+            }
+        }
+    }  
   }
 }

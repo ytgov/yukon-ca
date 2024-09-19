@@ -17,6 +17,14 @@ function yukon_w3_custom_theme() {
       'variables' => ['item' => NULL, 'language' => NULL],
       'template' => 'edit-language',
     ],
+    'engagements_count' => [
+      'variables' => ['item' => NULL],
+      'template' => 'engagements-count',
+    ],
+    'blog_feed' => [
+      'variables' => ['language' => NULL],
+      'template' => 'blog-feed',
+    ],
   ];
 }
 

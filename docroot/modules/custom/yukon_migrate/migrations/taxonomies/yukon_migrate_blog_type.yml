@@ -16,9 +16,14 @@ process:
   uuid: uuid
   language: language
   name: name
-  description/value: description
+  description/value: 
+    plugin: yukon_migrate_uri_transform
+    method: transformUri
+    source: description
   description/format: constants/default_text_format
   weight: weight
+  path/alias: alias
+  path/pathauto: pathauto
   parent:
     -
       plugin: skip_on_empty
@@ -27,22 +32,18 @@ process:
     -
       plugin: migration_lookup
       migration: yukon_migrate_blog_type
-  path/alias: alias
-  path/pathauto:
-    plugin: default_value
-    default_value: false
 
-    field_agency_logo:
-      plugin: migration_lookup
-      source: field_agency_logo/0/fid
-      migration: yukon_migrate_images
-      no_stub: true
+  field_agency_logo:
+    plugin: migration_lookup
+    source: field_agency_logo/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
 
-    field_featured_image:
-      plugin: migration_lookup
-      source: field_featured_image/0/fid
-      migration: yukon_migrate_images
-      no_stub: true
+  field_featured_image:
+    plugin: migration_lookup
+    source: field_featured_image/0/fid
+    migration: yukon_migrate_images
+    no_stub: true
 
 destination:
   plugin: entity:taxonomy_term

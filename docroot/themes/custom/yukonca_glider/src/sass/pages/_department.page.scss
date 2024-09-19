@@ -1,3 +1,58 @@
+.page-node-type-department {
+    .row {
+        @apply pt-0;
+    }
+    
+    .region-content {
+        .page-title {
+            @apply text-3.5xl;
+        }
+        
+        .field--name-field-add-primary-top-tasks {
+            .quicklink-card {
+                @apply p-5;
+                
+                a {
+                    @apply p-0 no-underline font-normal;
+                }
+            }
+        }
+        
+        .department-latest-news {
+            .view-news-listing {
+                .listing-list-item {
+                    @apply pt-10 pb-10 border-b-4 border-gray-light;
+                    
+                    &:first-child {
+                        @apply pt-5;
+                    }
+                    
+                    h4,
+                    a {
+                        @apply m-0;
+                    }
+                    
+                    h4 {
+                        @apply text-lg leading-1.1 mb-2.5;
+                    }
+                    
+                    a {
+                        @apply no-underline;
+                        
+                        &:hover {
+                            @apply underline;
+                        }
+                    }
+                    
+                    .views-field-created {
+                        @apply text-sm;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .fieldset-title {
   legend {
     @apply mt-6 mb-3;
@@ -17,7 +72,11 @@
 
   .minister_datails {
     @apply col-span-2 leading-loose;
-
+    
+    .field__label {
+        @apply mt-0 font-bold;
+    }
+    
     .field--name-field-minister-first-name,
     .field--name-field-minister-last-name {
       @apply inline-block;
