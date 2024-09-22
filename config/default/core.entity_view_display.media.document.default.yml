@@ -34,7 +34,15 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 0
+    weight: 1
+    region: content
+  field_document_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_media_file:
     type: file_default
@@ -42,7 +50,7 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
   thumbnail:
     type: image
@@ -57,7 +65,7 @@ content:
         height: null
       svg_render_as_image: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   uid:
     type: author
@@ -68,11 +76,7 @@ content:
     region: content
 hidden:
   addtoany: true
-  field_document_name: true
-  field_media_file: true
   field_metatags: true
   langcode: true
   name: true
   search_api_excerpt: true
-  thumbnail: true
-  uid: true

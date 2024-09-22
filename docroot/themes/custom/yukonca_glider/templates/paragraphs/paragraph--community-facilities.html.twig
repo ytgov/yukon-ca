@@ -46,6 +46,7 @@
 
 {{ content.field_about_services }}
 
+{% if paragraph.field_manager.value is not empty and paragraph.field_manager.value != 'Manager' %}
 <div class="facility-personnel">
   <div class="field field--label-inline">
     <div class="field__label">{{ 'Manager' | t }}</div>
@@ -57,7 +58,8 @@
     </div>
   </div>
 </div>
-
+{% endif %}
+{% if paragraph.field_assistant_manager.value is not empty and paragraph.field_assistant_manager.value != "Assistant manager" %}
 <div class="facility-personnel">
   <div class="field field--label-inline">
     <div class="field__label">{{ 'Assistant manager' | t }}</div>
@@ -69,3 +71,4 @@
     </div>
   </div>
 </div>
+{% endif %}

@@ -1,0 +1,32 @@
+uuid: ec78c34e-8a07-45cc-ac29-78f73c4f1a71
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.blog_type_info
+  module:
+    - taxonomy
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__blog_type_info_block_1
+theme: yukonca_glider
+region: breadcrumb
+weight: -22
+provider: null
+plugin: 'views_block:blog_type_info-block_1'
+settings:
+  id: 'views_block:blog_type_info-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      blog_type: blog_type

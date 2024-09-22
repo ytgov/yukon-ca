@@ -21,9 +21,11 @@ global_styles:
       dist/css/styles.min.css: { minified: true }
   js:
     dist/js/theme.min.js: { minified: true }
+    src/js/custom.js: {}
   dependencies:
     - core/jquery
     - core/drupal
+    - core/once
 
 administrator:
   css:

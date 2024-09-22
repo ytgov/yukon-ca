@@ -7,10 +7,13 @@ dependencies:
     - node.type.campaign_page
   module:
     - epp
+    - tmgmt_content
 third_party_settings:
   epp:
     value: '© Copyright [current-date:custom:Y] Government of Yukon'
     on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_copyright_notice_text
 field_name: field_copyright_notice_text
 entity_type: node
@@ -18,7 +21,7 @@ bundle: campaign_page
 label: 'Copyright notice text'
 description: 'Optional. Edit copyright notice text, if required.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

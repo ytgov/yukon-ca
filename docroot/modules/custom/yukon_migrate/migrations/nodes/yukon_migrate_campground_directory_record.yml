@@ -129,7 +129,7 @@ process:
   field_highway_kilometre: field_highway_km
   field_photo_credit: field_photo_credit
   field_pull_through: field_pull_through
-  field_secondary_road: field_secondary_road
+  field_secondary_road: field_secondary_road_name
   field_secondary_road_kilometre: field_secondary_road_km
   field_total_sites: field_total_sites
 
@@ -137,7 +137,7 @@ process:
   field_site_description/0/value:
     plugin: yukon_migrate_uri_transform
     method: transformUri
-    source: field_site_description_app_/0/value
+    source: field_campground_description/0/value
   field_site_description/format: constants/default_text_format
 
   field_site_description_app/value: field_site_description_app_/0/value

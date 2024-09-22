@@ -93,9 +93,9 @@
             <div class="site-alert-wrapper">
                 <div class="alert-content">
                     <i class="fa fa-info-circle"></i>
-                    <p class="alert-title">This engagement is now closed.</p>
-                    <p>It ran from {{ content.field_engagement_dates }}.</p>
-                    <p>Check below for where to find results.</p>
+                    <p class="alert-title">{{ 'This engagement is now closed'|t }}.</p>
+                    <p>{{ 'It ran from'|t}} {{ content.field_engagement_dates }}.</p>
+                    <p>{{ 'Check below for where to find results'|t }}.</p>
                 </div>
             </div>
         </section>
@@ -104,7 +104,7 @@
         {{ content.field_engagement_results }}
         
         <div class="field field-name-body field-type-text-with-summary field-label-above">
-            <div class="field-label">What was this engagement about?&nbsp;</div>
+            <div class="field-label">{{ 'What was this engagement about?'|t }}&nbsp;</div>
                 <div class="field-items">
                     <div class="field-item even">
                         {{ node.body.value|raw }}
@@ -122,7 +122,7 @@
         {{ content.field_engagement_participate }}
         
         <div class="field field-name-body field-type-text-with-summary field-label-above">
-            <div class="field-label">What is this engagement about?&nbsp;</div>
+            <div class="field-label">{{ 'What is this engagement about?'|t }}&nbsp;</div>
                 <div class="field-items">
                     <div class="field-item even">
                         {{ node.body.value|raw }}

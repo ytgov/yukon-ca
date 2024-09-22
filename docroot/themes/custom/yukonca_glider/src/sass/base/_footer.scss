@@ -175,6 +175,10 @@ body {
 
       textarea {
         @apply border-gray-300;
+        
+        &.error {
+          @apply border-gray-300;
+        }
       }
     }
 
@@ -189,7 +193,7 @@ body {
         }
       }
 
-      #edit-was-this-page-helpful {
+      [id^="edit-was-this-page-helpful"] {
         @apply flex;
 
         .form-item-was-this-page-helpful {
@@ -204,13 +208,13 @@ body {
               color: #B2B3B2;
             }
         
-            &[for="edit-was-this-page-helpful-yes"] {
+            &[for^="edit-was-this-page-helpful-yes"] {
               &::after {
                 content: "\f087";
               }
             }
         
-            &[for="edit-was-this-page-helpful-no"] {
+            &[for^="edit-was-this-page-helpful-no"] {
               &::after {
                 content: "\f088";
               }
@@ -242,7 +246,19 @@ body {
         }
       }
     }
+    
+    .form-item--error-message {
+      @apply hidden;
+    }
   }
+}
+
+[data-drupal-messages] {
+    .messages {
+        &.messages--error {
+            @apply shadow-none bg-none border-0 border-l-4 border-error-border p-3.75 bg-error-bg;
+        }
+    }
 }
 
 .ens-wrapper {
@@ -255,6 +271,38 @@ body {
       @apply bg-[#1c578a] border-[#091c2d] shadow-inner;
     }
   }
+}
+
+aside {
+    .region-sidebar-second {
+        .block-blog-feed-block {
+            @apply mt-15;
+
+            .subscribe-rss {
+                @apply pb-10;
+                
+                .block-title {
+                    @apply border-solid border-0 border-b-[12px] border-yellow text-lg mt-3.75 mb-7.5 pb-2.5 pr-3.75;
+                }
+            }
+        }
+    }
+}
+
+#node-blog-field-comments {
+    .comment-blog-comments-form {
+        @apply hidden;
+    }
+}
+
+.node--type-blog {
+    .cta-card {
+        @apply pb-9 mb-9 border-b-1 border-gray-lightborder;
+        
+        .title {
+            @apply text-[22px] font-medium;
+        }
+    }
 }
 
 /* End issue 153 */

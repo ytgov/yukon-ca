@@ -7,12 +7,12 @@ dependencies:
 id: blogs
 label: Blogs
 type: 'canonical_entities:node'
-pattern: 'blogs/[node:field_blog_type]/[node:title]'
+pattern: '/digital-blog/[node:title]'
 selection_criteria:
-  c363aed0-430d-4290-86f4-bc4e3660510c:
+  8ec15652-798b-433c-b1e4-215a166a0ead:
     id: 'entity_bundle:node'
     negate: false
-    uuid: c363aed0-430d-4290-86f4-bc4e3660510c
+    uuid: 8ec15652-798b-433c-b1e4-215a166a0ead
     context_mapping:
       node: node
     bundles:

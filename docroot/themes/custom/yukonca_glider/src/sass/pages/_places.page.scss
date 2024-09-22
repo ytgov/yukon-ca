@@ -86,8 +86,9 @@
           }
 
           .field {
-            .field-label {
-                @apply mt-3.75 text-base;
+            .field-label,
+            .field__label {
+                @apply mt-3.75 mb-0 text-base;
             }
 
             .field-items {
@@ -109,6 +110,76 @@
             
             &.field--name-field-website {
               @apply mt-3.75;
+            }
+            
+            &.field--name-field-opening-times {
+                @apply mt-15;
+                
+                .field__label {
+                    @apply text-[22px] mb-3.75;
+                }
+
+                .field__item {
+                    @apply flex;
+
+                    > .field {
+                        @apply w-1/2;
+                    }
+                }
+
+                .field--name-field-opening-time-paragraph {
+                    .opening_time {
+                        .field--type-datetime {
+                            @apply inline-block;
+                        }
+                    }
+                }
+            }
+            
+            &.field--name-field-holiday-hours {
+                @apply mt-[50px];
+
+                .field__label {
+                    @apply text-xl mb-[27px];
+                }
+                
+                .field__item {
+                    .holiday_hours {
+                        @apply flex mt-3.75;
+
+                        .field-label {
+                            @apply font-normal mt-0 w-1/2;
+                        }
+                        
+                        .field-items {
+                            @apply w-1/2;
+                        }
+                    }
+                }
+            }
+            
+            &.field--name-field-statutory-holiday-link {
+                @apply mt-3.75;
+            }
+            
+            &.field--name-field-contact-person {
+                @apply mt-15;
+
+                .contact_person {
+                    .field_lable {
+                        @apply inline-block font-medium mt-3.75;
+                    }
+                }
+            }
+            
+            &.field--name-field-places-record-type {
+                @apply mt-3.75;
+                
+                .facility-personnel {
+                    .field__label {
+                        @apply mt-0;
+                    }
+                }
             }
           }
         }

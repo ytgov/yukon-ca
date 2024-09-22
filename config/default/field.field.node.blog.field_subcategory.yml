@@ -7,11 +7,10 @@ dependencies:
     - node.type.blog
     - taxonomy.vocabulary.sub_category
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.blog.field_subcategory
 field_name: field_subcategory
 entity_type: node
@@ -19,7 +18,7 @@ bundle: blog
 label: Subcategory
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

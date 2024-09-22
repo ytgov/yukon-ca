@@ -8,11 +8,10 @@ dependencies:
     - paragraphs.paragraphs_type.navigation_jump_point
   module:
     - entity_reference_revisions
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_navigation_jump_point
 field_name: field_navigation_jump_point
 entity_type: node
@@ -20,7 +19,7 @@ bundle: campaign_page
 label: 'Navigation jump point'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -30,11 +29,32 @@ settings:
       navigation_jump_point: navigation_jump_point
     negate: 0
     target_bundles_drag_drop:
+      call_to_action:
+        weight: 32
+        enabled: false
       chart:
         weight: 8
         enabled: false
       collapsable_field:
         weight: 9
+        enabled: false
+      community_facilities:
+        weight: 35
+        enabled: false
+      contact_person:
+        weight: 36
+        enabled: false
+      date_range_text:
+        weight: 37
+        enabled: false
+      full_width_image:
+        weight: 38
+        enabled: false
+      health_facilities:
+        weight: 39
+        enabled: false
+      holiday_times:
+        weight: 40
         enabled: false
       image_gallery:
         weight: 10
@@ -45,13 +65,61 @@ settings:
       navigation_jump_point:
         weight: 13
         enabled: true
+      opening_and_closing_times:
+        weight: 44
+        enabled: false
+      opening_times:
+        weight: 45
+        enabled: false
       primary_content:
         weight: 12
+        enabled: false
+      quick_facts:
+        weight: 47
+        enabled: false
+      quote:
+        weight: 48
+        enabled: false
+      quotes:
+        weight: 49
+        enabled: false
+      related_content:
+        weight: 50
+        enabled: false
+      schools:
+        weight: 51
         enabled: false
       secondary_content:
         weight: 13
         enabled: false
+      section:
+        weight: 53
+        enabled: false
+      social_network:
+        weight: 54
+        enabled: false
       sub_heading:
         weight: 14
+        enabled: false
+      text:
+        weight: 56
+        enabled: false
+      text_and_image:
+        weight: 57
+        enabled: false
+      top_tasks:
+        weight: 58
+        enabled: false
+      transactional_facilities:
+        weight: 59
+        enabled: false
+      video:
+        weight: 60
+        enabled: false
+      video_and_text:
+        weight: 61
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 62
         enabled: false
 field_type: entity_reference_revisions

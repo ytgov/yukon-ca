@@ -108,17 +108,23 @@
         {{ content.field_registration_required }}
         {{ content.field_total_sites }}
         {{ content.field_pull_through }}
-        {{ content.field_warning }}
+        
 
         <div class="field field--label-inline campground-serviced">
           <div class="field__label">{{ 'Serviced'|t }}</div>
-          {{ content.field_serviced_start_date.0 }} {{ 'to'|t }} {{ content.field_serviced_end_date.0 }}
+          {{ content.field_serviced_start_date.0 }} {% if node.field_serviced_end_date.value is not empty %}{{ 'to'|t }} {{ content.field_serviced_end_date.0 }} {% endif %}
         </div>
 
         <div class="field field--label-inline campground-gate-open">
           <div class="field__label">{{ 'Gate Open'|t }}</div>
-          {{ content.field_gate_open_date.0 }} {{ 'to'|t }} {{ content.field_gate_closed_date.0 }}
+          {% if node.field_gate_open_date.value is not empty %}
+            {{ content.field_gate_open_date.0 }} {{ 'to'|t }} {{ content.field_gate_closed_date.0 }}
+          {% else %}
+            Gate open year-round
+          {% endif %}
         </div>
+        
+        {{ content.field_warning }}
 
         {{ content.field_site_description }}
 

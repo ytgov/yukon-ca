@@ -1,0 +1,27 @@
+<div class="panel-pane pane-engagement-numbers" id="by-the-numbers">
+    
+    <div class="row">
+        <div class="col-md-8">
+            {{ item['left_data']|raw }}
+        </div>
+        <div class="col-md-4">
+            <h2 class="pane-title">     Engagement by&nbsp;the&nbsp;numbers </h2>
+            {% for key, items in item %}
+                <div class="col-md-6">
+                    {% if key == "open" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Open">{{ items }} Open engagements</a>
+                    {% elseif key == "open_with_results" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Open+with+results">{{ items }} Open engagements with results</a>
+                    {% elseif key == "closed" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Closed">{{ items }} Closed engagements</a>
+                    {% elseif key == "closed_with_results" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Closed+with+results">{{ items }} Closed engagements with results</a>
+                    
+                    {% elseif key == "total_eng" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=All">{{ items }} Total engagements since 2017</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

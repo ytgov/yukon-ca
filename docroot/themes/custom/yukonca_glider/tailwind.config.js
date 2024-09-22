@@ -71,6 +71,11 @@ module.exports = {
       pagination: {
         seprater: '#7a7979',
       },
+      error: {
+        text: '#A94442',
+        bg: '#F3E9E8',
+        border: '#D3080C' 
+      },
     },
     extend: {
       fontSize: {

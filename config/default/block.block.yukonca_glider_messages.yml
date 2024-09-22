@@ -11,7 +11,7 @@ _core:
 id: yukonca_glider_messages
 theme: yukonca_glider
 region: pre_content
-weight: -11
+weight: -23
 provider: null
 plugin: system_messages_block
 settings:

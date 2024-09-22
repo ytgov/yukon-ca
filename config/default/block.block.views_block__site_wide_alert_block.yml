@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.site_wide_alert
   module:
-    - block_class
     - system
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: views_block__site_wide_alert_block
 theme: yukonca_glider
 region: pre_content
-weight: -10
+weight: -22
 provider: null
 plugin: 'views_block:site_wide_alert-block'
 settings:

@@ -1,0 +1,19 @@
+.path-taxonomy {
+    .aurora-town {
+        @apply hidden;
+    }
+    
+    main {
+        .row {
+            @apply pt-0;
+        }
+    }
+    
+    .result-summary {
+        @apply mt-3.75;
+    }
+    
+    #block-mainpagecontent {
+        @apply mb-5;
+    }
+}

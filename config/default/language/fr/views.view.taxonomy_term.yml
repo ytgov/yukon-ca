@@ -31,3 +31,12 @@ display:
             title: Tout
   feed_1:
     display_title: Flux
+  page_1:
+    display_options:
+      filters:
+        field_category_target_id:
+          expose:
+            label: 'Catégorie:'
+        field_subcategory_target_id:
+          expose:
+            label: Sous-catégorie

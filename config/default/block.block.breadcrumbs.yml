@@ -3,14 +3,13 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class
     - system
   theme:
     - yukonca_glider
 id: breadcrumbs
 theme: yukonca_glider
 region: breadcrumb
-weight: -16
+weight: -23
 provider: null
 plugin: system_breadcrumb_block
 settings:

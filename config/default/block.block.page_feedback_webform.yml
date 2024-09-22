@@ -5,7 +5,6 @@ dependencies:
   config:
     - webform.webform.page_feedback
   module:
-    - block_class
     - node
     - webform
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: page_feedback_webform
 theme: yukonca_glider
 region: content
-weight: -7
+weight: -6
 provider: null
 plugin: webform_block
 settings:

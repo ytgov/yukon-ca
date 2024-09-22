@@ -37,3 +37,9 @@ h3 {
     }
   }
 }
+
+.region-breadcrumb {
+    .block-views-blockblog-type-info-block-1 {
+        @apply my-[70px];
+    } 
+}

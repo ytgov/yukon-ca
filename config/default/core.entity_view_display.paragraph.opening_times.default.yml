@@ -7,14 +7,25 @@ dependencies:
     - field.field.paragraph.opening_times.field_opening_time_paragraph
     - field.field.paragraph.opening_times.field_opening_times_day
     - paragraphs.paragraphs_type.opening_times
+  module:
+    - entity_reference_revisions
 id: paragraph.opening_times.default
 targetEntityType: paragraph
 bundle: opening_times
 mode: default
 content:
+  field_opening_time_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_opening_times_day:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -22,5 +33,4 @@ content:
     region: content
 hidden:
   field_open: true
-  field_opening_time_paragraph: true
   search_api_excerpt: true

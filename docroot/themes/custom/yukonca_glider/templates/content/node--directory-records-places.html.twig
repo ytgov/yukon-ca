@@ -95,11 +95,14 @@
             </div>
             {% if node.field_main_telephone.value is not empty %}
                 <div class="field field-name-field-main-telephone field-type-text field-label-above">
-                    <div class="field-label">Main Telephone</div>
+                    <div class="field-label">Main telephone</div>
                     <div class="field-items">
                         <div class="field-item even">{{ node.field_main_telephone.value|raw }}</div>
                     </div>
                 </div>
+            {% endif %}
+            {% if node.field_additional_number.value is not empty %}
+                <div class="field-item even">{{ node.field_additional_number.value|raw }}</div>
             {% endif %}
             {% if node.field_fax.value is not empty %}
                 <div class="field field-name-field-fax field-type-text field-label-above">
@@ -110,16 +113,26 @@
                 </div>
             {% endif %}
             
-            {% if node.field_additional_number.value is not empty %}
+            
+            {{ content.field_places_record_type }}
+            {% if node.field_place_accessibility.value is not empty %}
                 <div class="field field-name-field-fax field-type-text field-label-above">
-                    <div class="field-label">Additional number</div>
+                    <div class="field-label">Accessibility</div>
                     <div class="field-items">
-                        <div class="field-item even">{{ node.field_additional_number.value|raw }}</div>
+                        <div class="field-item even">{{ node.field_place_accessibility.value|raw }}</div>
                     </div>
                 </div>
             {% endif %}
-            {{ content.field_places_record_type }}
+            
             {{ content.field_website }}
+            
+            {{ content.field_opening_times }}
+            
+            {{ content.field_holiday_hours }}
+            
+            {{ content.field_statutory_holiday_link }}
+            
+            {{ content.field_contact_person }}
         </div>
     </div>
 </article>
