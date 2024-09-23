@@ -11,6 +11,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - views_infinite_scroll
 _core:
   default_config_hash: YKgw0f77GEmCu6_6Om9Mbig0mON9JdfVuMxTtd0WQaI
 id: taxonomy_term
@@ -552,9 +553,34 @@ display:
     position: 1
     display_options:
       enabled: true
+      pager:
+        type: infinite_scroll
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: 0
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
+            initially_load_all_pages: false
       query:
         type: views_query
         options: {  }
+      defaults:
+        pager: false
       rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
