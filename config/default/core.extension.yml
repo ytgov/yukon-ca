@@ -166,6 +166,7 @@ module:
   pathauto: 1
   selective_better_exposed_filters: 1
   cshs_menu_link: 5
+  comment_notify: 10
   content_translation: 10
   password_policy: 10
   views: 10
