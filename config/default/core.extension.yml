@@ -167,6 +167,7 @@ module:
   yukon_w3_migrate: 0
   pathauto: 1
   cshs_menu_link: 5
+  comment_notify: 10
   content_translation: 10
   password_policy: 10
   views: 10
