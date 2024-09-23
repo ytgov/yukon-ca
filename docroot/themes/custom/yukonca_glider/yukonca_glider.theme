@@ -109,7 +109,6 @@ function yukonca_glider_preprocess_node__blog(&$variables) {
   }
 }
 
-
 /**
  * Implements hook_preprocess_HOOK().
  */
