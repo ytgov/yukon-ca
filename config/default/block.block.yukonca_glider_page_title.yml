@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_class
     - node
     - system
     - taxonomy
@@ -13,7 +14,7 @@ _core:
 id: yukonca_glider_page_title
 theme: yukonca_glider
 region: content
-weight: -22
+weight: -24
 provider: null
 plugin: page_title_block
 settings:
@@ -25,7 +26,7 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "<front>\r\n"
+    pages: "<front>\r\n/engagements\r\n/documents"
   'entity_bundle:node':
     id: 'entity_bundle:node'
     negate: true

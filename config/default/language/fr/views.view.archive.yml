@@ -1,10 +1,7 @@
-label: Archiver
-description: 'Tous les contenus, triés par mois.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
-      title: 'Archive mensuelle'
       pager:
         options:
           expose:
@@ -16,5 +13,3 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-  block_1:
-    display_title: Bloc

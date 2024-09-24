@@ -50,4 +50,12 @@
         }
     }  
   }
+  
+  .campground-map {
+      @apply relative pb-[46px];
+      
+      .file {
+          @apply absolute left-0 mt-3.75;
+      }
+  }
 }

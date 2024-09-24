@@ -11,15 +11,15 @@
     .graph {
       .graph-item {
         &.poor {
-          @apply h-4/5 bg-[red];
+          @apply h-4/5 bg-chart-poor;
         }
 
         &.good {
-          @apply h-1/2 bg-yellow;
+          @apply h-1/2 bg-chart-good;
         }
 
         &.very_good {
-          @apply h-1/4 bg-[green];
+          @apply h-1/4 bg-chart-vgood;
         }
       }
     }

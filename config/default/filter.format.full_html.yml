@@ -17,71 +17,89 @@ filters:
     id: editor_file_reference
     provider: editor
     status: true
-    weight: 11
+    weight: -47
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
     status: false
-    weight: 8
+    weight: -40
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -41
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: false
-    weight: 9
+    weight: -39
     settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: false
-    weight: -10
+    weight: -43
     settings:
       allowed_html: ''
       filter_html_help: false
       filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -38
+    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: 10
+    weight: -48
     settings: {  }
   filter_image_lazy_load:
     id: filter_image_lazy_load
     provider: filter
     status: true
-    weight: 12
+    weight: -46
     settings: {  }
   filter_pathologic:
     id: filter_pathologic
     provider: pathologic
     status: true
-    weight: 50
+    weight: -45
     settings:
       settings_source: local
       local_settings:
         protocol_style: full
-        local_paths: "/en/\r\n/fr/\r\nhttps://yukon.ca/en/\r\nhttps://yukon.ca/fr/"
+        local_paths: ''
         keep_language_prefix: true
   filter_url:
     id: filter_url
     provider: filter
     status: true
-    weight: 0
+    weight: -50
     settings:
       filter_url_length: 72
   linkit:
     id: linkit
     provider: linkit
     status: true
-    weight: 0
+    weight: -49
     settings:
       title: true
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: 100
+    weight: -44
     settings:
       default_view_mode: default
       allowed_view_modes:

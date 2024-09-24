@@ -36,6 +36,8 @@
         $('a.add_new_comment').css('display', 'block');
         $(this).css('display', 'none');
       });
+
+      $('.page-node-type-department .accordion .accordion-item:first-child .accordion-collapse').addClass('show');
     },
   };
 })(jQuery, Drupal);

@@ -3,6 +3,12 @@
         @apply pt-0;
     }
     
+    .aurora-town {
+        &.department {
+            @apply hidden;
+        }
+    }
+    
     .region-content {
         .page-title {
             @apply text-3.5xl;

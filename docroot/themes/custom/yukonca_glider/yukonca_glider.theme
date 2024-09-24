@@ -325,6 +325,7 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   $variables['Footer_text'] = theme_get_setting('Footer_text');
+  $variables['current_path'] = $current_path = \Drupal::service('path.current')->getPath();
   if (!empty($variables['node'])) {
     /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];

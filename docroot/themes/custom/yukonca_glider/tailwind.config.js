@@ -54,6 +54,15 @@ module.exports = {
         background: '#FFF4E4',
         text: '#444142',
       },
+      alertinfo: {
+        background: '#D4ECEF',
+        text: '#444142',
+      },
+      chart: {
+        vgood: '#7A9A01',
+        good: '#F2A900',
+        poor: '#DC4405',
+      },
       eden: '#0D3E4F',
       tiber: '#0B3442',
       blue: {

@@ -44,6 +44,12 @@ body {
   /* Start Issue 182 */
 
   &.page-node-type-news {
+    main {
+        .row {
+            @apply pt-0;
+        }
+    }
+    
     .node {
       .field--name-field-related-link {
         .field__label {
@@ -57,6 +63,16 @@ body {
             @apply font-medium;
           }
         }
+      }
+      
+      .field--name-field-news-quote {
+          .blockquote {
+              @apply bg-contain h-[106px];
+          }
+          
+          + .field--name-field-contact {
+              @apply -mt-15;
+          }
       }
     }
   }

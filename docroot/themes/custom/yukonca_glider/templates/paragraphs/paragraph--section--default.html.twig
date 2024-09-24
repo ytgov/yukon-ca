@@ -50,26 +50,28 @@
         <div class="accordion-body">
         {{ paragraph.field_section_description.value|raw }}
         <p>
-        <strong>Email: </strong>
+        <strong>{{ 'Email'|t }}: </strong>
         <a href="mailto:{{ paragraph.field_section_email.value|raw }}">
         {{ paragraph.field_section_email.value|raw }} </a>
         <br>
-        <strong>Phone: </strong>
+        <strong>{{ 'Phone'|t }}: </strong>
         <a href="tel:{{ paragraph.field_section_telephone.value|raw }} ">
         {{ paragraph.field_section_telephone.value|raw }} </a>
         <br>
-        <strong>Toll-free phone: </strong>
+        <strong>{{ 'Toll-free phone'|t }}: </strong>
         <a href="tel:{{ paragraph.field_toll_free_phone.value|raw }}">
         {{ paragraph.field_toll_free_phone.value|raw }} </a>
-        <strong>extension </strong>
+        <strong>{{ 'extension'|t }} </strong>
         {{ paragraph.field_toll_free_phone_extension.value|raw }}
         <br>
-        <strong>Fax number: </strong>
+        <strong>{{ 'Fax number'|t }}: </strong>
         <a href="tel:{{ paragraph.field_section_fax_number.value|raw }}">
         {{ paragraph.field_section_fax_number.value|raw }} </a>
         <br>
+        {% if paragraph.field_staff_directory.get(0).getUrl().toString() is not empty %}
         <a href="{{ paragraph.field_staff_directory.get(0).getUrl().toString() }}">
-        Staff directory </a>
+        {{ 'Staff directory'|t }} </a>
+        {% endif %}
         </p>
         </div>
         </div>

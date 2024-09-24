@@ -1,24 +1,9 @@
-label: 'Custom block library'
-description: 'Find and manage custom blocks.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
-      title: 'Custom block library'
-      fields:
-        info:
-          label: 'Description du bloc'
-        type:
-          label: 'Type de bloc'
-        changed:
-          label: 'Mis à jour'
-        operations:
-          label: Actions
       pager:
         options:
-          tags:
-            next: 'Suivant ›'
-            previous: '‹ Précédent'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -28,17 +13,3 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-      empty:
-        area_text_custom:
-          content: 'There are no custom blocks available.'
-      filters:
-        info:
-          expose:
-            label: 'Description du bloc'
-        type:
-          expose:
-            label: 'Type de bloc'
-  page_1:
-    display_options:
-      menu:
-        description: 'Create and edit block content.'

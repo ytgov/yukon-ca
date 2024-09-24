@@ -41,12 +41,7 @@ class EngagementsController extends ControllerBase {
    */
   public function content() {
     return [
-      '#markup' => '<h2 class="pane-title"> Give your input </h2>
-                
-        <p>Take part in and find the results from Government of Yukon engagement projects.</p>
-        <p>Find a specific engagement using the search feature or browse for engagements using the filters.</p>
-        <p>Your views, knowledge and stories help us make better decisions.</p>
-       ',
+      '#markup' => '<h2 class="pane-title"> ' . $this->t('Give your input') . ' </h2>',
     ];
   }
 

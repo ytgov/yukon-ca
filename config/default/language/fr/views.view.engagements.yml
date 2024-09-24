@@ -1,0 +1,22 @@
+display:
+  engagements:
+    display_options:
+      filters:
+        field_category_target_id:
+          expose:
+            label: Catégorie
+          group_info:
+            label: Tout
+        field_engagement_status_value:
+          expose:
+            label: Statut
+      empty:
+        area:
+          content:
+            value: '<p>Aucun résultat trouvé avec les critères de recherche utilisées</p>'
+            format: full_html
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Appliquer

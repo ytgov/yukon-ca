@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class
     - system
     - yukon_w3_custom
   theme:
@@ -19,11 +18,11 @@ settings:
   label: 'Engagements Count Block'
   label_display: '0'
   provider: yukon_w3_custom
-  block_content_text:
-    value: '<p>Test</p>'
-    format: full_html
   block_content:
     value: '<h2 class="pane-title">What to expect from the Government of&nbsp;Yukon</h2><div class="pane-content"><div id="engagements-what-to-expect"><p>We value your input and we want to make it easy for you to provide it. So that you know exactly what to expect when you engage with us, we promise to:</p><ul><li>seek your views;</li><li>make it easy for you to talk to us and get involved;</li><li>use communication tools suited to the scale of decision we''re making;</li><li>explain our decisions;</li><li>foster and respect relationships with citizens, groups and communities, and First Nations, municipalities and other governments; and</li><li>consider local solutions to problems.</li></ul><p><a href="/en/engagements/our-promise-to-you">Our promise to you</a>.</p></div></div>'
+    format: full_html
+  block_content_text:
+    value: '<p>Test</p>'
     format: full_html
 visibility:
   request_path:

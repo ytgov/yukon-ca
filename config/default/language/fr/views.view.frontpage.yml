@@ -1,16 +1,9 @@
-label: "Page d'accueil"
-description: "Tout le contenu promu en page d'accueil."
 display:
   default:
     display_title: 'Par défaut'
     display_options:
       pager:
         options:
-          tags:
-            next: 'Suivant ›'
-            previous: '‹ Précédent'
-            first: '« Premier'
-            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -20,10 +13,5 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-      empty:
-        area_text_custom:
-          content: "<p>Le Territoire du Yukon (Yukon) se trouve dans le coin nord-ouest du Canada. Il borde la Colombie-Britannique, les Territoires du Nord-Ouest et l'Alaska. Le Yukon compte une population totale de 34 157 personnes, la plupart vivant dans la capitale, Whitehorse. Le Yukon abrite le plus haut sommet du Canada, les plus grands champs de glace, le plus petit désert et le point le plus à l'ouest du Canada. Il a une faune incroyable et des grizzlis, des caribous, des orignaux et d'autres animaux parcourent la terre.</p>\r\n<p>Le Yukon est un excellent endroit où vivre, travailler et se divertir. Le Yukon accueille de nouveaux arrivants chaque année et offre de belles opportunités, notamment\_:</p>\r\n<ul>\r\n<li>des gens sympathiques</li>\r\n<li>une main-d'œuvre qualifiée et instruite</li>\r\n<li>systèmes de transport à jour</li>\r\n<li>activités de plein air à chaque saison de l'année</li>\r\n<li>l'un des taux de chômage les plus bas au Canada</li>\r\n<li>une économie forte grâce à nos ressources naturelles</li>\r\n<li>service Internet haut débit dans toutes nos communautés</li>\r\n</ul>"
-        title:
-          title: 'Bienvenue !'
   feed_1:
     display_title: Flux
