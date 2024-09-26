@@ -1,4 +1,4 @@
-// Main - Update Revision IDs to fix Paragraph unprocessed count//
+-- Main - Update Revision IDs to fix Paragraph unprocessed count
 
 UPDATE paragraphs_item a INNER JOIN field_data_field_secondary_content b on b.field_secondary_content_value = a.item_id SET a.revision_id = b.field_secondary_content_revision_id;
 UPDATE paragraphs_item a INNER JOIN field_data_field_image_gallery b on b.field_image_gallery_value = a.item_id SET a.revision_id = b.field_image_gallery_revision_id;
