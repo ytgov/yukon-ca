@@ -6,16 +6,15 @@ dependencies:
     - field.storage.node.field_at_least_one_wheelchair_ac
     - node.type.campground_directory_record
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_at_least_one_wheelchair_ac
 field_name: field_at_least_one_wheelchair_ac
 entity_type: node
 bundle: campground_directory_record
-label: 'At least one wheelchair accessible outhouse'
+label: 'At least 1 wheelchair accessible outhouse'
 description: ''
 required: true
 translatable: true

@@ -6,16 +6,15 @@ dependencies:
     - field.storage.node.field_outdoor_ampitheatre
     - node.type.campground_directory_record
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_outdoor_ampitheatre
 field_name: field_outdoor_ampitheatre
 entity_type: node
 bundle: campground_directory_record
-label: 'Outdoor ampitheatre'
+label: 'Outdoor amphitheatre'
 description: ''
 required: true
 translatable: true

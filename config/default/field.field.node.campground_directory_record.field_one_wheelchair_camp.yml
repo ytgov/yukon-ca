@@ -6,16 +6,15 @@ dependencies:
     - field.storage.node.field_one_wheelchair_camp
     - node.type.campground_directory_record
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_one_wheelchair_camp
 field_name: field_one_wheelchair_camp
 entity_type: node
 bundle: campground_directory_record
-label: 'At least one wheelchair accessible campsite'
+label: 'At least 1 wheelchair accessible campsite'
 description: ''
 required: true
 translatable: true

@@ -2,4 +2,12 @@
   .field--name-field-media-image-1 {
     @apply pb-8;
   }
+
+  .older-blog-post {
+    .blog-text-red {
+      color: #FF0067;
+      font-weight: bold;
+    }
+  }
+
 }

@@ -48,7 +48,7 @@ third_party_settings:
       label: 'Publishing Options'
       region: content
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -57,6 +57,22 @@ third_party_settings:
         open: true
         description: ''
         required_fields: false
+        weight: 0
+    group_promoted_to_frontpage:
+      children:
+        - field_featured_to_homepage
+      label: 'Promoted to Frontpage'
+      region: content
+      parent_name: ''
+      weight: 22
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
         weight: 0
 id: node.news.default
 targetEntityType: node
@@ -75,7 +91,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 23
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -122,7 +138,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -189,7 +205,7 @@ content:
     third_party_settings: {  }
   field_news_release:
     type: string_textfield
-    weight: 13
+    weight: 14
     region: content
     settings:
       size: 60
@@ -197,7 +213,7 @@ content:
     third_party_settings: {  }
   field_news_type:
     type: options_select
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -255,14 +271,14 @@ content:
     third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
-    weight: 20
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -284,13 +300,6 @@ content:
     weight: 25
     region: content
     settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 24
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -314,7 +323,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 22
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -328,6 +337,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  promote: true
   publish_on: true
   publish_state: true
   sticky: true
