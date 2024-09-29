@@ -24,11 +24,15 @@
             @apply pt-0;
             
             #block-mainpagecontent {
-                @apply mt-0 mb-7.5 pb-7.5 border-b-1 border-gray-lightborder;
+                @apply mt-0 mb-0;
                 
                 .pane-title {
                     @apply text-[26px] mt-3.75 mb-3;
                 }
+            }
+            
+            #block-yukonca-glider-engagementscontentblock {
+                @apply mb-7.5 pb-7.5 border-b-1 border-gray-lightborder;
                 
                 p {
                     @apply mb-3;
@@ -49,7 +53,7 @@
                         @apply flex gap-4;
                         
                         label {
-                            @apply font-bold text-base;
+                            @apply font-bold text-base text-black;
                         }
                         
                         input,

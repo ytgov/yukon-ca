@@ -1,27 +1,76 @@
-.filters {
-  @apply mt-[25px];
-
-  .title {
-    h2 {
-      @apply text-lg;
-      @apply mt-3.75 mb-3 pt-0 pb-2.5;
+.page-node-type-basic-page {
+    main {
+        .row {
+            @include media-breakpoint-down(md) {
+                @apply pt-0;
+            }
+        }
     }
-  }
+    
+    .aurora-town {
+        .aurora--main {
+            &:before {
+                @include media-breakpoint-down(md) {
+                    @apply -right-[100px] top-0 h-[50px] w-[300px] bg-contain;
+                }
+            }
+        }
+    }
+}
 
-  form {
-    .form-item {
-      @apply my-0 pt-5;
-
-      input,
-      select {
-        @apply rounded;
+aside {
+    .filters {
+      @apply mt-[25px];
+    
+      .title {
+        h2 {
+          @apply text-lg;
+          @apply mt-3.75 mb-3 pt-0 pb-2.5;
+          @apply relative;
+          
+          @include media-breakpoint-down(md) {
+            @apply cursor-pointer;
+          }
+          
+          &:after {
+            content: "\e114";
+            font-family: "Glyphicons Halflings", sans-serif;
+            @apply absolute text-sm right-1 top-1;
+            
+            @include media-breakpoint-up(md) {
+              @apply hidden;
+            }
+          }
+          
+          &.toggled {
+            &:after {
+                @apply rotate-180;
+            }
+          }
+        }
       }
-
-      .select-wrapper {
-        @apply w-full;
+    
+      form {
+        @apply hidden;
+          
+        @include media-breakpoint-up(md) {
+          @apply block;
+        }
+    
+        .form-item {
+          @apply my-0 pt-5;
+    
+          input,
+          select {
+            @apply rounded;
+          }
+    
+          .select-wrapper {
+            @apply w-full;
+          }
+        }
       }
     }
-  }
 }
 
 .places-page-grid {

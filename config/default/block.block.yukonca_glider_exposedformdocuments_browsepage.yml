@@ -1,0 +1,29 @@
+uuid: 09ed7a43-2ae5-48a2-b385-2ee37f67b6c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.documents_browse
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_exposedformdocuments_browsepage
+theme: yukonca_glider
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:documents_browse-page'
+settings:
+  id: 'views_exposed_filter_block:documents_browse-page'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: 'Filter by'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /documents

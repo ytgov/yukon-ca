@@ -3,8 +3,6 @@ main {
 		@apply pt-[60px];
 
 		.layout-content {
-		    @apply px-0;
-
 			.region-content {
 				@apply pt-0 relative;
 
@@ -26,30 +24,30 @@ main {
 				    }
 				}
 				
-				.media {
-				    img {
-				        @apply w-[300px];
-				    }
-				}
+				// .media {
+				//     img {
+				//         @apply w-[300px];
+				//     }
+				// }
 				
-				.field--name-field-image {
-				    @apply absolute right-0 ml-[100px] mb-[50px];
+				// .field--name-field-image {
+				//     @apply absolute right-0 ml-[100px] mb-[50px];
 
-				    img {
-				        @apply w-[300px] h-auto;
-				    }
-				}
-				
-				.node__content {
-				    p {
-				        &:nth-child(1),
-				        &:nth-child(2),
-				        &:nth-child(3),
-				        &:nth-child(4) {
-				            @apply max-w-3xl;
-				        }
-				    }
-				}
+				//     img {
+				//         @apply w-[300px] h-auto;
+				//     }
+				// }
+
+				// .node__content {
+				//     p {
+				//         &:nth-child(1),
+				//         &:nth-child(2),
+				//         &:nth-child(3),
+				//         &:nth-child(4) {
+				//             @apply max-w-3xl;
+				//         }
+				//     }
+				// }
 			}
 
 			.block-views-blockplaces-listing-block-places-listing {

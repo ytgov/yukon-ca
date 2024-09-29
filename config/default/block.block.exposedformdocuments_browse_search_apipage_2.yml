@@ -1,6 +1,6 @@
 uuid: ed780265-286e-4b7b-a8c6-0f9b732ada53
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.documents_browse_search_api

@@ -67,7 +67,7 @@ body {
       
       .field--name-field-news-quote {
           .blockquote {
-              @apply bg-contain h-[106px];
+              @apply min-h-[106px];
           }
           
           + .field--name-field-contact {
@@ -97,7 +97,7 @@ body {
   
           .aurora-waves {
             #heading {
-              @apply font-medium;
+              @apply font-medium max-w-[calc(60%-80px)];
             }
           }
         }
@@ -216,7 +216,7 @@ body {
           @apply m-0 pl-5;
 
           label {
-            font-size: 0;
+            @apply text-[0px] cursor-pointer;
         
             &::after {
               font-family: "FontAwesome", sans-serif;
@@ -303,11 +303,48 @@ aside {
             }
         }
     }
+    
+    &.layout-sidebar-second {
+        &.sticky-active {
+            @apply sticky top-0 bg-white z-10;
+            box-shadow: 0 2px 4px 0 rgba(155,155,155,.3);
+            
+            #block-yukonca-glider-blogfeedblock {
+                @apply mt-7.5;
+                
+                .subscribe-rss {
+                    @apply pb-0;
+                }
+            }
+        }
+    }
 }
 
 #node-blog-field-comments {
+    @apply relative;
+
     .comment-blog-comments-form {
         @apply hidden;
+        
+        .form-item {
+            label {
+                @apply text-base mb-[5px] font-medium;
+            }
+        }
+        
+        .form-actions {
+            input {
+                @apply py-[6px] px-3 border border-blue-300 rounded bg-blue-300;
+                @apply hover:bg-blue-600 hover:border-blue-600;
+                @apply text-white text-base;
+            }
+        }
+    }
+    
+    .close_comment {
+        @apply absolute bottom-0 left-[150px];
+        @apply rounded py-[6px] px-3 text-blue-400 border border-blue-400 bg-white no-underline;
+        @apply hover:border-blue-50 hover:text-blue-50;
     }
 }
 
@@ -321,7 +358,41 @@ aside {
     }
 }
 
+nav {
+    &.pager {
+        @apply flex-wrap;
+        
+        ul {
+            @apply pl-0 justify-center flex-wrap;
+
+            li {
+                &.pager__item {
+                    &.pager__item--next {
+                        @include media-breakpoint-up(md) {
+                          @apply absolute right-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /* End issue 153 */
+
+.view {
+  &.view-taxonomy-term {
+    .view-content {
+      .views-row {
+        article {
+          .thumbnail {
+            @apply w-[250px];
+          }
+        }
+      }
+    }
+  }
+}
 
 /* Start Issue 182 */
 
