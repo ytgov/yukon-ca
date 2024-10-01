@@ -1,0 +1,29 @@
+<div class="panel-pane pane-engagement-numbers" id="by-the-numbers">
+    <div class="row">
+        <div class="col-md-8">
+            {{ item['left_data']|raw }}
+        </div>
+        <div class="col-md-4">
+            <h2 class="pane-title"> {{ "Engagement by&nbsp;the&nbsp;numbers"|t }} </h2>
+            <div class="row numbers-items">
+            {% for key, items in item %}
+                <div class="col-md-6 list-item">
+                    {% if key == "open" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Open"><span class="count">{{ items }}</span> <span class="info">{{ "Open engagements"|t }}</span></a>
+                    {% elseif key == "open_with_results" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Open+with+results"><span class="count">{{ items }}</span> <span class="info">{{ "Open engagements with results"|t }}</span></a>
+                    {% elseif key == "closed" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Closed"><span class="count">{{ items }}</span> <span class="info">{{ "Closed engagements"|t }}</span></a>
+                    {% elseif key == "closed_with_results" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=Closed+with+results"><span class="count">{{ items }}</span> <span class="info">{{ "Closed engagements with results"|t }}</span></a>
+                    
+                    {% elseif key == "total_eng" %}
+                        <a href="{{ url("<front>") }}/engagements?field_engagement_status_value=All"><span class="count">{{ items }}</span> <span class="info">{{ "Total engagements since 2017"|t }}</span></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<span class="aurora--mini"></span>

@@ -2,3 +2,10 @@ display:
   default:
     display_options:
       title: 'Blogues du gouvernement du Yukon'
+      header:
+        area:
+          content:
+            value: '<div class="blog-listing-description"><span style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);color:rgb(0, 0, 0);display:inline !important;float:none;font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">Diverses unités administratives du gouvernement publient des blogues. Ce sont d’autres moyens par lesquels nous vous transmettons des informations. Voir la liste des blogues ci-dessous.</span></div>'
+            format: full_html
+        result:
+          content: "<div class=\"result-summary\">\r\n  Résultats @start - @end de @total\r\n</div>"

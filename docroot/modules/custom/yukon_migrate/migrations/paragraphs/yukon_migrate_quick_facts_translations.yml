@@ -11,15 +11,18 @@ source:
   bundle: quick_facts
   constants:
     default_text_format: full_html
+    translation_language: 'fr'
 process:
   langcode:
     plugin: default_value
     default_value: "fr"
-  field_facts/value:
-    plugin: yukon_migrate_uri_transform
-    method: transformUri
-    source: field_facts/value
-  field_facts/format: constants/default_text_format
+  field_facts: field_facts
+  # old code
+  #field_facts/value:
+  #  plugin: yukon_migrate_uri_transform
+  #  method: transformUri
+  #  source: field_facts/value
+  #field_facts/format: constants/default_text_format
 
 destination:
   plugin: entity_reference_revisions:paragraph

@@ -6,11 +6,10 @@ dependencies:
     - field.storage.node.field_source_credit
     - node.type.campaign_page
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_source_credit
 field_name: field_source_credit
 entity_type: node
@@ -18,7 +17,7 @@ bundle: campaign_page
 label: 'Source credit'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

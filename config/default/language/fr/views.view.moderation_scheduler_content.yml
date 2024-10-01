@@ -1,6 +1,5 @@
 display:
   default:
-    display_title: Maître
     display_options:
       exposed_form:
         options:
@@ -9,21 +8,7 @@ display:
           exposed_sorts_label: 'Trier par'
       pager:
         options:
-          tags:
-            first: '« Premier'
-            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
-      fields:
-        revision:
-          label: Version
-        title:
-          label: Titre
-        content_type:
-          label: 'Type de contenu'
-        author:
-          label: Auteur
-        status:
-          label: État

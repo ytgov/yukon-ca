@@ -6,11 +6,10 @@ dependencies:
     - field.storage.node.field_child_campaign_pages
     - node.type.campaign_page
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_child_campaign_pages
 field_name: field_child_campaign_pages
 entity_type: node
@@ -18,7 +17,7 @@ bundle: campaign_page
 label: 'Child Campaign Pages'
 description: 'Leave this blank if it has no children (i.e. a main menu item with no dropdown sub items) OR if it is in a submenu already (i.e. this menu can only be one dropdown deep).'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

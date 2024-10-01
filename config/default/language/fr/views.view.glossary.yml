@@ -1,15 +1,7 @@
-description: 'Tous les contenus, triés par lettre.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
-      fields:
-        title:
-          label: Titre
-        name:
-          label: Auteur
-        changed:
-          label: 'Dernière mise à jour'
       pager:
         options:
           expose:
@@ -21,5 +13,3 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-  attachment_1:
-    display_title: 'Élément joint'

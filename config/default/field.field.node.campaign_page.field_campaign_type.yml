@@ -6,12 +6,11 @@ dependencies:
     - field.storage.node.field_campaign_type
     - node.type.campaign_page
   module:
-    - epp
     - options
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_campaign_type
 field_name: field_campaign_type
 entity_type: node
@@ -19,7 +18,7 @@ bundle: campaign_page
 label: 'Campaign type'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

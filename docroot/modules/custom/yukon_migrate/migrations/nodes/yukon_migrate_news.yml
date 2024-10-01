@@ -33,8 +33,8 @@ process:
   field_page_description/value:
     plugin: yukon_migrate_uri_transform
     method: transformUri
-    source: field_page_description/0/value
-  field_page_description/format: constants/default_text_format
+    source: field_description/0/value
+  field_description/format: constants/default_text_format
 
   body/value:
     plugin: yukon_migrate_uri_transform

@@ -1,64 +1,14 @@
-label: Média
-description: 'Trouver et gérer des media.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
-      title: Média
-      fields:
-        thumbnail__target_id:
-          label: Vignette
-        name:
-          label: 'Nom du média'
-        uid:
-          label: Auteur
-        status:
-          label: État
-          settings:
-            format_custom_false: 'Non publié'
-            format_custom_true: Publié
-        changed:
-          label: 'Mis à jour'
-        operations:
-          label: Actions
       pager:
         options:
-          tags:
-            next: 'Suivant ›'
-            previous: '‹ Précédent'
-            first: '« Premier'
-            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       exposed_form:
         options:
-          submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-      empty:
-        area_text_custom:
-          content: 'Aucun média disponible.'
-      filters:
-        name:
-          expose:
-            label: 'Nom du média'
-        status:
-          expose:
-            label: Vrai
-          group_info:
-            label: 'Statut de publication'
-            group_items:
-              1:
-                title: Publié
-              2:
-                title: 'Non publié'
-        langcode:
-          expose:
-            label: Langue
-  media_page_list:
-    display_title: Média
-    display_options:
-      menu:
-        title: Média

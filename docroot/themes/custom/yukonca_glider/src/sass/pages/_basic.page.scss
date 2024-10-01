@@ -4,13 +4,50 @@ main {
 
 		.layout-content {
 			.region-content {
-				@apply pt-0;
+				@apply pt-0 relative;
 
 				.block {
 					&.block-system-main-block {
 						@apply mt-3.75 mb-12 inline-block w-full;
 					}
 				}
+				
+				table {
+				    @apply border border-gray-600 w-full mb-6;
+				    
+				    tbody {
+				        tr {
+				            td {
+				                @apply border border-gray-600 p-2;
+				            }
+				        }
+				    }
+				}
+				
+				// .media {
+				//     img {
+				//         @apply w-[300px];
+				//     }
+				// }
+				
+				// .field--name-field-image {
+				//     @apply absolute right-0 ml-[100px] mb-[50px];
+
+				//     img {
+				//         @apply w-[300px] h-auto;
+				//     }
+				// }
+
+				// .node__content {
+				//     p {
+				//         &:nth-child(1),
+				//         &:nth-child(2),
+				//         &:nth-child(3),
+				//         &:nth-child(4) {
+				//             @apply max-w-3xl;
+				//         }
+				//     }
+				// }
 			}
 
 			.block-views-blockplaces-listing-block-places-listing {

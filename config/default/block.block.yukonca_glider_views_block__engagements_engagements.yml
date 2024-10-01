@@ -1,0 +1,29 @@
+uuid: 90f75a67-1c0f-4d48-9dba-e4f70763e5bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.engagements
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__engagements_engagements
+theme: yukonca_glider
+region: content
+weight: -8
+provider: null
+plugin: 'views_block:engagements-engagements'
+settings:
+  id: 'views_block:engagements-engagements'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /engagements

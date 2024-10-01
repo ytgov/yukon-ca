@@ -21,8 +21,8 @@ dependencies:
     - node.type.engagement
   module:
     - datetime_range
+    - fences
     - metatag
-    - options
     - text
     - user
 id: node.engagement.default
@@ -32,7 +32,7 @@ mode: default
 content:
   body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 1
@@ -40,98 +40,76 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
-    region: content
-  field_department_term:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_engagement_category:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_engagement_dates:
     type: daterange_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: html_date
       from_to: both
-      separator: '-'
-    third_party_settings: {  }
-    weight: 14
+      separator: to
+    third_party_settings:
+      fences:
+        fences_field_tag: none
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: none
+        fences_field_item_classes: ''
+        fences_label_tag: none
+        fences_label_classes: ''
+    weight: 9
     region: content
   field_engagement_feedback:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 3
     region: content
   field_engagement_find_info:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 4
     region: content
   field_engagement_find_results:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 0
     region: content
   field_engagement_info_use:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 2
     region: content
   field_engagement_participate:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 11
     region: content
   field_engagement_results:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
-    region: content
-  field_engagement_status:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
+    weight: 10
     region: content
   field_meta_tags:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 7
     region: content
   field_publisher:
     type: entity_reference_label
@@ -139,22 +117,19 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
-    region: content
-  field_yukon_editorial_team:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
+    weight: 8
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 6
     region: content
 hidden:
   addtoany: true
+  field_department_term: true
+  field_editor_publisher: true
+  field_engagement_category: true
+  field_engagement_status: true
+  field_yukon_editorial_team: true
   langcode: true
   search_api_excerpt: true

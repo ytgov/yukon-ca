@@ -6,6 +6,7 @@ dependencies:
     - block_class
     - node
     - system
+    - taxonomy
   theme:
     - yukonca_glider
 _core:
@@ -13,7 +14,7 @@ _core:
 id: yukonca_glider_page_title
 theme: yukonca_glider
 region: content
-weight: -21
+weight: -24
 provider: null
 plugin: page_title_block
 settings:
@@ -25,7 +26,7 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: '<front>'
+    pages: "<front>\r\n/engagements\r\n/documents"
   'entity_bundle:node':
     id: 'entity_bundle:node'
     negate: true
@@ -37,3 +38,10 @@ visibility:
       landing_page: landing_page
       landing_page_level_2: landing_page_level_2
       topics_page: topics_page
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: true
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      blog_type: blog_type

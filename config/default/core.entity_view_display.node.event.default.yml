@@ -3,8 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.medium
+    - core.date_format.medium_format
     - core.date_format.time_am_pm
+    - date_recur.interpreter.default_interpreter
     - field.field.node.event.field_building_name
     - field.field.node.event.field_category
     - field.field.node.event.field_community
@@ -38,15 +39,11 @@ dependencies:
 third_party_settings:
   field_group:
     group_location:
-      children:
-        - field_building_name
-        - field_event_street_address
-        - field_event_locality_town
-        - field_postal_code
+      children: {  }
       label: Location
       parent_name: ''
       region: content
-      weight: 1
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: event-location
@@ -54,16 +51,11 @@ third_party_settings:
         id: ''
         description: ''
     group_contact:
-      children:
-        - field_contact_name
-        - field_contact_email
-        - field_contact_phone
-        - field_website
-        - field_link_title
+      children: {  }
       label: Contact
       parent_name: ''
       region: content
-      weight: 3
+      weight: 13
       format_type: fieldset
       format_settings:
         classes: fieldset-title
@@ -78,7 +70,7 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   field_building_name:
     type: entity_reference_label
@@ -89,11 +81,20 @@ content:
     weight: 2
     region: content
   field_contact_email:
-    type: basic_string
+    type: email_mailto
     label: hidden
     settings: {  }
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 9
     region: content
   field_contact_name:
     type: string
@@ -101,7 +102,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 8
     region: content
   field_contact_phone:
     type: string
@@ -109,7 +110,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 10
     region: content
   field_cost:
     type: string
@@ -117,7 +118,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 7
     region: content
   field_department_term:
     type: entity_reference_label
@@ -125,7 +126,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 14
     region: content
   field_editor_publisher:
     type: entity_reference_label
@@ -133,14 +134,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 11
+    weight: 18
     region: content
   field_event_description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 15
     region: content
   field_event_locality_town:
     type: string
@@ -155,14 +156,14 @@ content:
     label: hidden
     settings:
       timezone_override: America/Whitehorse
-      format_type: long_with_time
-      from_to: both
+      format_type: medium_format
+      from_to: start_date
       separator: 'to '
       show_next: 5
       count_per_item: true
-      occurrence_format_type: medium
+      occurrence_format_type: medium_format
       same_end_date_format_type: time_am_pm
-      interpreter: ''
+      interpreter: default_interpreter
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -173,7 +174,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-    weight: 0
+    weight: 1
     region: content
   field_event_street_address:
     type: string
@@ -190,7 +191,7 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 16
     region: content
   field_link_title:
     type: link
@@ -202,7 +203,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 12
     region: content
   field_postal_code:
     type: string
@@ -218,7 +219,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 17
     region: content
   field_website:
     type: link
@@ -230,7 +231,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 11
     region: content
 hidden:
   addtoany: true

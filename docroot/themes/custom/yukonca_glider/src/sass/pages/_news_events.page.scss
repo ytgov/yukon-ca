@@ -9,6 +9,10 @@
       @apply my-3;
     }
   }
+  
+    .breadcrumb {
+        @apply w-full;
+    }
 }
 
 .page-node-type-event {
@@ -28,5 +32,90 @@
 
   .field--name-field-event-description {
     @apply border-solid border-0 border-t-4 border-gray-light mt-9;
+  }
+  
+  .aurora-town {
+      @apply hidden;
+  }
+  
+    .breadcrumb {
+        @apply w-full;
+    }
+  
+  main {
+      .row {
+          @apply pt-0;
+      }
+  }
+  
+  #block-yukonca-glider-page-title {
+      .page-title {
+          @apply text-3.5xl mb-6;
+      }
+  }
+  
+  article {
+      &.node--type-event {
+          fieldset {
+              @apply my-0;
+              
+              legend {
+                  @apply leading-none;
+                  
+                  .fieldset-legend {
+                      @apply font-medium;
+                  }
+                  
+                  > div {
+                      @apply inline-block text-base;
+                  }
+              }
+              
+              &.event-location {
+                  @apply my-3.75;
+              }
+              
+              &.event-contact {
+                  legend {
+                      @apply mt-0;
+                  }
+              }
+          }
+
+          .field {
+              @apply mb-0;
+
+              .field__label {
+                  @apply mt-0;
+              }
+              
+              .field-items {
+                  @apply mt-0;
+              }
+              
+              &.field--name-field-event-description {
+                  @apply pt-7.5 mt-15 border-t-1 border-gray-lightgray;
+                  
+                  .field__label {
+                      @apply mt-3.75 mb-0;
+                  }
+                  
+                  .field__item {
+                      @apply mt-3.75;
+                      
+                      p {
+                          @apply mb-3 text-sm;
+                      }
+                  }
+              }
+              
+              &.field--name-field-website {
+                  a {
+                      @apply inline-block no-underline border border-blue-400 text-blue-400 rounded py-1.5 px-3 mt-7.5;
+                      @apply hover:border-blue-50 hover:text-blue-50;
+                  }
+              }
+          }
+      }
   }
 }

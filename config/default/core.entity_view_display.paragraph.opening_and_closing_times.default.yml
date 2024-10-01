@@ -16,10 +16,10 @@ mode: default
 content:
   field_closing_time:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: medium_format
+      format_type: time_am_pm
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -34,10 +34,10 @@ content:
     region: content
   field_opening_time:
     type: datetime_default
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
-      format_type: medium_format
+      format_type: time_am_pm
     third_party_settings:
       fences:
         fences_field_tag: div

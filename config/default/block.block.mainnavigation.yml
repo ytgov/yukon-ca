@@ -49,4 +49,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "/news\r\n/arts-and-culture/events\r\n/events\r\n/find-legislation\r\n/places\r\n/communiques-de-presse\r\n/node/36828\r\n/etablissements-installations-et-bureaux\r\n/textes-legislatifs"
+    pages: "/news\r\n/arts-and-culture/events\r\n/arts-et-culture/activites\r\n/events\r\n/find-legislation\r\n/places\r\n/communiques-de-presse\r\n/node/36828\r\n/etablissements-installations-et-bureaux\r\n/textes-legislatifs"

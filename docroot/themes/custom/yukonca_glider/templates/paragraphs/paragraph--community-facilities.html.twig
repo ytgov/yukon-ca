@@ -46,26 +46,37 @@
 
 {{ content.field_about_services }}
 
+{% if paragraph.field_manager.value is not empty and paragraph.field_manager.value != 'Manager' %}
 <div class="facility-personnel">
   <div class="field field--label-inline">
     <div class="field__label">{{ 'Manager' | t }}</div>
     <div class="field__item">
-      <a href="mailto:{{ manager_email }}"> {{ manager }} </a>
+      {% if manager_email is not empty %}
+        <a href="mailto:{{ manager_email }}"> {{ manager }} </a>
+      {% else %}
+        {{ manager }}
+      {% endif %}
       <div class="telephone">
         {{ content.field_manager_telephone['#items'][0].value }}
       </div>
     </div>
   </div>
 </div>
-
+{% endif %}
+{% if paragraph.field_assistant_manager.value is not empty and paragraph.field_assistant_manager.value != "Assistant manager" %}
 <div class="facility-personnel">
   <div class="field field--label-inline">
     <div class="field__label">{{ 'Assistant manager' | t }}</div>
     <div class="field__item">
-      <a href="mailto:{{ assistant_manager_email }}"> {{ assistant_manager }} </a>
+      {% if assistant_manager_email is not empty %}
+        <a href="mailto:{{ assistant_manager_email }}"> {{ assistant_manager }} </a>
+      {% else %}
+        {{ assistant_manager }}
+      {% endif %}
       <div class="telephone">
         {{ content.field_assistant_manager_telephon['#items'][0].value }}
       </div>
     </div>
   </div>
 </div>
+{% endif %}

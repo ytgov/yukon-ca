@@ -150,6 +150,8 @@ final class UriTransform extends ProcessPluginBase {
 
       $rowNid = $row->get('nid');
       $rowType = $row->get('type');
+      $langcode = $row->get('language');
+
       $migration = $_SERVER['argv'][3] ?? 'unknown';
       if ($migration === '--continue-on-failure') {
         $migration = $_SERVER['argv'][4] ?? 'unknown';
@@ -175,7 +177,8 @@ final class UriTransform extends ProcessPluginBase {
 
       $destNid = $this->findDestNid($sourceNid);
       if ($destNid) {
-        $value = str_ireplace($matches[0], '/node/' . $destNid, $value);
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $destNid);
+        $value = str_ireplace($matches[0], '/' . $langcode . $alias, $value);
         if (!empty($mapping[$sourceNid])) {
           $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
         }
@@ -184,45 +187,61 @@ final class UriTransform extends ProcessPluginBase {
       }
 
       $message .= ' DestNid not found';
-      $value = str_ireplace($matches[0], '/node/' . $sourceNid, $value);
+      $alias2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $sourceNid);
+      $value = str_ireplace($matches[0], '/' . $langcode . $alias2, $value);
       $this->messenger()->addError($message);
     }
 
-    while (preg_match('~\{"(?:[^{}]|(?R))*\}~', $value, $matches)) {
-      $data = json_decode($matches[0]);
+    $fid_data = preg_match_all('~\{"(?:[^{}]|(?R))*\}~', $value, $matches);
 
-      $db = Database::getConnection('default', 'migrate');
-      $migrateQuery = $db->select('file_managed', 'n');
-      $migrateQuery->fields('n', ['uri', 'filemime']);
-      $migrateQuery->condition('n.fid', $data->fid);
-      $result = $migrateQuery->execute()->fetchObject();
+    if (!empty($matches[0])) {
+      foreach ($matches[0] as $match) {
+        $data = json_decode($match);
+        if (isset($data->fid)) {
+          $db = Database::getConnection('default', 'migrate');
+          $migrateQuery = $db->select('file_managed', 'n');
+          $migrateQuery->fields('n', ['uri', 'filemime']);
+          $migrateQuery->condition('n.fid', $data->fid);
+          $result = $migrateQuery->execute()->fetchObject();
 
-      $migrateQuery1 = $db->select('field_data_field_file_image_caption', 'n');
-      $migrateQuery1->fields('n', ['field_file_image_caption_value']);
-      $migrateQuery1->condition('n.entity_id', $data->fid);
-      $result1 = $migrateQuery1->execute()->fetchField();
-
-      if ($result->filemime == "audio/mpeg") {
-        $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
-        // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
-        $image = '<div class="media media-element-container media-default">
-            <audio controls="controls" controlslist=""><source src="' . $new_url . '" type="audio/mpeg"></audio><span class="caption">' . $result1 . '</span></div>';
-      }
-      else {
-        $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
-        // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
-        $style = '';
-        $alt = '';
-        if (isset($data->attributes->style)) {
-          $style = $data->attributes->style;
+          $migrateQuery1 = $db->select('field_data_field_file_image_caption', 'n');
+          $migrateQuery1->fields('n', ['field_file_image_caption_value']);
+          $migrateQuery1->condition('n.entity_id', $data->fid);
+          $result1 = $migrateQuery1->execute()->fetchField();
+          if ($result->filemime == "audio/mpeg") {
+            $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
+            // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $image = '<div class="media media-element-container media-default">
+                  <audio controls="controls" controlslist=""><source src="' . $new_url . '" type="audio/mpeg"></audio><span class="caption">' . $result1 . '</span></div>';
+            $value = str_ireplace("[[" . $match . "]]", $image, $value);
+          }
+          else {
+            $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
+            // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $style = '';
+            $alt = '';
+            if (isset($data->attributes->style)) {
+              $style = $data->attributes->style;
+            }
+            if (isset($data->attributes->alt)) {
+              $alt = $data->attributes->alt;
+            }
+            $image = "<div class='media media-element-container media-default " . $data->attributes->class . "'><img src='" . $new_url . "' class='img-responsive' style='" . $style . "' alt='" . $alt . "'><span class='caption'>" . $result1 . "</span></div>";
+            $value = str_ireplace("[[" . $match . "]]", $image, $value);
+          }
         }
-        if (isset($data->attributes->alt)) {
-          $alt = $data->attributes->alt;
-        }
-        $image = "<div class='media media-element-container media-default'><img src='" . $new_url . "' class='" . $data->attributes->class . "' style='" . $style . "' alt='" . $alt . "'><span class='caption'>" . $result1 . "</span></div>";
       }
+    }
 
-      $value = str_ireplace("[[" . $matches[0] . "]]", $image, $value);
+    $nid_data = preg_match_all('/\"node([^"])*/', $value, $matches2);
+
+    if (!empty($matches2[0])) {
+      foreach ($matches2[0] as $match) {
+        $langcode = $row->get('language');
+        $nid = str_replace('"node/', '', $match);
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
+        $value = str_ireplace($match . '"', "/" . $langcode . $alias, $value);
+      }
     }
 
     return $value;

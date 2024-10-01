@@ -1,0 +1,15 @@
+.page-node-type-in-page-alert {
+    .aurora-town {
+        @apply hidden;
+    }
+    
+    .breadcrumb {
+        @apply w-full;
+    }
+
+    main {
+        .row {
+            @apply pt-0;
+        }
+    }
+}

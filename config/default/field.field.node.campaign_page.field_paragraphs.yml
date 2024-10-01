@@ -15,11 +15,10 @@ dependencies:
     - paragraphs.paragraphs_type.video_and_text
   module:
     - entity_reference_revisions
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_paragraphs
 field_name: field_paragraphs
 entity_type: node
@@ -27,7 +26,7 @@ bundle: campaign_page
 label: 'Campaign site'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -53,9 +52,24 @@ settings:
       collapsable_field:
         weight: -25
         enabled: false
+      community_facilities:
+        weight: 35
+        enabled: false
+      contact_person:
+        weight: 36
+        enabled: false
+      date_range_text:
+        weight: 37
+        enabled: false
       full_width_image:
         weight: -31
         enabled: true
+      health_facilities:
+        weight: 39
+        enabled: false
+      holiday_times:
+        weight: 40
+        enabled: false
       image_gallery:
         weight: -24
         enabled: false
@@ -65,14 +79,35 @@ settings:
       navigation_jump_point:
         weight: -19
         enabled: false
+      opening_and_closing_times:
+        weight: 44
+        enabled: false
+      opening_times:
+        weight: 45
+        enabled: false
       primary_content:
         weight: -22
+        enabled: false
+      quick_facts:
+        weight: 47
         enabled: false
       quote:
         weight: -27
         enabled: true
+      quotes:
+        weight: 49
+        enabled: false
+      related_content:
+        weight: 50
+        enabled: false
+      schools:
+        weight: 51
+        enabled: false
       secondary_content:
         weight: -21
+        enabled: false
+      section:
+        weight: 53
         enabled: false
       social_network:
         weight: -18
@@ -86,10 +121,19 @@ settings:
       text_and_image:
         weight: -32
         enabled: true
+      top_tasks:
+        weight: 58
+        enabled: false
+      transactional_facilities:
+        weight: 59
+        enabled: false
       video:
         weight: -30
         enabled: true
       video_and_text:
         weight: -29
         enabled: true
+      waste_and_recycling_facilities:
+        weight: 62
+        enabled: false
 field_type: entity_reference_revisions

@@ -1,0 +1,4 @@
+label: 'Inscription obligatoire'
+settings:
+  on_label: Oui
+  off_label: Non

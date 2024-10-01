@@ -48,6 +48,24 @@
                 @apply border border-blue-400 text-blue-400 bg-transparent hover:border-blue-50 hover:text-blue-50;
             }
         }
-    }  
+    }
+    
+    .campground--image {
+        .field--name-field-image {
+            @apply mb-2;
+        }
+        
+        .field--name-field-photo-credit {
+            @apply mb-0 text-xs;
+        }
+    }
+  }
+  
+  .campground-map {
+      @apply relative pb-[46px];
+      
+      .file {
+          @apply absolute left-0 mt-3.75;
+      }
   }
 }

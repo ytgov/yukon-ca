@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_bear_proof_cache
     - node.type.campground_directory_record
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
   epp:
     value: ''
@@ -15,7 +15,7 @@ id: node.campground_directory_record.field_bear_proof_cache
 field_name: field_bear_proof_cache
 entity_type: node
 bundle: campground_directory_record
-label: 'Bear proof cache'
+label: 'Bear-proof cache'
 description: ''
 required: false
 translatable: true

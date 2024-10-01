@@ -12,7 +12,7 @@ dependencies:
 id: exposedform_news
 theme: yukonca_glider
 region: sidebar_first
-weight: -22
+weight: -24
 provider: null
 plugin: 'views_exposed_filter_block:news_listing-block_news_listing'
 settings:

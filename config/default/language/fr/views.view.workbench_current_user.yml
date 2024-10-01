@@ -1,16 +1,8 @@
 display:
   default:
-    display_title: Maître
     display_options:
       exposed_form:
         options:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-      fields:
-        edit_user:
-          text: 'Modifier mon profil'
-        access:
-          label: 'Dernière visite'
-        roles:
-          label: 'Rôles attribués'

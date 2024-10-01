@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.events_listing
   module:
+    - block_class
     - system
     - views
   theme:
@@ -12,7 +13,7 @@ dependencies:
 id: views_block__events_listing_block_events_listing
 theme: yukonca_glider
 region: content
-weight: -10
+weight: -12
 provider: null
 plugin: 'views_block:events_listing-block_events_listing'
 settings:
@@ -26,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /arts-and-culture/events
+    pages: "/arts-and-culture/events\r\n/arts-et-culture/activites"

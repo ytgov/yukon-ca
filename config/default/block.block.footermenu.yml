@@ -27,5 +27,7 @@ settings:
   depth: 0
   expand_all_items: false
   parent: 'menu-wet-footer:'
+  render_parent: false
   suggestion: menu_wet_footer
+  hide_on_nonactive: false
 visibility: {  }

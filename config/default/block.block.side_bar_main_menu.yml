@@ -6,7 +6,7 @@ dependencies:
     - system.menu.main
   module:
     - menu_block
-    - node
+    - system
   theme:
     - yukonca_glider
 id: side_bar_main_menu
@@ -24,16 +24,15 @@ settings:
   follow_parent: child
   label_link: false
   label_type: parent
-  level: 1
-  depth: 5
+  level: 2
+  depth: 0
   expand_all_items: false
   parent: 'main:'
+  render_parent: false
   suggestion: main
+  hide_on_nonactive: false
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
+  request_path:
+    id: request_path
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      department: department
+    pages: /none

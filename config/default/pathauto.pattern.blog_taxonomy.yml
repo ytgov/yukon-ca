@@ -1,0 +1,34 @@
+uuid: 9c75f3df-938e-4675-969d-9f6d3e0456a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - taxonomy
+id: blog_taxonomy
+label: 'Blog Taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/blogs/[term:name]'
+selection_criteria:
+  c53f2134-7b93-455a-a348-21d5a19b038d:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: c53f2134-7b93-455a-a348-21d5a19b038d
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      blog_type: blog_type
+  61eef4e5-e496-494e-b1cb-268d458282f5:
+    id: language
+    negate: false
+    uuid: 61eef4e5-e496-494e-b1cb-268d458282f5
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    langcodes:
+      en: en
+      fr: fr
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Language

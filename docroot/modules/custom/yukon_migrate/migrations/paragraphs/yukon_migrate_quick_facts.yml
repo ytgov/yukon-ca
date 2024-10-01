@@ -7,7 +7,7 @@ migration_tags:
   - Ordered Migration
 migration_group: legacy_paragraphs
 source:
-  plugin: yukon_paragraphs_item
+  plugin: d7_paragraphs_item
   bundle: quick_facts
   constants:
     default_text_format: full_html
@@ -22,7 +22,7 @@ process:
   #  plugin: yukon_migrate_uri_transform
   #  method: transformUri
   #  source: field_facts/0/value
-  field_facts/format: constants/default_text_format
+  # field_facts/format: constants/default_text_format
 
 destination:
   plugin: entity_reference_revisions:paragraph

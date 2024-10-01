@@ -3,6 +3,16 @@
         @apply pt-0;
     }
     
+    .aurora-town {
+        &.department {
+            @apply hidden;
+        }
+    }
+    
+    .breadcrumb {
+        @apply w-full;
+    }
+    
     .region-content {
         .page-title {
             @apply text-3.5xl;
@@ -19,6 +29,10 @@
         }
         
         .department-latest-news {
+            h3 {
+                @apply text-[22px] font-medium;
+            }
+
             .view-news-listing {
                 .listing-list-item {
                     @apply pt-10 pb-10 border-b-4 border-gray-light;
@@ -47,6 +61,14 @@
                     .views-field-created {
                         @apply text-sm;
                     }
+                }
+            }
+        }
+        
+        fieldset {
+            &.fieldset-title {
+                .fieldset-legend {
+                    @apply text-[22px] font-medium;
                 }
             }
         }

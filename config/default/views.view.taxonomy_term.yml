@@ -11,6 +11,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - yukon_w3_custom
 _core:
   default_config_hash: YKgw0f77GEmCu6_6Om9Mbig0mON9JdfVuMxTtd0WQaI
 id: taxonomy_term
@@ -37,8 +38,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: ››
-            previous: ‹‹
+            next: ''
+            previous: ''
             first: '« First'
             last: 'Last »'
           expose:
@@ -61,23 +62,36 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
           text_input_required: 'Select any filter and click on Apply to see results'
-          text_input_required_format: basic_html
+          text_input_required_format: full_html
           bef:
             general:
-              autosubmit: false
+              autosubmit: true
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
-              autosubmit_hide: false
+              autosubmit_hide: true
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
             filter:
-              created_1:
+              month_filter:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: '- Any -|- Month'
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              year_filter:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: '- Any -|- Year'
+                    filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
@@ -552,9 +566,342 @@ display:
     position: 1
     display_options:
       enabled: true
+      filters:
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status:
+          id: status
+          table: taxonomy_index
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        month_filter:
+          id: month_filter
+          table: views
+          field: month_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: month_filter
+          operator: '='
+          value: january
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Date:'
+            description: ''
+            use_operator: false
+            operator: month_filter_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: month_filter
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+              author_site_wide_alerts: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        year_filter:
+          id: year_filter
+          table: views
+          field: year_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: year_filter
+          operator: '='
+          value: '2024'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: year_filter_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: year_filter
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+              author_site_wide_alerts: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_category_target_id:
+          id: field_category_target_id
+          table: node__field_category
+          field: field_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_category_target_id_op
+            label: 'Category:'
+            description: ''
+            use_operator: false
+            operator: field_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+        field_subcategory_target_id:
+          id: field_subcategory_target_id
+          table: node__field_subcategory
+          field: field_subcategory_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_subcategory_target_id_op
+            label: 'Subcategory:'
+            description: ''
+            use_operator: false
+            operator: field_subcategory_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_subcategory_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              writer: '0'
+              editor: '0'
+              publisher: '0'
+              translator: '0'
+              team_administrator: '0'
+              site_administrator: '0'
+              dis_blog: '0'
+              _webform_manager: '0'
+              author_in_page_alerts: '0'
+              blog_author: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: sub_category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       query:
         type: views_query
         options: {  }
+      defaults:
+        filters: false
+        filter_groups: false
+        footer: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<span class="aurora--mini"></span>'
+            format: full_html
+          tokenize: false
       rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:

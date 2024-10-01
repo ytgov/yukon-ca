@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.news_listing
   module:
-    - block_class
     - system
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: views_block__news_listing_block_latest_news
 theme: yukonca_glider
 region: content
-weight: -16
+weight: -18
 provider: null
 plugin: 'views_block:news_listing-block_latest_news'
 settings:
@@ -27,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "<front>\r\n/accueil\r\n/home"
+    pages: "<front>\r\n/accueil\r\n/home\r\n/fr/node/51"

@@ -7,11 +7,10 @@ dependencies:
     - node.type.campaign_page
     - taxonomy.vocabulary.department
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_department_term
 field_name: field_department_term
 entity_type: node
@@ -19,7 +18,7 @@ bundle: campaign_page
 label: Department
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

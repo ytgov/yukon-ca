@@ -1,27 +1,76 @@
-.filters {
-  @apply mt-[25px];
-
-  .title {
-    h2 {
-      @apply text-lg;
-      @apply mt-3.75 mb-3 pt-0 pb-2.5;
+.page-node-type-basic-page {
+    main {
+        .row {
+            @include media-breakpoint-down(md) {
+                @apply pt-0;
+            }
+        }
     }
-  }
+    
+    .aurora-town {
+        .aurora--main {
+            &:before {
+                @include media-breakpoint-down(md) {
+                    @apply -right-[100px] top-0 h-[50px] w-[300px] bg-contain;
+                }
+            }
+        }
+    }
+}
 
-  form {
-    .form-item {
-      @apply my-0 pt-5;
-
-      input,
-      select {
-        @apply rounded;
+aside {
+    .filters {
+      @apply mt-[25px];
+    
+      .title {
+        h2 {
+          @apply text-lg;
+          @apply mt-3.75 mb-3 pt-0 pb-2.5;
+          @apply relative;
+          
+          @include media-breakpoint-down(md) {
+            @apply cursor-pointer;
+          }
+          
+          &:after {
+            content: "\e114";
+            font-family: "Glyphicons Halflings", sans-serif;
+            @apply absolute text-sm right-1 top-1;
+            
+            @include media-breakpoint-up(md) {
+              @apply hidden;
+            }
+          }
+          
+          &.toggled {
+            &:after {
+                @apply rotate-180;
+            }
+          }
+        }
       }
-
-      .select-wrapper {
-        @apply w-full;
+    
+      form {
+        @apply hidden;
+          
+        @include media-breakpoint-up(md) {
+          @apply block;
+        }
+    
+        .form-item {
+          @apply my-0 pt-5;
+    
+          input,
+          select {
+            @apply rounded;
+          }
+    
+          .select-wrapper {
+            @apply w-full;
+          }
+        }
       }
     }
-  }
 }
 
 .places-page-grid {
@@ -59,6 +108,10 @@
 }
 
 .page-node-type-directory-records-places {
+    .breadcrumb {
+        @apply w-full;
+    }
+    
   main {
     .row {
       @apply pt-0;
@@ -86,8 +139,9 @@
           }
 
           .field {
-            .field-label {
-                @apply mt-3.75 text-base;
+            .field-label,
+            .field__label {
+                @apply mt-3.75 mb-0 text-base;
             }
 
             .field-items {
@@ -109,6 +163,104 @@
             
             &.field--name-field-website {
               @apply mt-3.75;
+            }
+            
+            &.field--name-field-opening-times {
+                @apply mt-15;
+                
+                .field__label {
+                    @apply text-[22px] mb-3.75;
+                }
+
+                .field__item {
+                    @apply flex;
+
+                    > .field {
+                        @apply w-1/2;
+                    }
+                }
+
+                .field--name-field-opening-time-paragraph {
+                    .opening_time {
+                        .field--type-datetime {
+                            @apply inline-block;
+                        }
+                    }
+                }
+            }
+            
+            &.field--name-field-holiday-hours {
+                @apply mt-[50px];
+
+                .field__label {
+                    @apply text-xl mb-[27px];
+                }
+                
+                .field__item {
+                    .holiday_hours {
+                        @apply flex mt-3.75;
+
+                        .field-label {
+                            @apply font-normal mt-0 w-1/2;
+                        }
+                        
+                        .field-items {
+                            @apply w-1/2;
+                        }
+                    }
+                }
+            }
+            
+            &.field--name-field-statutory-holiday-link {
+                @apply mt-3.75;
+            }
+            
+            &.field--name-field-contact-person {
+                @apply mt-15;
+
+                .contact_person {
+                    .field_lable {
+                        @apply inline-block font-medium mt-3.75;
+                    }
+                }
+            }
+            
+            &.field--name-field-places-record-type {
+                @apply mt-3.75;
+                
+                .facility-personnel {
+                    @apply mt-3.75;
+
+                    .field__label {
+                        @apply mt-0;
+                    }
+                }
+            }
+            
+            &.directory-records-places-opening-hours {
+                > .field__item {
+                    @apply mt-3.75;
+
+                    > .field__item {
+                        @apply w-full;
+                        
+                        .field--name-field-opening-times-day {
+                            @apply w-[40%];
+                            
+                            @include media-breakpoint-down(md) {
+                                @apply w-1/2;
+                            }
+                        }
+                        
+                        .field--name-field-opening-time-paragraph {
+                            @apply w-[60%];
+                            
+                            @include media-breakpoint-down(md) {
+                                @apply w-1/2;
+                            }
+                        }
+                    }
+                }
             }
           }
         }

@@ -1,3 +1,15 @@
+.page-node-type-documents {
+    main {
+        .row {
+            @apply pt-0;
+        }
+        
+        .breadcrumb {
+            @apply w-full;
+        }
+    }
+}
+
 .node--type-documents {
   .field {
     @apply mb-3;

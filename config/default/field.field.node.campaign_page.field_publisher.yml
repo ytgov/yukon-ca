@@ -5,6 +5,11 @@ dependencies:
   config:
     - field.storage.node.field_publisher
     - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_publisher
 field_name: field_publisher
 entity_type: node
@@ -12,7 +17,7 @@ bundle: campaign_page
 label: Publisher
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -37,5 +42,6 @@ settings:
         _webform_manager: '0'
         author_in_page_alerts: '0'
         blog_author: '0'
+        author_site_wide_alerts: '0'
     include_anonymous: false
 field_type: entity_reference

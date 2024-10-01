@@ -354,17 +354,17 @@
           }
         }
 
-        &:hover {
-          .front-primary-links {
-            transition: transform 0.4s ease;
-            @apply -translate-x-full;
-          }
+        // &:hover {
+        //   .front-primary-links {
+        //     transition: transform 0.4s ease;
+        //     @apply -translate-x-full;
+        //   }
 
-          .front-primary-content {
-            transition: transform 0.4s ease;
-            @apply -translate-x-full;
-          }
-        }
+        //   .front-primary-content {
+        //     transition: transform 0.4s ease;
+        //     @apply -translate-x-full;
+        //   }
+        // }
       }
     }
   }

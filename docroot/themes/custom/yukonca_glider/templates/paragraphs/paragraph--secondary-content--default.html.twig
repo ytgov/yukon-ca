@@ -50,3 +50,8 @@
     links: content.field_subcategory_links,
   })
 }}
+{% if landing_page_l2_count > 5 and landing_page_l2_count %}
+
+<div class="link-item"><a href="{{ landing_page_url }}" class="font-medium">See More in {{ title }} ›</a></div>
+
+{% endif %}

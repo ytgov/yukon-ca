@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>No results matched your search.</p>'
+            format: full_html
+      filters:
+        search_api_fulltext:
+          expose:
+            placeholder: Mots-clés
+        type:
+          expose:
+            description: ''
+        field_document_type:
+          expose:
+            description: ''

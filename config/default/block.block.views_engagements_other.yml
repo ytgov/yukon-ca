@@ -6,14 +6,13 @@ dependencies:
     - views.view.engagements
   module:
     - node
-    - system
     - views
   theme:
     - yukonca_glider
 id: views_engagements_other
 theme: yukonca_glider
 region: sidebar_first
-weight: -19
+weight: -21
 provider: null
 plugin: 'views_block:engagements-other'
 settings:
@@ -32,7 +31,3 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       engagement: engagement
-  request_path:
-    id: request_path
-    negate: true
-    pages: ''

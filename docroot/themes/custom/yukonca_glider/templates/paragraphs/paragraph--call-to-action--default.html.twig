@@ -57,7 +57,7 @@ set classes = [
 						{% endif %}
 						<p>{{ paragraph.field_description.value|raw }}</p>
 						<div class="flex">
-							<a class="cta-link" href="#">{{ paragraph.field_button_text.value|raw }}</a>
+							<a class="cta-link" href="{{ field_link_url }}">{{ paragraph.field_button_text.value|raw }}</a>
 						</div>
 					</div>
 				</div>

@@ -6,16 +6,15 @@ dependencies:
     - field.storage.node.field_bear_proof_garbage_bins
     - node.type.campground_directory_record
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_bear_proof_garbage_bins
 field_name: field_bear_proof_garbage_bins
 entity_type: node
 bundle: campground_directory_record
-label: 'Bear proof garbage bins'
+label: 'Bear-proof garbage bins'
 description: ''
 required: true
 translatable: true

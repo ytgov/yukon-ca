@@ -75,6 +75,12 @@
 		h2 {
 		    @apply text-3.25xl;
 		}
+		
+		.campaign-social-media {
+		    h2 {
+		        @apply text-[22px] text-gray-450;
+		    }
+		}
 	}
 	
 	.shadow-lg {

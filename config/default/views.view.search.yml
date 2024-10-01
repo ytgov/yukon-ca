@@ -403,7 +403,7 @@ display:
           empty: true
           content:
             value: 'No results matched your search.'
-            format: basic_html
+            format: full_html
           tokenize: false
       sorts:
         search_api_relevance:
@@ -797,11 +797,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
-        - 'user.node_grants:view'
-      tags:
-        - 'config:search_api.index.global'
-        - 'search_api_list:global'
+      tags: {  }
   page_1:
     id: page_1
     display_title: 'Global search'
@@ -820,8 +816,4 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
-        - 'user.node_grants:view'
-      tags:
-        - 'config:search_api.index.global'
-        - 'search_api_list:global'
+      tags: {  }

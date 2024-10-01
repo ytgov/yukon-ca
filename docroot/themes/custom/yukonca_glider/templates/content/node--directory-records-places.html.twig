@@ -87,7 +87,7 @@
         </div>
         <div class="col-lg-5 offset-1 col-md-6 col-sm-12">
             <div class="field field-name-field-places-address field-type-text field-label-above">
-                <div class="field-label">Address</div>
+                <div class="field-label">{{ 'Address'|t }}</div>
                 <div class="field-items">
                     <div class="field-item even">{{ node.field_street_address.value|raw }} {{ node.field_postal_code.value|raw }}</div>
                     {{ content.field_community }}
@@ -95,31 +95,44 @@
             </div>
             {% if node.field_main_telephone.value is not empty %}
                 <div class="field field-name-field-main-telephone field-type-text field-label-above">
-                    <div class="field-label">Main Telephone</div>
+                    <div class="field-label">{{ 'Main telephone'|t }}</div>
                     <div class="field-items">
                         <div class="field-item even">{{ node.field_main_telephone.value|raw }}</div>
                     </div>
                 </div>
             {% endif %}
+            {% if node.field_additional_number.value is not empty %}
+                <div class="field-item even">{{ node.field_additional_number.value|raw }}</div>
+            {% endif %}
             {% if node.field_fax.value is not empty %}
                 <div class="field field-name-field-fax field-type-text field-label-above">
-                    <div class="field-label">Fax</div>
+                    <div class="field-label">{{ 'Fax'|t }}</div>
                     <div class="field-items">
                         <div class="field-item even">{{ node.field_fax.value|raw }}</div>
                     </div>
                 </div>
             {% endif %}
             
-            {% if node.field_additional_number.value is not empty %}
+            
+            {{ content.field_places_record_type }}
+            {% if node.field_place_accessibility.value is not empty %}
                 <div class="field field-name-field-fax field-type-text field-label-above">
-                    <div class="field-label">Additional number</div>
+                    <div class="field-label">{{ 'Accessibility'|t }}</div>
                     <div class="field-items">
-                        <div class="field-item even">{{ node.field_additional_number.value|raw }}</div>
+                        <div class="field-item even">{{ node.field_place_accessibility.value|raw }}</div>
                     </div>
                 </div>
             {% endif %}
-            {{ content.field_places_record_type }}
+            
             {{ content.field_website }}
+            
+            {{ content.field_opening_times }}
+            
+            {{ content.field_holiday_hours }}
+            
+            {{ content.field_statutory_holiday_link }}
+            
+            {{ content.field_contact_person }}
         </div>
     </div>
 </article>

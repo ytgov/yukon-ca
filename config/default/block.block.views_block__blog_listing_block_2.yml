@@ -12,7 +12,7 @@ dependencies:
 id: views_block__blog_listing_block_2
 theme: yukonca_glider
 region: sidebar_first
-weight: -21
+weight: -23
 provider: null
 plugin: 'views_block:blog_listing-block_2'
 settings:

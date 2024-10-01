@@ -27,5 +27,7 @@ settings:
   depth: 1
   expand_all_items: false
   parent: 'main-menu-secondary:'
+  render_parent: false
   suggestion: main_menu_secondary
+  hide_on_nonactive: false
 visibility: {  }

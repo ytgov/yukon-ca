@@ -27,9 +27,58 @@ function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterf
 }
 
 /**
+ * Implements template_preprocess_paragraph().
+ */
+function yukonca_glider_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  // Get the parent bundle.
+  $parentBundle = $paragraph->bundle();
+
+  if ($parentBundle == 'secondary_content') {
+    if (!empty($paragraph->field_landing_page_level_2->target_id)) {
+      $node = Node::load($paragraph->field_landing_page_level_2->target_id);
+      global $base_url;
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $paragraph->field_landing_page_level_2->target_id);
+      $view = \Drupal::entityTypeManager()
+        ->getStorage('view')
+        ->load('what_are_you_looking_for_landing_page_l2')
+
+        ->getExecutable();
+
+      // Get the NID from the View result.
+      $view->initDisplay();
+      $view->setArguments([$paragraph->field_landing_page_level_2->target_id]);
+      // $view->setDisplay('latest_blog');
+      $view->execute();
+
+      $result = count($view->result);
+      $variables['landing_page_l2_count'] = $result;
+      $variables['title'] = $node->title->value;
+      $variables['landing_page_url'] = $base_url . $alias;
+    }
+  }
+  if ($parentBundle == 'call_to_action') {
+    $variables['field_link_url'] = $paragraph->field_link->uri;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function yukonca_glider_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Adding custom validation for the welcome page type field.
+  if ($form_id == 'comment_blog_comments_form') {
+    $form['author']['name']['#title'] = 'First name only';
+    $form['actions']['submit']['#value'] = 'Post Comment';
+  }
+}
+
+/**
  * Implements template_preprocess_field().
  */
-function yukonca_glider_preprocess_field($variables) {
+function yukonca_glider_preprocess_field(&$variables) {
+  // dump($variables['items']); die;.
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $language;
 }
@@ -126,6 +175,24 @@ function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array 
   }
 
   $suggestions[] = 'page__node__' . $node->bundle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__blog(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $variables['six_months_old'] = FALSE;
+
+  // Validate node creation date and current date.
+  $created_time = $node->getCreatedTime();
+  $current_time = \Drupal::time()->getCurrentTime();
+  $six_months_in_seconds = 6 * 30 * 24 * 60 * 60;
+
+  if (($current_time - $created_time) >= $six_months_in_seconds) {
+    $variables['six_months_old'] = TRUE;
+  }
 }
 
 /**
@@ -253,7 +320,7 @@ function yukonca_glider_preprocess_node__campground_directory_record(&$variables
     $field_name = $field->getName();
     $field_name = str_replace('field_', '', $field_name);
     $available_services[] = [
-      'name' => $field_name,
+      'name' => t($field_name),
       'title' => $field->getFieldDefinition()->getLabel(),
       'value' => $field->value,
     ];
@@ -312,6 +379,7 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  */
 function yukonca_glider_preprocess_page(&$variables) {
   $variables['Footer_text'] = theme_get_setting('Footer_text');
+  $variables['current_path'] = $current_path = \Drupal::service('path.current')->getPath();
   if (!empty($variables['node'])) {
     /** @var \Drupal\node\NodeInterface $node */
     $node = $variables['node'];
@@ -458,7 +526,7 @@ function yukonca_glider_preprocess_file_link(&$variables) {
   }
   $icon = '<i class="fa fa-download" aria-hidden="true"></i>';
   $filename = $variables['link']['#title'];
-  $link_text = Markup::create('<span class="link-text flex-grow mr-2">Download</span><span class="icon">' . $icon . '</span>');
+  $link_text = Markup::create('<span class="link-text flex-grow mr-2">' . t('Download Map') . '</span><span class="icon">' . $icon . '</span>');
   $variables['link']['#title'] = $link_text;
   $variables['link']['#attributes']['class'][] = 'btn btn-outline-primary';
   $variables['link']['#attributes']['target'] = '_blank';
@@ -518,6 +586,11 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
         'text' => $node->getTitle(),
       ];
     }
-
+    if ($node->bundle() == 'in_page_alert') {
+      $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      if ($language == 'en' && isset($variables['breadcrumb'][2])) {
+        unset($variables['breadcrumb'][1]);
+      }
+    }
   }
 }

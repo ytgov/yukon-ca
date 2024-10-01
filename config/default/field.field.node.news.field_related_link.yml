@@ -8,10 +8,10 @@ dependencies:
   module:
     - epp
     - link
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.news.field_related_link
 field_name: field_related_link
 entity_type: node

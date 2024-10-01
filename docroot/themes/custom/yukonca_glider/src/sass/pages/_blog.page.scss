@@ -3,6 +3,13 @@
     @apply pb-8;
   }
 
+  .older-blog-post {
+    .blog-text-red {
+      color: #FF0067;
+      font-weight: bold;
+    }
+  }
+
   aside {
     .region-sidebar-first {
       .view-blog-listing {
@@ -39,6 +46,20 @@
     .node__content {
       h2 {
         @apply text-[26px] mb-3 mt-3.75 pt-10;
+      }
+      
+      #node-blog-field-comments {
+          .comment-form__title {
+              @apply border-0 text-[22px] p-0 mt-3.75 mb-3;
+          }
+          
+          p {
+              @apply mb-0;
+          }
+          
+          #firstComment {
+              @apply block font-bold text-base pt-7.5;
+          }
       }
     }
     

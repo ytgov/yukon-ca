@@ -180,21 +180,21 @@ display:
             external: false
             replace_spaces: false
             path_case: none
-            trim_whitespace: true
+            trim_whitespace: false
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: true
+            nl2br: false
             max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
+            strip_tags: false
             trim: false
             preserve_tags: ''
             html: false
@@ -235,7 +235,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"flex\">\r\n  {{ field_featured_image }}\r\n  <div class=\"content\">\r\n     <div class=\"title\">{{ name }}</div>\r\n     <div class=\"description\">{{ description__value }}</div>\r\n  </div>\r\n</div>\r\n"
+            text: "<div class=\"flex\">\r\n  {{ field_featured_image }}\r\n  <div class=\"content\">\r\n     <div class=\"title\">{{ name }}</div>\r\n     <div class=\"description\">{{ description__value|raw }}</div>\r\n  </div>\r\n</div>\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -350,6 +350,48 @@ display:
           plugin_id: bundle
           value:
             blog_type: blog_type
+        langcode:
+          id: langcode
+          table: taxonomy_term_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
         options:
@@ -379,7 +421,7 @@ display:
           empty: false
           content:
             value: "<div class=\"blog-listing-description\">\r\n  Different government programs, branches and units publish blogs. They’re another way for us to share information with you. Find, follow or share a blog in the list below.\r\n</div>"
-            format: basic_html
+            format: full_html
           tokenize: false
         result:
           id: result

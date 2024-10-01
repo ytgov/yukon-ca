@@ -129,7 +129,7 @@ process:
   field_highway_kilometre: field_highway_km
   field_photo_credit: field_photo_credit
   field_pull_through: field_pull_through
-  field_secondary_road: field_secondary_road
+  field_secondary_road: field_secondary_road_name
   field_secondary_road_kilometre: field_secondary_road_km
   field_total_sites: field_total_sites
 

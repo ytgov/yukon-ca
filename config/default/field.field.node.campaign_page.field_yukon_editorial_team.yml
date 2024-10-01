@@ -7,11 +7,10 @@ dependencies:
     - node.type.campaign_page
     - taxonomy.vocabulary.teams
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campaign_page.field_yukon_editorial_team
 field_name: field_yukon_editorial_team
 entity_type: node
@@ -19,7 +18,7 @@ bundle: campaign_page
 label: 'Yukon Editorial Team'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
