@@ -356,7 +356,7 @@
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.322.4"
             },
-            "time": "2024-09-24T18:10:10+00:00
+            "time": "2024-09-24T18:10:10+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
