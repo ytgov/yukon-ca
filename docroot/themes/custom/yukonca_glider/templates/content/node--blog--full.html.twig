@@ -80,6 +80,13 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
+  
+  {% if six_months_old  %}
+    <div class="older-blog-post">
+      <div class="blog-text-red">{{ "This post is older than 6 months."|t }}</div>
+    </div>
+  {% endif %}
+  
   {% if label and not page %}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>

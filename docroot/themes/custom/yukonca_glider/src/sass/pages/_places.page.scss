@@ -108,6 +108,10 @@ aside {
 }
 
 .page-node-type-directory-records-places {
+    .breadcrumb {
+        @apply w-full;
+    }
+    
   main {
     .row {
       @apply pt-0;
@@ -225,8 +229,36 @@ aside {
                 @apply mt-3.75;
                 
                 .facility-personnel {
+                    @apply mt-3.75;
+
                     .field__label {
                         @apply mt-0;
+                    }
+                }
+            }
+            
+            &.directory-records-places-opening-hours {
+                > .field__item {
+                    @apply mt-3.75;
+
+                    > .field__item {
+                        @apply w-full;
+                        
+                        .field--name-field-opening-times-day {
+                            @apply w-[40%];
+                            
+                            @include media-breakpoint-down(md) {
+                                @apply w-1/2;
+                            }
+                        }
+                        
+                        .field--name-field-opening-time-paragraph {
+                            @apply w-[60%];
+                            
+                            @include media-breakpoint-down(md) {
+                                @apply w-1/2;
+                            }
+                        }
                     }
                 }
             }

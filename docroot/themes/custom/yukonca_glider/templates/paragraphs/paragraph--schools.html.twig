@@ -51,7 +51,7 @@
     {% block content %}
         {% if paragraph.field_grades_from.value is not empty %}
             <div class="field field-name-field-grade field-type-text field-label-above">
-                <div class="field-label">Grades</div>
+                <div class="field-label">{{ 'Grades'|t }}</div>
                 <div class="field-items">
                     <div class="field-item even">{{ paragraph.field_grades_from.value|raw }} to {{ paragraph.field_grades_to.value|raw }}</div>
                 </div>
@@ -59,10 +59,10 @@
         {% endif %}
          
         <div class="field-name-field-places-contact-info">
-            <h3>Contact</h3>
+            <h3>{{ 'Contact'|t }}</h3>
             {% if paragraph.field_principal.value is not empty %}
                 <div class="field field-name-field-places-principal field-type-text field-label-inline">
-                    <div class="field-label">Principal:&nbsp;</div>
+                    <div class="field-label">{{ 'Principal'|t }}:&nbsp;</div>
                     <div class="field-items">
                         <div class="field-item even"><a href="mailto:{{ paragraph.field_principal_email.value|raw }}">{{ paragraph.field_principal.value|raw }}</a></div>
                     </div>
@@ -75,7 +75,7 @@
             {% endif %}
             {% if paragraph.field_superintendent.value is not empty %}
                 <div class="field field-name-field-places-superintendent field-type-text field-label-inline">
-                    <div class="field-label">Superintendent:&nbsp;</div>
+                    <div class="field-label">{{ 'Superintendent'|t }}:&nbsp;</div>
                     <div class="field-items">
                         <div class="field-item even"><a href="mailto:{{ paragraph.field_superintendent_email.value|raw }}">{{ paragraph.field_superintendent.value|raw }}</a></div>
                     </div>
@@ -88,7 +88,7 @@
             {% endif %}
             {% if paragraph.field_team_leader.value is not empty and paragraph.field_team_leader.value != "Team leader name" %}
                 <div class="field field-name-field-places-superintendent field-type-text field-label-inline">
-                    <div class="field-label">Team leader:&nbsp;</div>
+                    <div class="field-label">{{ 'Team leader'|t }}:&nbsp;</div>
                     <div class="field-items">
                         <div class="field-item even"><a href="mailto:{{ paragraph.field_team_leader_email.value|raw }}">{{ paragraph.field_team_leader.value|raw }}</a></div>
                     </div>

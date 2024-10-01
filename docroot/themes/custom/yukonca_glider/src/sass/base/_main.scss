@@ -207,38 +207,55 @@ h1#heading {
               }
             }
           }
+          
+          .media {
+              @apply max-w-[300px];
 
-          &[data-history-node-id="21896"] {
-            .field--name-field-image {
-              @apply absolute right-0 ml-[100px] mb-[50px];
-          
               img {
-                @apply w-[300px] h-auto;
+                  &.media-wysiwyg-align-right {
+                      @apply float-right;
+                  }
               }
-            }
+              
+              .caption {
+                  @apply inline-block;
+              }
+              
+              &.media-wysiwyg-align-right {
+                  @apply float-right;
+              }
+              
+              &.media-wysiwyg-align-center {
+                  @apply mx-auto text-center;
+              }
+              
+              
+          }
           
-            .node__content {
-              p {
-                &:nth-child(1),
-                &:nth-child(2),
-                &:nth-child(3),
-                &:nth-child(4) {
-                  @apply max-w-3xl;
-                }
+          article {
+              &.media--type-image {
+                  @apply float-right ml-[100px] mb-[50px];
+                  
+                  @include media-breakpoint-down(md) {
+                    @apply float-none ml-5;
+                  }
+                  
+                  img {
+                    @apply max-w-[300px] h-auto;
+                  }
               }
-            }
           }
         }
 
       .page-title {
         @apply text-3.5xl mt-[15px] mb-[23px] pb-[5px];
-      }
+       }
       
-      .block-views-blockevents-listing-block-events-listing {
-          .block-title {
-              @apply mt-3.75 mb-3 text-[26px];
-          }
-      }
+        .block-views-blockevents-listing-block-events-listing {
+            .block-title {
+                @apply mt-3.75 mb-3 text-[26px];
+            }
+        }
     }
   }
 }
@@ -321,6 +338,24 @@ h1#heading {
         }
       }
     }
+  }
+  
+  .node--type-site-wide-alert {
+      .callout-card {
+          .callout-card__content {
+              @apply px-0;
+              
+              .title {
+                  @apply leading-none;
+              }
+              
+              .field--type-text-with-summary {
+                  h2 {
+                      @apply text-[26px] text-alert-text mt-3.75 mb-3;
+                  }
+              }
+          }
+      }
   }
 }
 

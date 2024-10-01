@@ -2,6 +2,10 @@
     .aurora-town {
         @apply hidden;
     }
+    
+    .breadcrumb {
+        @apply w-full;
+    }
 
     main {
         .row {

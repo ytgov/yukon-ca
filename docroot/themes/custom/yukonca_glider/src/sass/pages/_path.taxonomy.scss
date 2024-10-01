@@ -3,6 +3,10 @@
         @apply hidden;
     }
     
+    .breadcrumb {
+        @apply w-full;
+    }
+    
     main {
         .row {
             @apply pt-0;

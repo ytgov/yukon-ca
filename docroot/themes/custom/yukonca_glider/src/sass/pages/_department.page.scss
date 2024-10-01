@@ -9,6 +9,10 @@
         }
     }
     
+    .breadcrumb {
+        @apply w-full;
+    }
+    
     .region-content {
         .page-title {
             @apply text-3.5xl;

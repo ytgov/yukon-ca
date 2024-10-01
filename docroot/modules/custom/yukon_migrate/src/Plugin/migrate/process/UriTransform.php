@@ -192,6 +192,58 @@ final class UriTransform extends ProcessPluginBase {
       $this->messenger()->addError($message);
     }
 
+    $fid_data = preg_match_all('~\{"(?:[^{}]|(?R))*\}~', $value, $matches);
+
+    if (!empty($matches[0])) {
+      foreach ($matches[0] as $match) {
+        $data = json_decode($match);
+        if (isset($data->fid)) {
+          $db = Database::getConnection('default', 'migrate');
+          $migrateQuery = $db->select('file_managed', 'n');
+          $migrateQuery->fields('n', ['uri', 'filemime']);
+          $migrateQuery->condition('n.fid', $data->fid);
+          $result = $migrateQuery->execute()->fetchObject();
+
+          $migrateQuery1 = $db->select('field_data_field_file_image_caption', 'n');
+          $migrateQuery1->fields('n', ['field_file_image_caption_value']);
+          $migrateQuery1->condition('n.entity_id', $data->fid);
+          $result1 = $migrateQuery1->execute()->fetchField();
+          if ($result->filemime == "audio/mpeg") {
+            $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
+            // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $image = '<div class="media media-element-container media-default">
+                  <audio controls="controls" controlslist=""><source src="' . $new_url . '" type="audio/mpeg"></audio><span class="caption">' . $result1 . '</span></div>';
+            $value = str_ireplace("[[" . $match . "]]", $image, $value);
+          }
+          else {
+            $new_url = str_replace("public://", "/sites/default/files/", $result->uri);
+            // $new_url = str_replace("http://yukonca.docksal.site", "", $url);
+            $style = '';
+            $alt = '';
+            if (isset($data->attributes->style)) {
+              $style = $data->attributes->style;
+            }
+            if (isset($data->attributes->alt)) {
+              $alt = $data->attributes->alt;
+            }
+            $image = "<div class='media media-element-container media-default " . $data->attributes->class . "'><img src='" . $new_url . "' class='img-responsive' style='" . $style . "' alt='" . $alt . "'><span class='caption'>" . $result1 . "</span></div>";
+            $value = str_ireplace("[[" . $match . "]]", $image, $value);
+          }
+        }
+      }
+    }
+
+    $nid_data = preg_match_all('/\"node([^"])*/', $value, $matches2);
+
+    if (!empty($matches2[0])) {
+      foreach ($matches2[0] as $match) {
+        $langcode = $row->get('language');
+        $nid = str_replace('"node/', '', $match);
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
+        $value = str_ireplace($match . '"', "/" . $langcode . $alias, $value);
+      }
+    }
+
     return $value;
   }
 

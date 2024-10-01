@@ -19,6 +19,9 @@ display:
         field_news_type_target_id:
           expose:
             label: "Type d'actualité"
+        field_featured_content_value:
+          expose:
+            description: ''
   block_news_listing:
     display_options:
       filters:
@@ -31,3 +34,4 @@ display:
         field_category_target_id:
           expose:
             label: Catégorie
+label: 'Nouvelles récentes'

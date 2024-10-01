@@ -9,6 +9,10 @@
       @apply my-3;
     }
   }
+  
+    .breadcrumb {
+        @apply w-full;
+    }
 }
 
 .page-node-type-event {
@@ -33,6 +37,10 @@
   .aurora-town {
       @apply hidden;
   }
+  
+    .breadcrumb {
+        @apply w-full;
+    }
   
   main {
       .row {

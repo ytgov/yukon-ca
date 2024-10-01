@@ -57,6 +57,9 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $variables['landing_page_url'] = $base_url . $alias;
     }
   }
+  if ($parentBundle == 'call_to_action') {
+    $variables['field_link_url'] = $paragraph->field_link->uri;
+  }
 }
 
 /**
@@ -172,6 +175,24 @@ function yukonca_glider_theme_suggestions_page_alter(array &$suggestions, array 
   }
 
   $suggestions[] = 'page__node__' . $node->bundle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_node__blog(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $variables['six_months_old'] = FALSE;
+
+  // Validate node creation date and current date.
+  $created_time = $node->getCreatedTime();
+  $current_time = \Drupal::time()->getCurrentTime();
+  $six_months_in_seconds = 6 * 30 * 24 * 60 * 60;
+
+  if (($current_time - $created_time) >= $six_months_in_seconds) {
+    $variables['six_months_old'] = TRUE;
+  }
 }
 
 /**

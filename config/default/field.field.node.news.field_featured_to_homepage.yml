@@ -6,11 +6,10 @@ dependencies:
     - field.storage.node.field_featured_to_homepage
     - node.type.news
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.news.field_featured_to_homepage
 field_name: field_featured_to_homepage
 entity_type: node
@@ -21,7 +20,7 @@ required: false
 translatable: true
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'
