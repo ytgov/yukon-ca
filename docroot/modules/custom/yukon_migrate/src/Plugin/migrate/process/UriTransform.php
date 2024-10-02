@@ -211,7 +211,6 @@ final class UriTransform extends ProcessPluginBase {
       else {
         $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $sourceNid, $value);
       }
-      $value = str_ireplace($matches[0], '/' . $langcode . $alias2, $value);
       $this->messenger()->addError($message);
     }
 
