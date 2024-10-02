@@ -214,7 +214,7 @@ final class UriTransform extends ProcessPluginBase {
       $this->messenger()->addError($message);
     }
 
-    $fid_data = preg_match_all('~\{"(?:[^{}]|(?R))*\}~', $value, $matches);
+    preg_match_all('~\{"(?:[^{}]|(?R))*\}~', $value, $matches);
 
     if (!empty($matches[0])) {
       foreach ($matches[0] as $match) {
@@ -255,7 +255,7 @@ final class UriTransform extends ProcessPluginBase {
       }
     }
 
-    $nid_data = preg_match_all('/\"node([^"])*/', $value, $matches2);
+    preg_match_all('/\"node([^"])*/', $value, $matches2);
 
     if (!empty($matches2[0])) {
       foreach ($matches2[0] as $match) {

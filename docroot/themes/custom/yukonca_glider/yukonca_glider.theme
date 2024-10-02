@@ -33,11 +33,10 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
   // Get the parent bundle.
   $parentBundle = $paragraph->bundle();
-
+  global $base_url;
   if ($parentBundle == 'secondary_content') {
     if (!empty($paragraph->field_landing_page_level_2->target_id)) {
       $node = Node::load($paragraph->field_landing_page_level_2->target_id);
-      global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $paragraph->field_landing_page_level_2->target_id);
       $view = \Drupal::entityTypeManager()
         ->getStorage('view')
@@ -59,6 +58,16 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
   }
   if ($parentBundle == 'call_to_action') {
     $variables['field_link_url'] = $paragraph->field_link->uri;
+  }
+  if ($parentBundle == 'top_tasks') {
+    if (!empty($paragraph->field_top_tasks_link->target_id)) {
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $alias_url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $paragraph->field_top_tasks_link->target_id, $langcode);
+      $variables['field_link_url'] = $base_url . '/' . $langcode . $alias_url;
+    }
+    else {
+      $variables['field_link_url'] = '';
+    }
   }
 }
 

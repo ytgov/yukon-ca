@@ -209,16 +209,14 @@ h1#heading {
           }
           
           .media {
-              @apply max-w-[300px];
+              @apply flex flex-col items-center;
 
               img {
+                  @apply max-w-[300px];
+
                   &.media-wysiwyg-align-right {
                       @apply float-right;
                   }
-              }
-              
-              .caption {
-                  @apply inline-block;
               }
               
               &.media-wysiwyg-align-right {
@@ -228,8 +226,6 @@ h1#heading {
               &.media-wysiwyg-align-center {
                   @apply mx-auto text-center;
               }
-              
-              
           }
           
           article {
