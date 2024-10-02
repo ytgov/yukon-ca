@@ -177,8 +177,19 @@ final class UriTransform extends ProcessPluginBase {
 
       $destNid = $this->findDestNid($sourceNid);
       if ($destNid) {
-        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $destNid);
-        $value = str_ireplace($matches[0], '/' . $langcode . $alias, $value);
+        $database = Database::getConnection('default', 'default');
+        $result = $database->select('path_alias', 'p')
+          ->fields('p', ['alias'])
+          ->condition('p.path', '/node/' . $destNid)
+          ->condition('p.langcode', $langcode)
+          ->orderBy('id', 'DESC')
+          ->execute()->fetchObject();
+        if (!empty($result->alias)) {
+          $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+        }
+        else {
+          $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $destNid, $value);
+        }
         if (!empty($mapping[$sourceNid])) {
           $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
         }
@@ -187,7 +198,19 @@ final class UriTransform extends ProcessPluginBase {
       }
 
       $message .= ' DestNid not found';
-      $alias2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $sourceNid);
+      $database = Database::getConnection('default', 'default');
+      $result = $database->select('path_alias', 'p')
+        ->fields('p', ['alias'])
+        ->condition('p.path', '/node/' . $sourceNid)
+        ->condition('p.langcode', $langcode)
+        ->orderBy('id', 'DESC')
+        ->execute()->fetchObject();
+      if (!empty($result->alias)) {
+        $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+      }
+      else {
+        $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $sourceNid, $value);
+      }
       $value = str_ireplace($matches[0], '/' . $langcode . $alias2, $value);
       $this->messenger()->addError($message);
     }
@@ -239,8 +262,19 @@ final class UriTransform extends ProcessPluginBase {
       foreach ($matches2[0] as $match) {
         $langcode = $row->get('language');
         $nid = str_replace('"node/', '', $match);
-        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
-        $value = str_ireplace($match . '"', "/" . $langcode . $alias, $value);
+        $database = Database::getConnection('default', 'default');
+        $result = $database->select('path_alias', 'p')
+          ->fields('p', ['alias'])
+          ->condition('p.path', '/node/' . $nid)
+          ->condition('p.langcode', $langcode)
+          ->orderBy('id', 'DESC')
+          ->execute()->fetchObject();
+        if (!empty($result->alias)) {
+          $value = str_ireplace($match . '"', "/" . $langcode . $result->alias, $value);
+        }
+        else {
+          $value = str_ireplace($match . '"', "/" . $langcode . '/node/' . $nid, $value);
+        }
       }
     }
 
