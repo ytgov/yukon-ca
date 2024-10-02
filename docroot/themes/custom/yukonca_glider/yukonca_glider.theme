@@ -320,7 +320,7 @@ function yukonca_glider_preprocess_node__campground_directory_record(&$variables
     $field_name = $field->getName();
     $field_name = str_replace('field_', '', $field_name);
     $available_services[] = [
-      'name' => t($field_name),
+      'name' => $field_name,
       'title' => $field->getFieldDefinition()->getLabel(),
       'value' => $field->value,
     ];
