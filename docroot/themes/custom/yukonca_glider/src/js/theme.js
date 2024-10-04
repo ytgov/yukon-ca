@@ -6,7 +6,7 @@
  * @param window window Current window object
  * @param document document Current document object
  */
-
+/* global once */
 (function ($, Drupal, once, window/* , document */) {
   const $window = $(window);
   /**

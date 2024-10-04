@@ -5,12 +5,6 @@ main {
 		.layout-content {
 			.region-content {
 				@apply pt-0 relative;
-
-				.block {
-					&.block-system-main-block {
-						@apply mt-3.75 mb-12 inline-block w-full;
-					}
-				}
 				
 				table {
 				    @apply border border-gray-600 w-full mb-6;

@@ -259,15 +259,20 @@ final class UriTransform extends ProcessPluginBase {
 
     if (!empty($matches2[0])) {
       foreach ($matches2[0] as $match) {
+
         $langcode = $row->get('language');
         $nid = str_replace('"node/', '', $match);
         $database = Database::getConnection('default', 'default');
+        if (empty($langcode)) {
+          $langcode = 'en';
+        }
         $result = $database->select('path_alias', 'p')
           ->fields('p', ['alias'])
           ->condition('p.path', '/node/' . $nid)
           ->condition('p.langcode', $langcode)
           ->orderBy('id', 'DESC')
           ->execute()->fetchObject();
+
         if (!empty($result->alias)) {
           $value = str_ireplace($match . '"', "/" . $langcode . $result->alias, $value);
         }

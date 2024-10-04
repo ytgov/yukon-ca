@@ -6,11 +6,10 @@ dependencies:
     - field.storage.paragraph.field_display_section_title
     - paragraphs.paragraphs_type.text
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: paragraph.text.field_display_section_title
 field_name: field_display_section_title
 entity_type: paragraph

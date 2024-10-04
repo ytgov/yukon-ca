@@ -18,7 +18,7 @@ bundle: campaign_page
 label: 'Hero image'
 description: "IMPORTANT: For upload, your hero image must be exactly 1250 pixels wide by 800 pixels high and in PNG or JPG format only\r\nDescribe the image. Aim for a medium-high level of detail, keeping in mind the specific context of the image. The alt text will be used by assisted technology, screen readers, etc"
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

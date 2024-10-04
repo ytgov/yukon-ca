@@ -81,10 +81,6 @@ body {
 
   &.page-node-type-topics-page {
     main {
-      > .row {
-        @apply pt-[75px];
-      }
-  
       p {
         &:last-child {
           @apply mb-0;
@@ -134,7 +130,7 @@ body {
           @apply flex;
     
           &:first-child {
-            @apply border-t-0;
+            @apply border-t-0 mt-0;
           }
     
           >div {

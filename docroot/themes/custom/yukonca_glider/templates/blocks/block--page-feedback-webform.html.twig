@@ -37,6 +37,11 @@
     <span class="aurora--mini"></span>
 
 {% endif %}
+
+{% if current_url == "/blogs" %}
+    <span class="aurora--mini"></span>
+
+{% endif %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
