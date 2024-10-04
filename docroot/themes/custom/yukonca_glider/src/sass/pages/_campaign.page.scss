@@ -19,6 +19,10 @@
 		.language-switcher-language-url {
 			ul {
 				@apply list-none m-0 p-0 font-medium;
+				
+				li[hreflang] {
+				    @apply mr-0;
+				}
 			}
 		}
 	}
@@ -35,6 +39,24 @@
 
 			&:has(.campaign-cta) {
 				@apply mb-5;
+			}
+			
+			.campaign-quote-wrapper {
+			    @apply flex justify-center relative right-1/2 left-1/2 mx-[-50vw] w-screen bg-[#F9F9F9];
+
+			    blockquote {
+			        @apply relative text-[28px] text-gray-450 leading-1.1 max-w-[780px] pt-48 pb-[160px] mb-[23px];
+			        
+			        &:before {
+    		            @apply content-[""] absolute right-0 left-0 bg-no-repeat w-full h-full top-[130px] -left-[80px];
+    		            background-image: url("../../images/svg/blockquote-bg.svg");
+    		            background-size: 140px auto;
+    		        }
+    		        
+    		        .attr {
+    		            @apply mt-7.5 text-base text-right;
+    		        }
+			    }
 			}
     	}
 			

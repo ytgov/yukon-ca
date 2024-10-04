@@ -85,6 +85,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: false
               year_filter:
                 plugin_id: default
                 advanced:
@@ -95,6 +99,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: false
               field_category_target_id:
                 plugin_id: default
                 advanced:
@@ -105,6 +113,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: true
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: 0
               field_subcategory_target_id:
                 plugin_id: default
                 advanced:
@@ -115,6 +127,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: true
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: 0
       access:
         type: perm
         options:

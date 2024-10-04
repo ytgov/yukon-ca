@@ -6,22 +6,27 @@ dependencies:
     - field.storage.paragraph.field_top_tasks_link
     - node.type.basic_page
     - node.type.blog
+    - node.type.campaign_page
     - node.type.campground_directory_record
     - node.type.department
     - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
     - node.type.event
     - node.type.homepage
+    - node.type.in_page_alert
     - node.type.landing_page
     - node.type.landing_page_level_2
     - node.type.multi_step_page
     - node.type.news
+    - node.type.site_wide_alert
+    - node.type.topics_page
     - paragraphs.paragraphs_type.top_tasks
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: paragraph.top_tasks.field_top_tasks_link
 field_name: field_top_tasks_link
 entity_type: paragraph
@@ -42,7 +47,6 @@ settings:
       campground_directory_record: campground_directory_record
       department: department
       documents: documents
-      documents_non_branded: documents_non_branded
       event: event
       homepage: homepage
       in_page_alert: in_page_alert

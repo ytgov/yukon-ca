@@ -1,18 +1,26 @@
 .view-yukon-blog-listing {
   .views-row {
-    @apply border-solid border-0 border-b-4 border-gray-light;
+    @apply border-solid border-0 border-b-1 border-gray-lightborder;
     @apply mb-9 md:mb-11;
     @apply pb-9 md:pb-11;
 
     .blog-type-item {
-      a {
-        @apply text-xl text-blue-500 hover:text-blue-500;
-        @apply no-underline hover:underline;
-      }
-
       .content {
         @apply md:pl-16;
         @apply flex flex-col justify-center;
+
+        .title {
+          a {
+            @apply text-[22px] font-medium text-blue-500 hover:text-blue-500;
+            @apply no-underline hover:underline;
+          }
+        }
+
+        .description {
+          a {
+            @apply underline;
+          }
+        }
       }
     }
   }

@@ -6,7 +6,7 @@
 
 .campaign-nav {
 	.campaign-nav__link {
-		@apply flex flex-col items-center justify-center border-b-8 border-blue-400 shadow-lg px-4 pt-8 pb-6 hover:no-underline text-blue-400 hover:text-gray-460 text-center rounded bg-white;
+		@apply flex flex-col items-center justify-start h-full border-b-8 border-blue-400 shadow-lg px-4 pt-8 pb-6 hover:no-underline text-blue-400 hover:text-gray-460 text-center rounded bg-white;
 
 		.icon {
 			@apply flex items-center justify-center bg-blue-400 text-white w-14 h-14 mb-6 rounded-full;

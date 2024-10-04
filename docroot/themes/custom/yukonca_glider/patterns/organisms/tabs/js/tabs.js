@@ -5,7 +5,7 @@
  * @param object Drupal Drupal object
  * @param window window Current window object
  */
-
+/* global once */
 (function ($, Drupal, once) {
   /**
    * Main script for the current theme

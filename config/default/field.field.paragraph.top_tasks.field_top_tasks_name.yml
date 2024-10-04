@@ -6,11 +6,10 @@ dependencies:
     - field.storage.paragraph.field_top_tasks_name
     - paragraphs.paragraphs_type.top_tasks
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: paragraph.top_tasks.field_top_tasks_name
 field_name: field_top_tasks_name
 entity_type: paragraph
