@@ -69,7 +69,7 @@ There are more than 30K nodes on the D7 version and it can take anywhere between
 
 To fix an issue with Paragraph revisions, run the `d7-queries.sql` against the source DB.
 
-  drush sql:query --database=migrate --file=d7-queries.sql
+    drush sql:query --database=migrate --file=d7-queries.sql
 
 ### Migration - Initial and update
 
@@ -91,9 +91,9 @@ The `custom_migrate` module does some post-migration clean up work. Visit `[root
 
 After completing the data migration and its update, the following commands may be run to setup the theme files.
 
-npm run build command inside [web-root]/docroot/themes/custom/yukonca_glider
+`npm run build` command inside `[web-root]/docroot/themes/custom/yukonca_glider`
 
-Clear Drupal cache using drush cr
+Clear Drupal cache using `drush cr`
 
 Drupal 10 website should be ready at this point
 
