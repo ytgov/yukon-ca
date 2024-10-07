@@ -39,3 +39,6 @@ UPDATE paragraphs_item a INNER JOIN field_data_field_sub_headers b on b.field_su
 UPDATE paragraphs_item a INNER JOIN field_data_field_contact_person b on b.field_contact_person_value = a.item_id SET a.revision_id = b.field_contact_person_revision_id;
 UPDATE paragraphs_item a INNER JOIN field_data_field_collapsable_field b on b.field_collapsable_field_value = a.item_id SET a.revision_id = b.field_collapsable_field_revision_id;
 UPDATE paragraphs_item a INNER JOIN field_data_field_charts b on b.field_charts_value = a.item_id SET a.revision_id = b.field_charts_revision_id;
+
+UPDATE IGNORE `field_data_field_related_tasks` SET `language`='en' WHERE `language` = 'und';
+UPDATE IGNORE `field_revision_field_related_tasks` SET `language`='en' WHERE `language` = 'und';
