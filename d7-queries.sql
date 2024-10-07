@@ -5,6 +5,16 @@
 -- Can be run from Drush:
 --     drush sql:query --database=migrate --file=d7-queries.sql
 
+UPDATE field_data_field_opening_time_paragraph a
+INNER JOIN field_revision_field_opening_time b
+    ON a.field_opening_time_paragraph_value = b.entity_id
+SET a.field_opening_time_paragraph_revision_id = b.revision_id
+WHERE b.revision_id = (
+    SELECT MAX(revision_id)
+    FROM field_revision_field_opening_time
+    WHERE entity_id = b.entity_id
+);
+
 UPDATE paragraphs_item a INNER JOIN field_data_field_secondary_content b on b.field_secondary_content_value = a.item_id SET a.revision_id = b.field_secondary_content_revision_id;
 UPDATE paragraphs_item a INNER JOIN field_data_field_image_gallery b on b.field_image_gallery_value = a.item_id SET a.revision_id = b.field_image_gallery_revision_id;
 UPDATE paragraphs_item a INNER JOIN field_data_field_primary_content b on b.field_primary_content_value = a.item_id SET a.revision_id = b.field_primary_content_revision_id;

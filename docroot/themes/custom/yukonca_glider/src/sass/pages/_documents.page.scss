@@ -22,19 +22,33 @@
 
 /* Styles for Documents search-page. */
 .path-documents {
+    main {
+        .row {
+            @apply pt-0;
+        }
+    }
+    
+    #block-pagetitle {
+        .page-title {
+            @apply text-3.5xl mb-6 mt-3;
+        }
+    }
+
   .view {
     .view-content {
       .views-row {
+        @apply py-2.5;
+
         &:last-child {
           @apply border-b border-solid border-gray-lightborder;
         }
 
         .views-field-title {
           .field-content {
-            @apply mb-0;
+            @apply my-0;
 
             a {
-              @apply no-underline mb-0;
+              @apply no-underline mb-0 text-[22px] leading-1.1;
             }
           }
         }
@@ -46,23 +60,19 @@
         }
 
         .views-field-body {
-					p {
-						@apply mb-0;
-
-						&.field-content {
-							@apply hidden;
-						}
-
-						&:empty {
-							@apply m-0 hidden;
-						}
-					}
-				}
+    		p {
+    			@apply mb-0;
+    
+    			&.field-content {
+    				@apply hidden;
+    			}
+    
+    			&:empty {
+    				@apply m-0 hidden;
+    			}
+    		}
+    	}
       }
-    }
-
-    .pager {
-      @apply border-b border-solid border-gray-lightborder;
     }
   }
 }

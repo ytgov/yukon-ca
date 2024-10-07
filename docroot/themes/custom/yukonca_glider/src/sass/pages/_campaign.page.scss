@@ -45,12 +45,20 @@
 			    @apply flex justify-center relative right-1/2 left-1/2 mx-[-50vw] w-screen bg-[#F9F9F9];
 
 			    blockquote {
-			        @apply relative text-[28px] text-gray-450 leading-1.1 max-w-[780px] pt-48 pb-[160px] mb-[23px];
+			        @apply relative text-[28px] text-gray-450 leading-1.1 pt-48 pb-[160px] mb-[23px];
+			        
+			        @include media-breakpoint-down(md) {
+			            @apply pt-32 pb-16;
+			        }
 			        
 			        &:before {
-    		            @apply content-[""] absolute right-0 left-0 bg-no-repeat w-full h-full top-[130px] -left-[80px];
+    		            @apply content-[""] absolute right-0 left-0 bg-no-repeat w-full h-full top-[130px] -left-20;
     		            background-image: url("../../images/svg/blockquote-bg.svg");
     		            background-size: 140px auto;
+    		            
+    		            @include media-breakpoint-down(md) {
+    		                @apply top-[70px] -left-10
+    		            }
     		        }
     		        
     		        .attr {

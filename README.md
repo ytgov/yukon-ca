@@ -51,11 +51,84 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 
 1. Setup a web server
 2. Copy the file system from the master branch
-3. Run composer update
+3. Run composer install
 4. Create database and assign user
 6. Enter the database credentails in the sites/default/settings.php file
+7. Go to sites/settings.php and comment the lines
+ 
+ if (!isset($databases['migrate'])) {
+    $databases['migrate'] = $databases['default'];
+    $databases['migrate']['default']['database'] = 'migrate';
+ }
+
+  Automatically generated include for settings managed by ddev.
+  $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
+  if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+    require $ddev_settings;
+ }
+
 7. Hit the website URL to complete the installation process
 8. Please note that while setting up the website, we need to select "minimal" profile. Selecting other profiles will generate issues.
+9. Enter migrate Drupal 7 DB code and credentials in settings.php at the end. This is to connect the migration source.
+
+   $databases['migrate']['default'] = array (
+  'database' => 'D7_database_name',
+  'username' => 'D7_database_user',
+  'password'  => 'D7_database_password',
+  'host'      => 'localhost',
+  'port'      => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver'    => 'mysql',
+); 
+
+10. Go to the terminal >> public_html and run this command to get the UUID (copy the UUID)
+    
+    ./vendor/bin/drush cget "system.site" uuid
+
+11. Once UUID is copied, go to config/default/system.site.yml and the replace the existing with the copied one.
+12. Go to the terminal >> public_html and run this command (select yes on prompt). Ignore the first error and run it again. After it gets completed, run it for the 3rd/4th time until only two files are left for the update. 
+
+    ./vendor/bin/drush cim
+
+13. Clear cache >>  ./vendor/bin/drush cr
+14. Run the d7-queries.php on the Drupal 7 database.
+15. Run migration using migrate_initial_and_update.sh and leave it running for the next few hours until complete. (approxximate time 10+ hours)
+16. Run the d10-queries.php on the Drupal 10 database.
+17. Run the second migration using migrate_complete.sh and let it complete. (approxximate time 1 hour)
+18. Go to the terminal >> public_html and clear cache >>  ./vendor/bin/drush cr
+19. Theme setup. Go to the terminal >> cd public_html/docroot/themes/custom/yukonca_glider/
+20. Assuming that the correct node version is already installed run >> npm run build
+21. Go to the terminal >> public_html and clear cache >>  ./vendor/bin/drush cr
+22. Migration process is complete at this point.
+
+////
+
+Extra Step-1: (Only required where URL carries /docroot in the URL)
+
+/docroot/themes/custom/yukonca_glider/patterns/organisms/footer/scss/styles.scss
+Line 6 >> remove /docroot
+
+/docroot/themes/custom/yukonca_glider/src/js/custom.js
+Line 18 >> remove /docroot
+
+////
+
+Extra Step-2: (Only required node is not installed or version is incorrect)
+
+Node Installation followed by theme setup:
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm --version
+nvm install 16
+nvm install 18
+
+Theme setup
+nvm use v16.16.0
+npm install
+nvm use v18
+npm run build
+
+////
 
 ## Migrating the data from Yukon.ca Drupal 7 version to Drupal 10
 
