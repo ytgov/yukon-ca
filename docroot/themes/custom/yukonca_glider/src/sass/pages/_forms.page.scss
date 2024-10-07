@@ -1,5 +1,11 @@
 /* Styles for Documents search-page. */
 .path-forms {
+    main {
+        .row {
+            @apply pt-0;
+        }
+    }
+    
 	.page-title {
 		@apply mb-6 text-3.5xl pb-[5px];
 	}
@@ -41,10 +47,6 @@
 					}
 				}
 			}
-		}
-
-		.pager {
-			@apply border-b border-solid border-gray-lightborder;
 		}
 	}
 }

@@ -102,7 +102,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"blog-type-info col-sm-12\">\r\n<div class=\"blog-type-logo\">\r\n<img src=\"/sites/yukon.ca/themes/yukon_wxt/logo.png\">\r\n</div>\r\n<div class=\"blog-title\"><h1>{{ name }}</h1></div>\r\n<div class=\"blog-description\">{{ description__value }} </div>\r\n</div>"
+            text: "<div class=\"blog-type-info col-sm-12\">\r\n<div class=\"blog-type-logo\">\r\n<img src=\"/themes/custom/yukonca_glider/logo.svg\">\r\n</div>\r\n<div class=\"blog-title\"><h1>{{ name }}</h1></div>\r\n<div class=\"blog-description\">{{ description__value }} </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false

@@ -174,7 +174,13 @@ body {
   }
 
   #block-page-feedback-webform {
-    @apply pt-2.5 mb-3.75 border-t border-gray-lightborder;
+    @apply mt-5 border-t border-gray-lightborder;
+    
+    .form-required {
+        &:after {
+            filter: grayscale(100%) brightness(0);
+        }
+    }
   }
 
   form {
@@ -198,7 +204,7 @@ body {
       @apply m-0 items-center;
 
       &.yes-no-trigger-wrapper {
-        @apply flex items-baseline mb-9;
+        @apply flex items-baseline mb-3.75 mt-0 pt-2.5;
 
         legend {
           @apply font-medium w-auto;
@@ -209,7 +215,7 @@ body {
         @apply flex;
 
         .form-item-was-this-page-helpful {
-          @apply m-0 pl-5;
+          @apply mt-0 mb-2.5 pl-5;
 
           label {
             @apply text-[0px] cursor-pointer;
@@ -366,6 +372,12 @@ nav {
                     &.pager__item--next {
                         @include media-breakpoint-up(md) {
                           @apply absolute right-0;
+                        }
+                    }
+                    
+                    &.pager__item--previous {
+                        @include media-breakpoint-up(md) {
+                          @apply absolute left-0;
                         }
                     }
                 }

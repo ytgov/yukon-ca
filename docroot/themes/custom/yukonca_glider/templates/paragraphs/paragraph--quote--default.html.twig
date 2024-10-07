@@ -50,14 +50,18 @@
 {% block paragraph %}
     {% block content %}
         <div class="campaign-quote-wrapper">
-            <blockquote>
-                <div>
-                    {{ paragraph.field_section_content.value|raw }}
+            <div class="container flex justify-center">
+                <div class="w-10/12 md:w-10/12 lg:w-8/12">
+                    <blockquote>
+                        <div>
+                            {{ paragraph.field_section_content.value|raw }}
+                        </div>
+                        <div class="attr">
+                            {{ paragraph.field_attributor.value|raw }}
+                        </div>
+                    </blockquote>
                 </div>
-                <div class="attr">
-                    {{ paragraph.field_attributor.value|raw }}
-                </div>
-            </blockquote>
+            </div>
         </div>
     {% endblock %}
 {% endblock paragraph %}

@@ -366,14 +366,6 @@ h1#heading {
   }
 }
 
-#block-page-feedback-webform {
-    .form-required {
-        &:after {
-            filter: grayscale(100%) brightness(0);
-        }
-    }
-}
-
 /* End Custom SCSS */
 
 @import "partials/accordion";

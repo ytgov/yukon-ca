@@ -4,17 +4,21 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_popular_links
+    - node.type.basic_page
+    - node.type.campaign_page
     - node.type.directory_records_places
+    - node.type.documents
+    - node.type.engagement
     - node.type.landing_page
     - node.type.multi_step_page
     - node.type.news
+    - node.type.topics_page
     - paragraphs.paragraphs_type.primary_content
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: paragraph.primary_content.field_popular_links
 field_name: field_popular_links
 entity_type: paragraph
@@ -29,17 +33,18 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      wetkit_page: wetkit_page
+      basic_page: basic_page
       campaign_page: campaign_page
       documents: documents
       landing_page: landing_page
       multi_step_page: multi_step_page
       news: news
       directory_records_places: directory_records_places
+      engagement: engagement
       topics_page: topics_page
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: wetkit_page
+    auto_create_bundle: campaign_page
 field_type: entity_reference

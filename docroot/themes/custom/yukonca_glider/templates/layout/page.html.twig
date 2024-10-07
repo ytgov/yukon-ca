@@ -88,7 +88,7 @@
         </div>
     </div>
   {% else %}
-    {% if content_type != "news" and content_type != "documents" and content_type != 'directory_records_places' and content_type != 'in_page_alert' %}
+    {% if content_type != "news" and content_type != "documents" and content_type != 'directory_records_places' and content_type != 'in_page_alert' and current_path != '/documents' and current_path != '/forms' %}
         <div class="aurora-town {{ content_type }}">
           <span class="aurora--main"></span>
         </div>

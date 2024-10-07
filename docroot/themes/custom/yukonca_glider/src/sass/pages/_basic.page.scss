@@ -4,18 +4,18 @@ main {
 
 		.layout-content {
 			.region-content {
-				@apply pt-0 relative;
+				@apply pt-0 pb-8 relative;
 				
 				table {
-				    @apply border border-gray-600 w-full mb-6;
-				    
-				    tbody {
-				        tr {
-				            td {
-				                @apply border border-gray-600 p-2;
-				            }
-				        }
-				    }
+                    @apply border border-gray-600 w-full mb-6;
+
+                    tbody {
+                        tr {
+                            td {
+                                @apply border border-gray-600 p-2;
+                            }
+                        }
+                    }
 				}
 				
 				// .media {

@@ -7,9 +7,21 @@
 .campaign-nav {
 	.campaign-nav__link {
 		@apply flex flex-col items-center justify-start h-full border-b-8 border-blue-400 shadow-lg px-4 pt-8 pb-6 hover:no-underline text-blue-400 hover:text-gray-460 text-center rounded bg-white;
+		
+		@include media-breakpoint-down(md) {
+            @apply pt-6 pr-3.75 pb-4 pl-2.5 flex-row;
+        }
 
 		.icon {
 			@apply flex items-center justify-center bg-blue-400 text-white w-14 h-14 mb-6 rounded-full;
+			
+			@include media-breakpoint-down(md) {
+                @apply mr-3 mb-0;
+                
+                .field--name-field-icon-name {
+                    @apply w-[55px] h-[55px] flex items-center justify-center;
+                }
+            }
 
 			svg {
 				@apply text-3xl;
@@ -18,6 +30,10 @@
 
 		.text {
 			@apply text-[22px] leading-[1.18] font-medium min-h-[52px];
+			
+			@include media-breakpoint-down(md) {
+                @apply min-h-fit text-left;
+            }
 		}
 	}
 }
