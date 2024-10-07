@@ -135,7 +135,6 @@ docksal-local.env
 
 # Packages & Exports
 *.gz
-*.sql
 *.zip
 *.7z
 *.dmg

@@ -99,11 +99,13 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 19. Theme setup. Go to the terminal >> cd public_html/docroot/themes/custom/yukonca_glider/
 20. Assuming that the correct node version is already installed run >> npm run build
 21. Go to the terminal >> public_html and clear cache >>  ./vendor/bin/drush cr
+22. Import French translations by hitting <root domain>/admin/config/regional/translate/import. On this admim interface, select the fr.po file, select "French" in the dropdown, check the three boxes and click upload.
 22. Migration process is complete at this point.
+23. If some files are not working, then manually replacing the files folder with the D7 version can fix those errors. 
 
-////
 
-Extra Step-1: (Only required where URL carries /docroot in the URL)
+
+## Extra Step-1: (Only required where URL carries /docroot in the URL)
 
 /docroot/themes/custom/yukonca_glider/patterns/organisms/footer/scss/styles.scss
 Line 6 >> remove /docroot
@@ -111,9 +113,8 @@ Line 6 >> remove /docroot
 /docroot/themes/custom/yukonca_glider/src/js/custom.js
 Line 18 >> remove /docroot
 
-////
 
-Extra Step-2: (Only required node is not installed or version is incorrect)
+## Extra Step-2: (Only required node is not installed or version is incorrect)
 
 Node Installation followed by theme setup:
 
@@ -128,7 +129,9 @@ npm install
 nvm use v18
 npm run build
 
-////
+## How to arrange the of Homepage item boxes:
+
+Edit Homepage and drag the "Primary item blocks" and "Secondary item blocks" up and down as required. Click "Save".
 
 ## Migrating the data from Yukon.ca Drupal 7 version to Drupal 10
 
