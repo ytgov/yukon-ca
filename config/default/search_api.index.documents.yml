@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_department_term
     - field.storage.node.field_documents_non_branded
     - field.storage.node.field_last_updated
-    - search_api.server.pantheon_solr8
+    - search_api.server.yg_solr_9
   module:
     - search_api_solr
     - node
@@ -203,4 +203,4 @@ options:
   cron_limit: 50
   index_directly: true
   track_changes_in_references: true
-server: pantheon_solr8
+server: yg_solr_9
