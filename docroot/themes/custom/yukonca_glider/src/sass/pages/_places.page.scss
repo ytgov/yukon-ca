@@ -68,6 +68,10 @@ aside {
           .select-wrapper {
             @apply w-full;
           }
+          
+          .form-item {
+              @apply pt-0;
+          }
         }
       }
     }

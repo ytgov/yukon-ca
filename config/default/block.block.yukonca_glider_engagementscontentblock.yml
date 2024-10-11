@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class
     - system
     - yukon_w3_custom
   theme:
@@ -11,7 +10,7 @@ dependencies:
 id: yukonca_glider_engagementscontentblock
 theme: yukonca_glider
 region: content
-weight: -9
+weight: -14
 provider: null
 plugin: engagements_content_block
 settings:

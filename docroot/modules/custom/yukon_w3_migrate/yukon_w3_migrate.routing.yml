@@ -5,3 +5,11 @@ yukon_w3_migrate.migrate:
     _controller: '\Drupal\yukon_w3_migrate\Controller\ImportDataController::content'
   requirements:
     _permission: 'Import form'
+
+yukon_w3_migrate.time_change:
+  path: '/time_change'
+  defaults:
+    _title: 'Migrate Data'
+    _controller: '\Drupal\yukon_w3_migrate\Controller\TimeChangeController::content'
+  requirements:
+    _permission: 'Import form'

@@ -1,0 +1,29 @@
+uuid: cd9e09c7-3afc-404c-9c1c-8f1faaa8c110
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facilities_listing_blocks
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__facilities_listing_blocks_block_7
+theme: yukonca_glider
+region: content
+weight: -11
+provider: null
+plugin: 'views_block:facilities_listing_blocks-block_7'
+settings:
+  id: 'views_block:facilities_listing_blocks-block_7'
+  label: 'Airports and aerodromes'
+  label_display: visible
+  provider: views
+  views_label: 'Airports and aerodromes'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/driving-and-transportation/airports-and-aerodromes/find-airport-or-aerodrome\r\n/transports/aeroports-et-aerodromes/trouver-un-aeroport-ou-un-aerodrome"

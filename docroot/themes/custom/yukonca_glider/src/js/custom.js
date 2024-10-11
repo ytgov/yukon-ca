@@ -53,21 +53,26 @@
 
       $('a.add_new_comment').click((e) => {
         e.preventDefault();
-        $(this).next().css('display', 'block');
+        $('.comment-blog-comments-form ').css('display', 'block');
         $('a.close_comment').css('display', 'block');
-        $(this).css('display', 'none');
+         $('a.add_new_comment').css('display', 'none');
       });
 
       $('a.close_comment').click((e) => {
         e.preventDefault();
-        $(this).prev().css('display', 'none');
+        $('.comment-blog-comments-form ').css('display', 'none');
         $('a.add_new_comment').css('display', 'block');
-        $(this).css('display', 'none');
+        $('a.add_new_comment').css('display', 'none');
       });
 
       $('.page-node-type-department .accordion .accordion-item:first-child .accordion-collapse').addClass('show');
 
       jQuery(document).ready(() => {
+          console.log('test');
+        if (!$('#block-yukonca-glider-views-block-related-tasks-block-1 .views-field-field-related-tasks .field-content div').hasClass('item-list')) {
+          $('#block-yukonca-glider-views-block-related-tasks-block-1').hide();
+        }
+        
         function filterOpener () {
           const ele = $('aside .filters h2.title');
 

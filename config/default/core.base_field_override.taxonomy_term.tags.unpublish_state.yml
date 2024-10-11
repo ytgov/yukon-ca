@@ -1,0 +1,20 @@
+uuid: 0a1d3b55-99b7-4403-a4ee-1d111f55ce81
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags
+  module:
+    - options
+id: taxonomy_term.tags.unpublish_state
+field_name: unpublish_state
+entity_type: taxonomy_term
+bundle: tags
+label: 'Unpublish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

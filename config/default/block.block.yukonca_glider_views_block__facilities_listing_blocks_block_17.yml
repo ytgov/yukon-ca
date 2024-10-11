@@ -1,0 +1,29 @@
+uuid: aa12d639-bcaa-4664-9082-9e8f93e61a38
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facilities_listing_blocks
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__facilities_listing_blocks_block_17
+theme: yukonca_glider
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:facilities_listing_blocks-block_17'
+settings:
+  id: 'views_block:facilities_listing_blocks-block_17'
+  label: 'Commission scolaire francophone du Yukon (CSFY)'
+  label_display: visible
+  provider: views
+  views_label: 'Commission scolaire francophone du Yukon (CSFY)'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/education-and-schools/kindergarten-grade-12/find-school\r\n/liste-des-ecoles\r\n/node/3250"

@@ -57,8 +57,10 @@
   }) }}
 
   {# END OF HEADER #}
-
+  
   {{ page.secondary_menu }}
+  
+  <div id="w3-parsing">
   
   {{ page.highlighted }}
   {{ page.pre_content }}
@@ -148,7 +150,7 @@
     {% endif %}
 
   </main>
-
+</div>
   {% if page.footer_logo or page.footer_menu or page.footer_legal %}
     {{ pattern('footer', {
       logo: Footer_logo,

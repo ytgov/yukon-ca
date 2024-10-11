@@ -1,3 +1,24 @@
+.page-node-type-basic-page {
+    h3 {
+        @apply text-[22px] leading-1.1 mt-3.75 pt-5;
+    }
+    
+    .region-content {
+        ul,
+        ol {
+            @apply pl-6;
+            
+            li {
+                @apply pl-2.5;
+            }
+        }
+        
+        ul {
+            @apply list-disc;
+        }
+    }
+}
+
 main {
 	> .row {
 		@apply pt-[60px];

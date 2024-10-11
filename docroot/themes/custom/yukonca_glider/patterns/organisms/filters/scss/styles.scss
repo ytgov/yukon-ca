@@ -2,7 +2,7 @@
 
 %filter-label {
   @apply block;
-  @apply text-gray font-normal;
+  @apply text-gray-dark font-normal;
   @apply mb-1;
 }
 
@@ -26,9 +26,17 @@ h2.title {
     }
 
     .form-type-checkbox {
-      input,
+      input {
+          @apply absolute left-0 mt-1;
+      }
+      
       label {
-        @apply inline;
+          @extend %filter-label;
+          @apply pl-5 mb-0;
+      }
+      
+      legend:has(span:empty) {
+          @apply hidden;
       }
     }
   }

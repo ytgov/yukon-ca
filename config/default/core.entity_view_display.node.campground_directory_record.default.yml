@@ -229,7 +229,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: medium_format
+      format_type: month_date
     third_party_settings:
       fences:
         fences_field_tag: div
@@ -240,7 +240,6 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-      format_type: medium
     weight: 10
     region: content
   field_gate_open_year_round:
@@ -581,7 +580,7 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: medium_format
+      format_type: month_date
     third_party_settings:
       fences:
         fences_field_tag: div

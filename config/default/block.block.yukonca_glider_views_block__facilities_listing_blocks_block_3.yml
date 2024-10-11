@@ -1,0 +1,29 @@
+uuid: 01afafe7-6298-4c26-8a5d-76f5cb6c7863
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facilities_listing_blocks
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__facilities_listing_blocks_block_3
+theme: yukonca_glider
+region: content
+weight: -9
+provider: null
+plugin: 'views_block:facilities_listing_blocks-block_3'
+settings:
+  id: 'views_block:facilities_listing_blocks-block_3'
+  label: 'Community health centres'
+  label_display: visible
+  provider: views
+  views_label: 'Community health centres'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/health-and-wellness/find-hospital-or-health-centre\r\n/sante-et-mieux-etre/services-de-soins/hopitaux-et-centres-de-sante\r\n/node/588"

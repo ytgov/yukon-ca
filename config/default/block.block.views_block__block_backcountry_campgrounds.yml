@@ -12,7 +12,7 @@ dependencies:
 id: views_block__block_backcountry_campgrounds
 theme: yukonca_glider
 region: content
-weight: -15
+weight: -20
 provider: null
 plugin: 'views_block:find_a_campground_or_recreation_site-block_backcountry_campgrounds'
 settings:
@@ -26,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /backcountry-campgrounds
+    pages: "/backcountry-campgrounds\r\n/terrains-de-camping-darriere-pays\r\n/node/1374"

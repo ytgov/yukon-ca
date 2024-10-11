@@ -12,13 +12,17 @@
     {% if links['#items'] %}
       {% for link in links['#items'] %}
         <div class="link-item">
-          {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+          {% if link.url is not empty %}
+            {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+          {% endif %}
         </div>
       {% endfor %}
     {% else %}
       {% for link in links %}
         <div class="link-item">
-          {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+          {% if link.url is not empty %}
+            {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+          {% endif %}
         </div>
       {% endfor %}
     {% endif %}

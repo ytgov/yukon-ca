@@ -1,0 +1,18 @@
+uuid: cb4f1282-5160-4913-8a7b-67d9b450e78a
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.blog_comments
+id: comment.blog_comments.created
+field_name: created
+entity_type: comment
+bundle: blog_comments
+label: Created
+description: 'The time that the comment was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

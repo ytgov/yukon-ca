@@ -19,7 +19,7 @@ bundle: transactional_facilities
 label: 'Transactional facility type'
 description: "Select one, or both, from the following list:\r\nLiquor store\r\nTerritorial agent"
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

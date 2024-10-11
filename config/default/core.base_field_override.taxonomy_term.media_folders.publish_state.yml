@@ -1,0 +1,20 @@
+uuid: c37d113a-dba2-46d9-b43c-c188f58eb981
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_folders
+  module:
+    - options
+id: taxonomy_term.media_folders.publish_state
+field_name: publish_state
+entity_type: taxonomy_term
+bundle: media_folders
+label: 'Publish state'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

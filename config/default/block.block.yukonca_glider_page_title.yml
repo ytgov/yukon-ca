@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class
     - node
     - system
     - taxonomy
@@ -14,7 +13,7 @@ _core:
 id: yukonca_glider_page_title
 theme: yukonca_glider
 region: content
-weight: -24
+weight: -30
 provider: null
 plugin: page_title_block
 settings:

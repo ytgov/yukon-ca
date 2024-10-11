@@ -1,0 +1,29 @@
+uuid: 9a64fa0a-2733-412f-8605-1afaeaa89c1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facilities_listing_blocks
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__facilities_listing_blocks_block_11
+theme: yukonca_glider
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:facilities_listing_blocks-block_11'
+settings:
+  id: 'views_block:facilities_listing_blocks-block_11'
+  label: 'Public art'
+  label_display: visible
+  provider: views
+  views_label: 'Public art'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/arts-and-culture/museums-and-public-collections/public-art-locations\r\n/arts-et-culture/musees-et-collections-publiques/collections-doeuvres-dart-public\r\n/node/5510"

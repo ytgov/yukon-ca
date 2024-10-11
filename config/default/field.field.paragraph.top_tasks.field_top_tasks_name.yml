@@ -17,7 +17,7 @@ bundle: top_tasks
 label: Name
 description: 'Enter the page name of the top task.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

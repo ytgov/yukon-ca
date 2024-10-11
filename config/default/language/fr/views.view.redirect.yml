@@ -11,3 +11,13 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      fields:
+        redirect_source__path:
+          label: 'A partir de'
+      filters:
+        redirect_source__path:
+          expose:
+            label: 'A partir de'
+        redirect_redirect__uri:
+          expose:
+            label: À

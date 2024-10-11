@@ -17,6 +17,11 @@ process:
     migration: yukon_migrate_education_facilities_terms
     source: field_education_facility_type
     no_stub: true
+  field_section_type:
+    plugin: migration_lookup
+    migration: yukon_migrate_school_board_type
+    source: field_school_board_type
+    no_stub: true
   field_grades_from: field_from
   field_grades_to: field_to
   field_principal: field_principal_name
@@ -34,3 +39,4 @@ destination:
 migration_dependencies:
   optional:
     - yukon_migrate_education_facilities_terms
+    - yukon_migrate_school_board_type

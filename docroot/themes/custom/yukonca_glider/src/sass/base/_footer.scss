@@ -402,6 +402,31 @@ nav {
   }
 }
 
+#block-yukonca-glider-views-block-related-tasks-block-1 {
+  @apply my-7.5;
+
+  .block-title {
+    @apply my-3.75 text-lg border-b-1 border-gray-lightborder;
+  }
+
+  .views-field-field-related-tasks {
+    .item-list {
+        ul {
+            @apply pl-0 list-none;
+            
+            li {
+                @apply ml-0 pl-0;
+                
+                a {
+                  display: block;
+                  @apply py-2.5;
+                }
+            }
+        }
+    }
+  }
+}
+
 /* Start Issue 182 */
 
 /*
