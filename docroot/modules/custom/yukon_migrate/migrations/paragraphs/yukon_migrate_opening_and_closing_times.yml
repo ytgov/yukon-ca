@@ -16,17 +16,13 @@ process:
         plugin: yukon_migrate_time
         source: field_opening_time/0/value
         from_format: 'Y-m-d H:i:s'
-        to_format: 'Y-m-d\TH:i:s'
-        from_timezone: 'UTC'
-        to_timezone: 'America/Whitehorse'
+        to_format: 'Hi'
 
     field_closing_time:
         plugin: yukon_migrate_time
         source: field_closing_time/0/value
         from_format: 'Y-m-d H:i:s'
-        to_format: 'Y-m-d\TH:i:s'
-        from_timezone: 'UTC'
-        to_timezone: 'America/Whitehorse'
+        to_format: 'Hi'
 
 destination:
   plugin: entity_reference_revisions:paragraph

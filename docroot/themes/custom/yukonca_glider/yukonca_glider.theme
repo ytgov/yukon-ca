@@ -26,6 +26,10 @@ function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterf
 
 }
 
+function yukonca_glider_preprocess_time(&$variables) {
+  // dump($variables); die;
+}
+
 /**
  * Implements template_preprocess_paragraph().
  */
@@ -338,6 +342,8 @@ function yukonca_glider_preprocess_node__campground_directory_record(&$variables
   }
 
   $variables['available_services'] = $available_services;
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['langcode'] = $langcode;
 }
 
 /**

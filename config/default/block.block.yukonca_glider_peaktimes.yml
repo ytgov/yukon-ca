@@ -1,0 +1,30 @@
+uuid: 597a672f-cf91-484d-8630-336568fe60b1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7c005b2a-3408-47a4-a0b3-2b50a7cdc261'
+  module:
+    - block_content
+    - system
+  theme:
+    - yukonca_glider
+id: yukonca_glider_peaktimes
+theme: yukonca_glider
+region: content
+weight: -23
+provider: null
+plugin: 'block_content:7c005b2a-3408-47a4-a0b3-2b50a7cdc261'
+settings:
+  id: 'block_content:7c005b2a-3408-47a4-a0b3-2b50a7cdc261'
+  label: 'Peak times'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/terrains-de-camping-et-lieux-de-loisirs-publics\r\n/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site"

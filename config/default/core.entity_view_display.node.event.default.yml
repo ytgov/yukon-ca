@@ -157,7 +157,7 @@ content:
     settings:
       timezone_override: America/Whitehorse
       format_type: medium_format
-      from_to: start_date
+      from_to: both
       separator: 'to '
       show_next: 5
       count_per_item: true

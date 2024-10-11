@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /backcountry-campgrounds
+    pages: "/backcountry-campgrounds\r\n/terrains-de-camping-darriere-pays\r\n/node/1374"

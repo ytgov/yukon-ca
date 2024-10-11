@@ -1,0 +1,29 @@
+uuid: d1e04237-b452-4bae-a1d3-512166a0bd51
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facilities_listing_blocks
+  module:
+    - system
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__facilities_listing_blocks_block_15
+theme: yukonca_glider
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:facilities_listing_blocks-block_15'
+settings:
+  id: 'views_block:facilities_listing_blocks-block_15'
+  label: 'Visitor information centres'
+  label_display: visible
+  provider: views
+  views_label: 'Visitor information centres'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/driving-and-transportation/travel-yukon/find-visitor-information-centre\r\n/transports/deplacements-au-yukon/trouver-un-centre-dinformation-touristique\r\n/node/5508"

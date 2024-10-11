@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.schools.field_principal
     - field.field.paragraph.schools.field_principal_email
     - field.field.paragraph.schools.field_principal_telephone
+    - field.field.paragraph.schools.field_section_type
     - field.field.paragraph.schools.field_superintendent
     - field.field.paragraph.schools.field_superintendent_email
     - field.field.paragraph.schools.field_superintendent_phone
@@ -133,6 +134,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_section_type:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_superintendent:
     type: string_textfield

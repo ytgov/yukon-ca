@@ -36,7 +36,7 @@ process:
   field_at_least_one_wheelchair_ac: field_at_least_one_wheelchair_ac
   field_bear_proof_cache: field_bear_proof_cache
   field_bear_proof_garbage_bins: field_bear_proof_garbage_bins
-  field_blue_bear_proof_recycling_: field_bear_proof_recycling_bins
+  field_bear_proof_recycling_bins: field_blue_bear_proof_recycling_
   field_boat_dock: field_boat_dock
   field_boat_launch: field_boat_launch
   field_change_room: field_change_room

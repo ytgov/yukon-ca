@@ -61,7 +61,7 @@
 	{# END OF HEADER #}
 
 	{{ page.secondary_menu }}
-
+<div id="w3-parsing">
 	{% if type == "topics_page" %}
 		{{
 			pattern('hero', {
@@ -142,7 +142,7 @@
 			</div>
 		{% endif %}
 	</main>
-
+</div>
 	 {% if page.footer_logo or page.footer_menu or page.footer_legal %}
         {{ pattern('footer', {
           logo: Footer_logo,

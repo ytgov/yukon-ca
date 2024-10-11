@@ -12,3 +12,8 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      fields:
+        source_language_1:
+          label: 'A partir de'
+        target_language:
+          label: À

@@ -92,9 +92,9 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 
 13. Clear cache >>  ./vendor/bin/drush cr
 14. Run the d7-queries.php on the Drupal 7 database.
-15. Run migration using migrate_initial_and_update.sh and leave it running for the next few hours until complete. (approxximate time 10+ hours)
+15. Run migration using migrate_initial_and_update_w3.sh and leave it running for the next few hours until complete. (approxximate time 10+ hours)
 16. Run the d10-queries.php on the Drupal 10 database.
-17. Run the second migration using migrate_complete.sh and let it complete. (approxximate time 1 hour)
+17. Run the second migration using migration_complete_w3.sh and let it complete. (approxximate time 1 hour)
 18. Go to the terminal >> public_html and clear cache >>  ./vendor/bin/drush cr
 19. Theme setup. Go to the terminal >> cd public_html/docroot/themes/custom/yukonca_glider/
 20. Assuming that the correct node version is already installed run >> npm run build
@@ -172,6 +172,19 @@ After completing the data migration and its update, the following commands may b
 Clear Drupal cache using `drush cr`
 
 Drupal 10 website should be ready at this point
+
+
+## Things to be confirmed post-migration ##
+
+
+## Know Issues ##
+
+1.. Some links on D7 production have inconsistent French translation.
+https://yukon.ca/en/node/153
+
+2.. Incorrect translation (English has French content and this exists on production as well):
+https://yukon.ca/en/Dates-limites-des-depots-pour-municipalites
+
 
 ----------------------------------
 ----------------------------------

@@ -122,10 +122,11 @@ content:
       closed_mode_threshold: 0
       add_mode: select
       form_display_mode: default
-      default_paragraph_type: chart
+      default_paragraph_type: _none
       features:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
   field_contact:
@@ -344,7 +345,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  promote: true
   publish_on: true
   publish_state: true
   sticky: true

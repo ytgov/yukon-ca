@@ -219,13 +219,13 @@ h1#heading {
   .region {
     &.region-content {
       @apply pt-3.75;
+        
+      h2 {
+        @apply pt-10 mt-3.75 mb-[11px] text-[26px] leading-1.1;
+      }
 
       .node--type-basic-page {
           .node__content {
-            >h2 {
-              @apply pt-10 mt-3.75 mb-[11px] text-[26px] leading-1.1;
-            }
-      
             >p {
               @apply mb-[11px];
             }
@@ -294,6 +294,32 @@ h1#heading {
         .block-views-blockevents-listing-block-events-listing {
             .block-title {
                 @apply mt-3.75 mb-3 text-[26px];
+            }
+        }
+        
+        .view-find-a-campground-or-recreation-site {
+            .views-row {
+                .node--type-campground-directory-record {
+                    @apply border-b-0 border-t-1 border-gray-lightborder;
+    
+                    .graph-card {
+                        @apply my-0;
+                        
+                        .main-link {
+                            @apply text-lg leading-1.1;
+                            
+                            a:hover {
+                                @apply hover:underline hover:text-blue-500;
+                            }
+                        }
+                    }
+                }
+                
+                &:last-child {
+                    .node--type-campground-directory-record {
+                        @apply border-b-1 border-gray-lightborder;
+                    }
+                }
             }
         }
     }

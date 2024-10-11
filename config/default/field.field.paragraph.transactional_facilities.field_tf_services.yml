@@ -19,7 +19,7 @@ bundle: transactional_facilities
 label: Services
 description: 'Help text: Enter information about the services offered. Write in short sentences and use a bulleted list'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

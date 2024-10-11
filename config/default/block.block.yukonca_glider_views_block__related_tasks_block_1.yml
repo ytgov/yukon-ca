@@ -1,0 +1,33 @@
+uuid: 80b65043-8277-46f8-ae46-41da66d7a1b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.related_tasks
+  module:
+    - node
+    - views
+  theme:
+    - yukonca_glider
+id: yukonca_glider_views_block__related_tasks_block_1
+theme: yukonca_glider
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:related_tasks-block_1'
+settings:
+  id: 'views_block:related_tasks-block_1'
+  label: 'Related tasks'
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: 'Related tasks'
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      basic_page: basic_page

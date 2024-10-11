@@ -8,14 +8,13 @@ dependencies:
   module:
     - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_change_room
 field_name: field_change_room
 entity_type: node
 bundle: campground_directory_record
-label: Changeroom
+label: 'Change room'
 description: ''
 required: true
 translatable: true

@@ -12,18 +12,18 @@ dependencies:
 id: views_block__find_a_campground
 theme: yukonca_glider
 region: content
-weight: -17
+weight: -22
 provider: null
 plugin: 'views_block:find_a_campground_or_recreation_site-block_campgrounds'
 settings:
   id: 'views_block:find_a_campground_or_recreation_site-block_campgrounds'
-  label: 'Campground or recreation site'
+  label: 'Campground and recreation sites'
   label_display: visible
   provider: views
-  views_label: 'Campground or recreation site'
+  views_label: 'Campground and recreation sites'
   items_per_page: none
 visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /node/48419
+    pages: "/terrains-de-camping-et-lieux-de-loisirs-publics\r\n/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site"

@@ -1,17 +1,16 @@
-uuid: 3541aa31-c005-47f5-9a13-4b84eda0c13c
+uuid: cd850b24-b83b-4595-9476-3d93768d5d99
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - paragraphs
+    - time_field
 id: paragraph.field_closing_time
 field_name: field_closing_time
 entity_type: paragraph
-type: datetime
-settings:
-  datetime_type: datetime
-module: datetime
+type: time
+settings: {  }
+module: time_field
 locked: false
 cardinality: 1
 translatable: true

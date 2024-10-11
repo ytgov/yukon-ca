@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.events_listing
   module:
-    - block_class
     - system
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: views_block__events_listing_block_events_listing
 theme: yukonca_glider
 region: content
-weight: -12
+weight: -17
 provider: null
 plugin: 'views_block:events_listing-block_events_listing'
 settings:

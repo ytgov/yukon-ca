@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /node/48419
+    pages: "/node/48419\r\n/terrains-de-camping-et-lieux-de-loisirs-publics\r\n/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site"
