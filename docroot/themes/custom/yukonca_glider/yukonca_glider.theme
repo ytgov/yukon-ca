@@ -26,8 +26,11 @@ function yukonca_glider_form_system_theme_settings_alter(&$form, FormStateInterf
 
 }
 
+/**
+ * Empty Function.
+ */
 function yukonca_glider_preprocess_time(&$variables) {
-  // dump($variables); die;
+  // dump($variables); die;.
 }
 
 /**

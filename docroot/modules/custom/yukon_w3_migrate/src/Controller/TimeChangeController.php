@@ -42,13 +42,13 @@ class TimeChangeController extends ControllerBase {
    */
   public function content() {
     $db = Database::getConnection();
-    
-    // Closing TIme
+
+    // Closing TIme.
     $query = $db->select("paragraph__field_closing_time", "n");
     $query->fields("n", ["entity_id", "field_closing_time_value"]);
     $results = $query->execute()->fetchAll();
     foreach ($results as $result) {
-      if ($result->field_closing_time_value != 0 and $result->field_closing_time_value != 30 ) {
+      if ($result->field_closing_time_value != 0 and $result->field_closing_time_value != 30) {
         $number = '';
         $hours = '';
         $mins = '';
@@ -58,20 +58,20 @@ class TimeChangeController extends ControllerBase {
         $nine_hours = '';
         $fifteen_hour = '';
         if ($number == 3) {
-            $hours = substr($time, 0, 1);
-            $mins = substr($time, -2);
-            $hours = $hours * 60 * 60;
-            $minutes = $mins * 60;
-            $fifteen_hour = 15 * 60 * 60;
-            $final_time = $hours + $minutes + $fifteen_hour;
+          $hours = substr($time, 0, 1);
+          $mins = substr($time, -2);
+          $hours = $hours * 60 * 60;
+          $minutes = $mins * 60;
+          $fifteen_hour = 15 * 60 * 60;
+          $final_time = $hours + $minutes + $fifteen_hour;
         }
         else {
-            $hours = substr($time, 0, 2);
-            $mins = substr($time, -2);
-            $hours = $hours * 60 * 60;
-            $minutes = $mins * 60;
-            $nine_hours = 9 * 60 * 60;
-            $final_time = $hours + $minutes - $nine_hours;
+          $hours = substr($time, 0, 2);
+          $mins = substr($time, -2);
+          $hours = $hours * 60 * 60;
+          $minutes = $mins * 60;
+          $nine_hours = 9 * 60 * 60;
+          $final_time = $hours + $minutes - $nine_hours;
         }
         $db->update("paragraph__field_closing_time")
           ->fields([
@@ -91,14 +91,14 @@ class TimeChangeController extends ControllerBase {
       }
     }
 
-    // Opening time
+    // Opening time.
     $query = $db->select("paragraph__field_opening_time", "n");
     $query->fields("n", ["entity_id", "field_opening_time_value"]);
     $results = $query->execute()->fetchAll();
-    //dump($results); die;
+    // dump($results); die;.
     foreach ($results as $result) {
-      //dump($result); die;
-      if ($result->field_opening_time_value != 0 and $result->field_opening_time_value != 30 ) {
+      // dump($result); die;.
+      if ($result->field_opening_time_value != 0 and $result->field_opening_time_value != 30) {
         $number = '';
         $hours = '';
         $mins = '';
@@ -109,21 +109,21 @@ class TimeChangeController extends ControllerBase {
         $nine_hours = '';
         $fifteen_hour = '';
         if ($number == 3) {
-            $hours = substr($time, 0, 1);
-            $mins = substr($time, -2);
-            $hours = $hours * 60 * 60;
-            $minutes = $mins * 60;
-            $final_time = $hours + $minutes;
-            $fifteen_hour = 15 * 60 * 60;
-            $final_time = $hours + $minutes + $fifteen_hour;
+          $hours = substr($time, 0, 1);
+          $mins = substr($time, -2);
+          $hours = $hours * 60 * 60;
+          $minutes = $mins * 60;
+          $final_time = $hours + $minutes;
+          $fifteen_hour = 15 * 60 * 60;
+          $final_time = $hours + $minutes + $fifteen_hour;
         }
         else {
-            $hours = substr($time, 0, 2);
-            $mins = substr($time, -2);
-            $hours = $hours * 60 * 60;
-            $minutes = $mins * 60;
-            $nine_hours = 9 * 60 * 60;
-            $final_time = $hours + $minutes - $nine_hours;
+          $hours = substr($time, 0, 2);
+          $mins = substr($time, -2);
+          $hours = $hours * 60 * 60;
+          $minutes = $mins * 60;
+          $nine_hours = 9 * 60 * 60;
+          $final_time = $hours + $minutes - $nine_hours;
         }
         $db->update("paragraph__field_opening_time")
           ->fields([
