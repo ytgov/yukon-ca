@@ -344,6 +344,7 @@ aside {
     }
     
     .close_comment {
+        @apply hidden;
         @apply absolute bottom-0 left-[150px];
         @apply rounded py-[6px] px-3 text-blue-400 border border-blue-400 bg-white no-underline;
         @apply hover:border-blue-50 hover:text-blue-50;

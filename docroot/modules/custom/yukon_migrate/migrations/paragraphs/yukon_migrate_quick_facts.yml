@@ -7,7 +7,7 @@ migration_tags:
   - Ordered Migration
 migration_group: legacy_paragraphs
 source:
-  plugin: d7_paragraphs_item
+  plugin: yukon_paragraphs_item
   bundle: quick_facts
   constants:
     default_text_format: full_html
