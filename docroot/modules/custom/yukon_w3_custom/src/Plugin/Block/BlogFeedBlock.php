@@ -48,7 +48,7 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager service.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
-   *   The current route match.
+   *   The current route match. 
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, LanguageManagerInterface $language_manager, RouteMatchInterface $route_match) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -67,13 +67,10 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
-    $current_path = \Drupal::service('path.current')->getPath();
-    $term = explode('/', $current_path);
     $language = $this->languageManager->getCurrentLanguage()->getId();
     return [
       '#theme' => 'blog_feed',
       '#language' => $language,
-      '#tid' => $term[3],
       '#cache' => ['max-age' => 0],
     ];
   }
