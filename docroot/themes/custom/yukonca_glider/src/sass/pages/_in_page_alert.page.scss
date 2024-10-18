@@ -10,6 +10,10 @@
     main {
         .row {
             @apply pt-0;
+            
+            .page-title {
+                @apply text-3.5xl;
+            }
         }
     }
 }

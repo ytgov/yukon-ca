@@ -13,8 +13,10 @@
 	.view {
 		.view-content {
 			.views-row {
+			    @apply py-2.5;
+			    
 				&:last-child {
-				@apply border-b border-solid border-gray-lightborder;
+				    @apply border-b border-solid border-gray-lightborder;
 				}
 
 				.views-field-title {

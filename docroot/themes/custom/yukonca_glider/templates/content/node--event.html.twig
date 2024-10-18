@@ -102,19 +102,19 @@
     <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
       <div class="field__label">{{ 'Date'|t }}</div>
       <div class="field-items">
-        <div class="field-item"> {{ node.field_event_start_time.value|date('F d, Y') }} </div>
+        <div class="field-item"> {{ node.field_event_start_time.value|date('U')|format_date('yg_long') }} </div>
       </div>
     </div>
     <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
       <div class="field__label">{{ 'Time'|t }}</div>
       <div class="field-items">
-        <div class="field-item"> {{ node.field_event_start_time.value|date('H:m a') }} </div>
+        <div class="field-item"> {{ content.field_event_start_time }} </div>
       </div>
     </div>
-    
+    <br>
     <fieldset class="event-location js-form-item form-item js-form-wrapper form-wrapper">
       <legend>
-        <span class="fieldset-legend">Location</span>
+        <span class="fieldset-legend">{{ "Location"|t }}</span>
       </legend>
       <div class="fieldset-wrapper">
           <div class="field field--name-field-event-street-address field--type-string field--label-hidden field__items">
@@ -132,7 +132,7 @@
     
     <fieldset class="event-contact fieldset-title js-form-item form-item js-form-wrapper form-wrapper">
       <legend>
-        <span class="fieldset-legend">Contact:</span>
+        <span class="fieldset-legend">{{ "Contact"|t }}:</span>
         {% if node.field_contact_name.value is not empty and node.field_contact_email.value is not empty %}
             <div class="field field--name-field-contact-name field--type-string field--label-hidden field__items">
                 <div class="field__item"><a href="mailto:{{ node.field_contact_email.value|raw }}">{{ node.field_contact_name.value|raw }}</a></div>
@@ -143,7 +143,7 @@
             </div>
         {% elseif node.field_contact_email.value is not empty %}
             <div class="field field--name-field-contact-name field--type-string field--label-hidden field__items">
-                <div class="field__item">{{ node.field_contact_email.value|raw }}</div>
+                <div class="field__item"><a href="mailto:{{ node.field_contact_email.value|raw }}">{{ node.field_contact_email.value|raw }}</a></div>
             </div>
         {% endif %}
       </legend>

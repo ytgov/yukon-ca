@@ -55,7 +55,7 @@ set classes = [
 					{% if paragraph.field_display_section_title.value == '1' %}
 						<h2 class="title-design-1">{{ paragraph.field_title.value|raw }}</h2>
 					{% endif %}
-					{{ paragraph.field_section_content.value|raw }}
+					{{ content.field_section_content }}
 				</div>
 			</div>
 		</div>

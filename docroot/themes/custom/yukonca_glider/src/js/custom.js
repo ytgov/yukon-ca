@@ -49,30 +49,27 @@
         $('.panel-title a[data-toggle="collapse"]').find('.title-icon svg').addClass('fa-square-plus fa-square-minus');
       });
 
-      $('a.close_comment').css('display', 'none');
-
       $('a.add_new_comment').click((e) => {
         e.preventDefault();
-        $('.comment-blog-comments-form ').css('display', 'block');
-        $('a.close_comment').css('display', 'block');
-         $('a.add_new_comment').css('display', 'none');
+        $('.comment-blog-comments-form ').show();
+        $('a.close_comment').show();
+        $('a.add_new_comment').hide();
       });
 
       $('a.close_comment').click((e) => {
         e.preventDefault();
-        $('.comment-blog-comments-form ').css('display', 'none');
-        $('a.add_new_comment').css('display', 'block');
-        $('a.add_new_comment').css('display', 'none');
+        $('.comment-blog-comments-form ').hide();
+        $('a.close_comment').hide();
+        $('a.add_new_comment').show();
       });
 
       $('.page-node-type-department .accordion .accordion-item:first-child .accordion-collapse').addClass('show');
 
       jQuery(document).ready(() => {
-          console.log('test');
         if (!$('#block-yukonca-glider-views-block-related-tasks-block-1 .views-field-field-related-tasks .field-content div').hasClass('item-list')) {
           $('#block-yukonca-glider-views-block-related-tasks-block-1').hide();
         }
-        
+
         function filterOpener () {
           const ele = $('aside .filters h2.title');
 
@@ -111,6 +108,12 @@
             }
           });
         }
+
+        $('[data-once="bef-auto-submit"] .js-form-item .js-form-item [type="checkbox"]').change(() => {
+          $('html, body').animate({
+            scrollTop: $('#block-views-block-find-a-campground, #block-views-block-block-backcountry-campgrounds').offset().top,
+          }, 1000);
+        });
       });
     },
   };

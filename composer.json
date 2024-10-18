@@ -144,6 +144,9 @@
             },
             "drupal/field_group": {
                 "field_group module": "https://www.drupal.org/files/issues/2024-08-21/field_group_fix-translations_label_description-3111107-50.patch"
+            },
+            "drupal/datetime_range": {
+                "Date time format": "https://www.drupal.org/files/issues/2796151-06.patch"
             }
         },
         "installer-paths": {

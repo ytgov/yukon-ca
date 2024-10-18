@@ -186,7 +186,8 @@ aside {
 
                 .field--name-field-opening-time-paragraph {
                     .opening_time {
-                        .field--type-datetime {
+                        .field--type-datetime,
+                        .field--type-time {
                             @apply inline-block;
                         }
                     }

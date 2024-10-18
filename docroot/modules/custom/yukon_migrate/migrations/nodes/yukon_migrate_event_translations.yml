@@ -70,7 +70,7 @@ process:
             source: rrule
 
   field_contact_name: field_contact_name
-  field_contact_email: field_contact_email
+  field_contact_email: field_contact_email/0/email
   field_postal_code: field_postal_code
   field_contact_phone: field_contact_phone
 
@@ -137,7 +137,16 @@ process:
   path/alias: alias
   path/pathauto: pathauto
 
-  moderation_state: moderation_state
+  moderation_state:
+    - plugin: static_map 
+      source: moderation_state 
+      map: 
+        published: published 
+        draft: draft 
+        needs_review: needs_review
+        ready_to_publish: ready_to_publish
+        archived: archived
+      default_value: draft
 
 migration_dependencies:
   required:
