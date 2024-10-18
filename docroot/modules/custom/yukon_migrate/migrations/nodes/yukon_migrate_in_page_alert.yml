@@ -55,6 +55,9 @@ process:
             - yukon_migrate_landing_page_level_2
             - yukon_migrate_multi_step_page
             - yukon_migrate_topics_page
+            - yukon_migrate_campaign_page
+            - yukon_migrate_campground_directory_record
+            - yukon_migrate_places
           no_stub: true
   field_yukon_editorial_team:
     plugin: migration_lookup

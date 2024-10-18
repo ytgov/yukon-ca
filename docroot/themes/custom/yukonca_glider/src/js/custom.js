@@ -108,6 +108,12 @@
             }
           });
         }
+
+        $('[data-once="bef-auto-submit"] .js-form-item .js-form-item [type="checkbox"]').change(() => {
+          $('html, body').animate({
+            scrollTop: $('#block-views-block-find-a-campground, #block-views-block-block-backcountry-campgrounds').offset().top,
+          }, 1000);
+        });
       });
     },
   };

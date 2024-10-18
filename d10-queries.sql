@@ -13,3 +13,5 @@ UPDATE `paragraph__field_subcategory_links` SET `field_subcategory_links_uri`=RE
 // Update path_alias table
 
 DELETE FROM path_alias WHERE path LIKE '/node%'; 
+
+TRUNCATE TABLE migrate_map_yukon_migrate_url_alias_node;

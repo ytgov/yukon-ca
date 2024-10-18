@@ -67,10 +67,13 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $term = explode('/', $current_path);
     $language = $this->languageManager->getCurrentLanguage()->getId();
     return [
       '#theme' => 'blog_feed',
       '#language' => $language,
+      '#tid' => $term[3],
       '#cache' => ['max-age' => 0],
     ];
   }

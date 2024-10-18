@@ -32,6 +32,11 @@ process:
     source: language
     fallback_to_site_default: true
   init: init
+  field_yukon_editorial_team:
+    - plugin: migration_lookup
+      source: field_node_department
+      migration: yukon_migrate_department
+      no_stub: true
   roles:
     plugin: migration_lookup
     migration: yukon_user_roles

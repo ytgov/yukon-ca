@@ -23,7 +23,7 @@ function yukon_w3_custom_theme() {
       'template' => 'engagements-count',
     ],
     'blog_feed' => [
-      'variables' => ['language' => NULL],
+      'variables' => ['language' => NULL, 'tid' => NULL],
       'template' => 'blog-feed',
     ],
   ];
@@ -209,5 +209,65 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
 
     $variables['department_filter'] = $view->exposed_data['field_department_term_target_id'];
     $variables['combine_filter'] = $view->exposed_data['combine'];
+  }
+  if ($view->id() == 'find_a_campground_or_recreation_site') {
+    //dump($view->exposed_data); die;
+    $department = $view->exposed_data['region'];
+    $site_type = $view->exposed_data['site_type'];
+    $campsite = !is_array($view->exposed_data['wheelchair_accessible_campsite']) ? $view->exposed_data['wheelchair_accessible_campsite'] : $view->exposed_data['wheelchair_accessible_campsite'][1];
+    $ac_value = !is_array($view->exposed_data['field_at_least_one_wheelchair_ac_value']) ? $view->exposed_data['field_at_least_one_wheelchair_ac_value'] : $view->exposed_data['field_at_least_one_wheelchair_ac_value'][1];
+    $launch_value = !is_array($view->exposed_data['field_boat_launch_value']) ? $view->exposed_data['field_boat_launch_value'] : $view->exposed_data['field_boat_launch_value'][1];
+    $trails = !is_array($view->exposed_data['field_hiking_trails_value']) ? $view->exposed_data['field_hiking_trails_value'] : $view->exposed_data['field_hiking_trails_value'][1];
+    $playground = !is_array($view->exposed_data['field_playground_value']) ? $view->exposed_data['field_playground_value'] : $view->exposed_data['field_playground_value'][1];
+    $dock_no = !is_array($view->exposed_data['field_swimming_area_or_dock_no_l_value']) ? $view->exposed_data['field_swimming_area_or_dock_no_l_value'] : $view->exposed_data['field_swimming_area_or_dock_no_l_value'][1];
+    
+    if ($view->exposed_data['region'] != 'All' && $view->exposed_data['region'] != '') {
+      $term = Term::load($view->exposed_data['region']);
+      $department = $term->getName();
+    }
+    if ($view->exposed_data['site_type'] != 'All' && $view->exposed_data['site_type'] != '') {
+      $term = Term::load($view->exposed_data['site_type']);
+      $site_type = $term->getName();
+    }
+    if (!is_array($view->exposed_data['wheelchair_accessible_campsite'])) {
+      $campsite = 'Wheelchair accessible campsite';
+    }
+    if (!isset($view->exposed_data['field_at_least_one_wheelchair_ac_value'][1])) {
+      $ac_value = 'Wheelchair accessible outhouse';
+    }
+    if (!isset($view->exposed_data['field_boat_launch_value'][1])) {
+      $launch_value = 'Boat launch';
+    }
+    if (!isset($view->exposed_data['field_hiking_trails_value'][1])) {
+      $trails = 'Hiking trails';
+    }
+    if (!isset($view->exposed_data['field_playground_value'][1])) {
+      $playground = 'Playground';
+    }
+    if (!isset($view->exposed_data['field_swimming_area_or_dock_no_l_value'][1])) {
+      $dock_no = 'Swimming area or dock';
+    }
+    $variables['department'] = $department;
+    if (isset($view->exposed_data['site_type'])) {
+        $variables['site_type'] = $site_type;
+    }
+    else {
+        $variables['site_type'] = 'All';
+    }
+    $variables['campsite'] = $campsite;
+    $variables['ac_value'] = $ac_value;
+    $variables['launch_value'] = $launch_value;
+    $variables['playground'] = $playground;
+    $variables['trails'] = $trails;
+    $variables['dock_no'] = $dock_no;
+
+    $variables['department_filter'] = $view->exposed_data['region'];
+    $variables['site_type_filter'] = $view->exposed_data['site_type'];
+    $variables['campsite_flter'] = !is_array($view->exposed_data['wheelchair_accessible_campsite']) ? $view->exposed_data['wheelchair_accessible_campsite'] : $view->exposed_data['wheelchair_accessible_campsite'][1];
+    $variables['ac_value_flter'] = !is_array($view->exposed_data['field_at_least_one_wheelchair_ac_value']) ? $view->exposed_data['field_at_least_one_wheelchair_ac_value'] : $view->exposed_data['field_at_least_one_wheelchair_ac_value'][1];
+    $variables['launch_value_flter'] = !is_array($view->exposed_data['field_boat_launch_value']) ? $view->exposed_data['field_boat_launch_value'] : $view->exposed_data['field_boat_launch_value'][1];
+    $variables['playground_flter'] = !is_array($view->exposed_data['field_playground_value']) ? $view->exposed_data['field_playground_value'] : $view->exposed_data['field_playground_value'][1];
+    $variables['trails_flter'] = !is_array($view->exposed_data['field_hiking_trails_value']) ? $view->exposed_data['field_hiking_trails_value'] : $view->exposed_data['field_hiking_trails_value'][1];
+    $variables['dock_no_flter'] = !is_array($view->exposed_data['field_swimming_area_or_dock_no_l_value']) ? $view->exposed_data['field_swimming_area_or_dock_no_l_value'] : $view->exposed_data['field_swimming_area_or_dock_no_l_value'][1];
   }
 }

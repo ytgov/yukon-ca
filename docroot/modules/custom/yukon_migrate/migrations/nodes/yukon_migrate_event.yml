@@ -131,7 +131,16 @@ process:
   path/alias: alias
   path/pathauto: pathauto
 
-  moderation_state: moderation_state
+  moderation_state:
+    - plugin: static_map 
+      source: moderation_state 
+      map: 
+        published: published 
+        draft: draft 
+        needs_review: needs_review
+        ready_to_publish: ready_to_publish
+        archived: archived
+      default_value: draft 
 
 migration_dependencies:
   required:
