@@ -42,7 +42,7 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
    *
    * @var \Drupal\Core\Path\CurrentPathStack
    */
-  protected $pathStack;
+  protected $path;
 
   /**
    * Constructs a new BookNavigationBlock instance.
