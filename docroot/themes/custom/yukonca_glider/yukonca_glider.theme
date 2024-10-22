@@ -9,11 +9,11 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\ByteSizeMarkup;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
-use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -403,15 +403,14 @@ function yukonca_glider_preprocess_page(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $data = explode("/", $current_path);
   if (in_array('taxonomy', $data)) {
-      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data['3']);
-      $value = $term->FIELD_MACHINENAME->value;
-      if ($term->get('vid')->getValue()[0]['target_id'] == "department") {
-        $url = Url::fromRoute('system.403');
-        $response = new RedirectResponse($url->toString());
-        $response->send();
-      }
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data['3']);
+    if ($term->get('vid')->getValue()[0]['target_id'] == "department") {
+      $url = Url::fromRoute('system.403');
+      $response = new RedirectResponse($url->toString());
+      $response->send();
+    }
   }
-  
+
   $variables['Footer_text'] = theme_get_setting('Footer_text');
   $variables['current_path'] = $current_path;
   if (!empty($variables['node'])) {
@@ -579,6 +578,7 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
     $max_length = 100;
     $index = array_key_last($variables['breadcrumb']);
     $title = $variables['breadcrumb'][$index]['text'];
+
     if (strlen($title) > $max_length) {
       $variables['breadcrumb'][$index]['text'] = substr($title, 0, $max_length) . '...';
     }
@@ -586,6 +586,9 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
     $nid = \Drupal::routeMatch()->getRawParameter('node');
     $variables['#cache']['tags'][] = 'node:' . $nid;
 
+    if ($node->bundle() == 'campground_directory_record') {
+      $variables['breadcrumb'][$index]['text'] = $node->title->value;
+    }
     if ($node->bundle() == 'blog') {
       // dump($variables['breadcrumb']); die;
       // Adding the title of the page in the breadcrumb.

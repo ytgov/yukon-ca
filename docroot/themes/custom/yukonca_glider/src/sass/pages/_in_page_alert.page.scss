@@ -14,6 +14,30 @@
             .page-title {
                 @apply text-3.5xl;
             }
+            
+            .callout-card {
+                .callout-card__content {
+                    @apply max-w-full;
+                     
+                    .callout-card__content-wrapper {
+                        @include media-breakpoint-down(md) {
+                            @apply gap-2.5;
+                        }
+                        
+                        .icon {
+                            @apply mt-1.5;
+                        }
+                    
+                        .content {
+                            .title {
+                                @include media-breakpoint-down(md) {
+                                    @apply text-sm leading-6 mb-0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

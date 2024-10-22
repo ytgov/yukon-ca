@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.places_listing
   module:
+    - block_class
     - system
     - views
   theme:
@@ -25,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /places
+    pages: "/places\r\n/etablissements-installations-et-bureaux\r\n/node/15785"

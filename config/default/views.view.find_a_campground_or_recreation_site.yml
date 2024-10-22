@@ -1282,13 +1282,15 @@ display:
           1: AND
       defaults:
         title: false
+        use_ajax: true
         filters: false
         filter_groups: false
       display_description: ''
       rendering_language: '***LANGUAGE_language_interface***'
       exposed_block: true
       display_extenders:
-        ajax_history: {  }
+        ajax_history:
+          enable_history: true
       block_description: 'Backcountry campgrounds'
     cache_metadata:
       max-age: -1
@@ -1898,7 +1900,7 @@ display:
       exposed_block: true
       display_extenders:
         ajax_history:
-          enable_history: false
+          enable_history: true
       block_description: 'Find a campground or recreation site'
     cache_metadata:
       max-age: -1

@@ -1,0 +1,130 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+  {% if department != 'All' or site_type != 'All' or campsite != '0' or ac_value != '0' or launch_value != '0' or playground != '0' or trails != '0' or dock_no != '0' %}
+    <div class="view-places-listing">
+      <div class="applied-filters">
+          <p class="section-title">Filter</p>
+          <div class="applied-items">
+              {% if department != 'All' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region=All&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ department }}</a>
+              {% endif %}
+              {% if site_type != 'All' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region=All&site_type=All{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ site_type }}</a>
+              {% endif %}
+              {% if campsite != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ campsite }}</a>
+              {% endif %}
+              {% if ac_value != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ ac_value }}</a>
+              {% endif %}
+              {% if launch_value != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ launch_value }}</a>
+              {% endif %}
+              {% if playground != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ playground }}</a>
+              {% endif %}
+              {% if trails != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ trails }}</a>
+              {% endif %}
+              {% if dock_no != '0' %}
+                <a class="applied-item" href="{{ app.request.uri }}?region={{ department_filter }}&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}">{{ dock_no }}</a>
+              {% endif %}
+          </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="filter-content">
+      {% if rows %}
+        <div class="view-content ">
+          {{ rows }}
+        </div>
+      {% elseif empty %}
+        <div class="view-empty">
+          {{ empty }}
+        </div>
+      {% endif %}
+  </div>
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>

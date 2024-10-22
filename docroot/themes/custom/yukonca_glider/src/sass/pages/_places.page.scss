@@ -242,6 +242,14 @@ aside {
                 }
             }
             
+            &.field--name-field-open-24-hours {
+                @apply mt-3.75;
+                
+                .field__item {
+                    @apply font-bold;
+                }
+            }
+            
             &.directory-records-places-opening-hours {
                 > .field__item {
                     @apply mt-3.75;

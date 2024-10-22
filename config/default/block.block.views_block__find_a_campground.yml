@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.find_a_campground_or_recreation_site
   module:
+    - block_class
     - system
     - views
   theme:
@@ -26,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/terrains-de-camping-et-lieux-de-loisirs-publics\r\n/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site"
+    pages: "/terrains-de-camping-et-lieux-de-loisirs-publics\r\n/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site\r\n/node/1372"

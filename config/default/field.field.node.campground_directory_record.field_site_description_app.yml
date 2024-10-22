@@ -4,14 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_site_description_app
+    - filter.format.plain_text
     - node.type.campground_directory_record
   module:
-    - epp
+    - allowed_formats
     - text
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_site_description_app
 field_name: field_site_description_app
 entity_type: node
@@ -23,5 +27,6 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - plain_text
 field_type: text_long

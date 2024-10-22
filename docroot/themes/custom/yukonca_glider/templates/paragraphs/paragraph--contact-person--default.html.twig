@@ -41,7 +41,9 @@
 
 <div class="contact_person">
     <h3>{{ 'Contact'|t }}</h3>
-    <div class="field_lable">{{ paragraph.field_contact_person_position.value|raw }}: </div>
+    {% if paragraph.field_contact_person_position.value is not empty %}
+        <div class="field_lable">{{ paragraph.field_contact_person_position.value|raw }}: </div>
+    {% endif %}
     <a href="{{ paragraph.field_contact_person_email.value }}">{{ paragraph.field_contact_person_name.value }} </a>
     <p>{{ paragraph.field_contact_person_telephone.value|raw }}</p>
 </div>

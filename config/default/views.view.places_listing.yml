@@ -271,6 +271,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: false
               field_community_facility_type_target_id:
                 plugin_id: default
                 advanced:
@@ -281,6 +285,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: 0
               field_community_target_id:
                 plugin_id: default
                 advanced:
@@ -290,6 +298,10 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                options_show_only_used: false
+                options_show_only_used_filtered: false
+                options_hide_when_empty: false
+                options_show_items_count: 0
       access:
         type: perm
         options:
@@ -478,7 +490,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: null
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -522,7 +534,7 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: community
-          type: cshs
+          type: select
           hierarchy: false
           limit: true
           error_message: true
@@ -638,7 +650,7 @@ display:
       exposed_block: true
       display_extenders:
         ajax_history:
-          enable_history: false
+          enable_history: true
       block_description: 'Places listing'
     cache_metadata:
       max-age: -1
