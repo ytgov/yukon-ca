@@ -87,6 +87,16 @@ h1#heading {
 
 /* End Issue 183 */
 
+[lang="fr"] {
+    .field--label-inline {
+        .field__label {
+            &:after {
+                @apply pl-2;
+            }
+        }
+    }
+}
+
 .field {
   &.field--name-field-popular-links {
     .field__item {
@@ -395,3 +405,4 @@ h1#heading {
 /* End Custom SCSS */
 
 @import "partials/accordion";
+@import "partials/peak-times-graph";

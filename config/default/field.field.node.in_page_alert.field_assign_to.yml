@@ -5,6 +5,9 @@ dependencies:
   config:
     - field.storage.node.field_assign_to
     - node.type.basic_page
+    - node.type.campaign_page
+    - node.type.campground_directory_record
+    - node.type.directory_records_places
     - node.type.documents
     - node.type.engagement
     - node.type.in_page_alert
@@ -13,11 +16,10 @@ dependencies:
     - node.type.multi_step_page
     - node.type.topics_page
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.in_page_alert.field_assign_to
 field_name: field_assign_to
 entity_type: node
@@ -33,10 +35,13 @@ settings:
   handler_settings:
     target_bundles:
       basic_page: basic_page
+      campaign_page: campaign_page
+      campground_directory_record: campground_directory_record
       documents: documents
       landing_page: landing_page
       landing_page_level_2: landing_page_level_2
       multi_step_page: multi_step_page
+      directory_records_places: directory_records_places
       engagement: engagement
       topics_page: topics_page
     sort:

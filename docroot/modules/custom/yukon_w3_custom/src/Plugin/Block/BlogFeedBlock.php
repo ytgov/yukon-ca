@@ -9,6 +9,7 @@ namespace Drupal\yukon_w3_custom\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -37,6 +38,13 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
   protected $routeMatch;
 
   /**
+   * The current route match.
+   *
+   * @var \Drupal\Core\Path\CurrentPathStack
+   */
+  protected $pathStack;
+
+  /**
    * Constructs a new BookNavigationBlock instance.
    *
    * @param array $configuration
@@ -47,30 +55,36 @@ class BlogFeedBlock extends BlockBase implements ContainerFactoryPluginInterface
    *   The plugin implementation definition.
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager service.
+   * @param \Drupal\Core\Path\CurrentPathStack $pathStack
+   *   The current path alias.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
-   *   The current route match. 
+   *   The current route match.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, LanguageManagerInterface $language_manager, RouteMatchInterface $route_match) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, LanguageManagerInterface $language_manager, CurrentPathStack $pathStack, RouteMatchInterface $route_match) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->languageManager = $language_manager;
     $this->routeMatch = $route_match;
+    $this->path = $pathStack;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new self($configuration, $plugin_id, $plugin_definition, $container->get('language_manager'), $container->get('current_route_match'));
+    return new self($configuration, $plugin_id, $plugin_definition, $container->get('language_manager'), $container->get('path.current'), $container->get('current_route_match'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function build() {
+    $current_path = $this->path->getPath();
+    $term = explode('/', $current_path);
     $language = $this->languageManager->getCurrentLanguage()->getId();
     return [
       '#theme' => 'blog_feed',
       '#language' => $language,
+      '#tid' => $term[3],
       '#cache' => ['max-age' => 0],
     ];
   }

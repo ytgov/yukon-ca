@@ -170,6 +170,7 @@ process:
   field_main_telephone: field_telephone_
   field_postal_code: field_postcode
   field_street_address: field_street_address
+  field_open_24_hours: field_open_24_hours
 
   path/alias: alias
   path/pathauto: pathauto

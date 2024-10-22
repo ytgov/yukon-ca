@@ -1,0 +1,195 @@
+.peak-times-graph {
+	width: 390px;
+	max-width: 100%;
+	margin: 15px 0;
+}
+
+.peak-times-graph--labels,
+.peak-times-graph--wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 0 10px;
+}
+
+.peak-times-graph--labels span,
+.peak-times-graph--wrapper span {
+	display: inline-block;
+	width: 20%;
+}
+
+.peak-times-graph--wrapper {
+	height: 150px;
+	border: 1px solid #EEE;
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+.peak-times-graph--wrapper span {
+	margin: 0 12px;
+	background-color: red;
+}
+
+.peak-times-graph--wrapper span.poor {
+	height: 87%;
+	background-color: #DC4405;
+}
+
+.peak-times-graph--wrapper span.good {
+	height: 55%;
+	background-color: #F2A900;
+}
+
+.peak-times-graph--wrapper span.very_good {
+	height: 25%;
+	background-color: #7A9A01;
+}
+
+.peak-times-graph--labels span {
+	font-size: 12px;
+	line-height: 16px;
+	margin-top: 4px;
+	text-align: center;
+}
+
+.peak-times-graph-legend {
+	width: 100%;
+	margin: 0;
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper {
+	position: relative;
+	display: none;
+	width: 250px;
+	padding: 0;
+	border: none;
+}
+
+.peak-times-graph-legend .peak-times-graph--labels {
+	display: block;
+	margin: -12px 0;
+	padding: 0;
+}
+
+.peak-times-graph-legend .peak-times-graph--labels span {
+	position: relative;
+	display: block;
+	width: auto;
+	margin: 24px 0 24px 36px;
+	text-align: left;
+}
+
+.peak-times-graph-legend .peak-times-graph--labels span:after {
+	position: absolute;
+	top: calc(50% - 10px);
+	left: -36px;
+	width: 20px;
+	height: 20px;
+	content: "";
+}
+
+.peak-times-graph-legend .peak-times-graph--labels .poor:after {
+	background-color: #DC4405;
+}
+
+.peak-times-graph-legend .peak-times-graph--labels .good:after {
+	background-color: #F2A900;
+}
+
+.peak-times-graph-legend .peak-times-graph--labels .very_good:after {
+	background-color: #7A9A01;
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper span {
+	width: 10%;
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper span:first-of-type {
+	margin-left: 0;
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper span:after {
+	position: absolute;
+	height: 1px;
+	content: "";
+	background-color: #DBD9DB;
+	z-index: -1;
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper .poor:after {
+	top: 13%;
+	left: 10%;
+	width: calc(100% - 10%);
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper .good:after {
+	top: 45%;
+	left: calc(20% + 24px);
+	width: calc(100% - (20% + 24px));
+}
+
+.peak-times-graph-legend .peak-times-graph--wrapper .very_good:after {
+	top: 75%;
+	left: calc(30% + 48px);
+	width: calc(100% - (30% + 48px));
+}
+
+@media screen and (min-width: 768px) {
+	.peak-times-graph--labels,
+	.peak-times-graph--wrapper {
+		padding: 0 40px;
+	}
+
+	.peak-times-graph-legend {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		float: left;
+		overflow: hidden;
+		margin-bottom: 75px;
+	}
+
+	.peak-times-graph-legend .peak-times-graph--wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		float: left;
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels {
+		position: relative;
+		margin: 0;
+		-webkit-box-flex: 1;
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels span {
+		position: absolute;
+		left: 8px;
+		margin: 0;
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels span:after {
+		display: none;
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels .poor {
+		top: calc(13% - 8px);
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels .good {
+		top: calc(45% - 8px);
+	}
+
+	.peak-times-graph-legend .peak-times-graph--labels .very_good {
+		top: calc(75% - 8px);
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.peak-times-graph-legend .peak-times-graph--wrapper {
+		width: 310px;
+	}
+}

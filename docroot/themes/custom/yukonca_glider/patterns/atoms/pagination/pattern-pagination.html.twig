@@ -49,7 +49,7 @@
       {% endif %}
       {# Now generate the actual pager piece. #}
       {% for key, item in items.pages %}
-        <li class="{{ (loop.first and not items.previous ) ? ' font-normal' }} {{ (loop.last and not items.next ) ? 'mr-auto' }} pager__item{{ current == key ? ' is-active' : '' }} font-medium p-0 pl-[10px] relative separator">
+        <li class="{{ (loop.first and not items.previous ) ? ' font-normal' }} pager__item{{ current == key ? ' is-active' : '' }} font-medium p-0 pl-[10px] relative separator">
           {% if current == key %}
             {% set title = 'Current page'|t %}
           {% else %}

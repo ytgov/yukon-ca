@@ -102,7 +102,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 9
+    weight: 6
     region: content
   field_additional_related_info:
     type: text_default
@@ -151,7 +151,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 5
     region: content
   field_gps_coordinate_n:
     type: string
@@ -159,7 +159,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 15
+    weight: 8
     region: content
   field_gps_coordinate_w:
     type: string
@@ -167,7 +167,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 16
+    weight: 9
     region: content
   field_holiday_hours:
     type: entity_reference_revisions_entity_view
@@ -287,7 +287,26 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 4
+    region: content
+  field_open_24_hours:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    weight: 13
     region: content
   field_opening_times:
     type: entity_reference_revisions_entity_view
@@ -303,7 +322,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 7
     region: content
   field_places_record_type:
     type: entity_reference_revisions_entity_view
@@ -345,7 +364,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-    weight: 4
+    weight: 3
     region: content
   field_statutory_holiday_link:
     type: linkit
@@ -393,7 +412,6 @@ hidden:
   addtoany: true
   field_department_term: true
   field_meta_tags: true
-  field_open_24_hours: true
   field_social_sharing: true
   field_yukon_editorial_team: true
   langcode: true

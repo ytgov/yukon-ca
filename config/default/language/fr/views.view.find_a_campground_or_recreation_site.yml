@@ -13,3 +13,76 @@ display:
         field_one_wheelchair_camp_value:
           group_info:
             label: 'Type d’installation'
+          expose:
+            description: ''
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            description: ''
+        field_boat_launch_value:
+          expose:
+            description: ''
+        field_hiking_trails_value:
+          expose:
+            description: ''
+        field_playground_value:
+          expose:
+            description: ''
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''
+  block_backcountry_campgrounds:
+    display_options:
+      filters:
+        field_region_target_id:
+          admin_label: Région
+          expose:
+            label: Région
+        field_one_wheelchair_camp_value:
+          expose:
+            description: ''
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            description: ''
+        field_boat_launch_value:
+          expose:
+            description: ''
+        field_hiking_trails_value:
+          expose:
+            description: ''
+        field_playground_value:
+          expose:
+            description: ''
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''
+  block_campgrounds:
+    display_options:
+      filters:
+        field_region_target_id:
+          admin_label: Région
+          expose:
+            label: Région
+        field_one_wheelchair_camp_value:
+          expose:
+            description: ''
+          group_info:
+            label: 'Type d’installation'
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            description: ''
+        field_boat_launch_value:
+          expose:
+            description: ''
+        field_hiking_trails_value:
+          expose:
+            description: ''
+        field_playground_value:
+          expose:
+            description: ''
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''
+        field_campground_site_type_target_id:
+          admin_label: 'Type de site'
+          expose:
+            label: 'Type de site'

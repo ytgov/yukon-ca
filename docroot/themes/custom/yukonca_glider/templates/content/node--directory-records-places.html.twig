@@ -126,6 +126,10 @@
             
             {{ content.field_website }}
             
+            {% if node.field_open_24_hours.value == 1 %}
+                {{ content.field_open_24_hours }}
+            {% endif %}
+            
             {{ content.field_opening_times }}
             
             {{ content.field_holiday_hours }}

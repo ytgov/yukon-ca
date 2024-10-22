@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.in_page_alerts
   module:
+    - block_class
     - node
     - views
   theme:
@@ -31,6 +32,9 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       basic_page: basic_page
+      campaign_page: campaign_page
+      campground_directory_record: campground_directory_record
+      directory_records_places: directory_records_places
       documents: documents
       engagement: engagement
       landing_page: landing_page

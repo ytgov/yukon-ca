@@ -211,7 +211,7 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     $variables['combine_filter'] = $view->exposed_data['combine'];
   }
   if ($view->id() == 'find_a_campground_or_recreation_site') {
-    //dump($view->exposed_data); die;
+    // dump($view->exposed_data); die;.
     $department = $view->exposed_data['region'];
     $site_type = $view->exposed_data['site_type'];
     $campsite = !is_array($view->exposed_data['wheelchair_accessible_campsite']) ? $view->exposed_data['wheelchair_accessible_campsite'] : $view->exposed_data['wheelchair_accessible_campsite'][1];
@@ -220,7 +220,7 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     $trails = !is_array($view->exposed_data['field_hiking_trails_value']) ? $view->exposed_data['field_hiking_trails_value'] : $view->exposed_data['field_hiking_trails_value'][1];
     $playground = !is_array($view->exposed_data['field_playground_value']) ? $view->exposed_data['field_playground_value'] : $view->exposed_data['field_playground_value'][1];
     $dock_no = !is_array($view->exposed_data['field_swimming_area_or_dock_no_l_value']) ? $view->exposed_data['field_swimming_area_or_dock_no_l_value'] : $view->exposed_data['field_swimming_area_or_dock_no_l_value'][1];
-    
+
     if ($view->exposed_data['region'] != 'All' && $view->exposed_data['region'] != '') {
       $term = Term::load($view->exposed_data['region']);
       $department = $term->getName();
@@ -249,10 +249,10 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     }
     $variables['department'] = $department;
     if (isset($view->exposed_data['site_type'])) {
-        $variables['site_type'] = $site_type;
+      $variables['site_type'] = $site_type;
     }
     else {
-        $variables['site_type'] = 'All';
+      $variables['site_type'] = 'All';
     }
     $variables['campsite'] = $campsite;
     $variables['ac_value'] = $ac_value;

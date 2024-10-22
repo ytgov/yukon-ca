@@ -20,3 +20,15 @@ display:
       exposed_form:
         options:
           submit_button: Appliquer
+      empty:
+        area:
+          content:
+            value: 'Aucun engagement ouvert trouvé'
+            format: plain_text
+  related_block:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<h4>Aucun engagement ouvert trouvé</h4>'
+            format: full_html

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.medium_format
     - core.date_format.time_am_pm
     - date_recur.interpreter.default_interpreter
     - field.field.node.event.field_building_name
@@ -156,12 +155,12 @@ content:
     label: hidden
     settings:
       timezone_override: America/Whitehorse
-      format_type: medium_format
+      format_type: time_am_pm
       from_to: both
       separator: 'to '
       show_next: 5
       count_per_item: true
-      occurrence_format_type: medium_format
+      occurrence_format_type: time_am_pm
       same_end_date_format_type: time_am_pm
       interpreter: default_interpreter
     third_party_settings:
