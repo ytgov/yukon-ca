@@ -19,6 +19,14 @@
     }
 }
 
+[lang="fr"] {
+    .page-node-type-basic-page {
+        time.datetime {
+            @apply lowercase;
+        }
+    }
+}
+
 main {
 	> .row {
 		@apply pt-[60px];

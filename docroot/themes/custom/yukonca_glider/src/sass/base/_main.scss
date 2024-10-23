@@ -262,6 +262,10 @@ h1#heading {
           
           .media {
               @apply flex flex-col items-center;
+              
+              &.media-wysiwyg-align-left {
+                  @apply float-left mt-3.75 mr-5;
+              }
 
               img {
                   @apply max-w-[300px];
