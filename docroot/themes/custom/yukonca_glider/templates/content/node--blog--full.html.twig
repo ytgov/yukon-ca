@@ -96,7 +96,12 @@
 
   <div class="blog-credits mb-8">
     {{ 'By'|t }} {{ node.owner.name.value ? node.owner.name.value : author_name }}
-    <div class="text-gray">{{ node.getCreatedTime() | date("F j, Y") }}</div>
+    {% if lang == "en" %}
+        <div class="text-gray">{{ node.getCreatedTime() | date("F j, Y") }}</div>
+    {% endif %}
+    {% if lang == "fr" %}
+        <div class="text-gray">{{ node.getCreatedTime() | date("j") }} {{ node.getCreatedTime() | date("F")|t }} {{ node.getCreatedTime() | date("Y") }}</div>
+    {% endif %}
   </div>
 
   <div{{ content_attributes.addClass('node__content') }}>

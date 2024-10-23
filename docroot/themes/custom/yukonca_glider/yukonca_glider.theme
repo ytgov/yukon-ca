@@ -213,6 +213,8 @@ function yukonca_glider_preprocess_node__blog(&$variables) {
   if (($current_time - $created_time) >= $six_months_in_seconds) {
     $variables['six_months_old'] = TRUE;
   }
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['lang'] = $langcode;
 }
 
 /**
