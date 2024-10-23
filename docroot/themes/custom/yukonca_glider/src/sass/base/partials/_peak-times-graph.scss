@@ -1,195 +1,143 @@
 .peak-times-graph {
-	width: 390px;
-	max-width: 100%;
-	margin: 15px 0;
+	@apply w-[390px] max-w-full my-3.75 mx-0;
 }
 
-.peak-times-graph--labels,
-.peak-times-graph--wrapper {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 0 10px;
-}
-
-.peak-times-graph--labels span,
-.peak-times-graph--wrapper span {
-	display: inline-block;
-	width: 20%;
+.peak-times-graph--labels {
+	@apply flex py-0 px-2.5;
+	
+	span {
+		@apply inline-block w-1/5 text-xs leading-4 mt-1 text-center;
+	}
 }
 
 .peak-times-graph--wrapper {
-	height: 150px;
-	border: 1px solid #EEE;
-	-webkit-box-align: end;
-	-ms-flex-align: end;
-	align-items: flex-end;
-}
-
-.peak-times-graph--wrapper span {
-	margin: 0 12px;
-	background-color: red;
-}
-
-.peak-times-graph--wrapper span.poor {
-	height: 87%;
-	background-color: #DC4405;
-}
-
-.peak-times-graph--wrapper span.good {
-	height: 55%;
-	background-color: #F2A900;
-}
-
-.peak-times-graph--wrapper span.very_good {
-	height: 25%;
-	background-color: #7A9A01;
-}
-
-.peak-times-graph--labels span {
-	font-size: 12px;
-	line-height: 16px;
-	margin-top: 4px;
-	text-align: center;
+	@apply flex h-[150px] border-1 border-solid border-gray-lightgray items-end py-0 px-2.5;
+	
+	span {
+		@apply inline-block w-1/5 my-0 mx-3 bg-[red];
+		
+		&.poor {
+			@apply h-[87%] bg-chart-poor;
+		}
+		
+		&.good {
+			@apply h-[55%] bg-chart-good;
+		}
+		
+		&.very_good {
+			@apply h-1/4 bg-chart-vgood;
+		}
+	}
 }
 
 .peak-times-graph-legend {
-	width: 100%;
-	margin: 0;
-}
+	@apply w-full m-0;
+	
+	@include media-breakpoint-up(md) {
+      @apply bg-[red];
+    }
+	
+	.peak-times-graph--labels {
+		@apply block -my-3 mx-0 p-0;
+		
+		span {
+			@apply relative block w-auto mx-6 ml-0 mr-9 text-left;
+			
+			&:after {
+				@apply absolute -left-9 w-5 h-5 content-[""];
+				top: calc(50% - 10px);
+			}
+		}
+		
+		.poor:after {
+			@apply bg-chart-poor;
+		}
+		
+		.good:after {
+			@apply bg-chart-good;
+		}
+		
+		.very_good:after {
+			@apply bg-chart-vgood;
+		}
+	}
+	
+	.peak-times-graph--wrapper {
+		@apply relative hidden w-[250px] p-0 border-0 border-none;
+		
+		span {
+			@apply w-[10%];
+			
+			&:first-of-type {
+				@apply ml-0;
+			}
+			
+			&:after {
+				@apply absolute h-px bg-[#DBD9DB] -z-[1] content-[""];
+			}
+		}
+		
+		.poor:after {
+			@apply top-[13%] left-[10%];
+			width: calc(100% - 10%);
+		}
+		
+		.good:after {
+			@apply top-[45%];
+			left: calc(20% + 24px);
+			width: calc(100% - (20% + 24px));
+		}
+		
+		.very_good:after {
+			@apply top-3/4;
+			left: calc(30% + 48px);
+			width: calc(100% - (30% + 48px));
+		}
+	}
 
-.peak-times-graph-legend .peak-times-graph--wrapper {
-	position: relative;
-	display: none;
-	width: 250px;
-	padding: 0;
-	border: none;
-}
-
-.peak-times-graph-legend .peak-times-graph--labels {
-	display: block;
-	margin: -12px 0;
-	padding: 0;
-}
-
-.peak-times-graph-legend .peak-times-graph--labels span {
-	position: relative;
-	display: block;
-	width: auto;
-	margin: 24px 0 24px 36px;
-	text-align: left;
-}
-
-.peak-times-graph-legend .peak-times-graph--labels span:after {
-	position: absolute;
-	top: calc(50% - 10px);
-	left: -36px;
-	width: 20px;
-	height: 20px;
-	content: "";
-}
-
-.peak-times-graph-legend .peak-times-graph--labels .poor:after {
-	background-color: #DC4405;
-}
-
-.peak-times-graph-legend .peak-times-graph--labels .good:after {
-	background-color: #F2A900;
-}
-
-.peak-times-graph-legend .peak-times-graph--labels .very_good:after {
-	background-color: #7A9A01;
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper span {
-	width: 10%;
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper span:first-of-type {
-	margin-left: 0;
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper span:after {
-	position: absolute;
-	height: 1px;
-	content: "";
-	background-color: #DBD9DB;
-	z-index: -1;
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper .poor:after {
-	top: 13%;
-	left: 10%;
-	width: calc(100% - 10%);
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper .good:after {
-	top: 45%;
-	left: calc(20% + 24px);
-	width: calc(100% - (20% + 24px));
-}
-
-.peak-times-graph-legend .peak-times-graph--wrapper .very_good:after {
-	top: 75%;
-	left: calc(30% + 48px);
-	width: calc(100% - (30% + 48px));
 }
 
 @media screen and (min-width: 768px) {
-	.peak-times-graph--labels,
-	.peak-times-graph--wrapper {
-		padding: 0 40px;
-	}
-
 	.peak-times-graph-legend {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		float: left;
-		overflow: hidden;
-		margin-bottom: 75px;
-	}
+		@apply flex mb-[75px] float-left overflow-hidden;
 
-	.peak-times-graph-legend .peak-times-graph--wrapper {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		float: left;
-	}
+		.peak-times-graph--wrapper {
+			@apply flex float-left px-0 py-10;
+		}
+		
+		.peak-times-graph--labels {
+			@apply relative m-0 px-0 py-10;
+			-webkit-box-flex: 1;
+			-ms-flex: 1 0 auto;
+			flex: 1 0 auto;
 
-	.peak-times-graph-legend .peak-times-graph--labels {
-		position: relative;
-		margin: 0;
-		-webkit-box-flex: 1;
-		-ms-flex: 1 0 auto;
-		flex: 1 0 auto;
-	}
+			span {
+				@apply absolute left-2 m-0;
 
-	.peak-times-graph-legend .peak-times-graph--labels span {
-		position: absolute;
-		left: 8px;
-		margin: 0;
-	}
+				&:after {
+					@apply hidden;
+				}
+			}
 
-	.peak-times-graph-legend .peak-times-graph--labels span:after {
-		display: none;
-	}
+			.poor {
+				top: calc(13% - 8px);
+			}
 
-	.peak-times-graph-legend .peak-times-graph--labels .poor {
-		top: calc(13% - 8px);
-	}
+			.good {
+				top: calc(45% - 8px);
+			}
 
-	.peak-times-graph-legend .peak-times-graph--labels .good {
-		top: calc(45% - 8px);
-	}
-
-	.peak-times-graph-legend .peak-times-graph--labels .very_good {
-		top: calc(75% - 8px);
+			.very_good {
+				top: calc(75% - 8px);
+			}
+		}
 	}
 }
 
 @media screen and (min-width: 992px) {
-	.peak-times-graph-legend .peak-times-graph--wrapper {
-		width: 310px;
+	.peak-times-graph-legend {
+		.peak-times-graph--wrapper {
+			@apply w-[310px];
+		}
 	}
 }
