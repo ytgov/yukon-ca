@@ -11,21 +11,21 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_openid_connect_userinfo_save().
  */
 function yukon_sso_openid_connect_userinfo_save($account, $context) {
-  // All roles should be updated on each authorization.
-  // Delete all user roles.
+  $roles_mapping = yukon_sso_get_roles_mapping();
+
+  // SSO roles should be updated on each authorization.
+  // Delete all SSO user roles.
   foreach ($account->getRoles() as $role) {
-    $account->removeRole($role);
+    if (in_array($role, $roles_mapping)) {
+      $account->removeRole($role);
+    }
   }
 
   // Assign roles according to SSO response.
   if (!empty($context['user_data']['urn:myyukon.ca/groups'])) {
-    $roles_mapping = yukon_sso_get_roles_mapping();
     foreach ($context['user_data']['urn:myyukon.ca/groups'] as $auth0_role) {
       if (isset($roles_mapping[$auth0_role])) {
         $account->addRole($roles_mapping[$auth0_role]);
-      }
-      else {
-        \Drupal::logger('yukon_sso')->alert("Mapping error for SSO role: '{$auth0_role}'. There is no mapping for this role. Account: {$account->getAccountName()}");
       }
     }
   }
