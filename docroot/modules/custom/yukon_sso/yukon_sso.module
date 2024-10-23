@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_openid_connect_userinfo_save().
+ */
+function yukon_sso_openid_connect_userinfo_save($account, $context) {
+  // All roles should be updated on each authorization.
+  // Delete all user roles.
+  foreach ($account->getRoles() as $role) {
+    $account->removeRole($role);
+  }
+
+  // Assign roles according to SSO response.
+  if (!empty($context['user_data']['urn:myyukon.ca/groups'])) {
+    $roles_mapping = yukon_sso_get_roles_mapping();
+    foreach ($context['user_data']['urn:myyukon.ca/groups'] as $auth0_role) {
+      if (isset($roles_mapping[$auth0_role])) {
+        $account->addRole($roles_mapping[$auth0_role]);
+      }
+      else {
+        \Drupal::logger('yukon_sso')->alert("Mapping error for SSO role: '{$auth0_role}'. There is no mapping for this role. Account: {$account->getAccountName()}");
+      }
+    }
+  }
+}
+
+/**
+ * SSO and Drupal roles mapping.
+ *
+ * @return array
+ *   Roles mapping list.
+ */
+function yukon_sso_get_roles_mapping(): array {
+  return [
+    'web-admin' => 'site_administrator',
+    'web-trans' => 'translator',
+    'web-team' => 'team_administrator',
+    'web-alerts' => 'author_in_page_alerts',
+    'web-pub' => 'publisher',
+    'web-editor' => 'editor',
+    'web-writer' => 'writer',
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function yukon_sso_form_openid_connect_login_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $form['openid_connect_client_generic_login']['#value'] = t('Log in with MyYukon');
+}
