@@ -99,6 +99,8 @@ module:
   module_missing_message_fixer: 0
   mysql: 0
   node: 0
+  noreqnewpass: 0
+  openid_connect: 0
   options: 0
   page_cache: 0
   page_manager: 0
@@ -162,6 +164,7 @@ module:
   yukon_department: 0
   yukon_migrate: 0
   yukon_moderation: 0
+  yukon_sso: 0
   yukon_taxonomy: 0
   yukon_w3_custom: 0
   yukon_w3_migrate: 0
