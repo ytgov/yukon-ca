@@ -185,10 +185,20 @@ final class UriTransform extends ProcessPluginBase {
           ->orderBy('id', 'DESC')
           ->execute()->fetchObject();
         if (!empty($result->alias)) {
-          $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+          if (!empty($langcode)) {
+            $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+          }
+          else {
+            $value = str_ireplace($matches[0], $result->alias, $value);
+          }
         }
         else {
-          $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $destNid, $value);
+          if (!empty($langcode)) {
+            $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $destNid, $value);
+          }
+          else {
+            $value = str_ireplace($matches[0], '/node/' . $destNid, $value);
+          }
         }
         if (!empty($mapping[$sourceNid])) {
           $this->messenger()->addWarning($message . ' Duplicate SourceNid found');
@@ -206,10 +216,20 @@ final class UriTransform extends ProcessPluginBase {
         ->orderBy('id', 'DESC')
         ->execute()->fetchObject();
       if (!empty($result->alias)) {
-        $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+        if (!empty($langcode)) {
+          $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
+        }
+        else {
+          $value = str_ireplace($matches[0], $result->alias, $value);
+        }
       }
       else {
-        $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $sourceNid, $value);
+        if (!empty($langcode)) {
+          $value = str_ireplace($matches[0], '/' . $langcode . '/node/' . $sourceNid, $value);
+        }
+        else {
+          $value = str_ireplace($matches[0], '/node/' . $sourceNid, $value);
+        }
       }
       $this->messenger()->addError($message);
     }

@@ -1,3 +1,15 @@
+#block-yukonca-glider-peaktimes {
+    #block-yukonca-glider-peaktimes-heading {
+        @apply text-base mb-0 pt-12;
+    }
+    
+    .field-name-field-contact {
+        .field-label {
+            @apply mt-0;
+        }
+    }
+}
+
 .peak-times-graph {
 	@apply w-[390px] max-w-full my-3.75 mx-0;
 }
@@ -32,11 +44,7 @@
 
 .peak-times-graph-legend {
 	@apply w-full m-0;
-	
-	@include media-breakpoint-up(md) {
-      @apply bg-[red];
-    }
-	
+
 	.peak-times-graph--labels {
 		@apply block -my-3 mx-0 p-0;
 		
@@ -102,7 +110,7 @@
 		@apply flex mb-[75px] float-left overflow-hidden;
 
 		.peak-times-graph--wrapper {
-			@apply flex float-left px-0 py-10;
+			@apply flex float-left px-0;
 		}
 		
 		.peak-times-graph--labels {

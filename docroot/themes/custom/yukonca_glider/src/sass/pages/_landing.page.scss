@@ -6,10 +6,6 @@
     }
     
     .column-layout-card {
-        .main-link {
-            @apply text-blue-500;
-        }
-
         .subcategory-links {
             a {
                 @apply font-medium;

@@ -5,6 +5,16 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      fields:
+        status:
+          settings:
+            format_custom_true: 'Publié le'
+      filters:
+        status:
+          group_info:
+            group_items:
+              1:
+                title: 'Publié le'
   user_page:
     display_options:
       arguments:
