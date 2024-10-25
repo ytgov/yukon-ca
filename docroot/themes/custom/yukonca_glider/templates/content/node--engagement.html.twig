@@ -94,7 +94,9 @@
                 <div class="alert-content">
                     <i class="fa fa-info-circle"></i>
                     <p class="alert-title">{{ 'This engagement is now closed'|t }}.</p>
-                    <p>{{ 'It ran from'|t}} {{ node.field_engagement_dates.value|date("Y-m-d") }} {{ '<span>to<span>'|t }} {{ node.field_engagement_dates.end_value|date("Y-m-d") }}.</p>
+                    {% if node.field_engagement_dates is not empty %}
+                        <p>{{ 'It ran from'|t}} {{ node.field_engagement_dates.value|date("Y-m-d") }} {{ '<span>to<span>'|t }} {{ node.field_engagement_dates.end_value|date("Y-m-d") }}.</p>
+                    {% endif %}
                     <p>{{ 'Check below for where to find results'|t }}.</p>
                 </div>
             </div>

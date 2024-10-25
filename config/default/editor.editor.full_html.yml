@@ -25,7 +25,6 @@ settings:
       - undo
       - redo
       - insertTable
-      - removeFormat
       - anchor
       - horizontalLine
       - superscript
@@ -54,6 +53,8 @@ settings:
         reversed: true
         startIndex: true
       multiBlock: true
+    ckeditor5_plugin_pack_find_and_replace__find_and_replace:
+      ui_type: dialog
     ckeditor5_show_block_show_block:
       enable_show_block_default: 0
     ckeditor5_sourceEditing:

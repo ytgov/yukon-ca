@@ -105,4 +105,5 @@ filters:
       allowed_view_modes:
         default: default
       allowed_media_types:
+        audio: audio
         image: image

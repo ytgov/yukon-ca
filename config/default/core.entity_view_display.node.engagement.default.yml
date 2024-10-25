@@ -21,7 +21,6 @@ dependencies:
     - node.type.engagement
   module:
     - datetime_range
-    - fences
     - metatag
     - text
     - user
@@ -44,23 +43,14 @@ content:
     region: content
   field_engagement_dates:
     type: daterange_default
-    label: hidden
+    label: above
     settings:
       timezone_override: ''
-      format_type: html_date
+      format_type: medium
       from_to: both
-      separator: to
-    third_party_settings:
-      fences:
-        fences_field_tag: none
-        fences_field_classes: ''
-        fences_field_items_wrapper_tag: none
-        fences_field_items_wrapper_classes: ''
-        fences_field_item_tag: none
-        fences_field_item_classes: ''
-        fences_label_tag: none
-        fences_label_classes: ''
-    weight: 9
+      separator: '-'
+    third_party_settings: {  }
+    weight: 12
     region: content
   field_engagement_feedback:
     type: text_default
