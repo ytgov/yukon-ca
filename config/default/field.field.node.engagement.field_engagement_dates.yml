@@ -1,4 +1,4 @@
-uuid: 8ad3bd85-5852-4f32-8f11-1cede2ed8373
+uuid: a4591dd4-3122-4e6e-b663-7161dc90119f
 langcode: en
 status: true
 dependencies:
@@ -7,18 +7,17 @@ dependencies:
     - node.type.engagement
   module:
     - datetime_range
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.engagement.field_engagement_dates
 field_name: field_engagement_dates
 entity_type: node
 bundle: engagement
 label: Date
-description: 'Date that this engagement will be considered Open and Closed.'
-required: true
+description: ''
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

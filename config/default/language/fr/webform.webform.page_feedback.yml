@@ -7,3 +7,5 @@ elements: |
     '#title': 'En quoi cette page vous a-t-elle été utile?'
   actions:
     '#submit__label': 'Soumettre vos commentaires'
+settings:
+  confirmation_message: '<section class="alert alert-block alert-success"><p>Merci d’avoir pris le temps de nous faire part de vos commentaires.</p></section>'

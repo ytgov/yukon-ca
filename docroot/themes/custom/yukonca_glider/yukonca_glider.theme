@@ -691,5 +691,8 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
         unset($variables['breadcrumb'][1]);
       }
     }
+    if ($node->bundle() == 'engagement') {
+      $variables['breadcrumb'][1]['text'] = 'Engagements';
+    }
   }
 }

@@ -1,4 +1,4 @@
-uuid: 9195871a-e7ad-41d7-9caa-af35618c07a0
+uuid: 6a91cf79-bd4f-4662-910b-5d8b10a4680b
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ field_name: field_engagement_dates
 entity_type: node
 type: daterange
 settings:
-  datetime_type: datetime
+  datetime_type: date
 module: datetime_range
 locked: false
 cardinality: 1

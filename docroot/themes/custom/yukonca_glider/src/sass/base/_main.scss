@@ -91,7 +91,7 @@ h1#heading {
     .field--label-inline {
         .field__label {
             &:after {
-                @apply pl-2;
+                @apply pl-1;
             }
         }
     }

@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.date_format.medium_format
+    - core.date_format.month_date
     - core.date_format.short
     - core.date_format.time_am_pm
+    - date_recur.interpreter.default_interpreter
     - field.storage.node.field_category
     - field.storage.node.field_community
     - field.storage.node.field_event_start_time
@@ -1139,8 +1141,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{{ field_event_start_time_1__value|date('U')|format_date('medium_format') }} "
             make_link: false
             path: ''
             absolute: false
@@ -1184,15 +1186,15 @@ display:
             format_type: medium_format
             from_to: start_date
             separator: 'to '
-            show_next: 5
+            show_next: 1
             count_per_item: true
             occurrence_format_type: medium_format
-            same_end_date_format_type: time_am_pm
+            same_end_date_format_type: month_date
             interpreter: ''
           group_column: value
           group_columns: {  }
-          group_rows: false
-          delta_limit: 0
+          group_rows: true
+          delta_limit: 1
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
@@ -1387,6 +1389,77 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_event_start_time_2:
+          id: field_event_start_time_2
+          table: node__field_event_start_time
+          field: field_event_start_time
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{{ field_event_start_time_2__value|date('U')|format_date('medium_format') }} "
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: date_recur_basic_formatter
+          settings:
+            timezone_override: America/Whitehorse
+            format_type: medium_format
+            from_to: start_date
+            separator: '-'
+            show_next: 1
+            count_per_item: true
+            occurrence_format_type: medium_format
+            same_end_date_format_type: medium_format
+            interpreter: default_interpreter
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -1399,7 +1472,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"event-info--cat-image\">\r\n  {{ field_icon_dark }}\r\n</div>\r\n<div class=\"event-info-content\">\r\n  <div class=\"event-info-header\">\r\n    <div class=\"event-info--title\">{{ title }}</div>\r\n    <div class=\"event-info--meta\">\r\n      {{ field_event_start_time }}\r\n      {{ field_community }}\r\n    </div>\r\n  </div>\r\n  <div class=\"event-info--description\">\r\n      {{ field_page_description }}\r\n  </div>\r\n</div>"
+            text: "<div class=\"event-info--cat-image\">\r\n  {{ field_icon_dark }}\r\n</div>\r\n<div class=\"event-info-content\">\r\n  <div class=\"event-info-header\">\r\n    <div class=\"event-info--title\">{{ title }}</div>\r\n    <div class=\"event-info--meta\">\r\n      {{ field_event_start_time_2 }} <br>\r\n      {{ field_community }}\r\n    </div>\r\n  </div>\r\n  <div class=\"event-info--description\">\r\n      {{ field_page_description }}\r\n  </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
