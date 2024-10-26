@@ -34,6 +34,12 @@
                                     @apply text-sm leading-6 mb-0;
                                 }
                             }
+                            
+                            @include media-breakpoint-down(md) {
+                                .text {
+                                    @apply text-sm;
+                                }
+                            }
                         }
                     }
                 }

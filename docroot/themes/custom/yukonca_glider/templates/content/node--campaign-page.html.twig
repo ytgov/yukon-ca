@@ -99,7 +99,20 @@
 	{% endif %}
 
 	<div class="hero-img" style="background-image: url('{{ file_url(node.field_hero_image.entity.field_media_image_1.entity.uri.value) }}')">
-		
+		{% if node.field_source_credit.value is not empty %}
+		    <div class="source_icon">
+    		    <i class="fa fa-info-circle">
+        		    &nbsp;
+                </i>
+                <span>
+                        <div class="field field-name-field-source-credit field-type-text field-label-hidden">
+                            <div class="field-items">
+                                  <div class="field-item even">{{ node.field_source_credit.value|raw }}</div>
+                              </div>
+                        </div>
+                    </span>
+            </div>
+        {% endif %}
 	</div>
 
 	<div class="flex justify-center">

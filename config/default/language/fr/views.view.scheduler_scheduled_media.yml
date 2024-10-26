@@ -11,3 +11,13 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      fields:
+        status:
+          settings:
+            format_custom_true: 'Publié le'
+      filters:
+        status:
+          group_info:
+            group_items:
+              1:
+                title: 'Publié le'

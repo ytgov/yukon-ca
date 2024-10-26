@@ -32,6 +32,45 @@
 			@apply pt-0;
 		}
 		
+		.hero-img {
+		    .source_icon {
+		        @apply absolute z-10 w-[1024px] bottom-0 left-1/2 -translate-x-1/2;
+		        
+		        svg {
+		            @apply text-white opacity-60;
+		        }
+		        
+		        .field-name-field-source-credit {
+		            @apply hidden;
+
+		            .field-items {
+		                @apply mt-0;
+		            }
+		        }
+		        
+		        &:hover {
+		            @apply cursor-pointer;
+		            
+		            .field-name-field-source-credit {
+		                @apply block;
+		            }
+		        }
+		    }
+		}
+		
+		.paragraph--type--text,
+		.paragraph--type--text-and-image {
+			@apply pb-20 mt-20 border-b-1 border-gray-90;
+			
+			a {
+				@apply transition-all ease-in-out;
+	
+				&:hover {
+					@apply opacity-50;
+				}
+			}
+		}
+
 	    .field__item {
 			&:nth-last-of-type(1) {
 				@apply mb-0;
@@ -66,24 +105,61 @@
     		        }
 			    }
 			}
+			
+			.video {
+			    .container {
+				    @apply flex w-10/12;
+
+				    .video {
+				        @apply max-h-[360px] w-1/2 mx-3.75;
+				        
+				        iframe {
+				            @apply min-h-fit;
+				        }
+				    }
+				    
+				    .caption {
+				        @apply w-1/2 mx-3.75;
+				        
+				        .field__item {
+				            @apply text-gray-450;
+				            
+				            h3 {
+				                @apply text-gray-450;
+				            }
+				        }
+				    }
+			    }
+			    
+			    &.right {
+			        .container {
+			            @apply flex-row-reverse;
+			        }
+			    }
+			}
+			
+			.campaign-section {
+			    &.paragraph--type--text-and-image {
+			        @apply text-sm text-gray-450;
+			        
+    			    img {
+    			        @apply w-auto h-auto mb-6;
+    			    }
+    			    
+    			    .items-center {
+    			        @apply items-start;
+    			    }
+    			    
+    			    a {
+    			        @apply text-base;
+    			    }
+			    }
+			}
     	}
 			
 		#block-mainpagecontent {
 			@apply my-0;
 			
-		}
-
-		.paragraph--type--text,
-		.paragraph--type--text-and-image {
-			@apply pb-20 mt-20 border-b-1 border-gray-90;
-			
-			a {
-				@apply transition-all ease-in-out;
-	
-				&:hover {
-					@apply opacity-50;
-				}
-			}
 		}
 		
 		.layout-content {

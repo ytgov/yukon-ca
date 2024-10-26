@@ -13,8 +13,14 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        status:
+          label: 'Publié le'
         changed:
           label: 'Dernière mise à jour'
+      filters:
+        status:
+          expose:
+            label: 'Publié le'
   block_1:
     display_options:
       pager:
@@ -23,6 +29,10 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      filters:
+        status:
+          expose:
+            label: 'Publié le'
       fields:
         changed:
           label: 'Dernière mise à jour'

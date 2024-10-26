@@ -2,6 +2,10 @@ display:
   default:
     display_title: 'Par défaut'
     display_options:
+      fields:
+        status:
+          settings:
+            format_custom_true: 'Publié le'
       pager:
         options:
           expose:
@@ -12,3 +16,9 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        status:
+          group_info:
+            group_items:
+              1:
+                title: 'Publié le'

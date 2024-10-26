@@ -13,6 +13,12 @@ display:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       filters:
+        status:
+          group_info:
+            label: 'Publié le'
+            group_items:
+              1:
+                title: 'Publié le'
         name:
           expose:
             label: Nom
