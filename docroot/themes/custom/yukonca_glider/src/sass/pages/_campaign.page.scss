@@ -32,30 +32,42 @@
 			@apply pt-0;
 		}
 		
-		.hero-img {
-		    .source_icon {
-		        @apply absolute z-10 w-[1024px] bottom-0 left-1/2 -translate-x-1/2;
-		        
-		        svg {
-		            @apply text-white opacity-60;
-		        }
-		        
-		        .field-name-field-source-credit {
-		            @apply hidden;
-
-		            .field-items {
-		                @apply mt-0;
-		            }
-		        }
-		        
-		        &:hover {
-		            @apply cursor-pointer;
-		            
-		            .field-name-field-source-credit {
-		                @apply block;
-		            }
-		        }
-		    }
+		.node--type-campaign-page {
+    		.hero-img {
+    		    @apply z-10;
+    		    
+    		    .source_icon {
+    		        @apply flex h-full items-end;
+    		        
+    		        .field-name-field-source-credit {
+    		            @apply hidden;
+    
+    		            .field-items {
+    		                @apply mt-0;
+    		            }
+    		        }
+    		        
+    		        .icon {
+    		            @apply w-fit;
+    		            
+    		            &:hover {
+        		            @apply cursor-pointer;
+        		            
+        		            .field-name-field-source-credit {
+        		                @apply block;
+        		            }
+        		        }
+    		        }
+    		        
+    		        svg {
+    		            @apply text-white opacity-60;
+    		        }
+    		    }
+    		}
+    		
+    		> div {
+    		    @apply relative z-10;
+    		}
 		}
 		
 		.paragraph--type--text,
@@ -108,19 +120,9 @@
 			
 			.video {
 			    .container {
-				    @apply flex w-10/12;
+				    @apply w-10/12;
 
-				    .video {
-				        @apply max-h-[360px] w-1/2 mx-3.75;
-				        
-				        iframe {
-				            @apply min-h-fit;
-				        }
-				    }
-				    
 				    .caption {
-				        @apply w-1/2 mx-3.75;
-				        
 				        .field__item {
 				            @apply text-gray-450;
 				            
@@ -133,7 +135,37 @@
 			    
 			    &.right {
 			        .container {
-			            @apply flex-row-reverse;
+			            @apply flex;
+			            
+			            .video {
+			                @apply order-2 max-h-[280px] w-1/2 mx-3.75;
+			                
+			                iframe {
+    				            @apply min-h-[auto] h-full;
+    				        }
+			            }
+			            
+			            .caption {
+			                @apply order-1 w-1/2 mx-3.75;
+			            }
+			        }
+			    }
+			    
+			    &.left {
+			        .container {
+			            @apply flex;
+			            
+			            .video {
+			                @apply order-1 max-h-[280px] w-1/2 mx-3.75;
+			                
+			                iframe {
+    				            @apply min-h-[auto] h-full;
+    				        }
+			            }
+			            
+			            .caption {
+			                @apply order-2 w-1/2 mx-3.75;
+			            }
 			        }
 			    }
 			}

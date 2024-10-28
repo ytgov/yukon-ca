@@ -1,0 +1,25 @@
+uuid: 2dc9199e-677f-467e-9fdb-b95a4063b2d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - goy_wildfire_low_bandwidth
+    - system
+  theme:
+    - yukonca_glider
+id: yukonca_glider_goywildfirelowbandwidthblock
+theme: yukonca_glider
+region: content
+weight: -2
+provider: null
+plugin: goy_wildfire_low_bandwidth_block
+settings:
+  id: goy_wildfire_low_bandwidth_block
+  label: 'Goy Wildfire Low Bandwidth Block'
+  label_display: '0'
+  provider: goy_wildfire_low_bandwidth
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/node/23468\r\n/node/23476\r\n/node/23474\r\n/node/23473\r\n/node/23472\r\n/node/23471\r\n/node/23469\r\n/node/23465\r\n/node/23466\r\n/node/23435"

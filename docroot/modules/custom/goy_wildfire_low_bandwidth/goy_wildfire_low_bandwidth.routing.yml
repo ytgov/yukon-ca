@@ -1,0 +1,15 @@
+goy_wildfire_low_bandwidth.low_bandwidth:
+  path: '/admin/config/goy_wildfire_low_bandwidth'
+  defaults:
+    _form: '\Drupal\goy_wildfire_low_bandwidth\Form\GoyWildfireLowBandwidthForm'
+    _title: 'YG: Wildfire Low Bandwidth'
+  requirements:
+    _permission: 'access content'
+
+goy_wildfire_low_bandwidth.migrate:
+  path: '/admin/config/goy_wildfire_low_bandwidth/settings'
+  defaults:
+    _form: '\Drupal\goy_wildfire_low_bandwidth\Form\SettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'access content'

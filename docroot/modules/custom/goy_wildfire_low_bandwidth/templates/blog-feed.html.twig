@@ -1,0 +1,17 @@
+{% if language == "en" %}
+    <div class="subscribe-rss">
+        <h2 class="block-title">Subscribe to this blog</h2>
+        <p>Before clicking on the subscribe button, make sure you have an RSS reader installed. <a href="{{ url('<front>') }}/rss">Get more information about RSS readers.</a></p>
+        <p><br><a class="btn btn-default btn-lg" href="{{ url('<front>') }}/blogs/{{ tid }}/feed.xml" target="_BLANK"><span>Subscribe to RSS feed</span></a></p>
+    </div>
+
+{% else %}
+
+    <div class="subscribe-rss">
+        <h2 class="block-title">Souscrivez à ce blog</h2>
+        <p>Avant de cliquer sur le bouton « Abonnement », assurez-vous d’avoir installé un lecteur de fil RSS. <a href="{{ url('<front>') }}/rss">En savoir plus sur les lecteurs de fil RSS.</a></p><br>
+        <span>
+        <a href="{{ url('<front>') }}/blogs/{{ tid }}/feed.xml" target="_BLANK" class="btn btn-default btn-lg">Souscrivez à ce fil RSS</a></span>
+    </div>
+
+{% endif %}

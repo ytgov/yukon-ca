@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.find_a_campground_or_recreation_site
   module:
-    - block_class
     - system
     - views
   theme:
