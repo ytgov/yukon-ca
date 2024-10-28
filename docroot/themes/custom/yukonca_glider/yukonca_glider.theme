@@ -588,7 +588,7 @@ function yukonca_glider_preprocess_page(&$variables) {
       }
       else {
         $parent_page = $node->field_parent_campaign_page->target_id;
-
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page);
         if (!empty($parent_page)) {
           $node_parent = Node::load($parent_page);
           $translated_entity = $node_parent->getTranslation($langcode);
