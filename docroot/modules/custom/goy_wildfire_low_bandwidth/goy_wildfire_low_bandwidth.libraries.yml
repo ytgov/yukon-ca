@@ -1,0 +1,14 @@
+yukon_w3_custom.css:
+  version: VERSION
+  css:
+    theme:
+      css/_variables.css: {}
+      css/yukon_w3_custom.css: {}
+
+yukon_w3_custom.chart_js:
+  css:
+    theme:
+      css/highcharts.css: {}
+  js:
+    '//code.highcharts.com/highcharts.js': { type: external }
+    js/charts.js: {}

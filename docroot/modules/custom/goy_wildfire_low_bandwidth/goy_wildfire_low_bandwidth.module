@@ -1,0 +1,185 @@
+<?php
+
+/**
+ * @file
+ * Yukon w3 migrate module.
+ */
+
+/**
+ * Get Wildfire Details.
+ */
+function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type, $status) {
+
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // Add content to array.
+  $content = [];
+  $fire_of_note = [];
+  $suffix = [];
+  $status_message = '';
+  foreach ($wild_fire_type as $type) {
+    // Date field convert ms to seconds.
+    $initial_reported_date = ceil($type->INITIAL_REPORT_DATE / 1000);
+    // $extinguished_date = ceil($type->EXTINGUISHED_DATE / 1000);
+    $last_updated_date = ceil($type->EditDate / 1000);
+
+    $is_prescribed = $type->FIRE_TYPE == 'Prescribed';
+
+    // Language.
+    if ($language == 'fr') {
+      $initial_reported_date = \Drupal::service('date.formatter')->format($initial_reported_date, 'custom', 'l j F Y', NULL, 'fr');
+      $last_updated_date = \Drupal::service('date.formatter')->format($last_updated_date, 'custom', 'l j F Y', NULL, 'fr');
+      $fire_size = number_format((float) $type->FIRE_SIZE, 2, ',', ' ');
+      // Fire management zone.
+      $fire_management_zone = strtolower($type->FIRE_MANAGEMENT_ZONE_NAME);
+      if ($fire_management_zone === 'full' || $fire_management_zone === 'complet') {
+        $fire_management_zone = 'de 2e niveau.';
+      }
+      elseif ($fire_management_zone === 'wilderness') {
+        $fire_management_zone = 'd’intervention ponctuelle.';
+      }
+      elseif ($fire_management_zone === 'critical') {
+        $fire_management_zone = 'critique.';
+      }
+      elseif ($fire_management_zone === 'strategic ') {
+        $fire_management_zone = 'stratégique.';
+      }
+      elseif ($fire_management_zone === 'transitional') {
+        $fire_management_zone = 'de transition.';
+      }
+      // Status.
+      if ($status === 'out of control') {
+        $status_message = $is_prescribed ? 'Les équipes de lutte contre les feux de forêt exécutent activement ce brûlage dirigé' : 'Le feu est hors de contrôle';
+      }
+      elseif ($status === 'under control') {
+        $status_message = $is_prescribed ? 'Le personnel de la gestion des feux de forêt surveille ce brûlage dirigé terminé' : 'Le feu est maîtrisé';
+      }
+      elseif ($status === 'being held') {
+        $status_message = $is_prescribed ? 'Les équipes de lutte contre les feux de forêt exécutent activement ce brûlage dirigé' : 'Le feu est contenu';
+      }
+      elseif ($status === 'extinguished') {
+        $status_message = $is_prescribed ? 'Ce brûlage dirigé est terminé' : 'Le feu est maintenant éteint';
+      }
+    }
+    else {
+      $initial_reported_date = date('l, F j, Y', $initial_reported_date) . ' at ' . date('g:i a', $initial_reported_date);
+      $last_updated_date = date('l, F j, Y', $last_updated_date) . ' at ' . date('g:i a', $last_updated_date);
+
+      $fire_size = number_format((float) $type->FIRE_SIZE, 2, '.', '');
+      // Fire management zone.
+      $fire_management_zone = strtolower($type->FIRE_MANAGEMENT_ZONE_NAME) . ' ' . t('fire management zone.');
+      // Status.
+      if ($status === 'out of control') {
+        $status_message = $is_prescribed ? 'Wildfire crews are actively implementing this prescribed burn' : 'This fire is out of control';
+      }
+      elseif ($status === 'under control') {
+        $status_message = $is_prescribed ? 'Wildfire staff are monitoring this completed prescribed burn' : 'This fire is under control';
+      }
+      elseif ($status === 'being held') {
+        $status_message = $is_prescribed ? 'Wildfire crews are actively implementing this prescribed burn' : 'This fire is being held';
+      }
+      elseif ($status === 'extinguished') {
+        $status_message = $is_prescribed ? 'This prescribed burn is complete' : 'This fire is extinguished';
+      }
+    }
+
+    // Response strings.
+    if (!$is_prescribed) {
+      $full_response = $type->FIRE_FULL_RESPONSE ? t("and requires a full response. An aggressive initial attack takes place with the goal of containing the fire and putting it out as quickly as possible.") : '';
+      $modified_response = $type->FIRE_MODIFIED_RESPONSE ? t("and requires a modified response. Fire personnel complete a wildland fire analysis and use a variety of techniques to prevent property and infrastructure damage. Full suppression of the fire is unlikely to be necessary or possible.") : '';
+      $monitored_response = $type->FIRE_MONITORED_RESPONSE ? t("and requires a monitored response. Officials keep track of the fire for potential social disruption or other major impacts as it fulfills its natural ecological role.") : '';
+    }
+    else {
+      $full_response = $modified_response = $monitored_response = '';
+    }
+
+    // Add response strings to array.
+    $response = '';
+    if ($full_response) {
+      $response = $status_message . ' ' . $full_response;
+    }
+    elseif ($modified_response) {
+      $response = $status_message . ' ' . $modified_response;
+    }
+    elseif ($monitored_response) {
+      $response = $status_message . ' ' . $monitored_response;
+    }
+    if (empty($response) || $status === 'extinguished') {
+      $response = $status_message . '.';
+    }
+
+    // Add fire of note to array.
+    $fire_of_note_display = FALSE;
+    if ($type->IsFireOfNote != 'no') {
+      $fire_of_note_display = TRUE;
+    }
+    $fire_of_note_class = $fire_of_note_display ? ' fire-of-note' : '';
+
+    // Check for empty FIRE_NAME.
+    if (empty($type->FIRE_NAME) || $type->FIRE_NAME === 'NULL') {
+      $type->FIRE_NAME = 'Unnamed Fire';
+    }
+    // Check if FIRE_NAME is all uppercase.
+    if (strtoupper($type->FIRE_NAME) === $type->FIRE_NAME) {
+      $type->FIRE_NAME = ucwords(strtolower($type->FIRE_NAME));
+    }
+
+    $content[$status . '-' . $type->OBJECTID] = [
+      'data' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'id' => 'wildfire-' . $type->OBJECTID,
+          'class' => 'wildfire-container ' . $fire_of_note_class,
+        ],
+        'fields' => [
+          'fire_name' => [
+            '#type' => 'item',
+            '#markup' => '<h2>' . strtoupper($type->FIRE_NAME) . ' ' . '(' . $type->FIRE_ID . ')' . '</h2>',
+          ],
+          'fire_size' => [
+            '#type' => 'item',
+            '#title' => t('Size of fire:'),
+            '#markup' => $fire_size . ' ' . t('hectares in a') . ' ' . $fire_management_zone,
+          ],
+          'responding' => [
+            '#type' => 'item',
+            '#title' => t("How we're responding:"),
+            '#markup' => $response,
+          ],
+        ],
+      ],
+    ];
+
+    if ($fire_of_note_display) {
+      $fire_of_note[$status . '-' . $type->OBJECTID] = [
+        'data' => [
+          'fields' => [
+            'fire_of_note' => [
+              '#type' => 'item',
+              '#title' => t('Other notes:'),
+              '#markup' => $type->FireOfNoteText,
+            ],
+          ],
+        ],
+      ];
+    }
+
+    $suffix[$status . '-' . $type->OBJECTID] = [
+      'data' => [
+        'fields' => [
+          'initial_reporting_date' => [
+            '#type' => 'item',
+            '#title' => t('Report date:'),
+            '#markup' => t('Initially reported on') . ' ' . $initial_reported_date . '.' . ' ' . t('Last updated on') . ' ' . $last_updated_date . '.',
+          ],
+          'spacer' => [
+            '#markup' => '<hr>',
+          ],
+        ],
+      ],
+    ];
+  }
+
+  // Create array.
+  return array_merge_recursive($content, $fire_of_note, $suffix);
+}

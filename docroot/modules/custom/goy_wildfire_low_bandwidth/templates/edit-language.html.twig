@@ -1,0 +1,7 @@
+{% if item is not empty %}
+    <ul class="tabs--secondary pagination pagination-sm">
+       <li class="{% if language == "en" %}active{% endif %}">
+           <a href="/node/{{ item }}/edit" class="language-link " xml:lang="en">English</a></li>
+       <li class="{% if language == "fr" %}active{% endif %}"><a href="/fr/node/{{ item }}/edit" class="language-link " xml:lang="fr">French</a></li>
+    </ul>
+{% endif %}
