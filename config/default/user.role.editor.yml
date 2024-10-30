@@ -99,6 +99,7 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view workbench access information'
