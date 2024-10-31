@@ -5,6 +5,7 @@ dependencies:
   module:
     - block
     - comment
+    - matomo
     - media
     - system
 _core:
@@ -18,6 +19,7 @@ permissions:
   - 'access content'
   - 'administer blocks'
   - 'administer blocks'
+  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'view media'
   - 'view media'
