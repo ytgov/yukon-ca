@@ -206,6 +206,7 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view own webform submission'
   - 'view the administration theme'

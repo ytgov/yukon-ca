@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\goy_wildfire_low_bandwidth\Form\low_bandwidth;
+namespace Drupal\goy_wildfire_low_bandwidth\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
