@@ -118,15 +118,17 @@
 				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
 				    <style>.campaign-text-only-wrapper a { color: {{ node.field_highlight_color.color|raw }}}</style>
 					<div class="campaign-text-only-wrapper">
-					    <div class="source-icon">
-            				<i class="fa fa-info-circle"></i>
-            				<span class="source-credit">{{ node.field_source_credit.value|raw }}</span>
-    						{#<div class="field field-name-field-source-credit field-type-text field-label-hidden">#}
-    						{#	<div class="field-items">#}
-    						{#		<div class="field-item even">{{ node.field_source_credit.value|raw }}</div>#}
-    						{#	</div>#}
-    						{#</div>#}
-        		        </div>
+					    {% if node.field_source_credit.value is not empty %}
+    					    <div class="source-icon">
+                				<i class="fa fa-info-circle"></i>
+                				<span class="source-credit">{{ node.field_source_credit.value|raw }}</span>
+        						{#<div class="field field-name-field-source-credit field-type-text field-label-hidden">#}
+        						{#	<div class="field-items">#}
+        						{#		<div class="field-item even">{{ node.field_source_credit.value|raw }}</div>#}
+        						{#	</div>#}
+        						{#</div>#}
+            		        </div>
+        		        {% endif %}
 						<h1 class="mb-8 mt-0 text-4xl font-medium text-gray-450">{{ label }}</h1>
 						{{ node.field_intro_text_block.value|raw }}
 					</div>

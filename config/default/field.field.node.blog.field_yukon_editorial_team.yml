@@ -7,11 +7,10 @@ dependencies:
     - node.type.blog
     - taxonomy.vocabulary.teams
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.blog.field_yukon_editorial_team
 field_name: field_yukon_editorial_team
 entity_type: node

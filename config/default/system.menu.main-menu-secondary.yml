@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: main-menu-secondary
-label: 'Main menu secondary'
+label: 'More on Yukon.ca'
 description: ''
 locked: false
