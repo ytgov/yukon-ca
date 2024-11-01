@@ -890,7 +890,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 5
+          items_per_page: 1
       arguments:
         nid:
           id: nid

@@ -200,12 +200,25 @@ function yukonca_glider_preprocess_page__node__blog(&$variables) {
   $variables['blog_category_subcategory'] = [];
   if ($node->hasField('field_category') && !$node->get('field_category')->isEmpty()) {
     $category_term = $taxonomy_entity_manager->load($node->get('field_category')->target_id);
-    $variables['blog_category_subcategory'][] = $category_term->getName();
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($langcode == "en") {
+      $variables['blog_category_subcategory'][] = $category_term->getName();
+    }
+    if ($langcode == "fr") {
+      $category_term = \Drupal::service('entity.repository')->getTranslationFromContext($category_term, $langcode);
+      $variables['blog_category_subcategory'][] = $category_term->getName();
+    }
   }
 
   if ($node->hasField('field_subcategory') && !$node->get('field_subcategory')->isEmpty()) {
     $subcategory_term = $taxonomy_entity_manager->load($node->get('field_subcategory')->target_id);
-    $variables['blog_category_subcategory'][] = $subcategory_term->getName();
+    if ($langcode == "en") {
+      $variables['blog_category_subcategory'][] = $subcategory_term->getName();
+    }
+    if ($langcode == "fr") {
+      $subcategory_term = \Drupal::service('entity.repository')->getTranslationFromContext($subcategory_term, $langcode);
+      $variables['blog_category_subcategory'][] = $subcategory_term->getName();
+    }
   }
 }
 

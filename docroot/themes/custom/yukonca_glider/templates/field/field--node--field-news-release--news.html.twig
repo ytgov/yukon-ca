@@ -28,7 +28,7 @@
   {%- block field_label ~%}
     {% if display_label_tag -%}<{{ label_tag|default('div') }}{{ title_attributes.addClass(title_classes) }}>{%- endif -%}
     {%- block field_label_value -%}
-      {{  label  }}:
+      {{  label  }}
     {%- endblock field_label_value -%}
     {%- if display_label_tag -%}
       </{{ label_tag|default('div') }}>
