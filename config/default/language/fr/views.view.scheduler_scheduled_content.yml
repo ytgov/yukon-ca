@@ -7,10 +7,13 @@ display:
           exposed_sorts_label: 'Trier par'
       fields:
         status:
+          label: Statut
           settings:
             format_custom_true: 'Publié le'
       filters:
         status:
+          expose:
+            label: Statut
           group_info:
             group_items:
               1:

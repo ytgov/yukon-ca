@@ -1,45 +1,35 @@
-uuid: 094cc3cc-6348-4987-953e-50088c3c2267
+uuid: b1ed8204-23b3-4f39-b4c1-3204dda1a003
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.user.register
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.field_yukon_editorial_team
   module:
-    - path
     - user
-id: user.user.register
+id: user.user.default
 targetEntityType: user
 bundle: user
-mode: register
+mode: default
 content:
-  account:
-    weight: -10
-    region: content
-    settings: {  }
+  field_yukon_editorial_team:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
-  language:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
     weight: 6
     region: content
+  member_for:
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: content
 hidden:
   field_last_password_reset: true
   field_password_expiration: true
   field_pending_expire_sent: true
-  field_yukon_editorial_team: true
   langcode: true
+  search_api_excerpt: true

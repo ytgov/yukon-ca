@@ -13,10 +13,13 @@ display:
             offset_label: Décalage
       fields:
         status:
+          label: Statut
           settings:
             format_custom_true: 'Publié le'
       filters:
         status:
+          expose:
+            label: Statut
           group_info:
             group_items:
               1:

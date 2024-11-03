@@ -13,6 +13,7 @@ source:
   constants:
     default_text_format: full_html
 process:
+  tid: tid
   uuid: uuid
   language: language
   name: name

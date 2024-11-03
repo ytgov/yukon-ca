@@ -2,6 +2,9 @@ display:
   default:
     display_title: 'Par défaut'
     display_options:
+      fields:
+        status:
+          label: Statut
       pager:
         options:
           expose:
@@ -12,3 +15,7 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        status:
+          group_info:
+            label: Statut

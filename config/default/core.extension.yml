@@ -61,6 +61,7 @@ module:
   geofield: 0
   geophp: 0
   goy_wildfire_low_bandwidth: 0
+  goy_yxy_flight_schedule: 0
   help: 0
   history: 0
   image: 0
@@ -103,7 +104,6 @@ module:
   options: 0
   page_cache: 0
   page_manager: 0
-  pantheon_advanced_page_cache: 0
   path: 0
   path_alias: 0
   pathologic: 0

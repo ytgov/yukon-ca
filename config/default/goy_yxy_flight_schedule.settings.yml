@@ -1,0 +1,5 @@
+goy_yxy_flight_schedule_xml_source_path: 'https://yxy.terminalsystems.com/export'
+goy_yxy_flight_schedule_arrivals_file_name: arrivals_new1.xml
+goy_yxy_flight_schedule_departures_file_name: departures_new1.xml
+goy_yxy_flight_schedule_airline_icon_path: 'https://yukon.ca/sites/defalts/files/yxy/carriers'
+goy_yxy_flight_schedule_weather_icon_path: 'https://yukon.ca/sites/defalts/files/yxy/weather'
