@@ -56,6 +56,7 @@
         "drupal/linkchecker": "^2.0@alpha",
         "drupal/linkit": "^6.1",
         "drupal/mail_safety": "^2.0",
+        "drupal/matomo": "^1.23",
         "drupal/maxlength": "^2.1",
         "drupal/media_directories": "2.1.x-dev@dev",
         "drupal/media_library_edit": "^3.0",
