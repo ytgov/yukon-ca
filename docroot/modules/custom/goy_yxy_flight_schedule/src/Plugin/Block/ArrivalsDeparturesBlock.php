@@ -164,10 +164,9 @@ class ArrivalsDeparturesBlock extends BlockBase implements ContainerFactoryPlugi
         'class' => 'temperature',
       ];
       $departure = $this->t('Departure Time');
-      $header[] = ucfirst($heading) . $departure;
+      $header[] = $departure;
       $header[] = $this->t('Status');
 
-      ucfirst($heading);
       $departure = $xml->Departure;
 
       if (count($xml->Departure) > 0) {
@@ -221,7 +220,6 @@ class ArrivalsDeparturesBlock extends BlockBase implements ContainerFactoryPlugi
 
     return [
       'yxy' => [
-        '#attributes' => $attributes,
         '#caption' => $caption,
         '#colgroups' => [],
         '#empty' => $this->t('The list of flights is not available at this time.'),
