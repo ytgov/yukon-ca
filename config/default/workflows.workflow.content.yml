@@ -79,6 +79,13 @@ type_settings:
         - ready_to_publish
       to: published
       weight: 1
+    publish_directly:
+      label: 'Publish directly'
+      from:
+        - draft
+        - published
+      to: published
+      weight: 7
     reject:
       label: Reject
       from:

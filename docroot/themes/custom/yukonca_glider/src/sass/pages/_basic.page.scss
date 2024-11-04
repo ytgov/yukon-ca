@@ -82,6 +82,10 @@ main {
     									&.temperature {
     									    @apply text-right;
     									}
+    									
+    									&.flight-status-problem {
+    									    @apply text-[#800]
+    									}
                                     }
                                 }
                             }
