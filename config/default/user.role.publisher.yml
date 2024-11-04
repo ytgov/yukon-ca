@@ -19,7 +19,6 @@ dependencies:
     - node.type.topics_page
     - workflows.workflow.content
   module:
-    - comment
     - content_moderation
     - contextual
     - linkchecker
@@ -43,7 +42,6 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'administer comments'
   - 'administer media'
   - 'administer menu'
   - 'administer nodes'
@@ -129,7 +127,6 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
-  - 'view latest version'
   - 'view media'
   - 'view own unpublished content'
   - 'view the administration theme'

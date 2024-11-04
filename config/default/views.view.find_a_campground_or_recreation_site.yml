@@ -8,6 +8,7 @@ dependencies:
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
   content:
+    - 'taxonomy_term:media_folders:13e4e99a-8536-4db7-b3ea-d8ef20b7a033'
     - 'taxonomy_term:site_type:5ee2d4d2-58e3-4ee9-ad2c-f0590d920133'
     - 'taxonomy_term:site_type:7fce702e-74bd-4319-bbc1-08a1fc81fed2'
     - 'taxonomy_term:site_type:c0232155-6c23-4e64-abdb-f326d79cb87e'
@@ -898,8 +899,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            119: 119
-            120: 120
+            80: 80
+            82: 82
           group: 1
           exposed: false
           expose:
@@ -1502,8 +1503,8 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            121: 121
-            122: 122
+            84: 84
+            90: 90
           group: 1
           exposed: false
           expose:
