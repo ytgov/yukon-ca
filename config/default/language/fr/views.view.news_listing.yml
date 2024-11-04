@@ -1,3 +1,4 @@
+label: 'Nouvelles récentes'
 display:
   block_latest_news:
     display_title: 'Nouvelles récentes'
@@ -34,4 +35,3 @@ display:
         field_category_target_id:
           expose:
             label: Catégorie
-label: 'Nouvelles récentes'

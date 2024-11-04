@@ -4,6 +4,7 @@ display:
     display_options:
       fields:
         status:
+          label: Statut
           settings:
             format_custom_true: 'Publié le'
       pager:

@@ -150,7 +150,6 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
-  - 'view latest version'
   - 'view media'
   - 'view own unpublished content'
   - 'view the administration theme'

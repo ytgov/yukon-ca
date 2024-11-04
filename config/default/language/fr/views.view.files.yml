@@ -7,6 +7,8 @@ display:
           label: Nom
         filesize:
           label: Taille
+        status:
+          label: Statut
       pager:
         options:
           expose:
@@ -17,6 +19,10 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        status:
+          expose:
+            label: Statut
   page_2:
     display_options:
       pager:

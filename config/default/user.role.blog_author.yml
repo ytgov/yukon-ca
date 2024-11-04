@@ -6,7 +6,6 @@ dependencies:
     - node.type.blog
     - workflows.workflow.content
   module:
-    - comment
     - content_moderation
     - content_translation
     - contextual
@@ -28,7 +27,6 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'administer comments'
   - 'administer nodes'
   - 'create blog content'
   - 'create media'

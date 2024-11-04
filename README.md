@@ -102,7 +102,11 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 22. Import French translations by hitting <root domain>/admin/config/regional/translate/import. On this admim interface, select the fr.po file, select "French" in the dropdown, check the three boxes and click upload.
 22. Migration process is complete at this point.
 23. If some files are not working, then manually replacing the files folder with the D7 version can fix those errors. 
-24. We need to add "More on Yukon.ca" Hamburger menu 
+24. We need to add "More on Yukon.ca" Hamburger menu as follows:
+    24.1 On the admin side of the website, go to >> Structure and click >> Menus.
+    24.2 From the available list of menus find >> Main menu secondary >> OR >> More on Yukon.ca >> Click edit
+    24.3 Then we need to add the 7 menu items from the More on Yukon.ca menus (Contact the government, Legislation, Documents, News, Events, Places, Forms)
+    24.4 Remove the same 7 menu items from the Mega Menu.
 
 
 ## Extra Step-1: (Only required where URL carries /docroot in the URL)

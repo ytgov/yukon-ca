@@ -11,7 +11,6 @@ dependencies:
     - taxonomy.vocabulary.school_board_type
   content:
     - 'taxonomy_term:community_facilities:4f702452-a3b4-4967-a8a3-c0a9e6a57c9a'
-    - 'taxonomy_term:community_facilities:563df129-42b3-4906-a0f3-c5b9d142605a'
     - 'taxonomy_term:community_facilities:9e5cabdb-1884-4a94-8144-1bbcb90ff822'
     - 'taxonomy_term:community_facilities:d5173e4b-3225-4de2-8638-45ff6e0bff42'
     - 'taxonomy_term:education_facilities:20314cce-519f-4620-9e1b-eef146d539ca'
@@ -19,6 +18,13 @@ dependencies:
     - 'taxonomy_term:health_facilities:3c3fc58e-fcc9-4a55-80ef-d764c7f26dfb'
     - 'taxonomy_term:health_facilities:4067608c-2e7f-4056-9031-e96fbf4563f1'
     - 'taxonomy_term:health_facilities:a633be8d-4479-410e-b39f-bf5e4f3795f7'
+    - 'taxonomy_term:highway_names:3d1996c8-258b-4fc4-b051-fb02e9bdfd8b'
+    - 'taxonomy_term:highway_names:6f1ba3b2-3353-487f-8bab-f08e64b3658b'
+    - 'taxonomy_term:highway_names:8db9afff-490d-4566-a830-fbbac9f7ab1b'
+    - 'taxonomy_term:highway_names:9de61dd6-840f-4b90-aaf7-4a1ecb89b8f2'
+    - 'taxonomy_term:highway_names:9ed0767c-d025-44c6-9fb0-8b56fe2569ce'
+    - 'taxonomy_term:recreation_site_type:0b8c4e04-40d6-4260-8d7b-6e08888a6083'
+    - 'taxonomy_term:recreation_site_type:688b2e80-81d1-4d05-be76-e20c66c9e449'
     - 'taxonomy_term:school_board_type:0d340843-057a-42c1-bfc0-70aa690d4624'
     - 'taxonomy_term:school_board_type:809d7cf4-96a2-439f-b0af-da3fffa768bb'
     - 'taxonomy_term:school_board_type:ca075419-c0cb-47b1-9e8a-a69d523aa01e'
@@ -308,7 +314,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            189: 189
+            59: 59
           group: 1
           exposed: false
           expose:
@@ -548,7 +554,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            171: 171
+            53: 53
           group: 1
           exposed: false
           expose:
@@ -986,7 +992,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            172: 172
+            54: 54
           group: 1
           exposed: false
           expose:
@@ -1226,7 +1232,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            184: 184
+            56: 56
           group: 1
           exposed: false
           expose:
@@ -1321,7 +1327,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            239: 239
+            345: 345
           group: 1
           exposed: false
           expose:
@@ -1420,7 +1426,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            184: 184
+            56: 56
           group: 1
           exposed: false
           expose:
@@ -1515,7 +1521,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            238: 238
+            344: 344
           group: 1
           exposed: false
           expose:
@@ -1614,7 +1620,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            184: 184
+            56: 56
           group: 1
           exposed: false
           expose:
@@ -1709,7 +1715,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            237: 237
+            343: 343
           group: 1
           exposed: false
           expose:
@@ -1808,7 +1814,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            188: 188
+            58: 58
           group: 1
           exposed: false
           expose:
@@ -1949,7 +1955,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            187: 187
+            57: 57
           group: 1
           exposed: false
           expose:
@@ -2188,7 +2194,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            183: 183
+            55: 55
           group: 1
           exposed: false
           expose:
@@ -2329,7 +2335,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            184: 184
+            56: 56
           group: 1
           exposed: false
           expose:
@@ -2470,7 +2476,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            167: 167
+            49: 49
           group: 1
           exposed: false
           expose:

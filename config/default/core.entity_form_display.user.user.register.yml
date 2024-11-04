@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
+    - field.field.user.user.field_yukon_editorial_team
   module:
     - path
     - user
@@ -40,4 +41,5 @@ hidden:
   field_last_password_reset: true
   field_password_expiration: true
   field_pending_expire_sent: true
+  field_yukon_editorial_team: true
   langcode: true

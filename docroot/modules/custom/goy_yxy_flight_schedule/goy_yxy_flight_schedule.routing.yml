@@ -1,0 +1,15 @@
+goy_yxy_flight_schedule.schedule:
+  path: 'admin/config/goy_yxy_flight_schedule'
+  defaults: 
+    _form: '\Drupal\goy_yxy_flight_schedule\Form\GoyyxyFLightScheduleForm'
+    _title: 'YG: YXY Flight Schedules'
+  requirements:
+    _permission: 'access content'
+
+goy_yxy_flight_schedule.settings:
+  path: 'admin/config/goy_yxy_flight_schedule/settings'
+  defaults:
+    _form: '\Drupal\goy_yxy_flight_schedule\Form\GoyyxyFLightScheduleSettingsForm'
+    _title: 'Path Settings'
+  requirements:
+    _permission: 'access content'

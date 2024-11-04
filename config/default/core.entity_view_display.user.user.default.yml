@@ -1,0 +1,35 @@
+uuid: b1ed8204-23b3-4f39-b4c1-3204dda1a003
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.field_pending_expire_sent
+    - field.field.user.user.field_yukon_editorial_team
+  module:
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_yukon_editorial_team:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  field_last_password_reset: true
+  field_password_expiration: true
+  field_pending_expire_sent: true
+  langcode: true
+  search_api_excerpt: true

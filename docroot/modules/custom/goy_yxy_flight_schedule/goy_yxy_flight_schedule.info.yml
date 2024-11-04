@@ -1,0 +1,5 @@
+name: YG YXY Flight Schedule Module
+type: module
+description: 'Display YXY arrivals and departures'
+core_version_requirement: ^10 || ^9
+package: 'yukon'

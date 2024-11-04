@@ -40,6 +40,5 @@ permissions:
   - 'use content transition submit_for_review'
   - 'use workbench access'
   - 'view any unpublished content'
-  - 'view latest version'
   - 'view the administration theme'
   - 'view workbench access information'

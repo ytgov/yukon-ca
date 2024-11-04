@@ -1,5 +1,8 @@
+label: 'Terme de taxonomie'
+description: 'Contenu associé à un terme de taxonomie donné.'
 display:
   default:
+    display_title: 'Par défaut'
     display_options:
       filters:
         field_category_target_id:
@@ -26,7 +29,6 @@ display:
         tid:
           exception:
             title: Tout
-    display_title: 'Par défaut'
   page_1:
     display_options:
       filters:
@@ -38,5 +40,3 @@ display:
             label: Sous-catégorie
   feed_1:
     display_title: Flux
-label: 'Terme de taxonomie'
-description: 'Contenu associé à un terme de taxonomie donné.'

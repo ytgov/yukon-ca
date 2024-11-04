@@ -39,6 +39,56 @@ main {
                     }
 				}
 				
+				.block-goy-wildfire-low-bandwidth {
+				    .wildfire-container {
+                        label {
+                            @apply font-bold;
+                        }
+                    }
+				}
+				
+				#block-yukonca-glider-arrivalsblock,
+				#block-yukonca-glider-arrivalsdeparturesblock {
+                    table {
+                        &[data-striping="1"] {
+    						@apply border-0;
+                            caption-side: top;
+                            
+                            caption {
+    							@apply text-black-light
+                            }
+                            
+                            thead {
+                                tr {
+                                    th {
+    									@apply p-2 leading-6 align-bottom border-b-2 border-gray-400;
+                                    }
+                                }
+                            }
+                            
+                            tbody {
+                                tr {
+                                    &:nth-child(odd) {
+    									@apply bg-gray-100;
+                                    }
+                                    
+                                    &:hover {
+    									@apply bg-[#F0F0F0];
+                                    }
+                                    
+                                    td {
+    									@apply border-0 p-2 leading-6 align-top border-t-1 border-gray-400;
+    									
+    									&.temperature {
+    									    @apply text-right;
+    									}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+				
 				// .media {
 				//     img {
 				//         @apply w-[300px];

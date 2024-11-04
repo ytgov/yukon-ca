@@ -6,6 +6,7 @@ dependencies:
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
+    - field.field.user.user.field_yukon_editorial_team
   module:
     - datetime
     - path
@@ -32,6 +33,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_yukon_editorial_team:
+    type: options_select
+    weight: 31
+    region: content
+    settings: {  }
     third_party_settings: {  }
   language:
     weight: 0

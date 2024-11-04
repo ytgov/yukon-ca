@@ -34,8 +34,8 @@ process:
   init: init
   field_yukon_editorial_team:
     - plugin: migration_lookup
-      source: field_node_department
-      migration: yukon_migrate_department
+      source: field_yukon_editorial_team
+      migration: yukon_migrate_teams
       no_stub: true
   roles:
     plugin: migration_lookup
@@ -62,3 +62,4 @@ migration_dependencies:
     - user_picture_field_instance
     - user_picture_entity_display
     - user_picture_entity_form_display
+    - yukon_migrate_teams

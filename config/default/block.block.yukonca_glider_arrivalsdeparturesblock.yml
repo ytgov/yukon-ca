@@ -1,0 +1,26 @@
+uuid: 6a4474bd-4277-42e7-80c0-31ae197dd0bf
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_class
+    - goy_yxy_flight_schedule
+    - system
+  theme:
+    - yukonca_glider
+id: yukonca_glider_arrivalsdeparturesblock
+theme: yukonca_glider
+region: content
+weight: 0
+provider: null
+plugin: arrivals_departures_block
+settings:
+  id: arrivals_departures_block
+  label: Departures
+  label_display: visible
+  provider: goy_yxy_flight_schedule
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/airport-arrivals-departures\r\n/node/464"

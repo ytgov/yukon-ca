@@ -1,0 +1,26 @@
+uuid: 01aedf85-173e-4b09-b5cd-b48b0b479253
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - goy_yxy_flight_schedule
+    - system
+  theme:
+    - yukonca_glider
+id: yukonca_glider_arrivalsblock
+theme: yukonca_glider
+region: content
+weight: 0
+provider: null
+plugin: arrivals_block
+settings:
+  id: arrivals_block
+  label: Arrivals
+  label_display: visible
+  provider: goy_yxy_flight_schedule
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/464
