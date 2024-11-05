@@ -10,21 +10,21 @@ dependencies:
     - taxonomy.vocabulary.sanitary_facilities
     - taxonomy.vocabulary.school_board_type
   content:
+    - 'taxonomy_term:community_facilities:00f3d1b3-94a8-4b28-a8d9-e17abcdd7cc2'
+    - 'taxonomy_term:community_facilities:35d519bd-5c9a-40bd-a2f1-4af58f5c2699'
     - 'taxonomy_term:community_facilities:4f702452-a3b4-4967-a8a3-c0a9e6a57c9a'
+    - 'taxonomy_term:community_facilities:563df129-42b3-4906-a0f3-c5b9d142605a'
     - 'taxonomy_term:community_facilities:9e5cabdb-1884-4a94-8144-1bbcb90ff822'
+    - 'taxonomy_term:community_facilities:d422a966-3f59-4d09-a4a4-7e83da71b2e5'
     - 'taxonomy_term:community_facilities:d5173e4b-3225-4de2-8638-45ff6e0bff42'
     - 'taxonomy_term:education_facilities:20314cce-519f-4620-9e1b-eef146d539ca'
     - 'taxonomy_term:education_facilities:96fa3409-1b47-4984-b984-de35cc868250'
     - 'taxonomy_term:health_facilities:3c3fc58e-fcc9-4a55-80ef-d764c7f26dfb'
     - 'taxonomy_term:health_facilities:4067608c-2e7f-4056-9031-e96fbf4563f1'
     - 'taxonomy_term:health_facilities:a633be8d-4479-410e-b39f-bf5e4f3795f7'
-    - 'taxonomy_term:highway_names:3d1996c8-258b-4fc4-b051-fb02e9bdfd8b'
-    - 'taxonomy_term:highway_names:6f1ba3b2-3353-487f-8bab-f08e64b3658b'
-    - 'taxonomy_term:highway_names:8db9afff-490d-4566-a830-fbbac9f7ab1b'
-    - 'taxonomy_term:highway_names:9de61dd6-840f-4b90-aaf7-4a1ecb89b8f2'
-    - 'taxonomy_term:highway_names:9ed0767c-d025-44c6-9fb0-8b56fe2569ce'
-    - 'taxonomy_term:recreation_site_type:0b8c4e04-40d6-4260-8d7b-6e08888a6083'
-    - 'taxonomy_term:recreation_site_type:688b2e80-81d1-4d05-be76-e20c66c9e449'
+    - 'taxonomy_term:sanitary_facilities:240494c7-2168-44fc-9d12-6fe8fe8f1589'
+    - 'taxonomy_term:sanitary_facilities:a11507d1-c76b-4923-9feb-fce1620b1568'
+    - 'taxonomy_term:sanitary_facilities:eceab375-0aa3-4912-bb9a-de67d8d099e5'
     - 'taxonomy_term:school_board_type:0d340843-057a-42c1-bfc0-70aa690d4624'
     - 'taxonomy_term:school_board_type:809d7cf4-96a2-439f-b0af-da3fffa768bb'
     - 'taxonomy_term:school_board_type:ca075419-c0cb-47b1-9e8a-a69d523aa01e'
@@ -455,7 +455,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            170: 170
+            52: 52
           group: 1
           exposed: false
           expose:
@@ -695,7 +695,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            286: 286
+            54: 54
           group: 1
           exposed: false
           expose:
@@ -794,7 +794,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            278: 278
+            60: 60
           group: 1
           exposed: false
           expose:
@@ -893,7 +893,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            280: 280
+            62: 62
           group: 1
           exposed: false
           expose:
@@ -1133,7 +1133,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            287: 287
+            160: 160
           group: 1
           exposed: false
           expose:
@@ -1918,6 +1918,98 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  block_20:
+    id: block_20
+    display_title: Cemetery
+    display_plugin: block
+    position: 16
+    display_options:
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            directory_records_places: directory_records_places
+          group: 1
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        ajax_history: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_21:
+    id: block_21
+    display_title: Crematorium
+    display_plugin: block
+    position: 16
+    display_options:
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            directory_records_places: directory_records_places
+          group: 1
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        ajax_history: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   block_3:
     id: block_3
     display_title: 'Community care'
@@ -2095,7 +2187,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            279: 279
+            61: 61
           group: 1
           exposed: false
           expose:
@@ -2617,7 +2709,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            282: 282
+            50: 50
           group: 1
           exposed: false
           expose:
@@ -2716,7 +2808,7 @@ display:
           plugin_id: taxonomy_index_tid
           operator: or
           value:
-            283: 283
+            51: 51
           group: 1
           exposed: false
           expose:

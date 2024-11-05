@@ -24,7 +24,7 @@
 					}
 					
 					> ul {
-					    @apply hidden absolute bg-white border-1 border-[#D2D2D2] mt-2.5 min-w-[270px];
+					    @apply hidden fixed z-50 bg-white border-1 border-[#D2D2D2] -mt-1 min-w-[270px];
 					    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
                         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
 					    
