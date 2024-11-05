@@ -276,13 +276,15 @@ function yukonca_glider_preprocess_node__event(&$variables) {
     }
   }
   else {
-    if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
-      $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-    }
-    else {
-      $start_time = date('G \h i', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('G \h i', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+    if (!empty($node->field_event_start_time->value)) {
+      if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
+        $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
+        $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+      }
+      else {
+        $start_time = date('G \h i', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
+        $end_time = date('G \h i', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+      }
     }
   }
 
@@ -506,18 +508,17 @@ function yukonca_glider_preprocess_page(&$variables) {
       $variables['copyright_notice'] = $node->field_display_copyright_notice->value;
       $variables['copyright_notice_text'] = $node->field_copyright_notice_text->value;
 
-      if ($variables['campaign_type'] == 'government_of_yukon') {
-        $img = $node->field_image->target_id;
-        $media = Media::load($img);
-        if (isset($media->field_media_image_1)) {
-          $fid = $media->field_media_image_1->target_id;
-          $file = File::load($fid);
+      // If ($variables['campaign_type'] == 'government_of_yukon') {.
+      $img = $node->field_image->target_id;
+      $media = Media::load($img);
+      if (isset($media->field_media_image_1)) {
+        $fid = $media->field_media_image_1->target_id;
+        $file = File::load($fid);
 
-          $url = $file->createFileUrl();
-          $variables['logo_url'] = $url;
-        }
+        $url = $file->createFileUrl();
+        $variables['logo_url'] = $url;
       }
-
+      // }.
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       if ($langcode == 'en') {
         $parent_page = $node->field_parent_campaign_page->target_id;

@@ -10,6 +10,8 @@ UPDATE `paragraph__field_subcategory_links` SET `field_subcategory_links_uri`=RE
 
 UPDATE `paragraph__field_subcategory_links` SET `field_subcategory_links_uri`=REPLACE(field_subcategory_links_uri, '/fr', 'internal:') WHERE `field_subcategory_links_uri` LIKE '/fr/%';
 
+UPDATE `node__field_related_link` SET `field_related_link_title`= REPLACE(field_related_link_title, '&amp;', '&') WHERE `field_related_link_title` LIKE '%&amp;%';
+
 // Update path_alias table
 
 DELETE FROM path_alias WHERE path LIKE '/node%'; 
