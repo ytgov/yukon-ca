@@ -3,6 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
+    - media.type.audio
+    - media.type.document
+    - media.type.icon
+    - media.type.image
+    - media.type.video
+    - node.type.basic_page
     - node.type.blog
     - node.type.campaign_page
     - node.type.campground_directory_record
@@ -19,14 +26,39 @@ dependencies:
     - node.type.news
     - node.type.site_wide_alert
     - node.type.topics_page
+    - taxonomy.vocabulary.blog_type
+    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.community
+    - taxonomy.vocabulary.community_facilities
+    - taxonomy.vocabulary.department
+    - taxonomy.vocabulary.education_facilities
+    - taxonomy.vocabulary.engagement_categories
+    - taxonomy.vocabulary.health_facilities
+    - taxonomy.vocabulary.highway_names
+    - taxonomy.vocabulary.media_folders
+    - taxonomy.vocabulary.news_type
+    - taxonomy.vocabulary.recreation_site_type
+    - taxonomy.vocabulary.region
+    - taxonomy.vocabulary.sanitary_facilities
+    - taxonomy.vocabulary.school_board_type
+    - taxonomy.vocabulary.section
+    - taxonomy.vocabulary.site_type
+    - taxonomy.vocabulary.sub_category
+    - taxonomy.vocabulary.teams
+    - taxonomy.vocabulary.transactional_facility_type
     - workflows.workflow.content
   module:
     - block
+    - block_content
     - comment
+    - config_pages
+    - config_translation
     - content_moderation
     - content_translation
     - contextual
+    - feeds
     - field_ui
+    - file
     - filter
     - image
     - language
@@ -34,10 +66,12 @@ dependencies:
     - linkit
     - media
     - menu_link_attributes
+    - menu_link_content
     - metatag
     - node
     - page_manager
     - paragraphs
+    - password_policy
     - path
     - pathauto
     - search_api
@@ -60,16 +94,22 @@ permissions:
   - 'access comments'
   - 'access content overview'
   - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access site reports'
   - 'access toolbar'
   - 'access user profiles'
   - 'access workbench'
+  - 'administer block_content fields'
   - 'administer blocks'
+  - 'administer comment fields'
   - 'administer comments'
+  - 'administer config_pages fields'
   - 'administer content translation'
   - 'administer display modes'
+  - 'administer feeds_feed fields'
   - 'administer filters'
   - 'administer image styles'
   - 'administer languages'
@@ -77,18 +117,25 @@ permissions:
   - 'administer linkchecker'
   - 'administer linkit profiles'
   - 'administer media'
+  - 'administer media fields'
+  - 'administer media types'
   - 'administer menu'
   - 'administer menu link attributes'
   - 'administer meta tags'
+  - 'administer node fields'
   - 'administer nodes'
   - 'administer pages'
+  - 'administer paragraph fields'
   - 'administer paragraphs types'
   - 'administer pathauto'
   - 'administer search_api'
   - 'administer site configuration'
   - 'administer smtp module'
   - 'administer taxonomy'
+  - 'administer taxonomy_term fields'
+  - 'administer themes'
   - 'administer url aliases'
+  - 'administer user fields'
   - 'administer users'
   - 'administer views'
   - 'administer webform'
@@ -98,16 +145,21 @@ permissions:
   - 'assign workbench access'
   - 'batch update workbench access'
   - 'bypass node access'
+  - 'create audio media'
+  - 'create basic_page content'
   - 'create blog content'
   - 'create campaign_page content'
   - 'create campground_directory_record content'
   - 'create content translations'
   - 'create department content'
   - 'create directory_records_places content'
+  - 'create document media'
   - 'create documents content'
   - 'create engagement content'
   - 'create event content'
   - 'create homepage content'
+  - 'create icon media'
+  - 'create image media'
   - 'create in_page_alert content'
   - 'create landing_page content'
   - 'create landing_page_level_2 content'
@@ -117,15 +169,21 @@ permissions:
   - 'create site_wide_alert content'
   - 'create topics_page content'
   - 'create url aliases'
+  - 'create video media'
+  - 'delete any audio media'
+  - 'delete any basic_page content'
   - 'delete any blog content'
   - 'delete any campaign_page content'
   - 'delete any campground_directory_record content'
   - 'delete any department content'
   - 'delete any directory_records_places content'
+  - 'delete any document media'
   - 'delete any documents content'
   - 'delete any engagement content'
   - 'delete any event content'
   - 'delete any homepage content'
+  - 'delete any icon media'
+  - 'delete any image media'
   - 'delete any in_page_alert content'
   - 'delete any landing_page content'
   - 'delete any landing_page_level_2 content'
@@ -133,16 +191,23 @@ permissions:
   - 'delete any news content'
   - 'delete any site_wide_alert content'
   - 'delete any topics_page content'
+  - 'delete any video media'
   - 'delete any webform submission'
+  - 'delete media'
+  - 'delete own audio media'
+  - 'delete own basic_page content'
   - 'delete own blog content'
   - 'delete own campaign_page content'
   - 'delete own campground_directory_record content'
   - 'delete own department content'
   - 'delete own directory_records_places content'
+  - 'delete own document media'
   - 'delete own documents content'
   - 'delete own engagement content'
   - 'delete own event content'
   - 'delete own homepage content'
+  - 'delete own icon media'
+  - 'delete own image media'
   - 'delete own in_page_alert content'
   - 'delete own landing_page content'
   - 'delete own landing_page_level_2 content'
@@ -150,16 +215,32 @@ permissions:
   - 'delete own news content'
   - 'delete own site_wide_alert content'
   - 'delete own topics_page content'
+  - 'delete own video media'
   - 'delete own webform submission'
+  - 'delete terms in category'
+  - 'delete terms in community'
+  - 'delete terms in department'
+  - 'delete terms in education_facilities'
+  - 'delete terms in health_facilities'
+  - 'delete terms in media_folders'
+  - 'delete terms in news_type'
+  - 'delete terms in region'
+  - 'delete terms in sanitary_facilities'
+  - 'delete terms in site_type'
+  - 'edit any audio media'
+  - 'edit any basic_page content'
   - 'edit any blog content'
   - 'edit any campaign_page content'
   - 'edit any campground_directory_record content'
   - 'edit any department content'
   - 'edit any directory_records_places content'
+  - 'edit any document media'
   - 'edit any documents content'
   - 'edit any engagement content'
   - 'edit any event content'
   - 'edit any homepage content'
+  - 'edit any icon media'
+  - 'edit any image media'
   - 'edit any in_page_alert content'
   - 'edit any landing_page content'
   - 'edit any landing_page_level_2 content'
@@ -167,18 +248,23 @@ permissions:
   - 'edit any news content'
   - 'edit any site_wide_alert content'
   - 'edit any topics_page content'
+  - 'edit any video media'
   - 'edit any webform submission'
   - 'edit linkchecker link settings'
+  - 'edit own audio media'
   - 'edit own blog content'
   - 'edit own campaign_page content'
   - 'edit own campground_directory_record content'
   - 'edit own comments'
   - 'edit own department content'
   - 'edit own directory_records_places content'
+  - 'edit own document media'
   - 'edit own documents content'
   - 'edit own engagement content'
   - 'edit own event content'
   - 'edit own homepage content'
+  - 'edit own icon media'
+  - 'edit own image media'
   - 'edit own in_page_alert content'
   - 'edit own landing_page content'
   - 'edit own landing_page_level_2 content'
@@ -186,14 +272,69 @@ permissions:
   - 'edit own news content'
   - 'edit own site_wide_alert content'
   - 'edit own topics_page content'
+  - 'edit own video media'
   - 'edit own webform submission'
+  - 'edit terms in category'
+  - 'edit terms in community'
+  - 'edit terms in department'
+  - 'edit terms in education_facilities'
+  - 'edit terms in health_facilities'
+  - 'edit terms in media_folders'
+  - 'edit terms in news_type'
+  - 'edit terms in region'
+  - 'edit terms in sanitary_facilities'
+  - 'edit terms in site_type'
+  - 'manage password reset'
   - 'post comments'
   - 'skip comment approval'
   - 'translate any entity'
   - 'translate any entity'
+  - 'translate audio media'
+  - 'translate basic_page node'
+  - 'translate block_content'
+  - 'translate blog node'
+  - 'translate blog_type taxonomy_term'
+  - 'translate campaign_page node'
+  - 'translate campground_directory_record node'
+  - 'translate category taxonomy_term'
+  - 'translate community taxonomy_term'
+  - 'translate community_facilities taxonomy_term'
+  - 'translate configuration'
+  - 'translate department node'
+  - 'translate department taxonomy_term'
+  - 'translate directory_records_places node'
+  - 'translate documents node'
   - 'translate editable entities'
   - 'translate editable entities'
   - 'translate editable entities'
+  - 'translate education_facilities taxonomy_term'
+  - 'translate engagement node'
+  - 'translate engagement_categories taxonomy_term'
+  - 'translate event node'
+  - 'translate health_facilities taxonomy_term'
+  - 'translate highway_names taxonomy_term'
+  - 'translate homepage node'
+  - 'translate image media'
+  - 'translate in_page_alert node'
+  - 'translate landing_page node'
+  - 'translate landing_page_level_2 node'
+  - 'translate menu_link_content'
+  - 'translate multi_step_page node'
+  - 'translate news node'
+  - 'translate news_type taxonomy_term'
+  - 'translate paragraph'
+  - 'translate recreation_site_type taxonomy_term'
+  - 'translate region taxonomy_term'
+  - 'translate sanitary_facilities taxonomy_term'
+  - 'translate school_board_type taxonomy_term'
+  - 'translate section taxonomy_term'
+  - 'translate site_type taxonomy_term'
+  - 'translate site_wide_alert node'
+  - 'translate sub_category taxonomy_term'
+  - 'translate teams taxonomy_term'
+  - 'translate topics_page node'
+  - 'translate transactional_facility_type taxonomy_term'
+  - 'update media'
   - 'use content transition archived'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
@@ -203,11 +344,13 @@ permissions:
   - 'use content transition publish_directly'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view own webform submission'
   - 'view the administration theme'
   - 'view workbench access information'

@@ -3,6 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
+    - media.type.audio
+    - media.type.document
+    - media.type.icon
+    - media.type.image
+    - media.type.video
+    - node.type.basic_page
     - node.type.blog
     - node.type.campaign_page
     - node.type.campground_directory_record
@@ -21,6 +28,7 @@ dependencies:
   module:
     - content_moderation
     - contextual
+    - filter
     - linkchecker
     - media
     - node
@@ -40,20 +48,27 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
+  - 'access media overview'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
   - 'administer menu'
   - 'administer nodes'
+  - 'administer themes'
+  - 'create audio media'
+  - 'create basic_page content'
   - 'create blog content'
   - 'create campaign_page content'
   - 'create campground_directory_record content'
   - 'create department content'
   - 'create directory_records_places content'
+  - 'create document media'
   - 'create documents content'
   - 'create engagement content'
   - 'create event content'
+  - 'create icon media'
+  - 'create image media'
   - 'create in_page_alert content'
   - 'create landing_page content'
   - 'create landing_page_level_2 content'
@@ -62,43 +77,70 @@ permissions:
   - 'create news content'
   - 'create topics_page content'
   - 'create url aliases'
+  - 'create video media'
+  - 'delete any audio media'
+  - 'delete any document media'
+  - 'delete any icon media'
+  - 'delete any image media'
+  - 'delete any video media'
+  - 'delete media'
+  - 'delete own audio media'
+  - 'delete own document media'
+  - 'delete own icon media'
+  - 'delete own image media'
+  - 'delete own video media'
+  - 'edit any audio media'
+  - 'edit any basic_page content'
   - 'edit any blog content'
   - 'edit any campaign_page content'
   - 'edit any campground_directory_record content'
   - 'edit any department content'
   - 'edit any directory_records_places content'
+  - 'edit any document media'
   - 'edit any documents content'
   - 'edit any engagement content'
   - 'edit any event content'
+  - 'edit any icon media'
+  - 'edit any image media'
   - 'edit any in_page_alert content'
   - 'edit any landing_page content'
   - 'edit any landing_page_level_2 content'
   - 'edit any multi_step_page content'
   - 'edit any news content'
   - 'edit any topics_page content'
+  - 'edit any video media'
+  - 'edit own audio media'
+  - 'edit own basic_page content'
   - 'edit own blog content'
   - 'edit own campaign_page content'
   - 'edit own campground_directory_record content'
   - 'edit own department content'
   - 'edit own directory_records_places content'
+  - 'edit own document media'
   - 'edit own documents content'
   - 'edit own engagement content'
   - 'edit own event content'
+  - 'edit own icon media'
+  - 'edit own image media'
   - 'edit own in_page_alert content'
   - 'edit own landing_page content'
   - 'edit own landing_page_level_2 content'
   - 'edit own multi_step_page content'
   - 'edit own news content'
   - 'edit own topics_page content'
+  - 'edit own video media'
+  - 'update media'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view the administration theme'
   - 'view workbench access information'

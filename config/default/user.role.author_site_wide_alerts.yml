@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
     - node.type.site_wide_alert
     - workflows.workflow.content
   module:
     - content_moderation
     - contextual
+    - filter
     - node
     - path
     - system
@@ -24,6 +26,8 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
+  - 'administer menu'
+  - 'administer themes'
   - 'create site_wide_alert content'
   - 'create url aliases'
   - 'delete any site_wide_alert content'
@@ -38,6 +42,7 @@ permissions:
   - 'use content transition publish'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view any unpublished content'
   - 'view the administration theme'
