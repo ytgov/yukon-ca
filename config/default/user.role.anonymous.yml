@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block
     - comment
     - media
     - system
@@ -16,8 +15,6 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'administer blocks'
-  - 'administer blocks'
   - 'post comments'
   - 'view media'
   - 'view media'

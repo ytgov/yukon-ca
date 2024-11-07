@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_html
     - node.type.blog
+    - taxonomy.vocabulary.category
   module:
     - contextual
+    - filter
     - linkchecker
     - node
     - system
@@ -24,7 +27,9 @@ permissions:
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
+  - 'administer menu'
   - 'administer taxonomy'
+  - 'administer themes'
   - 'administer users'
   - 'administer workbench access'
   - 'assign workbench access'
@@ -34,6 +39,8 @@ permissions:
   - 'delete own blog content'
   - 'edit any blog content'
   - 'edit own blog content'
+  - 'edit terms in category'
+  - 'use text format full_html'
   - 'use workbench access'
   - 'view own unpublished content'
   - 'view the administration theme'

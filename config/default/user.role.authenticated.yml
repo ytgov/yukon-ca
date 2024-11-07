@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block
     - comment
     - matomo
     - media
@@ -17,8 +16,6 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'administer blocks'
-  - 'administer blocks'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'view media'

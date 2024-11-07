@@ -166,6 +166,7 @@ Running the above commands more than once is recommended.
 ### Post-import cleanup
 
 The `custom_migrate` module does some post-migration clean up work. Visit `[root-URL]/custom_migrate` to execute that code.
+The `time_change` module does some post-migration clean up work. Visit `[root-URL]/time_change` to execute that code.
 
 ## Run the following commands after migrating the data:
 

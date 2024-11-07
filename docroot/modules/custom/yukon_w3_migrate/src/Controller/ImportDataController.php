@@ -4,6 +4,7 @@ namespace Drupal\yukon_w3_migrate\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Database;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -19,13 +20,23 @@ class ImportDataController extends ControllerBase {
   protected $messenger;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructs InviteByEmail .
    *
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager service.
    */
-  public function __construct(MessengerInterface $messenger) {
+  public function __construct(MessengerInterface $messenger, EntityTypeManagerInterface $entity_type_manager) {
     $this->messenger = $messenger;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -33,7 +44,8 @@ class ImportDataController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new self(
-      $container->get('messenger')
+      $container->get('messenger'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -41,6 +53,16 @@ class ImportDataController extends ControllerBase {
    * Update the translation for primary links.
    */
   public function content() {
+    $node_storage = $this->entityTypeManager->getStorage('node');
+    $entity = $node_storage->load('7534');
+    $entity->addTranslation('fr', ['title' => "Activités", 'body' => 'Activités du gouvernement du Yukon.'])->save();
+    $path_alias = $this->entityTypeManager()->getStorage('path_alias')->create([
+      'path' => "/node/7534",
+      'alias' => "/activites",
+      'langcode' => "fr",
+    ]);
+    $path_alias->save();
+
     $db = Database::getConnection();
     // Update format of the quick facts.
     $db->update("paragraph__field_facts")
