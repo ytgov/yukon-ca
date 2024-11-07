@@ -502,6 +502,10 @@ function yukonca_glider_preprocess_page(&$variables) {
     if ($node->bundle() == 'basic_page') {
       $variables['type'] = "basic_page";
     }
+    $variables['documents_non_branded'] = "";
+    if ($node->bundle() == 'documents') {
+      $variables['documents_non_branded'] = $node->field_documents_non_branded->value;
+    }
 
     if ($node->bundle() == 'campaign_page') {
       $variables['campaign_type'] = $node->field_campaign_type->value;

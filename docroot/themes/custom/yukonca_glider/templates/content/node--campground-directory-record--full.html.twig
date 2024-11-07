@@ -105,8 +105,8 @@
     <div class="md:grid md:grid-cols-12 gap-8">
       <div class="campground-site-information col-span-7">
         {{ content.field_region }}
-        {% if node.field_campground_site_type.target_id != "120" and node.field_campground_site_type.target_id != "119" %}
-            {% if node.field_campground_site_type.target_id != "121" %}
+        {% if node.field_campground_site_type.target_id != "80" and node.field_campground_site_type.target_id != "82" %}
+            {% if node.field_campground_site_type.target_id != "84" %}
                 {{ content.field_registration_required }}
                 {{ content.field_total_sites }}
                 {{ content.field_pull_through }}
@@ -145,7 +145,7 @@
         {{ content.field_warning }}
 
         {{ content.field_site_description }}
-        {% if node.field_campground_site_type.target_id != "120" and node.field_campground_site_type.target_id != "119" and node.field_campground_site_type.target_id != "121" %}
+        {% if node.field_campground_site_type.target_id != "80" and node.field_campground_site_type.target_id != "82" and node.field_campground_site_type.target_id != "84" %}
             <div class="campground-availability">
               {{
                 pattern('graph_card',{

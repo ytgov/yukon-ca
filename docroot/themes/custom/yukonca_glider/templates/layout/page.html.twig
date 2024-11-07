@@ -46,15 +46,21 @@
 
   {# BEGIN HEADER #}
   {% set menuSectionId = 'header-main-navigaion' %}
-
-  {{ pattern('header', {
-    logo: page.header_branding,
-    unique_id: menuSectionId,
-    languageswitcher: page.header_menu.languageswitcher,
-    menus: page.header_menu|without('languageswitcher', 'exposedformsearchpage_1'),
-    offcanvas_heading: 'Government services <br>and information'|t,
-    search: page.header_menu.exposedformsearchpage_1,
-  }) }}
+  
+  {% if documents_non_branded != 1 %}
+      {{ pattern('header', {
+        logo: page.header_branding,
+        unique_id: menuSectionId,
+        languageswitcher: page.header_menu.languageswitcher,
+        menus: page.header_menu|without('languageswitcher', 'exposedformsearchpage_1'),
+        offcanvas_heading: 'Government services <br>and information'|t,
+        search: page.header_menu.exposedformsearchpage_1,
+      }) }}
+  {% else %}
+      {{ pattern('header', {
+        languageswitcher: page.header_menu.languageswitcher,
+      }) }}
+  {% endif %}
 
   {# END OF HEADER #}
   
@@ -151,12 +157,14 @@
 
   </main>
 </div>
-  {% if page.footer_logo or page.footer_menu or page.footer_legal %}
-    {{ pattern('footer', {
-      logo: Footer_logo,
-      menus: page.footer_menu,
-      legal_link: Footer_text
-    }, 'default') }}
+  {% if documents_non_branded != 1 %}
+      {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+        {{ pattern('footer', {
+          logo: Footer_logo,
+          menus: page.footer_menu,
+          legal_link: Footer_text
+        }, 'default') }}
+      {% endif %}
   {% endif %}
 
 </div>{# /.layout-container #}
