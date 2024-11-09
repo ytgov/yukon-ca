@@ -195,21 +195,7 @@ class ArrivalsBlock extends BlockBase implements ContainerFactoryPluginInterface
 
           // Flight status.
           $status = (string) $xml_flight->Status;
-          if ($status == "On Time") {
-            $status_new = $this->t('On Time');
-          }
-          elseif ($status == "Departed") {
-            $status_new = $this->t('Departed');
-          }
-          elseif ($status == "Delayed") {
-            $status_new = $this->t('Delayed');
-          }
-          elseif ($status == "Arrived") {
-            $status_new = $this->t('Arrived');
-          }
-          elseif ($status == "Cancelled") {
-            $status_new = $this->t('Cancelled');
-          }
+          $status_new = $this->t($status);
 
           if (in_array($status, ['Delayed', 'Cancelled'])) {
             $status_class = (string) 'flight-status-problem';
