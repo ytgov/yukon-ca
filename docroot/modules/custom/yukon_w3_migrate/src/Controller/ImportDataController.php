@@ -83,7 +83,7 @@ class ImportDataController extends ControllerBase {
         $this->userSectionStorage->addUser($scheme, $account, [$result->access_id]);
       }
     }
-    echo "test"; die;
+
     // To set the active connection.
     Database::setActiveConnection('default');
 
