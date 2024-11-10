@@ -450,9 +450,7 @@ display:
           admin_label: ''
           plugin_id: text
           empty: true
-          content:
-            value: 'There is no content available for you to edit.'
-            format: plain_text
+          content: Array
           tokenize: false
       sorts:
         changed:
@@ -1157,9 +1155,7 @@ display:
           admin_label: ''
           plugin_id: text
           empty: false
-          content:
-            value: '<h3>Recent content</h3>'
-            format: full_html
+          content: Array
           tokenize: false
       display_extenders: {  }
     cache_metadata:

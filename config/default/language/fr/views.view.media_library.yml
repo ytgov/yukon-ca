@@ -2,6 +2,7 @@ display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: Média
       pager:
         options:
           expose:
@@ -22,6 +23,12 @@ display:
         name:
           expose:
             label: Nom
+  page:
+    display_title: Page
+    display_options:
+      fields:
+        delete_media:
+          text: Supprimer
   widget:
     display_options:
       arguments:

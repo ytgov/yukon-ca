@@ -2,6 +2,9 @@ display:
   default:
     display_title: 'Par défaut'
     display_options:
+      fields:
+        timestamp:
+          label: Date
       pager:
         options:
           expose:
@@ -12,3 +15,5 @@ display:
         options:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+  page:
+    display_title: Page

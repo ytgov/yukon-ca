@@ -19,3 +19,5 @@ display:
             group_items:
               1:
                 title: 'Publié le'
+  page_1:
+    display_title: Page

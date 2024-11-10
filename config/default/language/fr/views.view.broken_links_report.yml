@@ -12,3 +12,15 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      fields:
+        code:
+          label: 'Status code'
+      filters:
+        code_1:
+          expose:
+            label: 'Status code'
+        code:
+          expose:
+            label: 'Status code'
+  page_1:
+    display_title: Page

@@ -5,7 +5,7 @@ dependencies:
   module:
     - editor
     - linkit
-    - media
+    - media_embed_extra
     - pathologic
 _core:
   default_config_hash: hewPmBgni9jlDK_IjLxUx1HsTbinK-hdl0lOwjbteIY
@@ -22,7 +22,7 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: false
+    status: true
     weight: -40
     settings: {  }
   filter_autop:
@@ -97,7 +97,7 @@ filters:
       title: true
   media_embed:
     id: media_embed
-    provider: media
+    provider: media_embed_extra
     status: true
     weight: -44
     settings:

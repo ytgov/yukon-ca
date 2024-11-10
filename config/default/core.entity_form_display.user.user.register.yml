@@ -17,18 +17,33 @@ bundle: user
 mode: register
 content:
   account:
-    weight: -10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_yukon_editorial_team:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   language:
-    weight: 0
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  matomo:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -41,5 +56,4 @@ hidden:
   field_last_password_reset: true
   field_password_expiration: true
   field_pending_expire_sent: true
-  field_yukon_editorial_team: true
   langcode: true

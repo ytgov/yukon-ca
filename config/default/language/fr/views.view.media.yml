@@ -1,7 +1,9 @@
+label: Média
 display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: Média
       fields:
         status:
           label: Statut
@@ -23,3 +25,8 @@ display:
             group_items:
               1:
                 title: 'Publié le'
+  media_page_list:
+    display_title: Média
+    display_options:
+      menu:
+        title: Média

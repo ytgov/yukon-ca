@@ -1056,6 +1056,7 @@ display:
               _webform_manager: '0'
               author_in_page_alerts: '0'
               blog_author: '0'
+              author_site_wide_alerts: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1071,7 +1072,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: department
-          type: textfield
+          type: select
           hierarchy: false
           limit: true
           error_message: true
