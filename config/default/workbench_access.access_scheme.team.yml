@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.news.field_yukon_editorial_team
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - field.field.node.topics_page.field_yukon_editorial_team
+    - field.field.user.user.field_yukon_editorial_team
     - taxonomy.vocabulary.teams
 id: team
 plural_label: Teams
@@ -31,11 +32,15 @@ scheme_settings:
   fields:
     -
       entity_type: node
-      bundle: basic_page
+      bundle: topics_page
       field: field_yukon_editorial_team
     -
       entity_type: node
-      bundle: in_page_alert
+      bundle: site_wide_alert
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: news
       field: field_yukon_editorial_team
     -
       entity_type: node
@@ -51,27 +56,15 @@ scheme_settings:
       field: field_yukon_editorial_team
     -
       entity_type: node
+      bundle: in_page_alert
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
       bundle: homepage
       field: field_yukon_editorial_team
     -
       entity_type: node
-      bundle: news
-      field: field_yukon_editorial_team
-    -
-      entity_type: node
       bundle: event
-      field: field_yukon_editorial_team
-    -
-      entity_type: node
-      bundle: blog
-      field: field_yukon_editorial_team
-    -
-      entity_type: node
-      bundle: topics_page
-      field: field_yukon_editorial_team
-    -
-      entity_type: node
-      bundle: site_wide_alert
       field: field_yukon_editorial_team
     -
       entity_type: node
@@ -95,5 +88,17 @@ scheme_settings:
       field: field_yukon_editorial_team
     -
       entity_type: node
+      bundle: basic_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
       bundle: campaign_page
+      field: field_yukon_editorial_team
+    -
+      entity_type: node
+      bundle: blog
+      field: field_yukon_editorial_team
+    -
+      entity_type: user
+      bundle: user
       field: field_yukon_editorial_team

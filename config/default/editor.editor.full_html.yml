@@ -18,6 +18,7 @@ settings:
       - bulletedList
       - numberedList
       - drupalMedia
+      - drupalInsertImage
       - blockQuote
       - link
       - undo
@@ -46,6 +47,8 @@ settings:
         - heading4
         - heading5
         - heading6
+    ckeditor5_imageResize:
+      allow_resize: true
     ckeditor5_list:
       properties:
         reversed: true
@@ -63,4 +66,10 @@ settings:
     media_media:
       allow_view_mode_override: false
 image_upload:
-  status: false
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: null
+  max_dimensions:
+    width: null
+    height: null

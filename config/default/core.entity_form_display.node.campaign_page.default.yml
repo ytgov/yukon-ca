@@ -319,10 +319,14 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
   field_parent_campaign_page:
-    type: options_select
+    type: entity_reference_autocomplete
     weight: 9
     region: content
-    settings: {  }
+    settings:
+      match_operator: STARTS_WITH
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_publisher:
     type: options_select

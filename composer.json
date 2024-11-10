@@ -59,6 +59,7 @@
         "drupal/matomo": "^1.23",
         "drupal/maxlength": "^2.1",
         "drupal/media_directories": "2.1.x-dev@dev",
+        "drupal/media_embed_extra": "^1.0@beta",
         "drupal/media_library_edit": "^3.0",
         "drupal/menu_block": "^1.10",
         "drupal/menu_breadcrumb": "^2.0@alpha",

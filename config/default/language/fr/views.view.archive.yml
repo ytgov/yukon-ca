@@ -13,3 +13,5 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+  page_1:
+    display_title: Page

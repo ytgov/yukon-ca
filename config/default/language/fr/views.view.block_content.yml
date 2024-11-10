@@ -1,7 +1,10 @@
+label: 'Custom block library'
+description: 'Find and manage custom blocks.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: 'Custom block library'
       pager:
         options:
           expose:
@@ -13,3 +16,11 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      empty:
+        area_text_custom:
+          content: 'There are no custom blocks available.'
+  page_1:
+    display_title: Page
+    display_options:
+      menu:
+        description: 'Create and edit block content.'

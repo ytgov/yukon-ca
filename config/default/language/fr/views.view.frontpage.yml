@@ -13,5 +13,10 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      empty:
+        area_text_custom:
+          content: "<p>The Yukon Territory (Yukon) is in the northwest corner of Canada. It borders on British Columbia, the Northwest Territories and Alaska. Yukon has a total population of 34,157 people with most living in the capital city of Whitehorse. The Yukon is home to Canada's highest peak, largest ice fields, the smallest desert and the western-most point in Canada. It has an incredible array of wildlife and grizzly bears, caribou, moose and other animals roam the land.</p>\r\n<p>Yukon is an excellent place to live, work and play. Yukon welcomes newcomers every year and offers great opportunities, including:</p>\r\n<ul>\r\n<li>friendly people</li>\r\n<li>a skilled and educated workforce</li>\r\n<li>up-to-date transportation systems</li>\r\n<li>outdoor activities in every season of the year</li>\r\n<li>one of the lowest unemployment rates in Canada</li>\r\n<li>a strong economy thanks to our natural resources</li>\r\n<li>broadband Internet service in all of our communities</li>\r\n</ul>"
   feed_1:
     display_title: Flux
+  page_1:
+    display_title: Page

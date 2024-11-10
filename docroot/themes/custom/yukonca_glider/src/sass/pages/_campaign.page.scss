@@ -32,7 +32,7 @@
 					        @apply pl-5;
 					        
 					        .menu-item {
-					            @apply text-[13px] leading-[20px];
+					            @apply normal-case text-[13px] leading-[20px];
 					        }
 					    }
 					    
@@ -110,7 +110,7 @@
 			
 			.video {
 			    .container {
-				    @apply w-10/12;
+				    @apply w-full md:w-10/12 lg:w-8/12;
 				    
 				    @include media-breakpoint-down(md) {
 				        @apply flex-col;
@@ -118,6 +118,15 @@
 				    
 				    .video {
 				        @apply order-2;
+				        
+				        iframe {
+    				        -webkit-box-shadow: 0 40px 40px 0 rgba(155, 155, 155, .4);
+                            box-shadow: 0 40px 40px 0 rgba(155, 155, 155, .4);
+				        }
+				        
+				        .field--name-field-caption {
+				            @apply mt-6 text-gray-450 text-sm;
+				        }
 				    }
 
 				    .caption {
@@ -203,6 +212,12 @@
     			    a {
     			        @apply text-base;
     			    }
+			    }
+			}
+			
+			#Partnerships {
+			    img {
+			        @apply shadow-none;
 			    }
 			}
     	}

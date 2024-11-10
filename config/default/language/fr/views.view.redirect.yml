@@ -21,3 +21,10 @@ display:
         redirect_redirect__uri:
           expose:
             label: À
+        status_code:
+          expose:
+            label: 'Status code'
+          group_info:
+            label: 'Status code'
+  page_1:
+    display_title: Page
