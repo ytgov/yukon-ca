@@ -548,7 +548,7 @@ function yukonca_glider_preprocess_page(&$variables) {
                 $j++;
               }
               $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
-              $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => $child_alias];
+              $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
               $i++;
             }
           }
@@ -573,7 +573,7 @@ function yukonca_glider_preprocess_page(&$variables) {
                   $j++;
                 }
                 $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => $child_alias_3];
+                $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
                 $i++;
               }
             }
@@ -606,7 +606,7 @@ function yukonca_glider_preprocess_page(&$variables) {
       }
       else {
         $parent_page = $node->field_parent_campaign_page->target_id;
-        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page);
+        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page, $langcode);
         if (!empty($parent_page)) {
           $node_parent = Node::load($parent_page);
           $translated_entity = $node_parent->getTranslation($langcode);
@@ -624,7 +624,7 @@ function yukonca_glider_preprocess_page(&$variables) {
               foreach ($child_cam_2 as $child_2) {
                 $node_child_2 = Node::load($child_2['target_id']);
                 $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
-                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
                 $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
                   '0' => $translated_entity_child_2->getTitle(),
                   '1' => $child_alias_2,
@@ -632,7 +632,7 @@ function yukonca_glider_preprocess_page(&$variables) {
                 $j++;
               }
               $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
-              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => $child_alias];
+              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
               $i++;
             }
           }
@@ -651,15 +651,18 @@ function yukonca_glider_preprocess_page(&$variables) {
                 foreach ($child_cam_3 as $child_3) {
                   $node_child_3 = Node::load($child_3['target_id']);
                   $translated_entity_child_2 = $node_child_3->getTranslation($langcode);
-                  $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
+                  $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id'], $langcode);
                   $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
                     '0' => $translated_entity_child_2->getTitle(),
                     '1' => $child_alias_3,
                   ];
                   $j++;
                 }
-                $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                $variables['campaign_menu'][$i] = ['0' => $translated_entity_child->getTitle(), '1' => $child_alias_3];
+                $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
+                $variables['campaign_menu'][$i] = [
+                  '0' => $translated_entity_child->getTitle(),
+                  '1' => '/fr' . $child_alias_3,
+                ];
                 $i++;
               }
             }
@@ -681,7 +684,7 @@ function yukonca_glider_preprocess_page(&$variables) {
               foreach ($child_cam_2 as $child_2) {
                 $node_child_2 = Node::load($child_2['target_id']);
                 $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
-                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
                 $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
                   '0' => $translated_entity_child_2->getTitle(),
                   '1' => $child_alias_2,
@@ -690,7 +693,7 @@ function yukonca_glider_preprocess_page(&$variables) {
               }
 
               $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
-              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => $child_alias];
+              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
               $i++;
             }
           }
@@ -700,7 +703,7 @@ function yukonca_glider_preprocess_page(&$variables) {
 
     // Do not show at Homepage.
     $current_path = \Drupal::service('path.current')->getPath();
-    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}");
+    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}", $langcode);
     $front_page_setting = \Drupal::getContainer()->get('config.factory')->get('system.site')->get('page.front');
     if (empty($variables['is_front']) && $front_page_setting != $current_path && $front_page_setting != $current_alias) {
       // Get node modified date and populate it to display at the bottom of the

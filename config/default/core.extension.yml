@@ -28,6 +28,7 @@ module:
   ckeditor5_premium_features_fullscreen: 0
   ckeditor5_show_block: 0
   ckeditor_div_manager: 0
+  ckeditor_media_resize: 0
   color_field: 0
   comment: 0
   config: 0

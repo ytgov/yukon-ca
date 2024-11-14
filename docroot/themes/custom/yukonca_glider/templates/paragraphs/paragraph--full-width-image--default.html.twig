@@ -48,33 +48,8 @@ set classes = [
 %}
 {% block paragraph %}
 	{% block content %}
-		<div class="campaign-section campaign-text-only flex justify-center paragraph--type--text-and-image" id="{{ paragraph.field_title.value|replace({' ': '-'}) }}">
-			<div class="w-10/12">
-				<div class="campaign-text-only-wrapper">
-					{% if paragraph.field_display_section_title.value == "1" %}
-						<h2 class="title-design-1">{{ paragraph.field_title.value|raw }}</h2>
-					{% endif %}
-					<div class="flex gap-7 items-center">
-						{% if paragraph.field_position_on_page.value == "left" %}
-							<div class="w-6/12">
+	    <div class="campaign-image-only-wrapper">
 								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}">
-								<p>{{ paragraph.field_source_credit.value }}</p>
-							</div>
-							<div class="w-6/12">
-								{{ paragraph.field_section_content.value|raw }}
-							</div>
-						{% else %}
-							<div class="w-6/12">
-								{{ paragraph.field_section_content.value|raw }}
-							</div>
-							<div class="w-6/12">
-								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}">
-								<p>{{ paragraph.field_source_credit.value }}</p>
-							</div>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-		</div>
+        </div>
     {% endblock %}
 {% endblock paragraph %}

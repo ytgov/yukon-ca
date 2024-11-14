@@ -2,7 +2,14 @@ uuid: 6deef971-d1f9-4631-ba92-eea8c0e94d46
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.cke_media_resize_large
+    - core.entity_view_mode.media.cke_media_resize_medium
+    - core.entity_view_mode.media.cke_media_resize_small
+    - core.entity_view_mode.media.cke_media_resize_xl
+    - core.entity_view_mode.media.media_library
   module:
+    - ckeditor_media_resize
     - editor
     - linkit
     - media_embed_extra
@@ -23,25 +30,25 @@ filters:
     id: filter_align
     provider: filter
     status: true
-    weight: -40
+    weight: -41
     settings: {  }
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -41
+    weight: -39
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: false
-    weight: -43
+    weight: -42
     settings:
       allowed_html: ''
       filter_html_help: false
@@ -50,13 +57,13 @@ filters:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -42
+    weight: -40
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -38
+    weight: -37
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
@@ -81,6 +88,12 @@ filters:
         protocol_style: full
         local_paths: ''
         keep_language_prefix: true
+  filter_resize_media:
+    id: filter_resize_media
+    provider: ckeditor_media_resize
+    status: false
+    weight: -44
+    settings: {  }
   filter_url:
     id: filter_url
     provider: filter
@@ -99,11 +112,16 @@ filters:
     id: media_embed
     provider: media_embed_extra
     status: true
-    weight: -44
+    weight: -43
     settings:
       default_view_mode: default
       allowed_view_modes:
         default: default
+        cke_media_resize_large: cke_media_resize_large
+        cke_media_resize_medium: cke_media_resize_medium
+        cke_media_resize_small: cke_media_resize_small
+        cke_media_resize_xl: cke_media_resize_xl
+        media_library: media_library
       allowed_media_types:
         audio: audio
         image: image
