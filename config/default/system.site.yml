@@ -7,8 +7,8 @@ mail: noreply@evolvingweb.com
 slogan: ''
 page:
   403: ''
-  404: /search404
-  front: /home
+  404: /node/6454
+  front: /node/51
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

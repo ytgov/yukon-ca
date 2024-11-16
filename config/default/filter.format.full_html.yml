@@ -7,7 +7,6 @@ dependencies:
     - core.entity_view_mode.media.cke_media_resize_medium
     - core.entity_view_mode.media.cke_media_resize_small
     - core.entity_view_mode.media.cke_media_resize_xl
-    - core.entity_view_mode.media.media_library
   module:
     - ckeditor_media_resize
     - editor
@@ -121,7 +120,6 @@ filters:
         cke_media_resize_medium: cke_media_resize_medium
         cke_media_resize_small: cke_media_resize_small
         cke_media_resize_xl: cke_media_resize_xl
-        media_library: media_library
       allowed_media_types:
         audio: audio
         image: image

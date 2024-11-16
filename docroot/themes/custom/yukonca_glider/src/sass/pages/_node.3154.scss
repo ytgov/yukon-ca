@@ -59,11 +59,6 @@
 		@apply mt-6 mb-3 text-gray-450;
 	}
 
-	img {
-		@apply rounded;
-		box-shadow: 0 40px 40px 0 rgba(155,155,155,.4);
-	}
-
 	&.campaign-video-only {
 		.campaign-video-only-wrapper {
 			.title-design-1 {
@@ -75,7 +70,7 @@
 
 .campaign-cta {
 	background-position: center center;
-	@apply relative py-16 w-screen left-1/2 right-1/2 mx-[-50vw] bg-no-repeat;
+	@apply relative py-16 w-screen left-1/2 right-1/2 mx-[-50vw] bg-no-repeat bg-cover;
 
 	&:before {
 		content: "";
