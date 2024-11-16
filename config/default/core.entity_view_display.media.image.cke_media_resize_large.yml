@@ -1,25 +1,26 @@
-uuid: 1e764799-bfed-4d8c-966b-8ff29be396ef
+uuid: a221e6ae-698f-4b70-8af9-0adde1aa5687
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.cke_media_resize_large
     - field.field.media.image.field_media_image_1
-    - image.style.large
+    - image.style.cke_media_resize_large
     - media.type.image
   module:
     - fences
     - svg_image
-id: media.image.default
+id: media.image.cke_media_resize_large
 targetEntityType: media
 bundle: image
-mode: default
+mode: cke_media_resize_large
 content:
   field_media_image_1:
     type: image
     label: hidden
     settings:
       image_link: ''
-      image_style: large
+      image_style: cke_media_resize_large
       image_loading:
         attribute: lazy
       svg_attributes:

@@ -21,6 +21,7 @@
         "drupal/ckeditor5_plugin_pack": "^1.1",
         "drupal/ckeditor5_show_block": "^1.14",
         "drupal/ckeditor_div_manager": "^3.0@alpha",
+        "drupal/ckeditor_media_resize": "^1.0",
         "drupal/classy": "^1.0",
         "drupal/color_field": "^3.0",
         "drupal/comment_notify": "^1.4",

@@ -57,7 +57,7 @@ set classes = [
 					<div class="flex gap-7 items-center">
 						{% if paragraph.field_position_on_page.value == "left" %}
 							<div class="w-6/12">
-								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_title.value|raw }}">
+								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}">
 								<p>{{ paragraph.field_source_credit.value }}</p>
 							</div>
 							<div class="w-6/12">
@@ -68,7 +68,7 @@ set classes = [
 								{{ paragraph.field_section_content.value|raw }}
 							</div>
 							<div class="w-6/12">
-								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_title.value|raw }}">
+								<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}">
 								<p>{{ paragraph.field_source_credit.value }}</p>
 							</div>
 						{% endif %}

@@ -46,13 +46,14 @@
         .campaign-nav .campaign-nav__link .icon {
             background: {{ highlight_color }};
         }
+        .campaign-section h2:before,
         .campaign-section .title-design-1:before {
           background-color: {{ highlight_color }};
         }
         .campaign-cta .cta-link {
             background: {{ highlight_color }};
         }
-        .page-node-type-campaign-page main .campaign-section a {
+        .page-node-type-campaign-page main .campaign-section a:not(.btn) {
             color: {{ link_color }};
         }
     </style>

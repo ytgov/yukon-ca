@@ -60,6 +60,14 @@
 			@apply pt-0;
 		}
 		
+		h2 {
+		    @apply text-3.25xl;
+		    
+		    a {
+		        @apply no-underline;
+		    }
+		}
+		
 		.paragraph--type--text,
 		.paragraph--type--text-and-image {
 			@apply pb-20 mt-20 border-b-1 border-gray-90;
@@ -71,6 +79,80 @@
 					@apply opacity-50;
 				}
 			}
+		}
+		
+		.campaign-text-only-wrapper {
+		    @apply relative;
+
+		    h1 {
+		        @apply text-[42px] leading-[normal];
+		    }
+		    
+	        .media {
+	            &.media-wysiwyg-align-left {
+	                @apply float-left mr-5;
+	            }
+	            
+	            &.media-wysiwyg-align-right {
+	                @apply float-right ml-5;
+	            }
+	        }
+		    
+		    p {
+		        &:last-child {
+		            @apply mb-0;
+		        }
+		    }
+		    
+		    .source-icon {
+		        @apply absolute top-28 -left-[104px] cursor-pointer;
+		        
+		        .source-credit {
+		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-md shadow-[#9B9B9B] min-w-max bg-white -top-full;
+		        }
+		        
+		        &:hover {
+		            .source-credit {
+		                @apply block;
+		            }
+		        }
+		        
+		        .icon {
+		            @apply w-fit;
+		            
+		            .field-name-field-source-credit {
+    		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-xl shadow-[#9B9B9B] min-w-max bg-white;
+    
+    		            .field-items {
+    		                @apply mt-0;
+    		            }
+    		        }
+		            
+		            &:hover {
+    		            @apply cursor-pointer;
+    		            
+    		            .field-name-field-source-credit {
+    		                @apply block;
+    		            }
+    		        }
+		        }
+		        
+		        svg {
+		            @apply text-white opacity-60;
+		        }
+		    }
+		    
+		    blockquote {
+		        @apply py-3 px-6 border-l-[5px] border-gray-lightgray;
+		        
+		        h3 {
+		            @apply text-[22px];
+		        }
+		        
+		        img {
+		            @apply mt-[15px] mb-[5px];
+		        }
+		    }
 		}
 
 	    .field__item {
@@ -197,6 +279,19 @@
 			    }
 			}
 			
+			.paragraph--type--full-width-image {
+			    @apply border-b border-gray-90 pb-20 pt-[66px];
+			    
+    			.campaign-image-only-wrapper {
+    			    @apply text-center w-full md:w-10/12 md:mx-auto px-[15px];
+    			    
+    			    img {
+    			        @apply w-auto h-auto rounded;
+                        box-shadow: 0 40px 40px 0 rgba(155,155,155,.4);
+    			    }
+    			}
+			}
+			
 			.campaign-section {
 			    &.paragraph--type--text-and-image {
 			        @apply text-sm text-gray-450;
@@ -220,6 +315,12 @@
 			        @apply shadow-none;
 			    }
 			}
+			
+			.media {
+			    .media-wysiwyg-align-left {
+			        @apply mt-[15px] mr-5;
+			    }
+			}
     	}
 			
 		#block-mainpagecontent {
@@ -230,62 +331,6 @@
 		.layout-content {
 	        @apply p-0;
 	    }
-		
-		.campaign-text-only-wrapper {
-		    @apply relative;
-
-		    h1 {
-		        @apply text-[42px];
-		    }
-		    
-		    p {
-		        &:last-child {
-		            @apply mb-0;
-		        }
-		    }
-		    
-		    .source-icon {
-		        @apply absolute top-28 -left-[104px] cursor-pointer;
-		        
-		        .source-credit {
-		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-md shadow-[#9B9B9B] min-w-max bg-white -top-full;
-		        }
-		        
-		        &:hover {
-		            .source-credit {
-		                @apply block;
-		            }
-		        }
-		        
-		        .icon {
-		            @apply w-fit;
-		            
-		            .field-name-field-source-credit {
-    		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-xl shadow-[#9B9B9B] min-w-max bg-white;
-    
-    		            .field-items {
-    		                @apply mt-0;
-    		            }
-    		        }
-		            
-		            &:hover {
-    		            @apply cursor-pointer;
-    		            
-    		            .field-name-field-source-credit {
-    		                @apply block;
-    		            }
-    		        }
-		        }
-		        
-		        svg {
-		            @apply text-white opacity-60;
-		        }
-		    }
-		}
-		
-		h2 {
-		    @apply text-3.25xl;
-		}
 		
 		.campaign-social-media {
 		    h2 {

@@ -97,6 +97,7 @@ process:
           - yukon_migrate_call_to_action
           - yukon_migrate_quote
           - yukon_migrate_charts
+          - yukon_migrate_full_width_image
         no_stub: true
 
   field_paragraphs:
@@ -191,3 +192,4 @@ migration_dependencies:
     - yukon_migrate_charts
     - yukon_migrate_social_network
     - yukon_migrate_navigation_jump_point
+    - yukon_migrate_full_width_image

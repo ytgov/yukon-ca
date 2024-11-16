@@ -176,6 +176,7 @@ final class UriTransform extends ProcessPluginBase {
       $message .= ' SourceNid: ' . $sourceNid;
 
       $destNid = $this->findDestNid($sourceNid);
+
       if ($destNid) {
         $database = Database::getConnection('default', 'default');
         $result = $database->select('path_alias', 'p')
@@ -184,6 +185,7 @@ final class UriTransform extends ProcessPluginBase {
           ->condition('p.langcode', $langcode)
           ->orderBy('id', 'DESC')
           ->execute()->fetchObject();
+
         if (!empty($result->alias)) {
           if (!empty($langcode)) {
             $value = str_ireplace($matches[0], '/' . $langcode . $result->alias, $value);
@@ -291,13 +293,19 @@ final class UriTransform extends ProcessPluginBase {
 
     if (!empty($matches2[0])) {
       foreach ($matches2[0] as $match) {
-
         $langcode = $row->get('language');
         $nid = str_replace('"node/', '', $match);
-        $database = Database::getConnection('default', 'default');
         if (empty($langcode)) {
-          $langcode = 'en';
+          $table_name = 'field_data_' . $row->get('field_name');
+          $field_name = $row->get('field_name') . '_revision_id';
+          $database = Database::getConnection('default', 'migrate');
+          $result = $database->select($table_name, 'p')
+            ->fields('p', ['language'])
+            ->condition($field_name, $row->get('revision_id'))
+            ->execute()->fetchObject();
+          $langcode = $result->language;
         }
+        $database = Database::getConnection('default', 'default');
         $result = $database->select('path_alias', 'p')
           ->fields('p', ['alias'])
           ->condition('p.path', '/node/' . $nid)

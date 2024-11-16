@@ -49,7 +49,7 @@ set classes = [
 
 {% block paragraph %}
 	{% block content %}
-		<div class="campaign-section campaign-text-only flex justify-center paragraph--type--text" id="{{ paragraph.field_title.value|replace({' ': '-'}) }}">
+		<div class="campaign-section campaign-text-only flex justify-center paragraph--type--text" id="{{ paragraph.field_title.value }}">
 			<div class="w-8/12">
 				<div class="campaign-text-only-wrapper">
 					{% if paragraph.field_display_section_title.value == '1' %}
