@@ -87,6 +87,41 @@ class ImportDataController extends ControllerBase {
     // To set the active connection.
     Database::setActiveConnection('default');
 
+    // Update the unpublish.
+    $db = Database::getConnection();
+    $query = $db->select("node_field_data", "n");
+    $query->fields("n", ["nid", "status", "langcode"]);
+    $query->condition("n.status", "0");
+    $query->condition("n.langcode", "en");
+    $results_nid = $query->execute()->fetchAll();
+
+    foreach ($results_nid as $res) {
+      $db->update("node_field_data")
+        ->fields([
+          "status" => "0",
+        ])
+        ->condition("nid", $res->nid)
+        ->condition("langcode", 'fr')
+        ->execute();
+    }
+
+    $db = Database::getConnection();
+    $query = $db->select("node_field_revision", "n");
+    $query->fields("n", ["nid", "status", "langcode"]);
+    $query->condition("n.status", "0");
+    $query->condition("n.langcode", "en");
+    $results_nid = $query->execute()->fetchAll();
+
+    foreach ($results_nid as $res) {
+      $db->update("node_field_revision")
+        ->fields([
+          "status" => "0",
+        ])
+        ->condition("nid", $res->nid)
+        ->condition("langcode", 'fr')
+        ->execute();
+    }
+
     $node_storage = $this->entityTypeManager->getStorage('node');
     $entity = $node_storage->load('7534');
     $entity->addTranslation('fr', ['title' => "Activités", 'body' => 'Activités du gouvernement du Yukon.'])->save();
@@ -97,7 +132,6 @@ class ImportDataController extends ControllerBase {
     ]);
     $path_alias->save();
 
-    $db = Database::getConnection();
     // Update format of the quick facts.
     $db->update("paragraph__field_facts")
       ->fields([

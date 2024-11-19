@@ -1,9 +1,21 @@
 .node--type-multi-step-page {
   .field__content {
+    ul {
+        li {
+            @apply list-disc;
+        }
+    }
+    
+    ol {
+        li {
+            @apply list-decimal;
+        }
+    }
+    
     ul,
     ol {
       li {
-        @apply list-decimal pl-2.5;
+        @apply pl-2.5;
 
         ul {
           @apply pl-12;

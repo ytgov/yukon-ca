@@ -66,6 +66,7 @@ module:
   help: 0
   history: 0
   image: 0
+  imce: 0
   inline_form_errors: 0
   job_scheduler: 0
   jquery_ui: 0

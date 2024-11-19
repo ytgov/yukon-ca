@@ -274,8 +274,6 @@ h1#heading {
               }
 
               img {
-                  @apply max-w-[300px];
-
                   &.media-wysiwyg-align-right {
                       @apply float-right;
                   }

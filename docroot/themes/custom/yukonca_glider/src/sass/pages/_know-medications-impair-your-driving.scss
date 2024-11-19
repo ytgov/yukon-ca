@@ -1,0 +1,89 @@
+.page-node-type-campaign-page {
+    [data-history-node-id="21031"] {
+        a {
+	        &.btn:hover {
+	            @apply opacity-100;
+	        }
+	    }
+	    
+	    #prescription-story {
+	        hr {
+	            @apply opacity-100;
+	        }
+	        
+	        h4 {
+	            @apply text-lg mt-2.5 mb-3 leading-1.1 text-gray-450 min-h-[4.5em];
+	        }
+	        
+	        h5 {
+	            @apply text-gray-450 mt-[15px] mb-3;
+	        }
+	        
+	        p {
+	            @apply text-gray-450;
+	        }
+	        
+	        img {
+	            @apply object-contain object-top min-h-[250px];
+	        }
+	    }
+	    
+	    #medication-categories {
+	        a {
+                @apply opacity-100;
+                
+                img {
+                    @apply max-h-[150px];
+                }
+            }
+            
+            h3 {
+                a {
+                    @apply no-underline text-[22px];
+                    
+                    &:hover {
+                        @apply underline opacity-50;
+                    }
+                }
+            }
+            
+	        .row {
+	            > div {
+	                @apply mx-auto;
+	            }
+	        }
+	    }
+	    
+	    #medication-cards {
+	        .col-md-12 {
+	            @apply px-[15px];
+	            
+	            h3 {
+                    @include media-breakpoint-down(md) {
+                        @apply text-[22px];
+                    }
+                }
+	            
+	            p {
+	                @apply text-gray-450 mb-3;
+	            }
+	            
+	            .hazard {
+	                @apply mt-0;
+	            }
+	            
+	            h4 {
+                    @apply text-gray-450 mt-[15px] mb-3;
+                    
+                    a {
+                        @apply no-underline text-lg;
+                        
+                        &:hover {
+                            @apply underline;
+                        }
+                    }
+                }
+	        }
+	    }
+	}
+}
