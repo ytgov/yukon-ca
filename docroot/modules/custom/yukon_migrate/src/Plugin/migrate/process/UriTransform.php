@@ -151,6 +151,16 @@ final class UriTransform extends ProcessPluginBase {
       $rowNid = $row->get('nid');
       $rowType = $row->get('type');
       $langcode = $row->get('language');
+      if (empty($langcode)) {
+        $table_name = 'field_data_' . $row->get('field_name');
+        $field_name = $row->get('field_name') . '_revision_id';
+        $database = Database::getConnection('default', 'migrate');
+        $result = $database->select($table_name, 'p')
+          ->fields('p', ['language'])
+          ->condition($field_name, $row->get('revision_id'))
+          ->execute()->fetchObject();
+        $langcode = $result->language;
+      }
 
       $migration = $_SERVER['argv'][3] ?? 'unknown';
       if ($migration === '--continue-on-failure') {

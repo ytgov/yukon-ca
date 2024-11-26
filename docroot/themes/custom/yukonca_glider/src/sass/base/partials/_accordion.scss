@@ -54,6 +54,10 @@
 		
 			.accordion-body {
 				@apply p-[15px];
+				
+				h2 {
+					@apply text-h2-mobile mt-3.75 mb-3;
+				}
 		
 				.chart {
 					h2 {
