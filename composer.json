@@ -71,6 +71,8 @@
         "drupal/migrate_scanner": "^1.0",
         "drupal/migrate_tools": "^6.0",
         "drupal/moderation_scheduler": "^9.1",
+        "drupal/noreqnewpass": "^1.4",
+        "drupal/openid_connect": "^1.4",
         "drupal/page_manager": "^4.0@RC",
         "drupal/paragraphs": "^1.12",
         "drupal/password_policy": "^4.0",
