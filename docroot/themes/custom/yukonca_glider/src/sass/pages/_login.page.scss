@@ -1,0 +1,11 @@
+.path-user {
+  .openid-connect-login-form {
+    .form-submit {
+      @apply bg-blue-200 text-white rounded py-1.5 px-3;
+
+      &:hover {
+        @apply bg-blue-100;
+      }
+    }
+  }
+}
