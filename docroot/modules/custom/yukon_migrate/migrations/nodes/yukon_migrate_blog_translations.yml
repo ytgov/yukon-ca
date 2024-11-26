@@ -82,7 +82,7 @@ process:
   field_subcategory:
     plugin: migration_lookup
     migration: yukon_migrate_subcategory
-    source: field_subcategory_term
+    source: field_subcategory
     no_stub: true
 
   field_department_term:
