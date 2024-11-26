@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_openid_connect_userinfo_save().
+ */
+function yukon_sso_openid_connect_userinfo_save($account, $context) {
+
+  // Skip for already existing users. Roles were updated
+  // in hook_openid_connect_pre_authorize() hook.
+  if (!$context['is_new']) {
+    return;
+  }
+
+  // Update user roles.
+  yukon_sso_update_user_role($account, $context);
+}
+
+/**
+ * Implements hook_openid_connect_pre_authorize().
+ */
+function yukon_sso_openid_connect_pre_authorize($account, $context) {
+  $roles_mapping = yukon_sso_get_roles_mapping();
+
+  // For new user allow to log in only if there is SSO role in the response.
+  if (!$account) {
+    if (!empty($context['user_data']['urn:myyukon.ca/groups'])) {
+      foreach ($context['user_data']['urn:myyukon.ca/groups'] as $auth0_role) {
+        if (isset($roles_mapping[$auth0_role])) {
+          return TRUE;
+        }
+      }
+    }
+
+    return FALSE;
+  }
+
+  // Update user roles.
+  yukon_sso_update_user_role($account, $context);
+
+  // Do not allow user without any role to authorize.
+  // Registered user in the system always has default 'authenticated' role, so
+  // we should allow to log in users at least with 2 roles.
+  if (count($account->getRoles()) < 2) {
+    return FALSE;
+  }
+
+  return TRUE;
+}
+
+/**
+ * SSO roles should be updated on each authorization.
+ *
+ * @param \Drupal\Core\Session\AccountInterface $account
+ *   User account.
+ * @param array $context
+ *   SSO request response.
+ */
+function yukon_sso_update_user_role(&$account, $context) {
+  $roles_mapping = yukon_sso_get_roles_mapping();
+
+  // Delete all SSO user roles.
+  foreach ($account->getRoles() as $role) {
+    if (in_array($role, $roles_mapping)) {
+      $account->removeRole($role);
+    }
+  }
+
+  // Assign roles according to SSO response.
+  if (!empty($context['user_data']['urn:myyukon.ca/groups'])) {
+    foreach ($context['user_data']['urn:myyukon.ca/groups'] as $auth0_role) {
+      if (isset($roles_mapping[$auth0_role])) {
+        $account->addRole($roles_mapping[$auth0_role]);
+      }
+    }
+  }
+}
+
+/**
+ * SSO and Drupal roles mapping.
+ *
+ * @return array
+ *   Roles mapping list.
+ */
+function yukon_sso_get_roles_mapping(): array {
+  return [
+    'web-yukon-admin' => 'site_administrator',
+    'web-yukon-trans' => 'translator',
+    'web-yukon-team' => 'team_administrator',
+    'web-yukon-alerts' => 'author_in_page_alerts',
+    'web-yukon-pub' => 'publisher',
+    'web-yukon-editor' => 'editor',
+    'web-yukon-writer' => 'writer',
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function yukon_sso_form_openid_connect_login_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $form['openid_connect_client_generic_login']['#value'] = t('Log in with MyYukon');
+}
