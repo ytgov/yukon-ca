@@ -115,6 +115,7 @@
         "drupal/views_year_filter": "^2.1",
         "drupal/viewsreference": "^1.7",
         "drupal/webform": "6.2.x-dev@dev",
+        "drupal/webform_views": "^5.4",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
         "drupal/workbench_email": "^3.0",
