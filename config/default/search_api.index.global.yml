@@ -330,4 +330,4 @@ options:
   cron_limit: 50
   index_directly: true
   track_changes_in_references: true
-server: pantheon_solr8
+server: yg_solr_9
