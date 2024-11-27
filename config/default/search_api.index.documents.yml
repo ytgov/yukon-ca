@@ -9,10 +9,9 @@ dependencies:
     - field.storage.node.field_last_updated
     - search_api.server.yg_solr_9
   module:
-    - search_api_solr
     - node
-    - search_api
     - search_api_attachments
+    - search_api_solr
 third_party_settings:
   search_api_solr:
     finalize: false

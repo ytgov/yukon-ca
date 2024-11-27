@@ -31,3 +31,27 @@ display:
   default:
     display_options:
       title: 'Les documents'
+  block:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+  page:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+      filters:
+        combine:
+          expose:
+            label: Mots-clés
+        field_department_term_target_id:
+          expose:
+            label: Ministères
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'

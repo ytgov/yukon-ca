@@ -4,24 +4,29 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_warning
+    - filter.format.plain_text
     - node.type.campground_directory_record
   module:
-    - epp
+    - allowed_formats
     - text
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  tmgmt_content:
+    excluded: false
 id: node.campground_directory_record.field_warning
 field_name: field_warning
 entity_type: node
 bundle: campground_directory_record
 label: Warning
-description: 'Use for sites where there is an alert, or high priority information for potential visitors. This will not show up on Yukon.ca'
+description: 'Use for sites where there is an alert, or high priority information for potential visitors.'
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - plain_text
 field_type: text_long
