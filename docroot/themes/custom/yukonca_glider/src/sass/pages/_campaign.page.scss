@@ -230,12 +230,6 @@
 				            }
 				        }
 				    }
-				    
-				    &.video-pattern {
-				        .video-info {
-				            @apply w-1/2;
-				        }
-				    }
 			    }
 
 			    &.right {
@@ -257,6 +251,12 @@
 			            .caption {
 			                @apply order-1;
 			            }
+			            
+			            &.video-pattern {
+    				        .video-info {
+    				            @apply w-1/2;
+    				        }
+    				    }
 			        }
 			    }
 			    
@@ -283,6 +283,12 @@
 			                    @apply order-2;
 			                }
 			            }
+			            
+			            &.video-pattern {
+    				        .video-info {
+    				            @apply w-1/2;
+    				        }
+    				    }
 			        }
 			    }
 			}
