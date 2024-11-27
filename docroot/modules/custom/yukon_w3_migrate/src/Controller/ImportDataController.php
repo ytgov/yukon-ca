@@ -65,6 +65,8 @@ class ImportDataController extends ControllerBase {
    * Update the translation for primary links.
    */
   public function content() {
+    $entity_type = $this->entityTypeManager()->getDefinition('linkit_profile');
+    \Drupal::entityDefinitionUpdateManager()->installEntityType($entity_type);
     // To get another database (here : 'second')
     $con = Database::getConnection('default', 'migrate');
 

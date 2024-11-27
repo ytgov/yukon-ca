@@ -114,6 +114,22 @@
             scrollTop: $('#block-views-block-find-a-campground, #block-views-block-block-backcountry-campgrounds').offset().top,
           }, 1000);
         });
+        
+        // Select all table elements that are not already wrapped
+        const tables = document.querySelectorAll('table:not(.table-wrapper > table)');
+        
+        // Loop through each table and wrap it in a div with the class "table-wrapper"
+        tables.forEach(table => {
+            // Create the wrapper div
+            const wrapper = document.createElement('div');
+            wrapper.className = 'table-wrapper';
+        
+            // Insert the wrapper before the table in the DOM
+            table.parentNode.insertBefore(wrapper, table);
+        
+            // Move the table into the wrapper
+            wrapper.appendChild(table);
+        });
       });
     },
   };

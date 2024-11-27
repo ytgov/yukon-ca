@@ -651,7 +651,10 @@ function yukonca_glider_preprocess_page(&$variables) {
           else {
             $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
             $node_parent_2 = Node::load($parent_page_2);
-            $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+            $child_cam_2 = '';
+            if (!empty($node_parent_2->field_child_campaign_pages)) {
+              $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+            }
             $i = 1;
             if (!empty($child_cam_2)) {
               $current_path = \Drupal::service('path.current')->getPath();
@@ -683,34 +686,36 @@ function yukonca_glider_preprocess_page(&$variables) {
           }
         }
         else {
-          $translated_entity = $node->getTranslation($langcode);
-          $alias_fr = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page, $langcode);
+          if ($node->hasTranslation($langcode)) {
+            $translated_entity = $node->getTranslation($langcode);
+            $alias_fr = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page, $langcode);
 
-          $child_cam = $translated_entity->field_child_campaign_pages->getValue();
-          if (!empty($child_cam)) {
-            $current_path = \Drupal::service('path.current')->getPath();
-            $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path, $langcode);
-            $variables['campaign_menu'][0] = [0 => 'Accueil', 1 => '/fr' . $current_alias];
-            $i = 1;
-            foreach ($child_cam as $child) {
-              $node_child = Node::load($child['target_id']);
-              $translated_entity_child = $node_child->getTranslation($langcode);
-              $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
-              $j = 1;
-              foreach ($child_cam_2 as $child_2) {
-                $node_child_2 = Node::load($child_2['target_id']);
-                $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
-                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
-                $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
-                  '0' => $translated_entity_child_2->getTitle(),
-                  '1' => '/' . $langcode . $child_alias_2,
-                ];
-                $j++;
+            $child_cam = $translated_entity->field_child_campaign_pages->getValue();
+            if (!empty($child_cam)) {
+              $current_path = \Drupal::service('path.current')->getPath();
+              $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path, $langcode);
+              $variables['campaign_menu'][0] = [0 => 'Accueil', 1 => '/fr' . $current_alias];
+              $i = 1;
+              foreach ($child_cam as $child) {
+                $node_child = Node::load($child['target_id']);
+                $translated_entity_child = $node_child->getTranslation($langcode);
+                $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
+                $j = 1;
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
+                  $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
+                  $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
+                    '0' => $translated_entity_child_2->getTitle(),
+                    '1' => '/' . $langcode . $child_alias_2,
+                  ];
+                  $j++;
+                }
+
+                $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
+                $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
+                $i++;
               }
-
-              $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
-              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
-              $i++;
             }
           }
         }

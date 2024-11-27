@@ -7,18 +7,20 @@
 {% set attributes = attributes.addClass(classes) %}
 
 {% set content %}
-  <div class="container">
-    {% if not hide_title %}
-      <div class="title">
-        <h2>{{ title }}</h2>
-      </div>
-    {% endif %}
+  <div class="container items-center video-pattern">
+    <div class="video-info">
+        {% if not hide_title %}
+          <div class="title">
+            <h2>{{ title }}</h2>
+          </div>
+        {% endif %}
+        
+        {% if caption|render %}
+          <div class="caption">{{ caption }}</div>
+        {% endif %}
+    </div>
 
     <div class="video">{{ video }}</div>
-
-    {% if caption|render %}
-      <div class="caption">{{ caption }}</div>
-    {% endif %}
   </div>
 {% endset %}
 

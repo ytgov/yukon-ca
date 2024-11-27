@@ -49,6 +49,7 @@
        <div id="accordion-item--body{{ paragraph.id() }}" class="accordion-collapse collapse" aria-labelledby="accordion-item--body{{ paragraph.id() }}" style="">
         <div class="accordion-body">
         {{ paragraph.field_section_description.value|raw }}
+        {{ content.field_links_to_services_provided|raw }}
         <p>
         <strong>{{ 'Email'|t }}: </strong>
         <a href="mailto:{{ paragraph.field_section_email.value|raw }}">
