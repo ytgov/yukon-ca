@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_page_description
     - field.field.node.landing_page.field_primary_content
+    - field.field.node.landing_page.field_prioritize_in_search
     - field.field.node.landing_page.field_publisher
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
@@ -76,6 +77,7 @@ hidden:
   field_icon_light: true
   field_meta_tags: true
   field_page_description: true
+  field_prioritize_in_search: true
   field_publisher: true
   field_redirection: true
   field_secondary_content: true

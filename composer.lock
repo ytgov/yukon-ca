@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3552fdd8245335761b7415de9ecd7846",
+    "content-hash": "17c733fa57ce44aa3d5016162b3fff8e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -8278,6 +8278,60 @@
             "homepage": "https://www.drupal.org/project/search_api_attachments",
             "support": {
                 "source": "https://git.drupalcode.org/project/search_api_attachments"
+            }
+        },
+        {
+            "name": "drupal/search_api_best_bets",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/search_api_best_bets.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_best_bets-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "2c8d2564ee2a65e6ea54d6b4c6ddaff2051f0419"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/search_api": "^1.31",
+                "php": ">=8.1.0"
+            },
+            "require-dev": {
+                "drupal/search_api_solr": "^4.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1720464547",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Beltofte",
+                    "homepage": "https://www.drupal.org/u/beltofte"
+                },
+                {
+                    "name": "smustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890"
+                }
+            ],
+            "description": "Let editors define best bets / promoted search results per entity in Drupal.",
+            "homepage": "https://www.drupal.org/project/search_api_best_bets",
+            "support": {
+                "source": "http://git.drupal.org/project/search_api_best_bets.git",
+                "issues": "https://www.drupal.org/project/issues/search_api_best_bets"
             }
         },
         {
@@ -18120,6 +18174,6 @@
     "platform": {
         "php": ">=8.1"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

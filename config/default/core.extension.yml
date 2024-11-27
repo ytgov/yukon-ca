@@ -123,7 +123,7 @@ module:
   search404: 0
   search_api: 0
   search_api_attachments: 0
-  search_api_pantheon: 0
+  search_api_best_bets: 0
   search_api_solr: 0
   search_api_spellcheck: 0
   security_review: 0
@@ -162,6 +162,7 @@ module:
   views_year_filter: 0
   webform: 0
   webform_ui: 0
+  webform_views: 0
   workbench: 0
   workbench_access: 0
   workbench_email: 0

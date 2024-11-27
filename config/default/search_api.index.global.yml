@@ -25,6 +25,7 @@ dependencies:
     - paragraphs
     - search_api
     - search_api_attachments
+    - search_api_best_bets
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -320,6 +321,15 @@ processor_settings:
       strong: 2
   language_with_fallback: {  }
   rendered_item: {  }
+  search_api_best_bets_processor:
+    fields:
+      node:
+        - field_prioritize_in_search
+    query_handler: solr
+    result_elevated_flag: query_handler
+    weights:
+      preprocess_query: 99
+      postprocess_query: 10
   solr_date_range:
     weights:
       preprocess_index: 0
@@ -330,4 +340,4 @@ options:
   cron_limit: 50
   index_directly: true
   track_changes_in_references: true
-server: pantheon_solr8
+server: yg_solr_9
