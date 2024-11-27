@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.topics_page.field_meta_tags
     - field.field.node.topics_page.field_page_description
     - field.field.node.topics_page.field_paragraphs
+    - field.field.node.topics_page.field_prioritize_in_search
     - field.field.node.topics_page.field_publisher
     - field.field.node.topics_page.field_top_task
     - field.field.node.topics_page.field_whats_new_header
@@ -19,6 +20,7 @@ dependencies:
     - entity_reference_revisions
     - link
     - metatag
+    - search_api_best_bets
     - text
     - user
 id: node.topics_page.default
@@ -69,6 +71,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_prioritize_in_search:
+    type: search_api_best_bets_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_publisher:
     type: entity_reference_label

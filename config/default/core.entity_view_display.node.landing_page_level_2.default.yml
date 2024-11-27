@@ -11,12 +11,14 @@ dependencies:
     - field.field.node.landing_page_level_2.field_meta_tags
     - field.field.node.landing_page_level_2.field_page_description
     - field.field.node.landing_page_level_2.field_primary_content
+    - field.field.node.landing_page_level_2.field_prioritize_in_search
     - field.field.node.landing_page_level_2.field_publisher
     - field.field.node.landing_page_level_2.field_social_sharing
     - field.field.node.landing_page_level_2.field_yukon_editorial_team
     - node.type.landing_page_level_2
   module:
     - entity_reference_revisions
+    - search_api_best_bets
     - text
     - user
 id: node.landing_page_level_2.default
@@ -52,6 +54,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_prioritize_in_search:
+    type: search_api_best_bets_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_publisher:
     type: entity_reference_label

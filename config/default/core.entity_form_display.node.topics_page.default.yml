@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.topics_page.field_meta_tags
     - field.field.node.topics_page.field_page_description
     - field.field.node.topics_page.field_paragraphs
+    - field.field.node.topics_page.field_prioritize_in_search
     - field.field.node.topics_page.field_publisher
     - field.field.node.topics_page.field_top_task
     - field.field.node.topics_page.field_whats_new_header
@@ -26,6 +27,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - search_api_best_bets
     - text
 third_party_settings:
   field_group:
@@ -55,7 +57,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 14
+    weight: 12
     region: content
     settings:
       rows: 9
@@ -71,7 +73,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 20
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -83,14 +85,14 @@ content:
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 15
+    weight: 13
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 13
+    weight: 11
     region: content
     settings:
       sidebar: true
@@ -98,7 +100,7 @@ content:
     third_party_settings: {  }
   field_page_description:
     type: string_textarea
-    weight: 12
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -106,7 +108,7 @@ content:
     third_party_settings: {  }
   field_paragraphs:
     type: entity_reference_paragraphs
-    weight: 19
+    weight: 17
     region: content
     settings:
       title: Paragraph
@@ -115,6 +117,19 @@ content:
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
+    third_party_settings: {  }
+  field_prioritize_in_search:
+    type: search_api_best_bets_widget
+    weight: 8
+    region: content
+    settings:
+      elevate_label: 'Elevate query'
+      elevate_placeholder: 'Write search queries....'
+      elevate_description: 'Specify queries that will elevate this entity to the top of the result. Separate multiple by comma.'
+      exclude_label: 'Exclude query'
+      exclude_placeholder: 'Write search queries....'
+      exclude_description: 'Specify queries that will exclude this entity from the search result. Separate multiple by comma.'
+      disable_exclude: false
     third_party_settings: {  }
   field_publisher:
     type: options_select
@@ -130,7 +145,7 @@ content:
     third_party_settings: {  }
   field_top_task:
     type: linkit
-    weight: 18
+    weight: 16
     region: content
     settings:
       placeholder_url: ''
@@ -143,7 +158,7 @@ content:
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
   field_whats_new_header:
     type: string_textfield
-    weight: 17
+    weight: 15
     region: content
     settings:
       size: 60
@@ -151,7 +166,7 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 16
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -170,13 +185,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -205,7 +220,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

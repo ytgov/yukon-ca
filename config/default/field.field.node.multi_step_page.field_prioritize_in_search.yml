@@ -1,0 +1,25 @@
+uuid: 0dccb677-e6dc-4c65-8653-5474e92260b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prioritize_in_search
+    - node.type.multi_step_page
+  module:
+    - search_api_best_bets
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.multi_step_page.field_prioritize_in_search
+field_name: field_prioritize_in_search
+entity_type: node
+bundle: multi_step_page
+label: 'Prioritize in search'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: search_api_best_bets
