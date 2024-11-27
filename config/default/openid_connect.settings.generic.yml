@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: FJ7FfwlYzcbFfG0AqVPlqsLJIRhkzS1Rv6eO1vssSkM
+enabled: true
+settings:
+  client_id: syKVrWIsOxdSPwP9FcnluLQtORRGLKHm
+  client_secret: oexQNebea8Y4F_ZYzx5NB52y02zNiYTbgMky5UWJajisN-5qMpA1HC2V9uWYUrxG
+  authorization_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/authorize'
+  token_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/oauth/token'
+  userinfo_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/userinfo'
+  redirect_url: ''

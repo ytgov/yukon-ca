@@ -1,0 +1,7 @@
+name: Yukon SOO
+type: module
+description: Supporting module for SSO to provide supporting role assignment.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - openid_connect:openid_connect
