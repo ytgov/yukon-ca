@@ -9,3 +9,4 @@ UPDATE `paragraph__field_section_content` SET `field_section_content_value`= REP
 UPDATE `paragraph__field_link` SET `field_link_uri`= 'https://[value-7]' WHERE field_link_uri LIKE 'twitter%';
 DELETE FROM path_alias WHERE path LIKE '/node%'; 
 TRUNCATE TABLE migrate_map_yukon_migrate_url_alias_node;
+UPDATE `node__field_warning` SET `field_warning_format`='plain_text';

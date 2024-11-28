@@ -49,8 +49,12 @@ set classes = [
 {% block paragraph %}
 	{% block content %}
 	    <div {{ attributes.addClass(classes) }}>
-    	    <div class="campaign-image-only-wrapper">
-    			<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}">
+	        {% if paragraph.field_display_section_title.value == 1 %}
+	            <h2>{{ paragraph.field_title.value|raw }}</h2>
+	        {% endif %}
+    	    <div class="campaign-image-only-wrapper ">
+    			<img src="{{ file_url(paragraph.field_image.entity.field_media_image_1.entity.uri.value) }}" width="359" height="208" alt="{{ paragraph.field_image.entity.field_media_image_1.alt|raw }}" title="{{ paragraph.field_image.entity.field_media_image_1.title|raw }}">
+    			<p>{{ paragraph.field_source_credit.value|raw }}</p>
             </div>
 	    </div>
     {% endblock %}

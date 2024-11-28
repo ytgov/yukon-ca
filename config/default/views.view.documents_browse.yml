@@ -929,9 +929,9 @@ display:
             more_link: true
             more_link_text: more
             more_link_path: '{{ view_node }}'
-            strip_tags: false
+            strip_tags: true
             trim: true
-            preserve_tags: '<p>'
+            preserve_tags: ''
             html: false
           element_type: p
           element_class: ''

@@ -29,7 +29,7 @@ mode: default
 content:
   field_links_to_services_provided:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 9
