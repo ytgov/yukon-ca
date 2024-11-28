@@ -92,6 +92,7 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
 
 13. Clear cache >>  ./vendor/bin/drush cr
 14. Run the d7-queries.php on the Drupal 7 database.
+15. Please confirm if you have the latest D7 database connected and the files folder is updated on this connected D7 server.
 15. Run migration using migrate_initial_and_update_w3.sh and leave it running for the next few hours until complete. (approxximate time 10+ hours)
 16. Run the d10-queries.php on the Drupal 10 database.
 17. Run the second migration using migration_complete_w3.sh and let it complete. (approxximate time 1 hour)
@@ -190,6 +191,11 @@ https://yukon.ca/en/node/153
 2.. Incorrect translation (English has French content and this exists on production as well):
 https://yukon.ca/en/Dates-limites-des-depots-pour-municipalites
 
+3.. Some of the French pages has breadcrumbs in English on D7.
+
+4.. Some campaign pages have inconsistent Yukon logo display settings on the admin end. This will have an impact on D10 migration which will need manual intervention.  
+
+5.. Some of the French pages (blog content type) have missing sidebar on D7. But on D10, sidebar is displayed on both the versions. 
 
 ----------------------------------
 ----------------------------------

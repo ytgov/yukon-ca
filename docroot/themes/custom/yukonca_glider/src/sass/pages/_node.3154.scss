@@ -97,6 +97,29 @@
 	}
 }
 
+.paragraph {
+    &.paragraph--type--full-width-image {
+        @apply w-full sm:w-10/12 mx-auto;
+        
+        h2 {
+            @apply relative mt-6 mb-3 text-3.25xl text-gray-450;
+
+    		&:before {
+    			content: "";
+    			@apply absolute bg-blue-400 w-7.5 h-7.5 opacity-20 rounded-md top-[-7px] left-[-15px];
+    		}
+        }
+        
+        .campaign-image-only-wrapper {
+            @apply w-full;
+            
+            p {
+                @apply mt-6 text-gray-450 text-sm text-left;
+            }
+        }
+    }
+}
+
 .campaign-social-media {
 	.social-links {
 		@apply flex gap-2 flex-wrap;

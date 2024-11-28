@@ -125,7 +125,7 @@ process:
   field_department_term:
     plugin: migration_lookup
     migration: yukon_migrate_department
-    source: field_department_term
+    source: field_node_department
     no_stub: true
 
   field_yukon_editorial_team:

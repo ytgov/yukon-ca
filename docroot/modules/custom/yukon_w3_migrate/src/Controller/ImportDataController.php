@@ -73,6 +73,32 @@ class ImportDataController extends ControllerBase {
     // To set the active connection.
     Database::setActiveConnection('migrate');
 
+    $query = $con->select("field_data_field_node_department", "n");
+    $query->fields("n", ['entity_id', 'field_node_department_tid']);
+    $query->condition("n.bundle", "event");
+    $result_dep = $query->execute()->fetchAll();
+
+    foreach ($result_dep as $dep) {
+      $node_storage = $this->entityTypeManager->getStorage('node');
+      $entity = $node_storage->load($dep->entity_id);
+      $entity->set("field_department_term", $dep->field_node_department_tid);
+      $entity->save();
+    }
+
+    $query = $con->select("field_data_field_department_term", "n");
+    $query->fields("n", ['entity_id', 'field_department_term_tid']);
+    $query->condition("n.bundle", "landing_page_level_2");
+    $result_dep = $query->execute()->fetchAll();
+
+    foreach ($result_dep as $dep) {
+      $node_storage = $this->entityTypeManager->getStorage('node');
+      $entity = $node_storage->load($dep->entity_id);
+      if (!empty($entity)) {
+        $entity->set("field_department_term", $dep->field_department_term_tid);
+        $entity->save();
+      }
+    }
+
     $query = $con->select("workbench_access_user", "n");
     $query->fields("n");
     $results = $query->execute()->fetchAll();

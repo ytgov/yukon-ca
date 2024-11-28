@@ -156,6 +156,9 @@
             },
             "drupal/datetime_range": {
                 "Date time format": "https://www.drupal.org/files/issues/2796151-06.patch"
+            },
+            "drupal/paragraphs": {
+                "Paragraph translation": "https://www.drupal.org/files/issues/2024-09-12/2904705-148-1-18-fix.patch"
             }
         },
         "installer-paths": {
