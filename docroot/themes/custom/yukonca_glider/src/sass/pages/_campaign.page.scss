@@ -297,7 +297,7 @@
 			    @apply border-b border-gray-90 pb-20 pt-[66px];
 			    
     			.campaign-image-only-wrapper {
-    			    @apply text-center w-full md:w-10/12 md:mx-auto px-[15px];
+    			    @apply text-center w-full;
     			    
     			    img {
     			        @apply w-auto h-auto rounded;
