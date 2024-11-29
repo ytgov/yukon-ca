@@ -220,8 +220,8 @@ display:
           click_sort_column: value
           type: language
           settings:
-            link_to_entity: 0
-            native_language: 0
+            link_to_entity: false
+            native_language: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -231,7 +231,7 @@ display:
           delta_first_last: false
           multi_type: separator
           separator: ', '
-          field_api_classes: 0
+          field_api_classes: false
       pager:
         type: none
         options:

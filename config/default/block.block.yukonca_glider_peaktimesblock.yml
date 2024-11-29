@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - block_class
     - system
     - yukon_w3_custom
   theme:
@@ -11,7 +10,7 @@ dependencies:
 id: yukonca_glider_peaktimesblock
 theme: yukonca_glider
 region: content
-weight: -24
+weight: -27
 provider: null
 plugin: peak_times_block
 settings:
