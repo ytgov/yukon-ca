@@ -12,7 +12,7 @@ dependencies:
 id: views_block__news_listing_block_latest_news
 theme: yukonca_glider
 region: content
-weight: -25
+weight: -28
 provider: null
 plugin: 'views_block:news_listing-block_latest_news'
 settings:

@@ -3,7 +3,6 @@ langcode: fr
 status: true
 dependencies:
   module:
-    - block_class
     - goy_yxy_flight_schedule
     - system
   theme:
@@ -11,7 +10,7 @@ dependencies:
 id: yukonca_glider_arrivalsdeparturesblock
 theme: yukonca_glider
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: arrivals_departures_block
 settings:

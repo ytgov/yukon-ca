@@ -108,6 +108,9 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
     24.2 From the available list of menus find >> Main menu secondary >> OR >> More on Yukon.ca >> Click edit
     24.3 Then we need to add the 7 menu items from the More on Yukon.ca menus (Contact the government, Legislation, Documents, News, Events, Places, Forms)
     24.4 Remove the same 7 menu items from the Mega Menu.
+25. Got to this link: https://website-base-url/admin/config/goy_wildfire_low_bandwidth/settings and enter the settings that exists on D7. Same URL exists on D7.
+26. After the migration is complete, create a basic page with alias = /forms and also create its translated version = /formulaires. This will address the URL translation issue #705 (Point-10) https://github.com/ytgov/yukon-ca/issues/705.
+
 
 
 ## Extra Step-1: (Only required where URL carries /docroot in the URL)
@@ -186,17 +189,29 @@ Drupal 10 website should be ready at this point
 ## Know Issues ##
 
 1.. Some links on D7 production have inconsistent French translation.
-https://yukon.ca/en/node/153
+
+    1.1) https://yukon.ca/en/node/153
 
 2.. Incorrect translation (English has French content and this exists on production as well):
-https://yukon.ca/en/Dates-limites-des-depots-pour-municipalites
 
+    2.1) https://yukon.ca/en/Dates-limites-des-depots-pour-municipalites
+    
 3.. Some of the French pages has breadcrumbs in English on D7.
-
 4.. Some campaign pages have inconsistent Yukon logo display settings on the admin end. This will have an impact on D10 migration which will need manual intervention.  
-
 5.. Some of the French pages (blog content type) have missing sidebar on D7. But on D10, sidebar is displayed on both the versions. 
+6.. There may be some issues on D10 where content is different from D7 but the alias is correct. This is because of the misconguration of URL alias on D7. Example is mentioned below:
 
+    6.1) https://yukon.ca/en/covid-19-public-update-april-16-2020
+    6.2) https://yukon.ca/fr/covid-19-public-update-april-16-2020
+    6.3) https://yukon.ca/en/covid-19-public-update-april-16-2020-0
+    6.4) https://yukon.ca/fr/le-point-sur-la-covid-19-16-avril-2020-0
+    6.5) https://yukon.ca/fr/le-point-sur-la-covid-19-16-avril-2020
+
+7.. Some URLs on D7 are misconfigured and will not run on D10 because of double slash. Example below:
+
+    7.1) https://yukon.ca/fr/https://yukon.ca/fr/situations-durgence
+
+ 
 ----------------------------------
 ----------------------------------
 

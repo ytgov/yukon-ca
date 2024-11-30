@@ -55,3 +55,13 @@ display:
       header:
         result:
           content: 'Résultats @start - @end de @total'
+  block_1:
+    display_options:
+      empty:
+        area:
+          content:
+            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            format: full_html
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'

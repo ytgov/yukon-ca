@@ -1,4 +1,4 @@
-uuid: 596f66a1-2c0f-4922-98e6-a71cf48b4b44
+uuid: 45cb65d0-b62f-45eb-8375-09d4b3b811f6
 langcode: en
 status: true
 dependencies:
@@ -10,10 +10,10 @@ dependencies:
     - views
   theme:
     - yukonca_glider
-id: exposed_form_documents_forms
+id: yukonca_glider_exposedformdocuments_browsepage_1
 theme: yukonca_glider
 region: sidebar_first
-weight: -20
+weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:documents_browse-page_1'
 settings:
@@ -26,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/forms-old\r\n/les-forms-old"
+    pages: "/node/18062\r\n/forms-1\r\n/formulaires\r\n/forms"

@@ -1,22 +1,23 @@
-uuid: 90f75a67-1c0f-4d48-9dba-e4f70763e5bc
+uuid: fa3dc5cc-4fbc-4a56-89e4-a52b862e0fec
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.engagements
+    - views.view.documents_browse
   module:
+    - block_class
     - system
     - views
   theme:
     - yukonca_glider
-id: yukonca_glider_views_block__engagements_engagements
+id: yukonca_glider_views_block__documents_browse_block_1
 theme: yukonca_glider
 region: content
-weight: -17
+weight: -2
 provider: null
-plugin: 'views_block:engagements-engagements'
+plugin: 'views_block:documents_browse-block_1'
 settings:
-  id: 'views_block:engagements-engagements'
+  id: 'views_block:documents_browse-block_1'
   label: ''
   label_display: '0'
   provider: views
@@ -26,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /engagements
+    pages: "/forms-1\r\n/node/18062\r\n/formulaires\r\n/forms"

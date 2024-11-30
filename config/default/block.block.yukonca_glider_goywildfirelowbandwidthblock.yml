@@ -10,7 +10,7 @@ dependencies:
 id: yukonca_glider_goywildfirelowbandwidthblock
 theme: yukonca_glider
 region: content
-weight: -2
+weight: -6
 provider: null
 plugin: goy_wildfire_low_bandwidth_block
 settings:
