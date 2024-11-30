@@ -110,7 +110,7 @@ The first step of upgrading the Druapl 7 vesrion to Drupal 10 is setting up a bl
     24.4 Remove the same 7 menu items from the Mega Menu.
 25. Got to this link: https://website-base-url/admin/config/goy_wildfire_low_bandwidth/settings and enter the settings that exists on D7. Same URL exists on D7.
 26. After the migration is complete, create a basic page with alias = /forms and also create its translated version = /formulaires. This will address the URL translation issue #705 (Point-10) https://github.com/ytgov/yukon-ca/issues/705.
-
+27. Clear cache once everything is done.
 
 
 ## Extra Step-1: (Only required where URL carries /docroot in the URL)

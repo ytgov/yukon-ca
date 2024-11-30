@@ -107,7 +107,9 @@
         {{ content.field_region }}
         {% if node.field_campground_site_type.target_id != "80" and node.field_campground_site_type.target_id != "82" %}
             {% if node.field_campground_site_type.target_id != "84" %}
-                {{ content.field_registration_required }}
+                {% if node.field_campground_site_type.target_id %}
+                    {{ content.field_registration_required }}
+                {% endif %}
                 {{ content.field_total_sites }}
                 {{ content.field_pull_through }}
             {% endif %}
@@ -126,26 +128,29 @@
                 </div>
             {% endif %}
         
-        
-            <div class="field field--label-inline campground-gate-open">
-              <div class="field__label">{{ 'Gate Open'|t }}</div>
-              {% if node.field_gate_open_date.value is not empty %}
-                {% if langcode == 'en' %}
-                    {{ content.field_gate_open_date.0 }} {{ 'to'|t }} {{ content.field_gate_closed_date.0 }}
-                {% endif %}
-                {% if langcode == 'fr' %}
-                    Du {{ content.field_gate_open_date.0 }} au {{ content.field_gate_closed_date.0 }}
-                {% endif %}
-              {% else %}
-                {{ "Gate open year-round"|t }}
-              {% endif %}
-            </div>
+            {% if node.field_campground_site_type.target_id %}
+                <div class="field field--label-inline campground-gate-open">
+                  <div class="field__label">{{ 'Gate Open'|t }}</div>
+                  {% if node.field_gate_open_date.value is not empty %}
+                    {% if langcode == 'en' %}
+                        {{ content.field_gate_open_date.0 }} {{ 'to'|t }} {{ content.field_gate_closed_date.0 }}
+                    {% endif %}
+                    {% if langcode == 'fr' %}
+                        Du {{ content.field_gate_open_date.0 }} au {{ content.field_gate_closed_date.0 }}
+                    {% endif %}
+                  {% else %}
+                    {{ "Gate open year-round"|t }}
+                  {% endif %}
+                </div>
+            {% endif %}
         {% endif %}
         
         {{ content.field_warning }}
-
-        {{ content.field_site_description }}
-        {% if node.field_campground_site_type.target_id != "80" and node.field_campground_site_type.target_id != "82" and node.field_campground_site_type.target_id != "84" %}
+        
+        {% if node.field_campground_site_type.target_id %}
+            {{ content.field_site_description }}
+        {% endif %}
+        {% if node.field_campground_site_type.target_id != "80" and node.field_campground_site_type.target_id != "82" and node.field_campground_site_type.target_id != "84" and node.field_campground_site_type.target_id %}
             <div class="campground-availability">
               {{
                 pattern('graph_card',{
