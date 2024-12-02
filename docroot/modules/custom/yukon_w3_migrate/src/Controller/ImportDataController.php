@@ -73,6 +73,19 @@ class ImportDataController extends ControllerBase {
     // To set the active connection.
     Database::setActiveConnection('migrate');
 
+    // Basic page editorial team.
+    $query = $con->select("field_data_field_yukon_editorial_team", "n");
+    $query->fields("n", ['entity_id', 'field_yukon_editorial_team_tid']);
+    $query->condition("n.bundle", "wetkit_page");
+    $result_dep = $query->execute()->fetchAll();
+
+    foreach ($result_dep as $dep) {
+      $node_storage = $this->entityTypeManager->getStorage('node');
+      $entity = $node_storage->load($dep->entity_id);
+      $entity->set("field_yukon_editorial_team", $dep->field_yukon_editorial_team_tid);
+      $entity->save();
+    }
+
     $query = $con->select("field_data_field_node_department", "n");
     $query->fields("n", ['entity_id', 'field_node_department_tid']);
     $query->condition("n.bundle", "event");

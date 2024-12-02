@@ -1,3 +1,7 @@
+#!/bin/bash
+
+COMMAND="./vendor/bin/drush"
+
 echo "legacy_user_role..."
 $COMMAND migrate:import --group=legacy_user_role --update  --continue-on-failure
 echo "legacy_taxonomies..."
