@@ -356,4 +356,5 @@ permissions:
   - 'view own unpublished media'
   - 'view own webform submission'
   - 'view the administration theme'
+  - 'view user email addresses'
   - 'view workbench access information'
