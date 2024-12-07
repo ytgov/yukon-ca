@@ -111,6 +111,7 @@ permissions:
   - 'edit own topics_page content'
   - 'edit own video media'
   - 'update media'
+  - 'revert basic_page revisions'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
   - 'use content transition submit_for_review'
