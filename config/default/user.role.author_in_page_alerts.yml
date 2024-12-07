@@ -26,8 +26,6 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access workbench'
-  - 'administer menu'
-  - 'administer themes'
   - 'create in_page_alert content'
   - 'create url aliases'
   - 'edit any in_page_alert content'

@@ -55,7 +55,6 @@ permissions:
   - 'access workbench'
   - 'administer menu'
   - 'administer nodes'
-  - 'administer themes'
   - 'create audio media'
   - 'create basic_page content'
   - 'create blog content'
