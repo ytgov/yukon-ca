@@ -1,6 +1,6 @@
 uuid: edf5465c-78d7-48f2-86e2-2639df0afd3e
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.node.body
@@ -20,11 +20,10 @@ dependencies:
     - field.storage.paragraph.field_section_content
     - search_api.server.yg_solr_9
   module:
-    - search_api_solr
     - node
     - paragraphs
-    - search_api
     - search_api_attachments
+    - search_api_solr
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -286,8 +285,8 @@ processor_settings:
   file_attachments:
     excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
     number_indexed: 0
-    number_first_bytes: '1 MB'
-    max_filesize: '0'
+    number_first_bytes: '10 KB'
+    max_filesize: '5 MB'
     excluded_private: 1
     excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
   highlight:
@@ -320,6 +319,17 @@ processor_settings:
       strong: 2
   language_with_fallback: {  }
   rendered_item: {  }
+  solr_boost_more_recent:
+    weights:
+      preprocess_query: 0
+    boosts:
+      created:
+        boost: 0.5
+        resolution: NOW
+        m: '3.16e-11'
+        a: 0.1
+        b: 0.05
+        support_future_dates: false
   solr_date_range:
     weights:
       preprocess_index: 0
