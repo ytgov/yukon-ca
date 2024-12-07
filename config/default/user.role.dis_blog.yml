@@ -7,3 +7,5 @@ label: 'DIS blog'
 weight: 10
 is_admin: null
 permissions: {  }
+permissions:
+  - 'view latest version'

@@ -119,6 +119,8 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view basic_page revisions'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view the administration theme'

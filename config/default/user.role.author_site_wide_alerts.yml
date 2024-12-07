@@ -43,5 +43,6 @@ permissions:
   - 'use text format full_html'
   - 'use workbench access'
   - 'view any unpublished content'
+  - 'view latest version'
   - 'view the administration theme'
   - 'view workbench access information'
