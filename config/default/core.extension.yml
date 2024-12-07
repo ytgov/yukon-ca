@@ -116,7 +116,6 @@ module:
   pathologic: 0
   phpass: 0
   redirect: 0
-  redis: 0
   responsive_image: 0
   responsive_preview: 0
   scheduler: 0
