@@ -63,7 +63,7 @@ class SettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'low_seetings.settings',
+      'goy_wildfire_low_bandwidth.settings',
     ];
   }
 
@@ -71,7 +71,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('low_seetings.settings');
+    $config = $this->config('goy_wildfire_low_bandwidth.settings');
 
     $form['goy_wildfire_low_bandwidth_settings'] = [
       '#type' => 'fieldset',
@@ -123,7 +123,7 @@ class SettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    $this->config('low_seetings.settings')
+    $this->config('goy_wildfire_low_bandwidth.settings')
       ->set('goy_wildfire_low_bandwidth_districts_url', $form_state->getValue('goy_wildfire_low_bandwidth_districts_url'))
       ->set('goy_wildfire_low_bandwidth_wildfire_status_url', $form_state->getValue('goy_wildfire_low_bandwidth_wildfire_status_url'))
       ->set('goy_wildfire_low_bandwidth_where_clause', $form_state->getValue('goy_wildfire_low_bandwidth_where_clause'))

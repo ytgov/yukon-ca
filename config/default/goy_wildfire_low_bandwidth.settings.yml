@@ -1,0 +1,5 @@
+goy_wildfire_low_bandwidth_districts_url: 'https://services.arcgis.com/bwohQix8s7zRvYC9/ArcGIS/rest/services/FireDistrictsForAGOL/FeatureServer/1/'
+goy_wildfire_low_bandwidth_wildfire_status_url: 'https://services.arcgis.com/bwohQix8s7zRvYC9/ArcGIS/rest/services/WildfireStatus_2024_view/FeatureServer/0/'
+goy_wildfire_low_bandwidth_where_clause: 'query?where=initial_report_date%3E%3D%272024-04-01%27%20and%20fire_district_name'
+goy_wildfire_low_bandwidth_suffix: '&f=pjson&returnGeometry=false&outFields=*'
+goy_wildfire_low_bandwidth_cache_lifetime_seconds: '300'
