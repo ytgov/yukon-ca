@@ -94,11 +94,6 @@ module:
   menu_ui: 0
   metatag: 0
   metatag_dc: 0
-  migrate: 0
-  migrate_drupal: 0
-  migrate_plus: 0
-  migrate_scanner: 0
-  migrate_tools: 0
   moderation_scheduler: 0
   mysql: 0
   node: 0
@@ -164,7 +159,6 @@ module:
   workflows: 0
   yukon_base: 0
   yukon_department: 0
-  yukon_migrate: 0
   yukon_moderation: 0
   yukon_sso: 0
   yukon_taxonomy: 0
