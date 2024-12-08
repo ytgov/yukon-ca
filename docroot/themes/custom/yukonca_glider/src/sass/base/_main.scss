@@ -158,6 +158,8 @@ h1#heading {
 
           >.menu {
             >.menu-item {
+              list-style: none;
+
               [data-drupal-link-system-path] {
                 @apply flex;
 

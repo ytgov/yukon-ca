@@ -515,7 +515,7 @@ function yukonca_glider_preprocess_page(&$variables) {
     if ($node->bundle() == 'documents') {
       $variables['documents_non_branded'] = $node->field_documents_non_branded->value;
     }
-
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     if ($node->bundle() == 'campaign_page') {
       $variables['campaign_type'] = $node->field_campaign_type->value;
       $variables['copyright_notice'] = $node->field_display_copyright_notice->value;
@@ -533,7 +533,7 @@ function yukonca_glider_preprocess_page(&$variables) {
         $variables['logo_url'] = $url;
       }
       // }.
-      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
       if ($langcode == 'en') {
         $parent_page = $node->field_parent_campaign_page->target_id;
         $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page);
@@ -741,17 +741,19 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
 
     if ($variables['node']->bundle() == 'blog' || $variables['node']->bundle() == 'landing_page' || $variables['node']->bundle() == 'landing_page_level_2') {
-      $tid = $node->field_blog_type->target_id;
-      if (!empty($tid)) {
-        $blog_type_term = \Drupal::entityTypeManager()
-          ->getStorage('taxonomy_term')
-          ->load($tid);
-        if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
-          $image = $blog_type_term->field_agency_logo[0]->view([
-            'type' => 'entity_reference_entity_view',
-            'label' => 'hidden',
-          ]);
-          $variables['logo_url'] = $image;
+      if (!empty($node->field_blog_type)) {
+        $tid = $node->field_blog_type->target_id;
+        if (!empty($tid)) {
+          $blog_type_term = \Drupal::entityTypeManager()
+            ->getStorage('taxonomy_term')
+            ->load($tid);
+          if (!empty($blog_type_term->field_agency_logo && !empty($blog_type_term->field_agency_logo[0]))) {
+            $image = $blog_type_term->field_agency_logo[0]->view([
+              'type' => 'entity_reference_entity_view',
+              'label' => 'hidden',
+            ]);
+            $variables['logo_url'] = $image;
+          }
         }
       }
 
