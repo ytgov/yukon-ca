@@ -29,8 +29,6 @@ dependencies:
     - content_translation
     - contextual
     - facets
-    - feeds
-    - feeds_tamper
     - field_ui
     - filter
     - image
@@ -41,7 +39,6 @@ dependencies:
     - media
     - menu_link_attributes
     - metatag
-    - module_missing_message_fixer
     - node
     - page_manager
     - paragraphs
@@ -100,8 +97,6 @@ permissions:
   - 'administer content types'
   - 'administer display modes'
   - 'administer facets'
-  - 'administer feeds'
-  - 'administer feeds_tamper'
   - 'administer filters'
   - 'administer image styles'
   - 'administer languages'
@@ -112,7 +107,6 @@ permissions:
   - 'administer menu'
   - 'administer menu link attributes'
   - 'administer meta tags'
-  - 'administer module missing message fixer'
   - 'administer modules'
   - 'administer nodes'
   - 'administer pages'

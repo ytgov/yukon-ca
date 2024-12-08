@@ -56,7 +56,6 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
-    - feeds
     - field_ui
     - file
     - filter
@@ -109,7 +108,6 @@ permissions:
   - 'administer config_pages fields'
   - 'administer content translation'
   - 'administer display modes'
-  - 'administer feeds_feed fields'
   - 'administer filters'
   - 'administer image styles'
   - 'administer languages'

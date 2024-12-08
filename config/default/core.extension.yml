@@ -3,7 +3,6 @@ _core:
 module:
   addtoany: 0
   admin_toolbar: 0
-  admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
   advanced_help: 0
   ajax_comments: 0
@@ -50,8 +49,6 @@ module:
   entity_reference_revisions: 0
   epp: 0
   facets: 0
-  feeds: 0
-  feeds_tamper: 0
   fences: 0
   field: 0
   field_group: 0
@@ -103,7 +100,6 @@ module:
   migrate_scanner: 0
   migrate_tools: 0
   moderation_scheduler: 0
-  module_missing_message_fixer: 0
   mysql: 0
   node: 0
   noreqnewpass: 0
@@ -120,7 +116,6 @@ module:
   responsive_preview: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0
-  search404: 0
   search_api: 0
   search_api_attachments: 0
   search_api_solr: 0
