@@ -13,6 +13,23 @@ display:
         field_one_wheelchair_camp_value:
           group_info:
             label: 'Type d’installation'
+          expose:
+            description: ''
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            description: ''
+        field_boat_launch_value:
+          expose:
+            description: ''
+        field_hiking_trails_value:
+          expose:
+            description: ''
+        field_playground_value:
+          expose:
+            description: ''
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''
   block_backcountry_campgrounds:
     display_options:
       filters:
@@ -20,6 +37,50 @@ display:
           admin_label: Région
           expose:
             label: Région
+        field_one_wheelchair_camp_value:
+          expose:
+            label: 'Au moins un emplacement de camping accessible aux personnes à mobilité réduite'
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Au moins un emplacement de camping accessible aux personnes à mobilité réduite'
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            label: 'Au moins une toilette extérieure accessible en fauteuil roulant'
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Au moins une toilette extérieure accessible en fauteuil roulant'
+        field_boat_launch_value:
+          expose:
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Rampe de mise à l’eau'
+        field_hiking_trails_value:
+          expose:
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Sentiers de randonnée'
+        field_playground_value:
+          expose:
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Terrain de jeux'
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Quai ou aire de baignade. Aucun sauveteur sur les lieux'
   block_campgrounds:
     display_options:
       filters:
@@ -30,7 +91,24 @@ display:
         field_one_wheelchair_camp_value:
           group_info:
             label: 'Type d’installation'
+          expose:
+            description: ''
         field_campground_site_type_target_id:
           admin_label: 'Type de site'
           expose:
             label: 'Type de site'
+        field_at_least_one_wheelchair_ac_value:
+          expose:
+            description: ''
+        field_boat_launch_value:
+          expose:
+            description: ''
+        field_hiking_trails_value:
+          expose:
+            description: ''
+        field_playground_value:
+          expose:
+            description: ''
+        field_swimming_area_or_dock_no_l_value:
+          expose:
+            description: ''

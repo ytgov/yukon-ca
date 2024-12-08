@@ -135,7 +135,7 @@ class GoyWildfireLowBandwidthBlock extends BlockBase implements ContainerFactory
       $district = str_replace("current-wildfires-", "", $district);
       $district = str_replace("-", " ", $district);
     }
-    $config = $this->configFactory->get('low_seetings.settings');
+    $config = $this->configFactory->get('goy_wildfire_low_bandwidth.settings');
     $districtName = rawurlencode("='" . $district . "'");
     $districtUrl = $config->get('goy_wildfire_low_bandwidth_wildfire_status_url') . $config->get('goy_wildfire_low_bandwidth_where_clause') . $districtName . $config->get('goy_wildfire_low_bandwidth_suffix');
     $response = $this->httpClient->get($districtUrl, ['headers' => ['Accept' => 'text/plain']]);

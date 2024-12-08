@@ -163,14 +163,10 @@ content:
       display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 20
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
