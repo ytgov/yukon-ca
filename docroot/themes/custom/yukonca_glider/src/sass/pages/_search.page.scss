@@ -28,6 +28,10 @@
       .form-type-textfield {
         @apply hidden;
       }
+      
+      .form-type-checkbox {
+        @apply relative;
+      }
 
       fieldset:first-of-type {
         @apply mb-0;
