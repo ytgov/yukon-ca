@@ -564,7 +564,10 @@ function yukonca_glider_preprocess_page(&$variables) {
           else {
             $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
             $node_parent_2 = Node::load($parent_page_2);
-            $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+            $child_cam_2 = [];
+            if (!empty($node_parent_2->field_child_campaign_pages)) {
+              $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+            }
             $i = 1;
             if (!empty($child_cam_2)) {
               $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
