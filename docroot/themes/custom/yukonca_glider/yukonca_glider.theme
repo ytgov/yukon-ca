@@ -532,7 +532,6 @@ function yukonca_glider_preprocess_page(&$variables) {
         $url = $file->createFileUrl();
         $variables['logo_url'] = $url;
       }
-      // }.
 
       if ($langcode == 'en') {
         $parent_page = $node->field_parent_campaign_page->target_id;
@@ -870,4 +869,16 @@ function yukonca_glider_preprocess_breadcrumb(&$variables) {
       $variables['breadcrumb'][1]['text'] = 'Engagements';
     }
   }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function yukonca_glider_theme_suggestions_table_alter(array &$suggestions, array $variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+  $class = $variables['attributes']['class'][0];
+  $suggestions[] = "table__" . $node->id() . str_replace("-", "_", $class);
 }

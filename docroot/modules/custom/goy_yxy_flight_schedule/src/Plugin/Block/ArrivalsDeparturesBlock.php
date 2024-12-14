@@ -196,7 +196,7 @@ class ArrivalsDeparturesBlock extends BlockBase implements ContainerFactoryPlugi
 
           // Flight status.
           $status = (string) $xml_flight->Status;
-          $status_new = $this->t($status);
+          $status_new = $status;
 
           if (in_array($status, ['Delayed', 'Cancelled'])) {
             $status_class = (string) 'flight-status-problem';
