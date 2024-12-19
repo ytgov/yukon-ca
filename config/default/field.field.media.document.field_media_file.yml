@@ -6,12 +6,11 @@ dependencies:
     - field.storage.media.field_media_file
     - media.type.document
   module:
-    - epp
     - file
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: media.document.field_media_file
 field_name: field_media_file
 entity_type: media
@@ -26,7 +25,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt doc docx pdf'
+  file_extensions: 'txt doc docx pdf xls xlsx mp3'
   max_filesize: '120 MB'
   description_field: false
 field_type: file
