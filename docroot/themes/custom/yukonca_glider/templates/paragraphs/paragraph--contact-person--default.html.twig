@@ -44,7 +44,11 @@
     {% if paragraph.field_contact_person_position.value is not empty %}
         <div class="field_lable">{{ paragraph.field_contact_person_position.value|raw }}: </div>
     {% endif %}
-    <a href="{{ paragraph.field_contact_person_email.value }}">{{ paragraph.field_contact_person_name.value }} </a>
+    {% if paragraph.field_contact_person_name.value is not empty %}
+        <a href="mailto:{{ paragraph.field_contact_person_email.value }}">{{ paragraph.field_contact_person_name.value }} </a>
+    {% else %}
+        <a href="mailto:{{ paragraph.field_contact_person_email.value }}">{{ paragraph.field_contact_person_email.value }} </a>
+    {% endif %}
     <p>{{ paragraph.field_contact_person_telephone.value|raw }}</p>
 </div>
    
