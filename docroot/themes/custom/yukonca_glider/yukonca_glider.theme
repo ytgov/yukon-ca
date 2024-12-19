@@ -486,6 +486,32 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
+   /** @var \Drupal\Core\Routing\RouteMatchInterface $route_match */
+  $route_match = \Drupal::routeMatch();
+
+  // TODO: Generalize this for entity.*.canonical pages.
+  if ($route_match->getRouteName() === 'entity.node.canonical') {
+    /** @var \Drupal\Core\Language\LanguageInterface $language */
+    $request_langcode = \Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId();
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $route_match->getParameter('node');
+    $roles = \Drupal::currentUser()->getRoles();
+
+    // If the node doesn't have a translation in the requested language.
+    if (in_array('anonymous', $roles) && $node && !$node->hasTranslation($request_langcode)) {
+      $message = t('The content of this page is being displayed in %fallback-language because it is not available in %request-language.', [
+        '%fallback-language' => $node->language()->getName(),
+        // Get the native language name with getLanguageName().
+        '%request-language' => \Drupal::languageManager()
+          ->getLanguageName($request_langcode),
+      ]);
+      \Drupal::messenger()->addWarning($message);
+
+    }
+  }
+  
   $current_path = \Drupal::service('path.current')->getPath();
   $data = explode("/", $current_path);
   if (in_array('taxonomy', $data)) {
