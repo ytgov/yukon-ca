@@ -31,7 +31,7 @@ type_settings:
       label: Archived
       weight: 4
       published: false
-      default_revision: false
+      default_revision: true
     draft:
       label: Draft
       weight: 0
@@ -67,6 +67,7 @@ type_settings:
     create_new_draft:
       label: 'Create New Draft'
       from:
+        - archived
         - draft
         - published
       to: draft
