@@ -267,6 +267,19 @@ function yukonca_glider_preprocess_node__blog(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function yukonca_glider_preprocess_node__news(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $source_translation = $node->getTranslation('en');
+
+  // Validate node creation date and current date.
+  $created_time = $source_translation->getCreatedTime();
+  $variables['publish_date'] = $created_time;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function yukonca_glider_preprocess_node__event(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
@@ -448,7 +461,7 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   foreach ($section_paragraphs as $paragraph) {
     $variables['tabs']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
-      'content' => $paragraph->get('field_section_content')->value,
+      'content' => check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
     ];
   }
 
@@ -486,10 +499,8 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
  * Implements template_proprocess_page().
  */
 function yukonca_glider_preprocess_page(&$variables) {
-   /** @var \Drupal\Core\Routing\RouteMatchInterface $route_match */
   $route_match = \Drupal::routeMatch();
 
-  // TODO: Generalize this for entity.*.canonical pages.
   if ($route_match->getRouteName() === 'entity.node.canonical') {
     /** @var \Drupal\Core\Language\LanguageInterface $language */
     $request_langcode = \Drupal::languageManager()
@@ -511,7 +522,7 @@ function yukonca_glider_preprocess_page(&$variables) {
 
     }
   }
-  
+
   $current_path = \Drupal::service('path.current')->getPath();
   $data = explode("/", $current_path);
   if (in_array('taxonomy', $data)) {
