@@ -67,7 +67,8 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $translated_title = $translated_entity->getTitle();
       $variables['title'] = $translated_title;
 
-      $variables['landing_page_url'] = $base_url . $alias;
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $variables['landing_page_url'] = $base_url . "/" . $langcode . $alias;
     }
   }
   if ($parentBundle == 'call_to_action') {
@@ -568,6 +569,16 @@ function yukonca_glider_preprocess_page(&$variables) {
 
         $url = $file->createFileUrl();
         $variables['logo_url'] = $url;
+        $string = $node->field_campaign_home_logo_link->uri;
+        $char = "internal";
+        $variables['logo_link_url'] = "";
+        if (strpos($string, $char) !== FALSE) {
+          $url = Url::fromUri($node->field_campaign_home_logo_link->uri);
+          $variables['logo_link_url'] = $url->toString();
+        }
+        else {
+          $variables['logo_link_url'] = $node->field_campaign_home_logo_link->uri;
+        }
       }
 
       if ($langcode == 'en') {
@@ -576,54 +587,115 @@ function yukonca_glider_preprocess_page(&$variables) {
 
         if (!empty($parent_page)) {
           $node_parent = Node::load($parent_page);
-          $child_cam = $node_parent->field_child_campaign_pages->getValue();
-          $i = 1;
-          if (!empty($child_cam)) {
-            $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
-            foreach ($child_cam as $child) {
-              $node_child = Node::load($child['target_id']);
-              $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
-              $j = 1;
-              foreach ($child_cam_2 as $child_2) {
-                $node_child_2 = Node::load($child_2['target_id']);
-                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                $variables['campaign_menu'][$node_child->getTitle()][$j] = [
-                  '0' => $node_child_2->getTitle(),
-                  '1' => '/en' . $child_alias_2,
-                ];
-                $j++;
-              }
-              $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
-              $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
-              $i++;
-            }
-          }
-          else {
-            $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
-            $node_parent_2 = Node::load($parent_page_2);
-            $child_cam_2 = [];
-            if (!empty($node_parent_2->field_child_campaign_pages)) {
-              $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
-            }
+
+          $parent_page2 = $node_parent->field_parent_campaign_page->target_id;
+          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
+
+          if (!empty($parent_page2)) {
+            $node_parent2 = Node::load($parent_page2);
+
+            $child_cam = $node_parent2->field_child_campaign_pages->getValue();
             $i = 1;
-            if (!empty($child_cam_2)) {
+            if (!empty($child_cam)) {
               $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
-              foreach ($child_cam_2 as $child_2) {
-                $node_child_2 = Node::load($child_2['target_id']);
-                $child_cam_3 = $node_child_2->field_child_campaign_pages->getValue();
+              foreach ($child_cam as $child) {
+                $node_child = Node::load($child['target_id']);
+                $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
                 $j = 1;
-                foreach ($child_cam_3 as $child_3) {
-                  $node_child_3 = Node::load($child_3['target_id']);
-                  $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
-                  $variables['campaign_menu'][$node_child_2->getTitle()][$j] = [
-                    '0' => $node_child_3->getTitle(),
-                    '1' => '/en' . $child_alias_3,
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                  $variables['campaign_menu'][$node_child->getTitle()][$j] = [
+                    '0' => $node_child_2->getTitle(),
+                    '1' => '/en' . $child_alias_2,
                   ];
                   $j++;
                 }
-                $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
+                $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
+                $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
                 $i++;
+              }
+            }
+            else {
+              $parent_page_2 = $node_parent2->field_parent_campaign_page->target_id;
+              $node_parent_2 = Node::load($parent_page_2);
+              $child_cam_2 = [];
+              if (!empty($node_parent_2->field_child_campaign_pages)) {
+                $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+              }
+              $i = 1;
+              if (!empty($child_cam_2)) {
+                $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $child_cam_3 = $node_child_2->field_child_campaign_pages->getValue();
+                  $j = 1;
+                  foreach ($child_cam_3 as $child_3) {
+                    $node_child_3 = Node::load($child_3['target_id']);
+                    $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
+                    $variables['campaign_menu'][$node_child_2->getTitle()][$j] = [
+                      '0' => $node_child_3->getTitle(),
+                      '1' => '/en' . $child_alias_3,
+                    ];
+                    $j++;
+                  }
+                  $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                  $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
+                  $i++;
+                }
+              }
+            }
+          }
+          else {
+            $child_cam = $node_parent->field_child_campaign_pages->getValue();
+            $i = 1;
+            if (!empty($child_cam)) {
+              $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
+              foreach ($child_cam as $child) {
+                $node_child = Node::load($child['target_id']);
+                $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
+                $j = 1;
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                  $variables['campaign_menu'][$node_child->getTitle()][$j] = [
+                    '0' => $node_child_2->getTitle(),
+                    '1' => '/en' . $child_alias_2,
+                  ];
+                  $j++;
+                }
+                $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
+                $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
+                $i++;
+              }
+            }
+            else {
+              $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
+              $node_parent_2 = Node::load($parent_page_2);
+              $child_cam_2 = [];
+              if (!empty($node_parent_2->field_child_campaign_pages)) {
+                $child_cam_2 = $node_parent_2->field_child_campaign_pages->getValue();
+              }
+              $i = 1;
+              if (!empty($child_cam_2)) {
+                $variables['campaign_menu'][0] = ['0' => 'Home', '1' => '/en' . $alias];
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $child_cam_3 = $node_child_2->field_child_campaign_pages->getValue();
+                  $j = 1;
+                  foreach ($child_cam_3 as $child_3) {
+                    $node_child_3 = Node::load($child_3['target_id']);
+                    $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
+                    $variables['campaign_menu'][$node_child_2->getTitle()][$j] = [
+                      '0' => $node_child_3->getTitle(),
+                      '1' => '/en' . $child_alias_3,
+                    ];
+                    $j++;
+                  }
+                  $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
+                  $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
+                  $i++;
+                }
               }
             }
           }
