@@ -105,7 +105,7 @@
     <div class="field field--label-inline"><span class="field__label">{{ 'Last updated'|t }}</span> {{ content.field_last_updated.0}}</div>
     <div class="field field--label-inline"><span class="field__label">{{ 'Size'|t }}</span> &nbsp;{{ document_size }}</div>
     <div class="field field--label-inline"><span class="field__label">{{ 'File Type'|t }}</span> &nbsp;{{ document_type }}</div>
-    <div class="field field--label-inline"><span class="field__label">{{ 'Number of pages'|t }}</span> {{ content.field_pages.0 }}</div>
+    {% if node.field_pages.value is not empty %}<div class="field field--label-inline"><span class="field__label">{{ 'Number of pages'|t }}</span> {{ content.field_pages.0 }}</div>{% endif %}
     <div class="field field--label-inline"><span class="field__label">{{ 'Document description'|t }}</span> <div class="inline-block">{{ content.body.0 }}</div></div>
     <div class="mt-5 mb-10">
       <a href="{{ file_url }}" class="btn btn-default">{{ 'Download'|t }} <i class="fa fa-download" aria-hidden="true"></i></a>
