@@ -386,8 +386,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'view any webform submission'
       cache:
         type: tag
         options: {  }
@@ -604,6 +605,7 @@ display:
         - url
         - url.query_args
         - user
+        - user.permissions
       tags: {  }
   embed_administer:
     id: embed_administer
@@ -1540,6 +1542,7 @@ display:
         - url
         - url.query_args
         - user
+        - user.permissions
       tags: {  }
   embed_manage:
     id: embed_manage

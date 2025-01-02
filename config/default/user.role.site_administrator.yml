@@ -56,7 +56,6 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
-    - feeds
     - field_ui
     - file
     - filter
@@ -109,7 +108,6 @@ permissions:
   - 'administer config_pages fields'
   - 'administer content translation'
   - 'administer display modes'
-  - 'administer feeds_feed fields'
   - 'administer filters'
   - 'administer image styles'
   - 'administer languages'
@@ -286,6 +284,7 @@ permissions:
   - 'edit terms in site_type'
   - 'manage password reset'
   - 'post comments'
+  - 'revert basic_page revisions'
   - 'skip comment approval'
   - 'translate any entity'
   - 'translate any entity'
@@ -349,8 +348,11 @@ permissions:
   - 'view all revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view basic_page revisions'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view own webform submission'
   - 'view the administration theme'
+  - 'view user email addresses'
   - 'view workbench access information'
