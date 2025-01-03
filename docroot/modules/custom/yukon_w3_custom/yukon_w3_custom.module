@@ -5,6 +5,7 @@
  * Yukon w3 migrate module.
  */
 
+use Drupal\node\NodeInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
@@ -35,6 +36,41 @@ function yukon_w3_custom_theme() {
 function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (\Drupal::service('router.admin_context')->isAdminRoute()) {
     $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.css';
+  }
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.js';
+  }
+  if ($node instanceof NodeInterface) {
+    $query = \Drupal::database()->select('users_field_data', 't');
+    $query->fields('t', ['uid', 'name']);
+    $query->condition('status', '1');
+    $query->orderBy('name', 'ASC');
+    $query->join('user__roles', 'n', 't.uid = n.entity_id');
+    $query->condition('roles_target_id', ['publisher', 'editor'], 'IN');
+    $result = $query->execute()->fetchAll();
+
+    $user_id = ["_none" => "- None -"];
+    foreach ($result as $res) {
+      $user_id[$res->uid] = $res->name;
+    }
+
+    $form['field_editor_publisher']['widget']['#options'] = $user_id;
+
+    $query = \Drupal::database()->select('users_field_data', 't');
+    $query->fields('t', ['uid', 'name']);
+    $query->condition('status', '1');
+    $query->orderBy('name', 'ASC');
+    $query->join('user__roles', 'n', 't.uid = n.entity_id');
+    $query->condition('roles_target_id', 'publisher');
+    $result = $query->execute()->fetchAll();
+
+    $user_id = ["_none" => "- None -"];
+    foreach ($result as $res) {
+      $user_id[$res->uid] = $res->name;
+    }
+
+    $form['field_publisher']['widget']['#options'] = $user_id;
   }
 }
 
