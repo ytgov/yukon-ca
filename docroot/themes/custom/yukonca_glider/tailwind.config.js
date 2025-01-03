@@ -85,6 +85,7 @@ module.exports = {
         bg: '#F3E9E8',
         border: '#D3080C' 
       },
+      unpublished: '#fbb2b2', // #fff4f4
     },
     extend: {
       fontSize: {
