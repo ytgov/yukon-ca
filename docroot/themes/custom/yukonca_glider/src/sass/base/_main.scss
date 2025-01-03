@@ -282,7 +282,11 @@ h1#heading {
               }
               
               &.media-wysiwyg-align-right {
-                  @apply float-right;
+                  @apply float-right ml-5;
+                  
+                  img {
+                    @apply w-[300px] h-auto;
+                  }
               }
               
               &.media-wysiwyg-align-center {
