@@ -3,6 +3,12 @@
         @apply text-[22px] leading-1.1 mt-3.75 pt-5;
     }
     
+    aside {
+        @include media-breakpoint-down(md) {
+            @apply hidden;
+        }
+    }
+    
     .region-content {
         ul,
         ol {
