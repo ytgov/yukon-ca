@@ -12,7 +12,7 @@ dependencies:
 id: views_block__what_are_you_looking_for_landing_page_l2_block_1
 theme: yukonca_glider
 region: content
-weight: -22
+weight: -20
 provider: null
 plugin: 'views_block:what_are_you_looking_for_landing_page_l2-block_1'
 settings:

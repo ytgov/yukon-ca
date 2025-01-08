@@ -7,11 +7,10 @@ dependencies:
     - node.type.directory_records_places
     - taxonomy.vocabulary.teams
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.directory_records_places.field_yukon_editorial_team
 field_name: field_yukon_editorial_team
 entity_type: node
@@ -19,7 +18,7 @@ bundle: directory_records_places
 label: 'Yukon Editorial Team'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

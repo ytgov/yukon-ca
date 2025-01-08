@@ -5,4 +5,4 @@ dependencies: {  }
 id: month_date
 label: 'Month Date'
 locked: false
-pattern: 'F d'
+pattern: 'F j'
