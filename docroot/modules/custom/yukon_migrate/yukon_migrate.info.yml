@@ -1,9 +1,0 @@
-name: Yukon Migrate
-type: module
-description: Store all migrations from Yukon.ca Drupal 7.
-package: Custom
-core_version_requirement: ^9 || ^10
-dependencies:
-  - drupal:migrate_drupal
-  - migrate_tools:migrate_tools
-  - migrate_plus:migrate_plus

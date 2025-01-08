@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.full_html
+    - node.type.basic_page
     - node.type.blog
     - taxonomy.vocabulary.category
   module:
@@ -27,9 +28,7 @@ permissions:
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
-  - 'administer menu'
   - 'administer taxonomy'
-  - 'administer themes'
   - 'administer users'
   - 'administer workbench access'
   - 'assign workbench access'

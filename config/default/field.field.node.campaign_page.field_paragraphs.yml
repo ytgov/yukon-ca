@@ -25,7 +25,7 @@ entity_type: node
 bundle: campaign_page
 label: 'Campaign site'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

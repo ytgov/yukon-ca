@@ -23,7 +23,7 @@ entity_type: node
 bundle: directory_records_places
 label: 'Places record type'
 description: "Select one from the following list:\r\n   Community facilities (airport and aerodromes, archives, community centres, libraries, public art, visitor information centres, women's shelters)\r\n   Education facilities (schools and colleges)\r\n   Health facilities (community health centres, continuing care facilities, hospitals)\r\n   Sanitary facilities (hazardous waste, recycling, solid waste)\r\n   Transactional facilities (liquor stores and territorial agents)"
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

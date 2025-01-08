@@ -1,21 +1,21 @@
 _core:
   default_config_hash: HENvUIeX6xNPGRB1w3z6rT9a71LM_hKXATF6XrM9WvM
 langcode: en
-smtp_on: false
 smtp_host: ''
 smtp_hostbackup: ''
+smtp_on: true
 smtp_port: '25'
 smtp_protocol: standard
 smtp_autotls: true
 smtp_timeout: 30
 smtp_username: ''
 smtp_password: ''
-smtp_from: ''
-smtp_fromname: ''
+smtp_from: eservices@yukon.ca
+smtp_fromname: Yukon.ca
 smtp_client_hostname: ''
 smtp_client_helo: ''
-smtp_allowhtml: ''
 smtp_test_address: ''
+smtp_allowhtml: false
 smtp_reroute_address: ''
 smtp_debugging: false
 smtp_debug_level: 1
