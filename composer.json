@@ -159,7 +159,8 @@
                 "Date time format": "https://www.drupal.org/files/issues/2796151-06.patch"
             },
             "drupal/paragraphs": {
-                "Paragraph translation": "https://www.drupal.org/files/issues/2024-09-12/2904705-148-1-18-fix.patch"
+                "Paragraph translation": "https://www.drupal.org/files/issues/2024-09-12/2904705-148-1-18-fix.patch",
+                "Paragraph translation 2": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch"
             }
         },
         "installer-paths": {
