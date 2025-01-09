@@ -55,3 +55,6 @@ input[value="Preview"] {
     border: 1px solid !important;
     border-radius: 4px;
 }
+.field--name-field-last-updated  input#edit-field-last-updated-0-value-time {
+    display: none;
+}
