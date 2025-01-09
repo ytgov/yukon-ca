@@ -10,7 +10,7 @@ dependencies:
 id: yukonca_glider_engagementscountblock
 theme: yukonca_glider
 region: content
-weight: -16
+weight: -15
 provider: null
 plugin: engagements_count_block
 settings:

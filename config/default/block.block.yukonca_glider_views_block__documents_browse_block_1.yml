@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.documents_browse
   module:
-    - block_class
     - system
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: yukonca_glider_views_block__documents_browse_block_1
 theme: yukonca_glider
 region: content
-weight: -2
+weight: -1
 provider: null
 plugin: 'views_block:documents_browse-block_1'
 settings:

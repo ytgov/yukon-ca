@@ -8,7 +8,7 @@ dependencies:
     - field.field.paragraph.holiday_times.field_opening_time_paragraph
     - paragraphs.paragraphs_type.holiday_times
   module:
-    - entity_reference_revisions
+    - paragraphs
 id: paragraph.holiday_times.default
 targetEntityType: paragraph
 bundle: holiday_times
@@ -29,14 +29,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_opening_time_paragraph:
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   translation:
     weight: 10
