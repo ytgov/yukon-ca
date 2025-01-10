@@ -5,7 +5,7 @@ display:
       empty:
         area:
           content:
-            value: '<p>No events found. Try removing or changing a filter.</p>'
+            value: '<p>Aucune activité ne correspond à vos critères. Essayez de supprimer ou de modifier des filtres.</p>'
             format: full_html
       filters:
         field_community_target_id:
