@@ -10,7 +10,7 @@ dependencies:
 id: yukonca_glider_arrivalsblock
 theme: yukonca_glider
 region: content
-weight: -3
+weight: -4
 provider: null
 plugin: arrivals_block
 settings:

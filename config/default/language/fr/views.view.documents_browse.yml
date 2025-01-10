@@ -5,7 +5,7 @@ display:
       empty:
         area:
           content:
-            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            value: '<p>Désolé, aucun résultat n’a été trouvé. Essayez de retirer un filtre.</p>'
             format: full_html
       pager:
         options:
@@ -36,14 +36,14 @@ display:
       empty:
         area:
           content:
-            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            value: '<p>Désolé, aucun résultat n’a été trouvé. Essayez de retirer un filtre.</p>'
             format: full_html
   page:
     display_options:
       empty:
         area:
           content:
-            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            value: '<p><span style="font-family:&quot;Nunito Sans&quot;;font-size:11.0pt;line-height:107%;" lang="FR-CA">Désolé, aucun résultat n’a été trouvé. Essayez de retirer un filtre</span></p>'
             format: full_html
       filters:
         combine:
@@ -60,7 +60,7 @@ display:
       empty:
         area:
           content:
-            value: '<p>Sorry, no results were found. Try eliminating one of the filters applied.</p>'
+            value: '<p><span style="font-family:&quot;Nunito Sans&quot;;font-size:11.0pt;line-height:107%;" lang="FR-CA">Désolé, aucun résultat n’a été trouvé. Essayez de retirer un filtre</span></p>'
             format: full_html
       header:
         result:

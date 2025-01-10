@@ -9,7 +9,7 @@ _core:
 id: yukonca_glider_local_actions
 theme: yukonca_glider
 region: content
-weight: -28
+weight: -30
 provider: null
 plugin: local_actions_block
 settings:

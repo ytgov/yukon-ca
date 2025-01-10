@@ -12,7 +12,7 @@ dependencies:
 id: yukonca_glider_views_block__facilities_listing_blocks_block_1
 theme: yukonca_glider
 region: content
-weight: -13
+weight: -14
 provider: null
 plugin: 'views_block:facilities_listing_blocks-block_1'
 settings:

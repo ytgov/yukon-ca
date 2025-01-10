@@ -12,7 +12,7 @@ dependencies:
 id: views_block__in_page_alerts_block
 theme: yukonca_glider
 region: content
-weight: -31
+weight: -33
 provider: null
 plugin: 'views_block:in_page_alerts-block'
 settings:

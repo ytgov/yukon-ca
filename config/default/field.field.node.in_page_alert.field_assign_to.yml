@@ -12,6 +12,7 @@ dependencies:
     - node.type.engagement
     - node.type.in_page_alert
     - node.type.landing_page
+    - node.type.landing_page_level_2
     - node.type.multi_step_page
     - node.type.topics_page
   module:
@@ -38,6 +39,7 @@ settings:
       campground_directory_record: campground_directory_record
       documents: documents
       landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
       multi_step_page: multi_step_page
       directory_records_places: directory_records_places
       engagement: engagement

@@ -10,7 +10,7 @@ dependencies:
 id: yukonca_glider_peaktimesblock
 theme: yukonca_glider
 region: content
-weight: -25
+weight: -27
 provider: null
 plugin: peak_times_block
 settings:

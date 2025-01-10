@@ -12,7 +12,7 @@ dependencies:
 id: yukonca_glider_views_block__blog_type_info_block_1
 theme: yukonca_glider
 region: breadcrumb
-weight: -22
+weight: -31
 provider: null
 plugin: 'views_block:blog_type_info-block_1'
 settings:

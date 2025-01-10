@@ -35,7 +35,6 @@ dependencies:
     - datetime
     - field_group
     - leaflet
-    - link
     - linkit
     - maxlength
     - metatag
@@ -423,12 +422,14 @@ content:
       display_label: true
     third_party_settings: {  }
   field_statutory_holiday_link:
-    type: link_default
+    type: linkit
     weight: 9
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: link_field
+      linkit_auto_link_text: false
     third_party_settings:
       maxlength:
         maxlength_js: null

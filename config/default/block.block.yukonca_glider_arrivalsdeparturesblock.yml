@@ -10,12 +10,12 @@ dependencies:
 id: yukonca_glider_arrivalsdeparturesblock
 theme: yukonca_glider
 region: content
-weight: -2
+weight: -3
 provider: null
 plugin: arrivals_departures_block
 settings:
   id: arrivals_departures_block
-  label: Départs
+  label: Departures
   label_display: visible
   provider: goy_yxy_flight_schedule
 visibility:
