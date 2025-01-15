@@ -13,6 +13,11 @@ display:
         type:
           expose:
             description: ''
+          group_info:
+            label: 'Afficher uniquement'
         field_document_type:
           expose:
             description: ''
+      exposed_form:
+        options:
+          submit_button: 'Filtrer les résultats'
