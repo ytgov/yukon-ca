@@ -21,3 +21,11 @@ yukon_w3_custom.team_department_update:
     _controller: '\Drupal\yukon_w3_custom\Controller\TeamDepartmentUpdate::content'
   requirements:
     _permission: 'access content'
+
+yukon_w3_custom.content_translation:
+  path: '/admin/content_translation'
+  defaults:
+    _title: 'Content Translation'
+    _controller: '\Drupal\yukon_w3_custom\Controller\ContentTranslationController::content'
+  requirements:
+    _permission: 'access content'
