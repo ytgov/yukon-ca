@@ -79,7 +79,6 @@ module:
   linkchecker: 0
   linkit: 0
   locale: 0
-  mail_safety: 0
   matomo: 0
   maxlength: 0
   media: 0
@@ -120,7 +119,6 @@ module:
   shield: 0
   shortcut: 0
   single_content_sync: 0
-  single_datetime: 0
   smtp: 0
   svg_image: 0
   system: 0

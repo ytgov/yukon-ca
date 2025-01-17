@@ -773,7 +773,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ changed }} </BR> {{ revision_uid }}'
+            text: '{{ changed }} </BR> {{ revision_uid }} '
             make_link: false
             path: ''
             absolute: false

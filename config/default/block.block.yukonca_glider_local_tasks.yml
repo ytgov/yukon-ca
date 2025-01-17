@@ -9,7 +9,7 @@ _core:
 id: yukonca_glider_local_tasks
 theme: yukonca_glider
 region: content
-weight: -29
+weight: -31
 provider: null
 plugin: local_tasks_block
 settings:

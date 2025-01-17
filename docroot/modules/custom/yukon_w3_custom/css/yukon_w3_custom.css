@@ -58,3 +58,7 @@ input[value="Preview"] {
 .field--name-field-last-updated  input#edit-field-last-updated-0-value-time {
     display: none;
 }
+.ck-editor__editable {
+    resize: both;
+    overflow: auto;
+}

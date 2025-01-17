@@ -589,9 +589,9 @@ function yukonca_glider_preprocess_page(&$variables) {
           $node_parent = Node::load($parent_page);
 
           $parent_page2 = $node_parent->field_parent_campaign_page->target_id;
-          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
 
           if (!empty($parent_page2)) {
+            $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
             $node_parent2 = Node::load($parent_page2);
 
             $child_cam = $node_parent2->field_child_campaign_pages->getValue();

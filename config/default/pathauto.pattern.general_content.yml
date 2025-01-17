@@ -3,24 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - language
     - node
 id: general_content
 label: 'General content'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join-path]/[node:title]'
-selection_criteria:
-  9fd893c7-c51e-4b5d-ad43-9793e4396677:
-    id: language
-    negate: false
-    uuid: 9fd893c7-c51e-4b5d-ad43-9793e4396677
-    context_mapping:
-      language: 'node:langcode:language'
-    langcodes:
-      en: en
-      fr: fr
+selection_criteria: {  }
 selection_logic: and
 weight: 0
-relationships:
-  'node:langcode:language':
-    label: Language
+relationships: {  }
