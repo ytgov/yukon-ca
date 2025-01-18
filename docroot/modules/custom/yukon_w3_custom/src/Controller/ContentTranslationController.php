@@ -34,7 +34,7 @@ class ContentTranslationController extends ControllerBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
+    return new self(
       $container->get('pager.manager')
     );
   }
@@ -54,9 +54,7 @@ class ContentTranslationController extends ControllerBase {
 
     $query = Database::getConnection()->select('node_field_data', 'ct')
       ->fields('ct', ['nid', 'title', 'type', 'langcode'])
-      ->condition('langcode', 'en')
-      ->orderBy('nid', 'DESC')
-      ->range($offset, $limit);
+      ->condition('langcode', 'en');
     $results = $query->countQuery()->execute()->fetchField();
 
     // Set the pager limit.
