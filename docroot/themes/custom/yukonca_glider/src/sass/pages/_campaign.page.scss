@@ -308,18 +308,12 @@
 			
 			.campaign-section {
 			    &.paragraph--type--text-and-image {
-			        @apply text-sm text-gray-450;
-			        
     			    img {
     			        @apply w-auto h-auto mb-6;
     			    }
     			    
     			    .items-center {
     			        @apply items-start;
-    			    }
-    			    
-    			    a {
-    			        @apply text-base;
     			    }
 			    }
 			}

@@ -34,6 +34,15 @@ function yukon_w3_custom_theme() {
  * Implements hook_form_alter().
  */
 function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $vid = 'teams';
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+  foreach ($terms as $term) {
+    $term_data[$term->tid] = $term->name;
+  }
+
+  if (isset($form['field_yukon_editorial_team'])) {
+    $form['field_yukon_editorial_team']['widget']['#options'] = $term_data;
+  }
   if (\Drupal::service('router.admin_context')->isAdminRoute()) {
     $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.css';
   }
