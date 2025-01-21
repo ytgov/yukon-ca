@@ -48,9 +48,6 @@ function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $for
   }
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node instanceof NodeInterface) {
-    $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.js';
-  }
-  if ($node instanceof NodeInterface) {
     $query = \Drupal::database()->select('users_field_data', 't');
     $query->fields('t', ['uid', 'name']);
     $query->condition('status', '1');
