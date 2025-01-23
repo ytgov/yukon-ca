@@ -99,4 +99,5 @@ class SearchFilterForm extends FormBase {
       'query' => ['filter_text' => $filter_text, 'type' => $type],
     ]);
   }
+
 }
