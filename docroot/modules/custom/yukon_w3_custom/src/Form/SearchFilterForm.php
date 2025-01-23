@@ -43,7 +43,7 @@ class SearchFilterForm extends FormBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
+    return new self(
       $container->get('entity_type.manager'),
       $container->get('request_stack')
     );
@@ -99,5 +99,4 @@ class SearchFilterForm extends FormBase {
       'query' => ['filter_text' => $filter_text, 'type' => $type],
     ]);
   }
-
 }
