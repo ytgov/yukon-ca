@@ -18,6 +18,9 @@ display:
         field_document_type:
           expose:
             description: ''
+        field_department_term:
+          expose:
+            label: Département
       exposed_form:
         options:
           submit_button: 'Filtrer les résultats'

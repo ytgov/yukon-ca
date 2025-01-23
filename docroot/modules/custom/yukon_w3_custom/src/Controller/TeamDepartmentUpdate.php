@@ -19,7 +19,7 @@ class TeamDepartmentUpdate extends ControllerBase {
   protected $messenger;
 
   /**
-   * Constructs InviteByEmail .
+   * Constructs messenger.
    *
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
