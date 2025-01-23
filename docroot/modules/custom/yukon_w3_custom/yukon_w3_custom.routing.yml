@@ -20,7 +20,9 @@ yukon_w3_custom.team_department_update:
     _title: 'Team Department Update'
     _controller: '\Drupal\yukon_w3_custom\Controller\TeamDepartmentUpdate::content'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'
+  options:
+    access: TRUE
 
 yukon_w3_custom.content_translation:
   path: '/admin/content_translation'
@@ -28,4 +30,6 @@ yukon_w3_custom.content_translation:
     _title: 'Content Translation'
     _controller: '\Drupal\yukon_w3_custom\Controller\ContentTranslationController::content'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'
+  options:
+    access: TRUE
