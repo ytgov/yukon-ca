@@ -1,0 +1,26 @@
+uuid: 570211a0-1a9f-49e4-a902-2ded0085c90f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_in_progress
+    - node.type.news
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.news.field_translation_in_progress
+field_name: field_translation_in_progress
+entity_type: node
+bundle: news
+label: 'Translation in progress'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

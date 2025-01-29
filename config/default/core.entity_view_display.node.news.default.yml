@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.news.field_quick_facts
     - field.field.node.news.field_related_link
     - field.field.node.news.field_social_sharing
+    - field.field.node.news.field_translation_in_progress
     - field.field.node.news.field_yukon_editorial_team
     - node.type.news
   module:
@@ -141,6 +142,16 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 8
+    region: content
+  field_translation_in_progress:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   addtoany: true

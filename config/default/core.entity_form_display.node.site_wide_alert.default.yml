@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.site_wide_alert.field_department_term
     - field.field.node.site_wide_alert.field_editor_publisher
     - field.field.node.site_wide_alert.field_publisher
+    - field.field.node.site_wide_alert.field_translation_in_progress
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
     - workflows.workflow.content
@@ -91,6 +92,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

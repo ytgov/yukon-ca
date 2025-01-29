@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.landing_page_level_2.field_primary_content
     - field.field.node.landing_page_level_2.field_publisher
     - field.field.node.landing_page_level_2.field_social_sharing
+    - field.field.node.landing_page_level_2.field_translation_in_progress
     - field.field.node.landing_page_level_2.field_yukon_editorial_team
     - node.type.landing_page_level_2
     - workflows.workflow.content
@@ -147,6 +148,13 @@ content:
   field_social_sharing:
     type: boolean_checkbox
     weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
     region: content
     settings:
       display_label: true

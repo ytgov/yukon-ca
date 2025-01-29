@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.department.field_publisher
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
+    - field.field.node.department.field_translation_in_progress
     - field.field.node.department.field_yukon_editorial_team
     - node.type.department
   module:
@@ -313,6 +314,16 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_translation_in_progress:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   addtoany: true

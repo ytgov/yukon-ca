@@ -1,0 +1,26 @@
+uuid: 710df01e-7159-4912-b66b-e10ac25cd0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_in_progress
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_translation_in_progress
+field_name: field_translation_in_progress
+entity_type: node
+bundle: campaign_page
+label: 'Translation in progress'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
+    - field.field.node.multi_step_page.field_translation_in_progress
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
   module:
@@ -117,6 +118,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_translation_in_progress:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
   links:
     settings: {  }

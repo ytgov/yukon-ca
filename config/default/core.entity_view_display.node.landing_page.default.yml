@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
+    - field.field.node.landing_page.field_translation_in_progress
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
@@ -71,6 +72,16 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_translation_in_progress:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   addtoany: true

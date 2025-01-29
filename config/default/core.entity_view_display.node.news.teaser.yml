@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.news.field_quick_facts
     - field.field.node.news.field_related_link
     - field.field.node.news.field_social_sharing
+    - field.field.node.news.field_translation_in_progress
     - field.field.node.news.field_yukon_editorial_team
     - node.type.news
   module:
@@ -68,6 +69,7 @@ hidden:
   field_quick_facts: true
   field_related_link: true
   field_social_sharing: true
+  field_translation_in_progress: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

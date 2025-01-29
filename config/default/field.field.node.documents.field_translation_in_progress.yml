@@ -1,0 +1,26 @@
+uuid: f75249c1-0339-439e-ac7f-51e81cb3d584
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_in_progress
+    - node.type.documents
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.documents.field_translation_in_progress
+field_name: field_translation_in_progress
+entity_type: node
+bundle: documents
+label: 'Translation in progress'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
