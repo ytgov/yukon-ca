@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.department.field_publisher
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
+    - field.field.node.department.field_translation_in_progress
     - field.field.node.department.field_yukon_editorial_team
     - node.type.department
   module:
@@ -219,6 +220,7 @@ hidden:
   field_page_description: true
   field_publisher: true
   field_review_date: true
+  field_translation_in_progress: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
  * Provides route responses for content translation routing.
@@ -37,6 +38,13 @@ class ContentTranslationController extends ControllerBase {
   protected $requestStack;
 
   /**
+   * The Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructs a new TableController.
    *
    * @param \Drupal\Core\Pager\PagerManagerInterface $pagerManager
@@ -45,11 +53,14 @@ class ContentTranslationController extends ControllerBase {
    *   The form builder service.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The pager manager service.
    */
-  public function __construct(PagerManagerInterface $pagerManager, FormBuilderInterface $formBuilder, RequestStack $request_stack) {
+  public function __construct(PagerManagerInterface $pagerManager, FormBuilderInterface $formBuilder, RequestStack $request_stack, EntityTypeManagerInterface $entityTypeManager) {
     $this->pagerManager = $pagerManager;
     $this->formBuilder = $formBuilder;
     $this->requestStack = $request_stack;
+    $this->entityTypeManager = $entityTypeManager;
   }
 
   /**
@@ -59,7 +70,8 @@ class ContentTranslationController extends ControllerBase {
     return new self(
       $container->get('pager.manager'),
       $container->get('form_builder'),
-      $container->get('request_stack')
+      $container->get('request_stack'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -71,10 +83,8 @@ class ContentTranslationController extends ControllerBase {
     // Retrieve the current request.
     $request = $this->requestStack->getCurrentRequest();
     $header = [
-      ['data' => $this->t('ID')],
       ['data' => $this->t('Title')],
       ['data' => $this->t('Type')],
-      ['data' => $this->t('language')],
       ['data' => $this->t('Operations')],
       ['data' => $this->t('Translation Status')],
     ];
@@ -82,7 +92,7 @@ class ContentTranslationController extends ControllerBase {
     $db = Database::getConnection();
     $query = $db->select('node_field_data', 'ct')
       ->fields('ct', ['nid', 'title', 'type', 'langcode'])
-      ->condition('langcode', 'en');
+      ->condition('ct.langcode', 'en');
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
       $query->condition("ct.title", '%' . $db->escapeLike($text) . '%', 'LIKE');
@@ -91,19 +101,45 @@ class ContentTranslationController extends ControllerBase {
     if (!empty($type) && $type != 'All') {
       $query->condition("ct.type", $type);
     }
+    $published_status = $request->query->get('published_status');
+    if (!empty($published_status) && $published_status != '') {
+      $query->condition("ct.status", $published_status);
+    }
+    $author = $request->query->get('author');
+    if (!empty($author) && $author != '') {
+      // Use entity query to search for the user by name.
+      $query_user = $this->entityTypeManager->getStorage('user')->getQuery()
+        ->accessCheck(TRUE)
+        ->condition('name', $author)
+        ->range(0, 1);
+      $uids = $query_user->execute();
+      $uid = reset($uids);
+      $query->condition("ct.uid", $uid);
+    }
+    $department = $request->query->get('department');
+    if (!empty($department) && $department != '') {
+      $query->join('node__field_department_term', 'nd', 'ct.nid = nd.entity_id');
+      $query->condition("nd.field_department_term_target_id", $department);
+    }
     $results = $query->countQuery()->execute()->fetchField();
 
     // Set the pager limit.
-    $limit = 50;
+    $number_of_rows = $request->query->get('number_of_rows');
+    if (!empty($number_of_rows)) {
+      $limit = $number_of_rows;
+    }
+    else {
+      $limit = 50;
+    }
     $current_page = $this->pagerManager->createPager($results, $limit)->getCurrentPage();
     $offset = $current_page * $limit;
 
     // Query to fetch data from a database table.
     $query = $db->select('node_field_data', 'ct')
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed'])
-      ->condition('langcode', 'en')
-      ->orderBy('nid', 'DESC')
-      ->range($offset, $limit);
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed']);
+    $query->condition('ct.langcode', 'en');
+    $query->orderBy('ct.nid', 'DESC');
+    $query->range($offset, $limit);
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
       $query->condition("ct.title", '%' . $db->escapeLike($text) . '%', 'LIKE');
@@ -112,43 +148,83 @@ class ContentTranslationController extends ControllerBase {
     if (!empty($type) && $type != 'All') {
       $query->condition("ct.type", $type);
     }
+    $published_status = $request->query->get('published_status');
+    if (!empty($published_status) && $published_status != '') {
+      if ($published_status == 2) {
+        $query->condition("ct.status", '0');
+      }
+      else {
+        $query->condition("ct.status", '1');
+      }
+    }
+    $author = $request->query->get('author');
+    if (!empty($author) && $author != '') {
+      // Use entity query to search for the user by name.
+      $query_user = $this->entityTypeManager->getStorage('user')->getQuery()
+        ->accessCheck(TRUE)
+        ->condition('name', $author)
+        ->range(0, 1);
+      $uids = $query_user->execute();
+      $uid = reset($uids);
+      $query->condition("ct.uid", $uid);
+    }
+    $department = $request->query->get('department');
+    if (!empty($department) && $department != '') {
+      $query->join('node__field_department_term', 'nd', 'ct.nid = nd.entity_id');
+      $query->condition("nd.field_department_term_target_id", $department);
+    }
     $results = $query->execute()->fetchAll();
-
+    $translation_status = $request->query->get('translation_status');
     $rows = [];
     foreach ($results as $row) {
       $entity_id = $row->nid;
-      $query = $db->select("node_field_data", "n");
-      $query->fields("n", ['nid', 'changed']);
-      $query->condition("n.langcode", "fr");
-      $query->condition("n.nid", $entity_id);
-      $text = $request->query->get('filter_text');
-      if (!empty($text)) {
-        $query->condition("n.title", '%' . $db->escapeLike($text) . '%', 'LIKE');
+
+      $query1 = $db->select("node__field_translation_in_progress", "n");
+      $query1->fields("n", ['entity_id', 'field_translation_in_progress_value']);
+      $query1->condition("n.entity_id", $entity_id);
+      $check_trans = $query1->execute()->fetchAll();
+
+      if (!empty($check_trans)) {
+        $fr = "In-progress";
       }
-      $type = $request->query->get('type');
-      if (!empty($type) && $type != 'All') {
-        $query->condition("n.type", $type);
+      else {
+        $query = $db->select("node_field_data", "n");
+        $query->fields("n", ['nid', 'changed']);
+        $query->condition("n.langcode", "fr");
+        $query->condition("n.nid", $entity_id);
+        $check_fr = $query->execute()->fetchAll();
+        if (!empty($check_fr)) {
+          $fr = "Present";
+          if ($row->changed > $check_fr[0]->changed) {
+            $fr = "Out-dated";
+          }
+        }
+        else {
+          $fr = "Absent";
+        }
       }
-      $check_fr = $query->execute()->fetchAll();
-      if (!empty($check_fr)) {
-        $fr = "Present";
-        if ($row->changed > $check_fr[0]->changed) {
-          $fr = "Out-dated";
+      if (!empty($translation_status)) {
+        if ($translation_status == strtolower($fr)) {
+          $rows[] = [
+            'data' => [
+              $row->title,
+              $row->type,
+              Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+              $fr,
+            ],
+          ];
         }
       }
       else {
-        $fr = "Absent";
+        $rows[] = [
+          'data' => [
+            $row->title,
+            $row->type,
+            Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+            $fr,
+          ],
+        ];
       }
-      $rows[] = [
-        'data' => [
-          $row->nid,
-          $row->title,
-          $row->type,
-          $row->langcode,
-          Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
-          $fr,
-        ],
-      ];
     }
 
     $build['filter_form'] = $form;
@@ -158,6 +234,11 @@ class ContentTranslationController extends ControllerBase {
       '#header' => $header,
       '#rows' => $rows,
       '#empty' => $this->t('No data found.'),
+      '#attached' => [
+        'library' => [
+          'yukon_w3_custom/yukon_w3_custom.css',
+        ],
+      ],
     ];
 
     // Add a pager.

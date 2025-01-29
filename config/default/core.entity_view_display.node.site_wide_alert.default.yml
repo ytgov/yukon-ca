@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.site_wide_alert.field_department_term
     - field.field.node.site_wide_alert.field_editor_publisher
     - field.field.node.site_wide_alert.field_publisher
+    - field.field.node.site_wide_alert.field_translation_in_progress
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
   module:
@@ -44,6 +45,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 10
+    region: content
+  field_translation_in_progress:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   addtoany: true

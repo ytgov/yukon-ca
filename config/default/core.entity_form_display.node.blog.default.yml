@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.blog.field_publisher
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
+    - field.field.node.blog.field_translation_in_progress
     - field.field.node.blog.field_yukon_editorial_team
     - node.type.blog
     - workflows.workflow.content
@@ -167,6 +168,13 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

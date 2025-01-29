@@ -33,3 +33,11 @@ yukon_w3_custom.content_translation:
     _permission: 'administer site configuration'
   options:
     access: TRUE
+
+yukon_w3_custom.author_autocomplete:
+  path: '/author-autocomplete'
+  defaults:
+    _controller: '\Drupal\yukon_w3_custom\Controller\AuthorAutocompleteController::handleAutocomplete'
+    _title: 'Author autocomplete'
+  requirements:
+    _permission: 'access content'

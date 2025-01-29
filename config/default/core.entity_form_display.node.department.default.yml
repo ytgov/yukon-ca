@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.department.field_publisher
     - field.field.node.department.field_related_content
     - field.field.node.department.field_review_date
+    - field.field.node.department.field_translation_in_progress
     - field.field.node.department.field_yukon_editorial_team
     - node.type.department
     - workflows.workflow.content
@@ -357,6 +358,13 @@ content:
     weight: 21
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

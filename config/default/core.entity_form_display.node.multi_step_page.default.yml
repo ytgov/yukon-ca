@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
+    - field.field.node.multi_step_page.field_translation_in_progress
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
     - workflows.workflow.content
@@ -213,6 +214,13 @@ content:
   field_social_sharing:
     type: boolean_checkbox
     weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
     region: content
     settings:
       display_label: true

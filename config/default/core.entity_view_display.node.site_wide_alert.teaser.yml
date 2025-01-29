@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.site_wide_alert.field_department_term
     - field.field.node.site_wide_alert.field_editor_publisher
     - field.field.node.site_wide_alert.field_publisher
+    - field.field.node.site_wide_alert.field_translation_in_progress
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
   module:
@@ -35,6 +36,7 @@ hidden:
   field_department_term: true
   field_editor_publisher: true
   field_publisher: true
+  field_translation_in_progress: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

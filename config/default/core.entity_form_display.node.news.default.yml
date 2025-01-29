@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.news.field_quick_facts
     - field.field.node.news.field_related_link
     - field.field.node.news.field_social_sharing
+    - field.field.node.news.field_translation_in_progress
     - field.field.node.news.field_yukon_editorial_team
     - node.type.news
     - workflows.workflow.content
@@ -273,6 +274,13 @@ content:
   field_social_sharing:
     type: boolean_checkbox
     weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_translation_in_progress:
+    type: boolean_checkbox
+    weight: 26
     region: content
     settings:
       display_label: true

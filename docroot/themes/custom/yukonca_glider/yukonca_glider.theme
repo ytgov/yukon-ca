@@ -122,8 +122,15 @@ function yukonca_glider_form_alter(&$form, FormStateInterface $form_state, $form
 
   // Adding custom validation for the welcome page type field.
   if ($form_id == 'comment_blog_comments_form') {
-    $form['author']['name']['#title'] = 'First name only';
-    $form['actions']['submit']['#value'] = 'Post Comment';
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($langcode == 'en') {
+      $form['author']['name']['#title'] = t('First name only');
+      $form['actions']['submit']['#value'] = t('Post Comment');
+    }
+    else {
+      $form['author']['name']['#title'] = t('Prénom uniquement');
+      $form['actions']['submit']['#value'] = t('Publier');
+    }
   }
 }
 

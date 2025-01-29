@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.documents.field_pages
     - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
+    - field.field.node.documents.field_translation_in_progress
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
   module:
@@ -61,6 +62,7 @@ hidden:
   field_pages: true
   field_publisher: true
   field_social_sharing: true
+  field_translation_in_progress: true
   field_yukon_editorial_team: true
   langcode: true
   search_api_excerpt: true

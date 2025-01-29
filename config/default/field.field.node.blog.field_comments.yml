@@ -7,11 +7,10 @@ dependencies:
     - node.type.blog
   module:
     - comment
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.blog.field_comments
 field_name: field_comments
 entity_type: node
@@ -19,7 +18,7 @@ bundle: blog
 label: Comments
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     status: 2
