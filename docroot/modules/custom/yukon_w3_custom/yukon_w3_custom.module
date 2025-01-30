@@ -9,6 +9,7 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_theme().
@@ -311,5 +312,24 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     $variables['playground_flter'] = !is_array($view->exposed_data['field_playground_value']) ? $view->exposed_data['field_playground_value'] : $view->exposed_data['field_playground_value'][1];
     $variables['trails_flter'] = !is_array($view->exposed_data['field_hiking_trails_value']) ? $view->exposed_data['field_hiking_trails_value'] : $view->exposed_data['field_hiking_trails_value'][1];
     $variables['dock_no_flter'] = !is_array($view->exposed_data['field_swimming_area_or_dock_no_l_value']) ? $view->exposed_data['field_swimming_area_or_dock_no_l_value'] : $view->exposed_data['field_swimming_area_or_dock_no_l_value'][1];
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function yukon_w3_custom_views_pre_render(ViewExecutable $view) {
+  // Check for a specific view and display.
+  if ($view->id() == 'news_listing' && $view->current_display == 'block_news_listing') {
+
+    foreach ($view->result as &$row) {
+      if (isset($row->_entity)) {
+        // Modify the value of a field (e.g., title).
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        if ($langcode == 'fr') {
+          $row->_entity->getTranslation('fr')->set('created', $row->_entity->created->value);
+        }
+      }
+    }
   }
 }
