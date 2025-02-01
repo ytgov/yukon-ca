@@ -59,7 +59,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_swimming_area_or_dock_no_l
     - field.field.node.campground_directory_record.field_tent_pads_or_sites_availab
     - field.field.node.campground_directory_record.field_total_sites
-    - field.field.node.campground_directory_record.field_translation_in_progress
+    - field.field.node.campground_directory_record.field_translation_status
     - field.field.node.campground_directory_record.field_viewing_structures_or_sign
     - field.field.node.campground_directory_record.field_walk_in_sites
     - field.field.node.campground_directory_record.field_warning
@@ -636,13 +636,10 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_translation_in_progress:
-    type: boolean
+  field_translation_status:
+    type: list_default
     label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content

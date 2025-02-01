@@ -1,26 +1,25 @@
-uuid: a1c1c0a6-7afe-4640-b1a7-1be6ff83461b
+uuid: f1d722dd-2357-43c0-a2e3-daf77a21ecb1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_translation_in_progress
+    - field.storage.node.field_translation_status
     - node.type.directory_records_places
   module:
+    - options
     - tmgmt_content
 third_party_settings:
   tmgmt_content:
     excluded: false
-id: node.directory_records_places.field_translation_in_progress
-field_name: field_translation_in_progress
+id: node.directory_records_places.field_translation_status
+field_name: field_translation_status
 entity_type: node
 bundle: directory_records_places
-label: 'Translation in progress'
+label: 'Translation status'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  on_label: 'On'
-  off_label: 'Off'
-field_type: boolean
+settings: {  }
+field_type: list_string

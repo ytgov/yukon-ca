@@ -17,12 +17,13 @@ dependencies:
     - field.field.node.documents.field_pages
     - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
-    - field.field.node.documents.field_translation_in_progress
+    - field.field.node.documents.field_translation_status
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
   module:
     - datetime
     - fences
+    - options
     - text
     - user
 id: node.documents.default
@@ -130,13 +131,10 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_translation_in_progress:
-    type: boolean
+  field_translation_status:
+    type: list_default
     label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content

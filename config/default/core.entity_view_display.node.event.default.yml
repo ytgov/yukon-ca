@@ -25,7 +25,7 @@ dependencies:
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_publisher
-    - field.field.node.event.field_translation_in_progress
+    - field.field.node.event.field_translation_status
     - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -34,6 +34,7 @@ dependencies:
     - fences
     - field_group
     - link
+    - options
     - text
     - user
 third_party_settings:
@@ -221,13 +222,10 @@ content:
     third_party_settings: {  }
     weight: 17
     region: content
-  field_translation_in_progress:
-    type: boolean
+  field_translation_status:
+    type: list_default
     label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content

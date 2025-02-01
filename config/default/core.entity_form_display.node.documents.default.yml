@@ -17,7 +17,7 @@ dependencies:
     - field.field.node.documents.field_pages
     - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
-    - field.field.node.documents.field_translation_in_progress
+    - field.field.node.documents.field_translation_status
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
     - workflows.workflow.content
@@ -163,12 +163,11 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_translation_in_progress:
-    type: boolean_checkbox
+  field_translation_status:
+    type: options_buttons
     weight: 26
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

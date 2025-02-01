@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.homepage.field_publisher
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
-    - field.field.node.homepage.field_translation_in_progress
+    - field.field.node.homepage.field_translation_status
     - field.field.node.homepage.field_yukon_editorial_team
     - node.type.homepage
   module:
@@ -55,7 +55,7 @@ hidden:
   field_primary_item_blocks: true
   field_publisher: true
   field_tertiary_item_blocks: true
-  field_translation_in_progress: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
