@@ -1,26 +1,25 @@
-uuid: 71d26b93-aa8f-465c-90ce-e92a1a9be76d
+uuid: c3badb09-6cd0-4bc5-9c32-4725b8429d08
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_translation_in_progress
+    - field.storage.node.field_translation_status
     - node.type.site_wide_alert
   module:
+    - options
     - tmgmt_content
 third_party_settings:
   tmgmt_content:
     excluded: false
-id: node.site_wide_alert.field_translation_in_progress
-field_name: field_translation_in_progress
+id: node.site_wide_alert.field_translation_status
+field_name: field_translation_status
 entity_type: node
 bundle: site_wide_alert
-label: 'Translation in progress'
+label: 'Translation status'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  on_label: 'On'
-  off_label: 'Off'
-field_type: boolean
+settings: {  }
+field_type: list_string

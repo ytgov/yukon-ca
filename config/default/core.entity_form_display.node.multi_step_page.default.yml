@@ -15,7 +15,7 @@ dependencies:
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
-    - field.field.node.multi_step_page.field_translation_in_progress
+    - field.field.node.multi_step_page.field_translation_status
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
     - workflows.workflow.content
@@ -218,12 +218,11 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_translation_in_progress:
-    type: boolean_checkbox
+  field_translation_status:
+    type: options_buttons
     weight: 26
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

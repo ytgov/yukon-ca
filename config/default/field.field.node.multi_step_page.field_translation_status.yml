@@ -1,26 +1,25 @@
-uuid: 56935b47-9153-4862-9ca8-91fbc1aa4664
+uuid: a8771c8b-4089-4637-9e55-e88e56bcd9f4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_translation_in_progress
+    - field.storage.node.field_translation_status
     - node.type.multi_step_page
   module:
+    - options
     - tmgmt_content
 third_party_settings:
   tmgmt_content:
     excluded: false
-id: node.multi_step_page.field_translation_in_progress
-field_name: field_translation_in_progress
+id: node.multi_step_page.field_translation_status
+field_name: field_translation_status
 entity_type: node
 bundle: multi_step_page
-label: 'Translation in progress'
+label: 'Translation status'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  on_label: 'On'
-  off_label: 'Off'
-field_type: boolean
+settings: {  }
+field_type: list_string

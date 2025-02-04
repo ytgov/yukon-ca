@@ -16,7 +16,7 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
-    - field.field.node.landing_page.field_translation_in_progress
+    - field.field.node.landing_page.field_translation_status
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
@@ -81,7 +81,7 @@ hidden:
   field_redirection: true
   field_secondary_content: true
   field_target_content: true
-  field_translation_in_progress: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

@@ -179,13 +179,16 @@ class ContentTranslationController extends ControllerBase {
     foreach ($results as $row) {
       $entity_id = $row->nid;
 
-      $query1 = $db->select("node__field_translation_in_progress", "n");
-      $query1->fields("n", ['entity_id', 'field_translation_in_progress_value']);
+      $query1 = $db->select("node__field_translation_status", "n");
+      $query1->fields("n", ['entity_id', 'field_translation_status_value']);
       $query1->condition("n.entity_id", $entity_id);
       $check_trans = $query1->execute()->fetchAll();
 
-      if (!empty($check_trans)) {
+      if (!empty($check_trans) && $check_trans[0]->field_translation_status_value == "in_progress") {
         $fr = "In-progress";
+      }
+      elseif (!empty($check_trans) && $check_trans[0]->field_translation_status_value == "not_required") {
+        $fr = "Not-required";
       }
       else {
         $query = $db->select("node_field_data", "n");

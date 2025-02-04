@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.homepage.field_publisher
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
-    - field.field.node.homepage.field_translation_in_progress
+    - field.field.node.homepage.field_translation_status
     - field.field.node.homepage.field_yukon_editorial_team
     - node.type.homepage
     - workflows.workflow.content
@@ -155,12 +155,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_translation_in_progress:
-    type: boolean_checkbox
+  field_translation_status:
+    type: options_buttons
     weight: 26
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select

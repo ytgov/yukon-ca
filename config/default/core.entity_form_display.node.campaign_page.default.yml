@@ -26,7 +26,7 @@ dependencies:
     - field.field.node.campaign_page.field_publisher
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
-    - field.field.node.campaign_page.field_translation_in_progress
+    - field.field.node.campaign_page.field_translation_status
     - field.field.node.campaign_page.field_use_navigation_jump_points
     - field.field.node.campaign_page.field_yukon_editorial_team
     - node.type.campaign_page
@@ -372,12 +372,11 @@ content:
         maxlength_js: 150
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
         maxlength_js_enforce: false
-  field_translation_in_progress:
-    type: boolean_checkbox
+  field_translation_status:
+    type: options_buttons
     weight: 26
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   field_use_navigation_jump_points:
     type: options_buttons

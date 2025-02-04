@@ -16,11 +16,12 @@ dependencies:
     - field.field.node.basic_page.field_publisher
     - field.field.node.basic_page.field_related_tasks
     - field.field.node.basic_page.field_social_sharing
-    - field.field.node.basic_page.field_translation_in_progress
+    - field.field.node.basic_page.field_translation_status
     - field.field.node.basic_page.field_yukon_editorial_team
     - node.type.basic_page
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.basic_page.default
@@ -92,13 +93,10 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_translation_in_progress:
-    type: boolean
+  field_translation_status:
+    type: list_default
     label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content

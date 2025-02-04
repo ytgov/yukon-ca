@@ -13,11 +13,12 @@ dependencies:
     - field.field.node.homepage.field_publisher
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
-    - field.field.node.homepage.field_translation_in_progress
+    - field.field.node.homepage.field_translation_status
     - field.field.node.homepage.field_yukon_editorial_team
     - node.type.homepage
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.homepage.default
@@ -89,13 +90,10 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_translation_in_progress:
-    type: boolean
+  field_translation_status:
+    type: list_default
     label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content

@@ -112,6 +112,7 @@ class SearchFilterForm extends FormBase {
       'in-progress' => 'In-progress',
       'present' => 'Present',
       'out-dated' => 'Out-dated',
+      'not-required' => 'Not-required',
     ];
     $form['translation_status'] = [
       '#type' => 'select',
