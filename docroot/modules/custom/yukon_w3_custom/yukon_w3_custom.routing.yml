@@ -13,3 +13,31 @@ yukon_w3_custom.year_month_change:
     _controller: '\Drupal\yukon_w3_custom\Controller\YearMonthChange::content'
   requirements:
     _permission: 'access content'
+
+yukon_w3_custom.team_department_update:
+  path: '/team_department_update'
+  defaults:
+    _title: 'Team Department Update'
+    _controller: '\Drupal\yukon_w3_custom\Controller\TeamDepartmentUpdate::content'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    access: TRUE
+
+yukon_w3_custom.content_translation:
+  path: '/admin/content_translation'
+  defaults:
+    _title: 'Content Translation'
+    _controller: '\Drupal\yukon_w3_custom\Controller\ContentTranslationController::content'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    access: TRUE
+
+yukon_w3_custom.author_autocomplete:
+  path: '/author-autocomplete'
+  defaults:
+    _controller: '\Drupal\yukon_w3_custom\Controller\AuthorAutocompleteController::handleAutocomplete'
+    _title: 'Author autocomplete'
+  requirements:
+    _permission: 'access content'

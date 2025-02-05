@@ -122,8 +122,15 @@ function yukonca_glider_form_alter(&$form, FormStateInterface $form_state, $form
 
   // Adding custom validation for the welcome page type field.
   if ($form_id == 'comment_blog_comments_form') {
-    $form['author']['name']['#title'] = 'First name only';
-    $form['actions']['submit']['#value'] = 'Post Comment';
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($langcode == 'en') {
+      $form['author']['name']['#title'] = t('First name only');
+      $form['actions']['submit']['#value'] = t('Post Comment');
+    }
+    else {
+      $form['author']['name']['#title'] = t('Prénom uniquement');
+      $form['actions']['submit']['#value'] = t('Publier');
+    }
   }
 }
 
@@ -289,23 +296,31 @@ function yukonca_glider_preprocess_node__event(&$variables) {
 
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($langcode == 'en') {
-    if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
+    if (date('i', strtotime($node->field_event_start_time->value)) == "00") {
       $start_time = date('g a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('g a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
     }
     else {
       $start_time = date('g:i a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
+    }
+    if (date('i', strtotime($node->field_event_start_time->end_value)) == "00") {
+      $end_time = date('g a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+    }
+    else {
       $end_time = date('g:i a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
     }
   }
   else {
     if (!empty($node->field_event_start_time->value)) {
-      if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
+      if (date('i', strtotime($node->field_event_start_time->value)) == "00") {
         $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-        $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
       }
       else {
         $start_time = date('G \h i', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
+      }
+      if (date('i', strtotime($node->field_event_start_time->end_value)) == "00") {
+        $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+      }
+      else {
         $end_time = date('G \h i', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
       }
     }
@@ -589,9 +604,9 @@ function yukonca_glider_preprocess_page(&$variables) {
           $node_parent = Node::load($parent_page);
 
           $parent_page2 = $node_parent->field_parent_campaign_page->target_id;
-          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
 
           if (!empty($parent_page2)) {
+            $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
             $node_parent2 = Node::load($parent_page2);
 
             $child_cam = $node_parent2->field_child_campaign_pages->getValue();

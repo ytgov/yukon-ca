@@ -1,0 +1,25 @@
+uuid: 22836356-9432-407f-b44c-f6b0429488f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_status
+    - node.type.campaign_page
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_translation_status
+field_name: field_translation_status
+entity_type: node
+bundle: campaign_page
+label: 'Translation status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

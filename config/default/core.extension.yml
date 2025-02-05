@@ -79,7 +79,6 @@ module:
   linkchecker: 0
   linkit: 0
   locale: 0
-  mail_safety: 0
   matomo: 0
   maxlength: 0
   media: 0

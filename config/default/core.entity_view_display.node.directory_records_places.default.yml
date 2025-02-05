@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.directory_records_places.field_social_sharing
     - field.field.node.directory_records_places.field_statutory_holiday_link
     - field.field.node.directory_records_places.field_street_address
+    - field.field.node.directory_records_places.field_translation_status
     - field.field.node.directory_records_places.field_website
     - field.field.node.directory_records_places.field_yukon_editorial_team
     - node.type.directory_records_places
@@ -36,6 +37,7 @@ dependencies:
     - leaflet
     - link
     - linkit
+    - options
     - text
     - user
 third_party_settings:
@@ -395,6 +397,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_translation_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_website:
     type: link

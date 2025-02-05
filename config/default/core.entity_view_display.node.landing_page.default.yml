@@ -15,10 +15,12 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
+    - field.field.node.landing_page.field_translation_status
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.landing_page.default
@@ -71,6 +73,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_translation_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   addtoany: true

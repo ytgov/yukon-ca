@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.site_wide_alert.field_department_term
     - field.field.node.site_wide_alert.field_editor_publisher
     - field.field.node.site_wide_alert.field_publisher
+    - field.field.node.site_wide_alert.field_translation_status
     - field.field.node.site_wide_alert.field_yukon_editorial_team
     - node.type.site_wide_alert
     - workflows.workflow.content
@@ -89,6 +90,12 @@ content:
   field_scheduled_time:
     type: datetime_default
     weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

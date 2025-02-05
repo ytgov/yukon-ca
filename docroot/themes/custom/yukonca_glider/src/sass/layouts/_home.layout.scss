@@ -35,6 +35,7 @@
 
     background-image: url("../../images/svg/Aurora-main.svg");
     background-repeat: no-repeat;
+    background-size: contain;
 
     @include media-breakpoint-up(sm) {
       position: absolute;

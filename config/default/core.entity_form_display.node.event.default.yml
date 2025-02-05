@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_publisher
+    - field.field.node.event.field_translation_status
     - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -324,6 +325,12 @@ content:
   field_scheduled_time:
     type: datetime_default
     weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

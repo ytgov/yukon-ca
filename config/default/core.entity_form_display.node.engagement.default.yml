@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.engagement.field_engagement_status
     - field.field.node.engagement.field_meta_tags
     - field.field.node.engagement.field_publisher
+    - field.field.node.engagement.field_translation_status
     - field.field.node.engagement.field_yukon_editorial_team
     - node.type.engagement
     - workflows.workflow.content
@@ -219,6 +220,12 @@ content:
   field_scheduled_time:
     type: datetime_default
     weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

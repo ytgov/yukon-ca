@@ -59,6 +59,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_swimming_area_or_dock_no_l
     - field.field.node.campground_directory_record.field_tent_pads_or_sites_availab
     - field.field.node.campground_directory_record.field_total_sites
+    - field.field.node.campground_directory_record.field_translation_status
     - field.field.node.campground_directory_record.field_viewing_structures_or_sign
     - field.field.node.campground_directory_record.field_walk_in_sites
     - field.field.node.campground_directory_record.field_warning
@@ -69,7 +70,7 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
-    - linkit
+    - link
     - maxlength
     - media_library
     - metatag
@@ -534,14 +535,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_related_tasks:
-    type: linkit
+    type: link_default
     weight: 13
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
     third_party_settings:
       maxlength:
         maxlength_js: null
@@ -642,6 +641,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_viewing_structures_or_sign:
     type: options_buttons

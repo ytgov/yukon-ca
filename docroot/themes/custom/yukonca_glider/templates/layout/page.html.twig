@@ -110,9 +110,9 @@
   <main role="main" class="container-lg grow {% if content_type == "news" or content_type == "documents" or content_type == 'directory_records_places' or content_type == 'in_page_alert' %} no-aurora-img {% endif %}">
     {{ page.breadcrumb }}
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    <div class="row {% if content_type != "landing_page" and content_type != "topics_page" and content_type != "landing_page_level_2" and content_type != "news"  %}pt-20 {% endif %}">
+    <div class="row {% if content_type != "landing_page" and content_type != "topics_page" and content_type != "landing_page_level_2" and content_type != "news"  %}!pt-0 md:pt-20 {% endif %}">
       {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first col-md-3 px-3.5" role="complementary">
+        <aside class="layout-sidebar-first hidden md:block col-md-3 px-3.5" role="complementary">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}

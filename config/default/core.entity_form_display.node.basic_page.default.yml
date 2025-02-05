@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.basic_page.field_publisher
     - field.field.node.basic_page.field_related_tasks
     - field.field.node.basic_page.field_social_sharing
+    - field.field.node.basic_page.field_translation_status
     - field.field.node.basic_page.field_yukon_editorial_team
     - node.type.basic_page
     - workflows.workflow.content
@@ -210,6 +211,12 @@ content:
   field_scheduled_time:
     type: datetime_default
     weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

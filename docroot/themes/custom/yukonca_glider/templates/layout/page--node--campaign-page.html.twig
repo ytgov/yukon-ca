@@ -52,17 +52,19 @@
           <div class="container-lg navbar">
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
-                {% if logo_link_url is not empty %}
-                    <a href="{{ logo_link_url }}" rel="home" class="site-logo">
-                {% else %}
-                    <a href="/" rel="home" class="site-logo">
-                {% endif %}
-                    {% if logo_url is not empty %}
-                        <img src="{{ logo_url }}" alt="Home">
+                {% if campaign_home_logo_display %}
+                    {% if logo_link_url is not empty %}
+                        <a href="{{ logo_link_url }}" rel="home" class="site-logo">
                     {% else %}
-                        <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                        <a href="/" rel="home" class="site-logo">
                     {% endif %}
-                </a>
+                        {% if logo_url is not empty %}
+                            <img src="{{ logo_url }}" alt="Home">
+                        {% else %}
+                            <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                        {% endif %}
+                    </a>
+                {% endif %}
               </div>
 
               <div class="site-nav-toggle campaign-menu col-7 col-sm-4 col-md-6 col-lg-9 flex justify-end">
@@ -98,18 +100,20 @@
           <div class="container-lg navbar">
             <div class="row items-center">
               <div class="site-main-logo col-3 col-sm-4 col-md-3 col-lg-2 py-1 min-h-[75px]">
-                {% if logo_link_url is not empty %}
-                    <a href="{{ logo_link_url }}" rel="home" class="site-logo">
-                {% else %}
-                    <a href="{{ url("<front>")|render|split('/', -1)|join('/') }}" rel="home" class="site-logo">
-                {% endif %}
-                
-                    {% if logo_url is not empty %}
-                        <img src="{{ logo_url }}" alt="Home">
+                {% if campaign_home_logo_display %}
+                    {% if logo_link_url is not empty %}
+                        <a href="{{ logo_link_url }}" rel="home" class="site-logo">
                     {% else %}
-                        <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                        <a href="{{ url("<front>")|render|split('/', -1)|join('/') }}" rel="home" class="site-logo">
                     {% endif %}
-                </a>
+                    
+                        {% if logo_url is not empty %}
+                            <img src="{{ logo_url }}" alt="Home">
+                        {% else %}
+                            <img src="{{ url("<front>")|render|split('/', -1)|join('/') }}/themes/custom/yukonca_glider/logo.svg" alt="Home">
+                        {% endif %}
+                    </a>
+                {% endif %}
               </div>
 
               <div class="site-nav-toggle campaign-menu col-7 col-sm-4 col-md-6 col-lg-9 flex justify-end">
