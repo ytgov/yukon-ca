@@ -35,7 +35,7 @@ function yukonca_glider_preprocess_time(&$variables) {
   // dump($variables); die;.
 }
 
-/**f
+/**
  * Implements template_preprocess_paragraph().
  */
 function yukonca_glider_preprocess_paragraph(&$variables) {
