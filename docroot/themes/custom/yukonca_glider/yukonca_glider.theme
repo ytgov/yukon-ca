@@ -35,7 +35,7 @@ function yukonca_glider_preprocess_time(&$variables) {
   // dump($variables); die;.
 }
 
-/**
+/**f
  * Implements template_preprocess_paragraph().
  */
 function yukonca_glider_preprocess_paragraph(&$variables) {
@@ -128,8 +128,8 @@ function yukonca_glider_form_alter(&$form, FormStateInterface $form_state, $form
       $form['actions']['submit']['#value'] = t('Post Comment');
     }
     else {
-      $form['author']['name']['#title'] = t('Prénom uniquement');
-      $form['actions']['submit']['#value'] = t('Publier');
+      $form['author']['name']['#title'] = t('Prénom');
+      $form['actions']['submit']['#value'] = t('Envoyer');
     }
   }
 }
