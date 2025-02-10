@@ -1,0 +1,25 @@
+uuid: 8d8fd390-95ff-4bc1-a966-cbb8407728c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hrsmart_job_listings_data
+    - paragraphs.paragraphs_type.hrsmart_job_listings
+  module:
+    - tmgmt_content
+    - yukon_hss_job_listings
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.hrsmart_job_listings.field_hrsmart_job_listings_data
+field_name: field_hrsmart_job_listings_data
+entity_type: paragraph
+bundle: hrsmart_job_listings
+label: 'HRSmart job listings data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_hrsmart_job_listings

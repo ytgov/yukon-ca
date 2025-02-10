@@ -1,0 +1,5 @@
+job_listings:
+  version: VERSION
+  css:
+    theme:
+      css/yukon_hss_job_listings.css: {}

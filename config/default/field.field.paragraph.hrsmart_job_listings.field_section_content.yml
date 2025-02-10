@@ -1,0 +1,29 @@
+uuid: 33337d61-84ae-45eb-913a-dc17efdf80d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_content
+    - paragraphs.paragraphs_type.hrsmart_job_listings
+  module:
+    - allowed_formats
+    - text
+    - tmgmt_content
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+  tmgmt_content:
+    excluded: false
+id: paragraph.hrsmart_job_listings.field_section_content
+field_name: field_section_content
+entity_type: paragraph
+bundle: hrsmart_job_listings
+label: 'Section Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

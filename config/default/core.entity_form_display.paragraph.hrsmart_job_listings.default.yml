@@ -1,0 +1,43 @@
+uuid: d4e6df6f-37ac-4de5-a9bc-1f461ecbd1da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hrsmart_job_listings.field_display_section_title
+    - field.field.paragraph.hrsmart_job_listings.field_hrsmart_job_listings_data
+    - field.field.paragraph.hrsmart_job_listings.field_section_content
+    - field.field.paragraph.hrsmart_job_listings.field_title
+    - paragraphs.paragraphs_type.hrsmart_job_listings
+  module:
+    - text
+id: paragraph.hrsmart_job_listings.default
+targetEntityType: paragraph
+bundle: hrsmart_job_listings
+mode: default
+content:
+  field_display_section_title:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_section_content:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_hrsmart_job_listings_data: true
+  status: true

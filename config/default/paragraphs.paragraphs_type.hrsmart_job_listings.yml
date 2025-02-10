@@ -1,0 +1,10 @@
+uuid: 6171209f-674d-42c6-a8d9-fbc0db5c6041
+langcode: en
+status: true
+dependencies: {  }
+id: hrsmart_job_listings
+label: 'HRSmart job listings'
+icon_uuid: null
+icon_default: null
+description: 'Display job listings from the YG HRSmart job board filtered for HSS-related positions.'
+behavior_plugins: {  }

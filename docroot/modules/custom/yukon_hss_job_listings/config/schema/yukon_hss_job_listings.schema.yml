@@ -1,0 +1,7 @@
+field.value.yukon_hss_job_listings:
+  type: mapping
+  label: HSS Job Listings field
+  mapping:
+    value:
+      type: label
+      label: Value
