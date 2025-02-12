@@ -1,7 +1,6 @@
 # HSS Job Listings module (`yukon_hss_job_listings`)
 
 The HSS Job Listings module renders structured job listing data from an external source into an
-The HSS Job Listings module renders structured job listing data from an external source into an
 HTML table format for display within a content type or Paragraph.
 
 At present, only the Deltek HRSmart job listings are supported via a Telus/Deltek API endpoint
@@ -16,6 +15,9 @@ Three cooperating parts of the module are used to fetch, store, and render the j
 2. A custom field type that stores the fetched data as text: `HRSmartJobListingsItem`
 3. A custom field formatter that parses the fetched data into a Drupal render array:
    `HRSmartJobListingsFormatter`
+
+Additionally, a Twig template fragment may be used to render the Paragraph containing
+the custom field.
 
 ## Requirements
 
@@ -33,7 +35,7 @@ None beyond the base yukon.ca D10 installation.
 ## Configuration
 
 If configuration was loaded in step #3 of the Installation instructions, then skip ahead to
-the "Add the job listing Paragraph to a page of content" step below.
+the "Enable the job listing Paragraph type for the content type" step below.
 
 ### Add a new job listing Paragraph type
 
@@ -68,4 +70,5 @@ the "Add the job listing Paragraph to a page of content" step below.
 2. Fill in the Section title and Section Content as appropriate and choose whether to display
    the section title or not.
 3. View the page to verify that the section title and content appear.
-   The job listings table will not appear yet.
+   The job listings table will appear, but will only show the message:
+   "The list of job postings is not available."
