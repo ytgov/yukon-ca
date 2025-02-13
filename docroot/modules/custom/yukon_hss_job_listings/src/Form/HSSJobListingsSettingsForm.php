@@ -39,7 +39,7 @@ final class HSSJobListingsSettingsForm extends ConfigFormBase {
       '#type' => 'url',
       '#title' => $this->t('HRSmart XML API endpoint URI'),
       '#default_value' => $this->config(self::SETTINGS_KEY)->get('hrsmart_xml_api_uri'),
-      '#description' => $this->t('API endpoint URI for the HRSmart/Deltek jobs listings in XML format.'),
+      '#description' => $this->t('API endpoint URI for the HRSmart/Deltek jobs listings in XML format. Do not include the API key portion of the URI here.'),
       '#required' => TRUE,
     ];
 

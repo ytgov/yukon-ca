@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Implements hook_cron().
  *
- * Populate the HSS job listings field(s) from their remote sources.
+ * Populate the HSS job listings field(s) from their remote sources. API calls are
+ * logged along with their status.
  */
-function yukon_hss_job_listings_cron() {
+function yukon_hss_job_listings_cron(): void {
   // Populate the HRSmart job listings field.
   $config = Drupal::config('yukon_hss_job_listings.settings');
   $hrsmartApiUri = $config->get('hrsmart_xml_api_uri') . $config->get('hrsmart_xml_api_key');
@@ -41,8 +44,9 @@ function yukon_hss_job_listings_cron() {
     return;
   }
 
-  // Hunt down and set the value of the HRSmart data field within the paragraph
-  // type within the field of paragraphs within the content item.
+  // Hunt down and set the value of the HRSmart data field within the paragraph type
+  // within the field of paragraphs within the content item. If any step fails, the
+  // field will retain its previous contents.
   if ($node && $node->hasField($hrsmartParagraphsFieldName)) {
     $fieldParagraphs = $node->get($hrsmartParagraphsFieldName)->referencedEntities();
 

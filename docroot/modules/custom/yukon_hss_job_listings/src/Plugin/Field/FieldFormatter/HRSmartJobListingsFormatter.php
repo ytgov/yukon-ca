@@ -21,6 +21,8 @@ class HRSmartJobListingsFormatter extends FormatterBase {
 
   /**
    * {@inheritDoc}
+   *
+   * Render the field XML contents into a table.
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
     // Safely convert XML elements to renderable strings.
@@ -40,7 +42,7 @@ class HRSmartJobListingsFormatter extends FormatterBase {
     $rows = [];
 
     if (count($items) >= 1) {
-      /** @noinspection PhpComposerExtensionStubsInspection */
+      // @noinspection PhpComposerExtensionStubsInspection
       $xml = simplexml_load_string((string) $items[0]->value);
 
       if ($xml !== FALSE) {
@@ -105,7 +107,7 @@ class HRSmartJobListingsFormatter extends FormatterBase {
       '#rows' => $rows,
       '#sticky' => FALSE,
       '#theme' => 'table',
-      '#cache' => ['max-age' => 0],
+      '#cache' => ['max-age' => 600],
       '#attributes' => ['class' => ['yukon-hss-job-listings']],
       '#attached' => ['library' => ['yukon_hss_job_listings/job_listings']],
     ];
