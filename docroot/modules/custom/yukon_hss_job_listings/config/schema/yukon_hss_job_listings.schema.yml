@@ -1,3 +1,4 @@
+# Schema for the job listings field. I think. Maybe. Sure, that's what this is.
 field.value.yukon_hss_job_listings:
   type: mapping
   label: HSS Job Listings field
@@ -5,3 +6,12 @@ field.value.yukon_hss_job_listings:
     value:
       type: label
       label: Value
+
+# Schema for the configuration files of the HSS Job Listings module.
+yukon_hss_job_listings.settings:
+  type: config_object
+  label: 'HSS Job Listings settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

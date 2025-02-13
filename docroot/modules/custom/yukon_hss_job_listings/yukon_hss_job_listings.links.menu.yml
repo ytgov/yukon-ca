@@ -1,0 +1,6 @@
+yukon_hss_job_listings.settings:
+  title: 'HSS Job Listings'
+  description: 'Manage remote sources and rendering locations for HSS job listings.'
+  parent: system.admin_config_content
+  route_name: yukon_hss_job_listings.settings
+  weight: 10
