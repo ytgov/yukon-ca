@@ -11,7 +11,8 @@ taken from the complete list published on the
 
 Three cooperating parts of the module are used to fetch, store, and render the job listings:
 
-1. A cron hook that fetches the job listings data from the API endpoint: _TBD_
+1. A cron hook that fetches the job listings data from the API endpoint:
+   `yukon_hss_job_listings.module:yukon_hss_job_listings_cron()`
 2. A custom field type that stores the fetched data as text: `HRSmartJobListingsItem`
 3. A custom field formatter that parses the fetched data into a Drupal render array:
    `HRSmartJobListingsFormatter`
@@ -72,3 +73,16 @@ the "Enable the job listing Paragraph type for the content type" step below.
 3. View the page to verify that the section title and content appear.
    The job listings table will appear, but will only show the message:
    "The list of job postings is not available."
+
+### Configure the remote sources and rendering locations
+
+1. Navigate to the Configuration > Content authoring > HSS Job Listings and
+   fill in the API and destination content structure fields as described.
+2. Specify the API key in a Drupal settings file so that it won't be captured
+   in configuration:
+   `$config['yukon_hss_job_listings.settings']['hrsmart_xml_api_key'] = 'xxx...';`
+
+### Run the Drupal cron job
+
+If everything is correctly configured, the job listings table will appear as
+expected.

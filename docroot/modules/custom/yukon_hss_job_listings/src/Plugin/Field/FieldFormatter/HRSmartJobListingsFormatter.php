@@ -40,6 +40,7 @@ class HRSmartJobListingsFormatter extends FormatterBase {
     $rows = [];
 
     if (count($items) >= 1) {
+      /** @noinspection PhpComposerExtensionStubsInspection */
       $xml = simplexml_load_string((string) $items[0]->value);
 
       if ($xml !== FALSE) {

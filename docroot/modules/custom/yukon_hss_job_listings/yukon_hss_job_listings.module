@@ -1,1 +1,58 @@
 <?php
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+
+/**
+ * Implements hook_cron().
+ *
+ * Populate the HSS job listings field(s) from their remote sources.
+ */
+function yukon_hss_job_listings_cron() {
+  // Populate the HRSmart job listings field.
+  $config = Drupal::config('yukon_hss_job_listings.settings');
+  $hrsmartApiUri = $config->get('hrsmart_xml_api_uri') . $config->get('hrsmart_xml_api_key');
+
+  try {
+    $client = new Client();
+    $response = $client->get($hrsmartApiUri, ['headers' => ['Accept' => 'text/xml']]);
+    $xml = (string) $response->getBody();
+  } catch (GuzzleException $e) {
+    Drupal::logger('yukon_hss_job_listings')
+      ->error('HRSmart API request failed: @message', ['@message' => $e->getMessage()]);
+    return;
+  }
+
+  Drupal::logger('yukon_hss_job_listings')
+    ->info('HRSmart API request succeeded.');
+
+  $hrsmartNodeId = $config->get('hrsmart_content_node_id');
+  $hrsmartParagraphsFieldName = $config->get('hrsmart_paragraphs_field_name');
+  $hrsmartParagraphBundleName = $config->get('hrsmart_paragraph_bundle_name');
+  $hrsmartDataFieldName = $config->get('hrsmart_data_field_name');
+
+  try {
+    $node = Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->load($hrsmartNodeId);
+  } catch (Exception $e) {
+    Drupal::logger('yukon_hss_job_listings')
+      ->error('Failed to locate content node for HRSmart job listings: @message', ['@message' => $e->getMessage()]);
+    return;
+  }
+
+  // Hunt down and set the value of the HRSmart data field within the paragraph
+  // type within the field of paragraphs within the content item.
+  if ($node && $node->hasField($hrsmartParagraphsFieldName)) {
+    $fieldParagraphs = $node->get($hrsmartParagraphsFieldName)->referencedEntities();
+
+    if (!empty($fieldParagraphs)) {
+      foreach ($fieldParagraphs as $fieldParagraph) {
+        if ($fieldParagraph->bundle() === $hrsmartParagraphBundleName) {
+          $fieldParagraph->set($hrsmartDataFieldName, $xml);
+          $fieldParagraph->save();
+        }
+      }
+    }
+  }
+}
