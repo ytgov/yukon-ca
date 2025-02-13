@@ -1,5 +1,5 @@
 .hero-img {
-	@apply relative w-screen h-[520px] left-1/2 right-1/2 mx-[-50vw] bg-no-repeat bg-cover;
+	@apply relative w-screen left-1/2 right-1/2 mx-[-50vw] bg-no-repeat bg-cover;
     background-position: center center;
 	z-index: -1;
 }
