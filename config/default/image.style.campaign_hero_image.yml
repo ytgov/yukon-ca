@@ -1,0 +1,17 @@
+uuid: f8e94c36-243b-493e-9623-fe6afa619ce7
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: campaign_hero_image
+label: 'Campaign Hero Image'
+effects:
+  34487ba2-7b9c-4c3e-a37a-579e1ab57e51:
+    uuid: 34487ba2-7b9c-4c3e-a37a-579e1ab57e51
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1250
+      height: 800
+      crop_type: focal_point
