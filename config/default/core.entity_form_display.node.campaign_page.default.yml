@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.campaign_page.field_add_social_media_channels
     - field.field.node.campaign_page.field_campaign_home_logo_display
     - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_menu_title
     - field.field.node.campaign_page.field_campaign_type
     - field.field.node.campaign_page.field_child_campaign_pages
     - field.field.node.campaign_page.field_copyright_notice_text
@@ -110,7 +111,7 @@ third_party_settings:
       label: 'Navigation jump points'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
@@ -128,7 +129,7 @@ third_party_settings:
       label: 'Publishing Options'
       region: content
       parent_name: ''
-      weight: 14
+      weight: 12
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -138,6 +139,24 @@ third_party_settings:
         description: ''
         required_fields: false
         weight: 0
+    group_campaign_multipage:
+      children:
+        - field_parent_campaign_page
+        - field_campaign_menu_title
+        - field_child_campaign_pages
+      label: 'Campaign Multipage'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: node.campaign_page.default
 targetEntityType: node
 bundle: campaign_page
@@ -145,7 +164,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 15
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -170,6 +189,14 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_campaign_menu_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_campaign_type:
     type: options_buttons
     weight: 12
@@ -178,7 +205,7 @@ content:
     third_party_settings: {  }
   field_child_campaign_pages:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -196,7 +223,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -273,7 +300,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 20
+    weight: 18
     region: content
     settings:
       sidebar: true
@@ -406,13 +433,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 19
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -426,13 +453,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 16
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -441,7 +468,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }

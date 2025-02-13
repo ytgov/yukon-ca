@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.campaign_page.field_add_social_media_channels
     - field.field.node.campaign_page.field_campaign_home_logo_display
     - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_menu_title
     - field.field.node.campaign_page.field_campaign_type
     - field.field.node.campaign_page.field_child_campaign_pages
     - field.field.node.campaign_page.field_copyright_notice_text
@@ -79,6 +80,14 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_campaign_menu_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 27
     region: content
   field_campaign_type:
     type: list_default
