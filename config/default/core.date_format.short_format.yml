@@ -5,4 +5,4 @@ dependencies: {  }
 id: short_format
 label: Short
 locked: false
-pattern: Y-d-m
+pattern: Y-m-d
