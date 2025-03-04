@@ -587,11 +587,11 @@ function yukonca_glider_preprocess_page(&$variables) {
 
         if (!empty($parent_page)) {
           $node_parent = Node::load($parent_page);
-
           $parent_page2 = $node_parent->field_parent_campaign_page->target_id;
-          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
 
           if (!empty($parent_page2)) {
+            // Change alias only if there is a double parent.
+            $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page2);
             $node_parent2 = Node::load($parent_page2);
 
             $child_cam = $node_parent2->field_child_campaign_pages->getValue();
@@ -605,14 +605,22 @@ function yukonca_glider_preprocess_page(&$variables) {
                 foreach ($child_cam_2 as $child_2) {
                   $node_child_2 = Node::load($child_2['target_id']);
                   $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                  $variables['campaign_menu'][$node_child->getTitle()][$j] = [
-                    '0' => $node_child_2->getTitle(),
+                  $submenu_title_2 = $node_child_2->getTitle();
+                  if (!empty($node_child_2->field_campaign_menu_title->getValue())) {
+                    $submenu_title_2 = $node_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $submenu_title = $node_child->getTitle();
+                  if (!empty($node_child->field_campaign_menu_title->getValue())) {
+                    $submenu_title = $node_child->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $variables['campaign_menu'][$submenu_title][$j] = [
+                    '0' => $submenu_title_2,
                     '1' => '/en' . $child_alias_2,
                   ];
                   $j++;
                 }
                 $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
-                $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
+                $variables['campaign_menu'][$i] = ['0' => $submenu_title, '1' => '/en' . $child_alias];
                 $i++;
               }
             }
@@ -633,14 +641,22 @@ function yukonca_glider_preprocess_page(&$variables) {
                   foreach ($child_cam_3 as $child_3) {
                     $node_child_3 = Node::load($child_3['target_id']);
                     $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
-                    $variables['campaign_menu'][$node_child_2->getTitle()][$j] = [
-                      '0' => $node_child_3->getTitle(),
+                    $submenu_title_3 = $node_child_3->getTitle();
+                    if (!empty($node_child_3->field_campaign_menu_title->getValue())) {
+                      $submenu_title_3 = $node_child_3->field_campaign_menu_title->getValue()[0]['value'];
+                    }
+                    $submenu_title_2 = $node_child_2->getTitle();
+                    if (!empty($node_child_2->field_campaign_menu_title->getValue())) {
+                      $submenu_title_2 = $node_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                    }
+                    $variables['campaign_menu'][$submenu_title_2][$j] = [
+                      '0' => $submenu_title_3,
                       '1' => '/en' . $child_alias_3,
                     ];
                     $j++;
                   }
                   $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                  $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
+                  $variables['campaign_menu'][$i] = ['0' => $submenu_title_2, '1' => '/en' . $child_alias_3];
                   $i++;
                 }
               }
@@ -658,14 +674,22 @@ function yukonca_glider_preprocess_page(&$variables) {
                 foreach ($child_cam_2 as $child_2) {
                   $node_child_2 = Node::load($child_2['target_id']);
                   $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                  $variables['campaign_menu'][$node_child->getTitle()][$j] = [
-                    '0' => $node_child_2->getTitle(),
+                  $submenu_title_2 = $node_child_2->getTitle();
+                  if (!empty($node_child_2->field_campaign_menu_title->getValue())) {
+                    $submenu_title_2 = $node_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $submenu_title = $node_child->getTitle();
+                  if (!empty($node_child->field_campaign_menu_title->getValue())) {
+                    $submenu_title = $node_child->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $variables['campaign_menu'][$submenu_title][$j] = [
+                    '0' => $submenu_title_2,
                     '1' => '/en' . $child_alias_2,
                   ];
                   $j++;
                 }
                 $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
-                $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
+                $variables['campaign_menu'][$i] = ['0' => $submenu_title, '1' => '/en' . $child_alias];
                 $i++;
               }
             }
@@ -686,14 +710,22 @@ function yukonca_glider_preprocess_page(&$variables) {
                   foreach ($child_cam_3 as $child_3) {
                     $node_child_3 = Node::load($child_3['target_id']);
                     $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id']);
-                    $variables['campaign_menu'][$node_child_2->getTitle()][$j] = [
-                      '0' => $node_child_3->getTitle(),
+                    $submenu_title_3 = $node_child_3->getTitle();
+                    if (!empty($node_child_3->field_campaign_menu_title->getValue())) {
+                      $submenu_title_3 = $node_child_3->field_campaign_menu_title->getValue()[0]['value'];
+                    }
+                    $submenu_title_2 = $node_child_2->getTitle();
+                    if (!empty($node_child_2->field_campaign_menu_title->getValue())) {
+                      $submenu_title_2 = $node_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                    }
+                    $variables['campaign_menu'][$submenu_title_2][$j] = [
+                      '0' => $submenu_title_3,
                       '1' => '/en' . $child_alias_3,
                     ];
                     $j++;
                   }
                   $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                  $variables['campaign_menu'][$i] = ['0' => $node_child_2->getTitle(), '1' => '/en' . $child_alias_3];
+                  $variables['campaign_menu'][$i] = ['0' => $submenu_title_2, '1' => '/en' . $child_alias_3];
                   $i++;
                 }
               }
@@ -714,14 +746,22 @@ function yukonca_glider_preprocess_page(&$variables) {
               foreach ($child_cam_2 as $child_2) {
                 $node_child_2 = Node::load($child_2['target_id']);
                 $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id']);
-                $variables['campaign_menu'][$node_child->getTitle()][$j] = [
-                  '0' => $node_child_2->getTitle(),
+                $submenu_title_2 = $node_child_2->getTitle();
+                if (!empty($node_child_2->field_campaign_menu_title->getValue())) {
+                  $submenu_title_2 = $node_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                }
+                $submenu_title = $node_child->getTitle();
+                if (!empty($node_child->field_campaign_menu_title->getValue())) {
+                  $submenu_title = $node_child->field_campaign_menu_title->getValue()[0]['value'];
+                }
+                $variables['campaign_menu'][$submenu_title][$j] = [
+                  '0' => $submenu_title_2,
                   '1' => '/en' . $child_alias_2,
                 ];
                 $j++;
               }
               $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id']);
-              $variables['campaign_menu'][$i] = ['0' => $node_child->getTitle(), '1' => '/en' . $child_alias];
+              $variables['campaign_menu'][$i] = ['0' => $submenu_title, '1' => '/en' . $child_alias];
               $i++;
             }
           }
@@ -734,33 +774,11 @@ function yukonca_glider_preprocess_page(&$variables) {
           $node_parent = Node::load($parent_page);
           $translated_entity = $node_parent->getTranslation($langcode);
           $alias_fr = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page, $langcode);
+          $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
 
-          $child_cam = $translated_entity->field_child_campaign_pages->getValue();
-          if (!empty($child_cam)) {
-            $variables['campaign_menu'][0] = [0 => 'Accueil', 1 => '/fr' . $alias_fr];
-            $i = 1;
-            foreach ($child_cam as $child) {
-              $node_child = Node::load($child['target_id']);
-              $translated_entity_child = $node_child->getTranslation($langcode);
-              $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
-              $j = 1;
-              foreach ($child_cam_2 as $child_2) {
-                $node_child_2 = Node::load($child_2['target_id']);
-                $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
-                $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
-                $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
-                  '0' => $translated_entity_child_2->getTitle(),
-                  '1' => '/fr' . $child_alias_2,
-                ];
-                $j++;
-              }
-              $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
-              $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
-              $i++;
-            }
-          }
-          else {
-            $parent_page_2 = $node_parent->field_parent_campaign_page->target_id;
+          if (!empty($parent_page_2)) {
+            // Change home alias only if there is a double parent.
+            $alias_fr = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $parent_page_2, $langcode);
             $node_parent_2 = Node::load($parent_page_2);
             $child_cam_2 = '';
             if (!empty($node_parent_2->field_child_campaign_pages)) {
@@ -780,17 +798,59 @@ function yukonca_glider_preprocess_page(&$variables) {
                   $node_child_3 = Node::load($child_3['target_id']);
                   $translated_entity_child_2 = $node_child_3->getTranslation($langcode);
                   $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_3['target_id'], $langcode);
-                  $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
-                    '0' => $translated_entity_child_2->getTitle(),
+                  $submenu_title_2 = $translated_entity_child_2->getTitle();
+                  if (!empty($translated_entity_child_2->field_campaign_menu_title->getValue())) {
+                    $submenu_title_2 = $translated_entity_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $submenu_title = $translated_entity_child->getTitle();
+                  if (!empty($translated_entity_child->field_campaign_menu_title->getValue())) {
+                    $submenu_title = $translated_entity_child->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $variables['campaign_menu'][$submenu_title][$j] = [
+                    '0' => $submenu_title_2,
                     '1' => '/fr' . $child_alias_3,
                   ];
                   $j++;
                 }
                 $child_alias_3 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
                 $variables['campaign_menu'][$i] = [
-                  '0' => $translated_entity_child->getTitle(),
+                  '0' => $submenu_title,
                   '1' => '/fr' . $child_alias_3,
                 ];
+                $i++;
+              }
+            }
+          }
+          else {
+            $child_cam = $translated_entity->field_child_campaign_pages->getValue();
+            if (!empty($child_cam)) {
+              $variables['campaign_menu'][0] = [0 => 'Accueil', 1 => '/fr' . $alias_fr];
+              $i = 1;
+              foreach ($child_cam as $child) {
+                $node_child = Node::load($child['target_id']);
+                $translated_entity_child = $node_child->getTranslation($langcode);
+                $child_cam_2 = $node_child->field_child_campaign_pages->getValue();
+                $j = 1;
+                foreach ($child_cam_2 as $child_2) {
+                  $node_child_2 = Node::load($child_2['target_id']);
+                  $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
+                  $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
+                  $submenu_title_2 = $translated_entity_child_2->getTitle();
+                  if (!empty($translated_entity_child_2->field_campaign_menu_title->getValue())) {
+                    $submenu_title_2 = $translated_entity_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $submenu_title = $translated_entity_child->getTitle();
+                  if (!empty($translated_entity_child->field_campaign_menu_title->getValue())) {
+                    $submenu_title = $translated_entity_child->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $variables['campaign_menu'][$submenu_title][$j] = [
+                    '0' => $submenu_title_2,
+                    '1' => '/fr' . $child_alias_2,
+                  ];
+                  $j++;
+                }
+                $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
+                $variables['campaign_menu'][$i] = [0 => $submenu_title, 1 => '/fr' . $child_alias];
                 $i++;
               }
             }
@@ -816,15 +876,23 @@ function yukonca_glider_preprocess_page(&$variables) {
                   $node_child_2 = Node::load($child_2['target_id']);
                   $translated_entity_child_2 = $node_child_2->getTranslation($langcode);
                   $child_alias_2 = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child_2['target_id'], $langcode);
-                  $variables['campaign_menu'][$translated_entity_child->getTitle()][$j] = [
-                    '0' => $translated_entity_child_2->getTitle(),
+                  $submenu_title_2 = $translated_entity_child_2->getTitle();
+                  if (!empty($translated_entity_child_2->field_campaign_menu_title->getValue())) {
+                    $submenu_title_2 = $translated_entity_child_2->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $submenu_title = $translated_entity_child->getTitle();
+                  if (!empty($translated_entity_child->field_campaign_menu_title->getValue())) {
+                    $submenu_title = $translated_entity_child->field_campaign_menu_title->getValue()[0]['value'];
+                  }
+                  $variables['campaign_menu'][$submenu_title][$j] = [
+                    '0' => $submenu_title_2,
                     '1' => '/' . $langcode . $child_alias_2,
                   ];
                   $j++;
                 }
 
                 $child_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $child['target_id'], $langcode);
-                $variables['campaign_menu'][$i] = [0 => $translated_entity_child->getTitle(), 1 => '/fr' . $child_alias];
+                $variables['campaign_menu'][$i] = [0 => $submenu_title, 1 => '/fr' . $child_alias];
                 $i++;
               }
             }
