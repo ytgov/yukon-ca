@@ -31,9 +31,17 @@ display:
     display_title: Flux
   page_1:
     display_options:
+      filters:
+        field_category_target_id:
+          expose:
+            label: 'Catégorie:'
+        field_subcategory_target_id:
+          expose:
+            label: Sous-catégorie
       pager:
         options:
           views_infinite_scroll:
             button_text: 'Afficher plus'
+    display_title: Page
 label: 'Terme de taxonomie'
 description: 'Contenu associé à un terme de taxonomie donné.'
