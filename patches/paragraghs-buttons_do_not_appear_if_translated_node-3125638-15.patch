@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php b/src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php
+index aa2b707..2918ced 100644
+--- a/src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php
++++ b/src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php
+@@ -940,7 +940,7 @@ class InlineParagraphsWidget extends WidgetBase {
+       // to get the langcode at a stage when the chosen value is more certain.
+       $elements['#host'] = $host;
+     }
+
+-    if (($this->realItemCount < $cardinality || $cardinality == FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED) && !$form_state->isProgrammed() && !$this->isTranslating) {
++    if (($this->realItemCount < $cardinality || $cardinality == FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)) {
+       $elements['add_more'] = $this->buildAddActions();
+     }

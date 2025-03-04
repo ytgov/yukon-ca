@@ -7,4 +7,4 @@ _core:
 id: short
 label: 'Short with Time'
 locked: false
-pattern: 'Y-d-m - g:i a'
+pattern: 'Y-m-d - g:i a'
