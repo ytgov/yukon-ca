@@ -1672,7 +1672,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'Sorry, no results were found. Try eliminating one of the filters applied.'
+            value: 'Sorry, no results were found. Try eliminating one of the filters you applied.'
             format: full_html
           tokenize: false
       sorts:
@@ -2238,7 +2238,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'Sorry, no results were found. Try eliminating one of the filters applied.'
+            value: 'Sorry, no results were found. Try eliminating one of the filters you applied.'
             format: full_html
           tokenize: false
       sorts:
