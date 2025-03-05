@@ -12,3 +12,7 @@ yukon_w3_custom.chart_js:
   js:
     '//code.highcharts.com/highcharts.js': { type: external }
     js/charts.js: {}
+
+yukon_w3_custom.js:
+  js:
+    js/yukon_w3_custom.js: {}
