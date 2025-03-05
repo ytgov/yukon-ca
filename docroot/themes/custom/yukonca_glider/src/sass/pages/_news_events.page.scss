@@ -103,8 +103,13 @@
                   .field__item {
                       @apply mt-3.75;
                       
+                      p,
+                      li {
+                          @apply text-sm;
+                      }
+                      
                       p {
-                          @apply mb-3 text-sm;
+                          @apply mb-3;
                       }
                   }
               }
