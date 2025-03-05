@@ -55,3 +55,21 @@ input[value="Preview"] {
     border: 1px solid !important;
     border-radius: 4px;
 }
+.field--name-field-last-updated  input#edit-field-last-updated-0-value-time {
+    display: none;
+}
+.ck-editor__editable {
+    resize: both;
+    overflow: auto;
+}
+
+.content-filter-form .js-form-item select, .content-filter-form .js-form-item input {
+    width: 100%;
+}
+.content-filter-form .js-form-item {
+    width: 31%;
+    float: left;
+    max-width: 31%;
+    margin-right: 2%;
+    height: 70px;
+}
