@@ -7,15 +7,13 @@ dependencies:
     - paragraphs.paragraphs_type.call_to_action
   module:
     - allowed_formats
-    - epp
     - text
+    - tmgmt_content
 third_party_settings:
   allowed_formats:
-    allowed_formats:
-      - plain_text
-  epp:
-    value: ''
-    on_update: 0
+    allowed_formats: {  }
+  tmgmt_content:
+    excluded: false
 id: paragraph.call_to_action.field_description
 field_name: field_description
 entity_type: paragraph
