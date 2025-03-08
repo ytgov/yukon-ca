@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.directory_records_places.field_social_sharing
     - field.field.node.directory_records_places.field_statutory_holiday_link
     - field.field.node.directory_records_places.field_street_address
+    - field.field.node.directory_records_places.field_translation_status
     - field.field.node.directory_records_places.field_website
     - field.field.node.directory_records_places.field_yukon_editorial_team
     - node.type.directory_records_places
@@ -35,6 +36,7 @@ dependencies:
     - datetime
     - field_group
     - leaflet
+    - link
     - linkit
     - maxlength
     - metatag
@@ -422,14 +424,12 @@ content:
       display_label: true
     third_party_settings: {  }
   field_statutory_holiday_link:
-    type: linkit
+    type: link_default
     weight: 9
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
     third_party_settings:
       maxlength:
         maxlength_js: null
@@ -441,6 +441,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_translation_status:
+    type: options_buttons
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_website:
     type: linkit
