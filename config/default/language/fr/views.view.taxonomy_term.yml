@@ -27,8 +27,6 @@ display:
           exception:
             title: Tout
     display_title: 'Par défaut'
-  feed_1:
-    display_title: Flux
   page_1:
     display_options:
       filters:
@@ -43,5 +41,7 @@ display:
           views_infinite_scroll:
             button_text: 'Afficher plus'
     display_title: Page
+  feed_1:
+    display_title: Flux
 label: 'Terme de taxonomie'
 description: 'Contenu associé à un terme de taxonomie donné.'

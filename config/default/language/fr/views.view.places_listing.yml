@@ -11,3 +11,7 @@ display:
         field_community_target_id:
           expose:
             label: Collectivité
+        field_community_facility_type_target_id:
+          expose:
+            label: Installation
+label: 'Liste des lieux'
