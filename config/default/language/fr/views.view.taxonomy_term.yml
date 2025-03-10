@@ -36,6 +36,10 @@ display:
         field_subcategory_target_id:
           expose:
             label: Sous-catégorie
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Afficher plus'
     display_title: Page
   feed_1:
     display_title: Flux

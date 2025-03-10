@@ -25,7 +25,7 @@ third_party_settings:
       label: Manager
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -41,7 +41,7 @@ third_party_settings:
       label: 'Assistant manager'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -56,7 +56,7 @@ mode: default
 content:
   field_about_services:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
@@ -88,7 +88,7 @@ content:
     third_party_settings: {  }
   field_community_facility_type:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -122,32 +122,39 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 4
+    weight: 5
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   description: true
-  name: true
   publish_on: true
   publish_state: true
   unpublish_on: true

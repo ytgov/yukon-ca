@@ -60,7 +60,7 @@
 
   {{ page.secondary_menu }}
 
-<div id="w3-parsing">  
+<div id="w3-parsing">
 
   {{ page.pre_content }}
 
@@ -92,7 +92,7 @@
       <div class="layout-content {{ (page.sidebar_first or page.sidebar_second) ? 'col-sm-9 col-lg-8 offset-md-1' : '' }} px-3.5">
         {% if node.type[0].target_id == 'blog' %}
           {% set defualt_logo %}
-              <img src="{{ '/' ~ active_theme_path() ~ '/logo.svg' }}">
+            <div class="blog-default"></div>
           {% endset %}
           {% set logo_image = logo_url ? logo_url : defualt_logo  %}
           {{
@@ -113,9 +113,9 @@
     {% endif %}
 
     {% if node_date_modified %}
-      {# <div class="node-date-modified py-4">
+      <div class="node-date-modified py-4">
         {{ node_date_modified }}
-      </div> #}
+      </div>
     {% endif %}
 
   </main>
