@@ -22,6 +22,10 @@ h3 {
 
 .breadcrumb {
   @apply py-2 w-3/5;
+  
+  @include media-breakpoint-down(md) {
+    @apply w-full;
+  }
 
   li {
     @apply inline-block text-sm;

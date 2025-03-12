@@ -20,7 +20,7 @@
   }
 
   a {
-    @apply underline text-blue-500;
+    @apply underline text-blue-200;
 
     &:visited {
       @apply text-purple;
@@ -28,7 +28,7 @@
 
     &:hover,
     &:focus {
-      @apply text-blue-200;
+      @apply text-blue-500;
     }
   }
 
