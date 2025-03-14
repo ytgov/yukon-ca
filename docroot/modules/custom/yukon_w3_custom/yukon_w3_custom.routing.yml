@@ -30,7 +30,7 @@ yukon_w3_custom.content_translation:
     _title: 'Content Translation'
     _controller: '\Drupal\yukon_w3_custom\Controller\ContentTranslationController::content'
   requirements:
-    _permission: 'administer site configuration'
+    _role: 'administrator+translator'
   options:
     access: TRUE
 

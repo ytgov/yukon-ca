@@ -1,0 +1,25 @@
+uuid: 4a9e68f3-17cf-4cf8-8e53-a6437ccfdab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_status
+    - node.type.department
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.department.field_translation_status
+field_name: field_translation_status
+entity_type: node
+bundle: department
+label: 'Translation status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
