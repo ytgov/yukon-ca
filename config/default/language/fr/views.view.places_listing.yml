@@ -11,3 +11,8 @@ display:
         field_community_target_id:
           expose:
             label: Collectivité
+      empty:
+        area:
+          content:
+            value: '<p>Aucun résultat trouvé. Essayez de supprimer ou de modifier des filtres.</p>'
+            format: full_html

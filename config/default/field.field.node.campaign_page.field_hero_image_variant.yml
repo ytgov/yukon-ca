@@ -1,0 +1,25 @@
+uuid: fe2ed03f-53a1-429a-890b-edd017d0c581
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_image_variant
+    - node.type.campaign_page
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_hero_image_variant
+field_name: field_hero_image_variant
+entity_type: node
+bundle: campaign_page
+label: 'Hero Image Variant'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
