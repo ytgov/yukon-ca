@@ -7,15 +7,13 @@ dependencies:
     - paragraphs.paragraphs_type.text
   module:
     - allowed_formats
-    - epp
     - text
+    - tmgmt_content
 third_party_settings:
   allowed_formats:
-    allowed_formats:
-      - full_html
-  epp:
-    value: ''
-    on_update: 0
+    allowed_formats: {  }
+  tmgmt_content:
+    excluded: false
 id: paragraph.text.field_section_content
 field_name: field_section_content
 entity_type: paragraph
