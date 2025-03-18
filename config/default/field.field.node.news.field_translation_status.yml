@@ -1,0 +1,25 @@
+uuid: e7f0d6a8-333e-415b-9400-c9bc7eb51988
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_status
+    - node.type.news
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.news.field_translation_status
+field_name: field_translation_status
+entity_type: node
+bundle: news
+label: 'Translation status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
