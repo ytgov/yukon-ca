@@ -19,7 +19,7 @@ recipient_types:
         - 'node:field_editor_publisher'
 bundles: {  }
 body:
-  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
+  value: "Page title:\r\n[node:title]\r\n\r\nAuthor:\r\n[node:author]\r\n\r\nRequested by:\r\n[current-user:account-name]\r\n\r\nRevision notes:\r\n[node:log]\r\n\r\nTo view this page:\r\n[node:url]"
   format: plain_text
 replyTo: ''
 transitions:

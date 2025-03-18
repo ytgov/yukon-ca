@@ -1,0 +1,25 @@
+uuid: f1cb4614-9fd8-46bc-abf2-98d25d715be2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_translation_status
+    - node.type.homepage
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.homepage.field_translation_status
+field_name: field_translation_status
+entity_type: node
+bundle: homepage
+label: 'Translation status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
