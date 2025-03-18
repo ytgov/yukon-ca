@@ -1,0 +1,20 @@
+uuid: 89ddbc72-8608-40ff-a8ab-4c017f3ca80f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - yukon_hss_job_listings
+id: paragraph.field_hrsmart_job_listings_data
+field_name: field_hrsmart_job_listings_data
+entity_type: paragraph
+type: field_hrsmart_job_listings
+settings:
+  case_sensitive: false
+module: yukon_hss_job_listings
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

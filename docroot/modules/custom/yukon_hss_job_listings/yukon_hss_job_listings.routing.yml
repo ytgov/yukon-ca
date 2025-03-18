@@ -1,0 +1,7 @@
+yukon_hss_job_listings.settings:
+  path: 'admin/config/yukon_hss_job_listings/settings'
+  defaults:
+    _title: 'HSS job listings settings'
+    _form: 'Drupal\yukon_hss_job_listings\Form\HSSJobListingsSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
