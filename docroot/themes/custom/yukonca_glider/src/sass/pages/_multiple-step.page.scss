@@ -1,34 +1,42 @@
-.node--type-multi-step-page {
-  .field__content {
-    ul {
-        li {
-            @apply list-disc;
+.page-node-type-multi-step-page {
+    .layout-sidebar-first {
+        @include media-breakpoint-down(md) {
+            @apply hidden;
         }
     }
-    
-    ol {
-        li {
-            @apply list-decimal;
-        }
-    }
-    
-    ul,
-    ol {
-      li {
-        @apply pl-2.5;
 
+    .node--type-multi-step-page {
+      .field__content {
         ul {
-          @apply pl-12;
-
+            li {
+                @apply list-disc;
+            }
+        }
+        
+        ol {
+            li {
+                @apply list-decimal;
+            }
+        }
+        
+        ul,
+        ol {
           li {
-            @apply list-disc;
+            @apply pl-2.5;
+    
+            ul {
+              @apply pl-12;
+    
+              li {
+                @apply list-disc;
+              }
+            }
           }
         }
       }
+    
+      .field__item {
+        @apply mb-5;
+      }
     }
-  }
-
-  .field__item {
-    @apply mb-5;
-  }
 }
