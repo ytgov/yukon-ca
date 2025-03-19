@@ -26,6 +26,7 @@ global_styles:
     - core/jquery
     - core/drupal
     - core/once
+    - core/drupalSettings
 
 administrator:
   css:

@@ -7,7 +7,7 @@
  * @param document document Current document object
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   /**
    * Main script for the current theme
    */
@@ -126,4 +126,23 @@
       });
     },
   };
-}(jQuery, Drupal));
+
+  Drupal.behaviors.quickExit = {
+    attach (context) {
+      once('jsBehaviour', '.quick-exit-btn', context).forEach((element) => {
+        element.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          const newUrl = element.getAttribute('href');
+          const previousUrl = drupalSettings.quick_exit.previous;
+          const backUrl = drupalSettings.quick_exit.back;
+
+          window.history.replaceState({}, '', backUrl);
+
+          window.open(newUrl, '_blank');
+          window.location.href = previousUrl;
+        });
+      });
+    },
+  };
+}(jQuery, Drupal, once));

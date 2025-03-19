@@ -542,6 +542,26 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
   }
 
+  // Validate quick exit only if the field exist and it is not NULL.
+  if ($node->hasField('field_quick_exit')) {
+    $field_value = (bool) $node->get('field_quick_exit')->value;
+    if ($field_value) {
+      // Quick exit config pages functionality.
+      $quick_exit_storage = \Drupal::entityTypeManager()->getStorage('config_pages');
+      $quick_exit_entity = $quick_exit_storage->load('quick_exit');
+
+      if (!empty($quick_exit_entity)) {
+        $variables['quick_exit']['enable'] = $field_value;
+        $variables['quick_exit']['label'] = $quick_exit_entity->get('field_button_text')->value;
+        $variables['quick_exit']['new'] = $quick_exit_entity->get('field_new_tab')->value;
+        $variables['#attached']['drupalSettings']['quick_exit'] = [
+          'back' => $quick_exit_entity->get('field_back_button')->value,
+          'previous' => $quick_exit_entity->get('field_previous_tab')->value,
+        ];
+      }
+    }
+  }
+
   $variables['Footer_text'] = theme_get_setting('Footer_text');
   $variables['current_path'] = $current_path;
   if (!empty($variables['node'])) {
