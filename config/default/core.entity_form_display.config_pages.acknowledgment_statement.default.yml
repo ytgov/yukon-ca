@@ -1,0 +1,30 @@
+uuid: daf1e4af-3eaa-4c28-bf46-b9ef56c0aa48
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.acknowledgment_statement
+    - field.field.config_pages.acknowledgment_statement.field_enabled
+    - field.field.config_pages.acknowledgment_statement.field_statement
+id: config_pages.acknowledgment_statement.default
+targetEntityType: config_pages
+bundle: acknowledgment_statement
+mode: default
+content:
+  field_enabled:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_statement:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true
