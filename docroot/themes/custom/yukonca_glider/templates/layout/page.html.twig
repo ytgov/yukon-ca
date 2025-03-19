@@ -110,7 +110,7 @@
   <main role="main" class="container-lg grow {% if content_type == "news" or content_type == "documents" or content_type == 'directory_records_places' or content_type == 'in_page_alert' %} no-aurora-img {% endif %}">
     {% if quick_exit.enable %}
       <div id="quick-exit">
-        <a class="button-primary btn btn-primary quick-exit-btn" href="{{ quick_exit.new }}" target="_blank" title="{{ quick_exit.label|t }}">{{ quick_exit.label|t }}</a>
+        <a class="quick-exit-btn" href="{{ quick_exit.new }}" target="_blank" title="{{ quick_exit.label|t }}">{{ quick_exit.label|t }}</a>
       </div>
     {% endif %}
     {{ page.breadcrumb }}
@@ -170,6 +170,11 @@
 </div>
   {% if documents_non_branded != 1 %}
       {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+        {% if acknowledgment_statement.enable %}
+          <div id="acknowledgment-statement">
+            <div class="statement container">{{ acknowledgment_statement.text|t }}</div>
+          </div>
+        {% endif %}
         {{ pattern('footer', {
           logo: Footer_logo,
           menus: page.footer_menu,

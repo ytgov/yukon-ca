@@ -542,13 +542,13 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
   }
 
+  $config_pages_storage =  \Drupal::entityTypeManager()->getStorage('config_pages');
   // Validate quick exit only if the field exist and it is not NULL.
-  if ($node->hasField('field_quick_exit')) {
+  if ((!empty($node)) && ($node->hasField('field_quick_exit'))) {
     $field_value = (bool) $node->get('field_quick_exit')->value;
     if ($field_value) {
       // Quick exit config pages functionality.
-      $quick_exit_storage = \Drupal::entityTypeManager()->getStorage('config_pages');
-      $quick_exit_entity = $quick_exit_storage->load('quick_exit');
+      $quick_exit_entity = $config_pages_storage->load('quick_exit');
 
       if (!empty($quick_exit_entity)) {
         $variables['quick_exit']['enable'] = $field_value;
@@ -560,6 +560,13 @@ function yukonca_glider_preprocess_page(&$variables) {
         ];
       }
     }
+  }
+
+  // Acknowledgment statement pattern variables.
+  $acknow_entity = $config_pages_storage->load('acknowledgment_statement');
+  if (!empty($acknow_entity)) {
+    $variables['acknowledgment_statement']['enable'] = $acknow_entity->get('field_enabled')->value;
+    $variables['acknowledgment_statement']['text'] = $acknow_entity->get('field_statement')->value;
   }
 
   $variables['Footer_text'] = theme_get_setting('Footer_text');
