@@ -22,10 +22,12 @@ dependencies:
     - field.field.node.directory_records_places.field_places_record_type
     - field.field.node.directory_records_places.field_postal_code
     - field.field.node.directory_records_places.field_publisher
+    - field.field.node.directory_records_places.field_quick_exit
     - field.field.node.directory_records_places.field_region
     - field.field.node.directory_records_places.field_social_sharing
     - field.field.node.directory_records_places.field_statutory_holiday_link
     - field.field.node.directory_records_places.field_street_address
+    - field.field.node.directory_records_places.field_translation_status
     - field.field.node.directory_records_places.field_website
     - field.field.node.directory_records_places.field_yukon_editorial_team
     - node.type.directory_records_places
@@ -219,6 +221,7 @@ content:
         minZoom: 1
         maxZoom: 18
         zoomFiner: 0
+      weight: '0'
       icon:
         iconType: marker
         iconUrl: ''
@@ -349,6 +352,16 @@ content:
     third_party_settings: {  }
     weight: 11
     region: content
+  field_quick_exit:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 14
+    region: content
   field_region:
     type: entity_reference_label
     label: hidden
@@ -413,6 +426,7 @@ hidden:
   field_department_term: true
   field_meta_tags: true
   field_social_sharing: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

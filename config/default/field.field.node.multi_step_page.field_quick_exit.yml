@@ -1,0 +1,28 @@
+uuid: eb8affa9-5a46-46da-b81d-3cc9f5bee23c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_exit
+    - node.type.multi_step_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.multi_step_page.field_quick_exit
+field_name: field_quick_exit
+entity_type: node
+bundle: multi_step_page
+label: 'Quick exit'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

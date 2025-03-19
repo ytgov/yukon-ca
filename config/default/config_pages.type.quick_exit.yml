@@ -1,0 +1,17 @@
+uuid: 524c79de-8803-4dd5-8785-3037c4eea859
+langcode: en
+status: true
+dependencies: {  }
+id: quick_exit
+label: 'Quick exit'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''

@@ -1,0 +1,28 @@
+uuid: 65333b06-9cef-41f3-a972-3976306898dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_exit
+    - node.type.directory_records_places
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.directory_records_places.field_quick_exit
+field_name: field_quick_exit
+entity_type: node
+bundle: directory_records_places
+label: 'Quick exit'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: 0680c1a7-25e8-45f1-865f-cc7bdf922e8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+id: config_pages.field_back_button
+field_name: field_back_button
+entity_type: config_pages
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
