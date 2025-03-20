@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.campaign_page.field_add_social_media_channels
     - field.field.node.campaign_page.field_campaign_home_logo_display
     - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_menu_title
     - field.field.node.campaign_page.field_campaign_type
     - field.field.node.campaign_page.field_child_campaign_pages
     - field.field.node.campaign_page.field_copyright_notice_text
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.campaign_page.field_display_copyright_notice
     - field.field.node.campaign_page.field_editor_publisher
     - field.field.node.campaign_page.field_hero_image
+    - field.field.node.campaign_page.field_hero_image_variant
     - field.field.node.campaign_page.field_highlight_color
     - field.field.node.campaign_page.field_image
     - field.field.node.campaign_page.field_intro_text_block
@@ -81,6 +83,14 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
+  field_campaign_menu_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 27
+    region: content
   field_campaign_type:
     type: list_default
     label: above
@@ -136,7 +146,16 @@ content:
     settings:
       view_mode: default
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 11
     region: content
   field_highlight_color:
@@ -271,6 +290,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_hero_image_variant: true
   field_quick_exit: true
   field_translation_status: true
   langcode: true
