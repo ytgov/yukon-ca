@@ -46,7 +46,7 @@
 
   {# BEGIN HEADER #}
   {% set menuSectionId = 'header-main-navigaion' %}
-    
+
   {% if campaign_type  == 'government_of_yukon' %}
     <header class="header header--main" id="header">
           <div class="container-lg navbar">
@@ -87,14 +87,14 @@
                 {% endfor %}
                 </ul>
               </div>
-              
+
               <div class="site-nav-toggle col-2 col-sm-4 col-md-3 col-lg-1 flex justify-end list-none">
                 {{ page.header_menu.languageswitcher }}
               </div>
             </div>
         </div>
     </header>
-    
+
   {% elseif campaign_type  == 'multi_jurisdictional' %}
     <header class="header header--main border-0 border-b-4 border-solid border-b-yellow" id="header">
           <div class="container-lg navbar">
@@ -106,7 +106,7 @@
                     {% else %}
                         <a href="{{ url("<front>")|render|split('/', -1)|join('/') }}" rel="home" class="site-logo">
                     {% endif %}
-                    
+
                         {% if logo_url is not empty %}
                             <img src="{{ logo_url }}" alt="Home">
                         {% else %}
@@ -136,15 +136,15 @@
                 {% endfor %}
                 </ul>
               </div>
-              
+
               <div class="site-nav-toggle col-2 col-sm-4 col-md-3 col-lg-1 flex justify-end">
                 {{ page.header_menu.languageswitcher }}
               </div>
             </div>
         </div>
     </header>
-  {% else %}  
-     
+  {% else %}
+
       {{ pattern('header', {
         logo: page.header_branding,
         unique_id: menuSectionId,
@@ -153,7 +153,7 @@
         offcanvas_heading: 'Government services <br>and information'|t,
         search: page.header_menu.exposedformsearchpage_1,
       }) }}
-  
+
   {% endif %}
 
   {# END OF HEADER #}
@@ -190,6 +190,11 @@
   {{ page.help }}
 
   <main role="main" class="container-lg grow">
+    {% if quick_exit.enable %}
+      <div id="quick-exit">
+        <a class="quick-exit-btn" href="{{ quick_exit.new }}" target="_blank" title="{{ quick_exit.label|t }}">{{ quick_exit.label|t }}</a>
+      </div>
+    {% endif %}
     {#{{ page.breadcrumb }}#}
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <div class="row {% if content_type != "landing_page" and content_type != "topics_page" and content_type != "landing_page_level_2" and content_type != "news"  %}pt-20 {% endif %}">
@@ -241,7 +246,7 @@
     {% endif %}
 
   </main>
-  
+
     {% if campaign_type == "multi_jurisdictional" %}
     	<footer role="contentinfo" id="wb-info">
           <div class="container">
@@ -251,7 +256,7 @@
                     <p> {{ copyright_notice_text|raw }} </p>
                 {% endif %}
               </div>
-        
+
               <div class="col-sm-6">
                 <section id="wb-lng" class="header-lang-toggle">
 
@@ -263,6 +268,11 @@
 
     {% else %}
          {% if page.footer_logo or page.footer_menu or page.footer_legal %}
+            {% if acknowledgment_statement.enable %}
+              <div id="acknowledgment-statement">
+                <div class="statement container">{{ acknowledgment_statement.text|t }}</div>
+              </div>
+            {% endif %}
             {{ pattern('footer', {
               logo: Footer_logo,
               menus: page.footer_menu,
@@ -270,7 +280,7 @@
             }, 'default') }}
         {% endif %}
     {% endif %}
-  
- </div> 
+
+ </div>
 
 </div>{# /.layout-container #}

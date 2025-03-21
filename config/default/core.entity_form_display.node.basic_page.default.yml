@@ -14,8 +14,10 @@ dependencies:
     - field.field.node.basic_page.field_meta_tags
     - field.field.node.basic_page.field_page_description
     - field.field.node.basic_page.field_publisher
+    - field.field.node.basic_page.field_quick_exit
     - field.field.node.basic_page.field_related_tasks
     - field.field.node.basic_page.field_social_sharing
+    - field.field.node.basic_page.field_translation_status
     - field.field.node.basic_page.field_yukon_editorial_team
     - node.type.basic_page
     - workflows.workflow.content
@@ -80,6 +82,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: false
+        weight: 0
+    group_quick_exit:
+      children:
+        - field_quick_exit
+      label: 'Quick exit'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
         weight: 0
 id: node.basic_page.default
 targetEntityType: node
@@ -194,6 +213,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_quick_exit:
+    type: options_buttons
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_related_tasks:
     type: linkit
     weight: 15
@@ -276,6 +301,7 @@ content:
 hidden:
   field_full_width: true
   field_social_sharing: true
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

@@ -1,0 +1,28 @@
+uuid: a48ac5b7-20ca-4e7a-899d-a56b0fd1cfe9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_exit
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_quick_exit
+field_name: field_quick_exit
+entity_type: node
+bundle: campaign_page
+label: 'Quick exit'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

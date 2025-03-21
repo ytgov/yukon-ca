@@ -27,8 +27,10 @@ dependencies:
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
     - field.field.node.campaign_page.field_publisher
+    - field.field.node.campaign_page.field_quick_exit
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
+    - field.field.node.campaign_page.field_translation_status
     - field.field.node.campaign_page.field_use_navigation_jump_points
     - field.field.node.campaign_page.field_yukon_editorial_team
     - node.type.campaign_page
@@ -74,8 +76,10 @@ hidden:
   field_paragraphs: true
   field_parent_campaign_page: true
   field_publisher: true
+  field_quick_exit: true
   field_social_network: true
   field_source_credit: true
+  field_translation_status: true
   field_use_navigation_jump_points: true
   field_yukon_editorial_team: true
   langcode: true

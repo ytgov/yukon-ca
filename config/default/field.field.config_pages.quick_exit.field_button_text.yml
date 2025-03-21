@@ -1,0 +1,26 @@
+uuid: 40ee893e-9bac-484c-b2a1-1e6a563eefd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.quick_exit
+    - field.storage.config_pages.field_button_text
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: config_pages.quick_exit.field_button_text
+field_name: field_button_text
+entity_type: config_pages
+bundle: quick_exit
+label: 'Button text'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Quick Exit'
+default_value_callback: ''
+settings: {  }
+field_type: string

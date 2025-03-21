@@ -1,0 +1,26 @@
+uuid: 29011c35-a8b8-47be-bd63-0b570e751f52
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.quick_exit
+    - field.storage.config_pages.field_previous_tab
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: config_pages.quick_exit.field_previous_tab
+field_name: field_previous_tab
+entity_type: config_pages
+bundle: quick_exit
+label: 'Previous tab'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'https://www.theweathernetwork.com/en/city/ca/yukon/whitehorse/current'
+default_value_callback: ''
+settings: {  }
+field_type: string

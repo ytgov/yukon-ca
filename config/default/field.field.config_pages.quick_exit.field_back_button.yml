@@ -1,0 +1,26 @@
+uuid: 407a2a49-58a0-4a75-9ded-abf0dc3a78bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.quick_exit
+    - field.storage.config_pages.field_back_button
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: config_pages.quick_exit.field_back_button
+field_name: field_back_button
+entity_type: config_pages
+bundle: quick_exit
+label: 'Back button'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: /back-google
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,17 @@
+uuid: f006bf9a-ac98-4283-a245-45dfa341cdbb
+langcode: en
+status: true
+dependencies: {  }
+id: acknowledgment_statement
+label: 'Acknowledgment statement'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''

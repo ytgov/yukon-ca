@@ -13,9 +13,11 @@ dependencies:
     - field.field.node.multi_step_page.field_page_description
     - field.field.node.multi_step_page.field_paragraphs
     - field.field.node.multi_step_page.field_publisher
+    - field.field.node.multi_step_page.field_quick_exit
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
+    - field.field.node.multi_step_page.field_translation_status
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
   module:
@@ -54,9 +56,11 @@ hidden:
   field_page_description: true
   field_paragraphs: true
   field_publisher: true
+  field_quick_exit: true
   field_related_tasks: true
   field_sequential_non_sequential: true
   field_social_sharing: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   search_api_excerpt: true

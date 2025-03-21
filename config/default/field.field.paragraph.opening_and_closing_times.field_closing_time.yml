@@ -18,7 +18,7 @@ bundle: opening_and_closing_times
 label: 'Closing time'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

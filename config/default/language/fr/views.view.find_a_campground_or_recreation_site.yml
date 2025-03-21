@@ -91,6 +91,9 @@ display:
         field_one_wheelchair_camp_value:
           group_info:
             label: 'Type d’installation'
+            group_items:
+              1:
+                title: 'Emplacement accessible en fauteuil roulant'
           expose:
             description: ''
         field_campground_site_type_target_id:
@@ -100,15 +103,35 @@ display:
         field_at_least_one_wheelchair_ac_value:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Toilette sèche accessible en fauteuil roulant'
         field_boat_launch_value:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Rampe de mise à l’eau'
         field_hiking_trails_value:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Sentiers de randonnée'
         field_playground_value:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Terrain de jeux'
         field_swimming_area_or_dock_no_l_value:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: 'Quai ou aire de baignade (sans surveillance)'

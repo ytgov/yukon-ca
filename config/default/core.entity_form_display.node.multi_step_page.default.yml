@@ -12,9 +12,11 @@ dependencies:
     - field.field.node.multi_step_page.field_page_description
     - field.field.node.multi_step_page.field_paragraphs
     - field.field.node.multi_step_page.field_publisher
+    - field.field.node.multi_step_page.field_quick_exit
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
+    - field.field.node.multi_step_page.field_translation_status
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
     - workflows.workflow.content
@@ -36,7 +38,7 @@ third_party_settings:
       label: 'Social sharing'
       region: content
       parent_name: ''
-      weight: 23
+      weight: 22
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -52,7 +54,7 @@ third_party_settings:
       label: Language
       region: content
       parent_name: ''
-      weight: 19
+      weight: 18
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -96,6 +98,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: false
+        weight: 0
+    group_quick_exit:
+      children:
+        - field_quick_exit
+      label: 'Quick exit'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
         weight: 0
 id: node.multi_step_page.default
 targetEntityType: node
@@ -182,6 +201,12 @@ content:
   field_publisher:
     type: options_select
     weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_quick_exit:
+    type: options_buttons
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -284,6 +309,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_state: true
   sticky: true

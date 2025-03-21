@@ -147,6 +147,7 @@ module:
   video_embed_field: 0
   views_ajax_history: 0
   views_bootstrap: 0
+  views_infinite_scroll: 0
   views_menu_children_filter: 0
   views_tree: 0
   views_ui: 0
@@ -167,6 +168,7 @@ module:
   pathauto: 1
   selective_better_exposed_filters: 1
   cshs_menu_link: 5
+  comment_notify: 10
   content_translation: 10
   password_policy: 10
   views: 10
