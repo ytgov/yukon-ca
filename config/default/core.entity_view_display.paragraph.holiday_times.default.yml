@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.holiday_times.field_opening_time_paragraph
     - paragraphs.paragraphs_type.holiday_times
   module:
+    - entity_reference_revisions
     - options
 id: paragraph.holiday_times.default
 targetEntityType: paragraph
@@ -29,6 +30,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_opening_time_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
-  field_opening_time_paragraph: true
   search_api_excerpt: true

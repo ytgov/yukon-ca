@@ -41,6 +41,14 @@
 
 <div class="holiday_hours">
     <div class="field-label">{{ paragraph.field_holiday.value }}</div>
-    <div class="field-items">{% if paragraph.field_open.value == "no" %}{{ "Closed"|t }}{% endif %}{% if paragraph.field_open.value == "yes" %}{{ "Open"|t }}{% endif %} </div>
+    <div class="field-items">{% if paragraph.field_open.value == "no" %}{{ "Closed"|t }}{% endif %}
+        {% if paragraph.field_open.value == "yes" %}
+            {% if content.field_opening_time_paragraph.0 %}
+                {{ content.field_opening_time_paragraph }}
+            {% else %}
+                {{ "Open"|t }}
+            {% endif %}
+        {% endif %} 
+    </div>
 </div>
 
