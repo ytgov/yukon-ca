@@ -7,9 +7,27 @@ dependencies:
     - media.type.image
   module:
     - content_translation
+    - filefield_paths
     - image
     - tmgmt_content
 third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: '[media:directory:entity:name]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: true
+    file_name:
+      value: ''
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
   content_translation:
     translation_sync:
       alt: alt

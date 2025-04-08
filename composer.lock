@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "906f2fdf3f5139b31d2db31787b73d82",
+    "content-hash": "2982097fab073ca9015673aa2f7a4280",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5155,6 +5155,71 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/field_permissions",
                 "issues": "https://www.drupal.org/project/issues/field_permissions"
+            }
+        },
+        {
+            "name": "drupal/filefield_paths",
+            "version": "1.0.0-beta8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filefield_paths.git",
+                "reference": "8.x-1.0-beta8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filefield_paths-8.x-1.0-beta8.zip",
+                "reference": "8.x-1.0-beta8",
+                "shasum": "9f9df4f6e1f50a1c2550a22336ba4383497b52d4"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "conflict": {
+                "drush/drush": "<12.5.0"
+            },
+            "require-dev": {
+                "drupal/ctools": "*",
+                "drupal/pathauto": "*",
+                "drupal/redirect": "*",
+                "drupal/token": "*",
+                "drush/drush": ">=12.5.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta8",
+                    "datestamp": "1733186525",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "File (Field) Paths. Adds improved Token based file sorting and renaming functionalities.",
+            "homepage": "https://www.drupal.org/project/filefield_paths",
+            "keywords": [
+                "drupal",
+                "field",
+                "file",
+                "path",
+                "token"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/filefield_paths"
             }
         },
         {
@@ -17125,6 +17190,7 @@
         "drupal/ckeditor_div_manager": 15,
         "drupal/comment_notify": 20,
         "drupal/conditional_fields": 15,
+        "drupal/filefield_paths": 10,
         "drupal/linkchecker": 15,
         "drupal/media_directories": 20,
         "drupal/media_embed_extra": 10,
@@ -17142,6 +17208,6 @@
     "platform": {
         "php": ">=8.1"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
