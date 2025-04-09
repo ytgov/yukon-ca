@@ -344,6 +344,14 @@
 		    h2 {
 		        @apply text-[22px] text-gray-450;
 		    }
+		    
+		    .webform-submission-page-feedback-add-form {
+    		    .form-required {
+        		    &:after {
+                        @apply hidden;
+                    }
+    		    }
+		    }
 		}
 	}
 	
