@@ -44,6 +44,7 @@
         "drupal/fences": "^3.0",
         "drupal/field_group": "^3.4",
         "drupal/field_permissions": "^1.1",
+        "drupal/filefield_paths": "^1.0@beta",
         "drupal/focal_point": "^2.1",
         "drupal/fontawesome": "^2.24",
         "drupal/geofield": "^1.48",

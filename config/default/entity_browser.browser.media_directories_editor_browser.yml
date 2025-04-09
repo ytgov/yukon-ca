@@ -1,0 +1,29 @@
+uuid: 50b934a2-a056-4126-846c-b904d11a4458
+langcode: en
+status: true
+dependencies:
+  module:
+    - views
+_core:
+  default_config_hash: Ft-_y8y1CaFeczXk7k90GmfNeCe_M3LPb1zCJDcwy1Y
+name: media_directories_editor_browser
+label: 'Media Directories: Editor widget'
+display: iframe
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select entities'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  5bc2a17c-b080-4a3b-867c-7953ae9b55c4:
+    id: media_directories_browser_widget
+    uuid: 5bc2a17c-b080-4a3b-867c-7953ae9b55c4
+    label: 'Directory browser'
+    weight: -10
+    settings:
+      submit_text: 'Select media'
+      auto_select: 0
