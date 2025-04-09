@@ -89,16 +89,16 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $start_time = explode(".", $paragraph->field_opening_time->value / (60 * 60));
       $end_time = explode(".", $paragraph->field_closing_time->value / (60 * 60));
       if (isset($start_time[1])) {
-        $variables['start_time'] = $start_time[0] . ' h 30';
+        $variables['start_time'] = $start_time[0] . ' h ' . date("i", $paragraph->field_opening_time->value);
       }
       else {
-        $variables['start_time'] = $start_time[0] . ' h';
+        $variables['start_time'] = $start_time[0] != '0' ? $start_time[0] : '00' . ' h';
       }
       if (isset($end_time[1])) {
-        $variables['end_time'] = $end_time[0] . ' h 30';
+        $variables['end_time'] = $end_time[0] . ' h ' . date("i", $paragraph->field_closing_time->value);
       }
       else {
-        $variables['end_time'] = $end_time[0] . ' h';
+        $variables['end_time'] = $end_time[0] != '0' ? $end_time[0] : '00' . ' h';
       }
     }
     $variables['lang'] = $langcode;
