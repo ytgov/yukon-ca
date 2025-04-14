@@ -85,9 +85,10 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
 
     // Response strings.
     if (!$is_prescribed) {
-      $full_response = $type->FIRE_FULL_RESPONSE ? t("and requires a full response. An aggressive initial attack takes place with the goal of containing the fire and putting it out as quickly as possible.") : '';
-      $modified_response = $type->FIRE_MODIFIED_RESPONSE ? t("and requires a modified response. Fire personnel complete a wildland fire analysis and use a variety of techniques to prevent property and infrastructure damage. Full suppression of the fire is unlikely to be necessary or possible.") : '';
-      $monitored_response = $type->FIRE_MONITORED_RESPONSE ? t("and requires a monitored response. Officials keep track of the fire for potential social disruption or other major impacts as it fulfills its natural ecological role.") : '';
+      # 2025 API replaced individual response flags with RESPONSE_TYPE status conditions.
+      $full_response = str_starts_with($type->RESPONSE_TYPE, 'FUL') ? t("and requires a full response. An aggressive initial attack takes place with the goal of containing the fire and putting it out as quickly as possible.") : '';
+      $modified_response = str_starts_with($type->RESPONSE_TYPE, 'MOD') ? t("and requires a modified response. Fire personnel complete a wildland fire analysis and use a variety of techniques to prevent property and infrastructure damage. Full suppression of the fire is unlikely to be necessary or possible.") : '';
+      $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? t("and requires a monitored response. Officials keep track of the fire for potential social disruption or other major impacts as it fulfills its natural ecological role.") : '';
     }
     else {
       $full_response = $modified_response = $monitored_response = '';
