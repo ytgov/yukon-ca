@@ -20,7 +20,7 @@
       {% for item in items %}
         {% set id = item.title|trim|clean_id %}
         <li class="nav-item w-full mb-12 pl-10 list-none" role="presentation">
-          <a class="nav-link hover:bg-none {{ loop.first ? 'active' }}
+          <a class="relative nav-link hover:bg-none {{ loop.first ? 'active' }}
           before:bg-blue-500 before:rounded-full before:w-8 before:h-8 before:min-w-8 before:inline-block before:-ml-10
           before:text-white before:text-base before:text-center before:pt-1 before:mr-2 before:font-semibold
           before:hover:bg-blue-200 "
