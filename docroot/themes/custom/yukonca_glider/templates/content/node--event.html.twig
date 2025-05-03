@@ -102,7 +102,9 @@
     <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
       <div class="field__label">{{ 'Date'|t }}</div>
       <div class="field-items">
-        <div class="field-item"> {{ node.field_event_start_time.value|date('U')|format_date('yg_long') }} </div>
+        {% if node.field_event_start_time.value is not empty %}
+            <div class="field-item"> {{ node.field_event_start_time.value|date('U')|format_date('yg_long') }} </div>
+        {% endif %}
       </div>
     </div>
     <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
