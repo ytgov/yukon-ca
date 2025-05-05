@@ -1,0 +1,29 @@
+uuid: f2c31ca7-56bc-41bd-838e-8b0408092542
+langcode: en
+status: true
+dependencies:
+  module:
+    - views
+_core:
+  default_config_hash: 9jlEbfJ5s9oFKv18z5W61XQok2xQOSPAHCJ448vlSVw
+name: media_directories_modal
+label: 'Media Directories: Field widget'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select media'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  24011187-a4c0-42f1-a71a-eec339d3721f:
+    id: media_directories_browser_widget
+    uuid: 24011187-a4c0-42f1-a71a-eec339d3721f
+    label: Browser
+    weight: -10
+    settings:
+      submit_text: 'Select media'
+      auto_select: 0
