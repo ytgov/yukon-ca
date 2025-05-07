@@ -1,0 +1,5 @@
+name: 'HSS Job Listings'
+type: module
+description: 'Display HSS job listings from structured data fetched from external sources.'
+package: 'Custom'
+core_version_requirement: ^10.2 || ^11
