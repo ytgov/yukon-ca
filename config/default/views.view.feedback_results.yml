@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - user.role._webform_manager
     - user.role.administrator
+    - user.role.site_administrator
     - webform.webform.page_feedback
   module:
     - user
@@ -559,6 +561,8 @@ display:
         options:
           role:
             administrator: administrator
+            site_administrator: site_administrator
+            _webform_manager: _webform_manager
       cache:
         type: tag
         options: {  }

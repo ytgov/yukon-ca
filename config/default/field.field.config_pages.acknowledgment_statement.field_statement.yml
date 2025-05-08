@@ -1,0 +1,26 @@
+uuid: 39093f59-e4ff-493c-914d-72b291935ba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.acknowledgment_statement
+    - field.storage.config_pages.field_statement
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: config_pages.acknowledgment_statement.field_statement
+field_name: field_statement
+entity_type: config_pages
+bundle: acknowledgment_statement
+label: Statement
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'The Government of Yukon acknowledges that Indigenous Peoples have traditional territories throughout the Yukon and celebrates their role as stewards of the lands and waters and their ongoing connection to this place.'
+default_value_callback: ''
+settings: {  }
+field_type: string_long

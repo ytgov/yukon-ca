@@ -1,0 +1,24 @@
+uuid: d320cbae-75b9-40d9-a981-9bfd3635c01f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_menu_title
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_campaign_menu_title
+field_name: field_campaign_menu_title
+entity_type: node
+bundle: campaign_page
+label: 'Campaign menu title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

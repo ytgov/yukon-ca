@@ -212,6 +212,11 @@ aside {
                         .field-items {
                             @apply w-1/2;
                         }
+                        
+                        .opening_time {
+                            @apply flex;
+                            gap: 5px;
+                        }
                     }
                 }
             }

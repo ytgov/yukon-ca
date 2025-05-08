@@ -1,0 +1,28 @@
+uuid: a741d472-46de-4fe7-9928-e1142b5399cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_exit
+    - node.type.landing_page_level_2
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.landing_page_level_2.field_quick_exit
+field_name: field_quick_exit
+entity_type: node
+bundle: landing_page_level_2
+label: 'Quick exit'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

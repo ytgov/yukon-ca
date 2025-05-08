@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.campaign_page.field_add_social_media_channels
     - field.field.node.campaign_page.field_campaign_home_logo_display
     - field.field.node.campaign_page.field_campaign_home_logo_link
+    - field.field.node.campaign_page.field_campaign_menu_title
     - field.field.node.campaign_page.field_campaign_type
     - field.field.node.campaign_page.field_child_campaign_pages
     - field.field.node.campaign_page.field_copyright_notice_text
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.campaign_page.field_display_copyright_notice
     - field.field.node.campaign_page.field_editor_publisher
     - field.field.node.campaign_page.field_hero_image
+    - field.field.node.campaign_page.field_hero_image_variant
     - field.field.node.campaign_page.field_highlight_color
     - field.field.node.campaign_page.field_image
     - field.field.node.campaign_page.field_intro_text_block
@@ -24,8 +26,10 @@ dependencies:
     - field.field.node.campaign_page.field_paragraphs
     - field.field.node.campaign_page.field_parent_campaign_page
     - field.field.node.campaign_page.field_publisher
+    - field.field.node.campaign_page.field_quick_exit
     - field.field.node.campaign_page.field_social_network
     - field.field.node.campaign_page.field_source_credit
+    - field.field.node.campaign_page.field_translation_status
     - field.field.node.campaign_page.field_use_navigation_jump_points
     - field.field.node.campaign_page.field_yukon_editorial_team
     - node.type.campaign_page
@@ -71,6 +75,7 @@ third_party_settings:
     group_campaign_intro:
       children:
         - field_hero_image
+        - field_hero_image_variant
         - field_source_credit
         - field_intro_text_block
       label: 'Campaign intro'
@@ -126,7 +131,7 @@ third_party_settings:
       label: 'Publishing Options'
       region: content
       parent_name: ''
-      weight: 13
+      weight: 12
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -136,6 +141,41 @@ third_party_settings:
         description: ''
         required_fields: false
         weight: 0
+    group_quick_exit:
+      children:
+        - field_quick_exit
+      label: 'Quick exit'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_campaign_multipage:
+      children:
+        - field_parent_campaign_page
+        - field_campaign_menu_title
+        - field_child_campaign_pages
+      label: 'Campaign Multipage'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: node.campaign_page.default
 targetEntityType: node
 bundle: campaign_page
@@ -143,7 +183,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -168,6 +208,14 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_campaign_menu_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_campaign_type:
     type: options_buttons
     weight: 12
@@ -176,7 +224,7 @@ content:
     third_party_settings: {  }
   field_child_campaign_pages:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -194,7 +242,7 @@ content:
     third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -207,7 +255,7 @@ content:
     third_party_settings: {  }
   field_editor_publisher:
     type: options_select
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -217,6 +265,12 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_hero_image_variant:
+    type: options_select
+    weight: 27
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_highlight_color:
     type: color_field_widget_default
@@ -235,7 +289,7 @@ content:
     third_party_settings: {  }
   field_intro_text_block:
     type: text_textarea
-    weight: 28
+    weight: 29
     region: content
     settings:
       rows: 5
@@ -265,7 +319,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 20
+    weight: 19
     region: content
     settings:
       sidebar: true
@@ -320,7 +374,7 @@ content:
     third_party_settings: {  }
   field_parent_campaign_page:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 10
     region: content
     settings:
       match_operator: STARTS_WITH
@@ -334,9 +388,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_quick_exit:
+    type: options_buttons
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_scheduled_time:
     type: datetime_default
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -361,7 +421,7 @@ content:
     third_party_settings: {  }
   field_source_credit:
     type: string_textfield
-    weight: 27
+    weight: 28
     region: content
     settings:
       size: 60
@@ -379,7 +439,7 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -398,13 +458,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 19
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -418,13 +478,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -433,11 +493,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

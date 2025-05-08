@@ -22,10 +22,12 @@ dependencies:
     - field.field.node.directory_records_places.field_places_record_type
     - field.field.node.directory_records_places.field_postal_code
     - field.field.node.directory_records_places.field_publisher
+    - field.field.node.directory_records_places.field_quick_exit
     - field.field.node.directory_records_places.field_region
     - field.field.node.directory_records_places.field_social_sharing
     - field.field.node.directory_records_places.field_statutory_holiday_link
     - field.field.node.directory_records_places.field_street_address
+    - field.field.node.directory_records_places.field_translation_status
     - field.field.node.directory_records_places.field_website
     - field.field.node.directory_records_places.field_yukon_editorial_team
     - node.type.directory_records_places
@@ -35,6 +37,7 @@ dependencies:
     - datetime
     - field_group
     - leaflet
+    - link
     - linkit
     - maxlength
     - metatag
@@ -145,6 +148,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: false
+        weight: 0
+    group_quick_exit:
+      children:
+        - field_quick_exit
+      label: 'Quick exit'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
         weight: 0
 id: node.directory_records_places.default
 targetEntityType: node
@@ -402,6 +422,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_quick_exit:
+    type: options_buttons
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_region:
     type: options_select
     weight: 13
@@ -422,14 +448,12 @@ content:
       display_label: true
     third_party_settings: {  }
   field_statutory_holiday_link:
-    type: linkit
+    type: link_default
     weight: 9
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-      linkit_profile: link_field
-      linkit_auto_link_text: false
     third_party_settings:
       maxlength:
         maxlength_js: null
@@ -516,6 +540,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

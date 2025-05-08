@@ -7,11 +7,10 @@ dependencies:
     - node.type.documents
   module:
     - datetime
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.documents.field_last_updated
 field_name: field_last_updated
 entity_type: node
@@ -20,7 +19,10 @@ label: 'Last updated'
 description: ''
 required: false
 translatable: true
-default_value: {  }
+default_value:
+  -
+    default_date_type: now
+    default_date: now
 default_value_callback: ''
 settings: {  }
 field_type: datetime

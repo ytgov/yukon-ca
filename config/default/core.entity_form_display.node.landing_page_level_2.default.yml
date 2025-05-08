@@ -12,7 +12,9 @@ dependencies:
     - field.field.node.landing_page_level_2.field_page_description
     - field.field.node.landing_page_level_2.field_primary_content
     - field.field.node.landing_page_level_2.field_publisher
+    - field.field.node.landing_page_level_2.field_quick_exit
     - field.field.node.landing_page_level_2.field_social_sharing
+    - field.field.node.landing_page_level_2.field_translation_status
     - field.field.node.landing_page_level_2.field_yukon_editorial_team
     - node.type.landing_page_level_2
     - workflows.workflow.content
@@ -46,6 +48,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: false
+        weight: 0
+    group_quick_exit:
+      children:
+        - field_quick_exit
+      label: 'Quick exit'
+      region: content
+      parent_name: ''
+      weight: 18
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
         weight: 0
 id: node.landing_page_level_2.default
 targetEntityType: node
@@ -138,6 +157,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_quick_exit:
+    type: options_buttons
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_scheduled_time:
     type: datetime_default
     weight: 21
@@ -212,6 +237,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

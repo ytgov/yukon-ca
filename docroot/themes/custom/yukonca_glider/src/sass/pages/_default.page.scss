@@ -23,6 +23,10 @@ h3 {
 .breadcrumb {
   @apply py-2 w-3/5;
 
+  @include media-breakpoint-down(md) {
+    @apply w-full;
+  }
+
   li {
     @apply inline-block text-sm;
 
@@ -41,5 +45,21 @@ h3 {
 .region-breadcrumb {
     .block-views-blockblog-type-info-block-1 {
         @apply my-[70px];
-    } 
+    }
+}
+
+#quick-exit {
+  @apply text-center;
+
+  a {
+    @apply button-primary btn btn-primary;
+  }
+}
+
+#acknowledgment-statement {
+  @apply bg-gray-light border-0 border-b-4 border-solid border-b-yellow border-t-4 border-t-yellow;
+
+  .statement {
+    @apply pt-4 pb-4;
+  }
 }

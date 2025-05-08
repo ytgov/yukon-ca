@@ -1,6 +1,6 @@
 uuid: 823c01f6-3b03-49d6-b0e7-de436b5084d3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.facilities_listing_blocks

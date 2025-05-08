@@ -1,0 +1,19 @@
+uuid: fba09f1e-39f4-4870-8f42-fbf55305f20a
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+id: config_pages.field_statement
+field_name: field_statement
+entity_type: config_pages
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

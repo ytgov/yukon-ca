@@ -4,7 +4,7 @@ display:
       empty:
         area:
           content:
-            value: '<p>No results matched your search.</p>'
+            value: '<p>La recherche n’a produit aucun résultat.</p>'
             format: full_html
       filters:
         search_api_fulltext:
@@ -13,6 +13,33 @@ display:
         type:
           expose:
             description: ''
+          group_info:
+            label: 'Afficher uniquement'
+            group_items:
+              1:
+                title: 'Pages Web'
+              3:
+                title: Communiqués
+              4:
+                title: Activités
+              5:
+                title: Lieux
+              6:
+                title: Blogues
         field_document_type:
           expose:
             description: ''
+          group_info:
+            group_items:
+              1:
+                title: Formulaires
+        field_department_term:
+          expose:
+            label: Département
+      exposed_form:
+        options:
+          submit_button: 'Filtrer les résultats'
+      title: Chercher
+      header:
+        result:
+          content: 'Résultats @start - @end de @total'

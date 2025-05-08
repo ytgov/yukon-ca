@@ -24,6 +24,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: 'Open 24 Hours'
+  on_label: 'Open 24 hours'
   off_label: 'Off'
 field_type: boolean

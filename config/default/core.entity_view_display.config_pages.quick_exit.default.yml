@@ -1,0 +1,49 @@
+uuid: cb40c125-2e69-4459-8be0-9b6dfcf4aba8
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.quick_exit
+    - field.field.config_pages.quick_exit.field_back_button
+    - field.field.config_pages.quick_exit.field_button_text
+    - field.field.config_pages.quick_exit.field_new_tab
+    - field.field.config_pages.quick_exit.field_previous_tab
+id: config_pages.quick_exit.default
+targetEntityType: config_pages
+bundle: quick_exit
+mode: default
+content:
+  field_back_button:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_button_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_new_tab:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_previous_tab:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

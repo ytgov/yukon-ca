@@ -1,0 +1,32 @@
+uuid: a532f0a5-548b-42e4-af28-a3178b6f3f5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.acknowledgment_statement
+    - field.field.config_pages.acknowledgment_statement.field_enabled
+    - field.field.config_pages.acknowledgment_statement.field_statement
+id: config_pages.acknowledgment_statement.default
+targetEntityType: config_pages
+bundle: acknowledgment_statement
+mode: default
+content:
+  field_enabled:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_statement:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
