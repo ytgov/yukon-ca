@@ -3,3 +3,18 @@ job_listings:
   css:
     theme:
       css/yukon_hss_job_listings.css: {}
+      '//cdn.datatables.net/v/dt/dt-2.3.0/r-3.0.4/datatables.min.css':
+        type: external
+        attributes:
+          crossorigin: anonymous
+          integrity: 'sha384-xhVLA/Byj+SRV+AnTLWSPBdri0gf0BktegXOACapNySTB9zPBDn2mt1WtXFPJ6BX'
+  js:
+    js/datatable.js: {}
+    '//cdn.datatables.net/v/dt/dt-2.3.0/r-3.0.4/datatables.min.js':
+      type: external
+      attributes:
+        crossorigin: anonymous
+        integrity: 'sha384-dINxpY4ZbPaSfE8y3bYiaGCyAmwd33raDoPqo/gS8ru2ljEDCQsRRjYuBQHyTLU/'
+        minified: true
+  dependencies:
+    - core/jquery
