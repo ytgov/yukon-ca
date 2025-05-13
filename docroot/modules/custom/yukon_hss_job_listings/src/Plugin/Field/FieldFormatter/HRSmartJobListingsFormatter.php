@@ -102,13 +102,12 @@ class HRSmartJobListingsFormatter extends FormatterBase {
 
     return [
       '#colgroups' => [],
-      '#empty' => $this->t('The list of job postings is not available.'),
       '#header' => $header,
       '#rows' => $rows,
       '#sticky' => FALSE,
       '#theme' => 'table',
       '#cache' => ['max-age' => 600],
-      '#attributes' => ['class' => ['yukon-hss-job-listings']],
+      '#attributes' => ['id' => 'yukon-hss-hrsmart-job-listings', 'class' => ['yukon-hss-job-listings']],
       '#attached' => ['library' => ['yukon_hss_job_listings/job_listings']],
     ];
   }
