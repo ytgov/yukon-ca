@@ -35,9 +35,11 @@ function yukon_hss_job_listings_cron(): void {
   $hrsmartDataFieldName = $config->get('hrsmart_data_field_name');
 
   try {
-    $node = Drupal::entityTypeManager()
+    $node_en = Drupal::entityTypeManager()
       ->getStorage('node')
       ->load($hrsmartNodeId);
+
+    $node_fr = $node_en->getTranslation('fr');
   } catch (Exception $e) {
     Drupal::logger('yukon_hss_job_listings')
       ->error('Failed to locate content node for HRSmart job listings: @message', ['@message' => $e->getMessage()]);
@@ -45,16 +47,18 @@ function yukon_hss_job_listings_cron(): void {
   }
 
   // Hunt down and set the value of the HRSmart data field within the paragraph type
-  // within the field of paragraphs within the content item. If any step fails, the
-  // field will retain its previous contents.
-  if ($node && $node->hasField($hrsmartParagraphsFieldName)) {
-    $fieldParagraphs = $node->get($hrsmartParagraphsFieldName)->referencedEntities();
+  // within the field of paragraphs within the content item for both English and
+  // French. If any step fails, the field will retain its previous contents.
+  foreach ([$node_en, $node_fr] as $translated_node) {
+    if ($translated_node && $translated_node->hasField($hrsmartParagraphsFieldName)) {
+      $fieldParagraphs = $translated_node->get($hrsmartParagraphsFieldName)->referencedEntities();
 
-    if (!empty($fieldParagraphs)) {
-      foreach ($fieldParagraphs as $fieldParagraph) {
-        if ($fieldParagraph->bundle() === $hrsmartParagraphBundleName) {
-          $fieldParagraph->set($hrsmartDataFieldName, $xml);
-          $fieldParagraph->save();
+      if (!empty($fieldParagraphs)) {
+        foreach ($fieldParagraphs as $fieldParagraph) {
+          if ($fieldParagraph->bundle() === $hrsmartParagraphBundleName) {
+            $fieldParagraph->set($hrsmartDataFieldName, $xml);
+            $fieldParagraph->save();
+          }
         }
       }
     }
