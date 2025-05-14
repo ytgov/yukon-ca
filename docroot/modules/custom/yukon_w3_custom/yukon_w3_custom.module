@@ -5,7 +5,6 @@
  * Yukon w3 migrate module.
  */
 
-use Drupal\node\NodeInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
@@ -48,9 +47,6 @@ function yukon_w3_custom_form_alter(&$form, FormStateInterface $form_state, $for
     $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.css';
   }
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof NodeInterface) {
-    $form['#attached']['library'][] = 'yukon_w3_custom/yukon_w3_custom.js';
-  }
   if ($node instanceof NodeInterface) {
     $query = \Drupal::database()->select('users_field_data', 't');
     $query->fields('t', ['uid', 'name']);
