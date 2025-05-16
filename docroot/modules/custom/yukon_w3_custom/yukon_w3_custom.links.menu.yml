@@ -1,0 +1,7 @@
+yukon_w3_custom.content_translation:
+  title: 'Content Translations'
+  description: 'Content Translations.'
+  route_name: yukon_w3_custom.content_translation
+  parent: system.admin_content
+  menu_name: admin
+  weight: 5

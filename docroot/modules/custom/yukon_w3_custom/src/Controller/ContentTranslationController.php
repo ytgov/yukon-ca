@@ -11,6 +11,7 @@ use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Render\Markup;
 
 /**
  * Provides route responses for content translation routing.
@@ -82,16 +83,25 @@ class ContentTranslationController extends ControllerBase {
     $form = $this->formBuilder->getForm('Drupal\yukon_w3_custom\Form\SearchFilterForm');
     // Retrieve the current request.
     $request = $this->requestStack->getCurrentRequest();
+    global $base_url;
+    $sort = \Drupal::request()->get('sort');
+    if (!empty($sort) && $sort == 'asc') {
+      $update_url = $base_url . "/admin/content_translation?sort=desc";
+    }
+    else {
+      $update_url = $base_url . "/admin/content_translation?sort=asc";
+    }
     $header = [
       ['data' => $this->t('Title')],
       ['data' => $this->t('Type')],
       ['data' => $this->t('Operations')],
+      ['data' => $this->t('<a href="' . $update_url . '">Update</a>')],
       ['data' => $this->t('Translation Status')],
     ];
 
     $db = Database::getConnection();
     $query = $db->select('node_field_data', 'ct')
-      ->fields('ct', ['nid', 'title', 'type', 'langcode'])
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'changed'])
       ->condition('ct.langcode', 'en');
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
@@ -138,7 +148,12 @@ class ContentTranslationController extends ControllerBase {
     $query = $db->select('node_field_data', 'ct')
       ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed']);
     $query->condition('ct.langcode', 'en');
-    $query->orderBy('ct.nid', 'DESC');
+    if (!empty($sort) && $sort == 'asc') {
+        $query->orderBy('ct.changed', 'ASC');
+    }
+    else {
+        $query->orderBy('ct.changed', 'DESC');
+    }
     $query->range($offset, $limit);
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
@@ -206,13 +221,15 @@ class ContentTranslationController extends ControllerBase {
           $fr = "Absent";
         }
       }
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
       if (!empty($translation_status)) {
         if ($translation_status == strtolower($fr)) {
           $rows[] = [
             'data' => [
-              $row->title,
+              Markup::create($row->title . "<br>" . $alias),
               $row->type,
               Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+              date('Y-m-d H:i a', $row->changed),
               $fr,
             ],
           ];
@@ -221,9 +238,10 @@ class ContentTranslationController extends ControllerBase {
       else {
         $rows[] = [
           'data' => [
-            $row->title,
+            Markup::create($row->title . "<br>" . $alias),
             $row->type,
             Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+            date('Y-m-d H:i a', $row->changed),
             $fr,
           ],
         ];
