@@ -221,12 +221,13 @@ class ContentTranslationController extends ControllerBase {
           $fr = "Absent";
         }
       }
+      global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
       if (!empty($translation_status)) {
         if ($translation_status == strtolower($fr)) {
           $rows[] = [
             'data' => [
-              Markup::create($row->title . "<br>" . $alias),
+              Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>" . $alias),
               $row->type,
               Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
               date('Y-m-d H:i a', $row->changed),
@@ -238,7 +239,7 @@ class ContentTranslationController extends ControllerBase {
       else {
         $rows[] = [
           'data' => [
-            Markup::create($row->title . "<br>" . $alias),
+            Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>"  . $alias),
             $row->type,
             Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
             date('Y-m-d H:i a', $row->changed),
