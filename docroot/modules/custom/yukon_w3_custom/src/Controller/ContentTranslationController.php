@@ -100,7 +100,7 @@ class ContentTranslationController extends ControllerBase {
     ];
 
     $db = Database::getConnection();
-    $query = $db->select('node_field_data', 'ct')
+    $query = $db->select('node_field_data', 'ct')->distinct()
       ->fields('ct', ['nid', 'title', 'type', 'langcode', 'changed'])
       ->condition('ct.langcode', 'en');
     $text = $request->query->get('filter_text');
@@ -145,7 +145,7 @@ class ContentTranslationController extends ControllerBase {
     $offset = $current_page * $limit;
 
     // Query to fetch data from a database table.
-    $query = $db->select('node_field_data', 'ct')
+    $query = $db->select('node_field_data', 'ct')->distinct()
       ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed']);
     $query->condition('ct.langcode', 'en');
     if (!empty($sort) && $sort == 'asc') {
@@ -191,6 +191,7 @@ class ContentTranslationController extends ControllerBase {
     $results = $query->execute()->fetchAll();
     $translation_status = $request->query->get('translation_status');
     $rows = [];
+
     foreach ($results as $row) {
       $entity_id = $row->nid;
 
