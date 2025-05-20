@@ -1,0 +1,23 @@
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      fields:
+        status:
+          label: Statut
+          settings:
+            format_custom_true: 'Publié le'
+      exposed_form:
+        options:
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+      filters:
+        status:
+          expose:
+            label: Statut
+          group_info:
+            group_items:
+              1:
+                title: 'Publié le'
+  page_1:
+    display_title: Page
