@@ -95,7 +95,7 @@ class ContentTranslationController extends ControllerBase {
       ['data' => $this->t('Title')],
       ['data' => $this->t('Type')],
       ['data' => $this->t('Operations')],
-      ['data' => $this->t('<a href="' . $update_url . '">Update</a>')],
+      ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
       ['data' => $this->t('Translation Status')],
     ];
 
