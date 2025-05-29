@@ -94,9 +94,9 @@ class ContentTranslationController extends ControllerBase {
     $header = [
       ['data' => $this->t('Title')],
       ['data' => $this->t('Type')],
-      ['data' => $this->t('Operations')],
       ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
       ['data' => $this->t('Translation Status')],
+      ['data' => $this->t('Operations')],
     ];
 
     $db = Database::getConnection();
@@ -230,9 +230,9 @@ class ContentTranslationController extends ControllerBase {
             'data' => [
               Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>" . $alias),
               $row->type,
-              Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
               date('Y-m-d H:i a', $row->changed),
               $fr,
+              Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
             ],
           ];
         }
@@ -242,9 +242,9 @@ class ContentTranslationController extends ControllerBase {
           'data' => [
             Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>"  . $alias),
             $row->type,
-            Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
             date('Y-m-d H:i a', $row->changed),
             $fr,
+            Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
           ],
         ];
       }
