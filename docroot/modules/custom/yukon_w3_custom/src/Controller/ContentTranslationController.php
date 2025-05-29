@@ -224,30 +224,15 @@ class ContentTranslationController extends ControllerBase {
       }
       global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
-      if (!empty($translation_status)) {
-        if ($translation_status == strtolower($fr)) {
-          $rows[] = [
-            'data' => [
-              Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>" . $alias),
-              $row->type,
-              date('Y-m-d H:i a', $row->changed),
-              $fr,
-              Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
-            ],
-          ];
-        }
-      }
-      else {
-        $rows[] = [
-          'data' => [
-            Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>"  . $alias),
-            $row->type,
-            date('Y-m-d H:i a', $row->changed),
-            $fr,
-            Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
-          ],
-        ];
-      }
+      $rows[] = [
+        'data' => [
+          Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>" . $alias),
+          $row->type,
+          date('Y-m-d H:i a', $row->changed),
+          $fr,
+          Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+        ],
+      ];
     }
 
     $build['filter_form'] = $form;
