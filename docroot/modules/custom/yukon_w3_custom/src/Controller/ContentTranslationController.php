@@ -12,6 +12,7 @@ use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Provides route responses for content translation routing.
@@ -192,6 +193,12 @@ class ContentTranslationController extends ControllerBase {
     $translation_status = $request->query->get('translation_status');
     $rows = [];
 
+    // Get labels for content types.
+    $all_content_types = NodeType::loadMultiple();
+    foreach ($all_content_types as $machine_name => $content_type) {
+      $labels[$machine_name] = $content_type->label();
+    }
+
     foreach ($results as $row) {
       $entity_id = $row->nid;
 
@@ -224,10 +231,18 @@ class ContentTranslationController extends ControllerBase {
       }
       global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
+
+      // Use the label if we know it, otherwise fall back to the machine name.
+      if(!empty($labels[$row->type])) {
+        $type = $labels[$row->type];
+      } else {
+        $type = $row->type;
+      }
+
       $rows[] = [
         'data' => [
           Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
-          $row->type,
+          $type,
           date('Y-m-d H:i a', $row->changed),
           $fr,
           Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
@@ -256,5 +271,4 @@ class ContentTranslationController extends ControllerBase {
 
     return $build;
   }
-
 }
