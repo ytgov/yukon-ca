@@ -226,7 +226,7 @@ class ContentTranslationController extends ControllerBase {
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
       $rows[] = [
         'data' => [
-          Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br>" . $alias),
+          Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
           $row->type,
           date('Y-m-d H:i a', $row->changed),
           $fr,
