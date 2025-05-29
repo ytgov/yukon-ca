@@ -94,9 +94,9 @@ class ContentTranslationController extends ControllerBase {
     }
     $header = [
       ['data' => $this->t('Title')],
-      ['data' => $this->t('Type')],
-      ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
+      ['data' => $this->t('Type & Department')],
       ['data' => $this->t('Translation Status')],
+      ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
       ['data' => $this->t('Operations')],
     ];
 
@@ -147,7 +147,7 @@ class ContentTranslationController extends ControllerBase {
 
     // Query to fetch data from a database table.
     $query = $db->select('node_field_data', 'ct')->distinct()
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed']);
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid']);
     $query->condition('ct.langcode', 'en');
     if (!empty($sort) && $sort == 'asc') {
         $query->orderBy('ct.changed', 'ASC');
@@ -201,6 +201,8 @@ class ContentTranslationController extends ControllerBase {
 
     foreach ($results as $row) {
       $entity_id = $row->nid;
+      $user_name = $this->get_username($entity_id);
+      $department = $this->get_department($entity_id);
 
       $query1 = $db->select("node__field_translation_status", "n");
       $query1->fields("n", ['entity_id', 'field_translation_status_value']);
@@ -238,13 +240,18 @@ class ContentTranslationController extends ControllerBase {
       } else {
         $type = $row->type;
       }
+      $query = $db->select("node_field_data", "n");
+      $query->fields("n", ['nid', 'changed']);
+      $query->condition("n.langcode", "fr");
+      $query->condition("n.nid", $entity_id);
+      $check_fr = $query->execute()->fetchAll();
 
       $rows[] = [
         'data' => [
           Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
-          $type,
-          date('Y-m-d H:i a', $row->changed),
+          Markup::create($type . "<br>" . $department),
           $fr,
+          Markup::create(date('Y-m-d H:i a', $row->changed) . "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>"),
           Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
         ],
       ];
@@ -270,5 +277,30 @@ class ContentTranslationController extends ControllerBase {
     ];
 
     return $build;
+  }
+  
+  function get_username($nid) {
+    $db = Database::getConnection();
+    $query = $db->select("history", "n");
+    $query->condition("n.nid", $nid);
+    $query->join('users_field_data', 'nd', 'n.uid = nd.uid');
+    $query->fields("nd", ['name','uid']);
+    $user[] = $query->execute()->fetchObject();
+    
+    $query = $db->select("path_alias", "n");
+    $query->condition("n.path", "/user/" . $user[0]->uid);
+    $query->fields("n", ['alias',]);
+    $user[] = $query->execute()->fetchObject();
+    
+    return $user;
+  }
+  function get_department($nid) {
+    $db = Database::getConnection();
+    $query = $db->select("node__field_department_term", "n");
+    $query->condition("n.entity_id", $nid);
+    $query->join('taxonomy_term_field_data', 'nd', 'n.field_department_term_target_id = nd.tid');
+    $query->fields("nd", ['name',]);
+    $department = $query->execute()->fetchObject();
+    return $department->name;
   }
 }
