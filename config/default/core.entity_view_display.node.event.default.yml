@@ -25,6 +25,7 @@ dependencies:
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_publisher
+    - field.field.node.event.field_translation_status
     - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -127,14 +128,6 @@ content:
     third_party_settings: {  }
     weight: 14
     region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 18
-    region: content
   field_event_description:
     type: text_default
     label: above
@@ -218,7 +211,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 17
+    weight: 25
     region: content
   field_website:
     type: link
@@ -236,9 +229,11 @@ hidden:
   addtoany: true
   field_category: true
   field_community: true
+  field_editor_publisher: true
   field_featured_content: true
   field_meta_tags: true
   field_page_description: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
