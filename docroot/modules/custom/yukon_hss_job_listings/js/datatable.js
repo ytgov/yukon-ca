@@ -4,13 +4,13 @@
       if (context === document) {
         if (window.location.href.indexOf("/fr/") > -1) {
           currentLanguage = {
-            "emptyTable": "The list of job postings is not available. [Fr]",
-            "info": "_START_ to _END_ of _TOTAL_ jobs [Fr]",
+            "emptyTable": "La liste de postes n’est pas accessible. ",
+            "info": "_START_ à _END_ de _TOTAL_ postes",
             "infoEmpty": "",
-            "infoFiltered": "(from _MAX_ total jobs) [Fr]",
+            "infoFiltered": "(maximum de _MAX_ postes affichés)",
             "loadingRecords": "",
-            "search": "Search jobs [Fr]:",
-            "zeroRecords": "No matching jobs were found. [Fr]"
+            "search": "Rechercher un poste&nbsp;:",
+            "zeroRecords": "Aucun poste ne correspond à la recherche."
           }
         } else {
           currentLanguage = {
