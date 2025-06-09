@@ -4,6 +4,8 @@ Machine name: `yukon_hss_job_listings`
 
 The HSS Job Listings module renders structured job listing data from an external source
 into an HTML table format for display within a content type or paragraph.
+The [jQuery datatables library](https://datatables.net) is used to apply pagination,
+sorting, and dynamic filtering to the rendered job listings table.
 
 At present, only the Deltek HRSmart job listings are supported via a Telus/Deltek API
 endpoint that responds with an XML payload.
