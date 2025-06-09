@@ -87,10 +87,17 @@ class HRSmartJobListingsFormatter extends FormatterBase {
             $postalCode = $e2s($location->postalCode);
             $row[] = "$city, $territory, $country $postalCode";
 
-            // Posted date.
+            // Posted date. Might as well translate this too.
             $closedDate = strtotime((string) $job->closedDate);
+
+            if ($langcode == 'fr') {
+              $closedDateText = \Drupal::service('date.formatter')->format($closedDate, 'custom', 'j F Y', NULL, 'fr');
+            } else {
+              $closedDateText = date('F j, Y', $closedDate);
+            }
+
             $row[] = [
-              'data' => date('j F Y', $closedDate),
+              'data' => $closedDateText,
               'class' => 'nowrap',
             ];
 
