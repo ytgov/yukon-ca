@@ -1,0 +1,28 @@
+uuid: e02beaec-07c7-4401-ade8-7b508b93ddf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_section_title
+    - paragraphs.paragraphs_type.hrsmart_job_listings
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.hrsmart_job_listings.field_display_section_title
+field_name: field_display_section_title
+entity_type: paragraph
+bundle: hrsmart_job_listings
+label: 'Display section title'
+description: "Select 'yes' to show section title (h2).\r\nSelect 'no' to hide section title (h2)."
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
