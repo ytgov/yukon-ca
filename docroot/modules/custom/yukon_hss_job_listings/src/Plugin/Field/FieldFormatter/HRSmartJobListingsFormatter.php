@@ -31,12 +31,12 @@ class HRSmartJobListingsFormatter extends FormatterBase {
     };
 
     // Column headings.
-    $header[] = $langcode == 'en' ? 'Category' : 'Catégorie';
-    $header[] = $langcode == 'en' ? 'Req. #': 'Numéro de demande';
-    $header[] = $langcode == 'en' ? 'Job title': 'Poste';
-    $header[] = $langcode == 'en' ? 'Department': 'Ministère';
-    $header[] = $langcode == 'en' ? 'Location': 'Lieu';
-    $header[] = $langcode == 'en' ? 'Close date': 'Date limite';
+    $header[] = $langcode == 'fr' ? 'Catégorie' : 'Category';
+    $header[] = $langcode == 'fr' ? [ 'data' => [ '#markup' => 'Numéro de<br>demande' ]] : 'Req. #';
+    $header[] = $langcode == 'fr' ? 'Poste' : 'Job title';
+    $header[] = $langcode == 'fr' ? 'Ministère' : 'Department';
+    $header[] = $langcode == 'fr' ? 'Lieu' : 'Location';
+    $header[] = $langcode == 'fr' ? 'Date limite' : 'Close date';
 
     // The rows of the render array as it's constructed.
     $rows = [];
