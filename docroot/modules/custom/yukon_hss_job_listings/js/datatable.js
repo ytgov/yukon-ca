@@ -26,6 +26,7 @@
 
         new DataTable('#yukon-hss-hrsmart-job-listings', {
           language: currentLanguage,
+          order: [[1, 'asc']],
           pageLength: 6,
           lengthChange: false,
           responsive: true,
