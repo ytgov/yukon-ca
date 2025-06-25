@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "906f2fdf3f5139b31d2db31787b73d82",
+    "content-hash": "5d91efdd571e61017ff93122d58ee3df",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5158,6 +5158,71 @@
             }
         },
         {
+            "name": "drupal/filefield_paths",
+            "version": "1.0.0-beta8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filefield_paths.git",
+                "reference": "8.x-1.0-beta8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filefield_paths-8.x-1.0-beta8.zip",
+                "reference": "8.x-1.0-beta8",
+                "shasum": "9f9df4f6e1f50a1c2550a22336ba4383497b52d4"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "conflict": {
+                "drush/drush": "<12.5.0"
+            },
+            "require-dev": {
+                "drupal/ctools": "*",
+                "drupal/pathauto": "*",
+                "drupal/redirect": "*",
+                "drupal/token": "*",
+                "drush/drush": ">=12.5.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta8",
+                    "datestamp": "1733186525",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "File (Field) Paths. Adds improved Token based file sorting and renaming functionalities.",
+            "homepage": "https://www.drupal.org/project/filefield_paths",
+            "keywords": [
+                "drupal",
+                "field",
+                "file",
+                "path",
+                "token"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/filefield_paths"
+            }
+        },
+        {
             "name": "drupal/focal_point",
             "version": "2.1.2",
             "source": {
@@ -6417,6 +6482,54 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/media_embed_extra",
                 "issues": "https://www.drupal.org/project/issues/media_embed_extra"
+            }
+        },
+        {
+            "name": "drupal/media_entity_file_replace",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_entity_file_replace.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_entity_file_replace-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "cfc0d500aba8b6ade547c9a17173f9a89fde02d0"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1724336085",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bkosborne",
+                    "homepage": "https://www.drupal.org/user/788032"
+                },
+                {
+                    "name": "joevagyok",
+                    "homepage": "https://www.drupal.org/user/2876343"
+                }
+            ],
+            "description": "Allows content editors to easily replace source files associated with any file-based media entity, preserving the original filename.",
+            "homepage": "https://www.drupal.org/project/media_entity_file_replace",
+            "support": {
+                "source": "https://git.drupalcode.org/project/media_entity_file_replace"
             }
         },
         {
@@ -17125,6 +17238,7 @@
         "drupal/ckeditor_div_manager": 15,
         "drupal/comment_notify": 20,
         "drupal/conditional_fields": 15,
+        "drupal/filefield_paths": 10,
         "drupal/linkchecker": 15,
         "drupal/media_directories": 20,
         "drupal/media_embed_extra": 10,
