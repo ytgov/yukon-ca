@@ -1,0 +1,12 @@
+yukon_moderation.node_all_revisions:
+  path: '/node/{node}/all-revisions'
+  defaults:
+    _controller: '\Drupal\yukon_moderation\Controller\NodeAllRevisionsController::viewAllRevisions'
+    _title: 'All Revisions (All Languages)'
+  requirements:
+    _permission: 'view all node revisions'
+    node: '\d+'
+  options:
+    parameters:
+      node:
+        type: entity:node
