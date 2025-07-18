@@ -123,7 +123,7 @@ class NodeAllRevisionsController extends ControllerBase {
             '#context' => [
               'date' => Markup::create($this->renderer->render($link_renderable)),
               'username' => Markup::create($this->renderer->render($username_renderable)),
-              'message' => $translated_revision->getRevisionLogMessage(),
+              'message' => Markup::create($translated_revision->getRevisionLogMessage()),
             ],
           ],
         ];
