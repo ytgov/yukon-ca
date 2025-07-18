@@ -1,0 +1,4 @@
+hide_language_switcher:
+  css:
+    base:
+      css/yukon-moderation.css: {}
