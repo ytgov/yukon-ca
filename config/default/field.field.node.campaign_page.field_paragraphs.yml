@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.call_to_action
     - paragraphs.paragraphs_type.chart
     - paragraphs.paragraphs_type.full_width_image
+    - paragraphs.paragraphs_type.hrsmart_job_listings
     - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.text
     - paragraphs.paragraphs_type.text_and_image
@@ -41,6 +42,7 @@ settings:
       call_to_action: call_to_action
       quote: quote
       chart: chart
+      hrsmart_job_listings: hrsmart_job_listings
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
@@ -70,6 +72,9 @@ settings:
       holiday_times:
         weight: 40
         enabled: false
+      hrsmart_job_listings:
+        weight: 42
+        enabled: true
       image_gallery:
         weight: -24
         enabled: false
