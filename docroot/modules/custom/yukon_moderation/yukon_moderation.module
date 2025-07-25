@@ -35,7 +35,7 @@ function yukon_moderation_form_alter(&$form, FormStateInterface $form_state, $fo
 function yukon_moderation_preprocess_html(&$variables) {
   $route_name = \Drupal::routeMatch()->getRouteName();
 
-  // Add specific body class for our all revisions page
+  // Add specific body class for our all revisions page.
   if ($route_name == 'yukon_moderation.node_all_revisions') {
     $variables['attributes']['class'][] = 'page-node-all-revisions';
   }
