@@ -68,11 +68,29 @@ class NodeAllRevisionsController extends ControllerBase {
 
     $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', ['@langname' => $langname, '%title' => $node->label()]) : $this->t('Revisions for %title', ['%title' => $node->label()]);
 
-    $header = [$this->t('Revision'), $this->t('Operations')];
+    // Build simple revisions table without comparison functionality
+    $build['node_revisions_table'] = $this->buildRevisionsTable($node, $has_translations);
+    $build['#attached'] = [
+      'library' => ['node/drupal.node.admin'],
+    ];
+
+    // Add CSS to hide language switcher only on this page
+    $build['#attached']['library'][] = 'yukon_moderation/hide_language_switcher';
+
+    return $build;
+  }
+
+  /**
+   * Builds the revisions table - simplified version.
+   */
+  protected function buildRevisionsTable(NodeInterface $node, $has_translations) {
+    $node_storage = $this->entityTypeManager()->getStorage('node');
+    $type = $node->getType();
 
     $revert_permission = (($this->currentUser()->hasPermission("revert $type revisions") || $this->currentUser()->hasPermission('revert all revisions') || $this->currentUser()->hasPermission('administer nodes')) && $node->access('update'));
     $delete_permission = (($this->currentUser()->hasPermission("delete $type revisions") || $this->currentUser()->hasPermission('delete all revisions') || $this->currentUser()->hasPermission('administer nodes')) && $node->access('delete'));
 
+    $header = [$this->t('Revision'), $this->t('Operations')];
     $rows = [];
     $default_revision = $node->getRevisionId();
     $current_revision_displayed = FALSE;
@@ -84,8 +102,11 @@ class NodeAllRevisionsController extends ControllerBase {
         continue;
       }
 
-      foreach ($revision->getTranslationLanguages() as $revision_langcode => $language) {
-        $translated_revision = $revision->getTranslation($revision_langcode);
+      // Get all available languages for this revision
+      $available_languages = $revision->getTranslationLanguages();
+
+      foreach ($available_languages as $langcode => $language) {
+        $translated_revision = $revision->getTranslation($langcode);
 
         if (!$translated_revision) {
           continue;
@@ -104,6 +125,8 @@ class NodeAllRevisionsController extends ControllerBase {
         // current language will be the same of the current default revision in
         // this case.
         $is_current_revision = $vid == $default_revision || (!$current_revision_displayed && $translated_revision->wasDefaultRevision());
+
+
         if (!$is_current_revision) {
           $link = Link::fromTextAndUrl($date, new Url('entity.node.revision', ['node' => $node->id(), 'node_revision' => $vid], ['language' => $language]));
         }
@@ -119,22 +142,18 @@ class NodeAllRevisionsController extends ControllerBase {
         $column = [
           'data' => [
             '#type' => 'inline_template',
-            '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
+            '#template' => '{% trans %}{{ date }} by {{ username }} ({{ language }}){% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
             '#context' => [
               'date' => Markup::create($this->renderer->render($link_renderable)),
               'username' => Markup::create($this->renderer->render($username_renderable)),
               'message' => Markup::create($translated_revision->getRevisionLogMessage()),
+              'language' => $language->getName(),
             ],
           ],
         ];
 
-        // Add language info if multilingual.
-        if ($has_translations) {
-          $column['data']['#template'] = '{% trans %}{{ date }} by {{ username }} ({{ language }}){% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}';
-          $column['data']['#context']['language'] = $language->getName();
-        }
-
         $this->renderer->addCacheableDependency($column['data'], $translated_revision);
+
         $row[] = $column;
 
         if ($is_current_revision) {
@@ -188,21 +207,13 @@ class NodeAllRevisionsController extends ControllerBase {
       }
     }
 
-    $build['node_revisions_table'] = [
+    return [
       '#theme' => 'table',
       '#rows' => $rows,
       '#header' => $header,
       '#attributes' => ['class' => 'node-revision-table'],
       '#empty' => $this->t('%type @entity does not have any revisions.', ['%type' => $node->getType(), '@entity' => $node->getEntityType()->getLabel()]),
-      '#attached' => [
-        'library' => ['node/drupal.node.admin'],
-      ],
     ];
-
-    // Add CSS to hide language switcher only on this page
-    $build['#attached']['library'][] = 'yukon_moderation/hide_language_switcher';
-
-    return $build;
   }
 
 }
