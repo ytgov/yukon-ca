@@ -203,6 +203,8 @@ class NodeAllRevisionsController extends ControllerBase {
             '#markup' => $language->getName(),
           ],
         ];
+        $row_class = 'lang-' . $language->getId();
+
         if ($is_current_revision) {
           $row[] = [
             'data' => [
@@ -212,9 +214,7 @@ class NodeAllRevisionsController extends ControllerBase {
             ],
           ];
 
-          $row['#attributes'] = [
-            'class' => ['revision-current'],
-          ];
+          $row_class .= ' revision-current';
         }
         else {
           $links = [];
@@ -250,7 +250,11 @@ class NodeAllRevisionsController extends ControllerBase {
           ];
         }
 
-        $rows[] = $row;
+        $rows[] = [
+          'data' => $row,
+          'class' => $row_class,
+          'no_striping' => TRUE,
+        ];
       }
     }
 
