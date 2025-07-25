@@ -104,7 +104,7 @@ class NodeAllRevisionsController extends ControllerBase {
         continue;
       }
 
-      // Check each configured language to see if this revision has content in it.
+      // Check each configured language to see if this revision has content.
       $available_languages = $this->languageManager()->getLanguages();
       foreach ($available_languages as $langcode => $language) {
         // Check if translation exists for this specific revision.
@@ -118,7 +118,7 @@ class NodeAllRevisionsController extends ControllerBase {
           continue;
         }
 
-        // Additional check: verify this translation has actual content at this revision.
+        // Additional check: verify this translation has actual content.
         // Skip if this translation doesn't have meaningful content changes.
         if (!$translated_revision->isRevisionTranslationAffected()) {
           continue;
@@ -131,6 +131,15 @@ class NodeAllRevisionsController extends ControllerBase {
 
         // Use revision link to link to revisions that are not active.
         $date = $this->dateFormatter->format($translated_revision->getRevisionCreationTime(), 'short');
+
+        // Get the moderation status for this revision.
+        $status = $translated_revision->isPublished() ? $this->t('Published') : $this->t('Draft');
+        if ($translated_revision->hasField('moderation_state') && !$translated_revision->get('moderation_state')->isEmpty()) {
+          $moderation_state = $translated_revision->get('moderation_state')->entity;
+          if ($moderation_state) {
+            $status = $moderation_state->label();
+          }
+        }
 
         // We treat also the latest translation-affecting revision as current
         // revision, if it was the default revision, since its values for the
@@ -156,12 +165,13 @@ class NodeAllRevisionsController extends ControllerBase {
         $column = [
           'data' => [
             '#type' => 'inline_template',
-            '#template' => '{% trans %}{{ date }} by {{ username }} ({{ language }}){% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
+            '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}<p class="revision-status">({{ language }} - {{ status }})</p>{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
             '#context' => [
               'date' => Markup::create($this->renderer->render($link_renderable)),
               'username' => Markup::create($this->renderer->render($username_renderable)),
               'message' => Markup::create($translated_revision->getRevisionLogMessage()),
               'language' => $language->getName(),
+              'status' => $status,
             ],
           ],
         ];
