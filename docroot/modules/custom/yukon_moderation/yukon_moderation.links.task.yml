@@ -1,0 +1,5 @@
+yukon_moderation.node_all_revisions_tab:
+  route_name: yukon_moderation.node_all_revisions
+  title: 'All Revisions'
+  base_route: entity.node.canonical
+  weight: 50
