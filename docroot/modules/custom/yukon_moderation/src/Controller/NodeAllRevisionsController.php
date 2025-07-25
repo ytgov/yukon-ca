@@ -4,7 +4,6 @@ namespace Drupal\yukon_moderation\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Datetime\DateFormatterInterface;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Render\Markup;
@@ -66,15 +65,18 @@ class NodeAllRevisionsController extends ControllerBase {
     $node_storage = $this->entityTypeManager()->getStorage('node');
     $type = $node->getType();
 
-    $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', ['@langname' => $langname, '%title' => $node->label()]) : $this->t('Revisions for %title', ['%title' => $node->label()]);
+    $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', [
+      '@langname' => $langname,
+      '%title' => $node->label(),
+    ]) : $this->t('Revisions for %title', ['%title' => $node->label()]);
 
-    // Build simple revisions table without comparison functionality
+    // Build simple revisions table without comparison functionality.
     $build['node_revisions_table'] = $this->buildRevisionsTable($node, $has_translations);
     $build['#attached'] = [
       'library' => ['node/drupal.node.admin'],
     ];
 
-    // Add CSS to hide language switcher only on this page
+    // Add CSS to hide language switcher only on this page.
     $build['#attached']['library'][] = 'yukon_moderation/hide_language_switcher';
 
     return $build;
@@ -102,13 +104,23 @@ class NodeAllRevisionsController extends ControllerBase {
         continue;
       }
 
-      // Get all available languages for this revision
-      $available_languages = $revision->getTranslationLanguages();
-
+      // Check each configured language to see if this revision has content in it.
+      $available_languages = $this->languageManager()->getLanguages();
       foreach ($available_languages as $langcode => $language) {
+        // Check if translation exists for this specific revision.
+        if (!$revision->hasTranslation($langcode)) {
+          continue;
+        }
+
         $translated_revision = $revision->getTranslation($langcode);
 
         if (!$translated_revision) {
+          continue;
+        }
+
+        // Additional check: verify this translation has actual content at this revision.
+        // Skip if this translation doesn't have meaningful content changes.
+        if (!$translated_revision->isRevisionTranslationAffected()) {
           continue;
         }
 
@@ -126,9 +138,11 @@ class NodeAllRevisionsController extends ControllerBase {
         // this case.
         $is_current_revision = $vid == $default_revision || (!$current_revision_displayed && $translated_revision->wasDefaultRevision());
 
-
         if (!$is_current_revision) {
-          $link = Link::fromTextAndUrl($date, new Url('entity.node.revision', ['node' => $node->id(), 'node_revision' => $vid], ['language' => $language]));
+          $link = Link::fromTextAndUrl($date, new Url('entity.node.revision', [
+            'node' => $node->id(),
+            'node_revision' => $vid,
+          ], ['language' => $language]));
         }
         else {
           $link = $node->toLink($date, 'canonical', ['language' => $language]);
@@ -212,7 +226,10 @@ class NodeAllRevisionsController extends ControllerBase {
       '#rows' => $rows,
       '#header' => $header,
       '#attributes' => ['class' => 'node-revision-table'],
-      '#empty' => $this->t('%type @entity does not have any revisions.', ['%type' => $node->getType(), '@entity' => $node->getEntityType()->getLabel()]),
+      '#empty' => $this->t('%type @entity does not have any revisions.', [
+        '%type' => $node->getType(),
+        '@entity' => $node->getEntityType()->getLabel(),
+      ]),
     ];
   }
 
