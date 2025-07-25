@@ -1,0 +1,5 @@
+hrsmart_xml_api_uri: 'https://integrations-ca.tm.deltek.com/hrsmart/middleware/Yukongovernment/getJobBoardPostings/'
+hrsmart_content_node_id: '25410'
+hrsmart_paragraphs_field_name: field_paragraphs
+hrsmart_paragraph_bundle_name: hrsmart_job_listings
+hrsmart_data_field_name: field_hrsmart_job_listings_data
