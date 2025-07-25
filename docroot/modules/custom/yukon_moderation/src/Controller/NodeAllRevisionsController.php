@@ -133,12 +133,29 @@ class NodeAllRevisionsController extends ControllerBase {
         $date = $this->dateFormatter->format($translated_revision->getRevisionCreationTime(), 'short');
 
         // Get the moderation status for this revision.
-        $status = $translated_revision->isPublished() ? $this->t('Published') : $this->t('Draft');
-        if ($translated_revision->hasField('moderation_state') && !$translated_revision->get('moderation_state')->isEmpty()) {
-          $moderation_state = $translated_revision->get('moderation_state')->entity;
-          if ($moderation_state) {
-            $status = $moderation_state->label();
+        $status = $this->t('Draft');
+
+        // Try to get moderation state using Content Moderation API.
+        if (\Drupal::moduleHandler()->moduleExists('content_moderation')) {
+          /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+          $moderation_info = \Drupal::service('content_moderation.moderation_information');
+          if ($moderation_info->isModeratedEntity($translated_revision)) {
+            $workflow = $moderation_info->getWorkflowForEntity($translated_revision);
+            if ($workflow) {
+              $current_state = $translated_revision->get('moderation_state')->value;
+              if ($current_state) {
+                $workflow_states = $workflow->getTypePlugin()->getStates();
+                if (isset($workflow_states[$current_state])) {
+                  $status = $workflow_states[$current_state]->label();
+                }
+              }
+            }
           }
+        }
+
+        // If content moderation didn't work, try basic published/unpublished.
+        if ($status == $this->t('Draft')) {
+          $status = $translated_revision->isPublished() ? $this->t('Published') : $this->t('Draft');
         }
 
         // We treat also the latest translation-affecting revision as current
