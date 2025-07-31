@@ -60,6 +60,17 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
       elseif ($status === 'extinguished') {
         $status_message = $is_prescribed ? 'Ce brûlage dirigé est terminé' : 'Le feu est maintenant éteint';
       }
+
+      // Response strings.
+      if (!$is_prescribed) {
+        # 2025 API replaced individual response flags with RESPONSE_TYPE status conditions.
+        $full_response = str_starts_with($type->RESPONSE_TYPE, 'FUL') ? "intervention complète, soit une attaque initiale énergique menée dans le but de contenir le feu et de l’éteindre le plus rapidement possible." : '';
+        $modified_response = str_starts_with($type->RESPONSE_TYPE, 'MOD') ? "intervention limitée, soit une évaluation du feu de forêt par le personnel qui utilise diverses techniques pour prévenir les dommages aux biens et aux infrastructures. Il est peu probable qu’il soit nécessaire ou possible d’éteindre complètement le feu." : '';
+        $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? "sous observation, soit la surveillance de l’évolution du feu par les autorités pour détecter d’éventuels problèmes, pour la population ou autre, mais laissent les feux jouer leur rôle dans le renouvellement naturel et écologique de la forêt." : '';
+      }
+      else {
+        $full_response = $modified_response = $monitored_response = '';
+      }
     }
     else {
       $initial_reported_date = date('l, F j, Y', $initial_reported_date) . ' at ' . date('g:i a', $initial_reported_date);
@@ -81,17 +92,17 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
       elseif ($status === 'extinguished') {
         $status_message = $is_prescribed ? 'This prescribed burn is complete' : 'This fire is extinguished';
       }
-    }
 
-    // Response strings.
-    if (!$is_prescribed) {
-      # 2025 API replaced individual response flags with RESPONSE_TYPE status conditions.
-      $full_response = str_starts_with($type->RESPONSE_TYPE, 'FUL') ? t("and requires a full response. An aggressive initial attack takes place with the goal of containing the fire and putting it out as quickly as possible.") : '';
-      $modified_response = str_starts_with($type->RESPONSE_TYPE, 'MOD') ? t("and requires a modified response. Fire personnel complete a wildland fire analysis and use a variety of techniques to prevent property and infrastructure damage. Full suppression of the fire is unlikely to be necessary or possible.") : '';
-      $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? t("and requires a monitored response. Officials keep track of the fire for potential social disruption or other major impacts as it fulfills its natural ecological role.") : '';
-    }
-    else {
-      $full_response = $modified_response = $monitored_response = '';
+      // Response strings.
+      if (!$is_prescribed) {
+        # 2025 API replaced individual response flags with RESPONSE_TYPE status conditions.
+        $full_response = str_starts_with($type->RESPONSE_TYPE, 'FUL') ? "We are providing a full response, where an aggressive initial attack takes place with the goal of containing the fire and putting it out as quickly as possible." : '';
+        $modified_response = str_starts_with($type->RESPONSE_TYPE, 'MOD') ? "We are providing a modified response to this wildfire, where fire personnel complete a wildland fire analysis and use a variety of techniques to prevent property and infrastructure damage. Full suppression of the fire is unlikely to be necessary or possible." : '';
+        $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? "We are providing a monitored response to this wildfire, where officials keep track of the fire for potential social disruption or other major impacts as it fulfills its natural ecological role." : '';
+      }
+      else {
+        $full_response = $modified_response = $monitored_response = '';
+      }
     }
 
     // Add response strings to array.
