@@ -27,8 +27,8 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
 
     // Language.
     if ($language == 'fr') {
-      $initial_reported_date = \Drupal::service('date.formatter')->format($initial_reported_date, 'custom', 'l j F Y', NULL, 'fr');
-      $last_updated_date = \Drupal::service('date.formatter')->format($last_updated_date, 'custom', 'l j F Y', NULL, 'fr');
+      $initial_reported_date = \Drupal::service('date.formatter')->format($initial_reported_date, 'custom', 'l j F Y \à H\&\n\b\s\p\;\h\&\n\b\s\p\;i', NULL, 'fr');
+      $last_updated_date = \Drupal::service('date.formatter')->format($last_updated_date, 'custom', 'l j F Y \à H\&\n\b\s\p\;\h\&\n\b\s\p\;i', NULL, 'fr');
       $fire_size = number_format((float) $type->FIRE_SIZE, 2, ',', ' ');
       // Fire management zone.
       $fire_management_zone = strtolower($type->FIRE_MANAGEMENT_ZONE_NAME);
