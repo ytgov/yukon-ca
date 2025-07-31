@@ -142,13 +142,22 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
             '#title' => t('Size of fire:'),
             '#markup' => $fire_size . ' ' . t('hectares in a') . ' ' . $fire_management_zone,
           ],
-          'responding' => [
-            '#type' => 'item',
-            '#title' => t("How we're responding:"),
-            '#markup' => $response,
-          ],
         ],
       ],
+    ];
+
+    if ($response) {
+      $content[$status . '-' . $type->OBJECTID]['data']['fields']['responding'] = [
+          '#type' => 'item',
+          '#title' => $language == 'fr' ? "Pour ce feu de forêt, le type d’intervention retenue est la suivante&nbsp;:" : "How we’re responding:",
+          '#markup' => $response,
+        ];
+    }
+
+    $content[$status . '-' . $type->OBJECTID]['data']['fields']['status'] = [
+      '#type' => 'item',
+      '#title' => $language == 'fr' ? "Le statut du feu de forêt est le suivant&nbsp;:" : "Status of fire:",
+      '#markup' => $status_message,
     ];
 
     if ($fire_of_note_display) {
