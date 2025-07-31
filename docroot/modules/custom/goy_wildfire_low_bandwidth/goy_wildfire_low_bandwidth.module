@@ -65,7 +65,7 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
       $initial_reported_date = date('l, F j, Y', $initial_reported_date) . ' at ' . date('g:i a', $initial_reported_date);
       $last_updated_date = date('l, F j, Y', $last_updated_date) . ' at ' . date('g:i a', $last_updated_date);
 
-      $fire_size = number_format((float) $type->FIRE_SIZE, 2, '.', '');
+      $fire_size = number_format((float) $type->FIRE_SIZE, 2, '.', ',');
       // Fire management zone.
       $fire_management_zone = strtolower($type->FIRE_MANAGEMENT_ZONE_NAME) . ' ' . t('fire management zone.');
       // Status.
