@@ -105,19 +105,21 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
       }
     }
 
-    // Add response strings to array.
+    $status_message .= '.';
     $response = '';
+
+    // Add response strings to array.
     if ($full_response) {
-      $response = $status_message . ' ' . $full_response;
+      $response = $full_response;
     }
     elseif ($modified_response) {
-      $response = $status_message . ' ' . $modified_response;
+      $response = $modified_response;
     }
     elseif ($monitored_response) {
-      $response = $status_message . ' ' . $monitored_response;
+      $response = $monitored_response;
     }
     if (empty($response) || $status === 'extinguished') {
-      $response = $status_message . '.';
+      $response = '';
     }
 
     // Add fire of note to array.
