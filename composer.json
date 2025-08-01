@@ -87,7 +87,7 @@
         "drupal/security_review": "^2.0",
         "drupal/selective_better_exposed_filters": "^3.0",
         "drupal/shield": "^1.8",
-        "drupal/single_content_sync": "1.4.5",
+        "drupal/single_content_sync": "^1.4",
         "drupal/smtp": "^1.2",
         "drupal/stage_file_proxy": "^3.1",
         "drupal/superfish": "^1.7",
