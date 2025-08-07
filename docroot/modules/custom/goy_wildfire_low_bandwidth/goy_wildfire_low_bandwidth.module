@@ -66,7 +66,7 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
         # 2025 API replaced individual response flags with RESPONSE_TYPE status conditions.
         $full_response = str_starts_with($type->RESPONSE_TYPE, 'FUL') ? "intervention complète, soit une attaque initiale énergique menée dans le but de contenir le feu et de l’éteindre le plus rapidement possible." : '';
         $modified_response = str_starts_with($type->RESPONSE_TYPE, 'MOD') ? "intervention limitée, soit une évaluation du feu de forêt par le personnel qui utilise diverses techniques pour prévenir les dommages aux biens et aux infrastructures. Il est peu probable qu’il soit nécessaire ou possible d’éteindre complètement le feu." : '';
-        $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? "sous observation, soit la surveillance de l’évolution du feu par les autorités pour détecter d’éventuels problèmes, pour la population ou autre, mais laissent les feux jouer leur rôle dans le renouvellement naturel et écologique de la forêt." : '';
+        $monitored_response = str_starts_with($type->RESPONSE_TYPE, 'MON') ? "sous observation, soit la surveillance de l’évolution du feu par les autorités pour détecter d’éventuels problèmes, pour la population ou autre. Les autorités laissent les feux jouer leur rôle dans le renouvellement naturel et écologique de la forêt." : '';
       }
       else {
         $full_response = $modified_response = $monitored_response = '';
