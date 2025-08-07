@@ -153,7 +153,7 @@ function goy_wildfire_low_bandwidth_get_wildfire_details_by_type($wild_fire_type
           'fire_size' => [
             '#type' => 'item',
             '#title' => t('Size of fire:'),
-            '#markup' => $fire_size . ' ' . t('hectares in a') . ' ' . $fire_management_zone,
+            '#markup' => $fire_size . ' ' . t('hectares in a') . ' ' . t($fire_management_zone),
           ],
         ],
       ],
