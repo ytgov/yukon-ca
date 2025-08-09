@@ -8,20 +8,20 @@ dependencies:
 id: blogs_en
 label: 'Blogs - En'
 type: 'canonical_entities:node'
-pattern: '/digital-blog/[node:title]'
+pattern: '/blogs/[node:field_blog_type:entity:name]/[node:title]'
 selection_criteria:
-  c5d70475-718a-4503-8aca-87040d0050d4:
+  16a2d87e-0fdf-4731-9723-b750c21c434c:
     id: 'entity_bundle:node'
     negate: false
-    uuid: c5d70475-718a-4503-8aca-87040d0050d4
+    uuid: 16a2d87e-0fdf-4731-9723-b750c21c434c
     context_mapping:
       node: node
     bundles:
       blog: blog
-  0849a004-7b56-4081-8f90-13f46f7e47e6:
+  23300969-e60a-4563-98cc-d1286606e582:
     id: language
     negate: false
-    uuid: 0849a004-7b56-4081-8f90-13f46f7e47e6
+    uuid: 23300969-e60a-4563-98cc-d1286606e582
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
