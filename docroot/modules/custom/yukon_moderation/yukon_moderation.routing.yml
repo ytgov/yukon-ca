@@ -4,7 +4,7 @@ yukon_moderation.node_all_revisions:
     _controller: '\Drupal\yukon_moderation\Controller\NodeAllRevisionsController::viewAllRevisions'
     _title: 'All Revisions (All Languages)'
   requirements:
-    _permission: 'view all node revisions'
+    _permission: 'view all revisions'
     node: '\d+'
   options:
     _admin_route: TRUE

@@ -92,7 +92,7 @@ class NodeAllRevisionsController extends ControllerBase {
     $revert_permission = (($this->currentUser()->hasPermission("revert $type revisions") || $this->currentUser()->hasPermission('revert all revisions') || $this->currentUser()->hasPermission('administer nodes')) && $node->access('update'));
     $delete_permission = (($this->currentUser()->hasPermission("delete $type revisions") || $this->currentUser()->hasPermission('delete all revisions') || $this->currentUser()->hasPermission('administer nodes')) && $node->access('delete'));
 
-    $header = [$this->t('Revision'), $this->t('Operations')];
+    $header = [$this->t('Revision'), $this->t('Language'), $this->t('Operations')];
     $rows = [];
     $default_revision = $node->getRevisionId();
     $current_revision_displayed = FALSE;
@@ -179,10 +179,11 @@ class NodeAllRevisionsController extends ControllerBase {
         $username_renderable = $username;
 
         $row = [];
+
         $column = [
           'data' => [
             '#type' => 'inline_template',
-            '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}<p class="revision-status">({{ language }} - {{ status }})</p>{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
+            '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}<p class="revision-log"> {% if message %} {{ message }} {% endif %}<span class="revision-status">({{ status }})</span></p>',
             '#context' => [
               'date' => Markup::create($this->renderer->render($link_renderable)),
               'username' => Markup::create($this->renderer->render($username_renderable)),
@@ -197,6 +198,13 @@ class NodeAllRevisionsController extends ControllerBase {
 
         $row[] = $column;
 
+        $row[] = [
+          'data' => [
+            '#markup' => $language->getName(),
+          ],
+        ];
+        $row_class = 'lang-' . $language->getId();
+
         if ($is_current_revision) {
           $row[] = [
             'data' => [
@@ -206,9 +214,7 @@ class NodeAllRevisionsController extends ControllerBase {
             ],
           ];
 
-          $row['#attributes'] = [
-            'class' => ['revision-current'],
-          ];
+          $row_class .= ' revision-current';
         }
         else {
           $links = [];
@@ -244,7 +250,11 @@ class NodeAllRevisionsController extends ControllerBase {
           ];
         }
 
-        $rows[] = $row;
+        $rows[] = [
+          'data' => $row,
+          'class' => $row_class,
+          'no_striping' => TRUE,
+        ];
       }
     }
 

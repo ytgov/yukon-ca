@@ -2,4 +2,12 @@
   #block-editlanguageblock {
     display: none !important;
   }
+  tr.lang-en {
+  }
+  tr.lang-fr {
+    background: var(--color-bgblue-active);
+  }
+  tr.lang-fr:hover {
+    background: var(--color-bgblue-hover);
+  }
 }
