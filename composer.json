@@ -18,7 +18,7 @@
         "drupal/better_exposed_filters": "^6.0",
         "drupal/bigmenu": "^2.0@RC",
         "drupal/block_class": "^3.0",
-        "drupal/ckeditor5_plugin_pack": "^1.1",
+        "drupal/ckeditor5_plugin_pack": "^1.4",
         "drupal/ckeditor5_show_block": "^1.14",
         "drupal/ckeditor_div_manager": "^3.0@alpha",
         "drupal/ckeditor_media_resize": "^1.0",
