@@ -294,7 +294,7 @@ function yukonca_glider_preprocess_node__event(&$variables) {
 
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($langcode == 'en') {
-    if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
+    if (date('i', strtotime($node->field_event_start_time->value)) == "00") {
       $start_time = date('g a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
       $end_time = date('g a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
     }
@@ -305,7 +305,7 @@ function yukonca_glider_preprocess_node__event(&$variables) {
   }
   else {
     if (!empty($node->field_event_start_time->value)) {
-      if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
+      if (date('i', strtotime($node->field_event_start_time->value)) == "00") {
         $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
         $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
       }
