@@ -14,9 +14,9 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  */
 #[FieldType(
   id: "field_hrsmart_job_listings",
-  label: new TranslatableMarkup("HSS Job Listings data"),
+  label: new TranslatableMarkup("HSS HRSmart Job Listings data"),
   description: [
-    new TranslatableMarkup("Store HSS job listings structured data."),
+    new TranslatableMarkup("Store HSS HRSmart job listings structured data."),
   ],
   category: "plain_text",
   default_widget: "string_textarea",

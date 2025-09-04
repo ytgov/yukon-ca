@@ -14,7 +14,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  */
 #[FieldFormatter(
   id: "field_hrsmart_job_listings_formatter",
-  label: new TranslatableMarkup("Format the HRSmart job listings as a table."),
+  label: new TranslatableMarkup("Format the HSS HRSmart job listings as a table."),
   field_types: ["field_hrsmart_job_listings"],
 )]
 class HRSmartJobListingsFormatter extends FormatterBase {

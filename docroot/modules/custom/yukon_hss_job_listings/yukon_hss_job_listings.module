@@ -14,50 +14,61 @@ use GuzzleHttp\Exception\GuzzleException;
 function yukon_hss_job_listings_cron(): void {
   // Populate the HRSmart job listings field.
   $config = Drupal::config('yukon_hss_job_listings.settings');
-  $hrsmartApiUri = $config->get('hrsmart_xml_api_uri') . $config->get('hrsmart_xml_api_key');
 
-  try {
-    $client = new Client();
-    $response = $client->get($hrsmartApiUri, ['headers' => ['Accept' => 'text/xml']]);
-    $xml = (string) $response->getBody();
-  } catch (GuzzleException $e) {
+  foreach (['hrsmart', 'ukg_pro'] as $source) {
+    if ($source === 'hrsmart') {
+      // Glue the HRSmart URI pieces together.
+      $apiUri = $config->get('hrsmart_xml_api_uri') . $config->get('hrsmart_xml_api_key');
+      $apiAccept = 'text/xml';
+    } else {
+      // Insert the UKG Pro integration ID into the URI.
+      $apiUri = str_replace('INTEGRATION_ID', $config->get('ukg_pro_integration_id'), $config->get('ukg_pro_api_uri'));
+      $apiAccept = 'text/json';
+    }
+
+    try {
+      $client = new Client();
+      $response = $client->get($apiUri, ['headers' => ['Accept' => $apiAccept]]);
+      $payload = (string)$response->getBody();
+    } catch (GuzzleException $e) {
+      Drupal::logger('yukon_hss_job_listings')
+        ->error('HSS job listings API request failed: @message', ['@message' => $e->getMessage()]);
+      return;
+    }
+
     Drupal::logger('yukon_hss_job_listings')
-      ->error('HRSmart API request failed: @message', ['@message' => $e->getMessage()]);
-    return;
-  }
+      ->info('HSS job listings API request succeeded.');
 
-  Drupal::logger('yukon_hss_job_listings')
-    ->info('HRSmart API request succeeded.');
+    $nodeId = $config->get($source . '_content_node_id');
+    $paragraphsFieldName = $config->get($source . '_paragraphs_field_name');
+    $paragraphBundleName = $config->get($source . '_paragraph_bundle_name');
+    $dataFieldName = $config->get($source . '_data_field_name');
 
-  $hrsmartNodeId = $config->get('hrsmart_content_node_id');
-  $hrsmartParagraphsFieldName = $config->get('hrsmart_paragraphs_field_name');
-  $hrsmartParagraphBundleName = $config->get('hrsmart_paragraph_bundle_name');
-  $hrsmartDataFieldName = $config->get('hrsmart_data_field_name');
+    try {
+      $node_en = Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->load($nodeId);
 
-  try {
-    $node_en = Drupal::entityTypeManager()
-      ->getStorage('node')
-      ->load($hrsmartNodeId);
+      $node_fr = $node_en->getTranslation('fr');
+    } catch (Exception $e) {
+      Drupal::logger('yukon_hss_job_listings')
+        ->error('Failed to locate content node for HSS job listings: @message', ['@message' => $e->getMessage()]);
+      return;
+    }
 
-    $node_fr = $node_en->getTranslation('fr');
-  } catch (Exception $e) {
-    Drupal::logger('yukon_hss_job_listings')
-      ->error('Failed to locate content node for HRSmart job listings: @message', ['@message' => $e->getMessage()]);
-    return;
-  }
+    // Hunt down and set the value of the job listings data field within the paragraph
+    // type within the field of paragraphs within the content item for both English and
+    // French. If any step fails, the field will retain its previous contents.
+    foreach ([$node_en, $node_fr] as $translated_node) {
+      if ($translated_node && $translated_node->hasField($paragraphsFieldName)) {
+        $fieldParagraphs = $translated_node->get($paragraphsFieldName)->referencedEntities();
 
-  // Hunt down and set the value of the HRSmart data field within the paragraph type
-  // within the field of paragraphs within the content item for both English and
-  // French. If any step fails, the field will retain its previous contents.
-  foreach ([$node_en, $node_fr] as $translated_node) {
-    if ($translated_node && $translated_node->hasField($hrsmartParagraphsFieldName)) {
-      $fieldParagraphs = $translated_node->get($hrsmartParagraphsFieldName)->referencedEntities();
-
-      if (!empty($fieldParagraphs)) {
-        foreach ($fieldParagraphs as $fieldParagraph) {
-          if ($fieldParagraph->bundle() === $hrsmartParagraphBundleName) {
-            $fieldParagraph->set($hrsmartDataFieldName, $xml);
-            $fieldParagraph->save();
+        if (!empty($fieldParagraphs)) {
+          foreach ($fieldParagraphs as $fieldParagraph) {
+            if ($fieldParagraph->bundle() === $paragraphBundleName) {
+              $fieldParagraph->set($dataFieldName, $payload);
+              $fieldParagraph->save();
+            }
           }
         }
       }

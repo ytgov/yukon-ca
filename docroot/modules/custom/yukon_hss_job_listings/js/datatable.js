@@ -24,7 +24,7 @@
           }
         }
 
-        new DataTable('#yukon-hss-hrsmart-job-listings', {
+        new DataTable('#yukon-hss-hrsmart-job-listings,#yukon-hss-ukg-pro-job-listings', {
           language: currentLanguage,
           order: [[1, 'asc']],
           pageLength: 6,

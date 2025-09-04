@@ -16,6 +16,9 @@ final class HSSJobListingsSettingsForm extends ConfigFormBase {
   const HRSMART_PARAGRAPHS_FIELD_NAME = 'field_paragraphs';
   const HRSMART_PARAGRAPH_BUNDLE_NAME = 'hrsmart_job_listings';
   const HRSMART_DATA_FIELD_NAME = 'field_hrsmart_job_listings_data';
+  const UKG_PRO_PARAGRAPHS_FIELD_NAME = 'field_paragraphs';
+  const UKG_PRO_PARAGRAPH_BUNDLE_NAME = 'ukg_pro_job_listings';
+  const UKG_PRO_DATA_FIELD_NAME = 'field_ukg_pro_job_listings_data';
 
   /**
    * {@inheritdoc}
@@ -35,6 +38,12 @@ final class HSSJobListingsSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
+    $form['hrsmart_heading'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $this->t('HRSmart/Deltek Settings'),
+    ];
+
     $form['hrsmart_xml_api_uri'] = [
       '#type' => 'url',
       '#title' => $this->t('HRSmart XML API endpoint URI'),
@@ -81,6 +90,58 @@ final class HSSJobListingsSettingsForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
+    $form['ukg_pro_heading'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $this->t('UKG Pro/YHC Settings'),
+    ];
+
+    $form['ukg_pro_api_uri'] = [
+      '#type' => 'url',
+      '#title' => $this->t('UKG Pro API endpoint URI'),
+      '#default_value' => $this->config(self::SETTINGS_KEY)->get('ukg_pro_api_uri'),
+      '#description' => $this->t('API endpoint URI for the UKG Pro/YHC jobs listings in JSON format. Write "INTEGRATION_ID" wherever the integration ID (see following) should be inserted.'),
+      '#required' => TRUE,
+    ];
+
+    $form['ukg_pro_integration_id'] = [
+      '#type' => 'item',
+      '#title' => $this->t('UKG Pro API integration ID'),
+      '#description' => $this->t("Set the integration ID for the UKG Pro/YHC jobs listings API in the Drupal settings file: \$config['yukon_hss_job_listings.settings']['ukg_pro_integration_id'] = 'xxx...';"),
+    ];
+
+    $form['ukg_pro_content_node_id'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Node ID of the content item displaying the UKG Pro job listings'),
+      '#default_value' => $this->config(self::SETTINGS_KEY)->get('ukg_pro_content_node_id'),
+      '#description' => $this->t('Edit the content item to view the node ID number in the URL path.'),
+      '#required' => TRUE,
+    ];
+
+    $form['ukg_pro_paragraphs_field_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Machine name of the paragraphs field'),
+      '#default_value' => $this->config(self::SETTINGS_KEY)->get('ukg_pro_paragraphs_field_name') ?? self::UKG_PRO_PARAGRAPHS_FIELD_NAME,
+      '#description' => $this->t("Look up the machine name for this field in the content type's Manage Fields tab."),
+      '#required' => TRUE,
+    ];
+
+    $form['ukg_pro_paragraph_bundle_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Machine name of the UKG Pro paragraph type'),
+      '#default_value' => $this->config(self::SETTINGS_KEY)->get('ukg_pro_paragraph_bundle_name') ?? self::UKG_PRO_PARAGRAPH_BUNDLE_NAME,
+      '#description' => $this->t('Look up the machine name for the "UKG Pro/YHC job listings" paragraph type.'),
+      '#required' => TRUE,
+    ];
+
+    $form['ukg_pro_data_field_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Machine name of the UKG Pro job listings field type'),
+      '#default_value' => $this->config(self::SETTINGS_KEY)->get('ukg_pro_data_field_name') ?? self::UKG_PRO_DATA_FIELD_NAME,
+      '#description' => $this->t('Look up the machine name for the "HSS Jobs Listings data" field type within the above paragraph type.'),
+      '#required' => TRUE,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -94,6 +155,11 @@ final class HSSJobListingsSettingsForm extends ConfigFormBase {
       ->set('hrsmart_paragraphs_field_name', $form_state->getValue('hrsmart_paragraphs_field_name'))
       ->set('hrsmart_paragraph_bundle_name', $form_state->getValue('hrsmart_paragraph_bundle_name'))
       ->set('hrsmart_data_field_name', $form_state->getValue('hrsmart_data_field_name'))
+      ->set('ukg_pro_api_uri', $form_state->getValue('ukg_pro_api_uri'))
+      ->set('ukg_pro_content_node_id', $form_state->getValue('ukg_pro_content_node_id'))
+      ->set('ukg_pro_paragraphs_field_name', $form_state->getValue('ukg_pro_paragraphs_field_name'))
+      ->set('ukg_pro_paragraph_bundle_name', $form_state->getValue('ukg_pro_paragraph_bundle_name'))
+      ->set('ukg_pro_data_field_name', $form_state->getValue('ukg_pro_data_field_name'))
       ->save();
 
     parent::submitForm($form, $form_state);
