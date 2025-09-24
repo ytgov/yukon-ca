@@ -99,12 +99,16 @@ type_settings:
       from:
         - draft
         - needs_review
+        - published
+        - ready_to_publish
       to: ready_to_publish
       weight: 3
     submit_for_review:
       label: 'Submit for Review'
       from:
         - draft
+        - needs_review
+        - published
       to: needs_review
       weight: 2
     submit_for_scheduled_publishing:
