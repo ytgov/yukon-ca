@@ -167,6 +167,7 @@ permissions:
   - 'use content transition publish'
   - 'use content transition publish'
   - 'use content transition publish_directly'
+  - 'use content transition reject'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
   - 'use text format full_html'
