@@ -1,9 +1,11 @@
-.page-node-all-revisions {
+.page-node-all-revisions,
+.page-yukon-moderation-compare-revisions {
   #block-editlanguageblock {
     display: none !important;
   }
-  tr.lang-en {
-  }
+}
+
+.page-node-all-revisions {
   tr.lang-fr {
     background: var(--color-bgblue-active);
   }

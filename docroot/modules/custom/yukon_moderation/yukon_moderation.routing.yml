@@ -11,3 +11,19 @@ yukon_moderation.node_all_revisions:
     parameters:
       node:
         type: entity:node
+
+yukon_moderation.compare_revisions:
+  path: '/node/{node}/compare-revisions/{left_revision}/{right_revision}/{left_langcode}/{right_langcode}'
+  defaults:
+    _controller: '\Drupal\yukon_moderation\Controller\NodeAllRevisionsController::compareRevisions'
+    _title: 'Compare Revisions'
+  requirements:
+    _permission: 'view all revisions'
+    node: '\d+'
+    left_revision: '\d+'
+    right_revision: '\d+'
+  options:
+    _admin_route: TRUE
+    parameters:
+      node:
+        type: entity:node

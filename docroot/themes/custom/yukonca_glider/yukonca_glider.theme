@@ -66,8 +66,6 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $translated_entity = $node->getTranslation($langcode);
       $translated_title = $translated_entity->getTitle();
       $variables['title'] = $translated_title;
-
-      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $variables['landing_page_url'] = $base_url . "/" . $langcode . $alias;
     }
   }
@@ -92,13 +90,13 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
         $variables['start_time'] = $start_time[0] . ' h ' . date("i", $paragraph->field_opening_time->value);
       }
       else {
-        $variables['start_time'] = $start_time[0] != '0' ? $start_time[0] : '00' . ' h';
+        $variables['start_time'] = $start_time[0] != '0' ? $start_time[0] . ' h' : '00' . ' h';
       }
       if (isset($end_time[1])) {
         $variables['end_time'] = $end_time[0] . ' h ' . date("i", $paragraph->field_closing_time->value);
       }
       else {
-        $variables['end_time'] = $end_time[0] != '0' ? $end_time[0] : '00' . ' h';
+        $variables['end_time'] = $end_time[0] != '0' ? $end_time[0] . ' h' : '00' . ' h';
       }
     }
     $variables['lang'] = $langcode;
@@ -292,34 +290,46 @@ function yukonca_glider_preprocess_node__event(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
   $variables['six_months_old'] = FALSE;
-  date_default_timezone_set('America/Whitehorse');
 
+  // Get the timezone, default to Whitehorse.
+  $timezone = 'America/Whitehorse';
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  if ($langcode == 'en') {
-    if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
-      $start_time = date('g a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('g a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-    }
-    else {
-      $start_time = date('g:i a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('g:i a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-    }
-  }
-  else {
-    if (!empty($node->field_event_start_time->value)) {
-      if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
-        $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-        $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+
+  if (!empty($node->field_event_start_time->value)) {
+    // Create DateTime objects from UTC values and convert to target timezone.
+    $start_datetime = new \DateTime($node->field_event_start_time->value, new \DateTimeZone('UTC'));
+    $start_datetime->setTimezone(new \DateTimeZone($timezone));
+
+    $end_datetime = new \DateTime($node->field_event_start_time->end_value, new \DateTimeZone('UTC'));
+    $end_datetime->setTimezone(new \DateTimeZone($timezone));
+
+    // Add properly timezone-converted date for template use.
+    $variables['event_date'] = $start_datetime->format('Y-m-d H:i:s');
+
+    if ($langcode == 'en') {
+      if ($start_datetime->format('i') == "00") {
+        $start_time = $start_datetime->format('g a');
+        $end_time = $end_datetime->format('g a');
       }
       else {
-        $start_time = date('G \h i', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-        $end_time = date('G \h i', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
+        $start_time = $start_datetime->format('g:i a');
+        $end_time = $end_datetime->format('g:i a');
       }
     }
-  }
+    else {
+      if ($start_datetime->format('i') == "00") {
+        $start_time = $start_datetime->format('G \h');
+        $end_time = $end_datetime->format('G \h');
+      }
+      else {
+        $start_time = $start_datetime->format('G \h i');
+        $end_time = $end_datetime->format('G \h i');
+      }
+    }
 
-  $variables['start_time'] = $start_time;
-  $variables['end_time'] = $end_time;
+    $variables['start_time'] = $start_time;
+    $variables['end_time'] = $end_time;
+  }
 }
 
 /**
