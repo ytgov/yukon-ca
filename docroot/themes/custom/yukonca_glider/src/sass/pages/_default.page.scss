@@ -67,7 +67,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 18px 32px;
+  padding: 18px;
   background-color: #0B7AE5;
   color: #FFF;
   border: none;
@@ -81,6 +81,18 @@ h3 {
 
   .fa-phone {
     font-size: 24px;
+  }
+
+  .click-to-call-text {
+    @apply hidden;
+
+    @include media-breakpoint-up(md) {
+      @apply inline;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 18px 32px;
   }
 
   &:hover {
