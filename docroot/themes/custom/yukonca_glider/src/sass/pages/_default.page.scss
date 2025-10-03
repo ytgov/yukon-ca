@@ -56,6 +56,46 @@ h3 {
   }
 }
 
+.click-to-call-floating-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.click-to-call-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 32px;
+  background-color: #0B7AE5;
+  color: #FFF;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  .fa-phone {
+    font-size: 24px;
+  }
+
+  &:hover {
+    background-color: #096CC7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: #075BA8;
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
 #acknowledgment-statement {
   @apply bg-gray-light border-0 border-b-4 border-solid border-b-yellow border-t-4 border-t-yellow;
 

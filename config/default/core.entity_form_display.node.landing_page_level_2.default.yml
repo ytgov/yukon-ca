@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page_level_2.body
+    - field.field.node.landing_page_level_2.field_click_to_call
     - field.field.node.landing_page_level_2.field_department_term
     - field.field.node.landing_page_level_2.field_editor_publisher
     - field.field.node.landing_page_level_2.field_icon_dark
@@ -66,6 +67,23 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
+    group_click_to_call:
+      children:
+        - field_click_to_call
+      label: 'Click to Call'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.landing_page_level_2.default
 targetEntityType: node
 bundle: landing_page_level_2
@@ -84,6 +102,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_click_to_call:
+    type: options_buttons
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,21 @@
+uuid: d994b053-2257-4d97-96c8-d356ef3ce1c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+id: config_pages.field_button_text_ctc
+field_name: field_button_text_ctc
+entity_type: config_pages
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

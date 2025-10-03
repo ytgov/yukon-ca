@@ -1,0 +1,28 @@
+uuid: a9968156-7e4d-4139-bc3b-75800f28996f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call
+    - node.type.topics_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.topics_page.field_click_to_call
+field_name: field_click_to_call
+entity_type: node
+bundle: topics_page
+label: 'Click to Call'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

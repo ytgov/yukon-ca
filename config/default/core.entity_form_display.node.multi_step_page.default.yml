@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.multi_step_page.body
+    - field.field.node.multi_step_page.field_click_to_call
     - field.field.node.multi_step_page.field_contact
     - field.field.node.multi_step_page.field_department_term
     - field.field.node.multi_step_page.field_editor_publisher
@@ -38,7 +39,7 @@ third_party_settings:
       label: 'Social sharing'
       region: content
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -70,7 +71,7 @@ third_party_settings:
       label: 'Full Width'
       region: content
       parent_name: ''
-      weight: 21
+      weight: 22
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -116,6 +117,23 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
+    group_click_to_call:
+      children:
+        - field_click_to_call
+      label: 'Click to Call'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.multi_step_page.default
 targetEntityType: node
 bundle: multi_step_page
@@ -140,6 +158,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_click_to_call:
+    type: options_buttons
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.tertiary_item_blocks
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_click_to_call
     - field.field.node.landing_page.field_department_term
     - field.field.node.landing_page.field_editor_publisher
     - field.field.node.landing_page.field_icon_dark
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
+    - field.field.node.landing_page.field_translation_status
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
@@ -42,6 +44,7 @@ content:
 hidden:
   addtoany: true
   body: true
+  field_click_to_call: true
   field_department_term: true
   field_editor_publisher: true
   field_icon_dark: true
@@ -52,6 +55,7 @@ hidden:
   field_redirection: true
   field_secondary_content: true
   field_target_content: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

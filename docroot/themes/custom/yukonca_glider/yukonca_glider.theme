@@ -552,7 +552,7 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
   }
 
-  $config_pages_storage =  \Drupal::entityTypeManager()->getStorage('config_pages');
+  $config_pages_storage = \Drupal::entityTypeManager()->getStorage('config_pages');
   // Validate quick exit only if the field exist and it is not NULL.
   if ((!empty($node)) && ($node->hasField('field_quick_exit'))) {
     $field_value = (bool) $node->get('field_quick_exit')->value;
@@ -568,6 +568,20 @@ function yukonca_glider_preprocess_page(&$variables) {
           'back' => $quick_exit_entity->get('field_back_button')->value,
           'previous' => $quick_exit_entity->get('field_previous_tab')->value,
         ];
+      }
+    }
+  }
+
+  // Click to call functionality.
+  if ((!empty($node)) && ($node->hasField('field_click_to_call'))) {
+    $field_value = (bool) $node->get('field_click_to_call')->value;
+    if ($field_value) {
+      $click_to_call_entity = $config_pages_storage->load('click_to_call');
+
+      if (!empty($click_to_call_entity)) {
+        $variables['click_to_call']['enable'] = $field_value;
+        $variables['click_to_call']['button_text'] = $click_to_call_entity->get('field_button_text_ctc')->value;
+        $variables['click_to_call']['telephone'] = $click_to_call_entity->get('field_telephone')->value;
       }
     }
   }

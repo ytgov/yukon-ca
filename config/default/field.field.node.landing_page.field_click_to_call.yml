@@ -1,0 +1,28 @@
+uuid: 3a8ebb63-7e23-4f19-8da2-9fc9c0d5d34d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call
+    - node.type.landing_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.landing_page.field_click_to_call
+field_name: field_click_to_call
+entity_type: node
+bundle: landing_page
+label: 'Click to Call'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enabled
+  off_label: Disabled
+field_type: boolean

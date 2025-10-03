@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.multi_step_page.body
+    - field.field.node.multi_step_page.field_click_to_call
     - field.field.node.multi_step_page.field_contact
     - field.field.node.multi_step_page.field_department_term
     - field.field.node.multi_step_page.field_editor_publisher
@@ -48,6 +49,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_click_to_call: true
   field_contact: true
   field_department_term: true
   field_editor_publisher: true

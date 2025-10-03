@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.basic_page.body
+    - field.field.node.basic_page.field_click_to_call
     - field.field.node.basic_page.field_collapsible_items
     - field.field.node.basic_page.field_contact
     - field.field.node.basic_page.field_department_term
@@ -100,6 +101,23 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
+    group_click_to_call:
+      children:
+        - field_click_to_call
+      label: 'Click to Call'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.basic_page.default
 targetEntityType: node
 bundle: basic_page
@@ -118,6 +136,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_click_to_call:
+    type: options_buttons
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
