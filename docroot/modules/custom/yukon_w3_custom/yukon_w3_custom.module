@@ -309,10 +309,6 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
     // This allows one exposed filter to work across both content types.
     $exposed_input = $view->getExposedInput();
 
-    // DEBUG: Log what we have.
-    \Drupal::logger('yukon_w3_custom')->debug('Exposed input: @input', ['@input' => print_r($exposed_input, TRUE)]);
-    \Drupal::logger('yukon_w3_custom')->debug('Query where groups: @groups', ['@groups' => print_r(array_keys($query->where), TRUE)]);
-
     // Find Group 1 (basic_page/multi_step_page group) in the where conditions.
     // Views uses the group numbers from config as array keys.
     // Group 1 in config = $query->where[1] (basic_page, multi_step_page).
@@ -322,12 +318,9 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
       return;
     }
 
-    \Drupal::logger('yukon_w3_custom')->debug('Group 1 before: @group', ['@group' => print_r($query->where[1], TRUE)]);
-
     // Apply department filter to Group 1 if it exists and has a value.
     // (Department exposed filter is in Group 2, so we copy it to Group 1).
     if (!empty($exposed_input['field_department_term_target_id']) && $exposed_input['field_department_term_target_id'] !== 'All') {
-      \Drupal::logger('yukon_w3_custom')->debug('Adding department filter to Group 1: @dept', ['@dept' => $exposed_input['field_department_term_target_id']]);
       $query->where[1]['conditions'][] = [
         'field' => 'node__field_department_term.field_department_term_target_id',
         'value' => [$exposed_input['field_department_term_target_id']],
@@ -337,7 +330,6 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
 
     // Apply category filter to Group 1 if it exists and has a value.
     if (!empty($exposed_input['field_category_target_id']) && $exposed_input['field_category_target_id'] !== 'All') {
-      \Drupal::logger('yukon_w3_custom')->debug('Adding category filter to Group 1: @cat', ['@cat' => $exposed_input['field_category_target_id']]);
       $query->where[1]['conditions'][] = [
         'field' => 'node__field_category.field_category_target_id',
         'value' => [$exposed_input['field_category_target_id']],
@@ -345,18 +337,16 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
       ];
     }
 
-    // Apply combine (search) filter to BOTH groups if it exists and has a value.
+    // Apply combine filter to BOTH groups if it exists and has a value.
     if (!empty($exposed_input['combine'])) {
       // The combine filter uses different fields for each content type:
-      // For basic pages (Group 1): field_form_title and field_form_meta_description.
-      // For documents (Group 2): title and body.
+      // For basic pages (G1): field_form_title, field_form_meta_description.
+      // For documents (G2): title and body.
       $search_value = $exposed_input['combine'];
       $escaped_search = \Drupal::database()->escapeLike($search_value);
 
-      \Drupal::logger('yukon_w3_custom')->debug('Adding combine filter to both groups: @search', ['@search' => $search_value]);
-
       // Add to Group 1 (basic_page/multi_step_page).
-      // Search field_form_title and field_form_meta_description for basic pages.
+      // Search field_form_title, field_form_meta_description for basic pages.
       $query->addWhereExpression(1, "(node__field_form_title.field_form_title_value LIKE :search_value_g1 OR node__field_form_meta_description.field_form_meta_description_value LIKE :search_value_g1)", [
         ':search_value_g1' => '%' . $escaped_search . '%',
       ]);
@@ -368,14 +358,14 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
       ]);
     }
 
-    \Drupal::logger('yukon_w3_custom')->debug('Group 1 after: @group', ['@group' => print_r($query->where[1], TRUE)]);
-    \Drupal::logger('yukon_w3_custom')->debug('Group 2 after: @group', ['@group' => print_r($query->where[2], TRUE)]);
-
     // Add a computed field for sorting using IFNULL.
-    // For documents: use field_last_updated if it exists, otherwise use changed timestamp.
-    // For basic pages: use changed timestamp (field_last_updated doesn't exist).
-    // We use 'changed' as a tiebreaker to ensure items edited on the same day are sorted by time.
-    // field_last_updated only stores date (no time), so we use changed for time precision.
+    // For documents: use field_last_updated if it exists,
+    // otherwise use changed timestamp.
+    // basic pages: use changed timestamp (field_last_updated doesn't exist).
+    // We use 'changed' as a tiebreaker to ensure items edited on the same
+    // day are sorted by time.
+    // field_last_updated only stores date (no time),
+    // so we use changed for time precision.
     $formula = 'IFNULL(UNIX_TIMESTAMP(node__field_last_updated.field_last_updated_value), node_field_data.changed)';
 
     // Clear the existing orderby from the view configuration.
@@ -385,7 +375,8 @@ function yukon_w3_custom_views_query_alter(ViewExecutable $view, QueryPluginBase
     $query->addOrderBy(NULL, $formula, 'DESC', 'computed_sort_date');
 
     // Secondary sort: by changed timestamp for items with the same date.
-    // This ensures proper ordering when multiple items have the same field_last_updated date.
+    // This ensures proper ordering when multiple items have the same
+    // field_last_updated date.
     $query->addOrderBy('node_field_data', 'changed', 'DESC', 'changed_tiebreaker');
   }
 }
@@ -397,14 +388,15 @@ function yukon_w3_custom_views_post_execute(ViewExecutable $view) {
   // Sort documents_browse page_1 by computed date field.
   // This runs after query execution but before paging is applied.
   if ($view->id() === 'documents_browse' && $view->current_display === 'page_1') {
-    // Compute sort date for each row: use field_last_updated if available, otherwise created.
+    // Compute sort date for each row..
     foreach ($view->result as &$row) {
       if (isset($row->_entity)) {
         $entity = $row->_entity;
 
         // Check if entity has field_last_updated and it has a value.
         if ($entity->hasField('field_last_updated') && !$entity->get('field_last_updated')->isEmpty()) {
-          // field_last_updated is a datetime field, convert to timestamp for comparison.
+          // field_last_updated is a datetime field, convert to
+          // timestamp for comparison.
           $date_value = $entity->get('field_last_updated')->value;
           $row->computed_sort_date = strtotime($date_value);
         }
@@ -412,30 +404,13 @@ function yukon_w3_custom_views_post_execute(ViewExecutable $view) {
           // Fall back to created timestamp (already a timestamp).
           $row->computed_sort_date = $entity->get('created')->value;
         }
-
-        // Debug: log the computed date.
-        \Drupal::logger('yukon_w3_custom')->debug('Entity @nid (@type): computed_sort_date = @date (@human)', [
-          '@nid' => $entity->id(),
-          '@type' => $entity->bundle(),
-          '@date' => $row->computed_sort_date,
-          '@human' => date('Y-m-d H:i:s', $row->computed_sort_date),
-        ]);
       }
     }
 
-    // Now sort the results by the computed date in descending order (newest first).
+    // Now sort the results by the computed date in descending order.
     usort($view->result, function ($a, $b) {
       return $b->computed_sort_date <=> $a->computed_sort_date;
     });
-
-    // Debug: log the final order.
-    $order = [];
-    foreach ($view->result as $row) {
-      if (isset($row->_entity)) {
-        $order[] = $row->_entity->id() . ' (' . date('Y-m-d H:i:s', $row->computed_sort_date) . ')';
-      }
-    }
-    \Drupal::logger('yukon_w3_custom')->debug('Final sort order: @order', ['@order' => implode(', ', $order)]);
   }
 }
 
