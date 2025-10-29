@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.multi_step_page.field_contact
     - field.field.node.multi_step_page.field_department_term
     - field.field.node.multi_step_page.field_editor_publisher
+    - field.field.node.multi_step_page.field_form_meta_description
+    - field.field.node.multi_step_page.field_form_title
     - field.field.node.multi_step_page.field_full_width
     - field.field.node.multi_step_page.field_meta_tags
     - field.field.node.multi_step_page.field_page_description
@@ -17,6 +19,7 @@ dependencies:
     - field.field.node.multi_step_page.field_related_tasks
     - field.field.node.multi_step_page.field_sequential_non_sequential
     - field.field.node.multi_step_page.field_social_sharing
+    - field.field.node.multi_step_page.field_this_is_an_online_form
     - field.field.node.multi_step_page.field_translation_status
     - field.field.node.multi_step_page.field_yukon_editorial_team
     - node.type.multi_step_page
@@ -130,8 +133,11 @@ hidden:
   addtoany: true
   field_click_to_call: true
   field_department_term: true
+  field_form_meta_description: true
+  field_form_title: true
   field_meta_tags: true
   field_quick_exit: true
+  field_this_is_an_online_form: true
   field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true

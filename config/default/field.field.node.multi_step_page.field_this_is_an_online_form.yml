@@ -1,0 +1,26 @@
+uuid: c87d93e1-c800-4285-9a78-e50f1ef31c82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_this_is_an_online_form
+    - node.type.multi_step_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.multi_step_page.field_this_is_an_online_form
+field_name: field_this_is_an_online_form
+entity_type: node
+bundle: multi_step_page
+label: 'This is an online form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

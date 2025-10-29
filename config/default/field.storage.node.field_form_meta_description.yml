@@ -1,0 +1,19 @@
+uuid: 46785125-6b61-40a1-a478-32232bbfd080
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_form_meta_description
+field_name: field_form_meta_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
