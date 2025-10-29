@@ -2217,7 +2217,7 @@ display:
           admin_label: 'Form type'
           plugin_id: custom
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "  {% if field_this_is_an_online_form == '1' or field_this_is_an_online_form  == 'True' or field_this_is_an_online_form == 'On' %}\r\n      {{ 'Online form'|t }}\r\n  {% else %}\r\n      {{ 'Document'|t }}\r\n  {% endif %}"
@@ -2410,7 +2410,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if field_last_updated is not empty %}\r\n    {{ field_last_updated }}\r\n{% else %}\r\n    {{ changed }}\r\n{% endif %}"
+            text: "{% if field_last_updated is not empty %}\r\n    {{ nothing_3 }} | {{ field_last_updated }}\r\n{% else %}\r\n    {{ nothing_3 }} | {{ changed }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -3347,7 +3347,7 @@ display:
           category_fallback: ''
           category_facets: {  }
           category_facets_concat_separator: ', '
-      path: forms-old
+      path: forms
     cache_metadata:
       max-age: -1
       contexts:
