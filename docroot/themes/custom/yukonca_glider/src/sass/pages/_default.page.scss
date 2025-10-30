@@ -68,9 +68,9 @@ h3 {
   align-items: center;
   gap: 12px;
   padding: 18px;
-  background-color: #0B7AE5;
-  color: #FFF;
-  border: none;
+  background-color: #D4ECEF;
+  color: #244C5A;
+  border: 1px solid #244C5A;
   border-radius: 50px;
   font-size: 20px;
   font-weight: 700;
@@ -96,13 +96,15 @@ h3 {
   }
 
   &:hover {
-    background-color: #096CC7;
+    background-color: darken(#D4ECEF, 10%);
+    border-color: darken(#244C5A, 10%);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
 
   &:active {
-    background-color: #075BA8;
+    background-color: darken(#D4ECEF, 15%);
+    border-color: darken(#244C5A, 15%);
     transform: translateY(0);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
