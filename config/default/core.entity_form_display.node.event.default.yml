@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
+    - field.field.node.event.field_event_type
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
@@ -23,6 +24,7 @@ dependencies:
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_publisher
+    - field.field.node.event.field_translation_status
     - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -107,6 +109,7 @@ third_party_settings:
         required_fields: true
     group_more_details:
       children:
+        - field_event_type
         - field_cost
         - field_featured_image
         - field_contact_name
@@ -127,7 +130,7 @@ third_party_settings:
     group_related:
       children:
         - field_link_title
-      label: Related
+      label: 'Related tasks'
       region: content
       parent_name: ''
       weight: 5
@@ -136,6 +139,7 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         description: ''
         required_fields: true
     group_publishing_options_side:
@@ -147,7 +151,7 @@ third_party_settings:
       label: 'Publishing options'
       region: content
       parent_name: ''
-      weight: 11
+      weight: 10
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -164,7 +168,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -192,7 +196,7 @@ content:
     third_party_settings: {  }
   field_contact_email:
     type: email_default
-    weight: 9
+    weight: 13
     region: content
     settings:
       placeholder: ''
@@ -200,7 +204,7 @@ content:
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
-    weight: 8
+    weight: 12
     region: content
     settings:
       size: 60
@@ -208,7 +212,7 @@ content:
     third_party_settings: {  }
   field_contact_phone:
     type: string_textfield
-    weight: 10
+    weight: 14
     region: content
     settings:
       size: 60
@@ -216,7 +220,7 @@ content:
     third_party_settings: {  }
   field_cost:
     type: string_textfield
-    weight: 6
+    weight: 10
     region: content
     settings:
       size: 60
@@ -264,6 +268,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_event_type:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_featured_content:
     type: boolean_checkbox
     weight: 8
@@ -273,7 +283,7 @@ content:
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 7
+    weight: 11
     region: content
     settings:
       media_types: {  }
@@ -329,7 +339,7 @@ content:
     third_party_settings: {  }
   field_website:
     type: linkit
-    weight: 11
+    weight: 15
     region: content
     settings:
       placeholder_url: ''
@@ -365,13 +375,13 @@ content:
         maxlength_js_enforce: false
   path:
     type: path
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -385,7 +395,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -400,11 +410,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

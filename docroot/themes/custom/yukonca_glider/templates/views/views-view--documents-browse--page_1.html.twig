@@ -48,6 +48,9 @@
   {{ title_suffix }}
   {% if header %}
     <div class="view-header">
+      {% if forms_header_text %}
+        <p>{{ forms_header_text }}</p>
+      {% endif %}
       {{ header }}
     </div>
   {% endif %}

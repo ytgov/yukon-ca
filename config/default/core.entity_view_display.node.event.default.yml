@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
+    - field.field.node.event.field_event_type
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_link_title
@@ -34,6 +35,7 @@ dependencies:
     - fences
     - field_group
     - link
+    - options
     - text
     - user
 third_party_settings:
@@ -94,7 +96,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-    weight: 9
+    weight: 10
     region: content
   field_contact_name:
     type: string
@@ -102,7 +104,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_contact_phone:
     type: string
@@ -110,7 +112,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_cost:
     type: string
@@ -118,7 +120,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   field_department_term:
     type: entity_reference_label
@@ -176,6 +178,13 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_event_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: hidden
@@ -195,7 +204,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 12
+    weight: 19
     region: content
   field_postal_code:
     type: string
@@ -211,7 +220,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 25
+    weight: 17
     region: content
   field_website:
     type: link
@@ -223,7 +232,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
 hidden:
   addtoany: true

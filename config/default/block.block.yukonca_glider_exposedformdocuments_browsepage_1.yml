@@ -1,6 +1,6 @@
 uuid: 45cb65d0-b62f-45eb-8375-09d4b3b811f6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.documents_browse

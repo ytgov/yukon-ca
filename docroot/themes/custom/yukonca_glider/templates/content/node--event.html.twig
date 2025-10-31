@@ -113,7 +113,7 @@
         <div class="field-item"> {{ start_time }} {{ 'to'|t }} {{ end_time }} </div>
       </div>
     </div>
-    <br>
+
     <fieldset class="event-location js-form-item form-item js-form-wrapper form-wrapper">
       <legend>
         <span class="fieldset-legend">{{ "Location"|t }}</span>
@@ -122,44 +122,61 @@
           <div class="field field--name-field-event-street-address field--type-string field--label-hidden field__items">
                 <div class="field__item">{{ content.field_building_name }} {{ node.field_event_street_address.value|raw }}</div>
           </div>
-      
+
           <div class="field field--name-field-event-locality-town field--type-string field--label-hidden field__items">
                 <div class="field__item">{{ node.field_event_locality_town.value|raw }} {{ node.field_postal_code.value|raw }}</div>
           </div>
-   
+
       </div>
     </fieldset>
-    
-    {{ content.field_cost }}
-    
+
+    {{ content.field_event_type }}
+    {% if node.field_free_cost.value %}
+      <div class="field field--name-field-cost field--type-string field--label-inline field__items">
+        <div class="field__label">{{ 'Cost'|t }}</div>
+        <div class="field__item">{{ 'Free'|t }}</div>
+      </div>
+    {% elseif node.field_cost.value is not empty %}
+      {{ content.field_cost }}
+    {% endif %}
+    <BR>
     <fieldset class="event-contact fieldset-title js-form-item form-item js-form-wrapper form-wrapper">
       <legend>
-        <span class="fieldset-legend">{{ "Contact"|t }}:</span>
-        {% if node.field_contact_name.value is not empty and node.field_contact_email.value is not empty %}
-            <div class="field field--name-field-contact-name field--type-string field--label-hidden field__items">
-                <div class="field__item"><a href="mailto:{{ node.field_contact_email.value|raw }}">{{ node.field_contact_name.value|raw }}</a></div>
-            </div>
-        {% elseif node.field_contact_name.value is not empty %}
-            <div class="field field--name-field-contact-name field--type-string field--label-hidden field__items">
-                <div class="field__item">{{ node.field_contact_name.value|raw }}</div>
-            </div>
-        {% elseif node.field_contact_email.value is not empty %}
-            <div class="field field--name-field-contact-name field--type-string field--label-hidden field__items">
-                <div class="field__item"><a href="mailto:{{ node.field_contact_email.value|raw }}">{{ node.field_contact_email.value|raw }}</a></div>
-            </div>
-        {% endif %}
+        <span class="fieldset-legend">{{ "Contact"|t }}</span>
       </legend>
-      <div class="fieldset-wrapper">              
-              <div class="field field--name-field-contact-phone field--type-string field--label-hidden field__items">
-                    <div class="field__item">{{ node.field_contact_phone.value|raw }}</div>
-              </div>
-          
-              {{ content.field_website }}
-              {{ content.field_link_title }}
+      <div class="fieldset-wrapper">
+        {% if node.field_contact_name.value is not empty %}
+          <div class="field field--name-field-contact-name field--type-string field--label-inline field__items">
+            <div class="field__label">{{ 'Name'|t }}</div>
+            <div class="field__item">{{ node.field_contact_name.value|raw }}</div>
           </div>
+        {% endif %}
+
+        {% if node.field_contact_email.value is not empty %}
+          <div class="field field--name-field-contact-email field--type-string field--label-inline field__items">
+            <div class="field__label">{{ 'Email'|t }}</div>
+            <div class="field__item">{{ node.field_contact_email.value|raw }}</div>
+          </div>
+        {% endif %}
+
+        {% if node.field_contact_phone.value is not empty %}
+          <div class="field field--name-field-contact-phone field--type-string field--label-inline field__items">
+            <div class="field__label">{{ 'Phone'|t }}</div>
+            <div class="field__item">{{ node.field_contact_phone.value|raw }}</div>
+          </div>
+        {% endif %}
+
+        {{ content.field_website }}
+      </div>
     </fieldset>
-        
-    {{ content|without("field_event_start_time", "field_building_name", "field_event_street_address", "field_event_locality_town", "field_postal_code", "field_cost", "field_contact_name", "field_contact_email", "field_contact_phone", "field_link_title", "field_website")}}
-      
+    {{ content|without("field_event_start_time", "field_building_name", "field_event_street_address", "field_event_locality_town", "field_postal_code", "field_cost", "field_contact_name", "field_contact_email", "field_contact_phone", "field_link_title", "field_website", "field_event_type", "field_free_cost")}}
+
+    {% if content.field_link_title|render %}
+      {{ pattern('titled_content', {
+        title: 'Related tasks'|t,
+        content: content.field_link_title,
+      }, 'default') }}
+    {% endif %}
+
   </div>
 </article>

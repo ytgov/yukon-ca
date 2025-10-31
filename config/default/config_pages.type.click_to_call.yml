@@ -1,0 +1,17 @@
+uuid: 21a052b4-293a-4580-9aa9-eb3878c82caf
+langcode: en
+status: true
+dependencies: {  }
+id: click_to_call
+label: 'Click to call'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''

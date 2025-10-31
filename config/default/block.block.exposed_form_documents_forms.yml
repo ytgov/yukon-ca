@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.documents_browse
   module:
+    - block_class
     - system
     - views
   theme:
@@ -25,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/forms-old\r\n/les-forms-old"
+    pages: "/forms\r\n/formulaires"

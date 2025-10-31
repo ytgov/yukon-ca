@@ -7,18 +7,17 @@ dependencies:
     - node.type.event
     - taxonomy.vocabulary.community
   module:
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.event.field_community
 field_name: field_community
 entity_type: node
 bundle: event
 label: Community
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

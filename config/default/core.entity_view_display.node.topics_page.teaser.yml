@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.topics_page.body
+    - field.field.node.topics_page.field_click_to_call
     - field.field.node.topics_page.field_department_term
     - field.field.node.topics_page.field_editor_publisher
     - field.field.node.topics_page.field_image
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.topics_page.field_paragraphs
     - field.field.node.topics_page.field_publisher
     - field.field.node.topics_page.field_top_task
+    - field.field.node.topics_page.field_translation_status
     - field.field.node.topics_page.field_whats_new_header
     - field.field.node.topics_page.field_yukon_editorial_team
     - node.type.topics_page
@@ -36,6 +38,7 @@ content:
 hidden:
   addtoany: true
   body: true
+  field_click_to_call: true
   field_department_term: true
   field_editor_publisher: true
   field_image: true
@@ -44,6 +47,7 @@ hidden:
   field_paragraphs: true
   field_publisher: true
   field_top_task: true
+  field_translation_status: true
   field_whats_new_header: true
   field_yukon_editorial_team: true
   langcode: true

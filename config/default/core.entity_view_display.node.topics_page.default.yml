@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.topics_page.body
+    - field.field.node.topics_page.field_click_to_call
     - field.field.node.topics_page.field_department_term
     - field.field.node.topics_page.field_editor_publisher
     - field.field.node.topics_page.field_image
@@ -90,6 +91,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_click_to_call: true
   field_department_term: true
   field_editor_publisher: true
   field_page_description: true
