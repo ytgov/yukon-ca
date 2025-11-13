@@ -16,7 +16,7 @@ entity_type: node
 bundle: topics_page
 label: 'Click to Call'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -

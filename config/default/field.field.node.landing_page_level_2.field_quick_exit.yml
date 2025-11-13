@@ -16,7 +16,7 @@ entity_type: node
 bundle: landing_page_level_2
 label: 'Quick exit'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -

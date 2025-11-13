@@ -16,7 +16,7 @@ entity_type: node
 bundle: directory_records_places
 label: 'Quick exit'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -

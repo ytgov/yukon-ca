@@ -16,7 +16,7 @@ entity_type: node
 bundle: multi_step_page
 label: 'Quick exit'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
