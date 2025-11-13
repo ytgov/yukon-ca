@@ -15,7 +15,7 @@ field_name: field_telephone
 entity_type: config_pages
 bundle: click_to_call
 label: Telephone
-description: ''
+description: 'Use standard rfc3966 Telephone number format, ex: +1-613-555-0199'
 required: true
 translatable: false
 default_value: {  }
