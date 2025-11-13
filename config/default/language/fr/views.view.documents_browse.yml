@@ -14,16 +14,6 @@ display:
             previous: '‹ précédent'
           expose:
             items_per_page_options_all_label: '- Tout -'
-      filters:
-        field_department_term_target_id:
-          expose:
-            label: Ministères
-        combine:
-          expose:
-            label: Mots-clés
-        field_category_target_id:
-          expose:
-            label: Catégorie
       title: Formulaires
       header:
         result:

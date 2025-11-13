@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.basic_page.body
+    - field.field.node.basic_page.field_click_to_call
     - field.field.node.basic_page.field_collapsible_items
     - field.field.node.basic_page.field_contact
     - field.field.node.basic_page.field_department_term
     - field.field.node.basic_page.field_editor_publisher
+    - field.field.node.basic_page.field_form_meta_description
+    - field.field.node.basic_page.field_form_title
     - field.field.node.basic_page.field_full_width
     - field.field.node.basic_page.field_image
     - field.field.node.basic_page.field_image_gallery
@@ -17,6 +20,7 @@ dependencies:
     - field.field.node.basic_page.field_quick_exit
     - field.field.node.basic_page.field_related_tasks
     - field.field.node.basic_page.field_social_sharing
+    - field.field.node.basic_page.field_this_is_an_online_form
     - field.field.node.basic_page.field_translation_status
     - field.field.node.basic_page.field_yukon_editorial_team
     - node.type.basic_page
@@ -100,8 +104,11 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_click_to_call: true
   field_department_term: true
   field_editor_publisher: true
+  field_form_meta_description: true
+  field_form_title: true
   field_full_width: true
   field_meta_tags: true
   field_page_description: true
@@ -109,6 +116,7 @@ hidden:
   field_quick_exit: true
   field_related_tasks: true
   field_social_sharing: true
+  field_this_is_an_online_form: true
   field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true

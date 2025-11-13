@@ -113,6 +113,14 @@
         <a class="quick-exit-btn" href="{{ quick_exit.new }}" target="_blank" title="{{ quick_exit.label|t }}">{{ quick_exit.label|t }}</a>
       </div>
     {% endif %}
+    {% if click_to_call.enable %}
+      <div class="click-to-call-floating-button" data-telephone="{{ click_to_call.telephone }}">
+        <button class="click-to-call-button" type="button">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span class="click-to-call-text">{{ click_to_call.button_text|t }}</span>
+        </button>
+      </div>
+    {% endif %}
     {{ page.breadcrumb }}
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <div class="row {% if content_type != "landing_page" and content_type != "topics_page" and content_type != "landing_page_level_2" and content_type != "news"  %}pt-20 {% endif %}">

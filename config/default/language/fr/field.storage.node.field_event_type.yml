@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    -
+      label: ' En ligne'
+    -
+      label: 'En personne'
+    -
+      label: ' Hybride'

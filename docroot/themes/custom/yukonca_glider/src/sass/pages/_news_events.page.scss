@@ -120,6 +120,15 @@
                       @apply hover:border-blue-50 hover:text-blue-50;
                   }
               }
+
+              &.field--name-field-link-title {
+                  .field__item {
+                      a {
+                          display: block;
+                          @apply py-2.5;
+                      }
+                  }
+              }
           }
       }
   }

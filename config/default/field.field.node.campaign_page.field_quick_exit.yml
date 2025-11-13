@@ -16,8 +16,8 @@ entity_type: node
 bundle: campaign_page
 label: 'Quick exit'
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value:
   -
     value: 0
