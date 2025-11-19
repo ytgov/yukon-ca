@@ -306,23 +306,32 @@ function yukonca_glider_preprocess_node__event(&$variables) {
     // Add properly timezone-converted date for template use.
     $variables['event_date'] = $start_datetime->format('Y-m-d H:i:s');
 
+    // Display start and end times short if they have no minute value.
     if ($langcode == 'en') {
       if ($start_datetime->format('i') == "00") {
         $start_time = $start_datetime->format('g a');
-        $end_time = $end_datetime->format('g a');
       }
       else {
         $start_time = $start_datetime->format('g:i a');
+      }
+      if ($end_datetime->format('i') == "00") {
+        $end_time = $end_datetime->format('g a');
+      }
+      else {
         $end_time = $end_datetime->format('g:i a');
       }
     }
     else {
       if ($start_datetime->format('i') == "00") {
         $start_time = $start_datetime->format('G \h');
-        $end_time = $end_datetime->format('G \h');
       }
       else {
         $start_time = $start_datetime->format('G \h i');
+      }
+      if ($end_datetime->format('i') == "00") {
+        $end_time = $end_datetime->format('G \h');
+      }
+      else {
         $end_time = $end_datetime->format('G \h i');
       }
     }
