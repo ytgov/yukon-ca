@@ -306,35 +306,9 @@ function yukonca_glider_preprocess_node__event(&$variables) {
     // Add properly timezone-converted date for template use.
     $variables['event_date'] = $start_datetime->format('Y-m-d H:i:s');
 
-    // Display start and end times short if they have no minute value.
-    if ($langcode == 'en') {
-      if ($start_datetime->format('i') == "00") {
-        $start_time = $start_datetime->format('g a');
-      }
-      else {
-        $start_time = $start_datetime->format('g:i a');
-      }
-      if ($end_datetime->format('i') == "00") {
-        $end_time = $end_datetime->format('g a');
-      }
-      else {
-        $end_time = $end_datetime->format('g:i a');
-      }
-    }
-    else {
-      if ($start_datetime->format('i') == "00") {
-        $start_time = $start_datetime->format('G \h');
-      }
-      else {
-        $start_time = $start_datetime->format('G \h i');
-      }
-      if ($end_datetime->format('i') == "00") {
-        $end_time = $end_datetime->format('G \h');
-      }
-      else {
-        $end_time = $end_datetime->format('G \h i');
-      }
-    }
+    // Generate start and end times short if they have no minute value.
+    $start_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $start_datetime);
+    $end_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $end_datetime);
 
     $variables['start_time'] = $start_time;
     $variables['end_time'] = $end_time;
@@ -1150,4 +1124,28 @@ function yukonca_glider_theme_suggestions_table_alter(array &$suggestions, array
   }
   $class = $variables['attributes']['class'][0];
   $suggestions[] = "table__" . $node->id() . str_replace("-", "_", $class);
+}
+
+/**
+ * Return a long or short time depending on presence of minutes.
+ *
+ * e.g. 2:00 => 2 pm / 13 h, whereas 2:30 becomes 2:30 pm / 14:30 h
+ */
+function yukonca_glider_utility_format_time_minutes_optional($langcode, DateTime $datetime){
+    if ($langcode == 'en') {
+      if ($datetime->format('i') == "00") {
+        return $datetime->format('g a');
+      }
+      else {
+        return $datetime->format('g:i a');
+      }
+    }
+    else {
+      if ($datetime->format('i') == "00") {
+        return $datetime->format('G \h');
+      }
+      else {
+        return $datetime->format('G \h i');
+      }
+    }
 }
