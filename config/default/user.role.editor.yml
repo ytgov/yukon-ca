@@ -132,6 +132,7 @@ permissions:
   - 'update media'
   - 'use content transition create_new_draft'
   - 'use content transition create_new_draft'
+  - 'use content transition reject_from_review'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
   - 'use text format full_html'
