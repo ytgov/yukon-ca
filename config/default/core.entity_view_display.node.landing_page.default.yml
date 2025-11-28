@@ -40,14 +40,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
     label: above
@@ -78,6 +70,7 @@ hidden:
   addtoany: true
   field_click_to_call: true
   field_department_term: true
+  field_editor_publisher: true
   field_icon_dark: true
   field_icon_light: true
   field_meta_tags: true
