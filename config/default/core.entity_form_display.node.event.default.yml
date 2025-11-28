@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.event.field_event_type
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
+    - field.field.node.event.field_free_cost
     - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_page_description
@@ -110,6 +111,7 @@ third_party_settings:
     group_more_details:
       children:
         - field_event_type
+        - field_free_cost
         - field_cost
         - field_featured_image
         - field_contact_name
@@ -196,7 +198,7 @@ content:
     third_party_settings: {  }
   field_contact_email:
     type: email_default
-    weight: 13
+    weight: 14
     region: content
     settings:
       placeholder: ''
@@ -204,7 +206,7 @@ content:
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
-    weight: 12
+    weight: 13
     region: content
     settings:
       size: 60
@@ -212,7 +214,7 @@ content:
     third_party_settings: {  }
   field_contact_phone:
     type: string_textfield
-    weight: 14
+    weight: 15
     region: content
     settings:
       size: 60
@@ -220,7 +222,7 @@ content:
     third_party_settings: {  }
   field_cost:
     type: string_textfield
-    weight: 10
+    weight: 11
     region: content
     settings:
       size: 60
@@ -283,10 +285,17 @@ content:
     third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
-    weight: 11
+    weight: 12
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_free_cost:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_link_title:
     type: linkit
@@ -339,7 +348,7 @@ content:
     third_party_settings: {  }
   field_website:
     type: linkit
-    weight: 15
+    weight: 16
     region: content
     settings:
       placeholder_url: ''

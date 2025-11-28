@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.campaign_page.field_campaign_type
     - field.field.node.campaign_page.field_child_campaign_pages
     - field.field.node.campaign_page.field_click_to_call
+    - field.field.node.campaign_page.field_click_to_call_phone
+    - field.field.node.campaign_page.field_click_to_call_text
     - field.field.node.campaign_page.field_copyright_notice_text
     - field.field.node.campaign_page.field_department_term
     - field.field.node.campaign_page.field_display_copyright_notice
@@ -180,6 +182,8 @@ third_party_settings:
     group_click_to_call:
       children:
         - field_click_to_call
+        - field_click_to_call_text
+        - field_click_to_call_phone
       label: 'Click to Call'
       region: content
       parent_name: ''
@@ -255,6 +259,22 @@ content:
     weight: 21
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_click_to_call_phone:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_click_to_call_text:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_copyright_notice_text:
     type: string_textfield
