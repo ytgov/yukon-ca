@@ -1,0 +1,26 @@
+uuid: 9698d2c2-44e7-4e3c-bc15-4876fcf9697b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_free_cost
+    - node.type.event
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.event.field_free_cost
+field_name: field_free_cost
+entity_type: node
+bundle: event
+label: 'Free Cost'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
