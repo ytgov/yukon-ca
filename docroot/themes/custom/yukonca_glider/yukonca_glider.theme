@@ -280,7 +280,8 @@ function yukonca_glider_preprocess_node__news(&$variables) {
 
   // Validate node creation date and current date.
   $created_time = $source_translation->getCreatedTime();
-  $variables['publish_date'] = $created_time;
+  $date_formatter = \Drupal::service('date.formatter');
+  $variables['publish_date'] = $date_formatter->format($created_time, 'medium_format');
 }
 
 /**
