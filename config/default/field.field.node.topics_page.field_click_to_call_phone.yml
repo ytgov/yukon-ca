@@ -15,7 +15,7 @@ field_name: field_click_to_call_phone
 entity_type: node
 bundle: topics_page
 label: 'Phone Number'
-description: 'Phone number for the click to call button'
+description: 'Use standard rfc3966 Telephone number format, ex: +1-613-555-0199'
 required: false
 translatable: true
 default_value: {  }
