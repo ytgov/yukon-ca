@@ -155,7 +155,7 @@
         {% if node.field_contact_email.value is not empty %}
           <div class="field field--name-field-contact-email field--type-string field--label-inline field__items">
             <div class="field__label">{{ 'Email'|t }}</div>
-            <div class="field__item">{{ node.field_contact_email.value|raw }}</div>
+            <div class="field__item"><a href="mailto:{{ node.field_contact_email.value|raw }}">{{ node.field_contact_email.value|raw }}</a></div>
           </div>
         {% endif %}
 
