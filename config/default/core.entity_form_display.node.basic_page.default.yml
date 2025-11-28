@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.basic_page.body
+    - field.field.node.basic_page.field_click_to_call
     - field.field.node.basic_page.field_collapsible_items
     - field.field.node.basic_page.field_contact
     - field.field.node.basic_page.field_department_term
     - field.field.node.basic_page.field_editor_publisher
+    - field.field.node.basic_page.field_form_meta_description
+    - field.field.node.basic_page.field_form_title
     - field.field.node.basic_page.field_full_width
     - field.field.node.basic_page.field_image
     - field.field.node.basic_page.field_image_gallery
@@ -17,6 +20,7 @@ dependencies:
     - field.field.node.basic_page.field_quick_exit
     - field.field.node.basic_page.field_related_tasks
     - field.field.node.basic_page.field_social_sharing
+    - field.field.node.basic_page.field_this_is_an_online_form
     - field.field.node.basic_page.field_translation_status
     - field.field.node.basic_page.field_yukon_editorial_team
     - node.type.basic_page
@@ -100,6 +104,43 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: 0
+    group_click_to_call:
+      children:
+        - field_click_to_call
+      label: 'Click to Call'
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_online_forms:
+      children:
+        - field_this_is_an_online_form
+        - field_form_title
+        - field_form_meta_description
+        - field_last_updated
+      label: 'Online forms'
+      region: content
+      parent_name: ''
+      weight: 21
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.basic_page.default
 targetEntityType: node
 bundle: basic_page
@@ -118,6 +159,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_click_to_call:
+    type: options_buttons
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -163,6 +210,22 @@ content:
     weight: 23
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_form_meta_description:
+    type: text_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_form_title:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_image:
     type: media_library_widget
@@ -237,6 +300,13 @@ content:
     weight: 24
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_this_is_an_online_form:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
