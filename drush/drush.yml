@@ -12,4 +12,5 @@ drush:
       - '${env.home}/.drush'
       - /usr/share/drush/commands
 options:
-  uri: 'http://yukonca.docksal.site'
+  # uri: 'http://yukonca.docksal.site'
+  # URI is auto-detected from environment. Override in local.drush.yml if needed.
