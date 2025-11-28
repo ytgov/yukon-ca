@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
+    - field.field.node.landing_page.field_translation_status
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
   module:
@@ -31,20 +32,12 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
-    region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
+    weight: 0
     region: content
   field_primary_content:
     type: entity_reference_revisions_entity_view
@@ -53,7 +46,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_publisher:
     type: entity_reference_label
@@ -61,7 +54,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 4
     region: content
   field_secondary_content:
     type: entity_reference_revisions_entity_view
@@ -70,17 +63,19 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
 hidden:
   addtoany: true
   field_department_term: true
+  field_editor_publisher: true
   field_icon_dark: true
   field_icon_light: true
   field_meta_tags: true
   field_page_description: true
   field_redirection: true
   field_target_content: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
