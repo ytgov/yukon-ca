@@ -6,7 +6,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Url;
 
 /**
  * A field handler to display content that uses a media entity.
@@ -151,7 +150,8 @@ class MediaContentUsage extends FieldPluginBase {
         }
       }
 
-      // Remove duplicates (in case a node references the same media in multiple fields).
+      // Remove duplicates.
+      // (in case a node references the same media in multiple fields).
       $unique_nodes = [];
       foreach ($nodes as $node) {
         $unique_nodes[$node->id()] = $node;
