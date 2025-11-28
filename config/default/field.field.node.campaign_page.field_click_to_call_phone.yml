@@ -1,0 +1,24 @@
+uuid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call_phone
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_click_to_call_phone
+field_name: field_click_to_call_phone
+entity_type: node
+bundle: campaign_page
+label: 'Phone Number'
+description: 'Phone number for the click to call button'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
