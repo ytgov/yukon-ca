@@ -3,6 +3,7 @@
 namespace Drupal\yukon_base\Plugin\views\field;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -22,11 +23,19 @@ class MediaContentUsage extends FieldPluginBase {
   protected $entityTypeManager;
 
   /**
+   * The language manager.
+   *
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -37,7 +46,8 @@ class MediaContentUsage extends FieldPluginBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('language_manager')
     );
   }
 
@@ -76,10 +86,22 @@ class MediaContentUsage extends FieldPluginBase {
         return ['#markup' => $this->t('Not used in content')];
       }
 
+      // Get the current language.
+      $current_language = $this->languageManager->getCurrentLanguage()->getId();
+
       // Build the output with each node on a separate line.
       $items = [];
       foreach ($nodes as $node) {
-        $node_type_label = $node->type->entity->label();
+        // Check if the node has a translation in the current language.
+        if ($node->hasTranslation($current_language)) {
+          $node = $node->getTranslation($current_language);
+        }
+
+        // Get the translated content type label.
+        $node_type_storage = $this->entityTypeManager->getStorage('node_type');
+        $node_type = $node_type_storage->load($node->bundle());
+        $node_type_label = $node_type ? $node_type->label() : $node->type->entity->label();
+
         $items[] = [
           '#type' => 'html_tag',
           '#tag' => 'div',
