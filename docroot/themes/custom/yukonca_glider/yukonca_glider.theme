@@ -559,13 +559,24 @@ function yukonca_glider_preprocess_page(&$variables) {
   if ((!empty($node)) && ($node->hasField('field_click_to_call'))) {
     $field_value = (bool) $node->get('field_click_to_call')->value;
     if ($field_value) {
-      $click_to_call_entity = $config_pages_storage->load('click_to_call');
+      // Get button text and phone, with fallback to default language if empty.
+      $button_text = $node->get('field_click_to_call_text')->value;
+      $telephone = $node->get('field_click_to_call_phone')->value;
 
-      if (!empty($click_to_call_entity)) {
-        $variables['click_to_call']['enable'] = $field_value;
-        $variables['click_to_call']['button_text'] = $click_to_call_entity->get('field_button_text_ctc')->value;
-        $variables['click_to_call']['telephone'] = $click_to_call_entity->get('field_telephone')->value;
+      // If values are empty and we're viewing a translation, fall back to default language.
+      if ((empty($button_text) || empty($telephone)) && $node->isTranslatable() && !$node->isDefaultTranslation()) {
+        $default_translation = $node->getUntranslated();
+        if (empty($button_text)) {
+          $button_text = $default_translation->get('field_click_to_call_text')->value;
+        }
+        if (empty($telephone)) {
+          $telephone = $default_translation->get('field_click_to_call_phone')->value;
+        }
       }
+
+      $variables['click_to_call']['enable'] = $field_value;
+      $variables['click_to_call']['button_text'] = $button_text;
+      $variables['click_to_call']['telephone'] = $telephone;
     }
   }
 

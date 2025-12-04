@@ -1,0 +1,24 @@
+uuid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call_phone
+    - node.type.basic_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.basic_page.field_click_to_call_phone
+field_name: field_click_to_call_phone
+entity_type: node
+bundle: basic_page
+label: 'Phone Number'
+description: 'Use standard rfc3966 Telephone number format, ex: +1-613-555-0199'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

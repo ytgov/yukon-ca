@@ -1,0 +1,24 @@
+uuid: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call_text
+    - node.type.topics_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.topics_page.field_click_to_call_text
+field_name: field_click_to_call_text
+entity_type: node
+bundle: topics_page
+label: 'Button Text'
+description: 'Text to display on the click to call button'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

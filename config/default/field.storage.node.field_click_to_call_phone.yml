@@ -1,12 +1,12 @@
-uuid: 924bad55-3cc7-4473-a62f-75f8e3e4324d
+uuid: 9b2c4d6e-8f1a-5b3c-9d7e-2f4a6b8c1d3e
 langcode: en
 status: true
 dependencies:
   module:
-    - config_pages
-id: config_pages.field_telephone
-field_name: field_telephone
-entity_type: config_pages
+    - node
+id: node.field_click_to_call_phone
+field_name: field_click_to_call_phone
+entity_type: node
 type: string
 settings:
   max_length: 255

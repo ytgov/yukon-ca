@@ -1,12 +1,12 @@
-uuid: d994b053-2257-4d97-96c8-d356ef3ce1c2
+uuid: 8a1b3c5d-7e9f-4a2b-8c6d-1e3f5a7b9c2d
 langcode: en
 status: true
 dependencies:
   module:
-    - config_pages
-id: config_pages.field_button_text_ctc
-field_name: field_button_text_ctc
-entity_type: config_pages
+    - node
+id: node.field_click_to_call_text
+field_name: field_click_to_call_text
+entity_type: node
 type: string
 settings:
   max_length: 255
