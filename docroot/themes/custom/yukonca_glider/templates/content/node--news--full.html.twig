@@ -89,10 +89,10 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="node__meta mb-12 text-gray italic border-0 border-solid border-b border-gray">
+    <footer class="node__meta mb-12 italic border-0 border-solid border-b border-gray">
       {{ author_picture }}
       <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Published {% endtrans %} {{ publish_date|date('d/m/Y') }}
+        {% trans %}Published {% endtrans %} {{ publish_date }}
         {{ metadata }}
       </div>
     </footer>
