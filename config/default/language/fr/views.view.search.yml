@@ -19,7 +19,7 @@ display:
               1:
                 title: 'Pages Web'
               3:
-                title: Communiqués
+                title: Actualités
               4:
                 title: Activités
               5:
@@ -35,10 +35,10 @@ display:
                 title: Formulaires
         field_department_term:
           expose:
-            label: Département
+            label: Ministère
       exposed_form:
         options:
-          submit_button: 'Filtrer les résultats'
+          submit_button: Rechercher
       title: Chercher
       header:
         result:

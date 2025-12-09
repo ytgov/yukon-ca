@@ -18,6 +18,16 @@ display:
       header:
         result:
           content: 'Résultats @start - @end de @total'
+      filters:
+        combine:
+          expose:
+            label: Mots-clé
+        field_department_term_target_id:
+          expose:
+            label: Département
+        field_category_target_id:
+          expose:
+            label: Catégorie
   default:
     display_options:
       title: 'Les documents'
