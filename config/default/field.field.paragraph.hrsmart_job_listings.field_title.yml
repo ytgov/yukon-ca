@@ -1,0 +1,24 @@
+uuid: 5ecd573b-3244-4026-8051-2d08293e5755
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.hrsmart_job_listings
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.hrsmart_job_listings.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: hrsmart_job_listings
+label: 'Section title'
+description: 'Write a short and concise clear heading in sentence case.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

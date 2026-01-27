@@ -145,4 +145,21 @@
       });
     },
   };
-}(jQuery, Drupal, once));
+
+  Drupal.behaviors.clickToCall = {
+    attach (context) {
+      once('clickToCall', '.click-to-call-button', context).forEach((button) => {
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          const container = button.closest('.click-to-call-floating-button');
+          const telephone = container ? container.dataset.telephone : null;
+
+          if (telephone) {
+            // Open telephone app with the number.
+            window.location.href = `tel:${telephone}`;
+          }
+        });
+      });
+    },
+  };
+}(jQuery, Drupal, window.once));

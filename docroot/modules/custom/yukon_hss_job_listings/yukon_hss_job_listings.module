@@ -1,0 +1,66 @@
+<?php
+
+declare(strict_types=1);
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+
+/**
+ * Implements hook_cron().
+ *
+ * Populate the HSS job listings field(s) from their remote sources. API calls are
+ * logged along with their status.
+ */
+function yukon_hss_job_listings_cron(): void {
+  // Populate the HRSmart job listings field.
+  $config = Drupal::config('yukon_hss_job_listings.settings');
+  $hrsmartApiUri = $config->get('hrsmart_xml_api_uri') . $config->get('hrsmart_xml_api_key');
+
+  try {
+    $client = new Client();
+    $response = $client->get($hrsmartApiUri, ['headers' => ['Accept' => 'text/xml']]);
+    $xml = (string) $response->getBody();
+  } catch (GuzzleException $e) {
+    Drupal::logger('yukon_hss_job_listings')
+      ->error('HRSmart API request failed: @message', ['@message' => $e->getMessage()]);
+    return;
+  }
+
+  Drupal::logger('yukon_hss_job_listings')
+    ->info('HRSmart API request succeeded.');
+
+  $hrsmartNodeId = $config->get('hrsmart_content_node_id');
+  $hrsmartParagraphsFieldName = $config->get('hrsmart_paragraphs_field_name');
+  $hrsmartParagraphBundleName = $config->get('hrsmart_paragraph_bundle_name');
+  $hrsmartDataFieldName = $config->get('hrsmart_data_field_name');
+
+  try {
+    $node_en = Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->load($hrsmartNodeId);
+
+    $node_fr = $node_en->getTranslation('fr');
+  } catch (Exception $e) {
+    Drupal::logger('yukon_hss_job_listings')
+      ->error('Failed to locate content node for HRSmart job listings: @message', ['@message' => $e->getMessage()]);
+    return;
+  }
+
+  // Hunt down and set the value of the HRSmart data field within the paragraph type
+  // within the field of paragraphs within the content item for both English and
+  // French. If any step fails, the field will retain its previous contents.
+  foreach ([$node_en, $node_fr] as $translated_node) {
+    if ($translated_node && $translated_node->hasField($hrsmartParagraphsFieldName)) {
+      $fieldParagraphs = $translated_node->get($hrsmartParagraphsFieldName)->referencedEntities();
+
+      if (!empty($fieldParagraphs)) {
+        foreach ($fieldParagraphs as $fieldParagraph) {
+          if ($fieldParagraph->bundle() === $hrsmartParagraphBundleName) {
+            $fieldParagraph->set($hrsmartDataFieldName, $xml);
+            $fieldParagraph->save();
+          }
+        }
+      }
+    }
+  }
+}

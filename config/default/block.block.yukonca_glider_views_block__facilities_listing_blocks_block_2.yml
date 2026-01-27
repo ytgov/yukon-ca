@@ -1,6 +1,6 @@
 uuid: 823c01f6-3b03-49d6-b0e7-de436b5084d3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.facilities_listing_blocks
@@ -12,7 +12,7 @@ dependencies:
 id: yukonca_glider_views_block__facilities_listing_blocks_block_2
 theme: yukonca_glider
 region: content
-weight: -12
+weight: 0
 provider: null
 plugin: 'views_block:facilities_listing_blocks-block_2'
 settings:

@@ -2,7 +2,7 @@ _core:
   default_config_hash: HENvUIeX6xNPGRB1w3z6rT9a71LM_hKXATF6XrM9WvM
 langcode: en
 smtp_on: true
-smtp_host: ''
+smtp_host: smtp.gov.yk.ca
 smtp_hostbackup: ''
 smtp_port: '25'
 smtp_protocol: standard

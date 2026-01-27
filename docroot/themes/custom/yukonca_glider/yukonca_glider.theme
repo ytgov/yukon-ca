@@ -66,8 +66,6 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $translated_entity = $node->getTranslation($langcode);
       $translated_title = $translated_entity->getTitle();
       $variables['title'] = $translated_title;
-
-      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $variables['landing_page_url'] = $base_url . "/" . $langcode . $alias;
     }
   }
@@ -89,16 +87,16 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $start_time = explode(".", $paragraph->field_opening_time->value / (60 * 60));
       $end_time = explode(".", $paragraph->field_closing_time->value / (60 * 60));
       if (isset($start_time[1])) {
-        $variables['start_time'] = $start_time[0] . ' h 30';
+        $variables['start_time'] = $start_time[0] . ' h ' . date("i", $paragraph->field_opening_time->value);
       }
       else {
-        $variables['start_time'] = $start_time[0] . ' h';
+        $variables['start_time'] = $start_time[0] != '0' ? $start_time[0] . ' h' : '00' . ' h';
       }
       if (isset($end_time[1])) {
-        $variables['end_time'] = $end_time[0] . ' h 30';
+        $variables['end_time'] = $end_time[0] . ' h ' . date("i", $paragraph->field_closing_time->value);
       }
       else {
-        $variables['end_time'] = $end_time[0] . ' h';
+        $variables['end_time'] = $end_time[0] != '0' ? $end_time[0] . ' h' : '00' . ' h';
       }
     }
     $variables['lang'] = $langcode;
@@ -282,7 +280,8 @@ function yukonca_glider_preprocess_node__news(&$variables) {
 
   // Validate node creation date and current date.
   $created_time = $source_translation->getCreatedTime();
-  $variables['publish_date'] = $created_time;
+  $date_formatter = \Drupal::service('date.formatter');
+  $variables['publish_date'] = $date_formatter->format($created_time, 'medium_format');
 }
 
 /**
@@ -292,34 +291,29 @@ function yukonca_glider_preprocess_node__event(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
   $variables['six_months_old'] = FALSE;
-  date_default_timezone_set('America/Whitehorse');
 
+  // Get the timezone, default to Whitehorse.
+  $timezone = 'America/Whitehorse';
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  if ($langcode == 'en') {
-    if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
-      $start_time = date('g a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('g a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-    }
-    else {
-      $start_time = date('g:i a', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-      $end_time = date('g:i a', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-    }
-  }
-  else {
-    if (!empty($node->field_event_start_time->value)) {
-      if (date('i', strtotime($node->field_event_start_time->value) == "00")) {
-        $start_time = date('G \h', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-        $end_time = date('G \h', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-      }
-      else {
-        $start_time = date('G \h i', (strtotime($node->field_event_start_time->value) - 60 * 60 * 7));
-        $end_time = date('G \h i', (strtotime($node->field_event_start_time->end_value) - 60 * 60 * 7));
-      }
-    }
-  }
 
-  $variables['start_time'] = $start_time;
-  $variables['end_time'] = $end_time;
+  if (!empty($node->field_event_start_time->value)) {
+    // Create DateTime objects from UTC values and convert to target timezone.
+    $start_datetime = new \DateTime($node->field_event_start_time->value, new \DateTimeZone('UTC'));
+    $start_datetime->setTimezone(new \DateTimeZone($timezone));
+
+    $end_datetime = new \DateTime($node->field_event_start_time->end_value, new \DateTimeZone('UTC'));
+    $end_datetime->setTimezone(new \DateTimeZone($timezone));
+
+    // Add properly timezone-converted date for template use.
+    $variables['event_date'] = $start_datetime->format('Y-m-d H:i:s');
+
+    // Generate start and end times short if they have no minute value.
+    $start_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $start_datetime);
+    $end_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $end_datetime);
+
+    $variables['start_time'] = $start_time;
+    $variables['end_time'] = $end_time;
+  }
 }
 
 /**
@@ -462,7 +456,7 @@ function yukonca_glider_preprocess_node__campground_directory_record(&$variables
  * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
-  $section_paragraphs = array_column($variables["content"]["field_paragraphs"], '#paragraph');
+  $section_paragraphs = !empty($variables["content"]["field_paragraphs"]) ? array_column($variables["content"]["field_paragraphs"], '#paragraph') : [];
   $node = $variables['node'];
 
   $variables['tabs']['items'] = [];
@@ -542,7 +536,7 @@ function yukonca_glider_preprocess_page(&$variables) {
     }
   }
 
-  $config_pages_storage =  \Drupal::entityTypeManager()->getStorage('config_pages');
+  $config_pages_storage = \Drupal::entityTypeManager()->getStorage('config_pages');
   // Validate quick exit only if the field exist and it is not NULL.
   if ((!empty($node)) && ($node->hasField('field_quick_exit'))) {
     $field_value = (bool) $node->get('field_quick_exit')->value;
@@ -559,6 +553,31 @@ function yukonca_glider_preprocess_page(&$variables) {
           'previous' => $quick_exit_entity->get('field_previous_tab')->value,
         ];
       }
+    }
+  }
+
+  // Click to call functionality.
+  if ((!empty($node)) && ($node->hasField('field_click_to_call'))) {
+    $field_value = (bool) $node->get('field_click_to_call')->value;
+    if ($field_value) {
+      // Get button text and phone, with fallback to default language if empty.
+      $button_text = $node->get('field_click_to_call_text')->value;
+      $telephone = $node->get('field_click_to_call_phone')->value;
+
+      // If values are empty and we're viewing a translation, fall back to default language.
+      if ((empty($button_text) || empty($telephone)) && $node->isTranslatable() && !$node->isDefaultTranslation()) {
+        $default_translation = $node->getUntranslated();
+        if (empty($button_text)) {
+          $button_text = $default_translation->get('field_click_to_call_text')->value;
+        }
+        if (empty($telephone)) {
+          $telephone = $default_translation->get('field_click_to_call_phone')->value;
+        }
+      }
+
+      $variables['click_to_call']['enable'] = $field_value;
+      $variables['click_to_call']['button_text'] = $button_text;
+      $variables['click_to_call']['telephone'] = $telephone;
     }
   }
 
@@ -1117,4 +1136,28 @@ function yukonca_glider_theme_suggestions_table_alter(array &$suggestions, array
   }
   $class = $variables['attributes']['class'][0];
   $suggestions[] = "table__" . $node->id() . str_replace("-", "_", $class);
+}
+
+/**
+ * Return a long or short time depending on presence of minutes.
+ *
+ * e.g. 2:00 => 2 pm / 13 h, whereas 2:30 becomes 2:30 pm / 14:30 h
+ */
+function yukonca_glider_utility_format_time_minutes_optional($langcode, DateTime $datetime){
+    if ($langcode == 'en') {
+      if ($datetime->format('i') == "00") {
+        return $datetime->format('g a');
+      }
+      else {
+        return $datetime->format('g:i a');
+      }
+    }
+    else {
+      if ($datetime->format('i') == "00") {
+        return $datetime->format('G \h');
+      }
+      else {
+        return $datetime->format('G \h i');
+      }
+    }
 }

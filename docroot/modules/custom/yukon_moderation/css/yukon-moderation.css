@@ -1,0 +1,15 @@
+.page-node-all-revisions,
+.page-yukon-moderation-compare-revisions {
+  #block-editlanguageblock {
+    display: none !important;
+  }
+}
+
+.page-node-all-revisions {
+  tr.lang-fr {
+    background: var(--color-bgblue-active);
+  }
+  tr.lang-fr:hover {
+    background: var(--color-bgblue-hover);
+  }
+}

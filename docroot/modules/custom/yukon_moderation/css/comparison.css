@@ -1,0 +1,117 @@
+/**
+ * Styles for revision comparison tables.
+ */
+
+.revision-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.revision-comparison-table th {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #dee2e6;
+}
+
+.revision-comparison-table td {
+  padding: 1rem;
+  vertical-align: top;
+  border: 1px solid #dee2e6;
+  width: 50%;
+}
+
+.revision-field-left,
+.revision-field-right {
+  width: 100%;
+}
+
+.revision-field-left strong,
+.revision-field-right strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.revision-comparison-table .field {
+  margin-bottom: 0;
+}
+
+.revision-comparison-table .field__label {
+  display: none; /* Hide field labels as we show them in the comparison headers */
+}
+
+.revision-comparison-table .field__item {
+  margin-bottom: 0.5rem;
+}
+
+/* Styling for different field types */
+.revision-comparison-table .text-formatted {
+  line-height: 1.6;
+}
+
+.revision-comparison-table img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Cross-language comparison specific styles */
+.revision-comparison-table th:first-child {
+  background-color: #e3f2fd;
+}
+
+.revision-comparison-table th:last-child {
+  background-color: #ffebee;
+}
+
+.revision-comparison-table td:first-child {
+  background-color: #fafafa;
+}
+
+.revision-comparison-table td:last-child {
+  background-color: #f5f5f5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .revision-comparison-table,
+  .revision-comparison-table thead,
+  .revision-comparison-table tbody,
+  .revision-comparison-table th,
+  .revision-comparison-table td,
+  .revision-comparison-table tr {
+    display: block;
+  }
+
+  .revision-comparison-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .revision-comparison-table tr {
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+
+  .revision-comparison-table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    width: 100% !important;
+    padding: 0.5rem;
+  }
+
+  .revision-comparison-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    display: inline-block;
+    width: 30%;
+  }
+}

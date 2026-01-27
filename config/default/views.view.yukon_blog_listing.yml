@@ -313,22 +313,21 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        changed:
-          id: changed
+        weight:
+          id: weight
           table: taxonomy_term_field_data
-          field: changed
+          field: weight
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: taxonomy_term
-          entity_field: changed
-          plugin_id: date
-          order: DESC
+          entity_field: weight
+          plugin_id: standard
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: second
       arguments: {  }
       filters:
         status:

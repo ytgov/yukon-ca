@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_click_to_call
+    - field.field.node.landing_page.field_click_to_call_phone
+    - field.field.node.landing_page.field_click_to_call_text
     - field.field.node.landing_page.field_department_term
     - field.field.node.landing_page.field_editor_publisher
     - field.field.node.landing_page.field_icon_dark
@@ -15,6 +18,7 @@ dependencies:
     - field.field.node.landing_page.field_redirection
     - field.field.node.landing_page.field_secondary_content
     - field.field.node.landing_page.field_target_content
+    - field.field.node.landing_page.field_translation_status
     - field.field.node.landing_page.field_yukon_editorial_team
     - node.type.landing_page
     - workflows.workflow.content
@@ -66,6 +70,25 @@ third_party_settings:
         description: ''
         required_fields: false
         weight: 0
+    group_click_to_call:
+      children:
+        - field_click_to_call
+        - field_click_to_call_text
+        - field_click_to_call_phone
+      label: 'Click to Call'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -86,6 +109,28 @@ content:
     weight: 14
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_click_to_call:
+    type: options_buttons
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_click_to_call_phone:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_click_to_call_text:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_department_term:
     type: options_select
@@ -262,6 +307,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

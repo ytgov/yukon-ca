@@ -16,4 +16,13 @@ function yukon_base_views_data_alter(array &$data) {
       'id' => 'exposed_form_selected_filters',
     ],
   ];
+
+  // Add custom field to file_usage table.
+  $data['file_usage']['media_content_usage'] = [
+    'title' => t('Content using this media'),
+    'help' => t('Shows the content (nodes) that use this media entity.'),
+    'field' => [
+      'id' => 'media_content_usage',
+    ],
+  ];
 }

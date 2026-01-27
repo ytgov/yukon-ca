@@ -18,13 +18,16 @@ dependencies:
     - field.field.node.event.field_event_locality_town
     - field.field.node.event.field_event_start_time
     - field.field.node.event.field_event_street_address
+    - field.field.node.event.field_event_type
     - field.field.node.event.field_featured_content
     - field.field.node.event.field_featured_image
+    - field.field.node.event.field_free_cost
     - field.field.node.event.field_link_title
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_page_description
     - field.field.node.event.field_postal_code
     - field.field.node.event.field_publisher
+    - field.field.node.event.field_translation_status
     - field.field.node.event.field_website
     - field.field.node.event.field_yukon_editorial_team
     - node.type.event
@@ -33,6 +36,7 @@ dependencies:
     - fences
     - field_group
     - link
+    - options
     - text
     - user
 third_party_settings:
@@ -93,7 +97,7 @@ content:
         fences_field_item_classes: ''
         fences_label_tag: div
         fences_label_classes: ''
-    weight: 9
+    weight: 10
     region: content
   field_contact_name:
     type: string
@@ -101,7 +105,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_contact_phone:
     type: string
@@ -109,7 +113,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_cost:
     type: string
@@ -117,7 +121,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   field_department_term:
     type: entity_reference_label
@@ -126,14 +130,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 14
-    region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 18
     region: content
   field_event_description:
     type: text_default
@@ -183,6 +179,13 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_event_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
   field_featured_image:
     type: entity_reference_entity_view
     label: hidden
@@ -191,6 +194,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 16
+    region: content
+  field_free_cost:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
     region: content
   field_link_title:
     type: link
@@ -202,7 +215,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 12
+    weight: 18
     region: content
   field_postal_code:
     type: string
@@ -230,15 +243,17 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
 hidden:
   addtoany: true
   field_category: true
   field_community: true
+  field_editor_publisher: true
   field_featured_content: true
   field_meta_tags: true
   field_page_description: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true

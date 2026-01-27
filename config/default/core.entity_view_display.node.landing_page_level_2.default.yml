@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page_level_2.body
+    - field.field.node.landing_page_level_2.field_click_to_call
     - field.field.node.landing_page_level_2.field_department_term
     - field.field.node.landing_page_level_2.field_editor_publisher
     - field.field.node.landing_page_level_2.field_icon_dark
@@ -65,6 +66,7 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_click_to_call: true
   field_department_term: true
   field_icon_dark: true
   field_icon_light: true

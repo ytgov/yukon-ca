@@ -1,0 +1,9 @@
+hide_language_switcher:
+  css:
+    base:
+      css/yukon-moderation.css: {}
+
+comparison:
+  css:
+    theme:
+      css/comparison.css: {}

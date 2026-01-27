@@ -11,6 +11,8 @@ use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Provides route responses for content translation routing.
@@ -82,16 +84,25 @@ class ContentTranslationController extends ControllerBase {
     $form = $this->formBuilder->getForm('Drupal\yukon_w3_custom\Form\SearchFilterForm');
     // Retrieve the current request.
     $request = $this->requestStack->getCurrentRequest();
+    global $base_url;
+    $sort = \Drupal::request()->get('sort');
+    if (!empty($sort) && $sort == 'asc') {
+      $update_url = $base_url . "/admin/content_translation?sort=desc";
+    }
+    else {
+      $update_url = $base_url . "/admin/content_translation?sort=asc";
+    }
     $header = [
       ['data' => $this->t('Title')],
-      ['data' => $this->t('Type')],
-      ['data' => $this->t('Operations')],
+      ['data' => $this->t('Type & Department')],
       ['data' => $this->t('Translation Status')],
+      ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
+      ['data' => $this->t('Operations')],
     ];
 
     $db = Database::getConnection();
-    $query = $db->select('node_field_data', 'ct')
-      ->fields('ct', ['nid', 'title', 'type', 'langcode'])
+    $query = $db->select('node_field_data', 'ct')->distinct()
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'changed'])
       ->condition('ct.langcode', 'en');
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
@@ -135,10 +146,15 @@ class ContentTranslationController extends ControllerBase {
     $offset = $current_page * $limit;
 
     // Query to fetch data from a database table.
-    $query = $db->select('node_field_data', 'ct')
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed']);
+    $query = $db->select('node_field_data', 'ct')->distinct()
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid']);
     $query->condition('ct.langcode', 'en');
-    $query->orderBy('ct.nid', 'DESC');
+    if (!empty($sort) && $sort == 'asc') {
+        $query->orderBy('ct.changed', 'ASC');
+    }
+    else {
+        $query->orderBy('ct.changed', 'DESC');
+    }
     $query->range($offset, $limit);
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
@@ -176,8 +192,17 @@ class ContentTranslationController extends ControllerBase {
     $results = $query->execute()->fetchAll();
     $translation_status = $request->query->get('translation_status');
     $rows = [];
+
+    // Get labels for content types.
+    $all_content_types = NodeType::loadMultiple();
+    foreach ($all_content_types as $machine_name => $content_type) {
+      $labels[$machine_name] = $content_type->label();
+    }
+
     foreach ($results as $row) {
       $entity_id = $row->nid;
+      $user_name = $this->get_username($entity_id);
+      $department = $this->get_department($entity_id);
 
       $query1 = $db->select("node__field_translation_status", "n");
       $query1->fields("n", ['entity_id', 'field_translation_status_value']);
@@ -206,28 +231,30 @@ class ContentTranslationController extends ControllerBase {
           $fr = "Absent";
         }
       }
-      if (!empty($translation_status)) {
-        if ($translation_status == strtolower($fr)) {
-          $rows[] = [
-            'data' => [
-              $row->title,
-              $row->type,
-              Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
-              $fr,
-            ],
-          ];
-        }
+      global $base_url;
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
+
+      // Use the label if we know it, otherwise fall back to the machine name.
+      if(!empty($labels[$row->type])) {
+        $type = $labels[$row->type];
+      } else {
+        $type = $row->type;
       }
-      else {
-        $rows[] = [
-          'data' => [
-            $row->title,
-            $row->type,
-            Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
-            $fr,
-          ],
-        ];
-      }
+      $query = $db->select("node_field_data", "n");
+      $query->fields("n", ['nid', 'changed']);
+      $query->condition("n.langcode", "fr");
+      $query->condition("n.nid", $entity_id);
+      $check_fr = $query->execute()->fetchAll();
+
+      $rows[] = [
+        'data' => [
+          Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
+          Markup::create($type . "<br>" . $department),
+          $fr,
+          Markup::create(date('Y-m-d H:i a', $row->changed) . "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>"),
+          Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
+        ],
+      ];
     }
 
     $build['filter_form'] = $form;
@@ -251,5 +278,29 @@ class ContentTranslationController extends ControllerBase {
 
     return $build;
   }
-
+  
+  function get_username($nid) {
+    $db = Database::getConnection();
+    $query = $db->select("history", "n");
+    $query->condition("n.nid", $nid);
+    $query->join('users_field_data', 'nd', 'n.uid = nd.uid');
+    $query->fields("nd", ['name','uid']);
+    $user[] = $query->execute()->fetchObject();
+    
+    $query = $db->select("path_alias", "n");
+    $query->condition("n.path", "/user/" . $user[0]->uid);
+    $query->fields("n", ['alias',]);
+    $user[] = $query->execute()->fetchObject();
+    
+    return $user;
+  }
+  function get_department($nid) {
+    $db = Database::getConnection();
+    $query = $db->select("node__field_department_term", "n");
+    $query->condition("n.entity_id", $nid);
+    $query->join('taxonomy_term_field_data', 'nd', 'n.field_department_term_target_id = nd.tid');
+    $query->fields("nd", ['name',]);
+    $department = $query->execute()->fetchObject();
+    return $department->name;
+  }
 }

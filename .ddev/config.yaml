@@ -1,7 +1,7 @@
 name: yukon.ca-d10
 type: drupal10
 docroot: docroot
-php_version: "8.1"
+php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -52,7 +52,7 @@ nodejs_version: "18"
 # "ddev xhprof" to enable xhprof and "ddev xhprof off" to disable it work better,
 # as leaving xhprof enabled all the time is a big performance hit.
 
-# webserver_type: nginx-fpm, apache-fpm, or nginx-gunicorn 
+# webserver_type: nginx-fpm, apache-fpm, or nginx-gunicorn
 
 # timezone: Europe/Berlin
 # This is the timezone used in the containers and by PHP;

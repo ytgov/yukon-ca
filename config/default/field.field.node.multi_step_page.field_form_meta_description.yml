@@ -1,0 +1,32 @@
+uuid: 979bd63d-6e03-44f0-8302-b0f88f1f3fa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_meta_description
+    - filter.format.plain_text
+    - node.type.multi_step_page
+  module:
+    - allowed_formats
+    - text
+    - tmgmt_content
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+  tmgmt_content:
+    excluded: false
+id: node.multi_step_page.field_form_meta_description
+field_name: field_form_meta_description
+entity_type: node
+bundle: multi_step_page
+label: 'Form meta description'
+description: 'Make sure to follow the government’s standards when you write the form meta description.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

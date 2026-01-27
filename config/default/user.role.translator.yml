@@ -146,6 +146,7 @@ permissions:
   - 'delete own documents content'
   - 'delete own engagement content'
   - 'delete own event content'
+  - 'delete own files'
   - 'delete own icon media'
   - 'delete own image media'
   - 'delete own in_page_alert content'

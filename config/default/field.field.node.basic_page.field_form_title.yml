@@ -1,0 +1,24 @@
+uuid: 04b90a6d-67a4-439c-b472-a5dc1690b041
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_title
+    - node.type.basic_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.basic_page.field_form_title
+field_name: field_form_title
+entity_type: node
+bundle: basic_page
+label: 'Form title'
+description: 'The form title should be in sentence case. You can uppercase proper nouns.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

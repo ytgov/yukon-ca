@@ -1,0 +1,24 @@
+uuid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_click_to_call_text
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_click_to_call_text
+field_name: field_click_to_call_text
+entity_type: node
+bundle: campaign_page
+label: 'Button Text'
+description: 'Text to display on the click to call button'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
