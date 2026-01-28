@@ -432,3 +432,15 @@ function yukon_w3_custom_views_pre_render(ViewExecutable $view) {
     }
   }
 }
+
+/**
+ * Implements hook_file_url_alter().
+ *
+ * Strips date folders (YYYY-MM pattern) from file URLs to provide clean URLs.
+ */
+function yukon_w3_custom_file_url_alter(&$uri) {
+  // Remove date folder pattern (YYYY-MM) from file URLs.
+  // This ensures all file URLs are displayed without the date folder,
+  // while files remain organized by date on disk.
+  $uri = preg_replace('#/sites/default/files/\d{4}-\d{2}/#', '/sites/default/files/', $uri);
+}

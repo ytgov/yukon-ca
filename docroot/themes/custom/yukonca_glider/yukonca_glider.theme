@@ -491,7 +491,10 @@ function yukonca_glider_preprocess_node__documents(&$variables) {
       if (!empty($file)) {
         $variables['document_size'] = ByteSizeMarkup::create($file->getSize() ?? 0);
         $variables['document_type'] = str_replace('application/', '', $file->getMimeType());
-        $variables['file_url'] = $file->createFileUrl();
+
+        // Get the file URL and strip the date folder (YYYY-MM pattern).
+        $file_url = $file->createFileUrl();
+        $variables['file_url'] = preg_replace('#/sites/default/files/\d{4}-\d{2}/#', '/sites/default/files/', $file_url);
       }
     }
   }

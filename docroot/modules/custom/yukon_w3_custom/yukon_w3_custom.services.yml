@@ -1,0 +1,6 @@
+services:
+  yukon_w3_custom.clean_file_url_subscriber:
+    class: Drupal\yukon_w3_custom\EventSubscriber\CleanFileUrlSubscriber
+    arguments: ['@file_system']
+    tags:
+      - { name: event_subscriber }
