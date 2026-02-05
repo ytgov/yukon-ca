@@ -218,6 +218,7 @@ permissions:
   - 'edit terms in region'
   - 'edit terms in sanitary_facilities'
   - 'edit terms in site_type'
+  - 'link to any page'
   - 'revert basic_page revisions'
   - 'translate any entity'
   - 'translate any entity'

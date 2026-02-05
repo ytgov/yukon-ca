@@ -284,6 +284,7 @@ permissions:
   - 'edit terms in region'
   - 'edit terms in sanitary_facilities'
   - 'edit terms in site_type'
+  - 'link to any page'
   - 'manage password reset'
   - 'post comments'
   - 'revert basic_page revisions'
