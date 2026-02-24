@@ -1401,7 +1401,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{{ field_event_start_time_2__value|date('U')|format_date('medium_format') }} "
+            text: "{{ (field_event_start_time_2__value ~ ' UTC')|date('U')|format_date('medium_format') }}"
             make_link: false
             path: ''
             absolute: false
