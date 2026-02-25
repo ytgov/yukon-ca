@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: 'En cours'
+    -
+      label: Terminée
+    -
+      label: 'En cours avec résultats'
+    -
+      label: 'Terminée avec résultats'
