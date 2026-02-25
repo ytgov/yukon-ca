@@ -39,7 +39,7 @@ display:
       exposed_form:
         options:
           submit_button: Rechercher
-      title: Chercher
+      title: Résultats
       header:
         result:
           content: 'Résultats @start - @end de @total'
