@@ -10,6 +10,9 @@ display:
         field_engagement_status_value:
           expose:
             label: Statut
+        title:
+          expose:
+            label: 'Trouver une consultation'
       empty:
         area:
           content:

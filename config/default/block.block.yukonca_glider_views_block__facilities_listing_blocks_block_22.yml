@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /test-yukon-permanent-art-collection
+    pages: "/test-yukon-permanent-art-collection\r\n/node/29052"
