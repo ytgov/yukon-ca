@@ -29,7 +29,7 @@ function yukon_base_token_info(): array {
   ];
   $info['tokens']['node']['field_department_term_en'] = [
     'name' => t('Metatag: Department, always in English'),
-    'description' => t('English value of field_department_term'),
+    'description' => t('English value of field_department_term(s)'),
   ];
 
   return [
@@ -68,16 +68,12 @@ function yukon_base_tokens($type, $tokens, array $data, array $options, Bubbleab
           // From SO
           //   https://stackoverflow.com/questions/37122908/drupal-8-get-taxonomy-term-value-in-node
           //   https://drupal.stackexchange.com/questions/205972/how-do-i-load-taxonomy-terms
-          $term_id = $node->get('field_department_term')->target_id;
-          if(empty($term_id)) {
+          $terms = $node->get('field_department_term')->referencedEntities();
+          if(empty($terms)) {
             break;
           }
-          // Load the term with no language context, gets the original.
-          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term_id);
-          if(empty($term)){
-            break;
-          }
-          $replacements[$original] = $term->getName();
+          $departments = array_map(fn($term): string => $term->getName(), $terms);
+          $replacements[$original] = implode(', ',  $departments);
           break;
       }
     }
