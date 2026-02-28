@@ -14,7 +14,7 @@ display:
           expose:
             description: ''
           group_info:
-            label: 'Afficher uniquement'
+            label: Par
             group_items:
               1:
                 title: 'Pages Web'
