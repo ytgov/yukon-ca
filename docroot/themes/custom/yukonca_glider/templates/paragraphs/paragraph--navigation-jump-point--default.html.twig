@@ -49,11 +49,11 @@
 
 {% block paragraph %}
     {% block content %}
-      <div class="col-item basis-1/3">
-        <a href="#{{ paragraph.field_add_navigation_jump_point.value|replace({' ': ''}) }}" class="campaign-nav__link">
-          <div class="icon">
-            {{ content.field_icon_name }}
-          </div>
+      <div class="col-item basis-1/3 campaign-nav__link">
+        <div class="icon">
+          {{ content.field_icon_name }}
+        </div>
+        <a href="#{{ paragraph.field_add_navigation_jump_point.value|replace({' ': ''}) }}" class="campaign-nav__link__anchor">
           <span class="text">{{ paragraph.field_add_navigation_jump_point.value|raw }}</span>
         </a>
       </div>

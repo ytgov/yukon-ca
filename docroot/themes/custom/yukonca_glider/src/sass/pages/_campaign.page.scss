@@ -5,7 +5,7 @@
 	    .language-switcher-language-url {
 			ul {
 				@apply list-none m-0 p-0 font-medium;
-				
+
 				li[hreflang] {
 				    @apply mr-0;
 				}
@@ -15,36 +15,36 @@
 		.campaign-menu {
 			ul {
 				@apply flex flex-wrap gap-5 list-none m-0 p-0;
-	
+
 				li {
 					@apply text-[13px];
 
 					.menu-item {
 						@apply text-black uppercase no-underline;
 					}
-					
+
 					> ul {
 					    @apply hidden fixed z-50 bg-white border-1 border-[#D2D2D2] -mt-1 min-w-[270px];
 					    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
                         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
-					    
+
 					    .menu-level-2 {
 					        @apply pl-5;
-					        
+
 					        .menu-item {
 					            @apply normal-case text-[13px] leading-[20px];
 					        }
 					    }
-					    
+
 					    &:after {
 					        @apply content-[""] block absolute bottom-full w-0 h-0 left-5 border-[10px] border-transparent border-b-white;
 					    }
-					    
+
 					    &:before {
 					        @apply content-[""] block absolute bottom-full w-0 h-0 left-[19px] border-[10px] border-transparent border-b-gray-400;
 					    }
 					}
-					
+
 					&:hover {
 					    > ul {
 					        @apply block;
@@ -59,101 +59,101 @@
 		> .row {
 			@apply pt-0;
 		}
-		
+
 		h2 {
 		    @apply text-3.25xl;
-		    
+
 		    a {
 		        @apply no-underline;
 		    }
 		}
-		
+
 		.paragraph--type--text,
 		.paragraph--type--text-and-image {
 			@apply pb-20 mt-20 border-b-1 border-gray-90;
-			
+
 			a {
 				@apply transition-all ease-in-out;
-	
+
 				&:hover {
 					@apply opacity-50;
 				}
 			}
 		}
-		
+
 		.campaign-text-only-wrapper {
 		    @apply relative;
 
 		    h1 {
 		        @apply text-[42px] leading-[normal];
 		    }
-		    
+
 	        .media {
 	            &.media-wysiwyg-align-left {
 	                @apply float-left mr-5;
 	            }
-	            
+
 	            &.media-wysiwyg-align-right {
 	                @apply float-right ml-5;
 	            }
 	        }
-		    
+
 		    p {
 		        &:last-child {
 		            @apply mb-0;
 		        }
 		    }
-		    
+
 		    .source-icon {
 		        @apply absolute top-28 -left-[104px] cursor-pointer;
-		        
+
 		        .source-credit {
 		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-md shadow-[#9B9B9B] min-w-max bg-white -top-full;
 		        }
-		        
+
 		        &:hover {
 		            .source-credit {
 		                @apply block;
 		            }
 		        }
-		        
+
 		        .icon {
 		            @apply w-fit;
-		            
+
 		            .field-name-field-source-credit {
     		            @apply absolute hidden p-2 text-sm rounded text-gray-450 shadow-xl shadow-[#9B9B9B] min-w-max bg-white;
-    
+
     		            .field-items {
     		                @apply mt-0;
     		            }
     		        }
-		            
+
 		            &:hover {
     		            @apply cursor-pointer;
-    		            
+
     		            .field-name-field-source-credit {
     		                @apply block;
     		            }
     		        }
 		        }
-		        
+
 		        svg {
 		            @apply text-white opacity-60;
 		        }
 		    }
-		    
+
 		    blockquote {
 		        @apply py-3 px-6 border-l-[5px] border-gray-lightgray;
-		        
+
 		        h3 {
 		            @apply text-[22px];
 		        }
-		        
+
 		        img {
 		            @apply mt-[15px] mb-[5px];
 		        }
 		    }
-		    
+
 		    .table-wrapper {
 		        @apply overflow-x-scroll;
 		    }
@@ -167,53 +167,53 @@
 			&:has(.campaign-cta) {
 				@apply mb-5;
 			}
-			
+
 			.campaign-quote-wrapper {
 			    @apply flex justify-center relative right-1/2 left-1/2 mx-[-50vw] w-screen bg-[#F9F9F9];
 
 			    blockquote {
 			        @apply relative text-[28px] text-gray-450 leading-1.1 pt-48 pb-[160px] mb-[23px];
-			        
+
 			        @include media-breakpoint-down(md) {
 			            @apply pt-32 pb-16;
 			        }
-			        
+
 			        &:before {
     		            @apply content-[""] absolute right-0 left-0 bg-no-repeat w-full h-full top-[130px] -left-20;
     		            background-image: url("../../images/svg/blockquote-bg.svg");
     		            background-size: 140px auto;
-    		            
+
     		            @include media-breakpoint-down(md) {
     		                @apply top-[70px] -left-10
     		            }
     		        }
-    		        
+
     		        .attr {
     		            @apply mt-7.5 text-base text-right;
     		        }
 			    }
 			}
-			
+
 			.video {
 			    .container {
 				    @apply w-full md:w-10/12 lg:w-8/12;
-				    
+
 				    @include media-breakpoint-down(md) {
 				        @apply flex-col;
 				    }
-				    
+
 				    .title {
 				        @apply ml-0;
 				    }
-				    
+
 				    .video {
 				        @apply order-2;
-				        
+
 				        iframe {
     				        -webkit-box-shadow: 0 40px 40px 0 rgba(155, 155, 155, .4);
                             box-shadow: 0 40px 40px 0 rgba(155, 155, 155, .4);
 				        }
-				        
+
 				        .field--name-field-caption {
 				            @apply mt-6 text-gray-450 text-sm;
 				        }
@@ -224,7 +224,7 @@
 
 				        .field__item {
 				            @apply text-gray-450;
-				            
+
 				            h3 {
 				                @apply text-gray-450;
 				            }
@@ -235,23 +235,23 @@
 			    &.right {
 			        .container {
 			            @apply flex lg:w-10/12;
-			            
+
 			            .video {
 			                @apply order-2;
-			                
+
 			                @include media-breakpoint-up(md) {
 			                    @apply w-1/2 mx-3.75 max-h-[280px];
 			                }
-			                
+
 			                iframe {
     				            @apply min-h-[auto] h-full;
     				        }
 			            }
-			            
+
 			            .caption {
 			                @apply order-1;
 			            }
-			            
+
 			            &.video-pattern {
     				        .video-info {
     				            @apply w-1/2;
@@ -259,31 +259,31 @@
     				    }
 			        }
 			    }
-			    
+
 			    &.left {
 			        .container {
 			            @apply flex lg:w-10/12;
-			            
+
 			            .video {
 			                @apply order-2;
-			                
+
 			                @include media-breakpoint-up(md) {
 			                    @apply order-1 w-1/2 mx-3.75 max-h-[280px];
 			                }
-			                
+
 			                iframe {
     				            @apply min-h-[auto] h-full;
     				        }
 			            }
-			            
+
 			            .caption {
 			                @apply order-1;
-			                
+
 			                @include media-breakpoint-up(md) {
 			                    @apply order-2;
 			                }
 			            }
-			            
+
 			            &.video-pattern {
     				        .video-info {
     				            @apply w-1/2;
@@ -292,59 +292,59 @@
 			        }
 			    }
 			}
-			
+
 			.paragraph--type--full-width-image {
 			    @apply border-b border-gray-90 pb-20 pt-[66px];
-			    
+
     			.campaign-image-only-wrapper {
     			    @apply text-center w-full;
-    			    
+
     			    img {
     			        @apply w-auto h-auto rounded;
                         box-shadow: 0 40px 40px 0 rgba(155,155,155,.4);
     			    }
     			}
 			}
-			
+
 			.campaign-section {
 			    &.paragraph--type--text-and-image {
     			    img {
     			        @apply w-auto h-auto mb-6;
     			    }
-    			    
+
     			    .items-center {
     			        @apply items-start;
     			    }
 			    }
 			}
-			
+
 			#Partnerships {
 			    img {
 			        @apply shadow-none;
 			    }
 			}
-			
+
 			.media {
 			    .media-wysiwyg-align-left {
 			        @apply mt-[15px] mr-5;
 			    }
 			}
     	}
-			
+
 		#block-mainpagecontent {
 			@apply my-0;
-			
+
 		}
-		
+
 		.layout-content {
 	        @apply p-0;
 	    }
-		
+
 		.campaign-social-media {
 		    h2 {
 		        @apply text-[22px] text-gray-450;
 		    }
-		    
+
 		    .webform-submission-page-feedback-add-form {
     		    .form-required {
         		    &:after {
@@ -354,8 +354,18 @@
 		    }
 		}
 	}
-	
+
 	.shadow-lg {
 	    box-shadow: 0 20px 20px 0 rgba(155,155,155,.21);
 	}
+
+  .diff-responsive-table-wrapper {
+    .campaign-intro-text {
+      margin-top: 0;
+    }
+
+    .campaign-nav__link {
+      height: auto;
+    }
+  }
 }
