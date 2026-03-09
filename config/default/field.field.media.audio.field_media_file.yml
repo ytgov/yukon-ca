@@ -8,12 +8,33 @@ dependencies:
   module:
     - content_translation
     - file
+    - filefield_paths
+    - tmgmt_content
 third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: '[media:directory:entity:parents:join-path]/[media:directory:entity:name]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: true
+    file_name:
+      value: ''
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: true
   content_translation:
     translation_sync:
       target_id: target_id
       display: display
       description: description
+  tmgmt_content:
+    excluded: false
 id: media.audio.field_media_file
 field_name: field_media_file
 entity_type: media

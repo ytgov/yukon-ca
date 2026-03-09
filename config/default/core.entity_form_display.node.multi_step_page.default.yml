@@ -159,7 +159,7 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
         weight: 0
 id: node.multi_step_page.default
 targetEntityType: node
