@@ -26,7 +26,7 @@ class YearFIlter extends FilterPluginBase {
     $current_year = date('Y');
     $options = [];
 
-    for ($year = 2018; $year <= $current_year; $year++) {
+    for ($year = 2022; $year <= $current_year; $year++) {
       $options[$year] = $year;
     }
 
