@@ -7,6 +7,7 @@
  * Provides moderation features for the Yukon project.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -27,6 +28,44 @@ function yukon_moderation_form_alter(&$form, FormStateInterface $form_state, $fo
       ],
     ];
   }
+}
+
+/**
+ * Implements hook_field_widget_complete_form_alter().
+ */
+function yukon_moderation_field_widget_complete_form_alter(array &$field_widget_complete_form, FormStateInterface $form_state, array $context) {
+  // Only act on the moderation_state field.
+  if ($context['items']->getFieldDefinition()->getName() !== 'moderation_state') {
+    return;
+  }
+  // Remove the "Ready for Coordinated Publication" option from the default
+  // (English) translation form. This state is only meaningful for
+  // non-default language translations.
+  $entity = $context['items']->getEntity();
+  if (!$entity->isDefaultTranslation()) {
+    return;
+  }
+  if (isset($field_widget_complete_form['widget'][0]['state']['#options']['ready_for_coordinated_publication'])) {
+    unset($field_widget_complete_form['widget'][0]['state']['#options']['ready_for_coordinated_publication']);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for content_moderation_entity_moderation_form.
+ */
+function yukon_moderation_form_content_moderation_entity_moderation_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Retrieve the entity passed to EntityModerationForm::buildForm().
+  $args = $form_state->getBuildInfo()['args'];
+  if (empty($args[0]) || !$args[0] instanceof EntityInterface) {
+    return;
+  }
+  // Remove the "Ready for Coordinated Publication" transition from the default
+  // (English) translation's moderation block. This state is only meaningful
+  // for non-default language translations.
+  if (!$args[0]->isDefaultTranslation()) {
+    return;
+  }
+  unset($form['new_state']['#options']['ready_for_coordinated_publication']);
 }
 
 /**
