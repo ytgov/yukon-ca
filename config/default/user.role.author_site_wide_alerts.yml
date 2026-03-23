@@ -38,6 +38,7 @@ permissions:
   - 'use content transition publish'
   - 'use content transition publish'
   - 'use content transition publish'
+  - 'use content transition ready_for_coordinated_publication'
   - 'use content transition submit_for_publish'
   - 'use content transition submit_for_review'
   - 'use text format full_html'

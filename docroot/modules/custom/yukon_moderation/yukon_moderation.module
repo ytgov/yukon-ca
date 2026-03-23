@@ -9,6 +9,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\yukon_moderation\EventSubscriber\CoordinatedPublicationSubscriber;
 
 /**
  * Implements hook_form_alter().
@@ -66,6 +67,51 @@ function yukon_moderation_form_content_moderation_entity_moderation_form_alter(a
     return;
   }
   unset($form['new_state']['#options']['ready_for_coordinated_publication']);
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * Tracks when a non-default translation of a node enters or leaves the
+ * "Ready for Coordinated Publication" moderation state, using the State API.
+ *
+ * This hook operates on content_moderation_state entities, which are saved
+ * separately per translation and carry the correct langcode on their active
+ * translation — unlike the workbench_email event shim, which always dispatches
+ * events with the default (English) node translation.
+ *
+ * workbench_email moves its hook_entity_update to the end of the invocation
+ * order, so this hook fires before the event is dispatched. That means the
+ * flag is set/cleared before the subscriber checks it.
+ */
+function yukon_moderation_entity_update(EntityInterface $entity) {
+  // Only interested in content_moderation_state entities for nodes.
+  if ($entity->getEntityTypeId() !== 'content_moderation_state') {
+    return;
+  }
+  if ($entity->get('content_entity_type_id')->value !== 'node') {
+    return;
+  }
+  // Only non-default translations have a coordinated publication state.
+  if ($entity->isDefaultTranslation()) {
+    return;
+  }
+
+  $langcode = $entity->language()->getId();
+  $new_state = $entity->moderation_state->value;
+  $node_id = $entity->get('content_entity_id')->value;
+  $key = CoordinatedPublicationSubscriber::STATE_KEY_PREFIX . $node_id . '.' . $langcode;
+
+  if ($new_state === CoordinatedPublicationSubscriber::COORDINATED_STATE) {
+    // Store the node revision ID so the subscriber can load the correct French
+    // content when auto-publishing. The translator may have edited content in
+    // the same save that moved the state to rfcp.
+    $node_revision_id = $entity->get('content_entity_revision_id')->value;
+    \Drupal::state()->set($key, $node_revision_id);
+  }
+  else {
+    \Drupal::state()->delete($key);
+  }
 }
 
 /**
