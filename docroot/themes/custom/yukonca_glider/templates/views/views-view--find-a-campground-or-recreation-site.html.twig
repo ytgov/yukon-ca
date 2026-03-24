@@ -64,7 +64,7 @@
   {% if department != 'All' or site_type != 'All' or campsite != '0' or ac_value != '0' or launch_value != '0' or playground != '0' or trails != '0' or dock_no != '0' %}
     <div class="view-places-listing">
       <div class="applied-filters">
-          <p class="section-title">Filter</p>
+          <p class="section-title">{{ 'Filter'|t }} </p>
           <div class="applied-items">
               {% if department != 'All' %}
                 <a class="applied-item" href="{{ app.request.uri }}?region=All&site_type={{ site_type_filter }}{% if campsite_flter != '0' %}&wheelchair_accessible_campsite[1]={{ campsite_flter }}{% endif %}{% if ac_value_flter != '0' %}&field_at_least_one_wheelchair_ac_value[1]={{ ac_value_flter }}{% endif %}{% if launch_value_flter != '0' %}&field_boat_launch_value[1]={{ launch_value_flter }}{% endif %}{% if playground_flter != '0' %}&field_hiking_trails_value[1]={{ playground_flter }}{% endif %}{% if trails_flter != '0' %}&field_playground_value[1]={{ trails_flter }}{% endif %}{% if dock_no_flter != '0' %}&field_swimming_area_or_dock_no_l_value[1]={{ dock_no_flter }}{% endif %}">{{ department }}</a>
