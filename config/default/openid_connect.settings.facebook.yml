@@ -5,3 +5,5 @@ settings:
   client_id: null
   client_secret: null
   api_version: null
+  prompt:
+    - login
