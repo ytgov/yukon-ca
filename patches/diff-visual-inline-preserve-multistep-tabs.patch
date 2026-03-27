@@ -1,0 +1,16 @@
+diff --git a/src/Plugin/diff/Layout/VisualInlineDiffLayout.php b/src/Plugin/diff/Layout/VisualInlineDiffLayout.php
+index 4bfd6cb..a1c3e71 100644
+--- a/src/Plugin/diff/Layout/VisualInlineDiffLayout.php
++++ b/src/Plugin/diff/Layout/VisualInlineDiffLayout.php
+@@ -111,6 +111,11 @@ class VisualInlineDiffLayout extends DiffLayoutBase {
+       $storage->save('cache.php', 'dummy');
+     }
+     $html_diff->getConfig()->setPurifierCacheLocation(dirname($storage->getFullPath('cache.php')));
++    // Disable HTMLPurifier for revision comparison to preserve all interactive
++    // attributes (e.g. Bootstrap 5 tab controls on multistep nodes). This view
++    // is admin-only and operates on already-stored content, so purification is
++    // not required and would strip attributes needed for tab navigation.
++    $html_diff->getConfig()->setPurifierEnabled(FALSE);
+     $this->htmlDiff = $html_diff;
+     $this->requestStack = $request_stack;
+     $this->entityDisplayRepository = $entity_display_repository;
