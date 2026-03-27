@@ -88,23 +88,32 @@ type_settings:
       to: published
       weight: 7
     reject:
-      label: Reject
+      label: 'Reject from publication'
       from:
-        - needs_review
         - ready_to_publish
       to: draft
       weight: 4
+    reject_from_review:
+      label: 'Reject from review'
+      from:
+        - needs_review
+      to: draft
+      weight: -3
     submit_for_publish:
       label: 'Submit for publish'
       from:
         - draft
         - needs_review
+        - published
+        - ready_to_publish
       to: ready_to_publish
       weight: 3
     submit_for_review:
       label: 'Submit for Review'
       from:
         - draft
+        - needs_review
+        - published
       to: needs_review
       weight: 2
     submit_for_scheduled_publishing:
