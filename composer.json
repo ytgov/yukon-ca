@@ -124,7 +124,8 @@
         "evolvingweb/drupal-ci": "^2.0",
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
-        "pantheon-systems/drupal-integrations": "^10.0"
+        "pantheon-systems/drupal-integrations": "^10.0",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "extra": {
         "enable-patching": true,
@@ -216,6 +217,11 @@
             "bower-asset",
             "npm-asset"
         ],
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/media_directories/composer.libraries.json"
+            ]
+        },
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
@@ -263,16 +269,17 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "composer/installers": true,
-            "cweagans/composer-patches": true,
-            "drupal/core-composer-scaffold": true,
             "acquia/blt": true,
             "acquia/blt-phpcs": true,
-            "oomphinc/composer-installers-extender": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true,
+            "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "php-http/discovery": true
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "autoload": {
