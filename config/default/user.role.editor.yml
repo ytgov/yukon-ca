@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_directories_editor_browser
+    - entity_browser.browser.media_directories_modal
+    - entity_browser.browser.media_directories_overview
     - filter.format.full_html
     - media.type.audio
     - media.type.document
@@ -28,9 +31,11 @@ dependencies:
   module:
     - content_moderation
     - contextual
+    - entity_browser
     - filter
     - linkchecker
     - media
+    - media_directories_ui
     - node
     - path
     - system
@@ -48,7 +53,11 @@ permissions:
   - 'access broken links report'
   - 'access content overview'
   - 'access contextual links'
+  - 'access media directories ui browser'
   - 'access media overview'
+  - 'access media_directories_editor_browser entity browser pages'
+  - 'access media_directories_modal entity browser pages'
+  - 'access media_directories_overview entity browser pages'
   - 'access own broken links report'
   - 'access site in maintenance mode'
   - 'access toolbar'
