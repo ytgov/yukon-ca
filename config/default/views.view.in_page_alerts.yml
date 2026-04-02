@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
     - node.type.in_page_alert
   module:
     - node
@@ -189,7 +188,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: default
       query:
         type: views_query
         options:
@@ -221,6 +220,17 @@ display:
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         ajax_history: {  }
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
