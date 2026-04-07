@@ -63,7 +63,7 @@
   {% endif %}
   {% if community_facility != 'All' or community != 'All' or title_output != '' %}
       <div class="applied-filters">
-          <p class="section-title">Filter</p>
+          <p class="section-title">{{ 'Filter'|t }} </p>
           <div class="applied-items">
               {% if title_output != '' %}
                 <a class="applied-item" href="{{ app.request.uri }}?field_community_target_id={{ community_filter }}&field_community_facility_type_target_id={{ community_facility_filter }}&title=">{{ title_output }}</a>

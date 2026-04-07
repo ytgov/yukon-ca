@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\Core\Pager\PagerManagerInterface;
+use Drupal\yukon_w3_custom\TranslationStatuses;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBuilderInterface;
@@ -18,6 +19,8 @@ use Drupal\node\Entity\NodeType;
  * Provides route responses for content translation routing.
  */
 class ContentTranslationController extends ControllerBase {
+  use TranslationStatuses;
+
   /**
    * The pager manager service.
    *
@@ -189,8 +192,15 @@ class ContentTranslationController extends ControllerBase {
       $query->join('node__field_department_term', 'nd', 'ct.nid = nd.entity_id');
       $query->condition("nd.field_department_term_target_id", $department);
     }
-    $results = $query->execute()->fetchAll();
+
     $translation_status = $request->query->get('translation_status');
+    // Add a condition for statuses that exist in the database.
+    if (!empty($translation_status) && in_array($translation_status, ['in_progress', 'not_required'])) {
+      $query->join('node__field_translation_status', 'n', 'ct.nid = n.entity_id');
+      $query->condition('n.field_translation_status_value', $translation_status);
+    }
+
+    $results = $query->execute()->fetchAll();
     $rows = [];
 
     // Get labels for content types.
@@ -209,28 +219,29 @@ class ContentTranslationController extends ControllerBase {
       $query1->condition("n.entity_id", $entity_id);
       $check_trans = $query1->execute()->fetchAll();
 
-      if (!empty($check_trans) && $check_trans[0]->field_translation_status_value == "in_progress") {
-        $fr = "In-progress";
-      }
-      elseif (!empty($check_trans) && $check_trans[0]->field_translation_status_value == "not_required") {
-        $fr = "Not-required";
-      }
-      else {
+      $tr_row_status = !empty($check_trans) ? $check_trans[0]->field_translation_status_value : '';
+      if (empty($check_trans)) {
         $query = $db->select("node_field_data", "n");
         $query->fields("n", ['nid', 'changed']);
         $query->condition("n.langcode", "fr");
         $query->condition("n.nid", $entity_id);
         $check_fr = $query->execute()->fetchAll();
         if (!empty($check_fr)) {
-          $fr = "Present";
+          $tr_row_status = 'present';
           if ($row->changed > $check_fr[0]->changed) {
-            $fr = "Out-dated";
+            $tr_row_status = 'out_dated';
           }
         }
         else {
-          $fr = "Absent";
+          $tr_row_status = 'absent';
         }
       }
+
+      // Filter out results by the rest of the translation statuses.
+      if (!empty($translation_status) && $translation_status !== $tr_row_status) {
+        continue;
+      }
+
       global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
 
@@ -250,7 +261,7 @@ class ContentTranslationController extends ControllerBase {
         'data' => [
           Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
           Markup::create($type . "<br>" . $department),
-          $fr,
+          $this->getTranslationStatusLabel($tr_row_status),
           Markup::create(date('Y-m-d H:i a', $row->changed) . "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>"),
           Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
         ],
@@ -271,6 +282,10 @@ class ContentTranslationController extends ControllerBase {
       ],
     ];
 
+    if (!$rows) {
+      return $build;
+    }
+
     // Add a pager.
     $build['pager'] = [
       '#type' => 'pager',
@@ -278,7 +293,7 @@ class ContentTranslationController extends ControllerBase {
 
     return $build;
   }
-  
+
   function get_username($nid) {
     $db = Database::getConnection();
     $query = $db->select("history", "n");
@@ -286,12 +301,12 @@ class ContentTranslationController extends ControllerBase {
     $query->join('users_field_data', 'nd', 'n.uid = nd.uid');
     $query->fields("nd", ['name','uid']);
     $user[] = $query->execute()->fetchObject();
-    
+
     $query = $db->select("path_alias", "n");
     $query->condition("n.path", "/user/" . $user[0]->uid);
     $query->fields("n", ['alias',]);
     $user[] = $query->execute()->fetchObject();
-    
+
     return $user;
   }
   function get_department($nid) {

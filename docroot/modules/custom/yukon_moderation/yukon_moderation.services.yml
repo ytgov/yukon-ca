@@ -1,0 +1,5 @@
+services:
+  yukon_moderation.coordinated_publication_subscriber:
+    class: Drupal\yukon_moderation\EventSubscriber\CoordinatedPublicationSubscriber
+    tags:
+      - { name: event_subscriber }

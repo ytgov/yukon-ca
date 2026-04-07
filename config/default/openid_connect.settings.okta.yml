@@ -5,3 +5,5 @@ settings:
   client_id: null
   client_secret: null
   okta_domain: null
+  prompt:
+    - login

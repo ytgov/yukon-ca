@@ -52,6 +52,11 @@ type_settings:
       weight: 1
       published: true
       default_revision: true
+    ready_for_coordinated_publication:
+      label: 'Ready for Coordinated Publication'
+      weight: 6
+      published: false
+      default_revision: false
     ready_to_publish:
       label: 'Ready to Publish'
       weight: 3
@@ -77,6 +82,7 @@ type_settings:
       from:
         - needs_review
         - publish_as_scheduled
+        - ready_for_coordinated_publication
         - ready_to_publish
       to: published
       weight: 1
@@ -87,6 +93,15 @@ type_settings:
         - published
       to: published
       weight: 7
+    ready_for_coordinated_publication:
+      label: 'Ready for Coordinated Publication'
+      from:
+        - draft
+        - needs_review
+        - published
+        - ready_to_publish
+      to: ready_for_coordinated_publication
+      weight: 8
     reject:
       label: Reject
       from:

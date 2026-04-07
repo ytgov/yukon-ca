@@ -63,7 +63,7 @@
   {% endif %}
   {% if combine_output != '' or department != 'All' %}
       <div class="applied-filters">
-          <p class="section-title">Filter</p>
+          <p class="section-title">{{ 'Filter'|t }} </p>
           <div class="applied-items">
               {% if combine_output != '' %}
                 <a class="applied-item" href="{{ app.request.uri }}?field_department_term_target_id={{ department_filter }}&combine=">{{ combine_output }}</a>
@@ -71,7 +71,7 @@
               {% if department != 'All' %}
                 <a class="applied-item" href="{{ app.request.uri }}?field_department_term_target_id=All&combine={{ combine_output }}">{{ department }}</a>
               {% endif %}
-              
+
           </div>
       </div>
   {% endif %}

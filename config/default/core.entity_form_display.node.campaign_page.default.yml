@@ -74,7 +74,7 @@ third_party_settings:
         id: ''
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
     group_campaign_intro:
       children:
         - field_hero_image
@@ -92,7 +92,7 @@ third_party_settings:
         id: ''
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
     group_campaign_social_channels:
       children:
         - field_add_social_media_channels
@@ -159,7 +159,7 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
         weight: 0
     group_campaign_multipage:
       children:
@@ -196,7 +196,7 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: true
+        required_fields: false
         weight: 0
 id: node.campaign_page.default
 targetEntityType: node

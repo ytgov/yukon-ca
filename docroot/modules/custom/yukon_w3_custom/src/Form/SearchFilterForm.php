@@ -5,6 +5,7 @@ namespace Drupal\yukon_w3_custom\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\yukon_w3_custom\TranslationStatuses;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * Provides seach filter form.
  */
 class SearchFilterForm extends FormBase {
+  use TranslationStatuses;
+
   /**
    * The pager manager service.
    *
@@ -106,14 +109,7 @@ class SearchFilterForm extends FormBase {
       '#description' => $this->t('Start typing to find an author.'),
       '#default_value' => $request->query->get('author'),
     ];
-    $translation_status = [
-      '' => 'Any',
-      'absent' => 'Absent',
-      'in-progress' => 'In-progress',
-      'present' => 'Present',
-      'out-dated' => 'Out-dated',
-      'not-required' => 'Not-required',
-    ];
+    $translation_status = $this->getTranslationStatuses();
     $form['translation_status'] = [
       '#type' => 'select',
       '#title' => $this->t('Translation Status'),

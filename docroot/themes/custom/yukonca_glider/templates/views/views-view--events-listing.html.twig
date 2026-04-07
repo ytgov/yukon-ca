@@ -63,7 +63,7 @@
   {% endif %}
   {% if community != 'All' or category != 'All' %}
       <div class="applied-filters">
-          <p class="section-title">Filter</p>
+          <p class="section-title">{{ 'Filter'|t }} </p>
           <div class="applied-items">
               {% if community != 'All' %}
                 <a class="applied-item" href="{{ app.request.uri }}?field_community_target_id=All&field_category_target_id={{ category_filter }}&event_year_filter={{ year }}&event_month_filter={{ month }}&field_yukon_editorial_team_target_id={{ team }}">{{ community }}</a>

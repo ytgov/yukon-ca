@@ -14,11 +14,11 @@
         "drupal/advanced_help": "1.x-dev@dev",
         "drupal/ajax_comments": "1.x-dev@dev",
         "drupal/allowed_formats": "^1.3",
-        "drupal/anchor_link": "^3.0@alpha",
+        "drupal/anchor_link": "^3.0",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/bigmenu": "^2.0@RC",
         "drupal/block_class": "^3.0",
-        "drupal/ckeditor5_plugin_pack": "^1.4",
+        "drupal/ckeditor5_plugin_pack": "^1.5",
         "drupal/ckeditor5_premium_features": "^1.6",
         "drupal/ckeditor5_show_block": "^1.14",
         "drupal/ckeditor_div_manager": "^3.0@alpha",
@@ -29,9 +29,9 @@
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/config_pages": "^2.18",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "10.4.9",
-        "drupal/core-project-message": "10.4.9",
-        "drupal/core-recommended": "10.4.9",
+        "drupal/core-composer-scaffold": "10.6.3",
+        "drupal/core-project-message": "10.6.3",
+        "drupal/core-recommended": "10.6.3",
         "drupal/cshs": "^4.0",
         "drupal/date_recur": "^3.2",
         "drupal/devel": "^5.1",
@@ -53,7 +53,7 @@
         "drupal/imce": "^3.1",
         "drupal/job_scheduler": "^4.0",
         "drupal/leaflet": "^10.3",
-        "drupal/libraries": "^4.0",
+        "drupal/libraries": "^4.1",
         "drupal/link_attributes": "^2.1",
         "drupal/linkchecker": "^2.0@alpha",
         "drupal/linkit": "^6.1",
@@ -71,7 +71,7 @@
         "drupal/metatag": "^2.1",
         "drupal/moderation_scheduler": "^9.1",
         "drupal/noreqnewpass": "^1.4",
-        "drupal/openid_connect": "^1.4",
+        "drupal/openid_connect": "^1.5",
         "drupal/page_manager": "^4.0@RC",
         "drupal/paragraphs": "^1.12",
         "drupal/password_policy": "^4.0",
@@ -123,9 +123,9 @@
         "evolvingweb/blinker_core": "^2.0",
         "evolvingweb/drupal-ci": "^2.0",
         "evolvingweb/glider": "^3.6",
-        "northernco/ckeditor5-anchor-drupal": "^0.5.0",
         "oomphinc/composer-installers-extender": "^2.0",
-        "pantheon-systems/drupal-integrations": "^10.0"
+        "pantheon-systems/drupal-integrations": "^10.0",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "extra": {
         "enable-patching": true,
@@ -217,6 +217,11 @@
             "bower-asset",
             "npm-asset"
         ],
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/media_directories/composer.libraries.json"
+            ]
+        },
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"
@@ -264,16 +269,17 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "composer/installers": true,
-            "cweagans/composer-patches": true,
-            "drupal/core-composer-scaffold": true,
             "acquia/blt": true,
             "acquia/blt-phpcs": true,
-            "oomphinc/composer-installers-extender": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true,
+            "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "php-http/discovery": true
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "autoload": {

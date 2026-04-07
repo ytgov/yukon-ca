@@ -8,3 +8,5 @@ settings:
   token_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/oauth/token'
   userinfo_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/userinfo'
   redirect_url: ''
+  prompt:
+    - login
