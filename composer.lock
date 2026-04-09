@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c84d4e90a10a2b02dfb765115bfa4c3c",
+    "content-hash": "613bba5250aacbafbca03239b0d920ce",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5910,30 +5910,26 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "6.1.6",
+            "version": "7.0.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "6.1.6"
+                "reference": "7.0.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-6.1.6.zip",
-                "reference": "6.1.6",
-                "shasum": "113d8e569cfb92f8d7feb0a2f7713953c0715e92"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.13.zip",
+                "reference": "7.0.13",
+                "shasum": "918d001248b4a394eb1c4e097e7d243959280489"
             },
             "require": {
-                "drupal/core": "^10.1"
-            },
-            "require-dev": {
-                "drupal/ckeditor": "*",
-                "drupal/imce": "*"
+                "drupal/core": "^10.1 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.6",
-                    "datestamp": "1729189029",
+                    "version": "7.0.13",
+                    "datestamp": "1773055628",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -16957,5 +16953,5 @@
         "php": ">=8.1"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
