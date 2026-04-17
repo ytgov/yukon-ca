@@ -63,9 +63,16 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
       $result = count($view->result);
       $variables['landing_page_l2_count'] = $result;
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-      $translated_entity = $node->getTranslation($langcode);
-      $translated_title = $translated_entity->getTitle();
-      $variables['title'] = $translated_title;
+      if ($node->hasTranslation($langcode)) {
+        $translated_entity = $node->getTranslation($langcode);
+        $translated_title = $translated_entity->getTitle();
+        $variables['title'] = $translated_title;
+      } else {
+       \Drupal::logger('yukonca_glider')->warning("Missing translation in yukonca_glider_preprocess_paragraph");
+       $variables['title'] = '...';
+       // title can't be null, or something complains about translating null
+       // See also https://github.com/ytgov/yukon-ca/issues/1046
+      }
       $variables['landing_page_url'] = $base_url . "/" . $langcode . $alias;
     }
   }
