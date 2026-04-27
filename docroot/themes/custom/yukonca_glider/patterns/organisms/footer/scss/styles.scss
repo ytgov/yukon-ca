@@ -34,6 +34,7 @@
 
     &.menu li {
       @apply pt-0;
+      @apply my-1;
 
       a {
         @apply text-white leading-[23px] font-medium;
