@@ -27,6 +27,10 @@ function yukon_base_token_info(): array {
     'name' => t('Metatag: Bilingual Date Published'),
     'description' => t('Bilingual Date Published for use with Metatags'),
   ];
+  $info['tokens']['node']['field_department_term_en'] = [
+    'name' => t('Metatag: Department, always in English'),
+    'description' => t('English value of field_department_term(s)'),
+  ];
 
   return [
     'types' => $info,
@@ -55,6 +59,21 @@ function yukon_base_tokens($type, $tokens, array $data, array $options, Bubbleab
         case 'bilingual_date_published':
           $published_time = $node->getCreatedTime();
           $replacements[$original] = \Drupal::service('date.formatter')->format($published_time, 'custom', 'Y-m-d');
+          break;
+
+        case 'field_department_term_en':
+          if(!$node->hasField('field_department_term')) {
+            break;
+          }
+          // From SO
+          //   https://stackoverflow.com/questions/37122908/drupal-8-get-taxonomy-term-value-in-node
+          //   https://drupal.stackexchange.com/questions/205972/how-do-i-load-taxonomy-terms
+          $terms = $node->get('field_department_term')->referencedEntities();
+          if(empty($terms)) {
+            break;
+          }
+          $departments = array_map(fn($term): string => $term->getName(), $terms);
+          $replacements[$original] = implode(', ',  $departments);
           break;
       }
     }
