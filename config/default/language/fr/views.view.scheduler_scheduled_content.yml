@@ -3,6 +3,7 @@ display:
     display_options:
       exposed_form:
         options:
+          submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       fields:
@@ -18,9 +19,17 @@ display:
             group_items:
               1:
                 title: 'Publié le'
+    display_title: Master
+  overview:
+    display_options:
+      tab_options:
+        title: Content
   user_page:
     display_options:
+      tab_options:
+        title: Content
       arguments:
         uid:
           exception:
             title: Tout
+      display_comment: 'Access to the user view is controlled via a custom RouteSubscriber. The high-level "view published content" permission is added to satisfy the security_review module'

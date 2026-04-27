@@ -3,6 +3,8 @@ display:
     display_title: 'Par défaut'
     display_options:
       fields:
+        nothing:
+          admin_label: Icon
         timestamp:
           label: Date
       pager:
@@ -13,6 +15,7 @@ display:
             offset_label: Décalage
       exposed_form:
         options:
+          submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
   page:

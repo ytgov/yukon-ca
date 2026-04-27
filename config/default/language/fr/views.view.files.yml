@@ -11,12 +11,16 @@ display:
           label: Statut
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       exposed_form:
         options:
+          submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       filters:
@@ -27,6 +31,9 @@ display:
     display_options:
       pager:
         options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'

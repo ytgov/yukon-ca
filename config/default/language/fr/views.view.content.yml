@@ -1,14 +1,22 @@
+label: Content
 display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: Content
       fields:
         status:
           label: Statut
           settings:
             format_custom_true: 'Publié le'
+      pager:
+        options:
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
       exposed_form:
         options:
+          submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       filters:
@@ -21,3 +29,8 @@ display:
                 title: 'Publié le'
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: Content
+      tab_options:
+        title: Content
