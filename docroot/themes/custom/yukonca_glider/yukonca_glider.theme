@@ -78,9 +78,8 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
   }
   if ($parentBundle == 'call_to_action') {
     $string = $paragraph->field_link->uri;
-    $char = "internal";
 
-    if (strpos($string, $char) !== FALSE) {
+    if (str_starts_with($string, "internal:") || str_starts_with($string, "entity:") ) {
       $url = Url::fromUri($paragraph->field_link->uri);
       $variables['field_link_url'] = $url->toString();
     }
@@ -633,9 +632,8 @@ function yukonca_glider_preprocess_page(&$variables) {
         $url = $file->createFileUrl();
         $variables['logo_url'] = $url;
         $string = $node->field_campaign_home_logo_link->uri;
-        $char = "internal";
         $variables['logo_link_url'] = "";
-        if (strpos($string, $char) !== FALSE) {
+        if (str_starts_with($string, "internal:") || str_starts_with($string, "entity:") ) {
           $url = Url::fromUri($node->field_campaign_home_logo_link->uri);
           $variables['logo_link_url'] = $url->toString();
         }
