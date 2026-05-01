@@ -46,7 +46,7 @@ third_party_settings:
       label: 'Featured image'
       region: content
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: tab
       format_settings:
         classes: ''
@@ -61,7 +61,7 @@ third_party_settings:
       label: 'Related tasks'
       region: content
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: tab
       format_settings:
         classes: ''
@@ -95,7 +95,7 @@ third_party_settings:
       label: 'Quick exit'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -114,7 +114,7 @@ third_party_settings:
       label: 'Click to Call'
       region: content
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -130,11 +130,27 @@ third_party_settings:
         - field_this_is_an_online_form
         - field_form_title
         - field_form_meta_description
-        - field_last_updated
       label: 'Online forms'
       region: content
       parent_name: ''
-      weight: 21
+      weight: 22
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 6
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -152,7 +168,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 10
+    weight: 11
     region: content
     settings:
       rows: 9
@@ -190,7 +206,7 @@ content:
     third_party_settings: {  }
   field_collapsible_items:
     type: paragraphs
-    weight: 18
+    weight: 19
     region: content
     settings:
       title: Paragraph
@@ -209,7 +225,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: text_textarea
-    weight: 17
+    weight: 18
     region: content
     settings:
       rows: 3
@@ -221,7 +237,7 @@ content:
         maxlength_js_enforce: false
   field_department_term:
     type: options_select
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -256,7 +272,7 @@ content:
     third_party_settings: {  }
   field_image_gallery:
     type: paragraphs
-    weight: 14
+    weight: 15
     region: content
     settings:
       title: Image
@@ -276,7 +292,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 12
+    weight: 13
     region: content
     settings:
       sidebar: true
@@ -328,9 +344,15 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -349,13 +371,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -369,7 +391,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -384,14 +406,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_full_width: true
   field_social_sharing: true
-  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true
