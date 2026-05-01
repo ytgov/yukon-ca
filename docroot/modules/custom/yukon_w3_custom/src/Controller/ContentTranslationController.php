@@ -104,101 +104,86 @@ class ContentTranslationController extends ControllerBase {
     ];
 
     $db = Database::getConnection();
-    $query = $db->select('node_field_data', 'ct')->distinct()
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'changed'])
-      ->condition('ct.langcode', 'en');
-    $text = $request->query->get('filter_text');
-    if (!empty($text)) {
-      $query->condition("ct.title", '%' . $db->escapeLike($text) . '%', 'LIKE');
-    }
-    $type = $request->query->get('type');
-    if (!empty($type) && $type != 'All') {
-      $query->condition("ct.type", $type);
-    }
-    $published_status = $request->query->get('published_status');
-    if (!empty($published_status) && $published_status != '') {
-      $query->condition("ct.status", $published_status);
-    }
-    $author = $request->query->get('author');
-    if (!empty($author) && $author != '') {
-      // Use entity query to search for the user by name.
-      $query_user = $this->entityTypeManager->getStorage('user')->getQuery()
-        ->accessCheck(TRUE)
-        ->condition('name', $author)
-        ->range(0, 1);
-      $uids = $query_user->execute();
-      $uid = reset($uids);
-      $query->condition("ct.uid", $uid);
-    }
-    $department = $request->query->get('department');
-    if (!empty($department) && $department != '') {
-      $query->join('node__field_department_term', 'nd', 'ct.nid = nd.entity_id');
-      $query->condition("nd.field_department_term_target_id", $department);
-    }
-    $results = $query->countQuery()->execute()->fetchField();
 
     // Set the pager limit.
     $number_of_rows = $request->query->get('number_of_rows');
-    if (!empty($number_of_rows)) {
-      $limit = $number_of_rows;
-    }
-    else {
-      $limit = 50;
-    }
-    $current_page = $this->pagerManager->createPager($results, $limit)->getCurrentPage();
-    $offset = $current_page * $limit;
+    $limit = !empty($number_of_rows) ? (int) $number_of_rows : 50;
 
-    // Query to fetch data from a database table.
+    // Build the query once and reuse it for both the count and data fetch.
     $query = $db->select('node_field_data', 'ct')->distinct()
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid']);
-    $query->condition('ct.langcode', 'en');
-    if (!empty($sort) && $sort == 'asc') {
-        $query->orderBy('ct.changed', 'ASC');
-    }
-    else {
-        $query->orderBy('ct.changed', 'DESC');
-    }
-    $query->range($offset, $limit);
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid'])
+      ->condition('ct.langcode', 'en');
+
     $text = $request->query->get('filter_text');
     if (!empty($text)) {
-      $query->condition("ct.title", '%' . $db->escapeLike($text) . '%', 'LIKE');
+      $query->condition('ct.title', '%' . $db->escapeLike($text) . '%', 'LIKE');
     }
     $type = $request->query->get('type');
     if (!empty($type) && $type != 'All') {
-      $query->condition("ct.type", $type);
+      $query->condition('ct.type', $type);
     }
     $published_status = $request->query->get('published_status');
     if (!empty($published_status) && $published_status != '') {
-      if ($published_status == 2) {
-        $query->condition("ct.status", '0');
-      }
-      else {
-        $query->condition("ct.status", '1');
-      }
+      $query->condition('ct.status', $published_status == 2 ? '0' : '1');
     }
     $author = $request->query->get('author');
     if (!empty($author) && $author != '') {
-      // Use entity query to search for the user by name.
       $query_user = $this->entityTypeManager->getStorage('user')->getQuery()
         ->accessCheck(TRUE)
         ->condition('name', $author)
         ->range(0, 1);
       $uids = $query_user->execute();
       $uid = reset($uids);
-      $query->condition("ct.uid", $uid);
+      $query->condition('ct.uid', $uid);
     }
     $department = $request->query->get('department');
     if (!empty($department) && $department != '') {
       $query->join('node__field_department_term', 'nd', 'ct.nid = nd.entity_id');
-      $query->condition("nd.field_department_term_target_id", $department);
+      $query->condition('nd.field_department_term_target_id', $department);
     }
 
     $translation_status = $request->query->get('translation_status');
-    // Add a condition for statuses that exist in the database.
-    if (!empty($translation_status) && in_array($translation_status, ['in_progress', 'not_required'])) {
-      $query->join('node__field_translation_status', 'n', 'ct.nid = n.entity_id');
-      $query->condition('n.field_translation_status_value', $translation_status);
+    if (!empty($translation_status)) {
+      if (in_array($translation_status, ['in_progress', 'not_required'])) {
+        $query->join('node__field_translation_status', 'ts', 'ct.nid = ts.entity_id');
+        $query->condition('ts.field_translation_status_value', $translation_status);
+      }
+      else {
+        // Computed statuses (absent/present/out_dated): exclude nodes with an
+        // explicit in_progress or not_required value, then filter by French
+        // translation existence and timestamp comparison.
+        $no_explicit = $db->select('node__field_translation_status', 'ts2')
+          ->fields('ts2', ['entity_id'])
+          ->where('ts2.entity_id = ct.nid');
+        $query->notExists($no_explicit);
+
+        $fr = $db->select('node_field_data', 'fr')->fields('fr', ['nid'])
+          ->where("fr.nid = ct.nid AND fr.langcode = 'fr'");
+
+        if ($translation_status === 'absent') {
+          $query->notExists($fr);
+        }
+        elseif ($translation_status === 'present') {
+          $fr->where('ct.changed <= fr.changed');
+          $query->exists($fr);
+        }
+        elseif ($translation_status === 'out_dated') {
+          $fr->where('ct.changed > fr.changed');
+          $query->exists($fr);
+        }
+      }
     }
+
+    // Get accurate total from the filtered query, then add sort and pagination.
+    $total = $query->countQuery()->execute()->fetchField();
+    $current_page = $this->pagerManager->createPager($total, $limit)->getCurrentPage();
+    if (!empty($sort) && $sort == 'asc') {
+      $query->orderBy('ct.changed', 'ASC');
+    }
+    else {
+      $query->orderBy('ct.changed', 'DESC');
+    }
+    $query->range($current_page * $limit, $limit);
 
     $results = $query->execute()->fetchAll();
     $rows = [];
@@ -237,11 +222,6 @@ class ContentTranslationController extends ControllerBase {
         }
       }
 
-      // Filter out results by the rest of the translation statuses.
-      if (!empty($translation_status) && $translation_status !== $tr_row_status) {
-        continue;
-      }
-
       global $base_url;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $row->nid);
 
@@ -251,11 +231,6 @@ class ContentTranslationController extends ControllerBase {
       } else {
         $type = $row->type;
       }
-      $query = $db->select("node_field_data", "n");
-      $query->fields("n", ['nid', 'changed']);
-      $query->condition("n.langcode", "fr");
-      $query->condition("n.nid", $entity_id);
-      $check_fr = $query->execute()->fetchAll();
 
       $rows[] = [
         'data' => [
@@ -320,6 +295,6 @@ class ContentTranslationController extends ControllerBase {
     $query->join('taxonomy_term_field_data', 'nd', 'n.field_department_term_target_id = nd.tid');
     $query->fields("nd", ['name',]);
     $department = $query->execute()->fetchObject();
-    return $department->name;
+    return $department ? $department->name : '';
   }
 }
