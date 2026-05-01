@@ -99,6 +99,7 @@ class ContentTranslationController extends ControllerBase {
       ['data' => $this->t('Title')],
       ['data' => $this->t('Type & Department')],
       ['data' => $this->t('Translation Status')],
+      ['data' => $this->t('Published Status')],
       ['data' => $this->t('<a href="' . $update_url . '">Updated</a>')],
       ['data' => $this->t('Operations')],
     ];
@@ -111,7 +112,7 @@ class ContentTranslationController extends ControllerBase {
 
     // Build the query once and reuse it for both the count and data fetch.
     $query = $db->select('node_field_data', 'ct')->distinct()
-      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid'])
+      ->fields('ct', ['nid', 'title', 'type', 'langcode', 'created', 'changed', 'uid', 'status'])
       ->condition('ct.langcode', 'en');
 
     $text = $request->query->get('filter_text');
@@ -237,6 +238,7 @@ class ContentTranslationController extends ControllerBase {
           Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
           Markup::create($type . "<br>" . $department),
           $this->getTranslationStatusLabel($tr_row_status),
+          $row->status ? $this->t('Published') : $this->t('Unpublished'),
           Markup::create(date('Y-m-d H:i a', $row->changed) . ($user_name[0] && $user_name[1] ? "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>" : "")),
           Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
         ],
