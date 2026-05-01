@@ -211,7 +211,7 @@ class ContentTranslationController extends ControllerBase {
 
     foreach ($results as $row) {
       $entity_id = $row->nid;
-      $user_name = $this->get_username($entity_id);
+      $user_name = $this->get_username($row->uid);
       $department = $this->get_department($entity_id);
 
       $query1 = $db->select("node__field_translation_status", "n");
@@ -262,7 +262,7 @@ class ContentTranslationController extends ControllerBase {
           Markup::create("<a href='" . $base_url . $alias . "'>" . $row->title . "</a><br><pre>" . $alias . "</pre>"),
           Markup::create($type . "<br>" . $department),
           $this->getTranslationStatusLabel($tr_row_status),
-          Markup::create(date('Y-m-d H:i a', $row->changed) . "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>"),
+          Markup::create(date('Y-m-d H:i a', $row->changed) . ($user_name[0] && $user_name[1] ? "<br><a href='" . $user_name[1]->alias . "'>" . $user_name[0]->name . "</a>" : "")),
           Link::fromTextAndUrl($this->t('Edit'), Url::fromRoute('entity.node.edit_form', ['node' => $row->nid])),
         ],
       ];
@@ -294,18 +294,22 @@ class ContentTranslationController extends ControllerBase {
     return $build;
   }
 
-  function get_username($nid) {
+  function get_username($uid) {
     $db = Database::getConnection();
-    $query = $db->select("history", "n");
-    $query->condition("n.nid", $nid);
-    $query->join('users_field_data', 'nd', 'n.uid = nd.uid');
-    $query->fields("nd", ['name','uid']);
+    $query = $db->select("users_field_data", "u");
+    $query->fields("u", ['name', 'uid']);
+    $query->condition("u.uid", $uid);
     $user[] = $query->execute()->fetchObject();
 
-    $query = $db->select("path_alias", "n");
-    $query->condition("n.path", "/user/" . $user[0]->uid);
-    $query->fields("n", ['alias',]);
-    $user[] = $query->execute()->fetchObject();
+    if ($user[0]) {
+      $query = $db->select("path_alias", "n");
+      $query->condition("n.path", "/user/" . $user[0]->uid);
+      $query->fields("n", ['alias']);
+      $user[] = $query->execute()->fetchObject();
+    }
+    else {
+      $user[] = FALSE;
+    }
 
     return $user;
   }
