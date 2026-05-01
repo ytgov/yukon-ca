@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.in_page_alert.field_editor_publisher
     - field.field.node.in_page_alert.field_meta_tags
     - field.field.node.in_page_alert.field_publisher
+    - field.field.node.in_page_alert.field_translation_status
     - field.field.node.in_page_alert.field_yukon_editorial_team
     - node.type.in_page_alert
     - workflows.workflow.content
@@ -36,6 +37,23 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         open: true
         description: ''
         required_fields: false
@@ -103,6 +121,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
     weight: 6
@@ -130,7 +154,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
@@ -144,7 +168,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -159,7 +183,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

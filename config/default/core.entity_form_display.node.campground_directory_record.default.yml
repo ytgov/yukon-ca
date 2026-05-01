@@ -59,6 +59,7 @@ dependencies:
     - field.field.node.campground_directory_record.field_swimming_area_or_dock_no_l
     - field.field.node.campground_directory_record.field_tent_pads_or_sites_availab
     - field.field.node.campground_directory_record.field_total_sites
+    - field.field.node.campground_directory_record.field_translation_status
     - field.field.node.campground_directory_record.field_viewing_structures_or_sign
     - field.field.node.campground_directory_record.field_walk_in_sites
     - field.field.node.campground_directory_record.field_warning
@@ -250,6 +251,23 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 18
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         open: true
         description: ''
         required_fields: false
@@ -643,6 +661,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_viewing_structures_or_sign:
     type: options_buttons
     weight: 26
@@ -684,13 +708,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 22
     region: content
     settings:
       display_label: true
@@ -719,7 +743,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 19
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
