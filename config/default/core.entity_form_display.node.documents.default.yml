@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.documents.field_pages
     - field.field.node.documents.field_publisher
     - field.field.node.documents.field_social_sharing
+    - field.field.node.documents.field_translation_status
     - field.field.node.documents.field_yukon_editorial_team
     - node.type.documents
     - workflows.workflow.content
@@ -44,6 +45,23 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         open: true
         description: ''
         required_fields: false
@@ -162,6 +180,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
     weight: 20
@@ -183,7 +207,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -203,7 +227,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -218,7 +242,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
