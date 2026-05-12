@@ -153,12 +153,29 @@ third_party_settings:
       label: 'Publishing options'
       region: content
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: details_sidebar
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         open: true
         description: ''
         required_fields: false
@@ -170,7 +187,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -346,6 +363,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_website:
     type: linkit
     weight: 16
@@ -424,7 +447,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

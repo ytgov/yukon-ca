@@ -105,9 +105,9 @@ third_party_settings:
         - field_opening_times
         - group_holiday_hours
       label: 'Opening times'
-      region: hidden
+      region: content
       parent_name: group_opening_details
-      weight: 11
+      weight: 15
       format_type: fieldset
       format_settings:
         classes: ''
@@ -165,6 +165,23 @@ third_party_settings:
         open: true
         description: ''
         required_fields: true
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
         weight: 0
 id: node.directory_records_places.default
 targetEntityType: node
@@ -278,6 +295,7 @@ content:
     weight: 17
     region: content
     settings:
+      geometry_validation: false
       map:
         leaflet_map: 'OSM Mapnik'
         height: 400
@@ -318,6 +336,8 @@ content:
         control: false
         options: '{"position":"topleft","pseudoFullscreen":false}'
       path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      feature_properties:
+        values: ''
       locate:
         control: false
         options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
@@ -325,17 +345,20 @@ content:
       geocoder:
         control: false
         settings:
+          popup: false
           position: topright
           input_size: 20
           providers: {  }
           min_terms: 4
           delay: 800
           zoom: 16
-          popup: false
           options: ''
-      geometry_validation: false
-      feature_properties:
-        values: ''
+      geojson_overlays:
+        sources:
+          fields: {  }
+        zoom_to_geojson: true
+        path: '{"color":"#f71ed3","opacity":"0.7","stroke":true,"weight":2,"fillColor":"#ffddfe","fillOpacity":"0.1","radius":3,"dashArray":"5, 5"}'
+        snapping: true
     third_party_settings: {  }
   field_main_telephone:
     type: string_textfield
@@ -355,7 +378,7 @@ content:
     third_party_settings: {  }
   field_open_24_hours:
     type: boolean_checkbox
-    weight: 10
+    weight: 14
     region: content
     settings:
       display_label: true
@@ -466,6 +489,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_website:
     type: linkit
     weight: 11
@@ -500,13 +529,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 17
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -535,12 +564,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true

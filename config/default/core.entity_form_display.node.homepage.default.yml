@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.homepage.field_publisher
     - field.field.node.homepage.field_secondary_item_blocks
     - field.field.node.homepage.field_tertiary_item_blocks
+    - field.field.node.homepage.field_translation_status
     - field.field.node.homepage.field_yukon_editorial_team
     - node.type.homepage
     - workflows.workflow.content
@@ -41,6 +42,23 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
         open: true
         description: ''
         required_fields: false
@@ -98,7 +116,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 17
+    weight: 18
     region: content
     settings:
       sidebar: true
@@ -154,6 +172,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
     weight: 8
@@ -175,13 +199,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -195,7 +219,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -210,7 +234,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }

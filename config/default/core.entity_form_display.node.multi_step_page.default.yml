@@ -44,7 +44,7 @@ third_party_settings:
       label: 'Social sharing'
       region: content
       parent_name: ''
-      weight: 23
+      weight: 24
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -60,7 +60,7 @@ third_party_settings:
       label: Language
       region: content
       parent_name: ''
-      weight: 18
+      weight: 19
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -76,7 +76,7 @@ third_party_settings:
       label: 'Full Width'
       region: content
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -111,7 +111,7 @@ third_party_settings:
       label: 'Quick exit'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -130,7 +130,7 @@ third_party_settings:
       label: 'Click to Call'
       region: content
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -149,7 +149,24 @@ third_party_settings:
       label: 'Online forms'
       region: content
       parent_name: ''
-      weight: 21
+      weight: 22
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 18
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -337,6 +354,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_translation_status:
+    type: options_select
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
     weight: 8
@@ -404,7 +427,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_translation_status: true
   promote: true
   publish_state: true
   sticky: true

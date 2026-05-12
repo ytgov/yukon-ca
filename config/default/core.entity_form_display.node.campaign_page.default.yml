@@ -150,7 +150,7 @@ third_party_settings:
       label: 'Quick exit'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -187,7 +187,24 @@ third_party_settings:
       label: 'Click to Call'
       region: content
       parent_name: ''
-      weight: 20
+      weight: 21
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+        weight: 0
+    group_translation_status:
+      children:
+        - field_translation_status
+      label: 'Translation status'
+      region: content
+      parent_name: ''
+      weight: 14
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -363,7 +380,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 18
+    weight: 19
     region: content
     settings:
       sidebar: true
@@ -475,6 +492,12 @@ content:
         maxlength_js: 150
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
         maxlength_js_enforce: false
+  field_translation_status:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_use_navigation_jump_points:
     type: options_buttons
     weight: 16
@@ -502,13 +525,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 17
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -522,7 +545,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -537,12 +560,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_translation_status: true
   promote: true
   publish_on: true
   publish_state: true
