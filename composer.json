@@ -116,7 +116,6 @@
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
         "drupal/workbench_email": "^3.0",
-        "drupal/xmlsitemap": "^1.0",
         "enshrined/svg-sanitize": "^0.22.0",
         "evolvingweb/blinker_addons": "^2.4",
         "evolvingweb/blinker_core": "^2.0",
