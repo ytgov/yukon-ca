@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.blog.field_publisher
     - field.field.node.blog.field_social_sharing
     - field.field.node.blog.field_subcategory
+    - field.field.node.blog.field_translation_status
     - field.field.node.blog.field_yukon_editorial_team
     - node.type.blog
   module:
@@ -34,12 +35,12 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   field_comments:
     type: comment_default
@@ -48,15 +49,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 2
-    region: content
-  field_editor_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
+    weight: 3
     region: content
   field_featured_image:
     type: entity_reference_entity_view
@@ -65,15 +58,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_publisher:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
+    weight: 1
     region: content
 hidden:
   addtoany: true
@@ -81,11 +66,14 @@ hidden:
   field_category: true
   field_contact: true
   field_department_term: true
+  field_editor_publisher: true
   field_icon_dark: true
   field_meta_tags: true
   field_page_description: true
+  field_publisher: true
   field_social_sharing: true
   field_subcategory: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
