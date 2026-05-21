@@ -303,24 +303,25 @@ function yukonca_glider_preprocess_node__event(&$variables) {
   $timezone = 'America/Whitehorse';
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-  if (!empty($node->field_event_start_time->value)) {
-    // Create DateTime objects from UTC values and convert to target timezone.
-    $start_datetime = new \DateTime($node->field_event_start_time->value, new \DateTimeZone('UTC'));
+  $occurrences = [];
+  foreach ($node->field_event_start_time as $delta => $item) {
+    if (empty($item->value)) {
+      continue;
+    }
+    $start_datetime = new \DateTime($item->value, new \DateTimeZone('UTC'));
     $start_datetime->setTimezone(new \DateTimeZone($timezone));
 
-    $end_datetime = new \DateTime($node->field_event_start_time->end_value, new \DateTimeZone('UTC'));
+    $end_datetime = new \DateTime($item->end_value, new \DateTimeZone('UTC'));
     $end_datetime->setTimezone(new \DateTimeZone($timezone));
 
-    // Add properly timezone-converted date for template use.
-    $variables['event_date'] = $start_datetime->format('Y-m-d H:i:s');
-
-    // Generate start and end times short if they have no minute value.
-    $start_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $start_datetime);
-    $end_time = yukonca_glider_utility_format_time_minutes_optional($langcode, $end_datetime);
-
-    $variables['start_time'] = $start_time;
-    $variables['end_time'] = $end_time;
+    $occurrences[] = [
+      'anchor'     => 'occurrence-' . $delta,
+      'date'       => $start_datetime->format('Y-m-d H:i:s'),
+      'start_time' => yukonca_glider_utility_format_time_minutes_optional($langcode, $start_datetime),
+      'end_time'   => yukonca_glider_utility_format_time_minutes_optional($langcode, $end_datetime),
+    ];
   }
+  $variables['event_occurrences'] = $occurrences;
 }
 
 /**

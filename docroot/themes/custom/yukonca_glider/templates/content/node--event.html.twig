@@ -99,20 +99,29 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
-      <div class="field__label">{{ 'Date'|t }}</div>
-      <div class="field-items">
-        {% if event_date is not empty %}
-            <div class="field-item"> {{ event_date|date('U')|format_date('yg_long') }} </div>
-        {% endif %}
+    <fieldset class="event-occurrences js-form-item form-item js-form-wrapper form-wrapper">
+      <legend>
+        <span class="fieldset-legend">{{ "Occurrences"|t }}</span>
+      </legend>
+      <div class="fieldset-wrapper">
+        {% for occurrence in event_occurrences %}
+          <div id="{{ occurrence.anchor }}" class="event-occurrence{% if not loop.last %} mb-3{% endif %}">
+            <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
+              <div class="field__label">{{ 'Date'|t }}</div>
+              <div class="field-items">
+                <div class="field-item"> {{ occurrence.date|date('U')|format_date('yg_long') }} </div>
+              </div>
+            </div>
+            <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
+              <div class="field__label">{{ 'Time'|t }}</div>
+              <div class="field-items">
+                <div class="field-item"> {{ occurrence.start_time }} {{ 'to'|t }} {{ occurrence.end_time }} </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    </div>
-    <div class="field field--name-field-event-start-time field--type-date-recur field--label-inline field__items">
-      <div class="field__label">{{ 'Time'|t }}</div>
-      <div class="field-items">
-        <div class="field-item"> {{ start_time }} {{ 'to'|t }} {{ end_time }} </div>
-      </div>
-    </div>
+    </fieldset>
 
     <fieldset class="event-location js-form-item form-item js-form-wrapper form-wrapper">
       <legend>
