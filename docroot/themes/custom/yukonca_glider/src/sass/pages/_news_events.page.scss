@@ -95,21 +95,50 @@
               
               &.field--name-field-event-description {
                   @apply pt-7.5 mt-15 border-t-1 border-gray-lightgray;
-                  
+
                   .field__label {
                       @apply mt-3.75 mb-0;
                   }
-                  
+
                   .field__item {
-                      @apply mt-3.75;
-                      
+                      @apply mt-3.75 leading-relaxed;
+
                       p,
                       li {
                           @apply text-sm;
                       }
-                      
+
                       p {
                           @apply mb-3;
+                      }
+
+                      h2 {
+                          @apply pt-10;
+                      }
+
+                      h3 {
+                          @apply font-medium pt-5;
+                      }
+
+                      h4 {
+                          @apply font-medium pt-3.75;
+                      }
+
+                      ul,
+                      ol {
+                          @apply pl-12;
+
+                          li {
+                              @apply pl-2.5;
+                          }
+                      }
+
+                      ul {
+                          @apply list-disc;
+                      }
+
+                      ol {
+                          @apply list-decimal;
                       }
                   }
               }
