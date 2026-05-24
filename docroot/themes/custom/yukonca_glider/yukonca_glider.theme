@@ -303,6 +303,7 @@ function yukonca_glider_preprocess_node__event(&$variables) {
   $timezone = 'America/Whitehorse';
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
+  $today = new \DateTime('today', new \DateTimeZone($timezone));
   $occurrences = [];
   foreach ($node->field_event_start_time as $delta => $item) {
     if (empty($item->value)) {
@@ -310,6 +311,10 @@ function yukonca_glider_preprocess_node__event(&$variables) {
     }
     $start_datetime = new \DateTime($item->value, new \DateTimeZone('UTC'));
     $start_datetime->setTimezone(new \DateTimeZone($timezone));
+
+    if ($start_datetime < $today) {
+      continue;
+    }
 
     $end_datetime = new \DateTime($item->end_value, new \DateTimeZone('UTC'));
     $end_datetime->setTimezone(new \DateTimeZone($timezone));

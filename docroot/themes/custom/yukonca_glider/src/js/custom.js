@@ -162,4 +162,20 @@
       });
     },
   };
+  Drupal.behaviors.eventOccurrenceFilter = {
+    attach (context) {
+      once('eventOccurrenceFilter', '.event-occurrences', context).forEach((fieldset) => {
+        const { hash } = window.location;
+        if (!hash || !/^#occurrence-\d+$/.test(hash)) {
+          return;
+        }
+        const targetId = hash.slice(1);
+        fieldset.querySelectorAll('.event-occurrence').forEach((el) => {
+          if (el.id !== targetId) {
+            el.hidden = true;
+          }
+        });
+      });
+    },
+  };
 }(jQuery, Drupal, window.once));
