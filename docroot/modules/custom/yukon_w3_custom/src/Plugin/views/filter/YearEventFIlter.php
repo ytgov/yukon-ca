@@ -49,7 +49,7 @@ class YearEventFIlter extends FilterPluginBase {
     $query = $this->query;
     // dump($query); die;.
     if (!empty($this->value[0])) {
-      $query->addWhereExpression(0, "EXTRACT(YEAR FROM node__field_event_start_time.field_event_start_time_value) = :year", [':year' => $this->value[0]]);
+      $query->addWhereExpression(0, "EXTRACT(YEAR FROM date_recur__node__field_event_start_time.field_event_start_time_value) = :year", [':year' => $this->value[0]]);
     }
   }
 

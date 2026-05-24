@@ -55,7 +55,7 @@ class MonthEventFilter extends FilterPluginBase {
 
     if (!empty($this->value[0])) {
       $month_num = date('m', strtotime($this->value[0]));
-      $query->addWhereExpression(0, "EXTRACT(MONTH FROM node__field_event_start_time.field_event_start_time_value) = :month", [':month' => $month_num]);
+      $query->addWhereExpression(0, "EXTRACT(MONTH FROM date_recur__node__field_event_start_time.field_event_start_time_value) = :month", [':month' => $month_num]);
     }
   }
 
