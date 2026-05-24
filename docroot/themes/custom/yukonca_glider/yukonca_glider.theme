@@ -1205,3 +1205,68 @@ function yukonca_glider_utility_format_time_minutes_optional($langcode, DateTime
       }
     }
 }
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function yukonca_glider_preprocess_views_view_field(&$variables) {
+  $view  = $variables['view'];
+  $field = $variables['field'];
+
+  if ($view->id() !== 'events_listing' || $field->field !== 'nothing') {
+    return;
+  }
+
+  $row = $variables['row'];
+  if (!isset($row->_entity)) {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $row->_entity;
+  if (!$node->hasField('field_event_start_time') || $node->get('field_event_start_time')->isEmpty()) {
+    return;
+  }
+
+  // Each view row represents one specific occurrence from the date_recur
+  // occurrences table. Get the raw UTC start value for this row via the
+  // field handler's alias so we can match it to the correct field delta.
+  $occurrence_date = NULL;
+  if (isset($view->field['field_event_start_time_value'])) {
+    $date_handler = $view->field['field_event_start_time_value'];
+    $occurrence_date = $row->{$date_handler->field_alias} ?? NULL;
+  }
+
+  $occurrence_delta = NULL;
+
+  if ($occurrence_date !== NULL) {
+    $occurrence_ts = strtotime($occurrence_date);
+    foreach ($node->field_event_start_time as $delta => $item) {
+      if (!empty($item->value) && strtotime($item->value) === $occurrence_ts) {
+        $occurrence_delta = $delta;
+        break;
+      }
+    }
+  }
+
+  // Fallback: first upcoming occurrence (also covers single-occurrence events).
+  if ($occurrence_delta === NULL) {
+    $now = new \DateTime('now', new \DateTimeZone('UTC'));
+    $last_delta = NULL;
+    foreach ($node->field_event_start_time as $delta => $item) {
+      if (empty($item->value)) {
+        continue;
+      }
+      $last_delta = $delta;
+      if ((new \DateTime($item->value, new \DateTimeZone('UTC'))) >= $now) {
+        $occurrence_delta = $delta;
+        break;
+      }
+    }
+    $occurrence_delta = $occurrence_delta ?? $last_delta ?? 0;
+  }
+
+  $anchor = '#occurrence-' . $occurrence_delta;
+  $output = preg_replace('/(class="event-info--title"><a[^>]+href=")([^"#]*)(")/i', '$1$2' . $anchor . '$3', (string) $variables['output']);
+  $variables['output'] = Markup::create($output);
+}
