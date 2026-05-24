@@ -417,6 +417,26 @@ function yukon_w3_custom_views_post_execute(ViewExecutable $view) {
 /**
  * Implements hook_views_pre_render().
  */
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ */
+function yukon_w3_custom_field_widget_single_element_form_alter(
+  array &$element,
+  FormStateInterface $form_state,
+  array $context
+): void {
+  if (!($context['widget'] instanceof \Drupal\date_recur\Plugin\Field\FieldWidget\DateRecurBasicWidget)) {
+    return;
+  }
+  if (!isset($element['first_occurrence'])) {
+    return;
+  }
+  $element['first_occurrence']['#title'] = t('Occurrence');
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
 function yukon_w3_custom_views_pre_render(ViewExecutable $view) {
   // Check for a specific view and display.
   if ($view->id() == 'news_listing' && $view->current_display == 'block_news_listing') {
