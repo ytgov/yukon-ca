@@ -415,9 +415,6 @@ function yukon_w3_custom_views_post_execute(ViewExecutable $view) {
 }
 
 /**
- * Implements hook_views_pre_render().
- */
-/**
  * Implements hook_field_widget_single_element_form_alter().
  */
 function yukon_w3_custom_field_widget_single_element_form_alter(
