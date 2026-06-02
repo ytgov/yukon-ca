@@ -377,6 +377,10 @@
     margin-bottom: 15px;
   }
 
+  .box-items {
+    @apply h-full sm:h-[250px];
+  }
+
   .field-item {
     width: 100%;
 
@@ -390,7 +394,7 @@
   }
 
   .secondary-single-item {
-    @apply sm:relative hidden sm:block sm:overflow-hidden sm:text-center;
+    @apply relative block overflow-hidden text-center;
 
     .faded-box {
       &:after {
