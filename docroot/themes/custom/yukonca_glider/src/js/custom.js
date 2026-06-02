@@ -74,12 +74,14 @@
           const ele = $('aside .filters h2.title');
 
           if ($(window).width() < 768) {
-            $(ele).click(function () {
+            ele.removeClass('toggled');
+            $('aside .filters form').hide();
+            ele.off('click.filterOpener').on('click.filterOpener', function () {
               $(this).toggleClass('toggled');
-              $('aside .filters form').stop(!0).slideToggle();
+              $('aside .filters form').stop(true).slideToggle();
             });
           } else {
-            $(ele).removeClass('toggled');
+            ele.off('click.filterOpener').removeClass('toggled');
             $('aside .filters form').show();
           }
         }
