@@ -20,6 +20,18 @@ display:
         field_news_type_target_id:
           expose:
             label: "Type d'actualité"
+      exposed_form:
+        options:
+          bef:
+            filter:
+              month_filter:
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: '- Tout -|- Mois -'
+              year_filter:
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: '- Tout -|- Année -'
   block_news_listing:
     display_options:
       filters:
