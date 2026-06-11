@@ -74,12 +74,14 @@
           const ele = $('aside .filters h2.title');
 
           if ($(window).width() < 768) {
-            $(ele).click(function () {
+            ele.removeClass('toggled');
+            $('aside .filters form').hide();
+            ele.off('click.filterOpener').on('click.filterOpener', function () {
               $(this).toggleClass('toggled');
-              $('aside .filters form').stop(!0).slideToggle();
+              $('aside .filters form').stop(true).slideToggle();
             });
           } else {
-            $(ele).removeClass('toggled');
+            ele.off('click.filterOpener').removeClass('toggled');
             $('aside .filters form').show();
           }
         }
@@ -157,6 +159,22 @@
           if (telephone) {
             // Open telephone app with the number.
             window.location.href = `tel:${telephone}`;
+          }
+        });
+      });
+    },
+  };
+  Drupal.behaviors.eventOccurrenceFilter = {
+    attach (context) {
+      once('eventOccurrenceFilter', '.event-occurrences', context).forEach((fieldset) => {
+        const { hash } = window.location;
+        if (!hash || !/^#occurrence-\d+$/.test(hash)) {
+          return;
+        }
+        const targetId = hash.slice(1);
+        fieldset.querySelectorAll('.event-occurrence').forEach((el) => {
+          if (el.id !== targetId) {
+            el.hidden = true;
           }
         });
       });

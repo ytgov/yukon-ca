@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e4b91667b8e264b328ceec28a7a8937",
+    "content-hash": "8fdf992a64434c9152af4d1536b97239",
     "packages": [
         {
             "name": "acquia/blt",
@@ -8040,6 +8040,64 @@
             }
         },
         {
+            "name": "drupal/simple_sitemap",
+            "version": "4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/simple_sitemap.git",
+                "reference": "4.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-4.2.3.zip",
+                "reference": "4.2.3",
+                "shasum": "08e87178a35fe2a89202d2423f3de1656e1e814a"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11",
+                "ext-xmlwriter": "*"
+            },
+            "conflict": {
+                "drush/drush": "<12.5.1"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "^1.18"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.2.3",
+                    "datestamp": "1764147268",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pawel Ginalski (gbyte)",
+                    "homepage": "https://www.drupal.org/u/gbyte",
+                    "email": "contact@gbyte.dev",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "walkingdexter",
+                    "homepage": "https://www.drupal.org/user/3251330"
+                }
+            ],
+            "description": "Creates a standard conform hreflang XML sitemap of the site content and provides a framework for developing other sitemap types.",
+            "homepage": "https://drupal.org/project/simple_sitemap",
+            "support": {
+                "source": "https://cgit.drupalcode.org/simple_sitemap",
+                "issues": "https://drupal.org/project/issues/simple_sitemap"
+            }
+        },
+        {
             "name": "drupal/single_content_sync",
             "version": "1.4.13",
             "source": {
@@ -9231,29 +9289,29 @@
         },
         {
             "name": "drupal/views_menu_children_filter",
-            "version": "3.0.0-rc4",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_menu_children_filter.git",
-                "reference": "3.0.0-rc4"
+                "reference": "4.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_menu_children_filter-3.0.0-rc4.zip",
-                "reference": "3.0.0-rc4",
-                "shasum": "666d4e7dddc86f5622c873d22680715c5df105f5"
+                "url": "https://ftp.drupal.org/files/projects/views_menu_children_filter-4.0.2.zip",
+                "reference": "4.0.2",
+                "shasum": "4ba32f29d26d2317d022e5503bb0257d7bcf7f0e"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11"
+                "drupal/core": "^10.5 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-rc4",
-                    "datestamp": "1715127013",
+                    "version": "4.0.2",
+                    "datestamp": "1767616854",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -9263,19 +9321,15 @@
             ],
             "authors": [
                 {
-                    "name": "Anybody",
+                    "name": "anybody",
                     "homepage": "https://www.drupal.org/user/291091"
-                },
-                {
-                    "name": "bmcclure",
-                    "homepage": "https://www.drupal.org/user/278485"
                 },
                 {
                     "name": "cravecode",
                     "homepage": "https://www.drupal.org/user/1693456"
                 },
                 {
-                    "name": "DanielVeza",
+                    "name": "danielveza",
                     "homepage": "https://www.drupal.org/user/3362504"
                 },
                 {
@@ -9283,8 +9337,12 @@
                     "homepage": "https://www.drupal.org/user/1536006"
                 },
                 {
-                    "name": "Grevil",
+                    "name": "grevil",
                     "homepage": "https://www.drupal.org/user/3668491"
+                },
+                {
+                    "name": "replicaobscura",
+                    "homepage": "https://www.drupal.org/user/278485"
                 }
             ],
             "description": "Views Menu Children Filter",
@@ -9853,105 +9911,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/workbench_email",
                 "issues": "http://drupal.org/project/issues/workbench_email"
-            }
-        },
-        {
-            "name": "drupal/xmlsitemap",
-            "version": "1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/xmlsitemap.git",
-                "reference": "8.x-1.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/xmlsitemap-8.x-1.5.zip",
-                "reference": "8.x-1.5",
-                "shasum": "ee53bf4d1c23ab41548021d9948925ecf76719d3"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10",
-                "ext-xmlwriter": "*"
-            },
-            "require-dev": {
-                "drupal/config_readonly": "^1.0",
-                "drupal/metatag": "^1.0",
-                "drupal/robotstxt": "^1.0"
-            },
-            "suggest": {
-                "drush/drush": "Command-line regenerating and rebuilding sitemaps."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.5",
-                    "datestamp": "1691341085",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^10 || ^11"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "alanburke",
-                    "homepage": "https://www.drupal.org/user/35997"
-                },
-                {
-                    "name": "amateescu",
-                    "homepage": "https://www.drupal.org/user/729614"
-                },
-                {
-                    "name": "andrei.dincu",
-                    "homepage": "https://www.drupal.org/user/2628879"
-                },
-                {
-                    "name": "dave reid",
-                    "homepage": "https://www.drupal.org/user/53892"
-                },
-                {
-                    "name": "juampynr",
-                    "homepage": "https://www.drupal.org/user/682736"
-                },
-                {
-                    "name": "paulmckibben",
-                    "homepage": "https://www.drupal.org/user/279003"
-                },
-                {
-                    "name": "pifagor",
-                    "homepage": "https://www.drupal.org/user/2375692"
-                },
-                {
-                    "name": "poker10",
-                    "homepage": "https://www.drupal.org/user/272316"
-                },
-                {
-                    "name": "renatog",
-                    "homepage": "https://www.drupal.org/user/3326031"
-                },
-                {
-                    "name": "tadityar",
-                    "homepage": "https://www.drupal.org/user/3094465"
-                },
-                {
-                    "name": "th_tushar",
-                    "homepage": "https://www.drupal.org/user/1835276"
-                }
-            ],
-            "description": "Creates XML Sitemaps for the site",
-            "homepage": "https://www.drupal.org/project/xmlsitemap",
-            "support": {
-                "source": "https://git.drupalcode.org/project/xmlsitemap",
-                "issues": "http://drupal.org/project/issues/xmlsitemap"
             }
         },
         {
@@ -16735,7 +16694,6 @@
         "drupal/pathologic": 15,
         "drupal/scheduler": 5,
         "drupal/tmgmt_diff": 15,
-        "drupal/views_menu_children_filter": 5,
         "drupal/views_tree": 5,
         "drupal/webform": 20
     },
