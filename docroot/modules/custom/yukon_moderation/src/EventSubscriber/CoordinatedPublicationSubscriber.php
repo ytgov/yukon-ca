@@ -54,7 +54,7 @@ class CoordinatedPublicationSubscriber implements EventSubscriberInterface {
     }
 
     $auto_published = [];
-    /** @var \Drupal\node\NodeStorageInterface $node_storage */
+    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
     foreach ($entity->getTranslationLanguages(FALSE) as $lang_code => $language) {
