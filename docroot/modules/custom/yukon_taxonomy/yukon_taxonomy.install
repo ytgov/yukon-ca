@@ -33,6 +33,136 @@ function yukon_taxonomy_update_10000(&$sandbox) {
 }
 
 /**
+ * Create "Economic Development, Tourism and Culture" department term and
+ * migrate all content referencing the two old terms to the new one, except
+ * for news nodes created before April 1, 2026 and all Department nodes.
+ */
+function yukon_taxonomy_update_10001(&$sandbox) {
+  $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  // Initialise on first batch run.
+  if (!isset($sandbox['nids'])) {
+    // Create the new combined term if it does not already exist.
+    $existing = $term_storage->loadByProperties([
+      'vid' => 'department',
+      'name' => 'Economic Development, Tourism and Culture',
+    ]);
+    if (empty($existing)) {
+      $new_term = Term::create([
+        'name' => 'Economic Development, Tourism and Culture',
+        'vid' => 'department',
+        'langcode' => 'en',
+      ]);
+      $new_term->save();
+      $new_term->addTranslation('fr', [
+        'name' => 'Développement économique, du Tourisme et de la Culture',
+      ])->save();
+    }
+    else {
+      $new_term = reset($existing);
+    }
+    $sandbox['new_tid'] = (int) $new_term->id();
+
+    // Resolve the two old term IDs by name.
+    $old_tids = [];
+    foreach ($term_storage->loadByProperties(['vid' => 'department']) as $term) {
+      if (in_array($term->label(), ['Economic Development', 'Tourism and Culture'], TRUE)) {
+        $old_tids[] = (int) $term->id();
+      }
+    }
+    $sandbox['old_tids'] = $old_tids;
+
+    if (empty($old_tids)) {
+      $sandbox['#finished'] = 1;
+      return t('Old department terms not found — nothing to update.');
+    }
+
+    // Nodes created on or after April 1, 2026 00:00:00 UTC are eligible.
+    $cutoff = gmmktime(0, 0, 0, 4, 1, 2026);
+
+    // Collect all node IDs referencing either old term.
+    $candidate_nids = \Drupal::database()
+      ->select('node__field_department_term', 'ft')
+      ->fields('ft', ['entity_id'])
+      ->condition('ft.field_department_term_target_id', $old_tids, 'IN')
+      ->condition('ft.deleted', 0)
+      ->execute()
+      ->fetchCol();
+
+    // Filter out Department nodes and pre-cutoff news nodes.
+    $nids = [];
+    foreach ($node_storage->loadMultiple($candidate_nids) as $node) {
+      /** @var \Drupal\node\NodeInterface $node */
+      if ($node->bundle() === 'department') {
+        continue;
+      }
+      if ($node->bundle() === 'news' && $node->getCreatedTime() < $cutoff) {
+        continue;
+      }
+      $nids[] = (int) $node->id();
+    }
+
+    $sandbox['nids'] = $nids;
+    $sandbox['total'] = count($nids);
+    $sandbox['processed'] = 0;
+  }
+
+  // Process nodes in chunks of 25.
+  $batch = array_splice($sandbox['nids'], 0, 25);
+  $old_tids = $sandbox['old_tids'];
+  $new_tid = $sandbox['new_tid'];
+
+  foreach ($node_storage->loadMultiple($batch) as $node) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $any_replaced = FALSE;
+
+    foreach ($node->getTranslationLanguages() as $langcode => $language) {
+      $translation = $node->getTranslation($langcode);
+      $values = $translation->get('field_department_term')->getValue();
+      $new_values = [];
+      $replaced = FALSE;
+
+      foreach ($values as $value) {
+        if (in_array((int) $value['target_id'], $old_tids, TRUE)) {
+          // Replace each old term reference with the new term exactly once.
+          if (!$replaced) {
+            $new_values[] = ['target_id' => $new_tid];
+            $replaced = TRUE;
+          }
+        }
+        elseif ((int) $value['target_id'] !== $new_tid) {
+          // Keep unrelated terms; skip if the new term is already present.
+          $new_values[] = $value;
+        }
+      }
+
+      if ($replaced) {
+        $translation->set('field_department_term', $new_values);
+        $any_replaced = TRUE;
+      }
+    }
+
+    if ($any_replaced) {
+      $node->setNewRevision(FALSE);
+      $node->save();
+    }
+
+    $sandbox['processed']++;
+  }
+
+  $sandbox['#finished'] = $sandbox['total'] > 0
+    ? ($sandbox['processed'] / $sandbox['total'])
+    : 1;
+
+  if ($sandbox['#finished'] >= 1) {
+    return t('Updated @count nodes to use the new "Economic Development, Tourism and Culture" department term.', [
+      '@count' => $sandbox['processed'],
+    ]);
+  }
+}
+
+/**
  * Create taxonomy term if it doesn't exist.
  *
  * @param string $name
