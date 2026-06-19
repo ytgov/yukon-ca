@@ -7,11 +7,10 @@ dependencies:
     - node.type.event
   module:
     - date_recur
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.event.field_event_start_time
 field_name: field_event_start_time
 entity_type: node
