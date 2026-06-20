@@ -117,9 +117,9 @@
 	</div>
     {% endif %}
 	<div class="flex justify-center {% if node.field_hero_image.entity.field_media_image_1.entity.uri.value is empty %} no-back-img {% endif %}">
-		<div class="w-10/12">
+		<div class="w-11/12 md:w-10/12">
 			<div class="campaign-intro-text mb-5 {% if not node.field_hero_image.entity.field_media_image_1.entity.uri.value is empty %}mt-[-180px]{% endif %}">
-				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
+				<div class="border-b-8 border-blue-400 shadow-lg px-4 md:px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
 				    <style>.campaign-text-only-wrapper a:not(.btn) { color: {{ node.field_highlight_color.color|raw }}}</style>
 					<div class="campaign-text-only-wrapper">
 					    {% if node.field_source_credit.value is not empty %}
@@ -143,7 +143,7 @@
 
     {% if node.field_navigation_jump_point.value is not empty %}
 		<div class="flex justify-center border-b-1 border-gray-90">
-			<div class="w-10/12">
+			<div class="w-11/12 md:w-10/12">
 				<div class="campaign-nav mb-20">
 					<div class="flex flex-col md:flex-row gap-7">
 						{{ content.field_navigation_jump_point }}
@@ -154,9 +154,9 @@
     {% endif %}
 	{{ content.field_paragraphs }}
 	<div class="flex justify-center">
-		<div class="w-10/12">
+		<div class="w-11/12 md:w-10/12">
 			<div class="campaign-social-media mb-5">
-				<div class="border-b-8 border-blue-400 shadow-lg px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
+				<div class="border-b-8 border-blue-400 shadow-lg px-4 md:px-20 pt-8 pb-10 bg-white rounded" style="border-bottom: 8px solid {{ node.field_highlight_color.color|raw }}">
 					<div class="campaign-text-only-wrapper">
 						{% if node.field_add_social_media_channels.value == "1" and node.field_social_network is not empty %}
 							<h2 class="mb-3 mt-5 font-medium">{{ 'Follow the campaign on'|t }}</h2>
