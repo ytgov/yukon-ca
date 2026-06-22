@@ -1,12 +1,12 @@
 _core:
   default_config_hash: mdb0TbcHBhZKr-rXOjpU0yvbfz26ROAUfFvZdubHJsM
 tag: i
-method: svg
+method: webfonts
 load_assets: true
 use_cdn: true
-external_svg_location: 'https://use.fontawesome.com/releases/v6.1.0/js/all.js'
+external_svg_location: 'https://use.fontawesome.com/releases/v6.1.0/css/all.css'
 use_shim: true
-external_shim_location: 'https://use.fontawesome.com/releases/v6.1.0/js/v4-shims.js'
+external_shim_location: 'https://use.fontawesome.com/releases/v6.1.0/css/v4-shims.css'
 use_solid_file: true
 use_regular_file: true
 use_light_file: true
