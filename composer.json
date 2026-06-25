@@ -123,7 +123,6 @@
         "evolvingweb/drupal-ci": "^2.0",
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
-        "pantheon-systems/drupal-integrations": "^10.0",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "extra": {
