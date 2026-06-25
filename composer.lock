@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79ec77450b7a09716f437a397cdb0832",
+    "content-hash": "0abeb7fbe58bf4a85736ce39a3a33eb1",
     "packages": [
         {
             "name": "acquia/blt",
@@ -10274,35 +10274,6 @@
             "type": "drupal-module",
             "description": "Additions to the Drupal Core which are required on all projects.",
             "time": "2024-08-14T10:51:41+00:00"
-        },
-        {
-            "name": "evolvingweb/drupal-ci",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.ewdev.ca/universe/drupal-ci.git",
-                "reference": "b50d92f5b4ab142e137906173dcce7358b557651"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://packagist.ewdev.ca/dist/evolvingweb/drupal-ci/evolvingweb-drupal-ci-2.0.1-e0e041.tar",
-                "reference": "b50d92f5b4ab142e137906173dcce7358b557651",
-                "shasum": "e3df2c28d19d2a05d39afa551683c3416a7e9f2b"
-            },
-            "type": "library",
-            "extra": {
-                "drupal-scaffold": {
-                    "file-mapping": {
-                        "[project-root]/pantheon.yml": {
-                            "mode": "replace",
-                            "path": "pantheon/pantheon.yml",
-                            "overwrite": false
-                        }
-                    }
-                }
-            },
-            "description": "Evolvingweb Drupal CI configs and scripts.",
-            "time": "2022-07-18T20:08:12+00:00"
         },
         {
             "name": "evolvingweb/glider",

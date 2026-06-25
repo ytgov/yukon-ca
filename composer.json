@@ -120,7 +120,6 @@
         "enshrined/svg-sanitize": "^0.22.0",
         "evolvingweb/blinker_addons": "^2.4",
         "evolvingweb/blinker_core": "^2.0",
-        "evolvingweb/drupal-ci": "^2.0",
         "evolvingweb/glider": "^3.6",
         "oomphinc/composer-installers-extender": "^2.0",
         "wikimedia/composer-merge-plugin": "^2.1"
@@ -197,7 +196,6 @@
             "locations": {
                 "web-root": "./docroot"
             },
-            "allowed-packages": ["pantheon-systems/drupal-integrations", "evolvingweb/drupal-ci"],
             "file-mapping": {
                 "[web-root]/sites/default/default.services.yml": {
                     "mode": "replace",
