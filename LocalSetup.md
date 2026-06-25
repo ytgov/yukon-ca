@@ -22,10 +22,6 @@ To use composer and drush within the container (recommended):
 
 ## Local Dev Environment Setup
 
-### Pantheon access
-
-This setup uses Drush to synchronize DB, make sure you have access to the Yukon D10 Pantheon site.
-
 ### Install Docksal
 
 This setup uses docksal, ensure docksal is installed on you development machine. You can find instructions in https://docksal.io/installation
@@ -63,7 +59,7 @@ Installs front end dependencies using yarn.
 
 Compiles SCSS and JS using gulp.
 
-Downloads and imports database from Pantheon.
+Downloads and imports database.
 
 And finally opens the application in web browser.
 
