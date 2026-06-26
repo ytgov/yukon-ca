@@ -60,3 +60,19 @@
     }
   }
 }
+
+// Visual Inline diff view: tab panes have no IDs (stripped by diff module),
+// so Bootstrap tab switching doesn't work. Show all panes stacked and hide
+// the non-functional navigation.
+.diff-responsive-table-wrapper {
+  .tab-content .tab-pane {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .pills-arrow,
+  .nav-pills {
+    @apply hidden;
+  }
+}
