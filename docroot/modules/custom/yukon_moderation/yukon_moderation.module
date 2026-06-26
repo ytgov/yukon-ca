@@ -8,13 +8,14 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\yukon_moderation\EventSubscriber\CoordinatedPublicationSubscriber;
 
 /**
  * Implements hook_form_alter().
  */
-function yukon_moderation_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function yukon_moderation_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
   // Check if the form ID matches the pattern for node edit forms.
   if (strpos($form_id, 'node_') === 0) {
     // Set the visibility state for the field_publisher element.
@@ -57,7 +58,7 @@ function yukon_moderation_field_widget_complete_form_alter(array &$field_widget_
 function yukon_moderation_form_content_moderation_entity_moderation_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
   // Retrieve the entity passed to EntityModerationForm::buildForm().
   $args = $form_state->getBuildInfo()['args'];
-  if (empty($args[0]) || !$args[0] instanceof EntityInterface) {
+  if (empty($args[0]) || !$args[0] instanceof TranslatableInterface) {
     return;
   }
   // Remove the "Ready for Coordinated Publication" transition from the default
@@ -89,6 +90,7 @@ function yukon_moderation_entity_update(EntityInterface $entity) {
   if ($entity->getEntityTypeId() !== 'content_moderation_state') {
     return;
   }
+  /** @var \Drupal\content_moderation\Entity\ContentModerationStateInterface $entity */
   if ($entity->get('content_entity_type_id')->value !== 'node') {
     return;
   }
@@ -112,12 +114,38 @@ function yukon_moderation_entity_update(EntityInterface $entity) {
   else {
     \Drupal::state()->delete($key);
   }
+
+  if ($new_state === 'published') {
+    // When a non-default translation is published (manually or via coordinated
+    // publication), clear field_translation_status on the English node so the
+    // content translation overview computes "Present" automatically from
+    // timestamps instead of showing "In progress".
+    //
+    // field_translation_status is non-translatable and can only be persisted
+    // by saving the default translation, which creates one extra English
+    // revision. The workbench_email shim only dispatches content_moderation
+    // events on state *change*, so re-saving English in the same published
+    // state does not re-trigger CoordinatedPublicationSubscriber.
+    /** @var \Drupal\node\NodeStorageInterface $node_storage */
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+    $default = $node_storage->load($node_id);
+    if ($default instanceof \Drupal\node\NodeInterface
+      && $default->hasField('field_translation_status')
+      && !$default->get('field_translation_status')->isEmpty()
+    ) {
+      $language = \Drupal::languageManager()->getLanguage($langcode);
+      $language_name = $language ? $language->getName() : $langcode;
+      $default->set('field_translation_status', NULL);
+      $default->setRevisionLogMessage(sprintf('%s translation published — translation status automatically reverted.', $language_name));
+      $default->save();
+    }
+  }
 }
 
 /**
  * Implements hook_preprocess_html().
  */
-function yukon_moderation_preprocess_html(&$variables) {
+function yukon_moderation_preprocess_html(array &$variables) {
   $route_name = \Drupal::routeMatch()->getRouteName();
 
   // Add specific body class for our all revisions page.
