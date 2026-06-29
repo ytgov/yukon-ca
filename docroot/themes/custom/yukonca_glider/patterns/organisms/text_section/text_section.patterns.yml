@@ -27,4 +27,4 @@ text_section:
       text_section:
         css:
           component:
-            css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

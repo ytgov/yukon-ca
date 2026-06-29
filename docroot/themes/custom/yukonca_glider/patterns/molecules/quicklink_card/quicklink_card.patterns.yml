@@ -45,4 +45,4 @@ quicklink_card:
       quicklink_card:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

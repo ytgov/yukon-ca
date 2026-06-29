@@ -31,4 +31,4 @@ image_card:
       image_card:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

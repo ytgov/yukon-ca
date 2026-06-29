@@ -7,19 +7,19 @@ bootstrap:
   version: 4.6.2
   css:
     theme:
-      dist/css/base.min.css: { minified: true }
-      dist/css/grid-system.min.css: { minified: true }
+      dist/css/base.min.css: { minified: false }
+      dist/css/grid-system.min.css: { minified: false }
   js:
-    dist/js/bootstrap.custom.bundle.min.js: { minified: true}
+    dist/js/bootstrap.custom.bundle.min.js: { minified: false }
   dependencies:
     - core/jquery
 
 global_styles:
   css:
     theme:
-      dist/css/styles.min.css: { minified: true }
+      dist/css/styles.min.css: { minified: false }
   js:
-    dist/js/theme.min.js: { minified: true }
+    dist/js/theme.min.js: { minified: false }
     src/js/custom.js: {}
   dependencies:
     - core/jquery
@@ -30,6 +30,6 @@ global_styles:
 administrator:
   css:
     component:
-      dist/css/modules/administrator.module.min.css: { minified: true }
+      dist/css/modules/administrator.module.min.css: { minified: false }
   js:
-    dist/js/behaviors/administrator.min.js: { minified: true }
+    dist/js/behaviors/administrator.min.js: { minified: false }

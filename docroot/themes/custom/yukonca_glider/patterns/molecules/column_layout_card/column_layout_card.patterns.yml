@@ -55,4 +55,4 @@ column_layout_card:
       column_layout_card:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

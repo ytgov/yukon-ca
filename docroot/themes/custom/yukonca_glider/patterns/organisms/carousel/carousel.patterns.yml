@@ -46,6 +46,6 @@ carousel:
       carousel:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }
         js:
-          dist/js/carousel.min.js: { minified: true }
+          dist/js/carousel.min.js: { minified: false }

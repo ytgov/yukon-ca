@@ -31,4 +31,4 @@ blockquote:
       blockquote:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

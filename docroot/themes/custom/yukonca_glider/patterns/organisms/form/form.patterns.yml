@@ -17,4 +17,4 @@ form:
       form:
         css:
           component:
-            css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }
