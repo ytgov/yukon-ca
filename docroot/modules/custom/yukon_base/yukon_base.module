@@ -19,15 +19,20 @@ function yukon_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
 
   $max_steps = 6;
 
-  $item_count = count(array_filter(
-    array_keys($form['field_paragraphs']['widget']),
-    fn($key) => is_int($key)
-  ));
+  $item_keys = array_filter(array_keys($form['field_paragraphs']['widget']), fn($key) => is_int($key));
+  $item_count = count($item_keys);
 
   $form['field_paragraphs']['widget']['#cardinality'] = max($item_count, $max_steps);
 
-  if ($item_count >= $max_steps && isset($form['field_paragraphs']['widget']['add_more'])) {
-    $form['field_paragraphs']['widget']['add_more']['#access'] = FALSE;
+  if ($item_count >= $max_steps) {
+    if (isset($form['field_paragraphs']['widget']['add_more'])) {
+      $form['field_paragraphs']['widget']['add_more']['#access'] = FALSE;
+    }
+    foreach ($item_keys as $key) {
+      if (isset($form['field_paragraphs']['widget'][$key]['top']['actions']['dropdown_actions']['duplicate_button'])) {
+        $form['field_paragraphs']['widget'][$key]['top']['actions']['dropdown_actions']['duplicate_button']['#access'] = FALSE;
+      }
+    }
   }
 }
 
