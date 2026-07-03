@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# phpsab/VS Code may spawn us without the login-shell PATH, so `ddev` can be
+# missing. Recover PATH from the developer's own login shell — works on any
+# OS (macOS/Linux/WSL) regardless of where ddev is installed. Miss-path only.
+if ! command -v ddev >/dev/null 2>&1; then
+  _p=$("${SHELL:-/bin/sh}" -lic 'printf "\037%s\037" "$PATH"' 2>/dev/null)
+  _p=${_p#*$'\037'}; _p=${_p%%$'\037'*}
+  [ -n "$_p" ] && export PATH="$_p"
+fi
+
+current_dir=$(pwd)
+
+# If the $current_dir ends with "/.ddev" then we need to remove the ".ddev".
+if [[ $current_dir == */.ddev ]]; then
+  current_dir=${current_dir%/.ddev}
+fi
+
+# Loop through all the arguments and replace any part of any argument that
+# matches current_dir with /var/www/html. This is necessary because the vscode
+# extension will pass in a full path to the file on the local system, rather
+# than the path to the file inside the ddev container.
+for i in "$@"
+do
+  if [[ $i =~ $current_dir ]]; then
+    new_arg=$(echo "$i" | sed "s#$current_dir#/var/www/html#")
+    # Replace the argument in the list of arguments
+    set -- "${@/$i/$new_arg}"
+  fi
+done
+
+if [ "$#" -gt 0 ]; then
+  # Run phpcbf inside the ddev container, suppress ddev exec's error message, and capture stdout and exit code.
+  stderr_file=$(mktemp)
+  output=$(ddev exec vendor/bin/phpcbf "$@" 2> "$stderr_file")
+  exit_code=$?
+
+  phpcbf_exit_code=0
+  # Check if the command failed and capture the exit code.
+  if [ $exit_code -ne 0 ]; then
+    # If the command failed, get the exit code from the stderr file.
+    phpcbf_exit_code=$(grep -m 1 "exit status" "$stderr_file" | sed -E 's/.*exit status ([0-9]+).*/\1/')
+    # If the exit code is not found, set it to 1 (indicating an error).
+    if [ -z "$phpcbf_exit_code" ]; then
+      phpcbf_exit_code=1
+    fi
+  fi
+
+  # Output the JSON result from phpcbf (stdout).
+  echo "$output"
+
+  # Dump out the output from stderr for debugging.
+  # This is useful for debugging, but you may want to comment it out in production.
+  # echo "stderr output: $(cat "$stderr_file")"
+  # echo "phpcbf exit code: $phpcbf_exit_code"
+  # Clean up the temporary file.
+  rm -f "$stderr_file"
+
+  # Pass the correct exit code from phpcbf back to the caller.
+  exit $phpcbf_exit_code
+else
+  echo "No arguments provided for phpcbf."
+  exit 1
+fi
