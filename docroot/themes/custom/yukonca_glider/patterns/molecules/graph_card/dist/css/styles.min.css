@@ -1,0 +1,20 @@
+.graph-card.campground-peak-times .left-wrapper .main-link a {
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none
+}
+.graph-card.campground-peak-times .graph .graph-item.poor {
+    height: 80%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 68 5 / var(--tw-bg-opacity))
+}
+.graph-card.campground-peak-times .graph .graph-item.good {
+    height: 50%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(242 169 0 / var(--tw-bg-opacity))
+}
+.graph-card.campground-peak-times .graph .graph-item.very_good {
+    height: 25%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(122 154 1 / var(--tw-bg-opacity))
+}
+/*# sourceMappingURL=styles.min.css.map */

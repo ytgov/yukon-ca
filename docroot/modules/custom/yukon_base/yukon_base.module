@@ -6,6 +6,37 @@
  */
 
 /**
+ * Implements hook_form_alter().
+ */
+function yukon_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (!in_array($form_id, ['node_multi_step_page_form', 'node_multi_step_page_edit_form'])) {
+    return;
+  }
+
+  if (!isset($form['field_paragraphs']['widget'])) {
+    return;
+  }
+
+  $max_steps = 6;
+
+  $item_keys = array_filter(array_keys($form['field_paragraphs']['widget']), fn($key) => is_int($key));
+  $item_count = count($item_keys);
+
+  $form['field_paragraphs']['widget']['#cardinality'] = max($item_count, $max_steps);
+
+  if ($item_count >= $max_steps) {
+    if (isset($form['field_paragraphs']['widget']['add_more'])) {
+      $form['field_paragraphs']['widget']['add_more']['#access'] = FALSE;
+    }
+    foreach ($item_keys as $key) {
+      if (isset($form['field_paragraphs']['widget'][$key]['top']['actions']['dropdown_actions']['duplicate_button'])) {
+        $form['field_paragraphs']['widget'][$key]['top']['actions']['dropdown_actions']['duplicate_button']['#access'] = FALSE;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_views_data_alter().
  */
 function yukon_base_views_data_alter(array &$data) {

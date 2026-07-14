@@ -1,11 +1,4 @@
 .footer-left {
-  @apply after:content-[""] after:top-0 after:absolute after:bg-no-repeat after:w-11/12 after:h-52 after:bg-full after:right-[-40%];
-  @apply md:after:top-[-30px] md:after:w-8.5/12 md:after:right-[-20%];
-
-  &:after {
-    background-image: url("/themes/custom/yukonca_glider/images/svg/Aurora-main.svg");
-  }
-
   .footer-logos .region-footer-logo {
     @apply min-h-[75px];
   }

@@ -33,15 +33,6 @@
   ]
 %}
 
-{% if content_type == "basic_page" or content_type == "topics_page" or content_type == "news" or content_type == "multi_step_page" %}
-    <span class="aurora--mini"></span>
-
-{% endif %}
-
-{% if current_url == "/blogs" %}
-    <span class="aurora--mini"></span>
-
-{% endif %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}

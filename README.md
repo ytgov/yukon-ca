@@ -1,6 +1,6 @@
 # Yukon.ca
 
-Drupal 10 Drupal build for Yukon.ca. This repository was prepared so it's sources can be built via CI to deploy to Pantheon.
+Drupal 10 Drupal build for Yukon.ca.
 
 [[_TOC_]]
 
@@ -23,9 +23,9 @@ Layout Builder: The current standard choice for components implementation is Lay
 
 ## Development workflow
 
-Every new development should be pushed to a development branch. The advice is to keep the names short: due to Pantheon's limitation, multidev cannot use longer branch names, so in case we want to use it, we should avoid the long names.
+Every new development should be pushed to a development branch.
 
-Upon pushing to a branch, you can create a Pull Request for EW to review. Branches are pushed to Pantheon so you can also spin a Multidev environment to demonstrate before merging.
+Upon pushing to a branch, you can create a Pull Request for EW to review.
 
 ## Resources
 
@@ -109,29 +109,17 @@ npm run build
 ```bash
 drush locale-export fr --type=customized > config/translations/fr.customized.po
 ```
-- Pantheon
-```bash
-drush locale-export fr --type=customized > /code/config/translations/fr.customized.po
-```
 
 ##### Import:
 - Local
 ```bash
 drush locale-import fr --type=customized /var/www/html/config/translations/fr.customized.po
 ```
-- Pantheon
-```bash
-drush locale-import fr --type=customized /code/config/translations/fr.customized.po
-```
 
 ##### Import with override:
 - Local
 ```bash
 drush locale-import fr --type=customized --override=customized /var/www/html/config/translations/fr.customized.po
-```
-- Pantheon
-```bash
-drush locale-import fr --type=customized --override=customized /code/config/translations/fr.customized.po
 ```
 
 

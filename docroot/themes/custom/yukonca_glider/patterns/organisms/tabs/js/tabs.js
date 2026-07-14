@@ -47,6 +47,16 @@
         if (winLocation.hash.substr(0, 1) === '#') {
           $(`a[data-bs-toggle="tab"][data-bs-target="${winLocation.hash}"]`).tab('show');
         }
+        // Set initial prev/next button visibility based on which tab is active
+        // after any hash-based navigation. Without this, the Previous button
+        // stays hidden when landing directly on a non-first step via URL.
+        $('.pills-arrow .btn-links').removeClass('hide');
+        if ($('.nav-pills .nav-item:first-child a').hasClass('active')) {
+          $('.pills-arrow .prev-step.btn-links').addClass('hide');
+        }
+        if ($('.nav-pills .nav-item:last-child a').hasClass('active')) {
+          $('.pills-arrow .next-step.btn-links').addClass('hide');
+        }
       });
 
       $(once('changeWindowHash', 'a[data-bs-toggle="tab"]', context)).on('shown.bs.tab', (e) => {

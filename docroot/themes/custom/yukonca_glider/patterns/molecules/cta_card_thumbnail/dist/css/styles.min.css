@@ -1,0 +1,9 @@
+/* Add your code here */
+.thumbnail a {
+    display: block
+}
+.thumbnail a img {
+    height: auto;
+    width: 100%
+}
+/*# sourceMappingURL=styles.min.css.map */

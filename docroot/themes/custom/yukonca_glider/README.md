@@ -89,3 +89,28 @@ Now whenever you want to work with SASS / JS, do the following:
 
 You can then test your CSS / JS changes and if you're happy with them, you can
 commit them into the version control system.
+
+## Committed build assets (deploy convention)
+
+This site **deploys compiled theme assets via git** — the `dist/` directory is
+committed, not built on the server. To keep those assets consistent between
+developers, follow this convention:
+
+  1. Install dependencies from the lockfile so everyone gets identical tool
+     versions: `npm ci` (do **not** run `yarn install` — there is no
+     `yarn.lock`; only `package-lock.json` is committed).
+
+  1. Build with `npm run build` (or `npm run watch` while developing). The build
+     defaults to **development mode** — output is unminified, because Drupal's
+     CSS/JS aggregation (`css.preprocess` / `js.preprocess`, both on) minifies it
+     at runtime, and the expanded output keeps `dist/` diffs reviewable. There is
+     no production npm script; if you ever need a minified build, run
+     `NODE_ENV=production gulp build` manually (its output should **not** be
+     committed).
+
+  1. Commit the resulting `dist/` files. Source maps (`*.map`) are gitignored
+     and should not be committed.
+
+There is no CI check enforcing this — it is convention. If a `dist/` diff looks
+unexpectedly large (e.g. the whole file reflowed), it usually means it was built
+with un-pinned dependencies or a stray `NODE_ENV=production`.
