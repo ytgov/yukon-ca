@@ -1275,3 +1275,22 @@ function yukonca_glider_preprocess_views_view_field(&$variables) {
   $output = preg_replace('/(class="event-info--title"><a[^>]+href=")([^"#]*)(")/i', '$1$2' . $anchor . '$3', (string) $variables['output']);
   $variables['output'] = Markup::create($output);
 }
+
+/**
+ * Implements hook_preprocess_views_view() for the 'search' view.
+ *
+ * This function attaches a library and sets a Drupal setting for the search
+ * view, allowing for custom behavior based on the number of results returned
+ * by the (first page of the) view.
+ */
+function yukonca_glider_preprocess_views_view__search(array &$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $result = !empty($view->total_rows) ? $view->total_rows : 0;
+  $exposedInput = $view->getExposedInput();
+  $keywords = $exposedInput['query'] ?? '';
+
+  $variables['#attached']['library'][] = 'yukonca_glider/search-zero-result';
+  $variables['#attached']['drupalSettings']['yukonca_glider']['searchQuery'] = $keywords;
+  $variables['#attached']['drupalSettings']['yukonca_glider']['resultCount'] = $result;
+}
