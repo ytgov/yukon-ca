@@ -1281,7 +1281,7 @@ function yukonca_glider_preprocess_views_view_field(&$variables) {
  *
  * This function attaches a library and sets a Drupal setting for the search
  * view, allowing for custom behavior based on the number of results returned
- * by the (first page of the) view.
+ * by the view.
  */
 function yukonca_glider_preprocess_views_view__search(array &$variables) {
   /** @var \Drupal\views\ViewExecutable $view */
