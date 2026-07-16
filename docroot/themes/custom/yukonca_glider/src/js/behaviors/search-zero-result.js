@@ -12,7 +12,9 @@
 
       // Only manually track zero-result searches, since Matomo automatically
       // tracks searches with results.
-      if (resultCount !== 0) {
+      if (isNaN(parseInt(resultCount)) ||
+          !isFinite(resultCount) ||
+          parseInt(resultCount) !== 0) {
         return;
       }
 
