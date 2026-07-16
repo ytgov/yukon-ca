@@ -32,6 +32,7 @@ dependencies:
     - filter
     - linkchecker
     - media
+    - moderation_scheduler
     - node
     - path
     - system
@@ -139,6 +140,7 @@ permissions:
   - 'edit any news content'
   - 'edit any topics_page content'
   - 'edit any video media'
+  - 'edit moderation scheduler field'
   - 'edit own audio media'
   - 'edit own basic_page content'
   - 'edit own blog content'
