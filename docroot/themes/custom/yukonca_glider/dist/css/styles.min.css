@@ -1626,6 +1626,9 @@ h6,
 .m-0{
   margin: 0px;
 }
+.m-1{
+  margin: 0.25rem;
+}
 .my-12{
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -1650,6 +1653,10 @@ h6,
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
 }
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1661,6 +1668,14 @@ h6,
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.my-6{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 .mb-6{
   margin-bottom: 1.5rem;
@@ -1737,8 +1752,8 @@ h6,
 .mb-2{
   margin-bottom: 0.5rem;
 }
-.mt-4{
-  margin-top: 1rem;
+.mt-auto{
+  margin-top: auto;
 }
 .mb-9{
   margin-bottom: 2.25rem;
@@ -1760,6 +1775,9 @@ h6,
 }
 .ml-5{
   margin-left: 1.25rem;
+}
+.mt-4{
+  margin-top: 1rem;
 }
 .mt-15{
   margin-top: 3.75rem;
@@ -1911,14 +1929,14 @@ h6,
 .gap-3{
   gap: 0.75rem;
 }
-.gap-0{
-  gap: 0px;
-}
 .gap-5{
   gap: 1.25rem;
 }
 .gap-2{
   gap: 0.5rem;
+}
+.gap-9{
+  gap: 2.25rem;
 }
 .gap-x-9{
   -moz-column-gap: 2.25rem;
@@ -1930,6 +1948,12 @@ h6,
 .gap-x-\[19px\]{
   -moz-column-gap: 19px;
   column-gap: 19px;
+}
+.gap-y-9{
+  row-gap: 2.25rem;
+}
+.self-end{
+  align-self: flex-end;
 }
 .justify-self-end{
   justify-self: end;
@@ -1973,6 +1997,9 @@ h6,
 .border-b-\[12px\]{
   border-bottom-width: 12px;
 }
+.border-t-2{
+  border-top-width: 2px;
+}
 .border-solid{
   border-style: solid;
 }
@@ -2006,6 +2033,10 @@ h6,
 .border-gray-lightgray{
   --tw-border-opacity: 1;
   border-color: rgb(238 238 238 / var(--tw-border-opacity));
+}
+.border-blue-mid{
+  --tw-border-opacity: 1;
+  border-color: rgb(114 208 220 / var(--tw-border-opacity));
 }
 .border-b-yellow{
   --tw-border-opacity: 1;
@@ -2041,6 +2072,12 @@ h6,
 }
 .p-\[10px\]{
   padding: 10px;
+}
+.p-5{
+  padding: 1.25rem;
+}
+.p-3{
+  padding: 0.75rem;
 }
 .px-4{
   padding-left: 1rem;
@@ -2233,6 +2270,9 @@ h6,
 }
 .font-semibold{
   font-weight: 600;
+}
+.font-bold{
+  font-weight: 700;
 }
 .lowercase{
   text-transform: lowercase;

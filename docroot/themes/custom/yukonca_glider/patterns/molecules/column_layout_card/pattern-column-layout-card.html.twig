@@ -1,32 +1,39 @@
-<div class="column-layout-card">
-  <h4 class="main-link border-solid border-b-1 border-gray-lightborder text-lg">
+<div class="column-layout-card flex flex-col h-full">
+  <h4 class="main-link text-lg mx-1">
     {{ main_link }}
   </h4>
-  <div class="subcategory-links mt-4">
-    {% if level_2_link %}
-      <div class="level_2-link">
-        {{ level_2_link }}
+  <div class="subcategory-links m-1 p-3 grow flex flex-col">
+    <span class="font-bold">{{ "Top pages in this section"|t }}</span>
+    <ul>
+      {% if level_2_link.0 %}
+        <li class="level_2-link">
+          {{ level_2_link }}
+        </li>
+      {% endif %}
+
+      {% if links['#items'] %}
+        {% for link in links['#items'] %}
+          <li class="link-item">
+            {% if link.url is not empty %}
+              {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% else %}
+        {% for link in links %}
+          <li class="link-item">
+            {% if link.url is not empty %}
+              {{ link(link.title, link.url, {'class': ['font-medium']}) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    {% if main_link.0['#url'].toString()%}
+      <div class="link-item--see-more mt-auto">
+        <a class="btn btn-sm btn-primary" href="{{ main_link.0['#url'].toString() }}">{{ "See more in "|t }} {{ main_link.0['#title']|t }}</a>
       </div>
     {% endif %}
-
-    {% if links['#items'] %}
-      {% for link in links['#items'] %}
-        <div class="link-item">
-          {% if link.url is not empty %}
-            {{ link(link.title, link.url, {'class': ['font-medium']}) }}
-          {% endif %}
-        </div>
-      {% endfor %}
-    {% else %}
-      {% for link in links %}
-        <div class="link-item">
-          {% if link.url is not empty %}
-            {{ link(link.title, link.url, {'class': ['font-medium']}) }}
-          {% endif %}
-        </div>
-      {% endfor %}
-    {% endif %}
-    {#<a href="">See More in {{ main_link.0.value }}</a>#}
   </div>
 
 </div>
