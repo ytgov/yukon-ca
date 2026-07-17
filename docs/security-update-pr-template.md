@@ -30,6 +30,15 @@ Update contrib:
 </details>
 
 <details>
+<summary>Patches Removed or Updated</summary>
+
+<!-- Any patch in composer.json's extra.patches that stopped applying, or whose source changed (e.g. rebased against a new MR), during this update. Note why, and link the issue/MR. -->
+
+- `drupal/module_name`: "patch description" — removed/updated because ...
+
+</details>
+
+<details>
 <summary>Security Advisories Resolved</summary>
 
 <!-- Run `composer audit` against the pre-update lock file and paste the results here verbatim. -->
