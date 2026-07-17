@@ -18,6 +18,7 @@
         "drupal/better_exposed_filters": "^6.0",
         "drupal/bigmenu": "^2.0@RC",
         "drupal/block_class": "^3.0",
+        "drupal/blockgroup": "^2.0",
         "drupal/ckeditor5_plugin_pack": "^1.5",
         "drupal/ckeditor5_premium_features": "^1.6",
         "drupal/ckeditor5_show_block": "^1.14",
