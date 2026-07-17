@@ -76,6 +76,11 @@ accordion_item:
       label: Item id
       description: Accordion item identifier.
       preview: '00678895'
+    expanded:
+      type: boolean
+      label: Expanded
+      description: Whether the item is expanded by default.
+      preview: false
   libraries:
     - accordion_item:
         css:
