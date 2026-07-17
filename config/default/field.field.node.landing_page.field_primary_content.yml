@@ -8,16 +8,15 @@ dependencies:
     - paragraphs.paragraphs_type.primary_content
   module:
     - entity_reference_revisions
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.landing_page.field_primary_content
 field_name: field_primary_content
 entity_type: node
 bundle: landing_page
-label: 'Top tasks'
+label: 'Popular Pages'
 description: ''
 required: true
 translatable: true
@@ -30,6 +29,9 @@ settings:
       primary_content: primary_content
     negate: 0
     target_bundles_drag_drop:
+      call_to_action:
+        weight: 33
+        enabled: false
       chart:
         weight: 7
         enabled: false
@@ -45,14 +47,26 @@ settings:
       date_range_text:
         weight: 25
         enabled: false
+      full_width_image:
+        weight: 39
+        enabled: false
       health_facilities:
         weight: 26
         enabled: false
       holiday_times:
         weight: 27
         enabled: false
+      hrsmart_job_listings:
+        weight: 42
+        enabled: false
       image_gallery:
         weight: 4
+        enabled: false
+      multi_step:
+        weight: 44
+        enabled: false
+      navigation_jump_point:
+        weight: 45
         enabled: false
       opening_and_closing_times:
         weight: 29
@@ -65,6 +79,9 @@ settings:
         enabled: true
       quick_facts:
         weight: 10
+        enabled: false
+      quote:
+        weight: 50
         enabled: false
       quotes:
         weight: 11
@@ -81,11 +98,29 @@ settings:
       section:
         weight: 37
         enabled: false
+      social_network:
+        weight: 56
+        enabled: false
+      sub_heading:
+        weight: 57
+        enabled: false
+      text:
+        weight: 58
+        enabled: false
+      text_and_image:
+        weight: 59
+        enabled: false
       top_tasks:
         weight: 38
         enabled: false
       transactional_facilities:
         weight: 39
+        enabled: false
+      video:
+        weight: 62
+        enabled: false
+      video_and_text:
+        weight: 63
         enabled: false
       waste_and_recycling_facilities:
         weight: 40
