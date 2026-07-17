@@ -1673,6 +1673,14 @@ h6,
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
+.mx-7\.5{
+  margin-left: 1.875rem;
+  margin-right: 1.875rem;
+}
+.mx-7{
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
 .mb-6{
   margin-bottom: 1.5rem;
 }
@@ -1783,6 +1791,12 @@ h6,
 }
 .\!ml-0{
   margin-left: 0px !important;
+}
+.\!mt-0{
+  margin-top: 0px !important;
+}
+.mb-1{
+  margin-bottom: 0.25rem;
 }
 .block{
   display: block;

@@ -38,6 +38,7 @@
       {%
         set classes = [
           'menu-item',
+          'mb-1',
           item.in_active_trail ? 'menu-item--active-trail',
         ]
       %}
@@ -54,7 +55,7 @@
             }],
           }) }}
         {% else %}
-          {{ link(item.title, item.url) }}
+          {{ link(item.title, item.url, { 'class':['font-medium']}) }}
           {% if menu_level > 0 and item.below %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
