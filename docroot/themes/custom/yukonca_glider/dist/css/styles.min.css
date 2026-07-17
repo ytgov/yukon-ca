@@ -3680,11 +3680,11 @@ h1#heading{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.yukon-accordion .yukon-accordion__expand svg, .yukon-accordion .yukon-accordion__collapse svg{
+.yukon-accordion .yukon-accordion__expand i, .yukon-accordion .yukon-accordion__collapse i{
   --tw-text-opacity: 1;
   color: rgb(0 129 144 / var(--tw-text-opacity));
 }
-.yukon-accordion .yukon-accordion__expand:hover svg, .yukon-accordion .yukon-accordion__collapse:hover svg{
+.yukon-accordion .yukon-accordion__expand:hover i, .yukon-accordion .yukon-accordion__collapse:hover i{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
