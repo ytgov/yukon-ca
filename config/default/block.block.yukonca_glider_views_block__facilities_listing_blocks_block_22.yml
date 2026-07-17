@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.facilities_listing_blocks
   module:
-    - block_class
     - system
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: yukonca_glider_views_block__facilities_listing_blocks_block_22
 theme: yukonca_glider
 region: content
-weight: -11
+weight: -9
 provider: null
 plugin: 'views_block:facilities_listing_blocks-block_22'
 settings:

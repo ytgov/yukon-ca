@@ -1,0 +1,41 @@
+uuid: 8252c254-cc7f-4653-a6f9-6b37601bfa31
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - node
+  theme:
+    - yukonca_glider
+id: yukonca_glider_l2_child_menu
+theme: yukonca_glider
+region: content
+weight: -20
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'A to Z of [current-page:title]'
+  label_display: visible
+  provider: menu_block
+  follow: true
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 3
+  depth: 3
+  expand_all_items: true
+  parent: 'main:'
+  render_parent: false
+  suggestion: main
+  hide_on_nonactive: true
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      landing_page_level_2: landing_page_level_2
