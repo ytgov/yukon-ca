@@ -37,6 +37,7 @@
         "drupal/devel": "^5.1",
         "drupal/diff": "^1.1",
         "drupal/ds": "^3.15",
+        "drupal/dynamic_entity_reference": "^3.2",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/environment_indicator": "^4.0",
         "drupal/epp": "^1.3",
@@ -141,7 +142,7 @@
                 "index.php issue": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch"
             },
             "drupal/token": {
-                "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
+                "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
             },
             "drupal/fontawesome": {
                 "fontawesome icon name": "patches/fontawesome.patch"
