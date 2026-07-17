@@ -1649,6 +1649,10 @@ h6,
   margin-left: 0px;
   margin-right: 0px;
 }
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .my-7{
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
@@ -1668,14 +1672,6 @@ h6,
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-.my-6{
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.my-10{
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
 }
 .mb-6{
   margin-bottom: 1.5rem;
@@ -1722,6 +1718,12 @@ h6,
 .mt-\[10px\]{
   margin-top: 10px;
 }
+.mt-7\.5{
+  margin-top: 1.875rem;
+}
+.mt-7{
+  margin-top: 1.75rem;
+}
 .mb-7\.5{
   margin-bottom: 1.875rem;
 }
@@ -1730,12 +1732,6 @@ h6,
 }
 .mt-\[30px\]{
   margin-top: 30px;
-}
-.mt-7\.5{
-  margin-top: 1.875rem;
-}
-.mt-7{
-  margin-top: 1.75rem;
 }
 .mb-10{
   margin-bottom: 2.5rem;
@@ -1781,6 +1777,12 @@ h6,
 }
 .mt-15{
   margin-top: 3.75rem;
+}
+.ml-0{
+  margin-left: 0px;
+}
+.\!ml-0{
+  margin-left: 0px !important;
 }
 .block{
   display: block;
@@ -1926,6 +1928,9 @@ h6,
 .gap-8{
   gap: 2rem;
 }
+.gap-9{
+  gap: 2.25rem;
+}
 .gap-3{
   gap: 0.75rem;
 }
@@ -1935,25 +1940,13 @@ h6,
 .gap-2{
   gap: 0.5rem;
 }
-.gap-9{
-  gap: 2.25rem;
-}
 .gap-x-9{
   -moz-column-gap: 2.25rem;
   column-gap: 2.25rem;
 }
-.gap-y-\[78px\]{
-  row-gap: 78px;
-}
 .gap-x-\[19px\]{
   -moz-column-gap: 19px;
   column-gap: 19px;
-}
-.gap-y-9{
-  row-gap: 2.25rem;
-}
-.self-end{
-  align-self: flex-end;
 }
 .justify-self-end{
   justify-self: end;
@@ -1997,9 +1990,6 @@ h6,
 .border-b-\[12px\]{
   border-bottom-width: 12px;
 }
-.border-t-2{
-  border-top-width: 2px;
-}
 .border-solid{
   border-style: solid;
 }
@@ -2033,10 +2023,6 @@ h6,
 .border-gray-lightgray{
   --tw-border-opacity: 1;
   border-color: rgb(238 238 238 / var(--tw-border-opacity));
-}
-.border-blue-mid{
-  --tw-border-opacity: 1;
-  border-color: rgb(114 208 220 / var(--tw-border-opacity));
 }
 .border-b-yellow{
   --tw-border-opacity: 1;
@@ -2072,9 +2058,6 @@ h6,
 }
 .p-\[10px\]{
   padding: 10px;
-}
-.p-5{
-  padding: 1.25rem;
 }
 .p-3{
   padding: 0.75rem;
@@ -2265,14 +2248,14 @@ h6,
 .font-normal{
   font-weight: 400;
 }
+.font-bold{
+  font-weight: 700;
+}
 .font-light{
   font-weight: 300;
 }
 .font-semibold{
   font-weight: 600;
-}
-.font-bold{
-  font-weight: 700;
 }
 .lowercase{
   text-transform: lowercase;
@@ -8563,6 +8546,12 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
   }
   .lg\:w-8\/12{
     width: 66.666667%;
+  }
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:gap-9{
+    gap: 2.25rem;
   }
   .lg\:pr-20{
     padding-right: 5rem;
