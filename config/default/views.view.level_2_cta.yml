@@ -5,7 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_cta_link
     - field.storage.node.field_featured_image
-    - image.style.large
+    - field.storage.node.field_image_caption
+    - image.style.max_650x650
     - node.type.landing_page_level_2
   module:
     - link
@@ -81,7 +82,7 @@ display:
           type: media_thumbnail
           settings:
             image_link: ''
-            image_style: large
+            image_style: max_650x650
             image_loading:
               attribute: lazy
           group_column: target_id
@@ -94,10 +95,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_cta_link:
-          id: field_cta_link
-          table: node__field_cta_link
-          field: field_cta_link
+        field_image_caption:
+          id: field_image_caption
+          table: node__field_image_caption
+          field: field_image_caption
           relationship: none
           group_type: group
           admin_label: ''
@@ -133,6 +134,68 @@ display:
             html: false
           element_type: ''
           element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_cta_link:
+          id: field_cta_link
+          table: node__field_cta_link
+          field: field_cta_link
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: '<a class="btn btn-primary" {{ field_cta_link__options }} href="{{ field_cta_link__uri }}">{{ field_cta_link__title }}</a>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: 'btn btn-primary'
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: 'text-center mt-5'
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -258,6 +321,48 @@ display:
           plugin_id: bundle
           value:
             landing_page_level_2: landing_page_level_2
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
       row:
@@ -285,6 +390,7 @@ display:
       tags:
         - 'config:field.storage.node.field_cta_link'
         - 'config:field.storage.node.field_featured_image'
+        - 'config:field.storage.node.field_image_caption'
   block_l2_landing_page_featured_image:
     id: block_l2_landing_page_featured_image
     display_title: 'Level 2 landing page CTA'
@@ -317,3 +423,4 @@ display:
       tags:
         - 'config:field.storage.node.field_cta_link'
         - 'config:field.storage.node.field_featured_image'
+        - 'config:field.storage.node.field_image_caption'
