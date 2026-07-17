@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.landing_page_level_2.field_click_to_call
     - field.field.node.landing_page_level_2.field_click_to_call_phone
     - field.field.node.landing_page_level_2.field_click_to_call_text
+    - field.field.node.landing_page_level_2.field_cta_link
     - field.field.node.landing_page_level_2.field_department_term
     - field.field.node.landing_page_level_2.field_editor_publisher
+    - field.field.node.landing_page_level_2.field_featured_image
     - field.field.node.landing_page_level_2.field_icon_dark
     - field.field.node.landing_page_level_2.field_icon_light
     - field.field.node.landing_page_level_2.field_meta_tags
@@ -25,6 +27,7 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
+    - link
     - media_library
     - media_library_edit
     - metatag
@@ -42,7 +45,7 @@ third_party_settings:
       label: 'Publishing Options'
       region: content
       parent_name: ''
-      weight: 11
+      weight: 15
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -58,7 +61,7 @@ third_party_settings:
       label: 'Quick exit'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 23
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -77,7 +80,7 @@ third_party_settings:
       label: 'Click to Call'
       region: content
       parent_name: ''
-      weight: 20
+      weight: 24
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -94,7 +97,7 @@ third_party_settings:
       label: 'Translation status'
       region: content
       parent_name: ''
-      weight: 14
+      weight: 18
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -105,6 +108,22 @@ third_party_settings:
         description: ''
         required_fields: false
         weight: 0
+    group_image_and_cta:
+      children:
+        - field_featured_image
+        - field_cta_link
+      label: 'Image and CTA'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
 id: node.landing_page_level_2.default
 targetEntityType: node
 bundle: landing_page_level_2
@@ -122,7 +141,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -148,9 +167,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_cta_link:
+    type: link_default
+    weight: 9
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_department_term:
     type: options_select
-    weight: 8
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -159,6 +186,13 @@ content:
     weight: 20
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 8
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_icon_dark:
     type: media_library_widget
@@ -180,7 +214,7 @@ content:
         show_edit: '1'
   field_meta_tags:
     type: metatag_firehose
-    weight: 18
+    weight: 22
     region: content
     settings:
       sidebar: true
@@ -232,7 +266,7 @@ content:
     third_party_settings: {  }
   field_social_sharing:
     type: boolean_checkbox
-    weight: 9
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -245,7 +279,7 @@ content:
     third_party_settings: {  }
   field_yukon_editorial_team:
     type: options_select
-    weight: 7
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -264,13 +298,18 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 17
+    weight: 21
     region: content
     settings:
       display_label: true
@@ -284,13 +323,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 12
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -299,7 +338,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
