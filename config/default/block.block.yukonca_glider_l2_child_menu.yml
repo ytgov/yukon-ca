@@ -11,8 +11,8 @@ dependencies:
     - yukonca_glider
 id: yukonca_glider_l2_child_menu
 theme: yukonca_glider
-region: content
-weight: -20
+region: l2_landing_page_secondary_content
+weight: -33
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -29,7 +29,7 @@ settings:
   expand_all_items: true
   parent: 'main:'
   render_parent: false
-  suggestion: main
+  suggestion: main__l2_children
   hide_on_nonactive: true
 visibility:
   'entity_bundle:node':

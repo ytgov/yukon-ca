@@ -1,22 +1,23 @@
-uuid: 2323e7da-164a-4377-856d-5d13b14c51ec
+uuid: 9d0bca8f-d805-4d01-bfbd-470896f44a8b
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - views.view.what_are_you_looking_for_landing_page_l2
+    - views.view.level_2_cta
   module:
+    - block_class
     - node
     - views
   theme:
     - yukonca_glider
-id: views_block__what_are_you_looking_for_landing_page_l2_block_1
+id: yukonca_glider_views_block__level_2_cta
 theme: yukonca_glider
-region: content
-weight: -2
+region: l2_landing_page_secondary_content
+weight: 0
 provider: null
-plugin: 'views_block:what_are_you_looking_for_landing_page_l2-block_1'
+plugin: 'views_block:level_2_cta-block_l2_landing_page_featured_image'
 settings:
-  id: 'views_block:what_are_you_looking_for_landing_page_l2-block_1'
+  id: 'views_block:level_2_cta-block_l2_landing_page_featured_image'
   label: ''
   label_display: '0'
   provider: views
