@@ -168,8 +168,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: '<a class="btn btn-primary" {{ field_cta_link__options }} href="{{ field_cta_link__uri }}">{{ field_cta_link__title }}</a>'
+            alter_text: true
+            text: '<a class="btn btn-primary" target="_blank" href="{{ field_cta_link__uri }}">{{ field_cta_link__title }}</a>'
             make_link: false
             path: ''
             absolute: false

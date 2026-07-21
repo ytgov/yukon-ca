@@ -24,40 +24,38 @@
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{% set accordion_group_id = 'l2-children-accordion'|clean_unique_id %}
+{{ menus.menu_links(items, attributes, 0, accordion_group_id) }}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, accordion_group_id) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu !ml-0') }}>
+      <ul{{ attributes.addClass('menu !ml-0').setAttribute('id', accordion_group_id) }}>
     {% else %}
       <ul class="menu">
     {% endif %}
     {% for item in items %}
+      {% set is_placeholder_link = item.url.isRouted() and item.url.routeName in ['<nolink>', '<button>'] %}
       {%
         set classes = [
           'menu-item',
-          'mb-1',
+          not is_placeholder_link ? 'mb-5',
           item.in_active_trail ? 'menu-item--active-trail',
         ]
       %}
-      {% set is_placeholder_link = item.url.isRouted() and item.url.routeName in ['<nolink>', '<button>'] %}
       <li{{ item.attributes.addClass(classes) }}>
         {% if menu_level == 0 and is_placeholder_link and item.below %}
-          {{ pattern('accordion', {
-            items: [{
-              content: pattern('accordion_item', {
-                title: item.title,
-                content: menus.menu_links(item.below, attributes, menu_level + 1),
-                expanded: false,
-              }, 'default'),
-            }],
+          {{ pattern('collapse_toggle', {
+            title: item.title,
+            content: menus.menu_links(item.below, attributes, menu_level + 1, accordion_group_id),
+            expanded: false,
+            parent_id: accordion_group_id,
           }) }}
         {% else %}
           {{ link(item.title, item.url, { 'class':['font-medium']}) }}
           {% if menu_level > 0 and item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1, accordion_group_id) }}
           {% endif %}
         {% endif %}
       </li>

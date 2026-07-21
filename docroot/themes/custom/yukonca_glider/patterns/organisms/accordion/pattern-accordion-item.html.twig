@@ -15,7 +15,7 @@
           {{ title }}
         </button>
       </div>
-      <div id="{{ item_id }}--body" class="accordion-collapse collapse{{ is_expanded ? ' show' }}" aria-labelledby="{{ item_id }}--header">
+      <div id="{{ item_id }}--body" class="accordion-collapse collapse{{ is_expanded ? ' show' }}" aria-labelledby="{{ item_id }}--header"{% if parent_id %} data-bs-parent="#{{ parent_id }}"{% endif %}>
         <div class="accordion-body">
           {{ content }}
         </div>

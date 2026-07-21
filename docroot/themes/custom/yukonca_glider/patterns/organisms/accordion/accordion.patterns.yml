@@ -81,6 +81,11 @@ accordion_item:
       label: Expanded
       description: Whether the item is expanded by default.
       preview: false
+    parent_id:
+      type: text
+      label: Parent id
+      description: 'ID of the ancestor element that groups this item with others for exclusive open/close (Bootstrap data-bs-parent).'
+      preview: ''
   libraries:
     - accordion_item:
         css:
