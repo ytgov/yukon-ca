@@ -1,0 +1,131 @@
+uuid: 20f30381-e233-426b-a3a6-2f55d0e61c9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_block
+    - node.type.basic_page
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - entity_reference_revisions
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.basic_page.field_contact_block
+field_name: field_contact_block
+entity_type: node
+bundle: basic_page
+label: Contact
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      contact_card: contact_card
+    negate: 0
+    target_bundles_drag_drop:
+      call_to_action:
+        weight: 34
+        enabled: false
+      chart:
+        weight: 35
+        enabled: false
+      collapsable_field:
+        weight: 36
+        enabled: false
+      community_facilities:
+        weight: 37
+        enabled: false
+      contact_card:
+        weight: 38
+        enabled: true
+      contact_person:
+        weight: 39
+        enabled: false
+      date_range_text:
+        weight: 40
+        enabled: false
+      full_width_image:
+        weight: 41
+        enabled: false
+      health_facilities:
+        weight: 42
+        enabled: false
+      holiday_times:
+        weight: 43
+        enabled: false
+      hrsmart_job_listings:
+        weight: 44
+        enabled: false
+      image_gallery:
+        weight: 45
+        enabled: false
+      multi_step:
+        weight: 46
+        enabled: false
+      navigation_jump_point:
+        weight: 47
+        enabled: false
+      opening_and_closing_times:
+        weight: 48
+        enabled: false
+      opening_times:
+        weight: 49
+        enabled: false
+      primary_content:
+        weight: 50
+        enabled: false
+      quick_facts:
+        weight: 51
+        enabled: false
+      quote:
+        weight: 52
+        enabled: false
+      quotes:
+        weight: 53
+        enabled: false
+      related_content:
+        weight: 54
+        enabled: false
+      schools:
+        weight: 55
+        enabled: false
+      secondary_content:
+        weight: 56
+        enabled: false
+      section:
+        weight: 57
+        enabled: false
+      social_network:
+        weight: 58
+        enabled: false
+      sub_heading:
+        weight: 59
+        enabled: false
+      text:
+        weight: 60
+        enabled: false
+      text_and_image:
+        weight: 61
+        enabled: false
+      top_tasks:
+        weight: 62
+        enabled: false
+      transactional_facilities:
+        weight: 63
+        enabled: false
+      video:
+        weight: 64
+        enabled: false
+      video_and_text:
+        weight: 65
+        enabled: false
+      waste_and_recycling_facilities:
+        weight: 66
+        enabled: false
+field_type: entity_reference_revisions

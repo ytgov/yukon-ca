@@ -1,0 +1,24 @@
+uuid: 3ecfed8d-5bce-41d4-8a4c-fe5c8bc59bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_email
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card.field_contact_email
+field_name: field_contact_email
+entity_type: paragraph
+bundle: contact_card
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,24 @@
+uuid: 32f2b6c3-c2c0-414e-b92c-29fee30bed4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_fax
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card.field_contact_fax
+field_name: field_contact_fax
+entity_type: paragraph
+bundle: contact_card
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

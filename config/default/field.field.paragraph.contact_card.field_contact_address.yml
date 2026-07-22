@@ -1,0 +1,24 @@
+uuid: 092cd896-3e7f-4bfd-b547-04e621e3b626
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_address
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card.field_contact_address
+field_name: field_contact_address
+entity_type: paragraph
+bundle: contact_card
+label: 'In person'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

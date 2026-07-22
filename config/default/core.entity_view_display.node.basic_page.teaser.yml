@@ -6,8 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.basic_page.body
     - field.field.node.basic_page.field_click_to_call
+    - field.field.node.basic_page.field_click_to_call_phone
+    - field.field.node.basic_page.field_click_to_call_text
     - field.field.node.basic_page.field_collapsible_items
     - field.field.node.basic_page.field_contact
+    - field.field.node.basic_page.field_contact_block
     - field.field.node.basic_page.field_department_term
     - field.field.node.basic_page.field_editor_publisher
     - field.field.node.basic_page.field_form_meta_description
@@ -54,8 +57,11 @@ content:
 hidden:
   addtoany: true
   field_click_to_call: true
+  field_click_to_call_phone: true
+  field_click_to_call_text: true
   field_collapsible_items: true
   field_contact: true
+  field_contact_block: true
   field_department_term: true
   field_editor_publisher: true
   field_form_meta_description: true

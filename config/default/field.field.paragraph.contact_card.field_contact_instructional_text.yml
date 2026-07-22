@@ -1,0 +1,32 @@
+uuid: 0fae29e7-e22f-4cb1-952c-b39d57d13dcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_instructional_text
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - allowed_formats
+    - text
+    - tmgmt_content
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card.field_contact_instructional_text
+field_name: field_contact_instructional_text
+entity_type: paragraph
+bundle: contact_card
+label: 'Instructional text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

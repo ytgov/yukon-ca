@@ -1,0 +1,21 @@
+uuid: b923c053-82e5-4a50-a9f4-26eb9aa76a75
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_contact_fax
+field_name: field_contact_fax
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
