@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a contact card paragraph.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ pattern('contact_card', {
+  instructional_text: content.field_contact_instructional_text,
+  email:               content.field_contact_email.0,
+  phone:               content.field_contact_phone.0,
+  toll_free:           content.field_contact_toll_free.0,
+  fax:                 content.field_contact_fax.0,
+  mail_address:        content.field_contact_mail_address.0,
+  in_person_address:   content.field_contact_address.0,
+  link:                content.field_contact_link,
+  place_link:          content.field_contact_place.0['#url'].toString(),
+  place_link_text:     content.field_contact_place_link_text.0,
+}, 'default') }}

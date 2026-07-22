@@ -1,61 +1,77 @@
-{# Prepare attributes #}
+{% set prefix = 'contact-card' %}
 {% set classes = [
-  'section',
-  'container',
-  'postcard'
+  prefix,
+  prefix ~ '--' ~ variant,
+  'leading-none',
 ] %}
 
-<div {{ attributes.addClass(classes) }}">
-  <h1 class="title">{{ title }}</h1>
-  <div class="map">
-    {{ map }}
+<div {{ attributes.addClass(classes) }}>
+  {# Heading and links #}
+  <div class="grid grid-cols-3">
+    <div class="col-span-3 md:col-span-2 pt-3 px-3">
+      <h2 class="text-h4-mobile md:text-h4 font-medium !pt-0 !my-0">{{ 'Contact us'|t }}</h2>
+    </div>
+    <div class="{{ prefix }}__place">
+      {% if place_link %}
+        <a href="{{ place_link }}" class="block !text-white no-underline text-center p-3">{{ place_link_text }}</a>
+      {% else %}
+        <span class="text-white text-center">{{ place_link_text }}</span>
+      {% endif %}
+    </div>
+    <div class="{{ prefix }}__instructions col-span-3 md:col-span-2 px-3">
+      {{ instructional_text }}
+    </div>
+    {% if link %}
+      <div class="{{ prefix }}__link p-3">
+        {{ link }}
+      </div>
+    {% endif %}
   </div>
-  <div class="data">
-    <div class="address">
-      {{ address }}
-    </div>
-    <div class="phone">
-      {{ phone }}
-    </div>
-    <div class="phone">
-      {{ phone }}
-    </div>
-    <div class="items">
-      {% for item in items %}
-        <div class="item">
-          {{ item }}
+  {# Contact Info #}
+  <div class="{{ prefix }}__info px-3 pb-3">
+    <div class="{{ prefix }}__details !pl-0">
+      {% if email %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Email'|t }}:</span>
+          <span class="block grow">{{ email }}</span>
         </div>
-      {% endfor %}
-    </div>
-    <div class="open-hours">
-      {% for open_hour in open_hours %}
-        <div class="open-hours-title">
-          {{ open_hour.title }}
+      {% endif %}
+      {% if phone %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Phone'|t }}:</span>
+          <span class="block grow">{{ phone }}</span>
         </div>
-        <div class="open-hours-value">
-          {{ open_hour.value }}
+      {% endif %}
+      {% if toll_free %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Phone toll free in the Yukon'|t }}:</span>
+          <span class="block grow">{{ toll_free }}</span>
         </div>
-      {% endfor %}
-    </div>
-    <div class="services">
-      {% for service in services %}
-        <div class="service">
-          {{ service }}
+      {% endif %}
+      {% if fax %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-fax" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Fax'|t }}:</span>
+          <span class="block grow">{{ fax }}</span>
         </div>
-      {% endfor %}
-    </div>
-    <div class="holiday-hours">
-      {% for holiday_hour in holiday_hours %}
-        <div class="holiday-hours-title">
-          {{ holiday_hour.title }}
+      {% endif %}
+      {% if mail_address %}
+        <div class="{{ prefix }}__detail flex items-center gap-2">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Mail'|t }}:</span>
         </div>
-        <div class="holiday-hours-value">
-          {{ holiday_hour.value }}
+        <span class="block pl-[30px] mb-2">{{ mail_address }}</span>
+      {% endif %}
+      {% if in_person_address %}
+        <div class="{{ prefix }}__detail flex items-center gap-2">
+          <i class="fas fa-location-dot" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'In person'|t }}:</span>
         </div>
-      {% endfor %}
-    </div>
-    <div class="link">
-      {{ link }}
+        <span class="block pl-[30px]">{{ in_person_address }}</span>
+      {% endif %}
     </div>
   </div>
 </div>

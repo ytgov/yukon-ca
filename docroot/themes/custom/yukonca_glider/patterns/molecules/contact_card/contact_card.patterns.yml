@@ -1,82 +1,61 @@
 contact_card:
   label: Contact Card
-  description: A contact card.
+  description: A two-column contact card with contact details and a place highlight.
   variants:
     default:
       label: Default
-      description: Image Card Text.
-    title:
-      label: With title
-      description: Image Card with title.
+      description: Contact details with a highlighted place panel.
   fields:
-    title:
-      type: string
-      label: Question
-      description: A question.
-      preview: 'Lorem Ipsum Dolor'
-    map:
+    instructional_text:
       type: mixed
-      label: Map
-      description: A map.
-      preview:
-        theme: image
-        uri: https://picsum.photos/1280/560
-    address:
-      type: string
-      label: Address
-      description: An address.
-      preview: 'Down Street, London'
+      label: Instructional text
+      description: Text explaining how/when to reach out.
+      preview: 'Staff monitor email and phones Monday to Friday between 8:30 am and 4:30 pm.'
+    email:
+      type: mixed
+      label: Email
+      description: Rendered email field.
+      preview: 'eservices@yukon.ca'
     phone:
-      type: string
-      label: Phone number
-      description: A phone number.
-      preview: '+44 20 7946 0399'
-    items:
       type: mixed
-      label: Accepted items
-      description: An accepted items.
-      preview:
-        -
-          title: 'Aliquam erat volutpat'
-        -
-          title: 'Cras tristique qua'
-        -
-          title: 'Curabitur euismod'
-    open_hours:
+      label: Phone
+      description: Rendered phone field.
+      preview: '867-332-8573'
+    toll_free:
       type: mixed
-      label: Services
-      description: Services list.
-      preview:
-        -
-          day: 'Monday'
-          value: 'Closed'
-        -
-          day: 'Tuesday'
-          value: '12 p.m. to 6 p.m.'
-        -
-          day: 'Friday'
-          value: '11 a.m. to 4 p.m.'
-    services:
+      label: Phone toll free in the Yukon
+      description: Rendered toll free phone field.
+      preview: '1-800-667-3494 ext. 3494'
+    fax:
       type: mixed
-      label: Services
-      description: Services list.
-      preview:
-        -
-          title: 'Service 1'
-        -
-          title: 'Service 2'
-    holiday_hours:
+      label: Fax
+      description: Rendered fax field.
+      preview: 'eservices@yukon.ca'
+    mail_address:
       type: mixed
-      label: Services
-      description: Services list.
-      preview:
-        -
-          day: 'Statutory holidays'
-          value: 'Closed'
+      label: Mail
+      description: Rendered mailing address field.
+      preview: "Government of Yukon<br>Department of Environment (Mail code)<br>Box 2703<br>Whitehorse, Yukon Y1A 2C6"
+    in_person_address:
+      type: mixed
+      label: In person
+      description: Rendered in-person address field.
+      preview: ''
     link:
       type: string
-      label: More Link
-      description: "Markup for More Link."
+      label: Link URL
+      description: The URL for the highlighted place link.
+      preview: '#'
+    place_link:
+      type: mixed
+      label: Place Node URL
+      description: The URL for the highlighted place link.
+      preview: '#'
+    place_link_text:
+      type: mixed
+      label: Place link text
+      description: The link text for the highlighted place link.
+      preview: 'Visit a Department of Environment office'
   libraries:
     -
       contact_card:
