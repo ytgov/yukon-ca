@@ -26,13 +26,13 @@ docroot/profiles/contrib
 docroot/libraries
 drush/Commands
 
-# Ignore custom theme build artifacts
+# Ignore custom theme tooling, but track compiled dist assets (deployed via git).
 docroot/themes/custom/*/node_modules
 docroot/themes/custom/*/styleguide
-docroot/themes/custom/*/patterns/*/*/css
 docroot/themes/custom/*/css
-docroot/themes/custom/**/dist
-dist/
+# Build cruft we don't deploy, even inside tracked dist/.
+docroot/themes/custom/**/*.map
+docroot/themes/custom/**/maps/
 
 # Ignore build artifacts
 deployment_identifier

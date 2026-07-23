@@ -1,3 +1,4 @@
 .vscode
 node_modules
-dist
+# dist/ is committed and deployed via git; map files stay ignored (see root .gitignore).
+dist/**/*.map

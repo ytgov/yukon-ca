@@ -51,7 +51,7 @@ accordion:
       accordion:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }
 
 # Accordion Item.
 accordion_item:
@@ -80,4 +80,4 @@ accordion_item:
     - accordion_item:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

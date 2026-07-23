@@ -17,4 +17,4 @@ sidebar_navigation:
       sidebar_navigation:
         css:
           component:
-            css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

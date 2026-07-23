@@ -14,4 +14,4 @@ icon_card_icon:
       icon_card_icon:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

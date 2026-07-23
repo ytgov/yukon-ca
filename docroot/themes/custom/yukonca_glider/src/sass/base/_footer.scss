@@ -221,20 +221,21 @@ body {
             @apply text-[0px] cursor-pointer;
         
             &::after {
-              font-family: "FontAwesome", sans-serif;
+              font-family: "Font Awesome 6 Free", sans-serif;
+              font-weight: 400;
               font-size: 38px;
               color: #B2B3B2;
             }
-        
+
             &[for^="edit-was-this-page-helpful-yes"] {
               &::after {
-                content: "\f087";
+                content: "\f164";
               }
             }
-        
+
             &[for^="edit-was-this-page-helpful-no"] {
               &::after {
-                content: "\f088";
+                content: "\f165";
               }
             }
           }

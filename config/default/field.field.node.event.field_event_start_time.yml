@@ -7,11 +7,10 @@ dependencies:
     - node.type.event
   module:
     - date_recur
-    - epp
+    - tmgmt_content
 third_party_settings:
-  epp:
-    value: ''
-    on_update: 0
+  tmgmt_content:
+    excluded: false
 id: node.event.field_event_start_time
 field_name: field_event_start_time
 entity_type: node
@@ -20,15 +19,7 @@ label: 'Event Start Time'
 description: ''
 required: true
 translatable: true
-default_value:
-  -
-    default_date_type: now
-    default_date: now
-    default_end_date_type: now
-    default_end_date: now
-    default_date_time_zone: America/Whitehorse
-    default_time_zone: America/Whitehorse
-    default_rrule: ''
+default_value: {  }
 default_value_callback: ''
 settings:
   precreate: P2Y

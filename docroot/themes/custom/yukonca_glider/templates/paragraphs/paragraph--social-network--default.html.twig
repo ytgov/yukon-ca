@@ -52,7 +52,7 @@
 		{% if paragraph.field_social_network_name.value == "twitter" %}
 			<div class="social-link twitter">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-twitter" aria-hidden="true"></i>
+					<i class="fab fa-twitter" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>
@@ -60,15 +60,7 @@
 		{% if paragraph.field_social_network_name.value == "facebook" %}
 			<div class="social-link facebook">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-facebook" aria-hidden="true"></i>
-					{{ paragraph.field_social_campaign_tag.value|raw }}
-				</a>
-			</div>
-		{% endif %}
-		{% if paragraph.field_social_network_name.value == "google_plus" %}
-			<div class="social-link google_plus">
-				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-google-plus" aria-hidden="true"></i>
+					<i class="fab fa-facebook" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>
@@ -76,7 +68,7 @@
 		{% if paragraph.field_social_network_name.value == "instagram" %}
 			<div class="social-link instagram">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-instagram" aria-hidden="true"></i>
+					<i class="fab fa-instagram" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>
@@ -84,7 +76,7 @@
 		{% if paragraph.field_social_network_name.value == "linkedin" %}
 			<div class="social-link linkedin">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-linkedin" aria-hidden="true"></i>
+					<i class="fab fa-linkedin" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>
@@ -92,7 +84,7 @@
 		{% if paragraph.field_social_network_name.value == "youtube" %}
 			<div class="social-link youtube">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-youtube-play" aria-hidden="true"></i>
+					<i class="fab fa-youtube" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>
@@ -100,7 +92,7 @@
 		{% if paragraph.field_social_network_name.value == "vimeo" %}
 			<div class="social-link vimeo">
 				<a href="{{ paragraph.field_link.get(0).getUrl().toString() }}">
-					<i class="fa fa-vimeo" aria-hidden="true"></i>
+					<i class="fab fa-vimeo" aria-hidden="true"></i>
 					{{ paragraph.field_social_campaign_tag.value|raw }}
 				</a>
 			</div>

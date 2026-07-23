@@ -19,4 +19,4 @@ blog_type_info:
       blog_type_info:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

@@ -38,4 +38,4 @@ cta_card_thumbnail:
     - cta_card_thumbnail:
         css:
           component:
-            dist/css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }

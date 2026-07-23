@@ -12,4 +12,4 @@ search_card:
       search_card:
         css:
           component:
-            css/styles.min.css: { minified: true }
+            dist/css/styles.min.css: { minified: false }
