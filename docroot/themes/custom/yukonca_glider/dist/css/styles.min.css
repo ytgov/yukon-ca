@@ -7448,7 +7448,7 @@ aside .filters form .form-item .form-item{
   line-height: 1.1;
 }
 @media (max-width: 767.98px) {
-  .page-node-type-basic-page aside:not(:has(#block-exposedform-news)){
+  .page-node-type-basic-page aside:not(:has(.views-exposed-form)){
     display: none;
   }
 }
