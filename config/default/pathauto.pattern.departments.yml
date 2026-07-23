@@ -2,6 +2,8 @@ uuid: 7ac64bd9-eef1-4c70-8436-9884cf52dce7
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.department
   module:
     - node
 id: departments
@@ -12,7 +14,6 @@ selection_criteria:
   c5ec7c28-db0e-44e1-8c22-804448482e27:
     id: 'entity_bundle:node'
     negate: false
-    uuid: c5ec7c28-db0e-44e1-8c22-804448482e27
     context_mapping:
       node: node
     bundles:
