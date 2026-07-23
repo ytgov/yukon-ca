@@ -2,6 +2,8 @@ uuid: a47cb5bd-8999-479a-a8ab-0d89128886fc
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.campground_directory_record
   module:
     - node
 id: campground
@@ -12,7 +14,6 @@ selection_criteria:
   bfa0cba6-d921-4b1d-8697-3be95879dec1:
     id: 'entity_bundle:node'
     negate: false
-    uuid: bfa0cba6-d921-4b1d-8697-3be95879dec1
     context_mapping:
       node: node
     bundles:
