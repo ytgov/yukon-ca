@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7caa22a6eac708021353ab883c1a8d3d",
+    "content-hash": "03b02127456171e0168c9b0413eb15d4",
     "packages": [
         {
             "name": "acquia/blt",
@@ -7709,17 +7709,17 @@
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "4.3.11",
+            "version": "4.3.12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api_solr.git",
-                "reference": "4.3.11"
+                "reference": "4.3.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-4.3.11.zip",
-                "reference": "4.3.11",
-                "shasum": "8b22ea27fdc540ca3148da78dd14c7624c0c9c53"
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-4.3.12.zip",
+                "reference": "4.3.12",
+                "shasum": "9e3a7ec0c3cfce340f938cb02d64c85224377f6a"
             },
             "require": {
                 "composer-runtime-api": ">=2.0",
@@ -7736,6 +7736,7 @@
             },
             "conflict": {
                 "drupal/acquia_search_solr": "<1.0.0-beta8",
+                "drupal/core": ">=11.3",
                 "drupal/search_api_autocomplete": "<1.6.0",
                 "drupal/search_api_solr_multilingual": "<3.0.0"
             },
@@ -7751,7 +7752,7 @@
                 "monolog/monolog": "^1.25|^3"
             },
             "suggest": {
-                "drupal/facets": "Provides facetted search.",
+                "drupal/facets": "Provides faceted search.",
                 "drupal/search_api_autocomplete": "Provides auto complete for search boxes.",
                 "drupal/search_api_location": "Provides location searches.",
                 "drupal/search_api_solr_nlp": "Highly recommended! Provides Solr field types based on natural language processing (NLP).",
@@ -7760,8 +7761,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.3.11",
-                    "datestamp": "1784273414",
+                    "version": "4.3.12",
+                    "datestamp": "1784379599",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10593,7 +10594,7 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.12.3",
+            "version": "7.12.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
@@ -10701,7 +10702,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.12.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.12"
             },
             "funding": [
                 {
@@ -11419,16 +11420,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.17.6",
+            "version": "v1.17.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "b8b4184b1e6912669f9af155caef9050509d9f18"
+                "reference": "89ee39f81e82cb7ed36cc5abaf2edd43cef71770"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/b8b4184b1e6912669f9af155caef9050509d9f18",
-                "reference": "b8b4184b1e6912669f9af155caef9050509d9f18",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/89ee39f81e82cb7ed36cc5abaf2edd43cef71770",
+                "reference": "89ee39f81e82cb7ed36cc5abaf2edd43cef71770",
                 "shasum": ""
             },
             "require": {
@@ -11441,7 +11442,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17.6-dev"
+                    "dev-master": "1.17.7-dev"
                 }
             },
             "autoload": {
@@ -11462,9 +11463,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.17.6"
+                "source": "https://github.com/mck89/peast/tree/v1.17.7"
             },
-            "time": "2026-04-24T08:04:05+00:00"
+            "time": "2026-07-21T11:56:06+00:00"
         },
         {
             "name": "michelf/php-markdown",
