@@ -13,12 +13,12 @@
 	& &__collapse {
 		@apply bg-transparent py-1.5 px-5 rounded-[100px] h-8 hover:text-white hover:bg-blue-600 text-sm leading-none transition-all duration-300 ease-in-out;
 
-		svg {
+		i {
 			@apply text-blue-icon;
 		}
 
 		&:hover {
-			svg {
+			i {
 				@apply text-white;
 			}
 		}
