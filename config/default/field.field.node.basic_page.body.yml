@@ -6,7 +6,12 @@ dependencies:
     - field.storage.node.body
     - node.type.basic_page
   module:
+    - table_of_contents
     - text
+third_party_settings:
+  table_of_contents:
+    toc_block: true
+    toc_selector: h2
 id: node.basic_page.body
 field_name: body
 entity_type: node

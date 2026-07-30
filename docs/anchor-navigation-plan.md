@@ -21,14 +21,13 @@ The six in-scope content types split into three structurally different groups:
 
 ## Approach: three tracks
 
-### Track A — contrib TOC module (single-field formatter), for Basic page and Multi-step page
+### Track A — Flexible Table Of Contents module (single-field formatter), for Basic page and Multi-step page
 
-Two viable candidates, both D10-compatible and actively maintained, both working as a field formatter on **one field**:
+**Decision: use Flexible Table Of Contents** (`drupal/table_of_contents`) — stable 2.1.0, D8–D11, our core is pinned to 10.6.13 so it's compatible. Enabled per bundle via Manage Display, with a configurable CSS selector (e.g. `h2`, or `h2, h3`) for which elements become TOC entries.
 
-- **Flexible Table Of Contents** (`drupal/table_of_contents`) — stable 2.1.0, D8–D11. Enabled per bundle via Manage Display, with a configurable CSS selector (e.g. `h2`, or `h2, h3`) for which elements become TOC entries.
-- **Content ToC** (`drupal/content_toc`) — stable 1.0.4 (March 2026), D10.3+/D11. Per its project description, automatically generates an outline "typically from the headings h2, h3 etc. inside a node's body field."
+Chosen over **Content ToC** (`drupal/content_toc`, stable 1.0.4, D10.3+/D11) mainly on maturity and adoption: Flexible TOC reports 580 sites using it vs. Content ToC's 6, and a much longer issue-queue history (51 issues vs. 3) to gauge real-world edge cases and maintenance quality. Content ToC is also described as generating its outline "from... a node's body field" specifically, whereas Flexible TOC's configurable, selector-based, per-field approach is more likely to work cleanly when applied to `field_section_content` on the `multi_step` **paragraph** type below, not just a node's `body`.
 
-**Which of the two to use is still an open decision** — see open items below; this plan doesn't yet compare their admin UI/config depth or output styling in enough detail to pick one.
+Neither module's project page documents styling, sticky behavior, scroll-highlighting, or multilingual handling — this needs hands-on verification in ddev before implementation is considered done, especially given this site is bilingual (EN/FR).
 
 **Basic page:** apply the formatter to the node's `body` field. Heading level is confirmed as `h2` in practice.
 
@@ -88,5 +87,5 @@ This needs a decision before implementation can start on Public Engagement.
 
 1. Decide Campground and Places section boundaries/heading text (Department's naming was specified directly; these two were not).
 2. Match visual design to the issue's screenshot example / the Kellett reference implementation — styling wasn't scoped in this plan and needs a design pass across Track A, B, and C.
-3. Choose between Flexible Table Of Contents and Content ToC for Track A (config depth, output styling, ease of matching the issue's screenshot design).
+3. Verify Flexible Table Of Contents' styling, sticky/collapsible behavior, scroll-highlighting, and multilingual (EN/FR) handling hands-on in ddev — none of this is documented on the project page.
 4. Resolve Track C for Public Engagement (see three options above).
