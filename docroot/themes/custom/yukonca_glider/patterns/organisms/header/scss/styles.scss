@@ -78,14 +78,10 @@
             @apply bg-yellow-dark border-yellow-dark;
           }
         }
-      }
 
-      .fieldgroup {
-        @apply hidden;
-      }
-
-      .form-item-department {
-        @apply hidden;
+        > *:not(.form-type-textfield):not(.form-actions) {
+          @apply hidden;
+        }
       }
     }
   }

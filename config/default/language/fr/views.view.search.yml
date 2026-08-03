@@ -11,8 +11,6 @@ display:
           expose:
             placeholder: Mots-clés
         type:
-          expose:
-            description: ''
           group_info:
             label: Par
             group_items:
@@ -26,13 +24,11 @@ display:
                 title: Lieux
               6:
                 title: Blogues
-        field_document_type:
           expose:
             description: ''
-          group_info:
-            group_items:
-              1:
-                title: Formulaires
+        field_form_type:
+          expose:
+            label: Formulaires
         field_department_term:
           expose:
             label: Ministère
