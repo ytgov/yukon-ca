@@ -268,7 +268,6 @@
         "sort-packages": true,
         "allow-plugins": {
             "acquia/blt": true,
-            "acquia/blt-phpcs": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
@@ -301,7 +300,7 @@
         ]
     },
     "require-dev": {
-        "acquia/blt-phpcs": "^1.0",
+        "drupal/upgrade_status": "^4.3",
         "mglaman/phpstan-drupal": "^1.1",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0"
