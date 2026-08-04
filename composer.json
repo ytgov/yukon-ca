@@ -122,7 +122,7 @@
         "evolvingweb/blinker_addons": "^2.4",
         "evolvingweb/blinker_core": "^2.0",
         "evolvingweb/glider": "^3.6",
-        "oomphinc/composer-installers-extender": "^2.0",
+        "mnsami/composer-custom-directory-installer": "^2.1",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "extra": {
@@ -273,7 +273,7 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "oomphinc/composer-installers-extender": true,
+            "mnsami/composer-custom-directory-installer": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
             "wikimedia/composer-merge-plugin": true
