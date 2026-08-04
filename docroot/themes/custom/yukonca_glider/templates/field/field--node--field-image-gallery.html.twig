@@ -56,7 +56,7 @@
   ]
 %}
 {# TODO: Move this structure to the ui_pattern. #}
-<div id="image-gallery" class="featured-info carousel slide" data-bs-ride="carousel">
+<div id="image-gallery" class="featured-info carousel slide">
 	<div {{ attributes.addClass(classes) }}>
     {% for item in items %}
       {% set carousel_item = ['carousel-item', loop.first ? 'active'] %}
