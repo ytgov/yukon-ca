@@ -21,4 +21,4 @@ Drupal 10 site for Yukon.ca. Local dev via ddev (`ddev composer`, `ddev drush`, 
 ## Pull requests
 
 - Routine fixes/features: title `Kellett - refs #NNN: short description`, body with `## What's Included` and `## Deployment Steps` sections (see recent merged PRs for examples).
-- Drupal core/contrib security updates: follow [docs/security-updates.md](docs/security-updates.md) and use [docs/security-update-pr-template.md](docs/security-update-pr-template.md) for the PR body — different format, includes full package update list and raw `composer audit` output.
+- Drupal core/contrib security updates: follow [docs/security-updates.md](docs/security-updates.md) and use [docs/security-update-pr-template.md](docs/security-update-pr-template.md) for the PR body — different format, includes full package update list and raw `composer audit` output. These PRs are made from a `security-updates` branch and target `staging`, not `main`.
