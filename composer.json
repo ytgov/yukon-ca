@@ -23,7 +23,7 @@
         "drupal/ckeditor5_show_block": "^1.14",
         "drupal/ckeditor_div_manager": "^3.0@alpha",
         "drupal/ckeditor_media_resize": "^1.0",
-        "drupal/classy": "^1.0",
+        "drupal/classy": "^2.0",
         "drupal/color_field": "^3.0",
         "drupal/comment_notify": "1.x-dev@dev",
         "drupal/conditional_fields": "^4.0@alpha",
@@ -146,9 +146,6 @@
             },
             "drupal/fontawesome": {
                 "3456861 - Empty Settings data unserialize issues with migrated content": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff"
-            },
-            "drupal/classy": {
-                "3267438 - Add Classy ckeditor5-stylesheets config": "https://www.drupal.org/files/issues/2023-04-27/classy-ckeditor5-stylesheets-3267438-10.patch"
             },
             "drupal/field_group": {
                 "3111107 - Fix translations label/description": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch"
