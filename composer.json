@@ -88,7 +88,7 @@
         "drupal/responsive_preview": "^2.0",
         "drupal/scheduler": "^2.0@RC",
         "drupal/scheduler_content_moderation_integration": "^3.0",
-        "drupal/search_api_attachments": "^9.0",
+        "drupal/search_api_attachments": "^10.0",
         "drupal/search_api_solr": "^4.3.12",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
