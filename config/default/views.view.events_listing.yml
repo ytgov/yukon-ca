@@ -4,10 +4,7 @@ status: true
 dependencies:
   config:
     - core.date_format.medium_format
-    - core.date_format.month_date
     - core.date_format.short
-    - core.date_format.time_am_pm
-    - date_recur.interpreter.default_interpreter
     - field.storage.node.field_category
     - field.storage.node.field_community
     - field.storage.node.field_event_start_time
@@ -479,6 +476,9 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_breakpoint: ''
+              auto_submit_sort_only: false
             filter:
               field_community_target_id:
                 plugin_id: default
@@ -489,6 +489,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_category_target_id:
                 plugin_id: default
                 advanced:
@@ -498,6 +503,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_event_start_time_value:
                 plugin_id: bef_datepicker
                 advanced:
@@ -505,6 +515,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_event_start_time_value_1:
                 plugin_id: default
                 advanced:
@@ -512,6 +527,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_yukon_editorial_team_target_id:
                 plugin_id: default
                 advanced:
@@ -521,6 +541,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
       access:
         type: perm
         options:

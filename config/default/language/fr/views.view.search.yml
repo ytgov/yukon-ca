@@ -24,8 +24,6 @@ display:
                 title: Lieux
               6:
                 title: Blogues
-          expose:
-            description: ''
         field_form_type:
           expose:
             label: Formulaires
