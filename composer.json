@@ -53,7 +53,7 @@
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/focal_point": "^2.1",
         "drupal/fontawesome": "^3.0",
-        "drupal/geofield": "^1.48",
+        "drupal/geofield": "^10.3",
         "drupal/geophp": "^1.1",
         "drupal/imce": "^3.1",
         "drupal/job_scheduler": "^4.0",
