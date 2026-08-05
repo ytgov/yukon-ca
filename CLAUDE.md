@@ -10,8 +10,8 @@ Drupal 10 site for Yukon.ca. Local dev via ddev (`ddev composer`, `ddev drush`, 
 
 ## Branches
 
-- `main` — production
-- `staging` — UAT / test deployments
+- `main` — production. All PRs target `main`, regardless of type.
+- `staging` — UAT / test deployments. Transient, not a PR target: approved branches are merged into it manually (no PR) to deploy for review, one at a time or grouped, resolving any conflicts that come up in the process. See [issue #975](https://github.com/ytgov/yukon-ca/issues/975) for the rationale and paper trail — no separate release branch, since the issue plus the merge commits on `main` already document what shipped. Tag the issue number in `staging` merge commit messages to reinforce that trail.
 
 ## Coding conventions
 
@@ -21,4 +21,4 @@ Drupal 10 site for Yukon.ca. Local dev via ddev (`ddev composer`, `ddev drush`, 
 ## Pull requests
 
 - Routine fixes/features: title `Kellett - refs #NNN: short description`, body with `## What's Included` and `## Deployment Steps` sections (see recent merged PRs for examples).
-- Drupal core/contrib security updates: follow [docs/security-updates.md](docs/security-updates.md) and use [docs/security-update-pr-template.md](docs/security-update-pr-template.md) for the PR body — different format, includes full package update list and raw `composer audit` output. These PRs are made from a `security-updates` branch and target `staging`, not `main`.
+- Drupal core/contrib security updates: follow [docs/security-updates.md](docs/security-updates.md) and use [docs/security-update-pr-template.md](docs/security-update-pr-template.md) for the PR body — different format, includes full package update list and raw `composer audit` output. These PRs are made from a `security-updates` branch and target `main` (see Branches above) — merge into `staging` manually first for UAT review, without a PR.
