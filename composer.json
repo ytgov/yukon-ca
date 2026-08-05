@@ -145,7 +145,7 @@
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
             },
             "drupal/fontawesome": {
-                "fontawesome icon name": "patches/fontawesome.patch"
+                "3456861 - Empty Settings data unserialize issues with migrated content": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff"
             },
             "drupal/classy": {
                 "3267438 - Add Classy ckeditor5-stylesheets config": "https://www.drupal.org/files/issues/2023-04-27/classy-ckeditor5-stylesheets-3267438-10.patch"

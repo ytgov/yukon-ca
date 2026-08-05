@@ -1,5 +1,5 @@
 {
-    "_hash": "fe0841a933e3acf34f787fded8d0cfe032a097307a0ec850382a2c8d7cb55dc0",
+    "_hash": "77b48749d3ec825bfbca3c77ee79adbfa670cd8635a7b5112fe9d94405c31238",
     "patches": {
         "drupal/core": [
             {
@@ -66,7 +66,7 @@
                 "package": "drupal/core",
                 "description": "url generator",
                 "url": "patches/urlgenerator.patch",
-                "sha256": "a24aabc9c8ed0915f60d157cea43de524f4bc1fcc9c0dc0e7fb944e4b452e24d",
+                "sha256": "46ef850925085c0a8c5a3034cdecd0aca09b7812aa1c39279fa50548d01a5d95",
                 "depth": 2,
                 "extra": {
                     "provenance": "root"
@@ -128,9 +128,9 @@
         "drupal/fontawesome": [
             {
                 "package": "drupal/fontawesome",
-                "description": "fontawesome icon name",
-                "url": "patches/fontawesome.patch",
-                "sha256": "1212ca3b8726c6977f05476e0236edf056c433e997200444af0ec4ae7463a228",
+                "description": "3456861 - Empty Settings data unserialize issues with migrated content",
+                "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
+                "sha256": "136a898eef87873602993a44389be5978b85787aa039142c7403520f27d4df88",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
