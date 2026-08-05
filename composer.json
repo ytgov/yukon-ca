@@ -48,7 +48,7 @@
         "drupal/field_permissions": "^1.1",
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/focal_point": "^2.1",
-        "drupal/fontawesome": "^2.24",
+        "drupal/fontawesome": "^3.0",
         "drupal/geofield": "^1.48",
         "drupal/geophp": "^1.1",
         "drupal/imce": "^3.1",
