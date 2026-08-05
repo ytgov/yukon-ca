@@ -64,7 +64,7 @@
         "drupal/linkit": "^7.0",
         "drupal/mail_safety": "^2.0",
         "drupal/matomo": "^1.23",
-        "drupal/maxlength": "^2.1",
+        "drupal/maxlength": "^3.2",
         "drupal/media_directories": "2.1.x-dev@dev",
         "drupal/media_embed_extra": "^1.0@beta",
         "drupal/media_entity_file_replace": "^1.3",
