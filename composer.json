@@ -33,7 +33,6 @@
         "drupal/core-recommended": "10.6.14",
         "drupal/cshs": "^4.0",
         "drupal/date_recur": "^3.2",
-        "drupal/devel": "^5.1",
         "drupal/diff": "^2.1",
         "drupal/ds": "^3.15",
         "drupal/dynamic_entity_reference": "^3.2",
@@ -291,9 +290,8 @@
         ]
     },
     "require-dev": {
-        "drupal/upgrade_status": "^4.3",
-        "mglaman/phpstan-drupal": "^1.1",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0"
+        "drupal/core-dev": "10.6.14",
+        "drupal/devel": "^5.1",
+        "drupal/upgrade_status": "^4.3"
     }
 }
