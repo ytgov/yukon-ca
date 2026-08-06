@@ -70,8 +70,7 @@ Updates were performed and tested locally under ddev.
 2. **UAT ONLY:** deploy from the `staging` branch
 3. Run `composer install --no-dev --prefer-dist --optimize-autoloader`\
    Review output to see that any patches apply successfully and the Drupal scaffold completes.
-4. Run `drush updb`
-5. Run `drush cim` and see if it indicates any changes to import.
-6. Run `drush cr` again if needed (may have been done after DB updates)
+4. Run `drush deploy` (runs a cache rebuild, database updates, config import, and any
+   `hook_deploy_NAME()` implementations, in the right order, followed by a final cache rebuild)
 
 Upon completion, the site should load as expected. Review as anonymous, admin, and editor roles to ensure there are no obvious issues.
