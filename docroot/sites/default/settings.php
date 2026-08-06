@@ -805,6 +805,17 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  */
 $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config/default';
 
+/**
+ * Default module config excludes.
+ *
+ * These are here just in case somebody enables one of these on the TEST or
+ * UAT servers for doing any diagnostic stuff there before going to PROD.
+ */
+$settings['config_exclude_modules'] = [
+  'devel',
+  'stage_file_proxy',
+];
+
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
