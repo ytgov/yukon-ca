@@ -170,3 +170,6 @@ sitediff/*
 
 # Local session notes (Claude Code)
 /SESSION.md
+
+# PHPCS cache
+.phpcs-cache
