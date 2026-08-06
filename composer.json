@@ -274,6 +274,7 @@
             "mnsami/composer-custom-directory-installer": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
+            "tbachert/spi": true,
             "wikimedia/composer-merge-plugin": true
         }
     },
