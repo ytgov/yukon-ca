@@ -814,6 +814,7 @@ $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config/default';
 $settings['config_exclude_modules'] = [
   'devel',
   'stage_file_proxy',
+  'upgrade_status'
 ];
 
 // Automatically generated include for settings managed by ddev.
