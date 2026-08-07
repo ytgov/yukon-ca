@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_places_record_type
     - field.storage.node.field_street_address
-    - field.storage.paragraph.field_about_services
     - node.type.directory_records_places
     - taxonomy.vocabulary.community
     - taxonomy.vocabulary.community_facilities
   module:
     - better_exposed_filters
+    - entity_reference_revisions
     - node
     - paragraphs
     - taxonomy
@@ -156,11 +157,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_about_services:
-          id: field_about_services
-          table: paragraph__field_about_services
-          field: field_about_services
-          relationship: field_places_record_type
+        field_places_record_type:
+          id: field_places_record_type
+          table: node__field_places_record_type
+          field: field_places_record_type
+          relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -193,22 +194,23 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: div
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: '0'
+          element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings: {  }
-          group_column: value
+          click_sort_column: target_id
+          type: entity_reference_revisions_entity_view
+          settings:
+            view_mode: places_listing_summary
+          group_column: entity_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -216,7 +218,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ''
           field_api_classes: false
       pager:
         type: full
@@ -645,6 +647,7 @@ display:
           plugin_id: standard
           required: false
       use_ajax: true
+      group_by: true
       header:
         result:
           id: result
@@ -668,8 +671,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_places_record_type'
         - 'config:field.storage.node.field_street_address'
-        - 'config:field.storage.paragraph.field_about_services'
   block_places_listing:
     id: block_places_listing
     display_title: Places
@@ -682,6 +685,17 @@ display:
       display_extenders:
         ajax_history:
           enable_history: true
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
       block_description: 'Places listing'
     cache_metadata:
       max-age: -1
@@ -692,5 +706,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_places_record_type'
         - 'config:field.storage.node.field_street_address'
-        - 'config:field.storage.paragraph.field_about_services'
