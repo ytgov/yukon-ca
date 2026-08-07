@@ -1,0 +1,11 @@
+uuid: fe7fad75-55d5-4bc1-b572-9065f068750f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.places_listing_summary
+label: 'Places listing summary'
+description: ''
+targetEntityType: paragraph
+cache: true
