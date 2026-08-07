@@ -33,6 +33,20 @@ function yukon_taxonomy_update_10000(&$sandbox) {
 }
 
 /**
+ * Fix media_folders terms with broken parent reference (tid 1 -> 0).
+ */
+function yukon_taxonomy_update_10001(&$sandbox) {
+  $database = \Drupal::database();
+  foreach (['taxonomy_term__parent', 'taxonomy_term_revision__parent'] as $table) {
+    $database->update($table)
+      ->fields(['parent_target_id' => 0])
+      ->condition('bundle', 'media_folders')
+      ->condition('parent_target_id', 1)
+      ->execute();
+  }
+}
+
+/**
  * Create taxonomy term if it doesn't exist.
  *
  * @param string $name
