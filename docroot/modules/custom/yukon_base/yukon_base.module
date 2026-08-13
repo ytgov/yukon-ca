@@ -5,10 +5,12 @@
  * Main module file.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_form_alter().
  */
-function yukon_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function yukon_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (!in_array($form_id, ['node_multi_step_page_form', 'node_multi_step_page_edit_form'])) {
     return;
   }
@@ -33,6 +35,15 @@ function yukon_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
         $form['field_paragraphs']['widget'][$key]['top']['actions']['dropdown_actions']['duplicate_button']['#access'] = FALSE;
       }
     }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for node_form.
+ */
+function yukon_base_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  if (isset($form['revision_log']['widget'][0]['value'])) {
+    $form['revision_log']['widget'][0]['value']['#required'] = TRUE;
   }
 }
 

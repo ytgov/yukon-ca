@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Install/update module.
+ */
+
+/**
+ * Correct field_yukon_editorial_team values that reference a department term.
+ *
+ * A batch of basic_page nodes (likely migrated from the old site) have a
+ * "department" vocabulary term id stored in field_yukon_editorial_team,
+ * which should only ever reference the "teams" vocabulary. Since that value
+ * can never match a user's assigned team, workbench_access denies edit
+ * access to everyone on these nodes. This corrects every revision and
+ * translation currently holding a department term id, leaving any
+ * already-valid teams value untouched.
+ */
+function yukon_moderation_update_9001() {
+  $connection = \Drupal::database();
+
+  // Executive council office: the team already used on the vast majority of
+  // valid basic_page nodes. Placeholder default pending client confirmation
+  // of the correct team per node.
+  $correct_team_tid = 43;
+
+  $department_tids = $connection->query("SELECT tid FROM {taxonomy_term_field_data} WHERE vid = 'department'")->fetchCol();
+
+  if (empty($department_tids)) {
+    return t('No department terms found; nothing to correct.');
+  }
+
+  $affected_count = 0;
+  foreach (['node__field_yukon_editorial_team', 'node_revision__field_yukon_editorial_team'] as $table) {
+    $affected_count += $connection->update($table)
+      ->fields(['field_yukon_editorial_team_target_id' => $correct_team_tid])
+      ->condition('bundle', 'basic_page')
+      ->condition('field_yukon_editorial_team_target_id', $department_tids, 'IN')
+      ->execute();
+  }
+
+  return t('Corrected @count field_yukon_editorial_team value(s) referencing department terms on basic_page nodes/revisions.', ['@count' => $affected_count]);
+}
