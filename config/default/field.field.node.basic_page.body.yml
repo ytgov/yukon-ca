@@ -6,12 +6,18 @@ dependencies:
     - field.storage.node.body
     - node.type.basic_page
   module:
+    - allowed_formats
     - table_of_contents
     - text
+    - tmgmt_content
 third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
   table_of_contents:
     toc_block: true
-    toc_selector: h2
+    toc_selector: a.ck-anchor
+  tmgmt_content:
+    excluded: false
 id: node.basic_page.body
 field_name: body
 entity_type: node
