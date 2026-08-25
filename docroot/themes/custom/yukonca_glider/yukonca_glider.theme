@@ -472,11 +472,29 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $section_paragraphs = !empty($variables["content"]["field_paragraphs"]) ? array_column($variables["content"]["field_paragraphs"], '#paragraph') : [];
   $node = $variables['node'];
 
+  $block_manager = \Drupal::service('plugin.manager.block');
+  $renderer = \Drupal::service('renderer');
+
   $variables['tabs']['items'] = [];
   foreach ($section_paragraphs as $paragraph) {
+    // The Flexible Table Of Contents block for this field requires an
+    // "entity:paragraph" context, which nothing on this site provides to
+    // Block Layout (paragraphs have no canonical route), so the block can
+    // never be placed through /admin/structure/block. Render it here
+    // instead, supplying this tab's own paragraph as context directly.
+    $toc_markup = '';
+    $toc_block = $block_manager->createInstance('text_long_field_toc_block:paragraph:multi_step:field_section_content', []);
+    $toc_block->setContextValue('entity', $paragraph);
+    if ($toc_block->access(\Drupal::currentUser())) {
+      $toc_build = $toc_block->build();
+      if ($toc_build) {
+        $toc_markup = $renderer->renderRoot($toc_build);
+      }
+    }
+
     $variables['tabs']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
-      'content' => check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
+      'content' => $toc_markup . check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
     ];
   }
 
