@@ -61,11 +61,11 @@ function yukon_taxonomy_update_10002(&$sandbox) {
     // Create the new combined term if it does not already exist.
     $existing = $term_storage->loadByProperties([
       'vid' => 'department',
-      'name' => 'Department of Economy, Tourism and Culture',
+      'name' => 'Economy, Tourism and Culture',
     ]);
     if (empty($existing)) {
       $new_term = Term::create([
-        'name' => 'Department of Economy, Tourism and Culture',
+        'name' => 'Economy, Tourism and Culture',
         'vid' => 'department',
         'langcode' => 'en',
       ]);
