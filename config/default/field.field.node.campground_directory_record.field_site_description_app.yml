@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_site_description_app
+    - filter.format.full_html
     - filter.format.plain_text
     - node.type.campground_directory_record
   module:
@@ -13,6 +14,7 @@ dependencies:
 third_party_settings:
   allowed_formats:
     allowed_formats:
+      - full_html
       - plain_text
   tmgmt_content:
     excluded: false
@@ -28,5 +30,6 @@ default_value: {  }
 default_value_callback: ''
 settings:
   allowed_formats:
+    - full_html
     - plain_text
 field_type: text_long
