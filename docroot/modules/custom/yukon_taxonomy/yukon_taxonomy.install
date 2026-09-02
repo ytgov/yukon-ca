@@ -71,7 +71,7 @@ function yukon_taxonomy_update_10002(&$sandbox) {
       ]);
       $new_term->save();
       $new_term->addTranslation('fr', [
-        'name' => 'l\'Économie, du Tourisme et de la Culture',
+        'name' => 'Économie, Tourisme et Culture',
       ])->save();
     }
     else {
