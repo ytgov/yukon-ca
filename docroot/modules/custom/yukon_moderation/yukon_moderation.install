@@ -101,8 +101,11 @@ function yukon_moderation_update_9002(array &$sandbox) {
       // the content translation overview's "Updated" column, and does not
       // throw off the present/out-dated timestamp comparison itself.
       $original_changed = $node->getChangedTime();
+      $backfill_note = 'Translation status automatically reverted (backfill for pre-existing stuck "In-progress" statuses, issue #1082).';
+      $original_log = $node->getRevisionLogMessage();
+
       $node->set('field_translation_status', NULL);
-      $node->setRevisionLogMessage('Translation status automatically reverted (backfill for pre-existing stuck "In-progress" statuses, issue #1082).');
+      $node->setRevisionLogMessage($original_log ? $original_log . ' — ' . $backfill_note : $backfill_note);
       $node->save();
 
       $connection->update('node_field_data')
