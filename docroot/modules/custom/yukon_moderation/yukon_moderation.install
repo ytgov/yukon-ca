@@ -5,6 +5,8 @@
  * Install/update module.
  */
 
+use Drupal\node\NodeInterface;
+
 /**
  * Correct field_yukon_editorial_team values that reference a department term.
  *
@@ -40,4 +42,92 @@ function yukon_moderation_update_9001() {
   }
 
   return t('Corrected @count field_yukon_editorial_team value(s) referencing department terms on basic_page nodes/revisions.', ['@count' => $affected_count]);
+}
+
+/**
+ * Clears stale "in_progress" statuses predating the auto-clear hook.
+ *
+ * The yukon_moderation_entity_update() function (added by issue #1082 / PR
+ * #1092) clears field_translation_status when a French translation
+ * transitions to "published" going forward. As an event listener, it
+ * cannot reach nodes whose French translation was already published
+ * before that hook was deployed (2026-06-26). Those nodes keep whatever
+ * value was set when translation started, even though the translation has
+ * since caught up, permanently stuck showing "In-progress" on the content
+ * translation overview instead of the correct computed "Present".
+ *
+ * This only corrects the unambiguous cases: field_translation_status is
+ * explicitly "in_progress" and the French translation is already at least
+ * as current as English (fr.changed >= en.changed) — the same comparison
+ * ContentTranslationController uses to compute "Present". Nodes where
+ * French is older than English are left untouched, since that could
+ * reflect a translator genuinely mid-update rather than a stale flag.
+ */
+function yukon_moderation_update_9002(array &$sandbox) {
+  $connection = \Drupal::database();
+
+  if (!isset($sandbox['nids'])) {
+    $sandbox['nids'] = $connection->query("
+      SELECT ts.entity_id
+      FROM {node__field_translation_status} ts
+      INNER JOIN {node_field_data} en ON en.nid = ts.entity_id AND en.langcode = 'en'
+      INNER JOIN {node_field_data} fr ON fr.nid = ts.entity_id AND fr.langcode = 'fr'
+      WHERE ts.field_translation_status_value = 'in_progress'
+      AND fr.changed >= en.changed
+    ")->fetchCol();
+    $sandbox['total'] = count($sandbox['nids']);
+    $sandbox['processed'] = 0;
+    $sandbox['cleared'] = 0;
+
+    if (empty($sandbox['nids'])) {
+      $sandbox['#finished'] = 1;
+      return t('No stale in_progress translation statuses found.');
+    }
+  }
+
+  /** @var \Drupal\node\NodeStorageInterface $node_storage */
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $batch_nids = array_splice($sandbox['nids'], 0, 25);
+
+  foreach ($batch_nids as $nid) {
+    $node = $node_storage->load($nid);
+    if ($node instanceof NodeInterface
+      && $node->hasField('field_translation_status')
+      && $node->get('field_translation_status')->value === 'in_progress'
+    ) {
+      // Node::preSave() unconditionally bumps "changed" to the request
+      // time. Preserve the original value afterwards so this one-time
+      // backfill does not make every affected page look freshly edited in
+      // the content translation overview's "Updated" column, and does not
+      // throw off the present/out-dated timestamp comparison itself.
+      $original_changed = $node->getChangedTime();
+      $node->set('field_translation_status', NULL);
+      $node->setRevisionLogMessage('Translation status automatically reverted (backfill for pre-existing stuck "In-progress" statuses, issue #1082).');
+      $node->save();
+
+      $connection->update('node_field_data')
+        ->fields(['changed' => $original_changed])
+        ->condition('nid', $nid)
+        ->condition('langcode', 'en')
+        ->execute();
+      $connection->update('node_field_revision')
+        ->fields(['changed' => $original_changed])
+        ->condition('nid', $nid)
+        ->condition('vid', $node->getRevisionId())
+        ->condition('langcode', 'en')
+        ->execute();
+
+      $sandbox['cleared']++;
+    }
+    $sandbox['processed']++;
+  }
+
+  $sandbox['#finished'] = $sandbox['total'] ? ($sandbox['processed'] / $sandbox['total']) : 1;
+
+  if ($sandbox['#finished'] >= 1) {
+    return t('Cleared stale field_translation_status on @count of @total node(s).', [
+      '@count' => $sandbox['cleared'],
+      '@total' => $sandbox['total'],
+    ]);
+  }
 }
