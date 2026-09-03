@@ -102,11 +102,33 @@ function yukon_moderation_update_9002(array &$sandbox) {
       // throw off the present/out-dated timestamp comparison itself.
       $original_changed = $node->getChangedTime();
 
-      // Carry the previous revision's log message forward explicitly, so
+      // Carry the log message of the last actual English edit forward, so
       // this administrative correction reads the same as the last real
       // edit rather than leaving the new revision's message empty, per
-      // client request.
-      $original_log = $node->getRevisionLogMessage();
+      // client request. field_translation_status is non-translatable and
+      // only ever meaningful on the English side, so we cannot simply use
+      // $node->getRevisionLogMessage(): with content_moderation, the
+      // node's current default revision may have been created by a
+      // French-only save, in which case revision_log (a per-revision, not
+      // per-language, column) holds the French editor's message even
+      // though English itself was never touched by that revision.
+      $en_edit_vid = $connection->select('node_field_revision', 'nfr')
+        ->fields('nfr', ['vid'])
+        ->condition('nid', $nid)
+        ->condition('langcode', 'en')
+        ->condition('changed', $original_changed)
+        ->orderBy('vid', 'ASC')
+        ->range(0, 1)
+        ->execute()
+        ->fetchField();
+      $original_log = $en_edit_vid
+        ? $connection->select('node_revision', 'nr')
+          ->fields('nr', ['revision_log'])
+          ->condition('vid', $en_edit_vid)
+          ->execute()
+          ->fetchField()
+        : $node->getRevisionLogMessage();
+
       $node->set('field_translation_status', NULL);
       $node->setRevisionLogMessage($original_log);
       $node->save();
