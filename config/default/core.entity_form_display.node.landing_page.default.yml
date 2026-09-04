@@ -169,7 +169,7 @@ content:
       media_types: {  }
     third_party_settings:
       media_library_edit:
-        show_edit: '1'
+        show_edit: true
   field_icon_light:
     type: media_library_widget
     weight: 4
@@ -178,7 +178,7 @@ content:
       media_types: {  }
     third_party_settings:
       media_library_edit:
-        show_edit: '1'
+        show_edit: true
   field_meta_tags:
     type: metatag_firehose
     weight: 19

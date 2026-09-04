@@ -1,1 +1,0 @@
-This directory contains configuration to be imported into your Drupal site via config_split for the Prod environment. See [configuration management](http://blt.readthedocs.io/en/latest/readme/configuration-management/) for more information.
