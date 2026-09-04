@@ -139,9 +139,11 @@ function yukon_w3_custom_page_attachments(array &$page) {
       $chart_data = [];
       foreach ($items as $item) {
         $p = Paragraph::load($item['target_id']);
-        $chart = Paragraph::load($p->field_paragraphs->target_id);
-        if (!empty($chart)) {
-          $chart_data[$chart->id()] = $chart->field_chart_data->value;
+        if (!empty($p->field_paragraphs->target_id)) {
+          $chart = Paragraph::load($p->field_paragraphs->target_id);
+          if (!empty($chart)) {
+            $chart_data[$chart->id()] = $chart->field_chart_data->value;
+          }
         }
 
       }
