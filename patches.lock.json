@@ -1,0 +1,187 @@
+{
+    "_hash": "207657152f76b5e09754bec4eb1c58affe14e52fff835c1786f98f8b637a50d2",
+    "patches": {
+        "drupal/core": [
+            {
+                "package": "drupal/core",
+                "description": "2321071 - BaseFieldOverride fails to take into account ContentEntityInterface::bundleFieldDefinitions() when invoking onFieldDefinitionUpdate()",
+                "url": "https://www.drupal.org/files/issues/2023-11-02/2321071-71.patch",
+                "sha256": "0ca745b73977676099875cd4caf9cbac5db53cc534266f758a17eec70db750b4",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3233527 - Include file fields in File source plugin if file_entity module is enabled",
+                "url": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
+                "sha256": "4320f08d8d6040201ac333192f56c56c2d34ccbf3b26681ec2e9339fba2a7047",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData",
+                "url": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
+                "sha256": "6c133996a1aa0c39307d3a3a47f5bd8bd6a909d729f287dfb86d8192d3b85cef",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3264843 - Add support for negating node type(content type) condition for block visibility",
+                "url": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch",
+                "sha256": "fbbe81517d697a8a7e2406118378b47d51fb06918a5ba17c8df6fe45d54debe8",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "field config base",
+                "url": "https://www.drupal.org/files/issues/2024-04-25/remove_runtime_fieldsetting_11.patch",
+                "sha256": "a21681830221f3fb348b7685d30075b06d0fa9ffb6a92527c90bc25b8d3aceae",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "Uasort issue when add reference field",
+                "url": "https://www.drupal.org/files/issues/2024-10-29/3419074-uasort-plugin-manager.patch",
+                "sha256": "5de58916a162fe21c2fbd9658253011e8488b98dbd18a6a29f790bc231d48a59",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "url generator",
+                "url": "patches/urlgenerator.patch",
+                "sha256": "46ef850925085c0a8c5a3034cdecd0aca09b7812aa1c39279fa50548d01a5d95",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "Entity Reference Translation Deriver",
+                "url": "https://www.drupal.org/files/issues/2020-04-06/2984460-3.patch",
+                "sha256": "0d93eb5f5d81ef41352fbc1a49ca099f8742a14793e8baef7d94449ba92e8866",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "View text issue",
+                "url": "https://www.drupal.org/files/issues/2024-02-15/3398734-10.x.patch",
+                "sha256": "0bd3c950f7d51c70d2f66a85efcd15a1d83d9f36483954205c74d14c004098af",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "EntityStorageBase",
+                "url": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
+                "sha256": "5069422b9a8edea52823e036c6db9bf96ed93aef1a0f9d5490903cb7e67ac809",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "index.php issue",
+                "url": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch",
+                "sha256": "814211d043d45c1868d44c60b38145f1003470670b9f6dedd93b61231112157d",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/token": [
+            {
+                "package": "drupal/token",
+                "description": "1614456 - [current-page:query:?] should fall back to empty string",
+                "url": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff",
+                "sha256": "5582e412ce7ca8a12b1377c0340878431d8969ca584be83502a075f31e7f0844",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/fontawesome": [
+            {
+                "package": "drupal/fontawesome",
+                "description": "3456861 - Empty Settings data unserialize issues with migrated content",
+                "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
+                "sha256": "136a898eef87873602993a44389be5978b85787aa039142c7403520f27d4df88",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/field_group": [
+            {
+                "package": "drupal/field_group",
+                "description": "3111107 - Fix translations label/description",
+                "url": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch",
+                "sha256": "8f35c0eb83087a939e5f9cbdb1f761ac38ce167e5bd5272755b7cd5bdb4ce48b",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/datetime_range": [
+            {
+                "package": "drupal/datetime_range",
+                "description": "Date time format",
+                "url": "https://www.drupal.org/files/issues/2796151-06.patch",
+                "sha256": "600f0e9e7fe9edf101f127e3e225607ed81ecdf0ec2b54188a65d6eb06cad841",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/paragraphs": [
+            {
+                "package": "drupal/paragraphs",
+                "description": "Paragraph translation",
+                "url": "https://www.drupal.org/files/issues/2026-06-11/paragraphs_support_asym_translations-2904705-157.patch",
+                "sha256": "33addcf70a5fc2eb5da83608b778c265b8704efc1429c29bfca7bfc32d56ca6a",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/paragraphs",
+                "description": "Paragraph translation 2",
+                "url": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch",
+                "sha256": "16c7835863f0ab850c8599dff183d8f15f3cde0e7f6850e93e287809ada5b131",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

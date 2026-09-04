@@ -1,0 +1,40 @@
+uuid: d925fe7e-65fc-4282-a311-1e07917dd236
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.places_listing_summary
+    - field.field.paragraph.schools.field_education_facility_type
+    - field.field.paragraph.schools.field_grades_from
+    - field.field.paragraph.schools.field_grades_to
+    - field.field.paragraph.schools.field_principal
+    - field.field.paragraph.schools.field_principal_email
+    - field.field.paragraph.schools.field_principal_telephone
+    - field.field.paragraph.schools.field_section_type
+    - field.field.paragraph.schools.field_superintendent
+    - field.field.paragraph.schools.field_superintendent_email
+    - field.field.paragraph.schools.field_superintendent_phone
+    - field.field.paragraph.schools.field_team_leader
+    - field.field.paragraph.schools.field_team_leader_email
+    - field.field.paragraph.schools.field_team_leader_phone
+    - paragraphs.paragraphs_type.schools
+id: paragraph.schools.places_listing_summary
+targetEntityType: paragraph
+bundle: schools
+mode: places_listing_summary
+content: {  }
+hidden:
+  field_education_facility_type: true
+  field_grades_from: true
+  field_grades_to: true
+  field_principal: true
+  field_principal_email: true
+  field_principal_telephone: true
+  field_section_type: true
+  field_superintendent: true
+  field_superintendent_email: true
+  field_superintendent_phone: true
+  field_team_leader: true
+  field_team_leader_email: true
+  field_team_leader_phone: true
+  search_api_excerpt: true

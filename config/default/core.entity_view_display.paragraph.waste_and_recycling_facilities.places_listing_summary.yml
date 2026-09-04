@@ -1,0 +1,29 @@
+uuid: 84d3a18a-d8bb-4a95-b4e7-db1857d4b89e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.places_listing_summary
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_accepted
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_email
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_services
+    - field.field.paragraph.waste_and_recycling_facilities.field_sanitary_facility_type
+    - paragraphs.paragraphs_type.waste_and_recycling_facilities
+id: paragraph.waste_and_recycling_facilities.places_listing_summary
+targetEntityType: paragraph
+bundle: waste_and_recycling_facilities
+mode: places_listing_summary
+content:
+  field_sanitary_facility_services:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_sanitary_facility_accepted: true
+  field_sanitary_facility_email: true
+  field_sanitary_facility_type: true
+  search_api_excerpt: true

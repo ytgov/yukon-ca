@@ -1,1 +1,15 @@
-/* Add your code here */
+// Visual Inline diff view: collapse targets have no IDs (stripped by diff
+// module), so Bootstrap's collapse JS can't expand them. Force any
+// Bootstrap collapse-based content visible and hide the (non-functional)
+// toggle buttons. Targets the generic Bootstrap collapse API rather than
+// accordion-specific classes so it also covers any future component built
+// on it.
+.diff-responsive-table-wrapper {
+  .collapse {
+    display: block !important;
+  }
+
+  [data-bs-toggle="collapse"] {
+    @apply hidden;
+  }
+}

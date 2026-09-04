@@ -25,6 +25,13 @@
 	}
 }
 
+// Visual Inline diff view: all accordion panes are forced open (see
+// organisms/accordion/scss/styles.scss), so the expand/collapse-all
+// controls have nothing to do and shouldn't be shown.
+.diff-responsive-table-wrapper .yukon-accordion__buttons {
+	@apply hidden;
+}
+
 .accordion {
 	.accordion-item {
 		&:not(.inner) {

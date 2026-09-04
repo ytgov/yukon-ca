@@ -6,6 +6,7 @@ dependencies:
     - filter.format.full_html
   module:
     - content_moderation
+    - field_permissions
     - filter
 id: dis_blog
 label: 'DIS blog'
@@ -13,4 +14,6 @@ weight: 10
 is_admin: null
 permissions:
   - 'use text format full_html'
+  - 'view field_translation_status'
   - 'view latest version'
+  - 'view own field_translation_status'

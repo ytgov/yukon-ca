@@ -1,0 +1,25 @@
+uuid: a05cb6f2-dafd-4331-bf08-dadae9e19570
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.places_listing_summary
+    - field.field.paragraph.health_facilities.field_health_facility_type
+    - field.field.paragraph.health_facilities.field_hf_services
+    - paragraphs.paragraphs_type.health_facilities
+id: paragraph.health_facilities.places_listing_summary
+targetEntityType: paragraph
+bundle: health_facilities
+mode: places_listing_summary
+content:
+  field_hf_services:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_health_facility_type: true
+  search_api_excerpt: true
