@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a63b31d25c7e36c465b1bd7778f8f5e0",
+    "content-hash": "78c18a2514ef11eb5aa16f26ced5e463",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1423,71 +1423,6 @@
             }
         },
         {
-            "name": "drupal/advanced_help",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/advanced_help.git",
-                "reference": "bf282181a8a064244be8ce0a4143f2500cebc15d"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9 || ^10",
-                "michelf/php-markdown": "^1.9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1-alpha3+3-dev",
-                    "datestamp": "1701873669",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Gisle Hannemyr",
-                    "homepage": "https://www.drupal.org/u/gisle",
-                    "role": "Owner"
-                },
-                {
-                    "name": "David Valdez (gnuget)",
-                    "homepage": "https://www.drupal.org/u/gnuget",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "gnuget",
-                    "homepage": "https://www.drupal.org/user/992990"
-                },
-                {
-                    "name": "ikit-claw",
-                    "homepage": "https://www.drupal.org/user/3285813"
-                },
-                {
-                    "name": "merlinofchaos",
-                    "homepage": "https://www.drupal.org/user/26979"
-                },
-                {
-                    "name": "redndahead",
-                    "homepage": "https://www.drupal.org/user/160320"
-                }
-            ],
-            "description": "Provide extended help and documentation.",
-            "homepage": "https://www.drupal.org/project/advanced_help",
-            "support": {
-                "source": "https://git.drupalcode.org/project/advanced_help",
-                "issues": "https://www.drupal.org/project/issues/advanced_help"
-            }
-        },
-        {
             "name": "drupal/ajax_comments",
             "version": "dev-1.x",
             "source": {
@@ -2015,65 +1950,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ckeditor5_premium_features",
                 "issues": "https://www.drupal.org/project/issues/ckeditor5_premium_features"
-            }
-        },
-        {
-            "name": "drupal/ckeditor5_show_block",
-            "version": "1.14.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/ckeditor5_show_block.git",
-                "reference": "8.x-1.14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_show_block-8.x-1.14.zip",
-                "reference": "8.x-1.14",
-                "shasum": "5b540dcb984081d11ad8651641f0aa9d4466cc5a"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1716530061",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Vipul Tulse",
-                    "homepage": "https://www.drupal.org/user/3615031",
-                    "email": "vipultulse1@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "sachintyagi99",
-                    "homepage": "https://www.drupal.org/user/1816458"
-                },
-                {
-                    "name": "vipul tulse",
-                    "homepage": "https://www.drupal.org/user/3219819"
-                }
-            ],
-            "description": "The Show Block feature allows you to show the html tag blocks in the editor.",
-            "homepage": "https://www.drupal.org/project/ckeditor5_show_block",
-            "keywords": [
-                "CKEditor5 Show Block",
-                "Drupal"
-            ],
-            "support": {
-                "source": "https://cgit.drupalcode.org/ckeditor5_show_block",
-                "issues": "https://www.drupal.org/project/issues/ckeditor5_show_block"
             }
         },
         {
@@ -6742,78 +6618,6 @@
             }
         },
         {
-            "name": "drupal/reroute_email",
-            "version": "2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/reroute_email.git",
-                "reference": "2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/reroute_email-2.2.1.zip",
-                "reference": "2.2.1",
-                "shasum": "4dd10cf981fb184cf075399a52dd24cfb2c2605e"
-            },
-            "require": {
-                "drupal/core": "^9.4 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.2.1",
-                    "datestamp": "1730150467",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "b-prod",
-                    "homepage": "https://www.drupal.org/user/407852"
-                },
-                {
-                    "name": "bohart",
-                    "homepage": "https://www.drupal.org/user/289861"
-                },
-                {
-                    "name": "devaraj johnson",
-                    "homepage": "https://www.drupal.org/user/2698767"
-                },
-                {
-                    "name": "dydave",
-                    "homepage": "https://www.drupal.org/user/467284"
-                },
-                {
-                    "name": "kbahey",
-                    "homepage": "https://www.drupal.org/user/4063"
-                },
-                {
-                    "name": "rajeshreeputra",
-                    "homepage": "https://www.drupal.org/user/3418561"
-                },
-                {
-                    "name": "rfay",
-                    "homepage": "https://www.drupal.org/user/30906"
-                },
-                {
-                    "name": "wafaa",
-                    "homepage": "https://www.drupal.org/user/50133"
-                }
-            ],
-            "description": "Reroutes emails send from the site to a predefined email. Useful for test sites.",
-            "homepage": "https://www.drupal.org/project/reroute_email",
-            "support": {
-                "source": "https://git.drupalcode.org/project/reroute_email"
-            }
-        },
-        {
             "name": "drupal/responsive_preview",
             "version": "2.3.2",
             "source": {
@@ -8147,52 +7951,6 @@
             }
         },
         {
-            "name": "drupal/tmgmt_diff",
-            "version": "1.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/tmgmt_diff.git",
-                "reference": "1.0.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tmgmt_diff-1.0.0-alpha2.zip",
-                "reference": "1.0.0-alpha2",
-                "shasum": "d12f67e9051cae3dc5c4e7acc784405982c362cc"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10",
-                "drupal/diff": "*",
-                "drupal/tmgmt": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.0-alpha2",
-                    "datestamp": "1694791543",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "colorfield",
-                    "homepage": "https://www.drupal.org/user/2295486"
-                }
-            ],
-            "description": "Improves the reviewer experience by highlighting the differences between the previous and the current translation.",
-            "homepage": "https://www.drupal.org/project/tmgmt_diff",
-            "support": {
-                "source": "https://git.drupalcode.org/project/tmgmt_diff"
-            }
-        },
-        {
             "name": "drupal/token",
             "version": "1.17.0",
             "source": {
@@ -8951,84 +8709,6 @@
             "homepage": "https://www.drupal.org/project/views_year_filter",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_year_filter"
-            }
-        },
-        {
-            "name": "drupal/viewsreference",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/viewsreference.git",
-                "reference": "2ee107cd681a00f26ffe5382660d2298283ec978"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10",
-                "php": "^7.0|^8.0"
-            },
-            "conflict": {
-                "drupal/viewsreferennce": "*"
-            },
-            "require-dev": {
-                "composer/installers": "^1.2",
-                "drupal/coder": "^8.2",
-                "drupal/core-composer-scaffold": "*",
-                "webflo/drupal-core-require-dev": "~8.5"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.8+2-dev",
-                    "datestamp": "1691455445",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
-                },
-                "installer-paths": {
-                    "../build/core": [
-                        "type:drupal-core"
-                    ],
-                    "../build/modules/contrib/{$name}": [
-                        "type:drupal-module"
-                    ],
-                    "../build/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ]
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "joekers",
-                    "homepage": "https://www.drupal.org/user/2229066"
-                },
-                {
-                    "name": "NewZeal",
-                    "homepage": "https://www.drupal.org/user/93571"
-                },
-                {
-                    "name": "scott_euser",
-                    "homepage": "https://www.drupal.org/user/3267594"
-                },
-                {
-                    "name": "seanb",
-                    "homepage": "https://www.drupal.org/user/545912"
-                }
-            ],
-            "description": "Views Reference",
-            "homepage": "http://drupal.org/project/viewsreference",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/viewsreference",
-                "issues": "http://drupal.org/project/issues/viewsreference"
             }
         },
         {
@@ -10770,59 +10450,6 @@
                 "source": "https://github.com/mck89/peast/tree/v1.17.7"
             },
             "time": "2026-07-21T11:56:06+00:00"
-        },
-        {
-            "name": "michelf/php-markdown",
-            "version": "1.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "5024d623c1a057dcd2d076d25b7d270a1d0d55f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/5024d623c1a057dcd2d076d25b7d270a1d0d55f3",
-                "reference": "5024d623c1a057dcd2d076d25b7d270a1d0d55f3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=4.3 <5.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Michelf\\": "Michelf/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Fortin",
-                    "email": "michel.fortin@michelf.ca",
-                    "homepage": "https://michelf.ca/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "https://daringfireball.net/"
-                }
-            ],
-            "description": "PHP Markdown",
-            "homepage": "https://michelf.ca/projects/php-markdown/",
-            "keywords": [
-                "markdown"
-            ],
-            "support": {
-                "issues": "https://github.com/michelf/php-markdown/issues",
-                "source": "https://github.com/michelf/php-markdown/tree/1.9.1"
-            },
-            "time": "2021-11-24T02:52:38+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -16363,6 +15990,64 @@
             "time": "2025-10-16T12:23:49+00:00"
         },
         {
+            "name": "drupal/composer_deploy",
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/composer_deploy.git",
+                "reference": "8.x-1.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/composer_deploy-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "71a80d50a6f2a0f1f00fcae3dd61865ef3caf6bd"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "php": ">=8.1",
+                "webflo/drupal-finder": "^1.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.10",
+                    "datestamp": "1728893427",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Provide version number from composers lockfile.",
+            "homepage": "https://www.drupal.org/project/composer_deploy",
+            "support": {
+                "source": "https://git.drupalcode.org/project/composer_deploy"
+            }
+        },
+        {
             "name": "drupal/core-dev",
             "version": "10.6.14",
             "source": {
@@ -21360,7 +21045,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/advanced_help": 20,
         "drupal/ajax_comments": 20,
         "drupal/bigmenu": 5,
         "drupal/ckeditor_div_manager": 15,
@@ -21374,7 +21058,6 @@
         "drupal/page_manager": 5,
         "drupal/pathologic": 15,
         "drupal/scheduler": 5,
-        "drupal/tmgmt_diff": 15,
         "drupal/webform": 20
     },
     "prefer-stable": true,

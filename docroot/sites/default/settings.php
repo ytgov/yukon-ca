@@ -815,6 +815,7 @@ $settings['config_exclude_modules'] = [
   'devel',
   'stage_file_proxy',
   'upgrade_status',
+  'composer_deploy',
 ];
 
 // Automatically generated include for settings managed by ddev.
