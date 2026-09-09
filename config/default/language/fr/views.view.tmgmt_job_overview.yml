@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       fields:
         label:
@@ -8,6 +9,10 @@ display:
           label: 'A partir de'
         target_language:
           label: À
+        translator:
+          label: Fournisseur
+        operations:
+          label: Operations
       pager:
         options:
           expose:
@@ -19,5 +24,9 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        translator:
+          expose:
+            label: Fournisseur
   page_1:
     display_title: Page

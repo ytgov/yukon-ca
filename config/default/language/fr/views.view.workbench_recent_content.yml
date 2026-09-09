@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -8,19 +9,35 @@ display:
           exposed_sorts_label: 'Trier par'
       pager:
         options:
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        title:
+          label: Title
+        type:
+          label: Type
         status:
           label: 'Publié le'
         changed:
           label: 'Dernière mise à jour'
       filters:
+        title:
+          expose:
+            label: Title
+        type:
+          expose:
+            label: Type
         status:
           expose:
             label: 'Publié le'
+      empty:
+        area:
+          content: Array
   block_1:
     display_options:
       pager:
@@ -34,5 +51,12 @@ display:
           expose:
             label: 'Publié le'
       fields:
+        title:
+          label: Title
+        type:
+          label: Type
         changed:
           label: 'Dernière mise à jour'
+      header:
+        area:
+          content: Array

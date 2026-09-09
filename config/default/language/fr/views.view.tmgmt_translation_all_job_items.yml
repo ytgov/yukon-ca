@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -12,12 +13,19 @@ display:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
       fields:
         label:
           label: Label
+        type:
+          label: Type
         source_language:
           label: 'A partir de'
         target_language:
           label: À
+        operations:
+          label: Operations
   page_1:
     display_title: Page

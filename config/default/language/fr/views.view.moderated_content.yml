@@ -2,6 +2,13 @@ display:
   default:
     display_title: 'Par défaut'
     display_options:
+      fields:
+        title:
+          label: Title
+        type:
+          label: 'Type de contenu'
+        operations:
+          label: Operations
       pager:
         options:
           tags:
@@ -16,3 +23,13 @@ display:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        title:
+          expose:
+            label: Title
+        type:
+          expose:
+            label: 'Type de contenu'
+        langcode:
+          expose:
+            label: Langue

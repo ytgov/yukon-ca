@@ -9,6 +9,10 @@ display:
           label: Taille
         status:
           label: Statut
+        count:
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+        operations:
+          label: Operations
       pager:
         options:
           tags:
@@ -29,6 +33,9 @@ display:
             label: Statut
   page_2:
     display_options:
+      fields:
+        type:
+          label: 'Entity type'
       pager:
         options:
           tags:

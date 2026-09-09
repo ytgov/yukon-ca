@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -15,6 +16,10 @@ display:
       fields:
         label:
           label: Label
+        type:
+          label: Type
+        operations:
+          label: Operations
       arguments:
         tjid:
           exception:
@@ -24,3 +29,5 @@ display:
       fields:
         label:
           label: Label
+        type:
+          label: Type

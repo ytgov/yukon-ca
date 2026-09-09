@@ -7,6 +7,8 @@ display:
       fields:
         subject:
           label: Subject
+        operations:
+          label: Operations
       pager:
         options:
           expose:
@@ -22,6 +24,9 @@ display:
         subject:
           expose:
             label: Subject
+        langcode:
+          expose:
+            label: Langue
   page_published:
     display_options:
       menu:
@@ -31,7 +36,12 @@ display:
       fields:
         subject:
           label: Subject
+        operations:
+          label: Operations
       filters:
         subject:
           expose:
             label: Subject
+        langcode:
+          expose:
+            label: Langue

@@ -23,10 +23,20 @@ display:
         name:
           expose:
             label: Nom
+        bundle:
+          expose:
+            label: 'Type de média'
+          group_info:
+            label: 'Type de média'
+        langcode:
+          expose:
+            label: Langue
   page:
     display_title: Page
     display_options:
       fields:
+        edit_media:
+          text: Edit
         delete_media:
           text: Supprimer
   widget:

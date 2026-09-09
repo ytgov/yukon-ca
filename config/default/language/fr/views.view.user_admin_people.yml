@@ -3,10 +3,14 @@ display:
     display_title: 'Par défaut'
     display_options:
       fields:
+        name:
+          label: "Nom d'utilisateur"
         status:
           label: Statut
         roles_target_id:
           label: Roles
+        operations:
+          label: Operations
       pager:
         options:
           tags:

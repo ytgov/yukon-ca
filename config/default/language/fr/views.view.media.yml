@@ -5,10 +5,14 @@ display:
     display_options:
       title: Média
       fields:
+        bundle:
+          label: Type
         status:
           label: Statut
           settings:
             format_custom_true: 'Publié le'
+        operations:
+          label: Operations
       pager:
         options:
           tags:
@@ -24,11 +28,17 @@ display:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       filters:
+        bundle:
+          expose:
+            label: Type
         status:
           group_info:
             group_items:
               1:
                 title: 'Publié le'
+        langcode:
+          expose:
+            label: Langue
   media_page_list:
     display_title: Média
     display_options:

@@ -5,8 +5,12 @@ display:
       fields:
         nothing:
           admin_label: Icon
+        type:
+          label: Type
         timestamp:
           label: Date
+        link:
+          label: Operations
       pager:
         options:
           expose:
@@ -18,5 +22,9 @@ display:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+      filters:
+        type:
+          expose:
+            label: Type
   page:
     display_title: Page

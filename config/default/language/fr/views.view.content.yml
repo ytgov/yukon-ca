@@ -5,10 +5,16 @@ display:
     display_options:
       title: Content
       fields:
+        title:
+          label: Title
+        type:
+          label: 'Type de contenu'
         status:
           label: Statut
           settings:
             format_custom_true: 'Publié le'
+        operations:
+          label: Operations
       pager:
         options:
           tags:
@@ -20,6 +26,12 @@ display:
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
       filters:
+        title:
+          expose:
+            label: Title
+        type:
+          expose:
+            label: 'Type de contenu'
         status:
           expose:
             label: Statut
@@ -27,6 +39,9 @@ display:
             group_items:
               1:
                 title: 'Publié le'
+        langcode:
+          expose:
+            label: Langue
   page_1:
     display_title: Page
     display_options:

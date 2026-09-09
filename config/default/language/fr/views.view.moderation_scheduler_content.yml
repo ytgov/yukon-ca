@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -13,6 +14,8 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        title:
+          label: Title
         status:
           label: Statut
   page_1:

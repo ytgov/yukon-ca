@@ -18,6 +18,8 @@ display:
           label: Statut
           settings:
             format_custom_true: 'Publié le'
+        operations:
+          label: Operations
       filters:
         status:
           expose:
