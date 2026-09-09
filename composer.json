@@ -111,7 +111,7 @@
         "drupal/views_menu_children_filter": "^4.0",
         "drupal/views_tree": "^3.0",
         "drupal/views_year_filter": "^2.1",
-        "drupal/webform": "6.2.x-dev@dev",
+        "drupal/webform": "^6.3",
         "drupal/webform_views": "^5.4",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
@@ -213,7 +213,8 @@
         ],
         "merge-plugin": {
             "include": [
-                "web/modules/contrib/media_directories/composer.libraries.json"
+                "docroot/modules/contrib/media_directories/composer.libraries.json",
+                "docroot/modules/contrib/webform/composer.libraries.json"
             ]
         },
         "composer-exit-on-patch-failure": true,
