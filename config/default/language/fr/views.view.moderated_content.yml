@@ -1,12 +1,25 @@
+label: 'Contenu modéré'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
+      title: 'Contenu modéré'
       fields:
         title:
           label: Title
+          separator: ', '
         type:
           label: 'Type de contenu'
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
+        moderation_state:
+          label: 'État de modération'
+          separator: ', '
+        changed:
+          label: 'Mis à jour'
+          separator: ', '
         operations:
           label: Operations
       pager:
@@ -14,6 +27,8 @@ display:
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -23,6 +38,8 @@ display:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       filters:
         title:
           expose:
@@ -30,6 +47,11 @@ display:
         type:
           expose:
             label: 'Type de contenu'
+        moderation_state:
+          expose:
+            label: 'État de modération'
         langcode:
           expose:
             label: Langue
+  moderated_content:
+    display_title: 'Contenu modéré'

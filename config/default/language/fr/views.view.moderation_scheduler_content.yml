@@ -7,15 +7,27 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
+          tags:
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        revision:
+          label: Version
+          format_plural_string: !!binary MQNAY291bnQ=
         title:
           label: Title
+        content_type:
+          label: 'Type de contenu'
+        author:
+          label: Auteur
         status:
           label: Statut
   page_1:

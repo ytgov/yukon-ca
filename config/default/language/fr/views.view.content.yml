@@ -1,4 +1,5 @@
 label: Content
+description: 'Trouver et gérer le contenu.'
 display:
   default:
     display_title: 'Par défaut'
@@ -9,10 +10,14 @@ display:
           label: Title
         type:
           label: 'Type de contenu'
+          separator: ', '
         status:
           label: Statut
           settings:
+            format_custom_false: 'Non publié'
             format_custom_true: 'Publié le'
+        changed:
+          label: 'Mis à jour'
         operations:
           label: Operations
       pager:
@@ -20,11 +25,18 @@ display:
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« Premier'
+            last: 'Dernier »'
       exposed_form:
         options:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'Aucun contenu disponible.'
       filters:
         title:
           expose:
@@ -36,9 +48,12 @@ display:
           expose:
             label: Statut
           group_info:
+            label: 'Statut de publication'
             group_items:
               1:
                 title: 'Publié le'
+              2:
+                title: 'Non publié'
         langcode:
           expose:
             label: Langue

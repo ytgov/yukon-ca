@@ -1,3 +1,5 @@
+label: 'Contenu(s) planifié(s)'
+description: 'Chercher et gérer le contenu planifié.'
 display:
   default:
     display_options:
@@ -6,13 +8,39 @@ display:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: "‹\_précédent"
+            next: "suivant\_›"
+            first: "«\_premier"
+            last: "dernier\_»"
       fields:
+        node_bulk_form:
+          action_title: Action
         title:
           label: Title
+          separator: ', '
+        type:
+          label: 'Type de contenu'
+          separator: ', '
+        name:
+          label: Auteur
+          separator: ', '
         status:
           label: Statut
           settings:
             format_custom_true: 'Publié le'
+            format_custom_false: 'Non publié'
+          separator: ', '
+        publish_on:
+          label: 'Publier le'
+          separator: ', '
+        unpublish_on:
+          label: 'Dépublier le'
+          separator: ', '
         operations:
           label: Operations
       filters:
@@ -26,23 +54,43 @@ display:
           expose:
             label: Statut
           group_info:
+            label: 'Statut de publication'
             group_items:
               1:
                 title: 'Publié le'
+              2:
+                title: 'Non publié'
         langcode:
           expose:
             label: Langue
+      title: 'Contenu(s) planifié(s)'
+      empty:
+        area_text_custom:
+          content: 'Aucun contenu planifié.'
     display_title: Master
   overview:
     display_options:
+      menu:
+        title: 'Contenu(s) planifié(s)'
       tab_options:
         title: Content
+        description: 'Chercher et gérer le contenu planifié'
+      display_description: "Vue d'ensemble de tous les contenus planifiés, dans un onglet de la page principale d'administration du contenu"
+    display_title: "Vue d'ensemble des contenus"
   user_page:
     display_options:
+      menu:
+        title: Planifié
       tab_options:
         title: Content
+        description: 'Chercher et gérer le contenu planifié'
+      display_description: "Onglet de contenu planifié sur le profil de l'utilisateur, affichant uniquement les contenus qu'il(elle) a planifié"
       arguments:
         uid:
           exception:
             title: Tout
+      empty:
+        area_text_custom:
+          content: "Aucun contenu planifié pour l'utilisateur {{ arguments.uid }}"
       display_comment: 'Access to the user view is controlled via a custom RouteSubscriber. The high-level "view published content" permission is added to satisfy the security_review module'
+    display_title: Utilisateur

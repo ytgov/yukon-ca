@@ -1,16 +1,34 @@
 label: Média
+description: 'Trouver et gérer des media.'
 display:
   default:
     display_title: 'Par défaut'
     display_options:
       title: Média
       fields:
+        media_bulk_form:
+          action_title: Action
+        thumbnail__target_id:
+          label: Vignette
+          separator: ', '
+        name:
+          label: 'Nom du média'
+          separator: ', '
         bundle:
           label: Type
+          separator: ', '
+        uid:
+          label: Auteur
+          separator: ', '
         status:
           label: Statut
           settings:
+            format_custom_false: 'Non publié'
             format_custom_true: 'Publié le'
+          separator: ', '
+        changed:
+          label: 'Mis à jour'
+          separator: ', '
         operations:
           label: Operations
       pager:
@@ -18,6 +36,8 @@ display:
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -27,15 +47,28 @@ display:
           submit_button: Filtres
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'Aucun média disponible.'
       filters:
+        name:
+          expose:
+            label: 'Nom du média'
         bundle:
           expose:
             label: Type
         status:
+          expose:
+            label: Vrai
           group_info:
+            label: 'Statut de publication'
             group_items:
               1:
                 title: 'Publié le'
+              2:
+                title: 'Non publié'
         langcode:
           expose:
             label: Langue

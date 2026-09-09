@@ -7,6 +7,8 @@ display:
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -16,6 +18,8 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       arguments:
         directory:
           exception:
@@ -23,3 +27,5 @@ display:
         bundle:
           exception:
             title: Tout
+  media_browser:
+    display_title: 'Entity browser'
