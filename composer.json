@@ -26,9 +26,9 @@
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/config_pages": "^2.18",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "10.6.14",
-        "drupal/core-project-message": "10.6.14",
-        "drupal/core-recommended": "10.6.14",
+        "drupal/core-composer-scaffold": "11.4.6",
+        "drupal/core-project-message": "11.4.6",
+        "drupal/core-recommended": "11.4.6",
         "drupal/cshs": "^4.0",
         "drupal/date_recur": "^3.2",
         "drupal/diff": "^2.1",
@@ -128,17 +128,11 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "2321071 - BaseFieldOverride fails to take into account ContentEntityInterface::bundleFieldDefinitions() when invoking onFieldDefinitionUpdate()": "https://www.drupal.org/files/issues/2023-11-02/2321071-71.patch",
-                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
-                "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
+                "3129874 - Base field override for moderation_state added by content_moderation causes config import failure": "https://git.drupalcode.org/project/drupal/-/merge_requests/10304.diff",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch",
-                "field config base": "https://www.drupal.org/files/issues/2024-04-25/remove_runtime_fieldsetting_11.patch",
-                "Uasort issue when add reference field": "https://www.drupal.org/files/issues/2024-10-29/3419074-uasort-plugin-manager.patch",
-                "url generator": "patches/urlgenerator.patch",
-                "Entity Reference Translation Deriver": "https://www.drupal.org/files/issues/2020-04-06/2984460-3.patch",
-                "View text issue": "https://www.drupal.org/files/issues/2024-02-15/3398734-10.x.patch",
-                "EntityStorageBase": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
-                "index.php issue": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch"
+                "3441962 - Call to a member function getSettings() on null in Drupal\\Core\\Field\\FieldConfigBase->getSettings()": "https://git.drupalcode.org/project/drupal/-/merge_requests/8456.diff",
+                "3145190 - PHP warnings in array_flip in Drupal\\Core\\Entity\\EntityStorageBase->loadMultiple()": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
+                "3050261 - index.php randomly appears in friendly URLs": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch"
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
@@ -272,6 +266,7 @@
             "mnsami/composer-custom-directory-installer": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
+            "symfony/runtime": true,
             "tbachert/spi": true,
             "wikimedia/composer-merge-plugin": true
         }
@@ -290,7 +285,7 @@
     },
     "require-dev": {
         "drupal/composer_deploy": "^1.10",
-        "drupal/core-dev": "10.6.14",
+        "drupal/core-dev": "*",
         "drupal/devel": "^5.1",
         "drupal/upgrade_status": "^4.3"
     }

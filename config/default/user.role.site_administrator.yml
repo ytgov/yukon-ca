@@ -294,6 +294,7 @@ permissions:
   - 'link to any page'
   - 'manage password reset'
   - 'post comments'
+  - 'rebuild node access permissions'
   - 'revert basic_page revisions'
   - 'skip comment approval'
   - 'translate any entity'

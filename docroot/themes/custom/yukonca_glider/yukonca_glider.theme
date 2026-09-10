@@ -14,6 +14,7 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -542,7 +543,7 @@ function yukonca_glider_preprocess_page(&$variables) {
   $data = explode("/", $current_path);
   if (in_array('taxonomy', $data)) {
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data['3']);
-    if ($term->get('vid')->getValue()[0]['target_id'] == "department") {
+    if ($term instanceof TermInterface && $term->bundle() == "department") {
       $url = Url::fromRoute('system.403');
       $response = new RedirectResponse($url->toString());
       $response->send();

@@ -225,6 +225,7 @@ permissions:
   - 'edit terms in sanitary_facilities'
   - 'edit terms in site_type'
   - 'link to any page'
+  - 'rebuild node access permissions'
   - 'revert basic_page revisions'
   - 'translate any entity'
   - 'translate any entity'

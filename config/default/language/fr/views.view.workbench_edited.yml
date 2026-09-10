@@ -54,7 +54,9 @@ display:
       title: 'Mes Contributions'
       empty:
         area:
-          content: Array
+          content:
+            value: "Vous n'avez créé ni modifié aucun contenu."
+            format: plain_text
       arguments:
         uid_revision:
           exception:
@@ -72,7 +74,9 @@ display:
             offset_label: Décalage
       header:
         area:
-          content: Array
+          content:
+            value: '<h3>Vos modifications récentes</h3>'
+            format: full_html
       use_more_text: 'voir tout'
   embed_1:
     display_title: 'Page intégrée'

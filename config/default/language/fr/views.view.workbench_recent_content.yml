@@ -51,7 +51,9 @@ display:
             label: 'Publié le'
       empty:
         area:
-          content: Array
+          content:
+            value: "Il n'y a aucun contenu disponible que vous puissiez modifier."
+            format: plain_text
       use_more_text: 'voir tout'
   block_1:
     display_options:
@@ -86,6 +88,8 @@ display:
           text: modifier
       header:
         area:
-          content: Array
+          content:
+            value: '<h3>Contenu récent</h3>'
+            format: full_html
   embed_1:
     display_title: 'Page intégrée'

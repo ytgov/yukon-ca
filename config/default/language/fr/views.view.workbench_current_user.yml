@@ -21,4 +21,6 @@ display:
           separator: ', '
       header:
         area:
-          content: Array
+          content:
+            value: "<h3>Profil de {{ name }}</h3>"
+            format: full_html
