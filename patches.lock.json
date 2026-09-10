@@ -1,5 +1,5 @@
 {
-    "_hash": "98ef3351d7a1a46cb70cc6c59be8e214323efb021c8dcf329ccb4e7939a0c089",
+    "_hash": "7b19e796a80afdabb4aeefcda480dc0b4f1a635952482b8423cf5eb12ed61b4f",
     "patches": {
         "drupal/core": [
             {
@@ -71,52 +71,6 @@
                 "description": "3456861 - Empty Settings data unserialize issues with migrated content",
                 "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
                 "sha256": "136a898eef87873602993a44389be5978b85787aa039142c7403520f27d4df88",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "drupal/field_group": [
-            {
-                "package": "drupal/field_group",
-                "description": "3111107 - Fix translations label/description",
-                "url": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch",
-                "sha256": "8f35c0eb83087a939e5f9cbdb1f761ac38ce167e5bd5272755b7cd5bdb4ce48b",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "drupal/datetime_range": [
-            {
-                "package": "drupal/datetime_range",
-                "description": "Date time format",
-                "url": "https://www.drupal.org/files/issues/2796151-06.patch",
-                "sha256": "600f0e9e7fe9edf101f127e3e225607ed81ecdf0ec2b54188a65d6eb06cad841",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "drupal/paragraphs": [
-            {
-                "package": "drupal/paragraphs",
-                "description": "Paragraph translation",
-                "url": "https://www.drupal.org/files/issues/2026-06-11/paragraphs_support_asym_translations-2904705-157.patch",
-                "sha256": "33addcf70a5fc2eb5da83608b778c265b8704efc1429c29bfca7bfc32d56ca6a",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "drupal/paragraphs",
-                "description": "Paragraph translation 2",
-                "url": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch",
-                "sha256": "16c7835863f0ab850c8599dff183d8f15f3cde0e7f6850e93e287809ada5b131",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

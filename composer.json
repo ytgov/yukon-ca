@@ -139,16 +139,6 @@
             },
             "drupal/fontawesome": {
                 "3456861 - Empty Settings data unserialize issues with migrated content": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff"
-            },
-            "drupal/field_group": {
-                "3111107 - Fix translations label/description": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch"
-            },
-            "drupal/datetime_range": {
-                "Date time format": "https://www.drupal.org/files/issues/2796151-06.patch"
-            },
-            "drupal/paragraphs": {
-                "Paragraph translation": "https://www.drupal.org/files/issues/2026-06-11/paragraphs_support_asym_translations-2904705-157.patch",
-                "Paragraph translation 2": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch"
             }
         },
         "installer-paths": {
