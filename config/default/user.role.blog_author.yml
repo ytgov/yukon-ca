@@ -37,7 +37,6 @@ permissions:
   - 'create url aliases'
   - 'delete own blog content'
   - 'edit own blog content'
-  - 'rebuild node access permissions'
   - 'translate any entity'
   - 'translate blog node'
   - 'use content transition create_new_draft'
