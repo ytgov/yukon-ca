@@ -19,7 +19,7 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
 
 ## 2. Paragraphs: translated content editing
 
-**Why:** two `paragraphs` module patches were dropped. One reintroduced structural-edit buttons during translation editing that core deliberately hides (to prevent one language's edit from silently restructuring another language's content) — confirmed unused on this site, but worth a UAT sanity check since it changes edit-form behavior.
+**Why:** two `paragraphs` module patches were dropped. One reintroduced structural-edit buttons during translation editing that core deliberately hides (to prevent one language's edit from silently restructuring another language's content) — confirmed unused on this site, but worth a UAT sanity check since it changes edit-form behavior. The other patch added support for "asymmetric translations" — letting a translation have a different number/order of paragraph items than the original — but that capability was never actually set up on this site (it requires a companion module that isn't installed), so it was a no-op here; the two patches only mattered together, and only if asymmetric translation had been fully configured, which it wasn't.
 
 **Test as:** Translator, Editor (or whoever edits French content).
 
@@ -29,23 +29,26 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
 
 ## 3. FontAwesome icon picker on navigation/jump-point paragraphs
 
-**Why:** kept a patch fixing a real crash — about a third of this paragraph type's icon fields have empty/legacy settings data that would otherwise throw a fatal error on render.
+**Why:** 199 `navigation_jump_point` paragraphs (the only paragraph type this affects) had empty/legacy icon settings data (`NULL`, left by a legacy import that bypassed normal field validation) that would otherwise throw a fatal error on render — affecting 40 nodes in total, 20 published and 20 unpublished. Rather than keep a patch to work around it, a post-update hook backfills those `NULL` values with the same empty settings the icon widget itself would have saved, and the patch has been removed. Since this replaces a patch with a direct data fix, it's worth verifying the fix actually applied cleanly and the crash doesn't recur, rather than just confirming a patch didn't regress anything. Testing every affected node isn't practical, so below is a representative sample rather than the full list.
 
 **Test as:** Editor, Publisher, Writer, Site Administrator.
 
 - Open a "jump point"/navigation paragraph's edit form and confirm the icon picker still works normally when adding or changing an icon.
-- Open the edit form for one of these existing pages (they have jump-point/navigation paragraphs with older icon data — exactly what the crash fix addresses) and confirm the icons render correctly in the editing preview:
+- Open the edit form for each of these existing pages (they have jump-point/navigation paragraphs with older icon data — exactly what the crash fix addresses) and confirm the icons render correctly in the editing preview:
   - <https://yukon.cms-uat.yukon.ca/decide-you-ride-drive-sober>
   - <https://yukon.cms-uat.yukon.ca/winter-driving-road-safety-awareness>
+  - <https://yukon.cms-uat.yukon.ca/40-assets>
+  - <https://yukon.cms-uat.yukon.ca/yukon-grown>
+  - <https://yukon.cms-uat.yukon.ca/restoring-shakwak-corridor>
 
 ## 4. Workbench admin dashboard views (English and French)
 
-**Why:** these views had real data corruption (`content: Array`) in both their English and French config, unrelated to any patch, found and fixed as part of this upgrade. The French versions had never had correct data captured at all — the French text is newly written for this fix and should get a native-speaker read-over.
+**Why:** these views had real data corruption (`content: Array`) in both their English and French config, unrelated to any patch, found and fixed as part of this upgrade. The French versions had never had correct data captured at all, so the French text below is newly written for this fix rather than recovered from an original source.
 
 **Test as:** any role with access to the Workbench dashboard (`/admin/content` overview blocks, or wherever these views/blocks are placed).
 
 - View "Workbench: Current user" (profile heading), "Workbench: Edited" (my edits / empty state), and "Workbench: Recent content" (recent content / empty state) in English — confirm the headings and empty-state messages render correctly, not literally as `Array`.
-- Switch the admin UI language to French (or view as a French-speaking editor) and check the same three views — confirm the French text reads correctly and makes sense. **This French wording was authored during this upgrade, not recovered from an original source — please have someone fluent confirm it reads naturally**, in particular:
+- Switch the admin UI language to French (or view as a French-speaking editor) and check the same three views — confirm the French text isn't corrupted. It's admin-only dashboard text, so it's up to you whether the exact wording is worth a closer look by someone fluent — it's not recovered from an original source, so there's nothing "original" to restore, just newly written text:
   - "Profil de {{ name }}"
   - "Vous n'avez créé ni modifié aucun contenu."
   - "Vos modifications récentes"
@@ -62,9 +65,9 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
 - If any existing content relies on old-style HTML list numbering via a `type` attribute (e.g. `<ol type="a">` for alphabetic lists), check that content still displays as expected — re-saving it through the WYSIWYG editor could strip that attribute now that it's no longer in the allowed source-editing tag list.
 - Try the heading styles options in the editor toolbar and confirm they apply and save correctly.
 
-## 6. "Rebuild node access permissions" capability removed
+## 6. "Rebuild node access permissions" capability
 
-**Why:** core's Drupal 11 upgrade path introduces this permission as newly separate from "Administer content," and automatically grants it to any role that already had "Administer content" (except a role already flagged as the full site administrator). That's exactly why `Blog Author`, `Editor`, `Publisher`, `Site Administrator`, `Translator`, and `Writer` all picked it up during the upgrade's database updates — they all already had "Administer content" before this upgrade. Core itself marks this new permission as restricted/trusted-only, with the description "Trigger a content access permission rebuild. This can be a potentially long and disruptive process." We've removed it from all 6 roles as part of this upgrade, since none of them need it.
+**Why:** core's Drupal 11 upgrade path introduces this permission as newly separate from "Administer content," and automatically grants it to any role that already had "Administer content" (except a role already flagged as the full site administrator). As such, `Blog Author`, `Editor`, `Publisher`, `Site Administrator`, `Translator`, and `Writer` all picked it up during the upgrade's initial database updates — they all already had "Administer content" before this upgrade. Core itself marks this new permission as restricted/trusted-only, with the description "Trigger a content access permission rebuild. This can be a potentially long and disruptive process." We therefore revoked it from all 6 roles, since it does not seem like something these roles need, leaving only the pre-existing "Administer content" permission in place.
 
 **Test as:** Site Administrator.
 
@@ -75,6 +78,8 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
 ## 7. Block visibility on specific pages
 
 **Why:** a core patch that adds support for *negating* the "content type"/"taxonomy term" visibility condition on blocks was reviewed and kept, since two blocks depend on it. This is core behavior the upgrade touches, not something content editors configure, but it directly affects what any visitor sees on a page.
+
+Also found while testing this, unrelated to the patch: visiting `/documents` with no filters applied triggered a PHP warning (`Undefined array key "field_category_target_id"`) from this site's own custom `yukon_w3_custom` module — pre-existing, not caused by the upgrade, but a quick fix so it's included with this deployment. Since `/documents` is already one of the pages visited below, check it for this too rather than as a separate test.
 
 **Test as:** anonymous is sufficient for this.
 
@@ -88,6 +93,7 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
   - Hidden: <https://yukon.cms-uat.yukon.ca/decide-you-ride-drive-sober>
   - Hidden: <https://yukon.cms-uat.yukon.ca/blogs/digital-information-and-services>
   - Shown: <https://yukon.cms-uat.yukon.ca/news/omicron-cases-increasing-quickly>
+- **PHP error check on `/documents`**: confirm the page itself shows no visible PHP error/warning text. UAT and production are normally configured not to display errors on the page at all, so also check **Reports → Recent log messages** (`/admin/reports/dblog`) for any new PHP warning logged around the time you visited — if error display is off, that's the only place it would show up.
 
 ## 8. Page feedback webform submission
 
@@ -100,13 +106,16 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
 
 ## 9. FontAwesome icons on published pages
 
-**Why:** same crash-fix patch as item 3, but checking the actual rendered output on live pages rather than the edit form.
+**Why:** same fix as item 3, but checking the actual rendered output on live pages rather than the edit form.
 
 **Test as:** anonymous.
 
-- Browse to the pages below (older content with jump-point/navigation icons — the same pages as item 3) and confirm icons render without a server error anywhere on the page:
+- Browse to the pages below (the same published pages as item 3) and confirm icons render without a server error anywhere on the page:
   - <https://yukon.cms-uat.yukon.ca/decide-you-ride-drive-sober>
   - <https://yukon.cms-uat.yukon.ca/winter-driving-road-safety-awareness>
+  - <https://yukon.cms-uat.yukon.ca/40-assets>
+  - <https://yukon.cms-uat.yukon.ca/yukon-grown>
+  - <https://yukon.cms-uat.yukon.ca/restoring-shakwak-corridor>
 
 ## 10. Rich text content rendering
 
@@ -137,6 +146,6 @@ URLs below use the UAT base `https://yukon.cms-uat.yukon.ca`. Every path was pul
   - <https://yukon.cms-uat.yukon.ca/policy-benefits> — a link field currently reads "growing-together"
   - <https://yukon.cms-uat.yukon.ca/bid-value-reductions> — same, "growing-together"
 
-## Notes for automated (headless-browser) testing
+## Optional: running this automatically, locally
 
-Everything above except item 4's French text quality (needs a fluent human), item 6 (a judgment call, not a pass/fail test), and the two flagged items in item 12 (need a human to determine the intended link) can reasonably be walked through and verified by an agent using a headless browser against the UAT environment once it's up, including checking HTTP status codes, page content for expected strings, and basic form submission flows.
+If you'd rather not click through everything above by hand, most of it (aside from judgment calls like item 4's French text quality, item 6, and the two flagged links in item 12) is also covered by an automated Playwright test suite you can run yourself against a local copy of the site. See [`tests/playwright/README.md`](../tests/playwright/README.md) for setup and run instructions.
