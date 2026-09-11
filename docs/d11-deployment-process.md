@@ -14,7 +14,10 @@ All three are currently enabled in production (`config/default/core.extension.ym
 
 Run against the **current (pre-upgrade) codebase**, before touching the deployment target's files:
 
-1. Put the site in maintenance mode.
+1. Put the site in maintenance mode:
+   ```bash
+   drush sset system.maintenance_mode 1
+   ```
 2. Uninstall the three modules:
    ```bash
    drush pmu advanced_help ckeditor5_show_block tmgmt_diff -y
@@ -25,13 +28,24 @@ Run against the **current (pre-upgrade) codebase**, before touching the deployme
    ```
    (Expect no output.)
 
-Then proceed with the normal deploy:
+Then proceed with the deploy itself. Run these as separate steps rather than a single `drush deploy` — see the gotcha below step 7 for why:
 
 4. Pull the D11 codebase.
-5. `composer install`
-6. `drush deploy` (or the site's equivalent: `updb`, `cim`, `cr`)
-7. Take the site out of maintenance mode.
-8. Smoke-test.
+5. `composer install --no-dev --prefer-dist --optimize-autoloader`
+6. `drush updb -y` — runs pending database schema updates and this deployment's post-update hooks (the link-field and FontAwesome-icon-settings data backfills).
+7. `drush cim -y` — imports configuration.
+
+   **Known gotcha, confirmed while testing this process end-to-end against a from-scratch prod database:** on a large, from-scratch config import (many new config objects plus their French-language overrides all in one batch), Drupal core's config importer can fail partway with an error like:
+   ```
+   Update target "views.view.authmap" is missing.
+   ```
+   This is a batch-ordering artifact in Drupal core's `ConfigImporter` — a translation override gets synced before its own base config object finishes being created earlier in the same large batch — not a real config problem. **Just re-run `drush cim -y`.** The base object from the first attempt has already been created, so the retry only has the one remaining item left to apply, which goes through cleanly. Running `drush updb`/`drush cim` as separate steps (rather than bundled inside `drush deploy`) means a retry here doesn't have to repeat the update step.
+8. `drush cr`
+9. Take the site out of maintenance mode:
+   ```bash
+   drush sset system.maintenance_mode 0
+   ```
+10. Smoke-test.
 
 ## Rollback note
 
