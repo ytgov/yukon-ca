@@ -50,4 +50,24 @@
           }
       }
   }
+  
+    .secondary-items {
+        .field__item {
+            @include media-breakpoint-down(md) {
+                @apply w-1/2;
+            }
+            
+            @include media-breakpoint-down(sm) {
+                @apply w-full;
+            }
+            
+            .secondary-single-item {
+                display: block !important;
+                
+                .field__item {
+                    @apply text-center;
+                }
+            }
+        }
+    }
 }
