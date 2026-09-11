@@ -1,5 +1,5 @@
 {
-    "_hash": "7b19e796a80afdabb4aeefcda480dc0b4f1a635952482b8423cf5eb12ed61b4f",
+    "_hash": "8d179192750210229e6692db64ba0ac653f6c9060263fdd8f158b027eab655f9",
     "patches": {
         "drupal/core": [
             {
@@ -59,18 +59,6 @@
                 "description": "1614456 - [current-page:query:?] should fall back to empty string",
                 "url": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff",
                 "sha256": "5582e412ce7ca8a12b1377c0340878431d8969ca584be83502a075f31e7f0844",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "drupal/fontawesome": [
-            {
-                "package": "drupal/fontawesome",
-                "description": "3456861 - Empty Settings data unserialize issues with migrated content",
-                "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
-                "sha256": "136a898eef87873602993a44389be5978b85787aa039142c7403520f27d4df88",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

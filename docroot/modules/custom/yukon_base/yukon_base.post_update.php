@@ -91,3 +91,38 @@ function yukon_base_post_update_fix_schemeless_link_uris(): void {
     ]);
   }
 }
+
+/**
+ * Backfills NULL fontawesome_icon "settings" values left by a legacy import.
+ *
+ * The fontawesome_icon field's own widget always writes at least
+ * serialize([]) when an icon is saved normally, so a literal NULL can only
+ * come from data written directly to the database, bypassing the widget —
+ * a legacy import, same as the schemeless link URIs above. NULL crashes
+ * FontAwesomeIconFormatter on render (unserialize(NULL) === FALSE); an
+ * empty serialized array is exactly what the widget itself would have
+ * saved for an icon with no custom settings, so this is a safe backfill,
+ * not a guess (see issue #1143).
+ */
+function yukon_base_post_update_fix_null_fontawesome_icon_settings(): void {
+  $connection = \Drupal::database();
+  $logger = \Drupal::logger('yukon_base');
+
+  $tables = ['paragraph__field_icon_name', 'paragraph_revision__field_icon_name'];
+  $column = 'field_icon_name_settings';
+  $empty_settings = serialize([]);
+  $fixed = 0;
+
+  foreach ($tables as $table) {
+    if (!$connection->schema()->tableExists($table)) {
+      continue;
+    }
+
+    $fixed += $connection->update($table)
+      ->fields([$column => $empty_settings])
+      ->isNull($column)
+      ->execute();
+  }
+
+  $logger->notice('Backfilled @fixed NULL fontawesome_icon settings value(s).', ['@fixed' => $fixed]);
+}
