@@ -3,7 +3,7 @@
 // `npx playwright install`. Requires ddev running for this project so
 // `loginAs()` can generate fresh one-time login links via drush.
 const { test, expect } = require('@playwright/test');
-const { loginAs } = require('./helpers');
+const { loginAs, assertNoPhpErrors } = require('./helpers');
 
 test.describe('Part 1: Content management', () => {
   test('1. Content moderation field present on affected content types', async ({ page, baseURL }) => {
@@ -70,10 +70,12 @@ test.describe('Part 2: Front-end / public browsing', () => {
     // checks the reusable BLOCK specifically (#block-page-feedback-webform),
     // not just the presence of feedback-form text/markup on the page.
     await page.goto('/decide-you-ride-drive-sober', { waitUntil: 'domcontentloaded' });
+    await assertNoPhpErrors(page);
     const feedbackBlockHidden = await page.locator('#block-page-feedback-webform').count();
     expect(feedbackBlockHidden, 'feedback BLOCK should be hidden on campaign_page (the template embeds its own copy directly)').toBe(0);
 
     await page.goto('/news/omicron-cases-increasing-quickly', { waitUntil: 'domcontentloaded' });
+    await assertNoPhpErrors(page);
     const feedbackBlockShown = await page.locator('#block-page-feedback-webform').count();
     expect(feedbackBlockShown, 'feedback block should show on an ordinary news page').toBeGreaterThan(0);
   });
@@ -83,26 +85,37 @@ test.describe('Part 2: Front-end / public browsing', () => {
     const hiddenPaths = ['/', '/engagements', '/documents', '/decide-you-ride-drive-sober', '/blogs/digital-information-and-services'];
     for (const path of hiddenPaths) {
       await page.goto(path, { waitUntil: 'domcontentloaded' });
+      await assertNoPhpErrors(page, path);
       expect(await page.locator(titleBlock).count(), `page title block should be hidden on ${path}`).toBe(0);
     }
     await page.goto('/news/omicron-cases-increasing-quickly', { waitUntil: 'domcontentloaded' });
+    await assertNoPhpErrors(page);
     expect(await page.locator(titleBlock).count(), 'page title block should show on an ordinary news page').toBeGreaterThan(0);
   });
 
   test('8. Page feedback webform query token', async ({ page }) => {
     await page.goto('/news/omicron-cases-increasing-quickly', { waitUntil: 'domcontentloaded' });
+    await assertNoPhpErrors(page);
     const bodyText = await page.textContent('body');
     expect(bodyText).not.toContain('[current-page:query:query]');
 
     await page.goto('/news/omicron-cases-increasing-quickly?ref=test', { waitUntil: 'domcontentloaded' });
+    await assertNoPhpErrors(page);
     const bodyText2 = await page.textContent('body');
     expect(bodyText2).not.toContain('[current-page:query:query]');
   });
 
   test('9. FontAwesome icons render on published pages', async ({ page }) => {
-    for (const path of ['/decide-you-ride-drive-sober', '/winter-driving-road-safety-awareness']) {
+    for (const path of [
+      '/decide-you-ride-drive-sober',
+      '/winter-driving-road-safety-awareness',
+      '/40-assets',
+      '/yukon-grown',
+      '/restoring-shakwak-corridor',
+    ]) {
       const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
       expect(response.status(), `${path} should return 200`).toBe(200);
+      await assertNoPhpErrors(page, path);
       expect(await page.textContent('body')).not.toContain('The website encountered an unexpected error');
     }
   });
@@ -114,6 +127,7 @@ test.describe('Part 2: Front-end / public browsing', () => {
     ]) {
       const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
       expect(response.status()).toBe(200);
+      await assertNoPhpErrors(page, path);
     }
   });
 
@@ -125,6 +139,7 @@ test.describe('Part 2: Front-end / public browsing', () => {
   test('12. Link field data fix', async ({ page }) => {
     const response = await page.goto('/doing-business/funding-and-supports-business/mining-investment-yukon', { waitUntil: 'domcontentloaded' });
     expect(response.status()).toBe(200);
+    await assertNoPhpErrors(page);
     expect(await page.textContent('body')).not.toContain('The website encountered an unexpected error');
   });
 });
