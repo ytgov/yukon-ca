@@ -209,21 +209,21 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     $variables['title_filter'] = $view->exposed_data['title'];
   }
   if ($view->id() == 'documents_browse') {
-    $title = $view->exposed_data['combine'];
-    $department = $view->exposed_data['field_department_term_target_id'];
-    $category = $view->exposed_data['field_category_target_id'];
+    $title = $view->exposed_data['combine'] ?? '';
+    $department = $view->exposed_data['field_department_term_target_id'] ?? 'All';
+    $category = $view->exposed_data['field_category_target_id'] ?? 'All';
 
-    if ($view->exposed_data['field_department_term_target_id'] != 'All' && $view->exposed_data['field_department_term_target_id'] != '') {
-      $term = Term::load($view->exposed_data['field_department_term_target_id']);
+    if ($department != 'All' && $department != '') {
+      $term = Term::load($department);
       $department = $term->getName();
     }
 
-    if ($view->exposed_data['field_category_target_id'] != 'All' && $view->exposed_data['field_category_target_id'] != '') {
-      $term = Term::load($view->exposed_data['field_category_target_id']);
+    if ($category != 'All' && $category != '') {
+      $term = Term::load($category);
       $category = $term->getName();
     }
 
-    if ($view->exposed_data['combine'] != '') {
+    if ($title != '') {
       $title = $view->exposed_data['combine'];
     }
 
@@ -231,9 +231,9 @@ function yukon_w3_custom_preprocess_views_view(&$variables) {
     $variables['category'] = $category;
     $variables['combine_output'] = $title;
 
-    $variables['department_filter'] = $view->exposed_data['field_department_term_target_id'];
-    $variables['category_filter'] = $view->exposed_data['field_category_target_id'];
-    $variables['combine_filter'] = $view->exposed_data['combine'];
+    $variables['department_filter'] = $view->exposed_data['field_department_term_target_id'] ?? 'All';
+    $variables['category_filter'] = $view->exposed_data['field_category_target_id'] ?? 'All';
+    $variables['combine_filter'] = $view->exposed_data['combine'] ?? '';
 
     // Add translatable header text for page_1 display.
     if ($view->current_display == 'page_1') {

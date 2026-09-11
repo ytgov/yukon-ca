@@ -532,7 +532,9 @@ display:
           admin_label: ''
           plugin_id: text
           empty: true
-          content: Array
+          content:
+            value: "You haven't created or edited any content."
+            format: plain_text
           tokenize: false
       sorts:
         changed:
@@ -614,9 +616,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -657,9 +656,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -701,9 +697,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -816,6 +809,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:
@@ -968,7 +962,9 @@ display:
           admin_label: ''
           plugin_id: text
           empty: false
-          content: Array
+          content:
+            value: '<h3>Your most recent edits</h3>'
+            format: full_html
           tokenize: false
       footer: {  }
       display_extenders: {  }

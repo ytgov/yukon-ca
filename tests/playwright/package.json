@@ -1,0 +1,13 @@
+{
+  "name": "yukon-ca-uat-checks",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright checks for docs/d11-uat-test-plan.md, runnable against local ddev.",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

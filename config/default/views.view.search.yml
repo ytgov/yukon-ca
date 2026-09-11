@@ -341,58 +341,59 @@ display:
           bef:
             general:
               autosubmit: false
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: true
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
-              autosubmit_breakpoint: ''
-              auto_submit_sort_only: false
             filter:
               type:
                 plugin_id: bef
                 advanced:
                   sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  is_secondary: false
                   open_by_default: false
+                  is_secondary: false
                   field_classes: ''
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                 select_all_none: false
                 select_all_none_nested: false
                 display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
                 options_show_only_used: false
                 options_show_only_used_filtered: false
                 options_hide_when_empty: false
                 options_show_items_count: 0
-                soft_limit: 0
-                soft_limit_label_less: 'Show less'
-                soft_limit_label_more: 'Show more'
-                scrollable: false
-                scrollable_height: 300
-                soft_limit_include_children: false
               search_api_fulltext:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  is_secondary: false
                   open_by_default: false
+                  is_secondary: false
                   field_classes: ''
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                 options_show_only_used: false
                 options_show_only_used_filtered: false
                 options_hide_when_empty: false
@@ -401,31 +402,31 @@ display:
                 plugin_id: bef_single
                 advanced:
                   sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  is_secondary: false
                   open_by_default: false
+                  is_secondary: false
                   field_classes: ''
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                 treat_as_false: false
               field_department_term:
                 plugin_id: default
                 advanced:
                   sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  is_secondary: false
                   open_by_default: false
+                  is_secondary: false
                   field_classes: ''
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                 options_show_only_used: false
                 options_show_only_used_filtered: false
                 options_hide_when_empty: false
@@ -621,18 +622,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              writer: '0'
-              editor: '0'
-              publisher: '0'
-              translator: '0'
-              team_administrator: '0'
-              site_administrator: '0'
-              dis_blog: '0'
-              _webform_manager: '0'
-              author_in_page_alerts: '0'
-              blog_author: '0'
             expose_fields: false
             placeholder: Keywords
             searched_fields_id: search_api_fulltext_searched_fields
@@ -678,19 +667,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              writer: '0'
-              editor: '0'
-              publisher: '0'
-              translator: '0'
-              team_administrator: '0'
-              site_administrator: '0'
-              dis_blog: '0'
-              _webform_manager: '0'
-              author_in_page_alerts: '0'
-              blog_author: '0'
-              author_site_wide_alerts: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -732,18 +708,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              writer: '0'
-              editor: '0'
-              publisher: '0'
-              translator: '0'
-              team_administrator: '0'
-              site_administrator: '0'
-              dis_blog: '0'
-              _webform_manager: '0'
-              author_in_page_alerts: '0'
-              blog_author: '0'
             reduce: false
           is_grouped: false
           group_info:

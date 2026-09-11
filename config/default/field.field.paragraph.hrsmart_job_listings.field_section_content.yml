@@ -6,12 +6,9 @@ dependencies:
     - field.storage.paragraph.field_section_content
     - paragraphs.paragraphs_type.hrsmart_job_listings
   module:
-    - allowed_formats
     - text
     - tmgmt_content
 third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
   tmgmt_content:
     excluded: false
 id: paragraph.hrsmart_job_listings.field_section_content

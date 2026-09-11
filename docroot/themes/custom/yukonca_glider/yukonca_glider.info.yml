@@ -1,7 +1,7 @@
 name: Yukonca glider
 type: theme
 description: 'A Bootstrap-Tailwind-Powered theme based on Glider.'
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^10 || ^11
 base theme: classy
 regions:
   header_branding: Header - Branding

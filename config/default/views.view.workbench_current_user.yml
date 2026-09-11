@@ -431,7 +431,9 @@ display:
           admin_label: ''
           plugin_id: text
           empty: false
-          content: Array
+          content:
+            value: "<h3>{{ name }}'s profile</h3>"
+            format: full_html
           tokenize: true
       footer: {  }
       display_extenders: {  }
