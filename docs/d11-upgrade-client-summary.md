@@ -9,7 +9,7 @@ A large part of this project was building confidence that the upgrade is safe to
 - **Full deployment rehearsals.** We reset a local copy of the site back to match production exactly — same code, same database — then ran through the *actual* deployment steps we'll use on UAT and production. This caught several real gotchas (things like a harmless-but-alarming-looking error on config import, and a git conflict trap on deploy) that we then documented so the real deployment goes smoothly, with no surprises.
 - **Automated browser testing.** We built a suite of automated tests (using a tool called Playwright) that click through the site the way a real visitor, editor, or translator would — logging in, creating content, checking translations, submitting forms, and so on. This suite ships with the codebase, so anyone with a local copy of the site can re-run it themselves for extra verification.
 - **Every automated test run was watched by a person**, not just left to run unattended. That means someone was checking not only "did the expected thing happen," but also watching for anything else unusual — warnings or errors popping up that had nothing to do with the upgrade itself, in case they pointed at a pre-existing problem worth fixing.
-- **Manual UAT checklists** were also prepared, broken out by role (content editors, translators, general public), so non-technical reviewers can do their own spot-checks without needing to understand the technical side.
+- **Manual UAT checklists** were also prepared (as requested), broken out by role (content editors, translators, general public), so non-technical reviewers can do their own spot-checks without needing to understand the technical side.
 
 ## Decisions made along the way (within scope)
 
