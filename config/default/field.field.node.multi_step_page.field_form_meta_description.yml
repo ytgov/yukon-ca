@@ -7,13 +7,9 @@ dependencies:
     - filter.format.plain_text
     - node.type.multi_step_page
   module:
-    - allowed_formats
     - text
     - tmgmt_content
 third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - plain_text
   tmgmt_content:
     excluded: false
 id: node.multi_step_page.field_form_meta_description

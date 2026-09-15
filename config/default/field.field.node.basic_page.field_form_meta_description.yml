@@ -7,13 +7,9 @@ dependencies:
     - filter.format.plain_text
     - node.type.basic_page
   module:
-    - allowed_formats
     - text
     - tmgmt_content
 third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - plain_text
   tmgmt_content:
     excluded: false
 id: node.basic_page.field_form_meta_description

@@ -105,10 +105,7 @@
   --tw-bg-opacity: 1;
   background-color: rgb(243 178 41 / var(--tw-bg-opacity));
 }
-.header--main .header-search form .fieldgroup {
-  display: none;
-}
-.header--main .header-search form .form-item-department {
+.header--main .header-search form .form > *:not(.form-type-textfield):not(.form-actions) {
   display: none;
 }
 /*# sourceMappingURL=styles.min.css.map */

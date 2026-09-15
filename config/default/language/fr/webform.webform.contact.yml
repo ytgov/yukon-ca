@@ -1,1 +1,3 @@
 title: Renseignements
+settings:
+  confirmation_message: 'Votre message a été envoyé.'

@@ -450,7 +450,9 @@ display:
           admin_label: ''
           plugin_id: text
           empty: true
-          content: Array
+          content:
+            value: 'There is no content available for you to edit.'
+            format: plain_text
           tokenize: false
       sorts:
         changed:
@@ -496,9 +498,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -537,9 +536,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -579,9 +575,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -698,6 +691,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:
@@ -734,7 +728,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1111,9 +1105,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1155,11 +1146,13 @@ display:
           admin_label: ''
           plugin_id: text
           empty: false
-          content: Array
+          content:
+            value: '<h3>Recent content</h3>'
+            format: full_html
           tokenize: false
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1176,7 +1169,7 @@ display:
       display_description: 'The embedded view for use on a landing page'
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
