@@ -29,7 +29,3 @@ These came up during the work but are genuinely optional, and outside the scope 
 - **A broader code review of the site's theme and custom modules.** A few small quality issues turned up in the theme code while testing this upgrade (including the item above). None are urgent, but there may be value in a dedicated review pass to catch anything else similar, when time allows.
 - **A general review of roles and permissions.** Not urgent — you've already indicated this can wait until after the existing permissions issues (#955/#956) are addressed, but it's worth keeping on the list.
 - **French text sanity check.** Two admin-only dashboard labels had corrupted text that we had to rewrite from scratch (no original version to recover). It's not public-facing, but a fluent French speaker double-checking the wording at some point wouldn't hurt.
-
-## Where things stand
-
-The upgrade is deployed to UAT and ready for your review. No known issues are blocking a production deployment once you're satisfied with testing.
