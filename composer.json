@@ -137,6 +137,9 @@
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
+            },
+            "drupal/fontawesome": {
+                "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff"
             }
         },
         "installer-paths": {
