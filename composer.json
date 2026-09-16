@@ -147,7 +147,8 @@
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
             },
             "drupal/fontawesome": {
-                "3456861 - Empty Settings data unserialize issues with migrated content": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff"
+                "3456861 - Empty Settings data unserialize issues with migrated content": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
+                "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff"
             },
             "drupal/field_group": {
                 "3111107 - Fix translations label/description": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch"
