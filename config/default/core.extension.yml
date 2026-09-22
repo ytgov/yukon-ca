@@ -180,6 +180,7 @@ module:
   password_policy: 10
   views: 10
   paragraphs: 11
+  paragraphs_asymmetric_translation_widgets: 0
   minimal: 1000
 theme:
   stark: 0
