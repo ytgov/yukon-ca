@@ -1,5 +1,5 @@
 {
-    "_hash": "207657152f76b5e09754bec4eb1c58affe14e52fff835c1786f98f8b637a50d2",
+    "_hash": "fb0b9f4d1ad1d47387127c9b817b19618b167074665322ba9b785f042d033cf7",
     "patches": {
         "drupal/core": [
             {
@@ -131,6 +131,16 @@
                 "description": "3456861 - Empty Settings data unserialize issues with migrated content",
                 "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/35.diff",
                 "sha256": "136a898eef87873602993a44389be5978b85787aa039142c7403520f27d4df88",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/fontawesome",
+                "description": "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings",
+                "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff",
+                "sha256": "7c138c13591d2c1d8ac1fee9436cdaa9dd4786da3a4e3b8dcfd7a8b2540aff12",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
