@@ -8,7 +8,7 @@ dependencies:
     - taxonomy.vocabulary.region
     - taxonomy.vocabulary.site_type
   content:
-    - 'taxonomy_term:media_folders:13e4e99a-8536-4db7-b3ea-d8ef20b7a033'
+    - 'taxonomy_term:media_folders:b6bdef63-53c8-493f-84d5-aff6df365814'
     - 'taxonomy_term:site_type:5ee2d4d2-58e3-4ee9-ad2c-f0590d920133'
     - 'taxonomy_term:site_type:7fce702e-74bd-4319-bbc1-08a1fc81fed2'
     - 'taxonomy_term:site_type:c0232155-6c23-4e64-abdb-f326d79cb87e'
@@ -126,6 +126,9 @@ display:
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_breakpoint: ''
+              auto_submit_sort_only: false
             filter:
               field_campground_site_type_target_id:
                 plugin_id: default
@@ -136,6 +139,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_region_target_id:
                 plugin_id: default
                 advanced:
@@ -145,6 +153,11 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
       access:
         type: perm
         options:

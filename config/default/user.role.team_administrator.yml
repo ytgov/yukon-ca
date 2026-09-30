@@ -8,6 +8,7 @@ dependencies:
     - taxonomy.vocabulary.category
   module:
     - contextual
+    - field_permissions
     - filter
     - linkchecker
     - node
@@ -40,6 +41,8 @@ permissions:
   - 'edit terms in category'
   - 'use text format full_html'
   - 'use workbench access'
+  - 'view field_translation_status'
+  - 'view own field_translation_status'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view workbench access information'

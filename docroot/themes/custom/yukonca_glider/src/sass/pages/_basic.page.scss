@@ -2,23 +2,23 @@
     h3 {
         @apply text-[22px] leading-1.1 mt-3.75 pt-5;
     }
-    
-    aside:not(:has(#block-exposedform-news)) {
+
+    aside:not(:has(.views-exposed-form)) {
         @include media-breakpoint-down(md) {
             @apply hidden;
         }
     }
-    
+
     .region-content {
         ul,
         ol {
             @apply pl-12;
-            
+
             li {
                 @apply pl-2.5;
             }
         }
-        
+
         ul {
             @apply list-disc;
         }
@@ -32,7 +32,7 @@ main {
 		.layout-content {
 			.region-content {
 				@apply pt-0 pb-8 relative;
-				
+
 				table {
                     @apply border border-gray-600 w-full mb-6;
 
@@ -44,7 +44,7 @@ main {
                         }
                     }
 				}
-				
+
 				.block-goy-wildfire-low-bandwidth {
 				    .wildfire-container {
                         label {
@@ -52,18 +52,18 @@ main {
                         }
                     }
 				}
-				
+
 				#block-yukonca-glider-arrivalsblock,
 				#block-yukonca-glider-arrivalsdeparturesblock {
                     table {
                         &[data-striping="1"] {
     						@apply border-0;
                             caption-side: top;
-                            
+
                             caption {
     							@apply text-black-light
                             }
-                            
+
                             thead {
                                 tr {
                                     th {
@@ -71,24 +71,24 @@ main {
                                     }
                                 }
                             }
-                            
+
                             tbody {
                                 tr {
                                     &:nth-child(odd) {
     									@apply bg-gray-100;
                                     }
-                                    
+
                                     &:hover {
     									@apply bg-[#F0F0F0];
                                     }
-                                    
+
                                     td {
     									@apply border-0 p-2 leading-6 align-top border-t-1 border-gray-400;
-    									
+
     									&.temperature {
     									    @apply text-right;
     									}
-    									
+
     									&.flight-status-problem {
     									    @apply text-[#800]
     									}
@@ -98,13 +98,13 @@ main {
                         }
                     }
                 }
-				
+
 				// .media {
 				//     img {
 				//         @apply w-[300px];
 				//     }
 				// }
-				
+
 				// .field--name-field-image {
 				//     @apply absolute right-0 ml-[100px] mb-[50px];
 

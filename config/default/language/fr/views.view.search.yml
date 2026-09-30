@@ -11,8 +11,6 @@ display:
           expose:
             placeholder: Mots-clés
         type:
-          expose:
-            description: ''
           group_info:
             label: Par
             group_items:
@@ -27,8 +25,6 @@ display:
               6:
                 title: Blogues
         field_document_type:
-          expose:
-            description: ''
           group_info:
             group_items:
               1:

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - field_permissions
     - webform
 id: _webform_manager
 label: '+Webform Manager'
@@ -31,4 +32,6 @@ permissions:
   - 'edit webform twig'
   - 'edit webform variants'
   - 'view any webform submission'
+  - 'view field_translation_status'
+  - 'view own field_translation_status'
   - 'view own webform submission'

@@ -1,7 +1,10 @@
 uuid: 7aed2b63-718a-473f-9fa3-d76e0b341f42
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - ckeditor_media_resize
 _core:
   default_config_hash: mav19c_MqO1XWcuxbJk5nsjR0MR-iiWZfaJsxUZbRqs
 name: cke_media_resize_large

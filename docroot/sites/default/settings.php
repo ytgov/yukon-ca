@@ -796,15 +796,26 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_file_public_path'] = '';
 # $settings['migrate_file_private_path'] = '';
 
-require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 /**
- * IMPORTANT.
+ * Default config sync directory.
  *
- * Do not include additional settings here. Instead, add them to settings
- * included by `blt.settings.php`. See BLT's documentation for more detail.
- *
- * @link https://docs.acquia.com/blt/
+ * Overridden in settings.local.php on real deployments; set here as a
+ * fallback so local environments (e.g. ddev) that don't override it still
+ * point at the right directory instead of Drupal's generic default.
  */
+$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config/default';
+
+/**
+ * Default module config excludes.
+ *
+ * These are here just in case somebody enables one of these on the TEST or
+ * UAT servers for doing any diagnostic stuff there before going to PROD.
+ */
+$settings['config_exclude_modules'] = [
+  'devel',
+  'stage_file_proxy',
+  'upgrade_status'
+];
 
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = dirname(__FILE__) . '/settings.ddev.php';

@@ -33,3 +33,12 @@ administrator:
       dist/css/modules/administrator.module.min.css: { minified: false }
   js:
     dist/js/behaviors/administrator.min.js: { minified: false }
+
+search-zero-result:
+  version: 1.0
+  js:
+    dist/js/behaviors/search-zero-result.min.js: { minified: false }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
