@@ -5,16 +5,10 @@
   <div class="subcategory-links m-1 p-3 grow flex flex-col">
     <span class="font-bold">{{ "Top pages in this section"|t }}</span>
     <ul>
-      {% if level_2_link.0 %}
-        <li class="level_2-link">
-          {{ level_2_link }}
-        </li>
-      {% endif %}
-
       {% if links['#items'] %}
         {% for link in links['#items'] %}
           <li class="link-item">
-            {% if link.url is not empty %}
+            {% if link.url is not empty and (not max_links or loop.index <= max_links) %}
               {{ link(link.title, link.url, {'class': ['font-medium']}) }}
             {% endif %}
           </li>
@@ -22,16 +16,16 @@
       {% else %}
         {% for link in links %}
           <li class="link-item">
-            {% if link.url is not empty %}
+            {% if link.url is not empty and (not max_links or loop.index <= max_links) %}
               {{ link(link.title, link.url, {'class': ['font-medium']}) }}
             {% endif %}
           </li>
         {% endfor %}
       {% endif %}
     </ul>
-    {% if main_link.0['#url'].toString()%}
+    {% if cta_url %}
       <div class="link-item--see-more mt-auto">
-        <a class="btn btn-sm btn-primary" href="{{ main_link.0['#url'].toString() }}">{{ "See more in "|t }} {{ main_link.0['#title']|t }}</a>
+        <a class="btn btn-sm btn-primary" href="{{ cta_url.toString() }}">{{ "See all pages"|t }}</a>
       </div>
     {% endif %}
   </div>

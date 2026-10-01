@@ -39,15 +39,15 @@
  */
 #}
 
-{% set l2_is_heading = content.field_use_landing_page_level_2_a['#items'][0].value %}
-{% set heading = l2_is_heading ? content.field_landing_page_level_2 : content.field_category_title %}
-{% set l2_link = l2_is_heading ? '' : content.field_landing_page_level_2 %}
+{% set l2 = content.field_landing_page_level_2.0 %}
+{% set heading = paragraph.field_category_title.value ?: l2['#title'] %}
 
 {{
   pattern('column_layout_card', {
     main_link: heading,
-    level_2_link: l2_link,
+    cta_url: l2['#url'],
     links: content.field_subcategory_links,
+    max_links: 5,
   })
 }}
 {% if landing_page_l2_count > 5 and landing_page_l2_count %}

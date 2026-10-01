@@ -17,7 +17,7 @@ provider: null
 plugin: 'menu_block:main'
 settings:
   id: 'menu_block:main'
-  label: 'A to Z of [current-page:title]'
+  label: 'Browse by topic'
   label_display: visible
   provider: menu_block
   follow: true
