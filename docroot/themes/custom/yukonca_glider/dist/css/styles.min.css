@@ -1742,9 +1742,6 @@ h6,
 .\!ml-0{
   margin-left: 0px !important;
 }
-.mb-1{
-  margin-bottom: 0.25rem;
-}
 .mb-0{
   margin-bottom: 0px;
 }
@@ -2164,6 +2161,9 @@ h6,
 .pt-20{
   padding-top: 5rem;
 }
+.\!pt-0{
+  padding-top: 0px !important;
+}
 .pl-\[10px\]{
   padding-left: 10px;
 }
@@ -2327,6 +2327,9 @@ h6,
   --tw-shadow: inset 0 2px 4px 0 rgba(155,155,155,0.3);
   --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 /*! purgecss start ignore */
 /*
@@ -3822,6 +3825,27 @@ h1#heading{
 }
 .accordion .accordion-item:not(.inner) .accordion-body .chart-description .panel-group .panel .panel-body .field-name-field-source-notes > .field-items{
   margin-top: 15px;
+}
+
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button{
+  position: relative;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button:focus-visible {
+  outline: 2px solid #005A65;
+  outline-offset: -2px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button .l2-accordion__open{
+  position: absolute;
+  left: 15px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button .l2-accordion__closed{
+  position: absolute;
+  right: 15px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button.collapsed .l2-accordion__open, .l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button:not(.collapsed) .l2-accordion__closed{
+  display: none;
 }
 
 #block-yukonca-glider-peaktimes #block-yukonca-glider-peaktimes-heading{
