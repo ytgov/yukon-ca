@@ -3339,9 +3339,9 @@ h1#heading{
   border-color: rgb(0 90 101 / var(--tw-border-opacity));
 }
 .field.news-field-featured-image img{
-  float: right;
-  margin-left: 6rem;
   margin-bottom: 3rem;
+  height: auto;
+  max-width: 100%;
 }
 
 .region.region-sidebar-first .block-menu .block-title{

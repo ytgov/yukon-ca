@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.news_primary
     - field.field.node.news.body
     - field.field.node.news.field_backgrounder
     - field.field.node.news.field_category
@@ -82,7 +83,7 @@ content:
     type: entity_reference_entity_view
     label: above
     settings:
-      view_mode: default
+      view_mode: news_primary
       link: true
     third_party_settings: {  }
     weight: 0
