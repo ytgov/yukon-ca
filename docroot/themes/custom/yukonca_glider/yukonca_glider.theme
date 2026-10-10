@@ -208,7 +208,7 @@ function yukonca_glider_preprocess_block(&$variables) {
     $date = t('Last updated: @date', [
       '@date' => \Drupal::service('date.formatter')->format($node->getChangedTime(), 'custom', 'Y-m-d'),
     ]);
-    $variables['content']['#suffix'] = Markup::create('<div class="node-date-modified pb-4">' . $date . '</div>');
+    $variables['content']['#suffix'] = Markup::create('<div class="node-date-modified mb-5">' . $date . '</div>');
     $variables['content']['#cache']['tags'] = $node->getCacheTags();
   }
 }
