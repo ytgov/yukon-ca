@@ -201,6 +201,16 @@ function yukonca_glider_preprocess_block(&$variables) {
   }
   $current_path = \Drupal::service('path.current')->getPath();
   $variables['current_url'] = $current_path;
+
+  // Show the last-updated date under the page title. Block visibility already
+  // excludes the front page and landing pages.
+  if ($variables['plugin_id'] == 'page_title_block' && $node instanceof NodeInterface) {
+    $date = t('Last updated: @date', [
+      '@date' => \Drupal::service('date.formatter')->format($node->getChangedTime(), 'custom', 'Y-m-d'),
+    ]);
+    $variables['content']['#suffix'] = Markup::create('<div class="node-date-modified mb-5">' . $date . '</div>');
+    $variables['content']['#cache']['tags'] = $node->getCacheTags();
+  }
 }
 
 /**
@@ -1023,20 +1033,6 @@ function yukonca_glider_preprocess_page(&$variables) {
           }
         }
       }
-    }
-
-    // Do not show at Homepage.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}", $langcode);
-    $front_page_setting = \Drupal::getContainer()->get('config.factory')->get('system.site')->get('page.front');
-    if (empty($variables['is_front']) && $front_page_setting != $current_path && $front_page_setting != $current_alias) {
-      // Get node modified date and populate it to display at the bottom of the
-      // page in template files.
-      $modified_date = $node->get('changed')->value;
-      $variables['node_date_modified'] = t(
-        'Date modified: @date',
-        ['@date' => \Drupal::getContainer()->get('date.formatter')->format($modified_date, 'custom', 'Y-m-d')]
-      );
     }
 
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
