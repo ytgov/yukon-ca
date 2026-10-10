@@ -1,0 +1,15 @@
+uuid: 04eb3b07-97b3-412d-8aa0-5e63162a90b2
+langcode: en
+status: true
+dependencies: {  }
+name: news_primary
+label: 'News primary (800 wide)'
+effects:
+  b3faf764-bb2d-492d-990e-16646d51e5b0:
+    uuid: b3faf764-bb2d-492d-990e-16646d51e5b0
+    id: image_scale
+    weight: 0
+    data:
+      width: 800
+      height: null
+      upscale: false
