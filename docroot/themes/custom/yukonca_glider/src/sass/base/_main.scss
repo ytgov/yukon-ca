@@ -124,7 +124,16 @@ h1#heading {
     img {
       @apply mb-12 h-auto w-full;
     }
+
+    // Keep the caption close to the image when there is one.
+    &:has(+ .field--name-field-featured-image-caption) img {
+      @apply mb-3;
+    }
   }
+}
+
+.field--name-field-featured-image-caption {
+  @apply mb-12 text-sm text-gray-450;
 }
 
 .region {

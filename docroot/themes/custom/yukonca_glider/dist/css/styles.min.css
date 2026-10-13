@@ -3343,6 +3343,17 @@ h1#heading{
   height: auto;
   width: 100%;
 }
+.field.news-field-featured-image:has(+ .field--name-field-featured-image-caption) img{
+  margin-bottom: 0.75rem;
+}
+
+.field--name-field-featured-image-caption{
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(74 74 74 / var(--tw-text-opacity));
+}
 
 .region.region-sidebar-first .block-menu .block-title{
   margin-top: 0.9375rem;

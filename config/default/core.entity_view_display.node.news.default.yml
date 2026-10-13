@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.news.field_editor_publisher
     - field.field.node.news.field_featured_content
     - field.field.node.news.field_featured_image
+    - field.field.node.news.field_featured_image_caption
     - field.field.node.news.field_featured_to_homepage
     - field.field.node.news.field_meta_tags
     - field.field.node.news.field_news_logos
@@ -86,7 +87,15 @@ content:
       view_mode: news_primary
       link: true
     third_party_settings: {  }
-    weight: 0
+    weight: -2
+    region: content
+  field_featured_image_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -1
     region: content
   field_news_logos:
     type: entity_reference_entity_view
