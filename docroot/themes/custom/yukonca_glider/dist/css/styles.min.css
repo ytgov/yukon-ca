@@ -3341,7 +3341,7 @@ h1#heading{
 .field.news-field-featured-image img{
   margin-bottom: 3rem;
   height: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 .region.region-sidebar-first .block-menu .block-title{
