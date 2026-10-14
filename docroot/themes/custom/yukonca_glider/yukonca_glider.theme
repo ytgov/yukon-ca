@@ -1273,6 +1273,21 @@ function yukonca_glider_preprocess_views_view_field(&$variables) {
 
   $anchor = '#occurrence-' . $occurrence_delta;
   $output = preg_replace('/(class="event-info--title"><a[^>]+href=")([^"#]*)(")/i', '$1$2' . $anchor . '$3', (string) $variables['output']);
+
+  // Show this occurrence's time on its own line under the date, in the same
+  // format as the event detail page (e.g. "2 pm to 3:30 pm").
+  $item = $node->field_event_start_time[$occurrence_delta] ?? NULL;
+  if ($item && !empty($item->value)) {
+    $timezone = new \DateTimeZone('America/Whitehorse');
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $start = (new \DateTime($item->value, new \DateTimeZone('UTC')))->setTimezone($timezone);
+    $time = yukonca_glider_utility_format_time_minutes_optional($langcode, $start);
+    if (!empty($item->end_value) && $item->end_value !== $item->value) {
+      $end = (new \DateTime($item->end_value, new \DateTimeZone('UTC')))->setTimezone($timezone);
+      $time .= ' ' . t('to') . ' ' . yukonca_glider_utility_format_time_minutes_optional($langcode, $end);
+    }
+    $output = preg_replace('/(class="event-info--meta">[^<]*)<br>/', '$1<br>' . $time . '<br>', $output, 1);
+  }
   $variables['output'] = Markup::create($output);
 }
 
