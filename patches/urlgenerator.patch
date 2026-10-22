@@ -2,8 +2,8 @@ diff --git a/core/lib/Drupal/Core/Routing/UrlGenerator.php b/core/lib/Drupal/Cor
 index c0763fe0..edff46b1 100644
 --- a/core/lib/Drupal/Core/Routing/UrlGenerator.php
 +++ b/core/lib/Drupal/Core/Routing/UrlGenerator.php
-@@ -206,7 +206,7 @@ class UrlGenerator implements UrlGeneratorInterface {
-           // check requirement
+@@ -206,7 +206,7 @@
+           // Check requirement
            if (!preg_match('#^' . $token[2] . '$#', $mergedParams[$token[3]])) {
              $message = sprintf('Parameter "%s" for route "%s" must match "%s" ("%s" given) to generate a corresponding URL.', $token[3], $name, $token[2], $mergedParams[$token[3]]);
 -            throw new InvalidParameterException($message);

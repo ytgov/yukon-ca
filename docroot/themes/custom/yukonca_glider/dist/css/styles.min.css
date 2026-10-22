@@ -3689,6 +3689,10 @@ h1#heading{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.diff-responsive-table-wrapper .yukon-accordion__buttons{
+  display: none;
+}
+
 .accordion .accordion-item:not(.inner){
   margin-top: 5px;
   border-radius: 0.25rem;

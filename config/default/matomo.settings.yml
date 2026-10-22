@@ -52,7 +52,7 @@ custom:
       scope: visit
 codesnippet:
   before: ''
-  after: ''
+  after: "_paq.push(['enableHeartBeatTimer', 15]);"
 translation_set: false
 disable_tracking: false
 cache: false
