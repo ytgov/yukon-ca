@@ -472,11 +472,36 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $section_paragraphs = !empty($variables["content"]["field_paragraphs"]) ? array_column($variables["content"]["field_paragraphs"], '#paragraph') : [];
   $node = $variables['node'];
 
+  $block_manager = \Drupal::service('plugin.manager.block');
+  $renderer = \Drupal::service('renderer');
+
   $variables['tabs']['items'] = [];
   foreach ($section_paragraphs as $paragraph) {
+    // The Flexible Table Of Contents block for this field requires an
+    // "entity:paragraph" context, which nothing on this site provides to
+    // Block Layout (paragraphs have no canonical route), so the block can
+    // never be placed through /admin/structure/block. Render it here
+    // instead, supplying this tab's own paragraph as context directly.
+    $toc_markup = '';
+    // The plugin only exists once the field's ToC setting is imported;
+    // without it createInstance() returns a Broken block, so skip.
+    $toc_plugin_id = 'text_long_field_toc_block:paragraph:multi_step:field_section_content';
+    if ($block_manager->hasDefinition($toc_plugin_id)) {
+      $toc_block = $block_manager->createInstance($toc_plugin_id, []);
+      $toc_block->setContextValue('entity', $paragraph);
+      if ($toc_block->access(\Drupal::currentUser())) {
+        $toc_build = $toc_block->build();
+        if ($toc_build) {
+          // build() skips the block template, so add the wrapper and title
+          // the Basic page block gets from it.
+          $toc_markup = '<div class="anchor-list"><h2 class="block-title">' . t('On this page:') . '</h2>' . $renderer->renderRoot($toc_build) . '</div>';
+        }
+      }
+    }
+
     $variables['tabs']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
-      'content' => check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
+      'content' => $toc_markup . check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
     ];
   }
 

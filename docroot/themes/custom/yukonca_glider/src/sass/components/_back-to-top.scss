@@ -1,0 +1,26 @@
+/* Restyle the module's grey image button as a teal circle with a CSS arrow. */
+button#backtotop {
+  background: $color-blue200;
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+
+  &::after {
+    border-left: 3px solid #FFF;
+    border-top: 3px solid #FFF;
+    content: "";
+    height: 14px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -30%) rotate(45deg);
+    width: 14px;
+  }
+
+  /* The module's CSS removes the focus outline (`#backtotop:focus`). */
+  &:focus-visible {
+    opacity: 1;
+    outline: 3px solid $color-blue200;
+    outline-offset: 3px;
+  }
+}

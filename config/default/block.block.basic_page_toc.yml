@@ -1,0 +1,34 @@
+uuid: 0e5827f1-ec2c-4892-a789-0a432cee4fe2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.basic_page.body
+  module:
+    - block_class
+    - node
+    - table_of_contents
+  theme:
+    - yukonca_glider
+id: basic_page_toc
+theme: yukonca_glider
+region: content
+weight: -30
+provider: null
+plugin: 'text_long_field_toc_block:node:basic_page:body'
+settings:
+  id: 'text_long_field_toc_block:node:basic_page:body'
+  label: 'On this page:'
+  label_display: visible
+  provider: table_of_contents
+  context_mapping:
+    entity: '@node.node_route_context:node'
+    language: '@language.current_language_context:language_interface'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      basic_page: basic_page

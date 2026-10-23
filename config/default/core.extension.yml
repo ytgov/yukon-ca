@@ -8,6 +8,7 @@ module:
   ajax_comments: 0
   allowed_formats: 0
   anchor_link: 0
+  back_to_top: 0
   better_exposed_filters: 0
   big_pipe: 0
   bigmenu: 0
@@ -130,6 +131,7 @@ module:
   smtp: 0
   svg_image: 0
   system: 0
+  table_of_contents: 0
   taxonomy: 0
   text: 0
   time_field: 0

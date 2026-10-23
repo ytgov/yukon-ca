@@ -8189,6 +8189,31 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
   margin-left: 0;
 }
 
+/* Restyle the module's grey image button as a teal circle with a CSS arrow. */
+button#backtotop {
+  background: #005A65;
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+  /* The module's CSS removes the focus outline (`#backtotop:focus`). */
+}
+button#backtotop::after {
+  border-left: 3px solid #FFF;
+  border-top: 3px solid #FFF;
+  content: "";
+  height: 14px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -30%) rotate(45deg);
+  width: 14px;
+}
+button#backtotop:focus-visible {
+  opacity: 1;
+  outline: 3px solid #005A65;
+  outline-offset: 3px;
+}
+
 /* Styles here */
 #header-main-navigaion{
   right: -18px;
@@ -8206,6 +8231,41 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
 
 .menu {
   color: #000;
+}
+
+/* "On this page" anchor navigation (Flexible Table Of Contents block). */
+/* Scoped under .region.region-content to beat `.page-node-type-* .region-content` rules. */
+.region.region-content div.anchor-list {
+  background-color: #F4F4F4;
+  margin: 32px 0;
+  padding: 28px;
+  /* `ul li` outranks `.field__content ul li { list-style: disc }` on Multi-step pages. */
+}
+.region.region-content div.anchor-list h2.block-title {
+  margin: 0 0 16px;
+  padding: 0;
+}
+.region.region-content div.anchor-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.region.region-content div.anchor-list ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 10px;
+}
+.region.region-content div.anchor-list ul li:last-child {
+  padding-bottom: 0;
+}
+.region.region-content div.anchor-list a {
+  text-decoration: none;
+}
+.region.region-content div.anchor-list a::before {
+  content: "— ";
+}
+.region.region-content div.anchor-list a:hover, .region.region-content div.anchor-list a:focus {
+  text-decoration: underline;
 }
 
 .applied_filters{
