@@ -3339,9 +3339,20 @@ h1#heading{
   border-color: rgb(0 90 101 / var(--tw-border-opacity));
 }
 .field.news-field-featured-image img{
-  float: right;
-  margin-left: 6rem;
   margin-bottom: 3rem;
+  height: auto;
+  width: 100%;
+}
+.field.news-field-featured-image:has(+ .field--name-field-featured-image-caption) img{
+  margin-bottom: 0.75rem;
+}
+
+.field--name-field-featured-image-caption{
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(74 74 74 / var(--tw-text-opacity));
 }
 
 .region.region-sidebar-first .block-menu .block-title{

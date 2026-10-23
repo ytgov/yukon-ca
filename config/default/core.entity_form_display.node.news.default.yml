@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_editor_publisher
     - field.field.node.news.field_featured_content
     - field.field.node.news.field_featured_image
+    - field.field.node.news.field_featured_image_caption
     - field.field.node.news.field_featured_to_homepage
     - field.field.node.news.field_meta_tags
     - field.field.node.news.field_news_logos
@@ -180,6 +181,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_featured_image_caption:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_featured_to_homepage:
     type: boolean_checkbox
