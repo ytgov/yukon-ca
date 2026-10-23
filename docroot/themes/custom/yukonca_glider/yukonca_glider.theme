@@ -620,6 +620,9 @@ function yukonca_glider_preprocess_page(&$variables) {
     $variables['content_type'] = $node->bundle();
     if ($node->bundle() == 'topics_page') {
       $variables['type'] = "topics_page";
+      $variables['node_date_modified'] = t('Last updated: @date', [
+        '@date' => \Drupal::service('date.formatter')->format($node->getChangedTime(), 'custom', 'Y-m-d'),
+      ]);
     }
 
     if ($node->bundle() == 'basic_page') {
