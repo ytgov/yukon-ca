@@ -180,4 +180,28 @@
       });
     },
   };
+
+  /**
+   * Stop CSS smooth scrolling fighting the back_to_top module's own animation.
+   *
+   * The module sets scrollTop every frame; with `scroll-behavior: smooth` on
+   * html each write is smoothed again, so the scroll crawls before it moves.
+   */
+  Drupal.behaviors.backToTopScroll = {
+    attach (context) {
+      once('backToTopScroll', 'html', context).forEach((html) => {
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('#backtotop')) {
+            return;
+          }
+          const settings = drupalSettings.back_to_top || {};
+          const speed = settings.back_to_top_speed || 1200;
+          html.style.scrollBehavior = 'auto';
+          setTimeout(() => {
+            html.style.scrollBehavior = '';
+          }, Number(speed) + 100);
+        }, true);
+      });
+    },
+  };
 }(jQuery, Drupal, window.once));
