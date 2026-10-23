@@ -34,7 +34,9 @@ Chosen over **Content ToC** (`drupal/content_toc`, stable 1.0.4, D10.3+/D11) mai
 
 Neither module's project page documents styling, sticky behavior, scroll-highlighting, or multilingual handling — this needs hands-on verification in ddev before implementation is considered done, especially given this site is bilingual (EN/FR) and the ToC label now comes from whatever text an editor wrapped in the anchor (translation of that wrapped text needs checking, not just translation of a template string).
 
-**Basic page:** apply the formatter to the node's `body` field, selector `a.ck-anchor`.
+**Basic page:** apply the formatter to the node's `body` field, selector `a[id]:not([id=""]):not([href]):not([name])`.
+
+> **Selector changed from `a.ck-anchor`.** anchor_link 3.0.x no longer writes the editor-only `ck-anchor` class to saved content (only anchors saved before the update still have it), and an unnamed anchor is saved as `id=""`. Everywhere above that says `a.ck-anchor` should be read as this selector: it matches old and new anchors, skips blank ids, and skips legacy `<a id name>` anchors. The same selector is needed on the `multi_step` paragraph's `field_section_content` once that config exists.
 
 **Multi-step page:** apply the formatter to `field_section_content` on the **`multi_step` paragraph type's own view display** (Manage Display for the paragraph bundle) — not the node's `body` field, since body is just a tab summary. This gives each tab its own scoped, in-tab TOC generated from that tab's own editor-placed anchors. Note this produces one TOC per tab, not one combined nav across the whole node — matches the tabbed UI shape rather than a single scrolling page.
 

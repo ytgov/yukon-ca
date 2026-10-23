@@ -15,7 +15,7 @@ third_party_settings:
     allowed_formats: {  }
   table_of_contents:
     toc_block: true
-    toc_selector: a.ck-anchor
+    toc_selector: 'a[id]:not([id=""]):not([href]):not([name])'
   tmgmt_content:
     excluded: false
 id: node.basic_page.body
