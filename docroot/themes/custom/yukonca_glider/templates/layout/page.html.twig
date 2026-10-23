@@ -79,6 +79,13 @@
         variant: 'image',
       })
     }}
+    {% if node_date_modified %}
+      <div class="container">
+        <div class="node-date-modified mb-5">
+          {{ node_date_modified }}
+        </div>
+      </div>
+    {% endif %}
   {% elseif header_image %}
     {{
       pattern('hero', {
@@ -154,18 +161,6 @@
 
     {% if page.post_content %}
       {{ page.post_content }}
-    {% endif %}
-
-    {% if node_date_modified %}
-      {# <div class="node-date-modified py-4">
-        {{ node_date_modified }}
-      </div> #}
-    {% endif %}
-
-    {% if node_date_modified %}
-      <div class="node-date-modified py-4">
-        {{ node_date_modified }}
-      </div>
     {% endif %}
 
   </main>

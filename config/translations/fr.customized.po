@@ -1386,8 +1386,8 @@ msgstr "Nov"
 msgid "Dec"
 msgstr "Déc"
 
-msgid "Date modified: @date"
-msgstr "Date de modification : @date"
+msgid "Last updated: @date"
+msgstr "Dernière mise à jour : @date"
 
 msgid "Sunday"
 msgstr "dimanche"
