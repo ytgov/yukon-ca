@@ -1,7 +1,7 @@
 /* "On this page" anchor navigation (Flexible Table Of Contents block). */
 
 /* Scoped under .region.region-content to beat `.page-node-type-* .region-content` rules. */
-.region.region-content .anchor-list {
+.region.region-content div.anchor-list {
   background-color: #F4F4F4;
   margin: 32px 0;
   padding: 28px;
@@ -11,13 +11,15 @@
     padding: 0;
   }
 
-  .item-list ul {
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  li {
+  /* `ul li` outranks `.field__content ul li { list-style: disc }` on Multi-step pages. */
+  ul li {
+    list-style: none;
     margin: 0;
     padding: 0 0 10px;
 

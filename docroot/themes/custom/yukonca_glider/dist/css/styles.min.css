@@ -8210,34 +8210,36 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
 
 /* "On this page" anchor navigation (Flexible Table Of Contents block). */
 /* Scoped under .region.region-content to beat `.page-node-type-* .region-content` rules. */
-.region.region-content .anchor-list {
+.region.region-content div.anchor-list {
   background-color: #F4F4F4;
   margin: 32px 0;
   padding: 28px;
+  /* `ul li` outranks `.field__content ul li { list-style: disc }` on Multi-step pages. */
 }
-.region.region-content .anchor-list h2.block-title {
+.region.region-content div.anchor-list h2.block-title {
   margin: 0 0 16px;
   padding: 0;
 }
-.region.region-content .anchor-list .item-list ul {
+.region.region-content div.anchor-list ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.region.region-content .anchor-list li {
+.region.region-content div.anchor-list ul li {
+  list-style: none;
   margin: 0;
   padding: 0 0 10px;
 }
-.region.region-content .anchor-list li:last-child {
+.region.region-content div.anchor-list ul li:last-child {
   padding-bottom: 0;
 }
-.region.region-content .anchor-list a {
+.region.region-content div.anchor-list a {
   text-decoration: none;
 }
-.region.region-content .anchor-list a::before {
+.region.region-content div.anchor-list a::before {
   content: "— ";
 }
-.region.region-content .anchor-list a:hover, .region.region-content .anchor-list a:focus {
+.region.region-content div.anchor-list a:hover, .region.region-content div.anchor-list a:focus {
   text-decoration: underline;
 }
 
