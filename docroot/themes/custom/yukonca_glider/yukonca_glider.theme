@@ -206,6 +206,20 @@ function yukonca_glider_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function yukonca_glider_preprocess_image_formatter(&$variables) {
+  // Open the news primary image (links to the original file) in a new tab.
+  if ($variables['image_style'] === 'news_primary' && $variables['url'] instanceof Url) {
+    $variables['url']->setOption('attributes', [
+      'target' => '_blank',
+      'rel' => 'noopener',
+      'aria-label' => t('@alt (opens in a new tab)', ['@alt' => $variables['item']->alt]),
+    ]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function yukonca_glider_preprocess_page__node__blog(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
