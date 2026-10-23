@@ -58,6 +58,14 @@ settings:
       enable_show_block_default: 0
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    ckeditor_link_styles_linkStyles:
+      styles:
+        -
+          label: 'Primary button'
+          element: '<a class="btn btn-primary">'
+        -
+          label: 'Secondary button'
+          element: '<a class="btn btn-default">'
     ckeditor_media_resize_mediaResize:
       apply_image_styles: false
       image_styles:
