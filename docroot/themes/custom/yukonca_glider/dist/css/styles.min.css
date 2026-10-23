@@ -8189,6 +8189,31 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
   margin-left: 0;
 }
 
+/* Restyle the module's grey image button as a teal circle with a CSS arrow. */
+button#backtotop {
+  background: #005A65;
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+  /* The module's CSS removes the focus outline (`#backtotop:focus`). */
+}
+button#backtotop::after {
+  border-left: 3px solid #FFF;
+  border-top: 3px solid #FFF;
+  content: "";
+  height: 14px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -30%) rotate(45deg);
+  width: 14px;
+}
+button#backtotop:focus-visible {
+  opacity: 1;
+  outline: 3px solid #005A65;
+  outline-offset: 3px;
+}
+
 /* Styles here */
 #header-main-navigaion{
   right: -18px;
