@@ -494,6 +494,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
               field_category_target_id:
                 plugin_id: default
                 advanced:
@@ -508,6 +509,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
               field_event_start_time_value:
                 plugin_id: bef_datepicker
                 advanced:
@@ -520,6 +522,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
               field_event_start_time_value_1:
                 plugin_id: default
                 advanced:
@@ -532,6 +535,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
               field_yukon_editorial_team_target_id:
                 plugin_id: default
                 advanced:
@@ -546,6 +550,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
       access:
         type: perm
         options:

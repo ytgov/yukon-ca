@@ -142,6 +142,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
               field_department_term_target_id:
                 plugin_id: default
                 advanced:
@@ -157,6 +158,7 @@ display:
                   open_by_default: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  no_reset: false
       access:
         type: perm
         options:
