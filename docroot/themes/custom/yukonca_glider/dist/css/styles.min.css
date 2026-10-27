@@ -6371,6 +6371,10 @@ aside .filters form .form-item .form-item{
 .page-node-type-campaign-page main .field__item .campaign-section.paragraph--type--text-and-image .minister_info_card{
   align-items: flex-start;
 }
+
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .carousel-item .minister_info_card {
+  grid-template-columns: 1fr;
+}
 .minister_info_card img{
   grid-column: span 1 / span 1;
   height: auto;
@@ -8026,6 +8030,13 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
 }
 .page-node-type-landing-page .column-layout-card .subcategory-links a{
   font-weight: 500;
+}
+
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .carousel-item .grid {
+  grid-template-columns: 1fr;
+}
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .slide-content{
+  padding-bottom: 3.5rem;
 }
 
 .page-node-type-homepage .view-id-news_listing .view-header .btn-link, .page-node-type-homepage .view-id-news_listing .view-header .more-link{
