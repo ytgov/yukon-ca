@@ -11,7 +11,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  *
  * When the default (English) translation of a node is published, any
  * non-default translation in the "Ready for Coordinated Publication" state
- * is automatically published at the same time.
+ * is automatically published at the same time. When the default translation
+ * is archived, all non-default translations are archived too.
  */
 class CoordinatedPublicationSubscriber implements EventSubscriberInterface {
 
@@ -45,6 +46,11 @@ class CoordinatedPublicationSubscriber implements EventSubscriberInterface {
 
     // Only apply to nodes.
     if (!$entity instanceof NodeInterface) {
+      return;
+    }
+
+    if ($event->getNewState() === 'archived') {
+      $this->archiveTranslations($entity);
       return;
     }
 
@@ -95,6 +101,54 @@ class CoordinatedPublicationSubscriber implements EventSubscriberInterface {
       \Drupal::messenger()->addStatus(t('The following translations were automatically published along with "@title": @langs.', [
         '@title' => $entity->label(),
         '@langs' => implode(', ', $auto_published),
+      ]));
+    }
+  }
+
+  /**
+   * Archives all non-default translations when the default one is archived.
+   *
+   * The event fires for any translation's state change but carries the
+   * default-translation entity, so check that translation's own state: this
+   * keeps archiving French alone from cascading to English. See
+   * docs/coordinated-translation-archiving.md.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The moderated node.
+   */
+  protected function archiveTranslations(NodeInterface $node): void {
+    $default = $node->getUntranslated();
+    if ($default->moderation_state->value !== 'archived') {
+      return;
+    }
+
+    $auto_archived = [];
+    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+    foreach ($default->getTranslationLanguages(FALSE) as $lang_code => $language) {
+      // Build from the language's own latest revision so a pending edit isn't
+      // bypassed by a default-revision snapshot.
+      $rid = $node_storage->getLatestTranslationAffectedRevisionId($default->id(), $lang_code);
+      $revision = $rid ? $node_storage->loadRevision($rid) : NULL;
+      if (!$revision instanceof NodeInterface || !$revision->hasTranslation($lang_code)) {
+        continue;
+      }
+      $translation = $revision->getTranslation($lang_code);
+      if ($translation->moderation_state->value === 'archived') {
+        continue;
+      }
+
+      $translation->set('moderation_state', 'archived');
+      $translation->setNewRevision(TRUE);
+      $translation->save();
+      $auto_archived[] = $language->getName();
+    }
+
+    if (!empty($auto_archived)) {
+      \Drupal::messenger()->addStatus(t('The following translations were automatically archived along with "@title": @langs.', [
+        '@title' => $default->label(),
+        '@langs' => implode(', ', $auto_archived),
       ]));
     }
   }
