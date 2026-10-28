@@ -123,18 +123,12 @@ class CoordinatedPublicationSubscriber implements EventSubscriberInterface {
     }
 
     $auto_archived = [];
-    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
-    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
+    // Every revision is a full snapshot of all translations, so build from the
+    // revision that was just saved. An older per-language revision would carry
+    // a stale default translation and silently re-publish it.
     foreach ($default->getTranslationLanguages(FALSE) as $lang_code => $language) {
-      // Build from the language's own latest revision so a pending edit isn't
-      // bypassed by a default-revision snapshot.
-      $rid = $node_storage->getLatestTranslationAffectedRevisionId($default->id(), $lang_code);
-      $revision = $rid ? $node_storage->loadRevision($rid) : NULL;
-      if (!$revision instanceof NodeInterface || !$revision->hasTranslation($lang_code)) {
-        continue;
-      }
-      $translation = $revision->getTranslation($lang_code);
+      $translation = $default->getTranslation($lang_code);
       if ($translation->moderation_state->value === 'archived') {
         continue;
       }
