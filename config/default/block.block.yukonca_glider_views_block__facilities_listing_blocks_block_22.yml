@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.facilities_listing_blocks
   module:
-    - block_class
     - system
     - views
   theme:

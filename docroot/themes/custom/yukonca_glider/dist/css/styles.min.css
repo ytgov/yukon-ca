@@ -3689,6 +3689,10 @@ h1#heading{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.diff-responsive-table-wrapper .yukon-accordion__buttons{
+  display: none;
+}
+
 .accordion .accordion-item:not(.inner){
   margin-top: 5px;
   border-radius: 0.25rem;
@@ -5130,6 +5134,15 @@ select{
   padding-bottom: 6px;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+/**
+ * The extlink module's own extlink.css sets `padding-left` on `extlink i`,
+ * which never matches the `<span class="fa-ext extlink">` markup it
+ * actually injects in Font Awesome mode. Re-apply the padding here.
+ */
+.extlink {
+  padding-left: 0.2em;
 }
 
 /*

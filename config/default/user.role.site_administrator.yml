@@ -56,6 +56,7 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
+    - field_permissions
     - field_ui
     - file
     - filter
@@ -67,6 +68,7 @@ dependencies:
     - menu_link_attributes
     - menu_link_content
     - metatag
+    - moderation_scheduler
     - node
     - page_manager
     - paragraphs
@@ -155,6 +157,7 @@ permissions:
   - 'create documents content'
   - 'create engagement content'
   - 'create event content'
+  - 'create field_translation_status'
   - 'create homepage content'
   - 'create icon media'
   - 'create image media'
@@ -250,7 +253,9 @@ permissions:
   - 'edit any topics_page content'
   - 'edit any video media'
   - 'edit any webform submission'
+  - 'edit field_translation_status'
   - 'edit linkchecker link settings'
+  - 'edit moderation scheduler field'
   - 'edit own audio media'
   - 'edit own blog content'
   - 'edit own campaign_page content'
@@ -262,6 +267,7 @@ permissions:
   - 'edit own documents content'
   - 'edit own engagement content'
   - 'edit own event content'
+  - 'edit own field_translation_status'
   - 'edit own homepage content'
   - 'edit own icon media'
   - 'edit own image media'
@@ -353,7 +359,9 @@ permissions:
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view basic_page revisions'
+  - 'view field_translation_status'
   - 'view latest version'
+  - 'view own field_translation_status'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view own webform submission'
