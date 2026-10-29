@@ -49,6 +49,23 @@ function yukon_base_form_node_form_alter(&$form, FormStateInterface $form_state)
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Gives the menu link form's Parent link the same hierarchical picker as the
+ * node form by reusing cshs_menu_link's own transformation.
+ */
+function yukon_base_form_menu_link_content_menu_link_content_form_alter(&$form, FormStateInterface $form_state) {
+  if (!function_exists('cshs_menu_link_form_node_form_alter') || empty($form['menu_parent'])) {
+    return;
+  }
+
+  // The cshs function expects the node form's element path.
+  $wrapper = ['menu' => ['link' => ['menu_parent' => $form['menu_parent']]]];
+  cshs_menu_link_form_node_form_alter($wrapper);
+  $form['menu_parent'] = $wrapper['menu']['link']['menu_parent'];
+}
+
+/**
  * Implements hook_views_data_alter().
  */
 function yukon_base_views_data_alter(array &$data) {
