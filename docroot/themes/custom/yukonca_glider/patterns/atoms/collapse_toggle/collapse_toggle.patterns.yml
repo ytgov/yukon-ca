@@ -1,0 +1,35 @@
+collapse_toggle:
+  label: 'Collapse Toggle'
+  description: A plain title with a chevron that expands/collapses its content, without the boxed accordion styling.
+  fields:
+    title:
+      type: text
+      label: Title
+      description: The toggle label.
+      preview: 'Section title'
+    content:
+      type: text
+      label: Content
+      description: Content revealed when expanded.
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    item_id:
+      type: text
+      label: Item id
+      description: 'Optional identifier for the toggle. Auto-generated when omitted.'
+      preview: ''
+    expanded:
+      type: boolean
+      label: Expanded
+      description: Whether the content is expanded by default.
+      preview: false
+    parent_id:
+      type: text
+      label: Parent id
+      description: 'ID of the ancestor element that groups this item with others for exclusive open/close (Bootstrap data-bs-parent).'
+      preview: ''
+  libraries:
+    -
+      collapse_toggle:
+        css:
+          component:
+            dist/css/styles.min.css: { minified: false }

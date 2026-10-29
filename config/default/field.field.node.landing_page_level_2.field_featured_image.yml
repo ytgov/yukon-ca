@@ -1,0 +1,34 @@
+uuid: 77b8b82b-0772-43c9-bbb0-7e5491228df9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_image
+    - media.type.image
+    - node.type.landing_page_level_2
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.landing_page_level_2.field_featured_image
+field_name: field_featured_image
+entity_type: node
+bundle: landing_page_level_2
+label: 'Primary image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

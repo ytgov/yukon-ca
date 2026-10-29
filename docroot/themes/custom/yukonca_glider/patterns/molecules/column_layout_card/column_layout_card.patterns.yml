@@ -13,17 +13,10 @@ column_layout_card:
           title: 'Suspendisse malesuada risus'
           url: <front>
           options: [ ]
-    level_2_link:
-      type: string
-      label: Level 2 link
-      description: A level 2 landingpage link.
-      preview:
-        '#type': 'inline_template'
-        '#template': '{{ drupal_link(title, url, options) }}'
-        '#context':
-          title: 'Suspendisse malesuada risus'
-          url: <front>
-          options: [ ]
+    cta_url:
+      type: mixed
+      label: See all pages URL
+      description: Level 2 landing page URL for the "See all pages" button.
     links:
       type: mixed
       label: Links
@@ -50,6 +43,10 @@ column_layout_card:
             title: 'Nulla sollicitudin dolor lectus'
             url: <front>
             options: [ ]
+    max_links:
+      type: number
+      label: Max links
+      description: Maximum number of links to list. Unlimited when empty.
   libraries:
     -
       column_layout_card:
