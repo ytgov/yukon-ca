@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_landing_page_level_2
+    - node.type.landing_page
     - node.type.landing_page_level_2
+    - node.type.topics_page
     - paragraphs.paragraphs_type.secondary_content
   module:
     - epp
@@ -16,8 +18,8 @@ id: paragraph.secondary_content.field_landing_page_level_2
 field_name: field_landing_page_level_2
 entity_type: paragraph
 bundle: secondary_content
-label: 'Landing page level 2'
-description: ''
+label: 'Page for the ''See all pages'' button'
+description: 'The card''s ''See all pages'' button links to this page. Choose a landing page, a landing page level 2, or a topics page.'
 required: false
 translatable: true
 default_value: {  }
@@ -26,7 +28,9 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
+      landing_page: landing_page
       landing_page_level_2: landing_page_level_2
+      topics_page: topics_page
     sort:
       field: _none
       direction: ASC
