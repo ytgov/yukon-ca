@@ -1,0 +1,6 @@
+uuid: 06e9f744-d5dd-4878-8f0a-fbf043b84939
+langcode: en
+status: true
+dependencies: {  }
+id: l2_landing_page_secondary_content
+label: 'L2 Landing Page - Secondary Content'

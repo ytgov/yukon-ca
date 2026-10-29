@@ -1626,6 +1626,9 @@ h6,
 .m-0{
   margin: 0px;
 }
+.m-1{
+  margin: 0.25rem;
+}
 .my-12{
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -1646,9 +1649,17 @@ h6,
   margin-left: 0px;
   margin-right: 0px;
 }
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .my-7{
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
+}
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 .my-4{
   margin-top: 1rem;
@@ -1661,6 +1672,15 @@ h6,
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.\!mt-0{
+  margin-top: 0px !important;
+}
+.mb-7\.5{
+  margin-bottom: 1.875rem;
+}
+.mb-7{
+  margin-bottom: 1.75rem;
 }
 .mb-6{
   margin-bottom: 1.5rem;
@@ -1707,23 +1727,20 @@ h6,
 .mt-\[10px\]{
   margin-top: 10px;
 }
-.mb-7\.5{
-  margin-bottom: 1.875rem;
-}
-.mb-7{
-  margin-bottom: 1.75rem;
-}
-.mt-\[30px\]{
-  margin-top: 30px;
-}
 .mt-7\.5{
   margin-top: 1.875rem;
 }
 .mt-7{
   margin-top: 1.75rem;
 }
+.mt-\[30px\]{
+  margin-top: 30px;
+}
 .mb-10{
   margin-bottom: 2.5rem;
+}
+.\!ml-0{
+  margin-left: 0px !important;
 }
 .mb-0{
   margin-bottom: 0px;
@@ -1737,8 +1754,8 @@ h6,
 .mb-2{
   margin-bottom: 0.5rem;
 }
-.mt-4{
-  margin-top: 1rem;
+.mt-auto{
+  margin-top: auto;
 }
 .mb-9{
   margin-bottom: 2.25rem;
@@ -1760,6 +1777,9 @@ h6,
 }
 .ml-5{
   margin-left: 1.25rem;
+}
+.mt-4{
+  margin-top: 1rem;
 }
 .mt-15{
   margin-top: 3.75rem;
@@ -1908,11 +1928,11 @@ h6,
 .gap-8{
   gap: 2rem;
 }
+.gap-9{
+  gap: 2.25rem;
+}
 .gap-3{
   gap: 0.75rem;
-}
-.gap-0{
-  gap: 0px;
 }
 .gap-5{
   gap: 1.25rem;
@@ -1923,9 +1943,6 @@ h6,
 .gap-x-9{
   -moz-column-gap: 2.25rem;
   column-gap: 2.25rem;
-}
-.gap-y-\[78px\]{
-  row-gap: 78px;
 }
 .gap-x-\[19px\]{
   -moz-column-gap: 19px;
@@ -2042,6 +2059,9 @@ h6,
 .p-\[10px\]{
   padding: 10px;
 }
+.p-3{
+  padding: 0.75rem;
+}
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2141,6 +2161,9 @@ h6,
 .pt-20{
   padding-top: 5rem;
 }
+.\!pt-0{
+  padding-top: 0px !important;
+}
 .pl-\[10px\]{
   padding-left: 10px;
 }
@@ -2183,6 +2206,10 @@ h6,
 .align-top{
   vertical-align: top;
 }
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -2193,10 +2220,6 @@ h6,
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .text-5xl{
   font-size: 3rem;
@@ -2227,6 +2250,9 @@ h6,
 }
 .font-normal{
   font-weight: 400;
+}
+.font-bold{
+  font-weight: 700;
 }
 .font-light{
   font-weight: 300;
@@ -2301,6 +2327,9 @@ h6,
   --tw-shadow: inset 0 2px 4px 0 rgba(155,155,155,0.3);
   --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 /*! purgecss start ignore */
 /*
@@ -3796,6 +3825,27 @@ h1#heading{
 }
 .accordion .accordion-item:not(.inner) .accordion-body .chart-description .panel-group .panel .panel-body .field-name-field-source-notes > .field-items{
   margin-top: 15px;
+}
+
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button{
+  position: relative;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button:focus-visible {
+  outline: 2px solid #005A65;
+  outline-offset: -2px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button .l2-accordion__open{
+  position: absolute;
+  left: 15px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button .l2-accordion__closed{
+  position: absolute;
+  right: 15px;
+}
+.l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button.collapsed .l2-accordion__open, .l2-accordion .accordion-item:not(.inner) .accordion-header .accordion-button:not(.collapsed) .l2-accordion__closed{
+  display: none;
 }
 
 #block-yukonca-glider-peaktimes #block-yukonca-glider-peaktimes-heading{
@@ -6321,6 +6371,10 @@ aside .filters form .form-item .form-item{
 .page-node-type-campaign-page main .field__item .campaign-section.paragraph--type--text-and-image .minister_info_card{
   align-items: flex-start;
 }
+
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .carousel-item .minister_info_card {
+  grid-template-columns: 1fr;
+}
 .minister_info_card img{
   grid-column: span 1 / span 1;
   height: auto;
@@ -7978,6 +8032,13 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
   font-weight: 500;
 }
 
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .carousel-item .grid {
+  grid-template-columns: 1fr;
+}
+.page-node-type-landing-page-level-2 .view-level-2-cta #image-gallery .slide-content{
+  padding-bottom: 3.5rem;
+}
+
 .page-node-type-homepage .view-id-news_listing .view-header .btn-link, .page-node-type-homepage .view-id-news_listing .view-header .more-link{
   font-weight: 500;
 }
@@ -8536,6 +8597,12 @@ main > .row .layout-content .block-views-blockplaces-listing-block-places-listin
   }
   .lg\:w-8\/12{
     width: 66.666667%;
+  }
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:gap-9{
+    gap: 2.25rem;
   }
   .lg\:pr-20{
     padding-right: 5rem;
