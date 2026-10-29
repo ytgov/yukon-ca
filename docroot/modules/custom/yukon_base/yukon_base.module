@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\yukon_base\MenuContextualLinks;
 
 /**
  * Implements hook_form_alter().
@@ -63,6 +64,18 @@ function yukon_base_form_menu_link_content_menu_link_content_form_alter(&$form, 
   $wrapper = ['menu' => ['link' => ['menu_parent' => $form['menu_parent']]]];
   cshs_menu_link_form_node_form_alter($wrapper);
   $form['menu_parent'] = $wrapper['menu']['link']['menu_parent'];
+}
+
+/**
+ * Implements hook_block_view_alter().
+ *
+ * Makes "Edit menu" on the L2 child menu block open the child menu editor for
+ * the current page's menu link.
+ */
+function yukon_base_block_view_alter(array &$build, $block) {
+  if (($build['#id'] ?? NULL) === 'yukonca_glider_l2_child_menu') {
+    $build['#pre_render'][] = [MenuContextualLinks::class, 'preRender'];
+  }
 }
 
 /**
