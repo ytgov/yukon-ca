@@ -5,6 +5,7 @@
  * Main module file.
  */
 
+use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -46,6 +47,51 @@ function yukon_base_form_node_form_alter(&$form, FormStateInterface $form_state)
   if ($entity->isPublished() && isset($form['revision_log']['widget'][0]['value'])) {
     $form['revision_log']['widget'][0]['value']['#required'] = TRUE;
   }
+}
+
+/**
+ * Form #process callback: defaults a blank event time zone to Whitehorse.
+ *
+ * The time zone select has no preselected value, so that blank occurrence rows
+ * stay empty. A row with a date or time but no time zone gets Whitehorse here,
+ * before the date widget would reject it as missing a time zone. This runs on
+ * the row element, ahead of its children's values, and also works for rows
+ * added with "Add another item" (form alters do not re-run for those).
+ *
+ * @see yukon_base_field_widget_single_element_date_recur_basic_widget_form_alter()
+ */
+function yukon_base_event_time_zone_process(array &$element, FormStateInterface $form_state, array &$complete_form) {
+  $input = $form_state->getUserInput();
+  $row = NestedArray::getValue($input, $element['#parents']);
+  if (is_array($row) && ($row['timezone'] ?? NULL) === ''
+    && (!empty($row['value']['date']) || !empty($row['value']['time'])
+      || !empty($row['end_value']['date']) || !empty($row['end_value']['time']))) {
+    NestedArray::setValue($input, array_merge($element['#parents'], ['timezone']), 'America/Whitehorse');
+    $form_state->setUserInput($input);
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_widget_single_element_WIDGET_TYPE_form_alter().
+ *
+ * For event dates: drop the seconds from the time inputs and label the blank
+ * time zone option as Whitehorse (refs #1184).
+ */
+function yukon_base_field_widget_single_element_date_recur_basic_widget_form_alter(array &$element, FormStateInterface $form_state, array $context) {
+  if ($context['items']->getName() !== 'field_event_start_time') {
+    return;
+  }
+
+  // A one-minute increment makes the browser show hours and minutes only.
+  $element['value']['#date_increment'] = 60;
+  $element['end_value']['#date_increment'] = 60;
+
+  // Leaving the time zone blank means Whitehorse; see
+  // yukon_base_event_time_zone_process(). Preselecting it would make blank rows
+  // count as filled in and fail validation.
+  $element['timezone']['#empty_option'] = t('Whitehorse (default)');
+  $element['#process'][] = 'yukon_base_event_time_zone_process';
 }
 
 /**
