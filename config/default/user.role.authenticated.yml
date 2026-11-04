@@ -2,8 +2,11 @@ uuid: e53d83d3-d481-468b-9c0a-fabb098b4b26
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.webform_default
   module:
     - comment
+    - filter
     - matomo
     - media
     - system
@@ -18,5 +21,6 @@ permissions:
   - 'access content'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
+  - 'use text format webform_default'
   - 'view media'
   - 'view media'

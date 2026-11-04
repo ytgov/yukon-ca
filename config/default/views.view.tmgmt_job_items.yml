@@ -622,6 +622,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:
@@ -638,7 +639,7 @@ display:
       rendering_language: '***LANGUAGE_entity_default***'
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -900,10 +901,12 @@ display:
       rendering_language: '***LANGUAGE_entity_default***'
       display_extenders: {  }
     cache_metadata:
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
+      tags: {  }
       cacheable: false
   submitted:
     id: submitted
@@ -915,8 +918,10 @@ display:
       rendering_language: '***LANGUAGE_entity_default***'
       display_extenders: {  }
     cache_metadata:
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
+      tags: {  }
       cacheable: false
