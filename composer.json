@@ -76,6 +76,7 @@
         "drupal/openid_connect": "3.0.0-alpha9",
         "drupal/page_manager": "^4.0@RC",
         "drupal/paragraphs": "^1.12",
+        "drupal/paragraphs_asymmetric_translation_widgets": "^1.4",
         "drupal/password_policy": "^4.0",
         "drupal/pathauto": "^1.11",
         "drupal/pathologic": "^2.0@alpha",
@@ -117,7 +118,7 @@
         "drupal/workbench_access": "^2.0",
         "drupal/workbench_email": "^3.0",
         "drush/drush": "*",
-        "enshrined/svg-sanitize": "^0.22.0",
+        "enshrined/svg-sanitize": "^1.0",
         "evolvingweb/blinker_addons": "^2.4",
         "evolvingweb/blinker_core": "^2.0",
         "evolvingweb/glider": "^3.6",
@@ -136,6 +137,9 @@
             },
             "drupal/token": {
                 "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
+            },
+            "drupal/fontawesome": {
+                "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff"
             }
         },
         "installer-paths": {
