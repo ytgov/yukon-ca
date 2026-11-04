@@ -43,8 +43,20 @@ function yukon_base_form_alter(&$form, FormStateInterface $form_state, $form_id)
  * Implements hook_form_BASE_FORM_ID_alter() for node_form.
  */
 function yukon_base_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  if (!isset($form['revision_log']['widget'][0]['value'])) {
+    return;
+  }
+
+  // Base the check on the default (live) revision, not the revision the form
+  // loaded: a published page with a pending draft loads the draft, which is
+  // unpublished. New content and never-published drafts stay optional.
   $entity = $form_state->getFormObject()->getEntity();
-  if ($entity->isPublished() && isset($form['revision_log']['widget'][0]['value'])) {
+  if ($entity->isNew()) {
+    return;
+  }
+  $default = \Drupal::entityTypeManager()->getStorage('node')->load($entity->id());
+  $langcode = $entity->language()->getId();
+  if ($default && $default->hasTranslation($langcode) && $default->getTranslation($langcode)->isPublished()) {
     $form['revision_log']['widget'][0]['value']['#required'] = TRUE;
   }
 }
