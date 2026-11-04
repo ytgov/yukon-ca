@@ -5841,7 +5841,7 @@ h3{
   margin-bottom: 1rem;
   cursor: pointer;
 }
-@media (min-width: 667px){
+@media (min-width: 768px){
   .path-search .region-sidebar-first .views-exposed-form .title{
     cursor: default;
   }
@@ -5849,7 +5849,7 @@ h3{
 .path-search .region-sidebar-first .views-exposed-form .title svg{
   display: inline;
 }
-@media (min-width: 667px){
+@media (min-width: 768px){
   .path-search .region-sidebar-first .views-exposed-form .title svg{
     display: none;
   }
@@ -5860,7 +5860,7 @@ h3{
 .path-search .region-sidebar-first .views-exposed-form form{
   display: none;
 }
-@media (min-width: 667px){
+@media (min-width: 768px){
   .path-search .region-sidebar-first .views-exposed-form form{
     display: block;
   }

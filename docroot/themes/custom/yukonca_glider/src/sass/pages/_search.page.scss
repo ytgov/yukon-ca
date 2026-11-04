@@ -8,10 +8,10 @@
       @apply mt-1;
 
       .title {
-        @apply mb-4 cursor-pointer sm:cursor-default;
+        @apply mb-4 cursor-pointer md:cursor-default;
 
         svg {
-          @apply inline sm:hidden;
+          @apply inline md:hidden;
         }
 
         &.collapsed {
@@ -22,7 +22,7 @@
       }
 
       form {
-        @apply hidden sm:block;
+        @apply hidden md:block;
       }
 
       .form-type-textfield {
