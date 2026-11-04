@@ -7,21 +7,6 @@
     "content-hash": "d18ef62786d153e3babfd4be48f49760",
     "packages": [
         {
-            "name": "algolia/places",
-            "version": "1.19.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "algolia.places"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "asm89/stack-cors",
             "version": "v2.4.0",
             "source": {
@@ -1501,17 +1486,17 @@
         },
         {
             "name": "drupal/anchor_link",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/anchor_link.git",
-                "reference": "3.0.5"
+                "reference": "3.0.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/anchor_link-3.0.5.zip",
-                "reference": "3.0.5",
-                "shasum": "e312b9bf3ee6cfba0c787520fb32c6b6fd1eeaa3"
+                "url": "https://ftp.drupal.org/files/projects/anchor_link-3.0.6.zip",
+                "reference": "3.0.6",
+                "shasum": "f34bea2851159d79445a477fbb2332c7e220feac"
             },
             "require": {
                 "drupal/core": "^10 || ^11 || ^12",
@@ -1520,8 +1505,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.5",
-                    "datestamp": "1787677507",
+                    "version": "3.0.6",
+                    "datestamp": "1790361060",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1561,31 +1546,32 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/anchor_link",
                 "issues": "https://www.drupal.org/project/issues/anchor_link"
-            }
+            },
+            "published-time": "2026-09-25T18:30:39+00:00"
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "7.1.3",
+            "version": "7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "7.1.3"
+                "reference": "7.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.1.3.zip",
-                "reference": "7.1.3",
-                "shasum": "802c4a2823c5393b78750a540ac4d2e2c95767e5"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.2.0.zip",
+                "reference": "7.2.0",
+                "shasum": "dcb7b5e560fe578ef041cf7e1f6a691dc4d56575"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11",
+                "drupal/core": "^10.3 || ^11 || ^12",
                 "drupal/nouislider_js": "^15.8.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.1.3",
-                    "datestamp": "1785945788",
+                    "version": "7.2.0",
+                    "datestamp": "1791536367",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1635,30 +1621,31 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
-            }
+            },
+            "published-time": "2026-10-09T08:59:07+00:00"
         },
         {
             "name": "drupal/bigmenu",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bigmenu.git",
-                "reference": "2.1.0"
+                "reference": "2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bigmenu-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "c89755e202788113c8335e6c322d1bbb09794fbc"
+                "url": "https://ftp.drupal.org/files/projects/bigmenu-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "666115568e5a108a98b449723a07fb729f257104"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^10.6 || ^11.3 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1737331377",
+                    "version": "2.1.1",
+                    "datestamp": "1791756763",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1683,7 +1670,8 @@
             "homepage": "https://www.drupal.org/project/bigmenu",
             "support": {
                 "source": "https://git.drupalcode.org/project/bigmenu"
-            }
+            },
+            "published-time": "2026-10-11T22:12:23+00:00"
         },
         {
             "name": "drupal/block_class",
@@ -1787,17 +1775,17 @@
         },
         {
             "name": "drupal/ckeditor5_plugin_pack",
-            "version": "1.5.4",
+            "version": "1.5.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor5_plugin_pack.git",
-                "reference": "1.5.4"
+                "reference": "1.5.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_plugin_pack-1.5.4.zip",
-                "reference": "1.5.4",
-                "shasum": "8e3957b6475cd5cb72154a7bdb88904500854ba3"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_plugin_pack-1.5.6.zip",
+                "reference": "1.5.6",
+                "shasum": "c325881ea66d0e22511c982163ddd39559010762"
             },
             "require": {
                 "drupal/ckeditor5_premium_features": "^1.6.4 || ^1.7",
@@ -1810,8 +1798,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.5.4",
-                    "datestamp": "1785320332",
+                    "version": "1.5.6",
+                    "datestamp": "1791977960",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1839,21 +1827,22 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ckeditor5_plugin_pack",
                 "issues": "https://www.drupal.org/project/issues/ckeditor5_plugin_pack"
-            }
+            },
+            "published-time": "2026-10-14T11:38:59+00:00"
         },
         {
             "name": "drupal/ckeditor5_premium_features",
-            "version": "1.8.3",
+            "version": "1.8.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor5_premium_features.git",
-                "reference": "1.8.3"
+                "reference": "1.8.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_premium_features-1.8.3.zip",
-                "reference": "1.8.3",
-                "shasum": "1f18f33af2143cda203e4657891bb7739a93bbc6"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_premium_features-1.8.6.zip",
+                "reference": "1.8.6",
+                "shasum": "8d4774ef2ab702547c8174492e10c751110009c4"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0",
@@ -1875,8 +1864,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.8.3",
-                    "datestamp": "1785318955",
+                    "version": "1.8.6",
+                    "datestamp": "1791977809",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1908,7 +1897,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ckeditor5_premium_features",
                 "issues": "https://www.drupal.org/project/issues/ckeditor5_premium_features"
-            }
+            },
+            "published-time": "2026-10-14T11:36:28+00:00"
         },
         {
             "name": "drupal/ckeditor_div_manager",
@@ -2854,7 +2844,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/crop",
                 "issues": "https://www.drupal.org/project/issues/crop"
-            }
+            },
+            "published-time": "2026-03-09T15:52:02+00:00"
         },
         {
             "name": "drupal/cshs",
@@ -3321,29 +3312,31 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "2.0.10"
+                "reference": "2.0.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.10.zip",
-                "reference": "2.0.10",
-                "shasum": "a55c793c1f59be1a4866972998b50ced21bfbcb0"
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.11.zip",
+                "reference": "2.0.11",
+                "shasum": "02ff0687f1d6d94238d3e47fdb6cb240fecf2626"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
             },
             "require-dev": {
+                "drupal/cva": "^1",
+                "drupal/mercury": "^1.0.5",
                 "drush/drush": "^13"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.10",
-                    "datestamp": "1787942208",
+                    "version": "2.0.11",
+                    "datestamp": "1791390966",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3415,7 +3408,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_breadcrumb",
                 "issues": "https://www.drupal.org/project/issues/easy_breadcrumb"
-            }
+            },
+            "published-time": "2026-10-06T17:56:45+00:00"
         },
         {
             "name": "drupal/embed",
@@ -4251,17 +4245,17 @@
         },
         {
             "name": "drupal/focal_point",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/focal_point.git",
-                "reference": "2.1.2"
+                "reference": "2.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/focal_point-2.1.2.zip",
-                "reference": "2.1.2",
-                "shasum": "5f8ffadd37748506c8f00314b1d45c947eb27cf7"
+                "url": "https://ftp.drupal.org/files/projects/focal_point-2.1.3.zip",
+                "reference": "2.1.3",
+                "shasum": "76f851c40d0add9bafbad9425798e0a66f311584"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11",
@@ -4273,8 +4267,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.2",
-                    "datestamp": "1731556344",
+                    "version": "2.1.3",
+                    "datestamp": "1790175227",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4302,7 +4296,8 @@
                 "source": "https://cgit.drupalcode.org/focal_point",
                 "issues": "https://drupal.org/project/issues/focal_point",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "published-time": "2026-09-23T14:53:26+00:00"
         },
         {
             "name": "drupal/fontawesome",
@@ -4896,17 +4891,17 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "10.4.12",
+            "version": "10.4.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "10.4.12"
+                "reference": "10.4.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-10.4.12.zip",
-                "reference": "10.4.12",
-                "shasum": "d444685e0c45ec1207e232ad945d9414aa7f72e5"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-10.4.13.zip",
+                "reference": "10.4.13",
+                "shasum": "077dd415f4ac2c594655a61983209df3ed61e36a"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -4915,8 +4910,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "10.4.12",
-                    "datestamp": "1787845200",
+                    "version": "10.4.13",
+                    "datestamp": "1791390446",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4964,30 +4959,31 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
-            }
+            },
+            "published-time": "2026-10-06T17:57:38+00:00"
         },
         {
             "name": "drupal/libraries",
-            "version": "4.1.1",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/libraries.git",
-                "reference": "4.1.1"
+                "reference": "4.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/libraries-4.1.1.zip",
-                "reference": "4.1.1",
-                "shasum": "d4bee63f8bfdc95afad577433c5601521712ec10"
+                "url": "https://ftp.drupal.org/files/projects/libraries-4.2.1.zip",
+                "reference": "4.2.1",
+                "shasum": "29dbce0a551878faca804e5e1f6fe647c91bb6e3"
             },
             "require": {
-                "drupal/core": "^10 || ^11"
+                "drupal/core": "^10.2 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.1",
-                    "datestamp": "1760564444",
+                    "version": "4.2.1",
+                    "datestamp": "1791474564",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5030,7 +5026,8 @@
                 "source": "https://git.drupalcode.org/project/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "published-time": "2026-10-08T15:49:04+00:00"
         },
         {
             "name": "drupal/link_attributes",
@@ -5160,26 +5157,26 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.16",
+            "version": "7.0.17",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.16"
+                "reference": "7.0.17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.16.zip",
-                "reference": "7.0.16",
-                "shasum": "72e598acf5ba56db25989754393bbce6597a29af"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.17.zip",
+                "reference": "7.0.17",
+                "shasum": "114d863a2232e76abd37e7d789fd34afc0e253b2"
             },
             "require": {
-                "drupal/core": "^10.2 || ^11"
+                "drupal/core": "^10.2 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.16",
-                    "datestamp": "1781283687",
+                    "version": "7.0.17",
+                    "datestamp": "1789675704",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5202,6 +5199,10 @@
                     "homepage": "https://www.drupal.org/user/1879760"
                 },
                 {
+                    "name": "joegraduate",
+                    "homepage": "https://www.drupal.org/user/789384"
+                },
+                {
                     "name": "johnwebdev",
                     "homepage": "https://www.drupal.org/user/3331569"
                 },
@@ -5219,7 +5220,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/linkit",
                 "issues": "http://drupal.org/project/linkit"
-            }
+            },
+            "published-time": "2026-09-17T20:08:03+00:00"
         },
         {
             "name": "drupal/mail_safety",
@@ -5824,17 +5826,17 @@
         },
         {
             "name": "drupal/menu_link_attributes",
-            "version": "1.7.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_link_attributes.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "ae473541208cbe18130cb4b75104b55a9b80d073"
+                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "84cacbda3a6a3998aad5abd4ea2af99b9c310ced"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11"
@@ -5842,8 +5844,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1774255144",
+                    "version": "8.x-1.10",
+                    "datestamp": "1791530764",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5868,6 +5870,10 @@
                     "homepage": "https://www.drupal.org/user/122464"
                 },
                 {
+                    "name": "norman.lol",
+                    "homepage": "https://www.drupal.org/user/2482808"
+                },
+                {
                     "name": "yannickoo",
                     "homepage": "https://www.drupal.org/user/531118"
                 }
@@ -5880,7 +5886,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/menu_link_attributes",
                 "issues": "http://drupal.org/project/issues/menu_link_attributes"
-            }
+            },
+            "published-time": "2026-10-08T14:10:00+00:00"
         },
         {
             "name": "drupal/metatag",
@@ -6092,7 +6099,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/nouislider_js/-/tree/15.8.0"
             },
-            "time": "2025-01-03T10:53:20+00:00"
+            "time": "2025-01-03T10:53:20+00:00",
+            "published-time": "2025-01-03T10:00:25+00:00"
         },
         {
             "name": "drupal/openid_connect",
@@ -6924,20 +6932,20 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.41.0",
+            "version": "1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.41"
+                "reference": "8.x-1.42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.41.zip",
-                "reference": "8.x-1.41",
-                "shasum": "bb030951ee9a09fac67e8cde5b495c3b67e2949d"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.42.zip",
+                "reference": "8.x-1.42",
+                "shasum": "a8f18e5873f50551eadfe03c4454bcb8e85eacce"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^10.3 || ^11 || ^12"
             },
             "conflict": {
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
@@ -6956,8 +6964,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.41",
-                    "datestamp": "1780907071",
+                    "version": "8.x-1.42",
+                    "datestamp": "1791743454",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6991,21 +6999,22 @@
                 "source": "https://git.drupalcode.org/project/search_api",
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
-            }
+            },
+            "published-time": "2026-10-11T18:30:33+00:00"
         },
         {
             "name": "drupal/search_api_attachments",
-            "version": "10.0.11",
+            "version": "10.0.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api_attachments.git",
-                "reference": "10.0.11"
+                "reference": "10.0.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-10.0.11.zip",
-                "reference": "10.0.11",
-                "shasum": "9cb1f075a679fac5e8495c2b603e48f17963b8c0"
+                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-10.0.13.zip",
+                "reference": "10.0.13",
+                "shasum": "508164af5168e68e4046e6dfef4d56caf507959c"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -7014,8 +7023,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "10.0.11",
-                    "datestamp": "1788853668",
+                    "version": "10.0.13",
+                    "datestamp": "1791444187",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7037,7 +7046,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/search_api_attachments",
                 "issues": "https://www.drupal.org/project/issues/search_api_attachments"
-            }
+            },
+            "published-time": "2026-10-08T07:22:47+00:00"
         },
         {
             "name": "drupal/search_api_solr",
@@ -7505,21 +7515,22 @@
         },
         {
             "name": "drupal/single_content_sync",
-            "version": "1.4.16",
+            "version": "1.4.19",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/single_content_sync.git",
-                "reference": "1.4.16"
+                "reference": "1.4.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/single_content_sync-1.4.16.zip",
-                "reference": "1.4.16",
-                "shasum": "8c60af2946d2ac1c41290deecf1195aeb6bb06e2"
+                "url": "https://ftp.drupal.org/files/projects/single_content_sync-1.4.19.zip",
+                "reference": "1.4.19",
+                "shasum": "c97c5bb07d1644ad9f711a5939a8cec1791b2bd8"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11",
                 "ext-dom": "*",
+                "ext-fileinfo": "*",
                 "ext-zip": "*",
                 "php": ">=7.4"
             },
@@ -7545,8 +7556,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.4.16",
-                    "datestamp": "1783972617",
+                    "version": "1.4.19",
+                    "datestamp": "1793207832",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7577,7 +7588,8 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/single_content_sync",
                 "issues": "https://drupal.org/project/issues/single_content_sync"
-            }
+            },
+            "published-time": "2026-10-27T13:59:23+00:00"
         },
         {
             "name": "drupal/smtp",
@@ -8262,30 +8274,30 @@
         },
         {
             "name": "drupal/ui_patterns",
-            "version": "1.15.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ui_patterns.git",
-                "reference": "8.x-1.15"
+                "reference": "8.x-1.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ui_patterns-8.x-1.15.zip",
-                "reference": "8.x-1.15",
-                "shasum": "8a56a658ae87ae535b0fcd52806f243b5d3108dd"
+                "url": "https://ftp.drupal.org/files/projects/ui_patterns-8.x-1.16.zip",
+                "reference": "8.x-1.16",
+                "shasum": "062ee3143504c90c45bc149a8d44b0301322a2bd"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
             },
             "require-dev": {
                 "drupal/ds": "^3.18",
-                "drupal/field_group": "^4"
+                "drupal/field_group": "^4.1@alpha"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.15",
-                    "datestamp": "1775641228",
+                    "version": "8.x-1.16",
+                    "datestamp": "1790936513",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8332,13 +8344,18 @@
                 {
                     "name": "pescetti",
                     "homepage": "https://www.drupal.org/user/436244"
+                },
+                {
+                    "name": "smovs",
+                    "homepage": "https://www.drupal.org/user/3688274"
                 }
             ],
             "description": "UI Patterns.",
             "homepage": "https://www.drupal.org/project/ui_patterns",
             "support": {
                 "source": "https://git.drupalcode.org/project/ui_patterns"
-            }
+            },
+            "published-time": "2026-10-02T10:21:33+00:00"
         },
         {
             "name": "drupal/username_enumeration_prevention",
@@ -8390,17 +8407,17 @@
         },
         {
             "name": "drupal/video_embed_field",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/video_embed_field.git",
-                "reference": "3.1.0"
+                "reference": "3.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/video_embed_field-3.1.0.zip",
-                "reference": "3.1.0",
-                "shasum": "75923f11d3955890e226a48fd8d218ea49915cec"
+                "url": "https://ftp.drupal.org/files/projects/video_embed_field-3.1.1.zip",
+                "reference": "3.1.1",
+                "shasum": "d66ecc92e70691357686912feda349dcedbb47c0"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -8412,8 +8429,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.0",
-                    "datestamp": "1776704164",
+                    "version": "3.1.1",
+                    "datestamp": "1790757257",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8450,7 +8467,8 @@
             "homepage": "https://www.drupal.org/project/video_embed_field",
             "support": {
                 "source": "https://git.drupalcode.org/project/video_embed_field"
-            }
+            },
+            "published-time": "2026-09-30T08:33:56+00:00"
         },
         {
             "name": "drupal/views_ajax_history",
@@ -8514,20 +8532,20 @@
         },
         {
             "name": "drupal/views_bootstrap",
-            "version": "5.5.2",
+            "version": "5.5.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bootstrap.git",
-                "reference": "5.5.2"
+                "reference": "5.5.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.5.2.zip",
-                "reference": "5.5.2",
-                "shasum": "65286a2b797bb3afbc49d6c843c419afb986ba9c"
+                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.5.6.zip",
+                "reference": "5.5.6",
+                "shasum": "8d10ad8f755669905936a7c4ac33fecb6f138bc6"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11"
+                "drupal/core": "^10.1 || ^11 || ^12"
             },
             "require-dev": {
                 "drupal/viewsreference": "^2.0"
@@ -8535,8 +8553,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.5.2",
-                    "datestamp": "1785534233",
+                    "version": "5.5.6",
+                    "datestamp": "1791233739",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8574,7 +8592,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/views_bootstrap",
                 "issues": "https://www.drupal.org/project/issues/views_bootstrap"
-            }
+            },
+            "published-time": "2026-10-05T20:55:18+00:00"
         },
         {
             "name": "drupal/views_infinite_scroll",
@@ -8819,17 +8838,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.3.0"
+                "reference": "6.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0.zip",
-                "reference": "6.3.0",
-                "shasum": "67b09271edfd2fb38dc699ff733911ad500ae5d7"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.3.1.zip",
+                "reference": "6.3.1",
+                "shasum": "f737cb4e614df7f54b9bb77fe40109e7abab789b"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0"
@@ -8844,6 +8863,7 @@
                 "drupal/entity": "^1.0",
                 "drupal/entity_print": "^2.0",
                 "drupal/hal": "^2.0",
+                "drupal/honeypot": "^2.0",
                 "drupal/jquery_ui": "^1.0",
                 "drupal/jquery_ui_button": "^2.0",
                 "drupal/jquery_ui_checkboxradio": "^2.0",
@@ -8874,8 +8894,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.3.0",
-                    "datestamp": "1783989705",
+                    "version": "6.3.1",
+                    "datestamp": "1790179518",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8922,7 +8942,8 @@
                 "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
                 "docs": "https://www.drupal.org/docs/8/modules/webform",
                 "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
-            }
+            },
+            "published-time": "2026-09-23T14:56:04+00:00"
         },
         {
             "name": "drupal/webform_views",
@@ -9051,17 +9072,17 @@
         },
         {
             "name": "drupal/workbench_access",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/workbench_access.git",
-                "reference": "2.0.4"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/workbench_access-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "fbde653cea1d8df9a2a8fb0c7f0ef2cdd4dc021a"
+                "url": "https://ftp.drupal.org/files/projects/workbench_access-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "696cd8ed1958efaeade663ba492d4bbca89fb58e"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -9072,8 +9093,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1744760020",
+                    "version": "2.0.5",
+                    "datestamp": "1789450047",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9107,7 +9128,8 @@
             "homepage": "https://www.drupal.org/project/workbench_access",
             "support": {
                 "source": "https://git.drupalcode.org/project/workbench_access"
-            }
+            },
+            "published-time": "2026-09-15T05:27:07+00:00"
         },
         {
             "name": "drupal/workbench_email",
@@ -10139,21 +10161,6 @@
             ]
         },
         {
-            "name": "jquery/geocomplete",
-            "version": "1.7.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ubilabs/geocomplete/archive/refs/tags/1.7.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.geocomplete"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "jquery/hotkeys",
             "version": "0.2.0",
             "dist": {
@@ -10163,21 +10170,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "jquery.hotkeys"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/icheck",
-            "version": "1.0.2 ",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drgullin/icheck/zipball/8a6eb37bd7dab1e843c1b630c91c6398ff409d05"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.icheck"
             },
             "license": [
                 "MIT"
@@ -10283,21 +10275,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "jquery.timepicker"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/toggles",
-            "version": "4.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/simontabor/jquery-toggles/archive/refs/tags/v4.0.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.toggles"
             },
             "license": [
                 "MIT"
@@ -15724,7 +15701,8 @@
                 "issues": "http://drupal.org/project/issues/anchor_link",
                 "source": "http://cgit.drupalcode.org/anchor_link"
             },
-            "time": "2026-08-25T08:25:36+00:00"
+            "time": "2026-08-25T08:25:36+00:00",
+            "published-time": "2026-08-25T08:25:55+00:00"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
