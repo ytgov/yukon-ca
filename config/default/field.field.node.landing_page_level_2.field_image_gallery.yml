@@ -18,7 +18,7 @@ field_name: field_image_gallery
 entity_type: node
 bundle: landing_page_level_2
 label: 'Image Gallery'
-description: ''
+description: 'You cannot use the slider along with the Image and CTA block. If you do, the slider will appear by default.'
 required: false
 translatable: false
 default_value: {  }
