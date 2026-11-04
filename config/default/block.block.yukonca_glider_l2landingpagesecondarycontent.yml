@@ -5,7 +5,6 @@ dependencies:
   config:
     - blockgroup.block_group_content.l2_landing_page_secondary_content
   module:
-    - block_class
     - blockgroup
     - node
   theme:

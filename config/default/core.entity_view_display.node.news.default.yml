@@ -162,7 +162,9 @@ hidden:
   field_news_type: true
   field_page_description: true
   field_social_sharing: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
+  search_api_attachments: true
   search_api_excerpt: true

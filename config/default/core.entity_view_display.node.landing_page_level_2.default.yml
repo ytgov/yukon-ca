@@ -90,4 +90,5 @@ hidden:
   field_yukon_editorial_team: true
   langcode: true
   links: true
+  search_api_attachments: true
   search_api_excerpt: true
