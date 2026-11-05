@@ -72,5 +72,6 @@ Updates were performed and tested locally under ddev.
    Review output to see that any patches apply successfully and the Drupal scaffold completes.
 4. Run `drush deploy` (runs a cache rebuild, database updates, config import, and any
    `hook_deploy_NAME()` implementations, in the right order, followed by a final cache rebuild)
+5. **PROD ONLY:** once the day's deployments are finished, check that the Unison sync between `cms-prd-web01` and `cms-prd-web02` is healthy by running `sudo tail -f /var/www/.unison/unison.log` on a prod web server. It should log entries every minute, each run ending with `Synchronization complete at HH:MM:SS  (N items transferred, 0 skipped, 0 failed)`. If you see errors or many `failed`, tell Lee O'Mara or Dave Rogers.
 
 Upon completion, the site should load as expected. Review as anonymous, admin, and editor roles to ensure there are no obvious issues.
