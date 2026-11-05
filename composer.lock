@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0792c3ad764b03c5b2f8a502907997de",
+    "content-hash": "921deb69ec8233f0608e5aa1eb825ed0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3965,7 +3965,8 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/extlink",
                 "issues": "https://www.drupal.org/project/issues/extlink"
-            }
+            },
+            "published-time": "2025-09-08T16:32:12+00:00"
         },
         {
             "name": "drupal/facets",
