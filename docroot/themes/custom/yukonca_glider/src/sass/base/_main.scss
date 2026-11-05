@@ -121,13 +121,38 @@ h1#heading {
   }
   
   &.news-field-featured-image {
+    // Contain the floated portrait image so this field's box doesn't
+    // collapse to zero height and leave the caption/body content overlapping
+    // the top of the image instead of starting below it.
+    @apply flow-root;
+
     img {
       @apply mb-12 h-auto w-full;
+
+      // Portrait images are scaled to a smaller bounding box (see
+      // yukonca_glider_preprocess_image_formatter()) and float beside body
+      // text instead of stretching full width, which for a very tall image
+      // would tower over the page. Floats only on medium+ screens: on
+      // mobile there's no room for text to wrap beside it.
+      &.news-primary-image--portrait {
+        @apply mb-8 w-auto max-w-full md:float-right md:ml-8;
+      }
     }
 
     // Keep the caption close to the image when there is one.
     &:has(+ .field--name-field-featured-image-caption) img {
       @apply mb-3;
+
+      &.news-primary-image--portrait {
+        @apply mb-0;
+      }
+    }
+
+    // When the primary image is portrait (floated right), float its caption
+    // alongside it too so the pair reads as one unit with body text wrapping
+    // around both, instead of the caption dropping to full width below.
+    &:has(img.news-primary-image--portrait) + .field--name-field-featured-image-caption {
+      @apply md:float-right md:clear-right md:ml-8 md:w-auto md:max-w-[500px];
     }
   }
 }

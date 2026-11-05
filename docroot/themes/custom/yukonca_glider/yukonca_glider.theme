@@ -209,10 +209,20 @@ function yukonca_glider_preprocess_block(&$variables) {
 function yukonca_glider_preprocess_image_formatter(&$variables) {
   // Open the news primary image (links to the original file) in a new tab.
   if ($variables['image_style'] === 'news_primary' && $variables['url'] instanceof Url) {
+    $item = $variables['item'];
+
+    // Portrait images (taller than wide) get a smaller, floated bounding-box
+    // style instead of stretching to the full content width, which for a
+    // very tall image would tower over the page.
+    if ($item->height > $item->width) {
+      $variables['image']['#style_name'] = 'news_primary_portrait';
+      $variables['image']['#attributes']['class'][] = 'news-primary-image--portrait';
+    }
+
     $variables['url']->setOption('attributes', [
       'target' => '_blank',
       'rel' => 'noopener',
-      'aria-label' => t('@alt (opens in a new tab)', ['@alt' => $variables['item']->alt]),
+      'aria-label' => t('@alt (opens in a new tab)', ['@alt' => $item->alt]),
     ]);
   }
 }
