@@ -144,6 +144,10 @@
             },
             "drupal/fontawesome": {
                 "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff"
+            },
+            "drupal/extlink": {
+                "3497604 - Accessibility issue - [role=\"img\"] elements must have an alternative text": "https://git.drupalcode.org/project/extlink/-/merge_requests/54.diff",
+                "3492645 - Make sure aria-label is used correctly (backport of MR !73 to 2.0.5)": "patches/extlink-3492645-aria-label-on-icon-2.0.5.patch"
             }
         },
         "installer-paths": {
