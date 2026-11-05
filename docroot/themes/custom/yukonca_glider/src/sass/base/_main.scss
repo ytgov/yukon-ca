@@ -133,6 +133,12 @@ h1#heading {
         @apply mb-3 h-auto w-auto max-w-full;
       }
     }
+
+    // The caption field already has its own bottom margin, so the image
+    // only needs a small gap above it, not the full default spacing.
+    &:has(+ .field--name-field-featured-image-caption) img {
+      @apply mb-3;
+    }
   }
 }
 

@@ -3349,6 +3349,9 @@ h1#heading{
   width: auto;
   max-width: 100%;
 }
+.field.news-field-featured-image:has(+ .field--name-field-featured-image-caption) img{
+  margin-bottom: 0.75rem;
+}
 
 .field--name-field-featured-image-caption{
   margin-bottom: 3rem;
