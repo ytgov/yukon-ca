@@ -160,6 +160,10 @@
             "drupal/paragraphs": {
                 "Paragraph translation": "https://www.drupal.org/files/issues/2026-06-11/paragraphs_support_asym_translations-2904705-157.patch",
                 "Paragraph translation 2": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch"
+            },
+            "drupal/extlink": {
+                "3497604 - Accessibility issue - [role=\"img\"] elements must have an alternative text": "https://git.drupalcode.org/project/extlink/-/merge_requests/54.diff",
+                "3492645 - Make sure aria-label is used correctly (backport of MR !73 to 2.0.5)": "patches/extlink-3492645-aria-label-on-icon-2.0.5.patch"
             }
         },
         "installer-paths": {

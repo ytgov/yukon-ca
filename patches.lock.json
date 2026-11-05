@@ -1,5 +1,5 @@
 {
-    "_hash": "fb0b9f4d1ad1d47387127c9b817b19618b167074665322ba9b785f042d033cf7",
+    "_hash": "ce1f7b8d432c5043211e947ebcc3aa5e81b1e6ad72418df3ac83b228d8da4082",
     "patches": {
         "drupal/core": [
             {
@@ -187,6 +187,28 @@
                 "description": "Paragraph translation 2",
                 "url": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch",
                 "sha256": "16c7835863f0ab850c8599dff183d8f15f3cde0e7f6850e93e287809ada5b131",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/extlink": [
+            {
+                "package": "drupal/extlink",
+                "description": "3497604 - Accessibility issue - [role=\"img\"] elements must have an alternative text",
+                "url": "https://git.drupalcode.org/project/extlink/-/merge_requests/54.diff",
+                "sha256": "daac47a224b35afcdd20f63aea519044dfcc4e1d724d3585724cbc4d61229caf",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/extlink",
+                "description": "3492645 - Make sure aria-label is used correctly (backport of MR !73 to 2.0.5)",
+                "url": "patches/extlink-3492645-aria-label-on-icon-2.0.5.patch",
+                "sha256": "3246bc3c9a2d62b6701b0d726f163afad1f4be75bd2fa0ab2e527f320d14d889",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
