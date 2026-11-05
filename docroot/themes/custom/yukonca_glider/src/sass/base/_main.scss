@@ -121,11 +121,10 @@ h1#heading {
   }
   
   &.news-field-featured-image {
-    // Contain the floated portrait image so this field's box doesn't
-    // collapse to zero height and leave the caption/body content overlapping
-    // the top of the image instead of starting below it.
-    @apply flow-root;
-
+    // Deliberately left uncontained (no flow-root/clearfix): the portrait
+    // image's float needs to escape this wrapper so body text and the
+    // caption field after it wrap around it from the top, instead of
+    // starting below a fully-contained box.
     img {
       @apply mb-12 h-auto w-full;
 

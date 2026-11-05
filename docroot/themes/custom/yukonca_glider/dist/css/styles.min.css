@@ -3338,9 +3338,6 @@ h1#heading{
   --tw-border-opacity: 1;
   border-color: rgb(0 90 101 / var(--tw-border-opacity));
 }
-.field.news-field-featured-image{
-  display: flow-root;
-}
 .field.news-field-featured-image img{
   margin-bottom: 3rem;
   height: auto;
