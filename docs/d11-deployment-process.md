@@ -83,6 +83,7 @@ Then proceed with the deploy itself. Run these as separate steps rather than a s
    ```
 
 7. Smoke-test.
+8. **PROD ONLY:** once the day's deployments are finished, check that the Unison sync between `cms-prd-web01` and `cms-prd-web02` is healthy by running `sudo tail -f /var/www/.unison/unison.log` on a prod web server. It should log entries every minute, each run ending with `Synchronization complete at HH:MM:SS  (N items transferred, 0 skipped, 0 failed)`. If you see errors or many `failed`, tell Lee O'Mara or Dave Rogers.
 
 ## Rollback note
 
