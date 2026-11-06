@@ -146,6 +146,19 @@ function yukonca_glider_preprocess_field(&$variables) {
   // dump($variables['items']); die;.
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $language;
+
+  // Get the parent bundle of the field.
+  if (isset($variables['element']['#field_name'])) {
+    $field_name = $variables['element']['#field_name'];
+    $parent_bundle = $variables['element']['#bundle'];
+
+    // Get the title of the parent entity.
+    if (isset($variables['element']['#object'])) {
+      $parent_entity = $variables['element']['#object'];
+      $parent_title = $parent_entity->label();
+      $variables['parent_title'] = $parent_title;
+    }
+  }
 }
 
 /**
