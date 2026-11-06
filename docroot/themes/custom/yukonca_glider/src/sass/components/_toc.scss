@@ -1,7 +1,7 @@
 /* "On this page" anchor navigation (Flexible Table Of Contents block). */
 
 /* Scoped under .region.region-content to beat `.page-node-type-* .region-content` rules. */
-.region.region-content div.anchor-list {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) {
   background-color: #F4F4F4;
   margin: 32px 0;
   padding: 28px;
