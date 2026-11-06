@@ -2066,10 +2066,6 @@ h6,
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -2077,6 +2073,10 @@ h6,
 .py-0{
   padding-top: 0px;
   padding-bottom: 0px;
+}
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .px-\[10\%\]{
   padding-left: 10%;
@@ -8235,36 +8235,36 @@ button#backtotop:focus-visible {
 
 /* "On this page" anchor navigation (Flexible Table Of Contents block). */
 /* Scoped under .region.region-content to beat `.page-node-type-* .region-content` rules. */
-.region.region-content div.anchor-list {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) {
   background-color: #F4F4F4;
   margin: 32px 0;
   padding: 28px;
   /* `ul li` outranks `.field__content ul li { list-style: disc }` on Multi-step pages. */
 }
-.region.region-content div.anchor-list h2.block-title {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) h2.block-title {
   margin: 0 0 16px;
   padding: 0;
 }
-.region.region-content div.anchor-list ul {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.region.region-content div.anchor-list ul li {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) ul li {
   list-style: none;
   margin: 0;
   padding: 0 0 10px;
 }
-.region.region-content div.anchor-list ul li:last-child {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) ul li:last-child {
   padding-bottom: 0;
 }
-.region.region-content div.anchor-list a {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) a {
   text-decoration: none;
 }
-.region.region-content div.anchor-list a::before {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) a::before {
   content: "— ";
 }
-.region.region-content div.anchor-list a:hover, .region.region-content div.anchor-list a:focus {
+.region.region-content :is(div.anchor-list, .block-table-of-contents) a:hover, .region.region-content :is(div.anchor-list, .block-table-of-contents) a:focus {
   text-decoration: underline;
 }
 
