@@ -23,8 +23,7 @@
   }
 }
 
-.btn-default,
-.btn-default:visited {
+@mixin btn-default-colors {
   color: $color-blue400;
   background-color: $color-white;
   border-color: $color-blue400;
@@ -38,7 +37,7 @@
   }
 }
 
-.btn-primary {
+@mixin btn-primary-colors {
   color: $color-white;
   background-color: $color-blue300;
   border-color: $color-blue300;
@@ -51,8 +50,34 @@
   }
 }
 
+.btn-default,
+.btn-default:visited {
+  @include btn-default-colors;
+}
+
+.btn-primary {
+  @include btn-primary-colors;
+}
+
 .btn-primary:visited {
   @extend .btn-primary;
+}
+
+/*
+ * Same colours again at a higher specificity. The filters pattern CSS (header
+ * search) ships its own Bootstrap `.btn` rules, and on Drupal 11 it can load
+ * after this stylesheet for logged-in users (BigPipe), which beats the
+ * single-class rules above and shows Bootstrap's default colours (#1156).
+ * Attribute selectors, so the `@extend .btn-primary` rules elsewhere don't copy these.
+ */
+.btn[class~="btn-default"],
+.btn[class~="btn-default"]:visited {
+  @include btn-default-colors;
+}
+
+.btn[class~="btn-primary"],
+.btn[class~="btn-primary"]:visited {
+  @include btn-primary-colors;
 }
 
 .node__content {
