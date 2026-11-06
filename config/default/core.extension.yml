@@ -4,7 +4,6 @@ module:
   addtoany: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
-  advanced_help: 0
   ajax_comments: 0
   allowed_formats: 0
   anchor_link: 0
@@ -25,7 +24,6 @@ module:
   ckeditor5_plugin_pack_font: 0
   ckeditor5_plugin_pack_select_all: 0
   ckeditor5_premium_features_fullscreen: 0
-  ckeditor5_show_block: 0
   ckeditor_div_manager: 0
   ckeditor_link_styles: 0
   ckeditor_media_resize: 0
@@ -109,6 +107,7 @@ module:
   options: 0
   page_cache: 0
   page_manager: 0
+  paragraphs_asymmetric_translation_widgets: 0
   path: 0
   path_alias: 0
   pathologic: 0
@@ -137,7 +136,6 @@ module:
   tmgmt: 0
   tmgmt_config: 0
   tmgmt_content: 0
-  tmgmt_diff: 0
   tmgmt_file: 0
   tmgmt_language_combination: 0
   tmgmt_locale: 0
@@ -178,10 +176,10 @@ module:
   cshs_menu_link: 5
   comment_notify: 10
   content_translation: 10
+  externalauth: 10
   password_policy: 10
   views: 10
   paragraphs: 11
-  paragraphs_asymmetric_translation_widgets: 0
   minimal: 1000
 theme:
   stark: 0
