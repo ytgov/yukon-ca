@@ -39,6 +39,13 @@ function yukon_hss_job_listings_cron(): void {
       ->getStorage('node')
       ->load($hrsmartNodeId);
 
+    // Work around $node_en sometimes being null, which otherwise leads to a fatal error.
+    // @see https://github.com/ytgov/yukon-ca/issues/1217
+    if(!$node_en) {
+      Drupal::logger('yukon_hss_job_listings')
+        ->error('Failed to locate content node for HRSmart job listings: node @nodeId', ['@nodeId' => $hrsmartNodeId]);
+      return;
+    }
     $node_fr = $node_en->getTranslation('fr');
   } catch (Exception $e) {
     Drupal::logger('yukon_hss_job_listings')
