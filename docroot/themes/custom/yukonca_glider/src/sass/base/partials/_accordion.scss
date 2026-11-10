@@ -115,3 +115,29 @@
 		}
 	}
 }
+
+// LPL2 submenu accordion: plus on the right when closed, chevron on the left
+// when open. Icons are <i class="fas ..."> markup from the menu template.
+.l2-accordion {
+	.accordion-item:not(.inner) .accordion-header .accordion-button {
+		@apply relative pl-10 pr-10;
+
+		&:focus-visible {
+			outline: 2px solid $color-blue200;
+			outline-offset: -2px;
+		}
+
+		.l2-accordion__open {
+			@apply absolute left-[15px];
+		}
+
+		.l2-accordion__closed {
+			@apply absolute right-[15px];
+		}
+
+		&.collapsed .l2-accordion__open,
+		&:not(.collapsed) .l2-accordion__closed {
+			@apply hidden;
+		}
+	}
+}
