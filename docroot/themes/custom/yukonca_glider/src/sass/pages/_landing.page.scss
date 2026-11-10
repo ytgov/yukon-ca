@@ -13,3 +13,17 @@
         }
     }
 }
+
+// LPL2 slider sits in a half-width column: stack each slide's image above its
+// text and leave room under the text for the prev/next arrows.
+.page-node-type-landing-page-level-2 {
+    .view-level-2-cta #image-gallery {
+        .carousel-item .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .slide-content {
+            @apply pb-14;
+        }
+    }
+}

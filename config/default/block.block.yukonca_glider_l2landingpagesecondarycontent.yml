@@ -1,0 +1,31 @@
+uuid: f940ad01-1576-4426-ab25-242190e23ecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - blockgroup.block_group_content.l2_landing_page_secondary_content
+  module:
+    - block_class
+    - blockgroup
+    - node
+  theme:
+    - yukonca_glider
+id: yukonca_glider_l2landingpagesecondarycontent
+theme: yukonca_glider
+region: content
+weight: -21
+provider: null
+plugin: 'block_group:l2_landing_page_secondary_content'
+settings:
+  id: 'block_group:l2_landing_page_secondary_content'
+  label: 'L2 Landing Page - Secondary Content'
+  label_display: '0'
+  provider: blockgroup
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      landing_page_level_2: landing_page_level_2
