@@ -39,14 +39,13 @@
 
       $('.yukon-accordion__expand').click((e) => {
         e.preventDefault();
-        $('.accordion .collapse').addClass('show');
-        $('.panel-title a[data-toggle="collapse"]').find('.title-icon svg').addClass('fa-square-minus fa-square-plus');
+        // Click the real toggles so Bootstrap keeps `collapsed` and aria-expanded in sync.
+        $('.accordion .accordion-button.collapsed').each((_, el) => el.click());
       });
 
       $('.yukon-accordion__collapse').click((e) => {
         e.preventDefault();
-        $('.accordion .collapse').removeClass('show');
-        $('.panel-title a[data-toggle="collapse"]').find('.title-icon svg').addClass('fa-square-plus fa-square-minus');
+        $('.accordion .accordion-button:not(.collapsed)').each((_, el) => el.click());
       });
 
       $('a.add_new_comment').click((e) => {
@@ -177,6 +176,30 @@
             el.hidden = true;
           }
         });
+      });
+    },
+  };
+
+  /**
+   * Stop CSS smooth scrolling fighting the back_to_top module's own animation.
+   *
+   * The module sets scrollTop every frame; with `scroll-behavior: smooth` on
+   * html each write is smoothed again, so the scroll crawls before it moves.
+   */
+  Drupal.behaviors.backToTopScroll = {
+    attach (context) {
+      once('backToTopScroll', 'html', context).forEach((html) => {
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('#backtotop')) {
+            return;
+          }
+          const settings = drupalSettings.back_to_top || {};
+          const speed = settings.back_to_top_speed || 1200;
+          html.style.scrollBehavior = 'auto';
+          setTimeout(() => {
+            html.style.scrollBehavior = '';
+          }, Number(speed) + 100);
+        }, true);
       });
     },
   };
