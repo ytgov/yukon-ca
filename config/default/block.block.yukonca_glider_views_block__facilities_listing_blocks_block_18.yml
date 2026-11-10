@@ -21,7 +21,7 @@ settings:
   label_display: visible
   provider: views
   views_label: 'First Nation School Board (FNSB)'
-  items_per_page: none
+  items_per_page: null
 visibility:
   request_path:
     id: request_path
