@@ -76,6 +76,7 @@ hidden:
   field_icon_dark: true
   field_icon_light: true
   field_image_caption: true
+  field_image_gallery: true
   field_meta_tags: true
   field_page_description: true
   field_primary_content: true
@@ -85,4 +86,5 @@ hidden:
   field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
+  search_api_attachments: true
   search_api_excerpt: true
