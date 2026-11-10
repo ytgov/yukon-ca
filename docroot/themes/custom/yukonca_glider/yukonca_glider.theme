@@ -14,6 +14,7 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -146,6 +147,19 @@ function yukonca_glider_preprocess_field(&$variables) {
   // dump($variables['items']); die;.
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $language;
+
+  // Get the parent bundle of the field.
+  if (isset($variables['element']['#field_name'])) {
+    $field_name = $variables['element']['#field_name'];
+    $parent_bundle = $variables['element']['#bundle'];
+
+    // Get the title of the parent entity.
+    if (isset($variables['element']['#object'])) {
+      $parent_entity = $variables['element']['#object'];
+      $parent_title = $parent_entity->label();
+      $variables['parent_title'] = $parent_title;
+    }
+  }
 }
 
 /**
@@ -201,6 +215,16 @@ function yukonca_glider_preprocess_block(&$variables) {
   }
   $current_path = \Drupal::service('path.current')->getPath();
   $variables['current_url'] = $current_path;
+
+  // Show the last-updated date under the page title. Block visibility already
+  // excludes the front page and landing pages.
+  if ($variables['plugin_id'] == 'page_title_block' && $node instanceof NodeInterface) {
+    $date = t('Last updated: @date', [
+      '@date' => \Drupal::service('date.formatter')->format($node->getChangedTime(), 'custom', 'Y-m-d'),
+    ]);
+    $variables['content']['#suffix'] = Markup::create('<div class="node-date-modified mb-5">' . $date . '</div>');
+    $variables['content']['#cache']['tags'] = $node->getCacheTags();
+  }
 }
 
 /**
@@ -472,11 +496,36 @@ function yukonca_glider_preprocess_node__multi_step_page(&$variables) {
   $section_paragraphs = !empty($variables["content"]["field_paragraphs"]) ? array_column($variables["content"]["field_paragraphs"], '#paragraph') : [];
   $node = $variables['node'];
 
+  $block_manager = \Drupal::service('plugin.manager.block');
+  $renderer = \Drupal::service('renderer');
+
   $variables['tabs']['items'] = [];
   foreach ($section_paragraphs as $paragraph) {
+    // The Flexible Table Of Contents block for this field requires an
+    // "entity:paragraph" context, which nothing on this site provides to
+    // Block Layout (paragraphs have no canonical route), so the block can
+    // never be placed through /admin/structure/block. Render it here
+    // instead, supplying this tab's own paragraph as context directly.
+    $toc_markup = '';
+    // The plugin only exists once the field's ToC setting is imported;
+    // without it createInstance() returns a Broken block, so skip.
+    $toc_plugin_id = 'text_long_field_toc_block:paragraph:multi_step:field_section_content';
+    if ($block_manager->hasDefinition($toc_plugin_id)) {
+      $toc_block = $block_manager->createInstance($toc_plugin_id, []);
+      $toc_block->setContextValue('entity', $paragraph);
+      if ($toc_block->access(\Drupal::currentUser())) {
+        $toc_build = $toc_block->build();
+        if ($toc_build) {
+          // build() skips the block template, so add the wrapper and title
+          // the Basic page block gets from it.
+          $toc_markup = '<div class="anchor-list"><h2 class="block-title">' . t('On this page:') . '</h2>' . $renderer->renderRoot($toc_build) . '</div>';
+        }
+      }
+    }
+
     $variables['tabs']['items'][] = [
       'title' => $paragraph->get('field_title')->getString(),
-      'content' => check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
+      'content' => $toc_markup . check_markup($paragraph->get('field_section_content')->value, $paragraph->get('field_section_content')->format),
     ];
   }
 
@@ -542,7 +591,7 @@ function yukonca_glider_preprocess_page(&$variables) {
   $data = explode("/", $current_path);
   if (in_array('taxonomy', $data)) {
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data['3']);
-    if ($term->get('vid')->getValue()[0]['target_id'] == "department") {
+    if ($term instanceof TermInterface && $term->bundle() == "department") {
       $url = Url::fromRoute('system.403');
       $response = new RedirectResponse($url->toString());
       $response->send();
@@ -610,6 +659,9 @@ function yukonca_glider_preprocess_page(&$variables) {
     $variables['content_type'] = $node->bundle();
     if ($node->bundle() == 'topics_page') {
       $variables['type'] = "topics_page";
+      $variables['node_date_modified'] = t('Last updated: @date', [
+        '@date' => \Drupal::service('date.formatter')->format($node->getChangedTime(), 'custom', 'Y-m-d'),
+      ]);
     }
 
     if ($node->bundle() == 'basic_page') {
@@ -1025,20 +1077,6 @@ function yukonca_glider_preprocess_page(&$variables) {
       }
     }
 
-    // Do not show at Homepage.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath("/node/{$node->id()}", $langcode);
-    $front_page_setting = \Drupal::getContainer()->get('config.factory')->get('system.site')->get('page.front');
-    if (empty($variables['is_front']) && $front_page_setting != $current_path && $front_page_setting != $current_alias) {
-      // Get node modified date and populate it to display at the bottom of the
-      // page in template files.
-      $modified_date = $node->get('changed')->value;
-      $variables['node_date_modified'] = t(
-        'Date modified: @date',
-        ['@date' => \Drupal::getContainer()->get('date.formatter')->format($modified_date, 'custom', 'Y-m-d')]
-      );
-    }
-
     if (!$node->hasField('field_icon_dark') || $node->get('field_icon_dark')->isEmpty()) {
       return;
     }
@@ -1274,4 +1312,23 @@ function yukonca_glider_preprocess_views_view_field(&$variables) {
   $anchor = '#occurrence-' . $occurrence_delta;
   $output = preg_replace('/(class="event-info--title"><a[^>]+href=")([^"#]*)(")/i', '$1$2' . $anchor . '$3', (string) $variables['output']);
   $variables['output'] = Markup::create($output);
+}
+
+/**
+ * Implements hook_preprocess_views_view() for the 'search' view.
+ *
+ * This function attaches a library and sets a Drupal setting for the search
+ * view, allowing for custom behavior based on the number of results returned
+ * by the view.
+ */
+function yukonca_glider_preprocess_views_view__search(array &$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $result = !empty($view->total_rows) ? $view->total_rows : 0;
+  $exposedInput = $view->getExposedInput();
+  $keywords = $exposedInput['query'] ?? '';
+
+  $variables['#attached']['library'][] = 'yukonca_glider/search-zero-result';
+  $variables['#attached']['drupalSettings']['yukonca_glider']['searchQuery'] = $keywords;
+  $variables['#attached']['drupalSettings']['yukonca_glider']['resultCount'] = $result;
 }

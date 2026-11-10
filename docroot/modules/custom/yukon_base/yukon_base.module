@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\yukon_base\MenuContextualLinks;
 
 /**
  * Implements hook_form_alter().
@@ -42,9 +43,50 @@ function yukon_base_form_alter(&$form, FormStateInterface $form_state, $form_id)
  * Implements hook_form_BASE_FORM_ID_alter() for node_form.
  */
 function yukon_base_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  if (!isset($form['revision_log']['widget'][0]['value'])) {
+    return;
+  }
+
+  // Base the check on the default (live) revision, not the revision the form
+  // loaded: a published page with a pending draft loads the draft, which is
+  // unpublished. New content and never-published drafts stay optional.
   $entity = $form_state->getFormObject()->getEntity();
-  if ($entity->isPublished() && isset($form['revision_log']['widget'][0]['value'])) {
+  if ($entity->isNew()) {
+    return;
+  }
+  $default = \Drupal::entityTypeManager()->getStorage('node')->load($entity->id());
+  $langcode = $entity->language()->getId();
+  if ($default && $default->hasTranslation($langcode) && $default->getTranslation($langcode)->isPublished()) {
     $form['revision_log']['widget'][0]['value']['#required'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Gives the menu link form's Parent link the same hierarchical picker as the
+ * node form by reusing cshs_menu_link's own transformation.
+ */
+function yukon_base_form_menu_link_content_menu_link_content_form_alter(&$form, FormStateInterface $form_state) {
+  if (!function_exists('cshs_menu_link_form_node_form_alter') || empty($form['menu_parent'])) {
+    return;
+  }
+
+  // The cshs function expects the node form's element path.
+  $wrapper = ['menu' => ['link' => ['menu_parent' => $form['menu_parent']]]];
+  cshs_menu_link_form_node_form_alter($wrapper);
+  $form['menu_parent'] = $wrapper['menu']['link']['menu_parent'];
+}
+
+/**
+ * Implements hook_block_view_alter().
+ *
+ * Makes "Edit menu" on the L2 child menu block open the child menu editor for
+ * the current page's menu link.
+ */
+function yukon_base_block_view_alter(array &$build, $block) {
+  if (($build['#id'] ?? NULL) === 'yukonca_glider_l2_child_menu') {
+    $build['#pre_render'][] = [MenuContextualLinks::class, 'preRender'];
   }
 }
 
