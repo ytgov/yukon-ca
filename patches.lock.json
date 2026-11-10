@@ -1,5 +1,5 @@
 {
-    "_hash": "5e1612af45156a2491444fa3c6ea58501b3ef3834b2868137219fa1fc7d1277e",
+    "_hash": "e342d1b34dcd6e7d5b5ae6e48d235162add71e3878cf57cfb837b75a154a8b85",
     "patches": {
         "drupal/core": [
             {
@@ -71,6 +71,28 @@
                 "description": "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings",
                 "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff",
                 "sha256": "7c138c13591d2c1d8ac1fee9436cdaa9dd4786da3a4e3b8dcfd7a8b2540aff12",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/extlink": [
+            {
+                "package": "drupal/extlink",
+                "description": "3497604 - Accessibility issue - [role=\"img\"] elements must have an alternative text",
+                "url": "https://git.drupalcode.org/project/extlink/-/merge_requests/54.diff",
+                "sha256": "daac47a224b35afcdd20f63aea519044dfcc4e1d724d3585724cbc4d61229caf",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/extlink",
+                "description": "3492645 - Make sure aria-label is used correctly (backport of MR !73 to 2.0.5)",
+                "url": "patches/extlink-3492645-aria-label-on-icon-2.0.5.patch",
+                "sha256": "3246bc3c9a2d62b6701b0d726f163afad1f4be75bd2fa0ab2e527f320d14d889",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
