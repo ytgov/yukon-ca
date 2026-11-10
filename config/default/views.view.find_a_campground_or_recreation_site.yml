@@ -130,21 +130,6 @@ display:
               secondary_open: false
               reset_button_always_show: false
             filter:
-              field_campground_site_type_target_id:
-                plugin_id: default
-                advanced:
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
-                  rewrite:
-                    filter_rewrite_values: ''
-                    filter_rewrite_values_key: false
-                  collapsible: false
-                  collapsible_disable_automatic_open: false
-                  open_by_default: false
-                  is_secondary: false
-                  hide_label: false
-                  field_classes: ''
-              field_region_target_id:
                 plugin_id: default
                 advanced:
                   sort_options_method: alphabetical_asc
@@ -289,60 +274,6 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: region
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: false
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
-        field_campground_site_type_target_id:
-          id: field_campground_site_type_target_id
-          table: node__field_campground_site_type
-          field: field_campground_site_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: 'Site type'
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            2598: 2598
-            2599: 2599
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_campground_site_type_target_id_op
-            label: 'Site type'
-            description: ''
-            use_operator: false
-            operator: field_campground_site_type_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: site_type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: true
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: site_type
           type: select
           hierarchy: false
           limit: true
@@ -1379,60 +1310,6 @@ display:
             group_items: {  }
           reduce_duplicates: true
           vid: region
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: false
-          save_lineage: false
-          force_deepest: false
-          parent: null
-          level_labels: ''
-          hierarchy_depth: 0
-          required_depth: 0
-          none_label: '- Please select -'
-        field_campground_site_type_target_id:
-          id: field_campground_site_type_target_id
-          table: node__field_campground_site_type
-          field: field_campground_site_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: 'Site type'
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            121: 121
-            122: 122
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_campground_site_type_target_id_op
-            label: 'Site type'
-            description: ''
-            use_operator: false
-            operator: field_campground_site_type_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: site_type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: true
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: site_type
           type: select
           hierarchy: false
           limit: true
