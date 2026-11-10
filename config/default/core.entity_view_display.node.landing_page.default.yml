@@ -69,6 +69,8 @@ content:
 hidden:
   addtoany: true
   field_click_to_call: true
+  field_click_to_call_phone: true
+  field_click_to_call_text: true
   field_department_term: true
   field_editor_publisher: true
   field_icon_dark: true
@@ -81,4 +83,5 @@ hidden:
   field_yukon_editorial_team: true
   langcode: true
   links: true
+  search_api_attachments: true
   search_api_excerpt: true

@@ -1,5 +1,5 @@
 name: YG Wildfire Low Bandwidth
 type: module
 description: 'Display Wildfire Information in Low Bandwidth Format'
-core_version_requirement: ^10 || ^9
+core_version_requirement: ^10 || ^11
 package: 'yukon'

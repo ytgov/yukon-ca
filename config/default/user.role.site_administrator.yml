@@ -139,6 +139,7 @@ permissions:
   - 'administer users'
   - 'administer views'
   - 'administer webform'
+  - 'administer webform overview'
   - 'administer workbench'
   - 'administer workbench access'
   - 'administer workbench_email templates'
