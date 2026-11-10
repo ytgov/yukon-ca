@@ -12,7 +12,7 @@ dependencies:
 id: views_block__news_listing_block_news_listing
 theme: yukonca_glider
 region: content
-weight: -19
+weight: -18
 provider: null
 plugin: 'views_block:news_listing-block_news_listing'
 settings:
@@ -21,7 +21,7 @@ settings:
   label_display: '0'
   provider: views
   views_label: ''
-  items_per_page: none
+  items_per_page: null
 visibility:
   request_path:
     id: request_path
