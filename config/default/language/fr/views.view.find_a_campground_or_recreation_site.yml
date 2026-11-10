@@ -6,10 +6,6 @@ display:
           admin_label: Région
           expose:
             label: Région
-        field_campground_site_type_target_id:
-          admin_label: 'Type de site'
-          expose:
-            label: 'Type de site'
         field_one_wheelchair_camp_value:
           group_info:
             label: 'Type d’installation'
@@ -67,10 +63,6 @@ display:
             group_items:
               1:
                 title: 'Emplacement accessible en fauteuil roulant'
-        field_campground_site_type_target_id:
-          admin_label: 'Type de site'
-          expose:
-            label: 'Type de site'
         field_at_least_one_wheelchair_ac_value:
           group_info:
             group_items:
