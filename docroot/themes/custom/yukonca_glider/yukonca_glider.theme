@@ -78,15 +78,17 @@ function yukonca_glider_preprocess_paragraph(&$variables) {
     }
   }
   if ($parentBundle == 'call_to_action') {
-    $string = $paragraph->field_link->uri;
-    $char = "internal";
-
-    if (strpos($string, $char) !== FALSE) {
-      $url = Url::fromUri($paragraph->field_link->uri);
-      $variables['field_link_url'] = $url->toString();
-    }
-    else {
-      $variables['field_link_url'] = $paragraph->field_link->uri;
+    // Let the link field resolve every URI scheme (entity:, internal:, route:,
+    // http(s):, mailto:) instead of only "internal:". See #1055.
+    $variables['field_link_url'] = '';
+    if (!$paragraph->field_link->isEmpty()) {
+      try {
+        $variables['field_link_url'] = $paragraph->field_link->first()->getUrl()->toString();
+      }
+      catch (\InvalidArgumentException $e) {
+        // Malformed URI (e.g. no scheme): fall back to the stored value.
+        $variables['field_link_url'] = $paragraph->field_link->uri;
+      }
     }
   }
   if ($parentBundle == 'opening_and_closing_times') {
