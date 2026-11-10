@@ -1,0 +1,8 @@
+{#
+/**
+ * @file
+ * Renders the LPL2 slider through the field template so it gets the carousel
+ * markup. Views field output bypasses field--node--field-image-gallery.html.twig.
+ */
+#}
+{{ drupal_field('field_image_gallery', 'node', row._entity.id, {label: 'hidden', type: 'entity_reference_revisions_entity_view', settings: {view_mode: 'default'}}) }}
