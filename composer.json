@@ -29,9 +29,9 @@
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/config_pages": "^2.18",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "11.4.11",
-        "drupal/core-project-message": "11.4.11",
-        "drupal/core-recommended": "11.4.11",
+        "drupal/core-composer-scaffold": "11.4.13",
+        "drupal/core-project-message": "11.4.13",
+        "drupal/core-recommended": "11.4.13",
         "drupal/cshs": "^4.0",
         "drupal/date_recur": "^3.2",
         "drupal/diff": "^2.1",
@@ -133,7 +133,7 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3129874 - Base field override for moderation_state added by content_moderation causes config import failure": "https://git.drupalcode.org/project/drupal/-/merge_requests/10304.diff",
+                "3129874 - Base field override for moderation_state added by content_moderation causes config import failure": "https://www.drupal.org/files/issues/2026-11-18/3129874-moderation-state-bfo-11.4.x-reroll.patch",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch",
                 "3441962 - Call to a member function getSettings() on null in Drupal\\Core\\Field\\FieldConfigBase->getSettings()": "https://git.drupalcode.org/project/drupal/-/merge_requests/8456.diff",
                 "3145190 - PHP warnings in array_flip in Drupal\\Core\\Entity\\EntityStorageBase->loadMultiple()": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",

@@ -1,12 +1,12 @@
 {
-    "_hash": "5e1612af45156a2491444fa3c6ea58501b3ef3834b2868137219fa1fc7d1277e",
+    "_hash": "3859778953572f89fe39f4b191d928427f220fa63715af241b2fb41eb10e1a85",
     "patches": {
         "drupal/core": [
             {
                 "package": "drupal/core",
                 "description": "3129874 - Base field override for moderation_state added by content_moderation causes config import failure",
-                "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/10304.diff",
-                "sha256": "91655950d92e45ae59989f42f74819e78c68f9b66941f492a4940fc0a219df3f",
+                "url": "https://www.drupal.org/files/issues/2026-11-18/3129874-moderation-state-bfo-11.4.x-reroll.patch",
+                "sha256": "5512416d06340cc60f845cb7f617a71869d2392b52c9d975e2368297f9cd94dc",
                 "depth": 2,
                 "extra": {
                     "provenance": "root"

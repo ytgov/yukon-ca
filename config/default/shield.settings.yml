@@ -4,14 +4,18 @@ shield_enable: false
 credential_provider: shield
 credentials:
   shield:
-    user: ykpreview
-    pass: roundant35
+    user: '["ykpreview"]'
+    pass: '["roundant35"]'
 allow_cli: true
 debug_header: false
+log_authentication: false
 unset_basic_auth_headers: true
+basic_auth_bypass: false
 print: Hello!
 method: 0
 paths: ''
 allowlist: ''
 http_method_allowlist: {  }
 domains: ''
+user_agents: ''
+flood_control_enabled: true

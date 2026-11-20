@@ -1,0 +1,18 @@
+{
+  "drupal/ckeditor5_plugin_pack": "The full_html and wysiwyg_ckeditor editors load; the new html embed setting defaults to off, so no embed button should appear",
+  "drupal/cshs": "The hierarchical filter on the news and events listings opens, drills down and filters results",
+  "drupal/embed": "In an editor, the media_directories embed button inserts a media item and it renders on the page",
+  "drupal/entity_reference_revisions": "Edit, save and view a landing page (secondary content paragraphs) and a basic page with an image gallery, in English and French",
+  "drupal/externalauth": "SSO (yukon_sso): the login link reaches the provider and signs back in; the authmap view at /admin/people loads",
+  "drupal/field_permissions": "Log in as writer and blog_author: fields restricted by permission are read-only or hidden; as admin they are editable",
+  "drupal/geofield": "Places directory records (field_location): the edit form map widget works and the place page map renders",
+  "drupal/linkit": "In the basic_html editor, the link dialog autocomplete finds a node and the saved link renders",
+  "drupal/maxlength": "The landing page and news edit forms show the character counters",
+  "drupal/metatag": "Front page, a node and a term have title, description and canonical tags. The 403 and 404 defaults now use <none> for canonical and shortlink; robots noindex is kept on 403",
+  "drupal/page_manager": "No page_manager pages in config; it is referenced only by role permissions, so check that the permissions page loads",
+  "drupal/scheduler": "Engagement content is the only type with scheduling enabled: the publish and unpublish fields appear on its edit form; schedule an item, save, and run cron",
+  "drupal/search_api": "/search returns results for a common term; the global and documents Solr indexes show 100% at /admin/config/search/search-api",
+  "drupal/search_api_attachments": "The documents search finds a word inside a known PDF",
+  "drupal/shield": "On TEST: the basic-auth prompt appears and the configured credentials work; flood control is now on by default, so repeated wrong attempts are rate-limited",
+  "drupal/views_infinite_scroll": "A taxonomy term page loads more items on scroll with no duplicates, in English and French"
+}

@@ -1,0 +1,992 @@
+{
+  "_about": "DRAFT for review. User-facing features of yukon.ca: one feature per thing an editor or visitor would name. Each lists the content types, media types, views, custom modules and extra modules that make it work; `inventory.py --check` derives the rest (fields, roles, every module involved) from exported config and reports anything unclaimed or stale. `checks` are what to exercise after an update; `needs_review` are open questions for someone who knows the site. `critical` features are checked first on every update.",
+  "version": 1,
+  "features": [
+    {
+      "id": "public_search",
+      "name": "Site search",
+      "audience": [
+        "visitors"
+      ],
+      "critical": true,
+      "description": "The public /search page, backed by the Solr 'global' index of all content.",
+      "views": [
+        "search"
+      ],
+      "search_indexes": [
+        "global"
+      ],
+      "extra_modules": [
+        "search_api",
+        "search_api_solr",
+        "search_api_spellcheck",
+        "search_api_solr_admin",
+        "selective_better_exposed_filters",
+        "facets"
+      ],
+      "custom_modules": [
+        "yukon_w3_custom"
+      ],
+      "checks": [
+        "/search returns results for a common term, in English and in French",
+        "A filter narrows the results; clearing it restores them",
+        "The global index shows 100% at /admin/config/search/search-api"
+      ],
+      "needs_review": [
+        "Does the spellcheck suggestion appear to visitors? Is the SearchFilterForm in yukon_w3_custom part of this page?"
+      ]
+    },
+    {
+      "id": "documents",
+      "name": "Documents library and document search",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": true,
+      "description": "Documents and forms listed and searched at /documents and /forms, with a separate Solr index that includes text extracted from attached files.",
+      "content_types": [
+        "documents"
+      ],
+      "media_types": [
+        "document"
+      ],
+      "views": [
+        "documents_browse",
+        "documents_browse_search_api"
+      ],
+      "search_indexes": [
+        "documents"
+      ],
+      "extra_modules": [
+        "search_api_attachments"
+      ],
+      "checks": [
+        "/documents lists documents and the filters narrow them",
+        "Searching for a word that occurs inside a known PDF finds that document",
+        "A document download link works"
+      ]
+    },
+    {
+      "id": "news",
+      "name": "News",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "News items, the latest-news blocks and the /news-feed listing with filters.",
+      "content_types": [
+        "news"
+      ],
+      "views": [
+        "latest_news",
+        "news_listing"
+      ],
+      "checks": [
+        "/news-feed lists items; a category or department filter narrows them",
+        "Create, edit and publish a news item as a writer or publisher; it appears in the listing and in the latest-news block"
+      ]
+    },
+    {
+      "id": "blog",
+      "name": "Blog",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "The digital blog: posts, type and category listings, RSS feed and a blog feed block.",
+      "content_types": [
+        "blog"
+      ],
+      "views": [
+        "blog_listing",
+        "blog_type_info",
+        "taxonomy_term_yukon_blog",
+        "yukon_blog_listing"
+      ],
+      "roles": [
+        "blog_author",
+        "dis_blog"
+      ],
+      "custom_modules": [
+        "yukon_w3_custom"
+      ],
+      "checks": [
+        "/digital-blog and /blogs list posts; a blog type page lists its posts",
+        "The blog RSS feed loads",
+        "As blog_author, create and edit a post"
+      ],
+      "needs_review": [
+        "Which role is dis_blog and what does it do? Where is the Blog Feed Block (yukon_w3_custom) placed?"
+      ]
+    },
+    {
+      "id": "events",
+      "name": "Events",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Events and the event listings with month and year filtering.",
+      "content_types": [
+        "event"
+      ],
+      "views": [
+        "event_listing",
+        "events_listing"
+      ],
+      "custom_modules": [
+        "yukon_w3_custom"
+      ],
+      "checks": [
+        "An events listing shows upcoming events; the month and year filters change the list",
+        "Create and publish an event; it appears in the listing"
+      ],
+      "needs_review": [
+        "The month and year event filters live in yukon_w3_custom: confirm they belong here."
+      ]
+    },
+    {
+      "id": "engagements",
+      "name": "Public engagements",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Public engagement pages with scheduled publishing, a /engagements page and engagement content and count blocks.",
+      "content_types": [
+        "engagement"
+      ],
+      "views": [
+        "engagements"
+      ],
+      "custom_modules": [
+        "yukon_w3_custom"
+      ],
+      "checks": [
+        "/engagements loads and its year and month selectors change the list",
+        "The engagement content and count blocks render on an engagement page"
+      ]
+    },
+    {
+      "id": "places_directory",
+      "name": "Places and facilities directory",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Directory records for places, with a location map and many facility paragraph types (schools, health, waste and recycling, opening times).",
+      "content_types": [
+        "directory_records_places"
+      ],
+      "views": [
+        "facilities_listing_blocks",
+        "places_listing"
+      ],
+      "checks": [
+        "A place page renders its facility sections and the map",
+        "The edit form's location widget works and saves"
+      ]
+    },
+    {
+      "id": "campgrounds",
+      "name": "Campground and recreation site finder",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Campground and recreation site records and a finder filtered by region and site type.",
+      "content_types": [
+        "campground_directory_record"
+      ],
+      "views": [
+        "find_a_campground_or_recreation_site"
+      ],
+      "checks": [
+        "The finder lists sites; the region and site type filters narrow them",
+        "A campground page renders"
+      ]
+    },
+    {
+      "id": "alerts",
+      "name": "In-page and site-wide alerts",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": true,
+      "description": "Alerts shown inside pages and across the whole site, each managed by its own author role.",
+      "content_types": [
+        "in_page_alert",
+        "site_wide_alert"
+      ],
+      "views": [
+        "in_page_alerts",
+        "in_page_alerts_admin_view",
+        "site_wide_alert"
+      ],
+      "roles": [
+        "author_in_page_alerts",
+        "author_site_wide_alerts"
+      ],
+      "checks": [
+        "A published site-wide alert shows on the front page; unpublishing it removes it",
+        "As author_in_page_alerts, create an alert; it shows on its target page"
+      ]
+    },
+    {
+      "id": "campaign_pages",
+      "name": "Campaign pages",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Campaign pages assembled from paragraph components (call to action, quote, video, text and image, social, job listings).",
+      "content_types": [
+        "campaign_page"
+      ],
+      "checks": [
+        "A campaign page with several component types renders in English and French",
+        "Add, reorder and save components on the edit form"
+      ]
+    },
+    {
+      "id": "job_listings",
+      "name": "HR job listings",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Job listings from structured data fetched from external sources, shown through a paragraph component.",
+      "custom_modules": [
+        "yukon_hss_job_listings"
+      ],
+      "extra_modules": [
+        "job_scheduler"
+      ],
+      "checks": [
+        "A page with the job listings component shows current listings",
+        "Cron runs without a new error from the job listing fetch"
+      ],
+      "needs_review": [
+        "Which external source does it fetch, how often, and what do visitors see if the fetch fails?"
+      ]
+    },
+    {
+      "id": "landing_pages",
+      "name": "Home, landing and topic pages",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": true,
+      "description": "The homepage, landing pages (two levels) and topics pages that organise the site.",
+      "content_types": [
+        "homepage",
+        "landing_page",
+        "landing_page_level_2",
+        "topics_page"
+      ],
+      "views": [
+        "frontpage",
+        "level_2_cta",
+        "lpl2_without_menu_items",
+        "what_are_you_looking_for_landing_page_l2"
+      ],
+      "checks": [
+        "The front page, a landing page, a level 2 landing page and a topics page render in English and French",
+        "Edit and save a landing page's primary and secondary content components"
+      ]
+    },
+    {
+      "id": "department_pages",
+      "name": "Department pages",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "A page per department with sections, top tasks and related content.",
+      "content_types": [
+        "department"
+      ],
+      "checks": [
+        "A department page renders its sections and top tasks"
+      ]
+    },
+    {
+      "id": "general_pages",
+      "name": "General and multi-step pages",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": true,
+      "description": "Basic pages (with charts, collapsible sections and image galleries) and multi-step pages.",
+      "content_types": [
+        "basic_page",
+        "multi_step_page"
+      ],
+      "views": [
+        "related_tasks"
+      ],
+      "checks": [
+        "A basic page with a chart, a collapsible section and an image gallery renders",
+        "A multi-step page navigates between its steps",
+        "Create, edit and save a basic page as an editor"
+      ]
+    },
+    {
+      "id": "wildfire",
+      "name": "Wildfire information (low bandwidth)",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Wildfire information shown in a low-bandwidth format through a block, configured at /admin/config/goy_wildfire_low_bandwidth.",
+      "custom_modules": [
+        "goy_wildfire_low_bandwidth"
+      ],
+      "checks": [
+        "The wildfire block renders on the page where it is placed; its settings page loads"
+      ],
+      "needs_review": [
+        "Where is the block placed, and where does the data come from?"
+      ]
+    },
+    {
+      "id": "feedback_and_contact",
+      "name": "Page feedback and contact forms",
+      "audience": [
+        "visitors",
+        "staff"
+      ],
+      "critical": false,
+      "description": "The page feedback form (with results dashboard) and the contact form.",
+      "views": [
+        "feedback_results",
+        "webform_submissions"
+      ],
+      "custom_modules": [
+        "yukon_department"
+      ],
+      "extra_modules": [
+        "webform",
+        "webform_ui"
+      ],
+      "checks": [
+        "Submit the page feedback form on a page; the submission appears at /admin/dashboard/feedback",
+        "The contact form submits"
+      ],
+      "needs_review": [
+        "yukon_department alters the feedback form: what does it change?"
+      ]
+    },
+    {
+      "id": "navigation",
+      "name": "Menus and navigation",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": true,
+      "description": "Main, mega, footer and header menus.",
+      "extra_modules": [
+        "link_attributes_menu_link_content",
+        "menu_link_attributes",
+        "cshs_menu_link",
+        "bigmenu",
+        "menu_block"
+      ],
+      "checks": [
+        "The main menu and the mega menu open and every top link resolves",
+        "The footer menus render",
+        "Add a menu link with link attributes in the menu admin and save"
+      ],
+      "needs_review": [
+        "Which module renders the mega menu?"
+      ]
+    },
+    {
+      "id": "editorial_workflow",
+      "name": "Content workflow and moderation",
+      "audience": [
+        "editors"
+      ],
+      "critical": true,
+      "description": "The 'content' workflow with draft, review, ready-to-publish, scheduled, archived and published states, workbench dashboards and revision comparison.",
+      "views": [
+        "moderated_content",
+        "workbench_current_user",
+        "workbench_edited",
+        "workbench_recent_content",
+        "content"
+      ],
+      "custom_modules": [
+        "yukon_moderation"
+      ],
+      "extra_modules": [
+        "content_moderation",
+        "workflows",
+        "workbench",
+        "workbench_access",
+        "workbench_email",
+        "diff"
+      ],
+      "checks": [
+        "A writer moves an item from draft to review; a publisher publishes it",
+        "/node/N/all-revisions and a revision comparison load",
+        "The workbench dashboard blocks (current user, edited, recent content) load without errors"
+      ]
+    },
+    {
+      "id": "coordinated_publication",
+      "name": "Coordinated English and French publication",
+      "audience": [
+        "editors"
+      ],
+      "critical": true,
+      "description": "When the English version is published and the French translation has been marked 'ready for coordinated publication', both are published together. Implemented by an event subscriber on content moderation state changes.",
+      "custom_modules": [
+        "yukon_moderation"
+      ],
+      "checks": [
+        "Mark a French translation 'ready for coordinated publication', then publish the English version: both go live",
+        "Publishing the English version alone, with the French not ready, leaves the French unpublished"
+      ],
+      "needs_review": [
+        "Confirm the exact rules and any exceptions (archiving, scheduled publishing)."
+      ],
+      "behaviour_described": true
+    },
+    {
+      "id": "scheduled_publishing",
+      "name": "Scheduled publishing",
+      "audience": [
+        "editors"
+      ],
+      "critical": false,
+      "description": "Publish and unpublish dates, currently enabled for engagements only, with scheduled-content overview pages.",
+      "views": [
+        "moderation_scheduler_content",
+        "scheduler_scheduled_content",
+        "scheduler_scheduled_media",
+        "scheduler_scheduled_taxonomy_term"
+      ],
+      "extra_modules": [
+        "scheduler"
+      ],
+      "checks": [
+        "Schedule an engagement for publishing, save, and run cron: it publishes at the due time",
+        "/admin/content/scheduled lists scheduled items"
+      ]
+    },
+    {
+      "id": "translation",
+      "name": "Translation (English and French)",
+      "audience": [
+        "editors",
+        "translators"
+      ],
+      "critical": true,
+      "description": "Content is translatable between English and French by translators, directly or through translation jobs.",
+      "views": [
+        "tmgmt_job_overview",
+        "tmgmt_translation_all_job_items",
+        "tmgmt_job_items",
+        "tmgmt_job_messages"
+      ],
+      "roles": [
+        "translator"
+      ],
+      "extra_modules": [
+        "content_translation",
+        "language",
+        "locale",
+        "config_translation",
+        "tmgmt",
+        "tmgmt_content",
+        "tmgmt_config",
+        "tmgmt_file",
+        "tmgmt_locale",
+        "tmgmt_language_combination",
+        "paragraphs_asymmetric_translation_widgets"
+      ],
+      "custom_modules": [
+        "yukon_w3_custom"
+      ],
+      "checks": [
+        "As translator, add a French translation of a page and save",
+        "Paragraph add and remove buttons are hidden while translating",
+        "/admin/tmgmt/jobs loads"
+      ],
+      "needs_review": [
+        "Is the translation management (tmgmt) job workflow actually used? ContentTranslationController in yukon_w3_custom: what does it do?"
+      ]
+    },
+    {
+      "id": "rich_text_editing",
+      "name": "Rich text editing",
+      "audience": [
+        "editors"
+      ],
+      "critical": true,
+      "description": "CKEditor 5 with link, anchor, embed, font, find-and-replace and style tools, plus character limits on fields.",
+      "extra_modules": [
+        "ckeditor5",
+        "anchor_link",
+        "ckeditor5_plugin_pack",
+        "ckeditor5_plugin_pack_find_and_replace",
+        "ckeditor5_plugin_pack_font",
+        "ckeditor5_plugin_pack_select_all",
+        "ckeditor5_premium_features_fullscreen",
+        "ckeditor_div_manager",
+        "ckeditor_link_styles",
+        "ckeditor_media_resize",
+        "linkit",
+        "embed",
+        "entity_embed",
+        "media_embed_extra",
+        "imce",
+        "pathologic",
+        "maxlength",
+        "link_attributes_menu_link_content"
+      ],
+      "checks": [
+        "CKEditor loads with its full toolbar on basic_html and full_html fields",
+        "Insert a link with the link dialog autocomplete and an anchor link; save and view",
+        "A limited field shows its character counter"
+      ]
+    },
+    {
+      "id": "media_library",
+      "name": "Media library",
+      "audience": [
+        "editors"
+      ],
+      "critical": false,
+      "description": "Audio, document, icon, image and video media in folders, with file replacement and path patterns.",
+      "media_types": [
+        "audio",
+        "document",
+        "icon",
+        "image",
+        "video"
+      ],
+      "views": [
+        "media",
+        "media_library",
+        "media_directories_base",
+        "files"
+      ],
+      "extra_modules": [
+        "media_library",
+        "media_directories",
+        "media_directories_editor",
+        "media_entity_file_replace",
+        "media_file_delete",
+        "crop",
+        "filefield_paths",
+        "video_embed_field"
+      ],
+      "checks": [
+        "Upload an image and a document; each appears in the media library",
+        "Insert media into a page from the media library widget",
+        "Replace a file and confirm the page shows the new one"
+      ]
+    },
+    {
+      "id": "taxonomy",
+      "name": "Taxonomies",
+      "audience": [
+        "editors"
+      ],
+      "critical": false,
+      "description": "Vocabularies for department, team, category, region, community and more, used to classify and filter content.",
+      "vocabularies": [
+        "blog_type",
+        "category",
+        "community",
+        "community_facilities",
+        "department",
+        "education_facilities",
+        "engagement_categories",
+        "health_facilities",
+        "highway_names",
+        "media_folders",
+        "news_type",
+        "recreation_site_type",
+        "region",
+        "sanitary_facilities",
+        "school_board_type",
+        "section",
+        "site_type",
+        "sub_category",
+        "tags",
+        "teams",
+        "transactional_facility_type"
+      ],
+      "views": [
+        "taxonomy_term"
+      ],
+      "extra_modules": [
+        "cshs",
+        "views_tree"
+      ],
+      "checks": [
+        "A term page lists its content and loads more on scroll",
+        "A hierarchical term select opens and saves on a content form"
+      ]
+    },
+    {
+      "id": "listing_filters",
+      "name": "Listing filters and ajax paging",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Exposed filters, ajax history and infinite scroll on the public listings.",
+      "extra_modules": [
+        "better_exposed_filters",
+        "views_ajax_history",
+        "views_infinite_scroll"
+      ],
+      "checks": [
+        "On a filtered listing the filters update the results and the back button restores the previous state",
+        "An infinite-scroll listing loads the next batch with no duplicates"
+      ]
+    },
+    {
+      "id": "sso_login",
+      "name": "Staff single sign-on",
+      "audience": [
+        "staff"
+      ],
+      "critical": true,
+      "description": "Staff sign in through an OpenID Connect provider; roles are assigned from the provider's claims.",
+      "views": [
+        "authmap"
+      ],
+      "custom_modules": [
+        "yukon_sso"
+      ],
+      "extra_modules": [
+        "openid_connect",
+        "externalauth"
+      ],
+      "checks": [
+        "The login link reaches the provider and returns a signed-in session",
+        "A signed-in staff member has the expected role",
+        "/admin/people/authmap loads"
+      ],
+      "needs_review": [
+        "How are roles mapped (yukon_sso get_roles_mapping)? Is there a local-login fallback?"
+      ]
+    },
+    {
+      "id": "roles_and_access",
+      "name": "Roles and access control",
+      "audience": [
+        "administrators"
+      ],
+      "critical": true,
+      "description": "Fourteen roles with field-level permissions and department or team based editorial access.",
+      "needs_review": [
+        "Which roles are restricted by which field permissions, and how is team-based access (workbench_access) meant to behave?"
+      ],
+      "views": [
+        "user_admin_people"
+      ],
+      "extra_modules": [
+        "field_permissions",
+        "workbench_access",
+        "user"
+      ],
+      "checks": [
+        "A field with a field permission is read-only or hidden for a role without it, and editable for a role that has it",
+        "A team_administrator can reach only the content their team may edit",
+        "/admin/people/list loads"
+      ]
+    },
+    {
+      "id": "seo_urls",
+      "name": "URLs, redirects and metadata",
+      "audience": [
+        "visitors",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Generated URL aliases, redirects and metatags.",
+      "views": [
+        "redirect"
+      ],
+      "extra_modules": [
+        "pathauto",
+        "metatag",
+        "metatag_dc",
+        "token",
+        "redirect"
+      ],
+      "checks": [
+        "A new node with no alias gets a generated one",
+        "View source of the front page, a news item and a term: title, description and canonical tags are present",
+        "An old URL redirects to its target"
+      ]
+    },
+    {
+      "id": "site_protection",
+      "name": "Environment protection",
+      "audience": [
+        "administrators"
+      ],
+      "critical": false,
+      "description": "Basic-auth protection on non-production environments and blocking of username enumeration.",
+      "extra_modules": [
+        "shield",
+        "username_enumeration_prevention"
+      ],
+      "checks": [
+        "On a protected environment the basic-auth prompt appears and the configured credentials work",
+        "The user login form does not reveal whether a username exists"
+      ]
+    },
+    {
+      "id": "admin_reports",
+      "name": "Admin dashboards and reports",
+      "audience": [
+        "administrators",
+        "editors"
+      ],
+      "critical": false,
+      "description": "Content overview, content count report, link checker, recent log messages, comments and block content admin pages.",
+      "views": [
+        "content_overview",
+        "content_recent",
+        "broken_links_report",
+        "watchdog",
+        "comment",
+        "comments_recent",
+        "block_content",
+        "who_s_new",
+        "who_s_online"
+      ],
+      "extra_modules": [
+        "linkchecker",
+        "dblog",
+        "comment",
+        "comment_notify",
+        "ajax_comments"
+      ],
+      "checks": [
+        "/admin/content, /admin/reports/dblog, /admin/reports/linkchecker and /admin/reports/yukon/content-count load",
+        "Posting a comment with the notify option saves"
+      ]
+    },
+    {
+      "id": "analytics",
+      "name": "Analytics",
+      "audience": [
+        "administrators"
+      ],
+      "critical": false,
+      "description": "Matomo analytics tracking.",
+      "extra_modules": [
+        "matomo"
+      ],
+      "checks": [
+        "The Matomo tracking code is present in the page source of a public page"
+      ]
+    },
+    {
+      "id": "editing_forms",
+      "name": "Editing form customisations",
+      "audience": [
+        "editors"
+      ],
+      "critical": false,
+      "description": "Site-specific changes to content and menu edit forms, views fields and filters.",
+      "custom_modules": [
+        "yukon_base",
+        "yukon_taxonomy"
+      ],
+      "extra_modules": [
+        "field_group",
+        "paragraphs",
+        "entity_reference_revisions",
+        "epp",
+        "dynamic_entity_reference"
+      ],
+      "checks": [
+        "Edit and save a landing page, a news item and a menu link as an editor with no form errors"
+      ],
+      "needs_review": [
+        "yukon_base alters node, menu link and block forms and adds a media content usage field and a selected-filters area: which editor features do those correspond to? What does yukon_taxonomy correct?"
+      ]
+    },
+    {
+      "id": "theme_components",
+      "name": "Page layout and theme components",
+      "audience": [
+        "visitors"
+      ],
+      "critical": true,
+      "description": "The custom theme and the pattern and component libraries that render pages.",
+      "extra_modules": [
+        "ui_patterns",
+        "ui_patterns_library",
+        "ui_patterns_views",
+        "blinker_core",
+        "blinker_addons_node",
+        "blinker_addons_paragraphs",
+        "blinker_addons_link_attributes",
+        "twig_tweak",
+        "ctools",
+        "geophp",
+        "fontawesome",
+        "libraries",
+        "block_class",
+        "blockgroup",
+        "time_field"
+      ],
+      "checks": [
+        "Pages render with the expected layout in English and French, anonymous and logged in",
+        "No new errors in the browser console or the recent log"
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Breadcrumb trails built from the menu and the URL path.",
+      "extra_modules": [
+        "easy_breadcrumb",
+        "menu_breadcrumb"
+      ],
+      "checks": [
+        "A deep page shows a breadcrumb trail whose links all resolve, in English and French"
+      ]
+    },
+    {
+      "id": "external_links",
+      "name": "External link markers",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Icons and accessible labels on links that leave the site.",
+      "extra_modules": [
+        "extlink"
+      ],
+      "checks": [
+        "An external link in page content shows the external icon and an accessible label"
+      ]
+    },
+    {
+      "id": "sharing_and_back_to_top",
+      "name": "Sharing and back to top",
+      "audience": [
+        "visitors"
+      ],
+      "critical": false,
+      "description": "Share buttons and a back-to-top control on pages.",
+      "extra_modules": [
+        "addtoany",
+        "back_to_top"
+      ],
+      "checks": [
+        "The share buttons and the back-to-top control appear and work on a content page"
+      ],
+      "needs_review": [
+        "Which page types show them?"
+      ]
+    },
+    {
+      "id": "sitemap",
+      "name": "XML sitemap",
+      "audience": [
+        "visitors",
+        "search engines"
+      ],
+      "critical": false,
+      "description": "A generated XML sitemap.",
+      "extra_modules": [
+        "simple_sitemap"
+      ],
+      "checks": [
+        "/sitemap.xml loads and lists current pages in both languages"
+      ],
+      "needs_review": [
+        "Confirm the sitemap URL and which content types it includes."
+      ]
+    },
+    {
+      "id": "email",
+      "name": "Outgoing email and notifications",
+      "audience": [
+        "editors",
+        "administrators"
+      ],
+      "critical": false,
+      "description": "Mail sent through SMTP, protection against mailing real users from non-production environments, and workflow notification emails.",
+      "extra_modules": [
+        "smtp",
+        "mail_safety",
+        "workbench_email"
+      ],
+      "checks": [
+        "A workflow transition that notifies sends an email (on a non-production site it is captured, not delivered)"
+      ],
+      "needs_review": [
+        "Which workflow transitions send email, and to whom?"
+      ]
+    },
+    {
+      "id": "account_security",
+      "name": "Account security",
+      "audience": [
+        "staff"
+      ],
+      "critical": false,
+      "description": "Password policy for local accounts.",
+      "extra_modules": [
+        "password_policy",
+        "noreqnewpass"
+      ],
+      "checks": [
+        "Changing a local account password enforces the password policy"
+      ]
+    },
+    {
+      "id": "admin_tools",
+      "name": "Administration tools",
+      "audience": [
+        "administrators"
+      ],
+      "critical": false,
+      "description": "Admin toolbar and menus, config pages, content sync, preview and a security review report.",
+      "extra_modules": [
+        "admin_toolbar",
+        "admin_toolbar_tools",
+        "config_pages",
+        "single_content_sync",
+        "responsive_preview",
+        "security_review",
+        "page_manager"
+      ],
+      "checks": [
+        "The admin toolbar and its sub-menus load for an administrator",
+        "The permissions page loads (page_manager adds its permissions)"
+      ]
+    }
+  ]
+}
