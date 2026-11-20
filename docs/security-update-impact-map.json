@@ -10,7 +10,7 @@
   "drupal/maxlength": "The landing page and news edit forms show the character counters",
   "drupal/metatag": "Front page, a node and a term have title, description and canonical tags. The 403 and 404 defaults now use <none> for canonical and shortlink; robots noindex is kept on 403",
   "drupal/page_manager": "No page_manager pages in config; it is referenced only by role permissions, so check that the permissions page loads",
-  "drupal/scheduler": "Campground directory records and media documents have scheduler fields on their edit forms: schedule an item, save, and run cron",
+  "drupal/scheduler": "Engagement content is the only type with scheduling enabled: the publish and unpublish fields appear on its edit form; schedule an item, save, and run cron",
   "drupal/search_api": "/search returns results for a common term; the global and documents Solr indexes show 100% at /admin/config/search/search-api",
   "drupal/search_api_attachments": "The documents search finds a word inside a known PDF",
   "drupal/shield": "On TEST: the basic-auth prompt appears and the configured credentials work; flood control is now on by default, so repeated wrong attempts are rate-limited",
