@@ -10,11 +10,7 @@ settings:
   client_secret: oexQNebea8Y4F_ZYzx5NB52y02zNiYTbgMky5UWJajisN-5qMpA1HC2V9uWYUrxG
   provider_slug: generic
   iss_allowed_domains: ''
-  prompt:
-    - login
-    - '0'
-    - '0'
-    - '0'
+  prompt: {  }
   issuer_url: ''
   authorization_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/authorize'
   token_endpoint: 'https://dev-0tc6bn14.eu.auth0.com/oauth/token'
