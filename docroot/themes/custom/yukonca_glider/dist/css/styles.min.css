@@ -4566,6 +4566,42 @@ nav.pager ul{
   border-color: #00454E;
 }
 
+/*
+ * Same colours again at a higher specificity. The filters pattern CSS (header
+ * search) ships its own Bootstrap `.btn` rules, and on Drupal 11 it can load
+ * after this stylesheet for logged-in users (BigPipe), which beats the
+ * single-class rules above and shows Bootstrap's default colours (#1156).
+ * Attribute selectors, so the `@extend .btn-primary` rules elsewhere don't copy these.
+ */
+.btn[class~=btn-default],
+.btn[class~=btn-default]:visited {
+  color: #00818F;
+  background-color: #FFF;
+  border-color: #00818F;
+}
+.btn[class~=btn-default]:hover, .btn[class~=btn-default].active, .btn[class~=btn-default].focus,
+.btn[class~=btn-default]:visited:hover,
+.btn[class~=btn-default]:visited.active,
+.btn[class~=btn-default]:visited.focus {
+  color: #00535c;
+  border-color: #00535c;
+  background-color: #FFF;
+}
+
+.btn[class~=btn-primary],
+.btn[class~=btn-primary]:visited {
+  color: #FFF;
+  background-color: #00616D;
+  border-color: #00616D;
+}
+.btn[class~=btn-primary]:focus, .btn[class~=btn-primary]:hover, .btn[class~=btn-primary].active,
+.btn[class~=btn-primary]:visited:focus,
+.btn[class~=btn-primary]:visited:hover,
+.btn[class~=btn-primary]:visited.active {
+  background-color: #00454E;
+  border-color: #00454E;
+}
+
 .node__content .btn-primary, .node__content:visited {
   padding: 15px 30px;
 }
@@ -5681,6 +5717,25 @@ h3{
   border-color: #00616D;
 }
 #quick-exit a:focus,#quick-exit a:hover,#quick-exit a.active {
+  background-color: #00454E;
+  border-color: #00454E;
+}
+#quick-exit a[class~=btn-default],#quick-exit a[class~=btn-default]:visited {
+  color: #00818F;
+  background-color: #FFF;
+  border-color: #00818F;
+}
+#quick-exit a[class~=btn-default]:hover,#quick-exit a[class~=btn-default].active,#quick-exit a[class~=btn-default].focus,#quick-exit a[class~=btn-default]:visited:hover,#quick-exit a[class~=btn-default]:visited.active,#quick-exit a[class~=btn-default]:visited.focus {
+  color: #00535c;
+  border-color: #00535c;
+  background-color: #FFF;
+}
+#quick-exit a[class~=btn-primary],#quick-exit a[class~=btn-primary]:visited {
+  color: #FFF;
+  background-color: #00616D;
+  border-color: #00616D;
+}
+#quick-exit a[class~=btn-primary]:focus,#quick-exit a[class~=btn-primary]:hover,#quick-exit a[class~=btn-primary].active,#quick-exit a[class~=btn-primary]:visited:focus,#quick-exit a[class~=btn-primary]:visited:hover,#quick-exit a[class~=btn-primary]:visited.active {
   background-color: #00454E;
   border-color: #00454E;
 }
