@@ -162,3 +162,14 @@
       }
   }
 }
+
+// Event page: highlight the occurrence the visitor chose on the events list
+// (the list links to #occurrence-N, which the browser also scrolls to, leaving
+// a little room above it).
+.event-occurrence {
+  @apply scroll-mt-24;
+}
+
+.event-occurrence:target {
+  @apply -mx-3 border-0 border-l-4 border-solid border-yellow bg-gray-lightgray px-3 py-2;
+}
