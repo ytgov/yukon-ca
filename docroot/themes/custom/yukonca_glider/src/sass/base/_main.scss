@@ -122,7 +122,45 @@ h1#heading {
   
   &.news-field-featured-image {
     img {
-      @apply float-right ml-24 mb-12;
+      @apply mb-12 h-auto w-full;
+
+      // Portrait (or square) images use a smaller bounding-box style (see
+      // yukonca_glider_preprocess_image_formatter()) and render at their
+      // natural size. The float itself is applied to the
+      // .news-primary-image-group wrapper below, not this image directly,
+      // so the caption floats along with it as one unit.
+      &.news-primary-image--portrait {
+        @apply mb-3 h-auto w-auto max-w-full;
+      }
+    }
+
+    // The caption field already has its own bottom margin, so the image
+    // only needs a small gap above it, not the full default spacing.
+    &:has(+ .field--name-field-featured-image-caption) img {
+      @apply mb-3;
+    }
+  }
+}
+
+.field--name-field-featured-image-caption {
+  @apply mb-12 text-sm text-gray-450;
+}
+
+// Groups the primary image with its caption (see the "Primary image" field
+// group on core.entity_view_display.node.news.default.yml) so the pair can
+// float as one unit, with the caption's width matching the image's instead
+// of the caption dropping to full page width.
+.news-primary-image-group {
+  &.news-primary-image-group--portrait {
+    // w-fit shrinks this wrapper to its widest child (the image), which is
+    // what makes the caption's left edge line up with the image's left
+    // edge: the caption is a plain block and stretches to fill whatever
+    // width the wrapper resolves to. Floats only on medium+ screens: on
+    // mobile there's no room for text to wrap beside it.
+    @apply mb-8 w-full md:w-fit md:float-right md:ml-8;
+
+    .field--name-field-featured-image-caption {
+      @apply m-0 text-left;
     }
   }
 }

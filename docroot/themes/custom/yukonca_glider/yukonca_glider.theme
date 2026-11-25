@@ -228,6 +228,65 @@ function yukonca_glider_preprocess_block(&$variables) {
 }
 
 /**
+ * Checks whether a node's news primary image is portrait or square.
+ *
+ * Square images are treated as portrait here too: at the full 1200px
+ * content width they'd render as a 1200x1200 square, towering over the
+ * page just like a true portrait image would.
+ */
+function _yukonca_glider_news_primary_image_is_portrait(NodeInterface $node) {
+  if (!$node->hasField('field_featured_image') || $node->get('field_featured_image')->isEmpty()) {
+    return FALSE;
+  }
+  $media = $node->get('field_featured_image')->entity;
+  if (!$media || !$media->hasField('field_media_image_1') || $media->get('field_media_image_1')->isEmpty()) {
+    return FALSE;
+  }
+  $image_item = $media->get('field_media_image_1')->first();
+  return $image_item->height >= $image_item->width;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_image_formatter(&$variables) {
+  // Open the news primary image (links to the original file) in a new tab.
+  if ($variables['image_style'] === 'news_primary' && $variables['url'] instanceof Url) {
+    $item = $variables['item'];
+
+    // Portrait (or square) images get a smaller, floated bounding-box style
+    // instead of stretching to the full content width, which for a very
+    // tall image would tower over the page.
+    if ($item->height >= $item->width) {
+      $variables['image']['#style_name'] = 'news_primary_portrait';
+      $variables['image']['#attributes']['class'][] = 'news-primary-image--portrait';
+    }
+
+    $variables['url']->setOption('attributes', [
+      'target' => '_blank',
+      'rel' => 'noopener',
+      'aria-label' => t('@alt (opens in a new tab)', ['@alt' => $item->alt]),
+    ]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function yukonca_glider_preprocess_field_group_html_element(&$variables) {
+  // #attributes is a Drupal\Core\Template\Attribute object here (see
+  // HtmlElement::preBuild()), so it needs its own API, not array access.
+  if (!$variables['attributes']->hasClass('news-primary-image-group')) {
+    return;
+  }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface && _yukonca_glider_news_primary_image_is_portrait($node)) {
+    $variables['attributes']->addClass('news-primary-image-group--portrait');
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function yukonca_glider_preprocess_page__node__blog(&$variables) {

@@ -1,0 +1,15 @@
+uuid: b5ccdc65-9d99-4f4d-b5fe-2251ec7826a6
+langcode: en
+status: true
+dependencies: {  }
+name: news_primary_portrait
+label: 'News primary portrait (500x700 box)'
+effects:
+  729ba3b7-4076-4246-983d-dacf7ba73413:
+    uuid: 729ba3b7-4076-4246-983d-dacf7ba73413
+    id: image_scale
+    weight: 0
+    data:
+      width: 500
+      height: 700
+      upscale: false

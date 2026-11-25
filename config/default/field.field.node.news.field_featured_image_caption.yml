@@ -1,0 +1,19 @@
+uuid: c48b2e17-96d0-4f3a-b5e1-0a7d93f6e284
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_image_caption
+    - node.type.news
+id: node.news.field_featured_image_caption
+field_name: field_featured_image_caption
+entity_type: node
+bundle: news
+label: 'Primary image caption'
+description: 'Optional. Shown under the primary image.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: 6cc1c75a-9a54-46fa-92e8-3eda0886bf68
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.news_primary
+label: 'News primary'
+description: ''
+targetEntityType: media
+cache: true

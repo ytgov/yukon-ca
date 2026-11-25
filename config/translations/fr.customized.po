@@ -1409,3 +1409,6 @@ msgstr "vendredi"
 
 msgid "Saturday"
 msgstr "samedi"
+
+msgid "@alt (opens in a new tab)"
+msgstr "@alt (s'ouvre dans un nouvel onglet)"
