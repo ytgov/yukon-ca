@@ -163,23 +163,6 @@
       });
     },
   };
-  Drupal.behaviors.eventOccurrenceFilter = {
-    attach (context) {
-      once('eventOccurrenceFilter', '.event-occurrences', context).forEach((fieldset) => {
-        const { hash } = window.location;
-        if (!hash || !/^#occurrence-\d+$/.test(hash)) {
-          return;
-        }
-        const targetId = hash.slice(1);
-        fieldset.querySelectorAll('.event-occurrence').forEach((el) => {
-          if (el.id !== targetId) {
-            el.hidden = true;
-          }
-        });
-      });
-    },
-  };
-
   /**
    * Stop CSS smooth scrolling fighting the back_to_top module's own animation.
    *
