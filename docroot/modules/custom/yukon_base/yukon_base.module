@@ -84,6 +84,84 @@ function yukon_base_form_node_event_form_alter(&$form, FormStateInterface $form_
       ];
     }
   }
+
+  // Same-times checkbox for events with several dates (refs #1184).
+  if (isset($form['field_event_start_time']['widget'])) {
+    $form['event_same_times'] = [
+      '#type' => 'checkbox',
+      '#title' => t("Use the first date's start and end times for all dates"),
+      '#default_value' => yukon_base_event_times_match($form_state->getFormObject()->getEntity()),
+      '#weight' => ($form['field_event_start_time']['#weight'] ?? 0) - 0.01,
+    ];
+    $form['field_event_start_time']['widget']['#process'][] = 'yukon_base_event_same_times_process';
+    $form['#attached']['library'][] = 'yukon_base/event_same_times';
+  }
+}
+
+/**
+ * Tells whether an event has 2+ dates that all share the same times.
+ *
+ * Decides if the same-times checkbox starts checked on an existing event.
+ */
+function yukon_base_event_times_match($event): bool {
+  if (!$event->hasField('field_event_start_time')) {
+    return FALSE;
+  }
+  $times = [];
+  $rows = 0;
+  foreach ($event->get('field_event_start_time') as $item) {
+    // The form appends a blank spare row to the items.
+    if (!$item->value) {
+      continue;
+    }
+    $rows++;
+    $zone = new \DateTimeZone($item->timezone ?: 'America/Whitehorse');
+    $row = [];
+    foreach (['value', 'end_value'] as $key) {
+      $row[] = $item->{$key}
+        ? (new \DateTimeImmutable($item->{$key}, new \DateTimeZone('UTC')))->setTimezone($zone)->format('H:i')
+        : '';
+    }
+    $times[implode('-', $row)] = TRUE;
+  }
+  return $rows > 1 && count($times) === 1;
+}
+
+/**
+ * Form #process callback: copies the first date's times to the other dates.
+ *
+ * Runs on the date widget before its children read their input, so the
+ * copied values are what gets validated and saved, with or without JavaScript.
+ * Each row keeps its own start date; the end date keeps the first row's offset
+ * from its start (an overnight event stays overnight).
+ */
+function yukon_base_event_same_times_process(array &$element, FormStateInterface $form_state, array &$complete_form) {
+  $input = $form_state->getUserInput();
+  $rows = $input['field_event_start_time'] ?? [];
+  if (empty($input['event_same_times']) || !is_array($rows)) {
+    return $element;
+  }
+  $deltas = array_filter(array_keys($rows), 'is_numeric');
+  usort($deltas, fn($a, $b) => ($rows[$a]['_weight'] ?? $a) <=> ($rows[$b]['_weight'] ?? $b));
+  $first = $rows[array_shift($deltas)] ?? [];
+  $offset = 0;
+  if (!empty($first['value']['date']) && !empty($first['end_value']['date'])) {
+    $offset = (new \DateTimeImmutable($first['value']['date']))->diff(new \DateTimeImmutable($first['end_value']['date']))->format('%r%a');
+  }
+  foreach ($deltas as $delta) {
+    $date = $rows[$delta]['value']['date'] ?? '';
+    if ($date === '') {
+      continue;
+    }
+    $input['field_event_start_time'][$delta]['value']['time'] = $first['value']['time'] ?? '';
+    $input['field_event_start_time'][$delta]['end_value']['time'] = $first['end_value']['time'] ?? '';
+    $input['field_event_start_time'][$delta]['end_value']['date'] = empty($first['end_value']['date'])
+      ? ''
+      : (new \DateTimeImmutable($date))->modify($offset . ' days')->format('Y-m-d');
+    $input['field_event_start_time'][$delta]['timezone'] = $first['timezone'] ?? '';
+  }
+  $form_state->setUserInput($input);
+  return $element;
 }
 
 /**

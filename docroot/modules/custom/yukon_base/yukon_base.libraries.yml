@@ -1,0 +1,6 @@
+event_same_times:
+  js:
+    js/event-same-times.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
