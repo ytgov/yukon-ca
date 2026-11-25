@@ -85,14 +85,9 @@ function yukon_base_form_node_event_form_alter(&$form, FormStateInterface $form_
     }
   }
 
-  // Same-times checkbox for events with several dates (refs #1184).
+  // Same-times checkbox for events with several dates (refs #1184). The
+  // checkbox itself sits in the first date row; see the widget alter below.
   if (isset($form['field_event_start_time']['widget'])) {
-    $form['event_same_times'] = [
-      '#type' => 'checkbox',
-      '#title' => t("Use the first date's start and end times for all dates"),
-      '#default_value' => yukon_base_event_times_match($form_state->getFormObject()->getEntity()),
-      '#weight' => ($form['field_event_start_time']['#weight'] ?? 0) - 0.01,
-    ];
     $form['field_event_start_time']['widget']['#process'][] = 'yukon_base_event_same_times_process';
     $form['#attached']['library'][] = 'yukon_base/event_same_times';
   }
@@ -203,6 +198,19 @@ function yukon_base_event_time_zone_process(array &$element, FormStateInterface 
 function yukon_base_field_widget_single_element_date_recur_basic_widget_form_alter(array &$element, FormStateInterface $form_state, array $context) {
   if ($context['items']->getName() !== 'field_event_start_time') {
     return;
+  }
+
+  // The same-times checkbox goes in the first row. Its parents and name are set
+  // by hand so its value stays top-level, outside the field's own values.
+  if ($context['delta'] === 0) {
+    $element['event_same_times'] = [
+      '#type' => 'checkbox',
+      '#title' => t("Use the first date's start and end times for all dates"),
+      '#default_value' => yukon_base_event_times_match($context['items']->getEntity()),
+      '#parents' => ['event_same_times'],
+      '#name' => 'event_same_times',
+      '#weight' => -10,
+    ];
   }
 
   // Editors add one occurrence per date; nobody uses repeat rules. Hide the
