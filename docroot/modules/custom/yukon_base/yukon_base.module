@@ -127,6 +127,12 @@ function yukon_base_field_widget_single_element_date_recur_basic_widget_form_alt
     return;
   }
 
+  // Editors add one occurrence per date; nobody uses repeat rules. Hide the
+  // box rather than disallow rules in the field settings, which would make
+  // legacy events that still have a rule fail validation on save. An
+  // inaccessible element keeps its saved value, so existing rules survive.
+  $element['rrule']['#access'] = FALSE;
+
   // A one-minute increment makes the browser show hours and minutes only.
   $element['value']['#date_increment'] = 60;
   $element['end_value']['#date_increment'] = 60;
