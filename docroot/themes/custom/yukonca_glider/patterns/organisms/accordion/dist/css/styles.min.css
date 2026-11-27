@@ -1,2 +1,7 @@
-/* Add your code here */
+.diff-responsive-table-wrapper .collapse {
+  display: block !important;
+}
+.diff-responsive-table-wrapper [data-bs-toggle=collapse] {
+  display: none;
+}
 /*# sourceMappingURL=styles.min.css.map */

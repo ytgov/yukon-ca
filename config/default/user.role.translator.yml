@@ -53,6 +53,7 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
+    - field_permissions
     - file
     - filter
     - linkchecker
@@ -101,6 +102,7 @@ permissions:
   - 'create documents content'
   - 'create engagement content'
   - 'create event content'
+  - 'create field_translation_status'
   - 'create homepage content'
   - 'create icon media'
   - 'create image media'
@@ -188,6 +190,7 @@ permissions:
   - 'edit any site_wide_alert content'
   - 'edit any topics_page content'
   - 'edit any video media'
+  - 'edit field_translation_status'
   - 'edit own audio media'
   - 'edit own basic_page content'
   - 'edit own blog content'
@@ -199,6 +202,7 @@ permissions:
   - 'edit own documents content'
   - 'edit own engagement content'
   - 'edit own event content'
+  - 'edit own field_translation_status'
   - 'edit own homepage content'
   - 'edit own icon media'
   - 'edit own image media'
@@ -287,8 +291,10 @@ permissions:
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view basic_page revisions'
+  - 'view field_translation_status'
   - 'view latest version'
   - 'view media'
+  - 'view own field_translation_status'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view the administration theme'

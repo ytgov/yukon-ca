@@ -7,11 +7,15 @@ dependencies:
     - paragraphs.paragraphs_type.multi_step
   module:
     - epp
+    - table_of_contents
     - text
 third_party_settings:
   epp:
     value: ''
     on_update: 0
+  table_of_contents:
+    toc_block: true
+    toc_selector: 'a[id]:not([id=""]):not([href]):not([name])'
 id: paragraph.multi_step.field_section_content
 field_name: field_section_content
 entity_type: paragraph

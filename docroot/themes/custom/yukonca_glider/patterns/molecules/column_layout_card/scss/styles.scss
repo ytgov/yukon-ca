@@ -1,13 +1,26 @@
 .column-layout-card {
   a {
     @apply block;
-    @apply mb-5;
+    @apply mb-2;
   }
 
   h4 {
     @apply pb-2.5;
 
     a {
+      @apply mb-0;
+    }
+  }
+
+  .subcategory-links {
+    @apply shadow-card;
+    @apply border border-solid rounded border-blue-mid;
+
+    .btn-sm {
+      font-weight: 400 !important;
+      padding: 0.5rem 0.5rem;
+      @apply inline-block;
+      @apply text-sm;
       @apply mb-0;
     }
   }

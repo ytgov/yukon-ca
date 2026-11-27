@@ -1,0 +1,5 @@
+display_configuration:
+  link_text: 'Choisir un média'
+widgets:
+  24011187-a4c0-42f1-a71a-eec339d3721f:
+    label: Navigateur

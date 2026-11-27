@@ -1,0 +1,19 @@
+@import "core";
+
+.collapse-toggle {
+  &__button {
+    @apply flex items-center justify-between w-full bg-transparent border-0 p-0 text-left font-medium;
+
+    &:focus {
+      @apply shadow-none;
+    }
+  }
+
+  &__icon {
+    @apply transition-transform duration-300 ease-in-out text-3xl;
+  }
+
+  &__button:not(.collapsed) &__icon {
+    @apply rotate-180;
+  }
+}

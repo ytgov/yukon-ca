@@ -167,3 +167,9 @@ sitediff/*
 
 # Composer cache in CI
 .composer-cache
+
+# Local session notes (Claude Code)
+/SESSION.md
+
+# PHPCS cache
+.phpcs-cache

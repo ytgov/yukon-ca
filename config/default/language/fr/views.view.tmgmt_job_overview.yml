@@ -1,15 +1,38 @@
 display:
   default:
+    display_title: Master
     display_options:
       fields:
+        state:
+          label: État
+          separator: ', '
         label:
           label: Label
         source_language_1:
           label: 'A partir de'
+          separator: ', '
         target_language:
           label: À
+          separator: ', '
+        translator:
+          label: Fournisseur
+        progress:
+          label: Progression
+        word_count:
+          label: Mots
+        tags_count:
+          label: Étiquettes
+        changed:
+          label: Modifié
+        operations:
+          label: Operations
       pager:
         options:
+          tags:
+            next: "suivant\_›"
+            previous: "‹\_précédent"
+            first: "«\_premier"
+            last: "dernier\_»"
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
@@ -19,5 +42,22 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        state:
+          expose:
+            label: État
+        source_language:
+          expose:
+            label: "Langue d'origine"
+        translator:
+          expose:
+            label: Fournisseur
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: Travaux
+      tab_options:
+        title: Travaux

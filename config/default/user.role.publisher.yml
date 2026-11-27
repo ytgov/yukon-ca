@@ -28,10 +28,12 @@ dependencies:
   module:
     - content_moderation
     - contextual
+    - field_permissions
     - file
     - filter
     - linkchecker
     - media
+    - moderation_scheduler
     - node
     - path
     - system
@@ -139,6 +141,7 @@ permissions:
   - 'edit any news content'
   - 'edit any topics_page content'
   - 'edit any video media'
+  - 'edit moderation scheduler field'
   - 'edit own audio media'
   - 'edit own basic_page content'
   - 'edit own blog content'
@@ -177,8 +180,10 @@ permissions:
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view basic_page revisions'
+  - 'view field_translation_status'
   - 'view latest version'
   - 'view media'
+  - 'view own field_translation_status'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view the administration theme'

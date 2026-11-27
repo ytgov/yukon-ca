@@ -1,0 +1,26 @@
+uuid: d3135f47-fc53-4521-801b-4603d28c253b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.places_listing_summary
+    - field.field.paragraph.transactional_facilities.field_tf_services
+    - field.field.paragraph.transactional_facilities.field_transactional_facility_typ
+    - paragraphs.paragraphs_type.transactional_facilities
+  module:
+    - text
+id: paragraph.transactional_facilities.places_listing_summary
+targetEntityType: paragraph
+bundle: transactional_facilities
+mode: places_listing_summary
+content:
+  field_tf_services:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_transactional_facility_typ: true
+  search_api_excerpt: true

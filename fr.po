@@ -10548,7 +10548,7 @@ msgid_plural ""
 "removed."
 msgstr[0] ""
 
-msgid "Date modified: @date"
+msgid "Last updated: @date"
 msgstr ""
 msgid "Accessibility"
 msgstr ""

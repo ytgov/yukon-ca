@@ -10,6 +10,7 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
+    - field_permissions
     - filter
     - media
     - node
@@ -50,7 +51,9 @@ permissions:
   - 'use workbench access'
   - 'view all revisions'
   - 'view all revisions'
+  - 'view field_translation_status'
   - 'view latest version'
+  - 'view own field_translation_status'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view workbench access information'

@@ -25,7 +25,7 @@ h2.title {
       @apply h-[37px] py-[6px] px-[12px] w-full;
     }
 
-    .form-type-checkbox {
+    &.form-type-checkbox {
       input {
           @apply absolute left-0 mt-1;
       }

@@ -1,26 +1,62 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
+        nid:
+          separator: ', '
+        title:
+          label: Title
+          separator: ', '
+        type:
+          label: Type
+          separator: ', '
         status:
           label: 'Publié le'
+          separator: ', '
         changed:
           label: 'Dernière mise à jour'
+          separator: ', '
+        uid:
+          label: Auteur
+          separator: ', '
+        revision_uid:
+          label: 'Revu par'
+          separator: ', '
       filters:
+        title:
+          expose:
+            label: Title
+        type:
+          expose:
+            label: Type
         status:
           expose:
             label: 'Publié le'
+      title: 'Mes Contributions'
+      empty:
+        area:
+          content:
+            value: "Vous n'avez créé ni modifié aucun contenu."
+            format: plain_text
       arguments:
         uid_revision:
           exception:
@@ -29,7 +65,18 @@ display:
     display_options:
       pager:
         options:
+          tags:
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      header:
+        area:
+          content:
+            value: '<h3>Vos modifications récentes</h3>'
+            format: full_html
+      use_more_text: 'voir tout'
+  embed_1:
+    display_title: 'Page intégrée'

@@ -1308,7 +1308,7 @@
   overflow-y: auto;
 }
 
-.form .form-wrapper .fieldset-legend, .form .js-form-item .form-type-checkbox label, .form .js-form-item label {
+.form .form-wrapper .fieldset-legend, .form .js-form-item.form-type-checkbox label, .form .js-form-item label {
   display: block;
   font-weight: 400;
   --tw-text-opacity: 1;
@@ -1344,16 +1344,16 @@ h2.title {
   padding-left: 12px;
   padding-right: 12px;
 }
-.form .js-form-item .form-type-checkbox input {
+.form .js-form-item.form-type-checkbox input {
   position: absolute;
   left: 0px;
   margin-top: 0.25rem;
 }
-.form .js-form-item .form-type-checkbox label {
+.form .js-form-item.form-type-checkbox label {
   margin-bottom: 0px;
   padding-left: 1.25rem;
 }
-.form .js-form-item .form-type-checkbox legend:has(span:empty) {
+.form .js-form-item.form-type-checkbox legend:has(span:empty) {
   display: none;
 }
 .form .form-submit {

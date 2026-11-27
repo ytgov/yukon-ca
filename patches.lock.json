@@ -1,0 +1,81 @@
+{
+    "_hash": "5e1612af45156a2491444fa3c6ea58501b3ef3834b2868137219fa1fc7d1277e",
+    "patches": {
+        "drupal/core": [
+            {
+                "package": "drupal/core",
+                "description": "3129874 - Base field override for moderation_state added by content_moderation causes config import failure",
+                "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/10304.diff",
+                "sha256": "91655950d92e45ae59989f42f74819e78c68f9b66941f492a4940fc0a219df3f",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3264843 - Add support for negating node type(content type) condition for block visibility",
+                "url": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch",
+                "sha256": "fbbe81517d697a8a7e2406118378b47d51fb06918a5ba17c8df6fe45d54debe8",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3441962 - Call to a member function getSettings() on null in Drupal\\Core\\Field\\FieldConfigBase->getSettings()",
+                "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/8456.diff",
+                "sha256": "00a6ef86f0e270672513f7d5abbea08d223d9438bf42dba3e36af7f4d852cf57",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3145190 - PHP warnings in array_flip in Drupal\\Core\\Entity\\EntityStorageBase->loadMultiple()",
+                "url": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
+                "sha256": "5069422b9a8edea52823e036c6db9bf96ed93aef1a0f9d5490903cb7e67ac809",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "drupal/core",
+                "description": "3050261 - index.php randomly appears in friendly URLs",
+                "url": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch",
+                "sha256": "814211d043d45c1868d44c60b38145f1003470670b9f6dedd93b61231112157d",
+                "depth": 2,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/token": [
+            {
+                "package": "drupal/token",
+                "description": "1614456 - [current-page:query:?] should fall back to empty string",
+                "url": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff",
+                "sha256": "5582e412ce7ca8a12b1377c0340878431d8969ca584be83502a075f31e7f0844",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "drupal/fontawesome": [
+            {
+                "package": "drupal/fontawesome",
+                "description": "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings",
+                "url": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff",
+                "sha256": "7c138c13591d2c1d8ac1fee9436cdaa9dd4786da3a4e3b8dcfd7a8b2540aff12",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

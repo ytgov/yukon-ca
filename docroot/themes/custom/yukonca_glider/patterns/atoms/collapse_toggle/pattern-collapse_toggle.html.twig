@@ -1,0 +1,12 @@
+{% set item_id = item_id ?: 'collapse-toggle'|clean_unique_id %}
+{% set is_expanded = expanded|default(false) %}
+
+<div class="collapse-toggle">
+  <button class="collapse-toggle__button{{ not is_expanded ? ' collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ item_id }}--body" aria-expanded="{{ is_expanded ? 'true' : 'false' }}" aria-controls="{{ item_id }}--body">
+    <span class="collapse-toggle__title">{{ title }}</span>
+    <i class="icon-chevron-down collapse-toggle__icon" aria-hidden="true"></i>
+  </button>
+  <div id="{{ item_id }}--body" class="collapse-toggle__body collapse{{ is_expanded ? ' show' }}"{% if parent_id %} data-bs-parent="#{{ parent_id }}"{% endif %}>
+    {{ content }}
+  </div>
+</div>

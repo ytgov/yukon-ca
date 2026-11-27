@@ -1,0 +1,8 @@
+/**
+ * The extlink module's own extlink.css sets `padding-left` on `extlink i`,
+ * which never matches the `<span class="fa-ext extlink">` markup it
+ * actually injects in Font Awesome mode. Re-apply the padding here.
+ */
+.extlink {
+  padding-left: 0.2em;
+}

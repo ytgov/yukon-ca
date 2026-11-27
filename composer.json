@@ -6,52 +6,57 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
-        "acquia/blt": "^13.7",
-        "composer/installers": "^1.7",
-        "cweagans/composer-patches": "^1.7",
+        "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^2.0",
         "drupal/addtoany": "^2.0",
         "drupal/admin_toolbar": "^3.3",
-        "drupal/advanced_help": "1.x-dev@dev",
         "drupal/ajax_comments": "1.x-dev@dev",
-        "drupal/allowed_formats": "^1.3",
+        "drupal/allowed_formats": "^3.0",
         "drupal/anchor_link": "^3.0",
-        "drupal/better_exposed_filters": "^6.0",
+        "drupal/back_to_top": "^3.0",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/bigmenu": "^2.0@RC",
-        "drupal/block_class": "^3.0",
+        "drupal/block_class": "^4.0",
+        "drupal/blockgroup": "^2.0",
         "drupal/ckeditor5_plugin_pack": "^1.5",
         "drupal/ckeditor5_premium_features": "^1.6",
-        "drupal/ckeditor5_show_block": "^1.14",
         "drupal/ckeditor_div_manager": "^3.0@alpha",
+        "drupal/ckeditor_link_styles": "^1.1",
         "drupal/ckeditor_media_resize": "^1.0",
-        "drupal/classy": "^1.0",
+        "drupal/classy": "^2.0",
         "drupal/color_field": "^3.0",
         "drupal/comment_notify": "1.x-dev@dev",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/config_pages": "^2.18",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "10.6.9",
-        "drupal/core-project-message": "10.6.9",
-        "drupal/core-recommended": "10.6.9",
+        "drupal/core-composer-scaffold": "11.4.11",
+        "drupal/core-project-message": "11.4.11",
+        "drupal/core-recommended": "11.4.11",
         "drupal/cshs": "^4.0",
         "drupal/date_recur": "^3.2",
-        "drupal/devel": "^5.1",
-        "drupal/diff": "^1.1",
+        "drupal/diff": "^2.1",
         "drupal/ds": "^3.15",
+        "drupal/dynamic_entity_reference": "^3.2",
         "drupal/easy_breadcrumb": "^2.0",
-        "drupal/environment_indicator": "^4.0",
+        "drupal/entity_browser": "^2.17",
+        "drupal/entity_embed": "^1.7",
         "drupal/epp": "^1.3",
-        "drupal/extlink": "^1.3",
+        "drupal/extlink": "^2.0",
         "drupal/facets": "^3.0",
         "drupal/fences": "^3.0",
         "drupal/field_group": "^4.0",
         "drupal/field_permissions": "^1.1",
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/focal_point": "^2.1",
-        "drupal/fontawesome": "^2.24",
-        "drupal/geofield": "^1.48",
+        "drupal/fontawesome": "^3.0",
+        "drupal/geofield": "^10.3",
         "drupal/geophp": "^1.1",
         "drupal/imce": "^3.1",
         "drupal/job_scheduler": "^4.0",
+        "drupal/jquery_ui": "^1.8",
+        "drupal/jquery_ui_datepicker": "^2.1",
+        "drupal/jquery_ui_slider": "^2.1",
+        "drupal/jquery_ui_touch_punch": "^1.1",
         "drupal/leaflet": "^10.3",
         "drupal/libraries": "^4.1",
         "drupal/link_attributes": "^2.1",
@@ -59,8 +64,8 @@
         "drupal/linkit": "^7.0",
         "drupal/mail_safety": "^2.0",
         "drupal/matomo": "^1.23",
-        "drupal/maxlength": "^2.1",
-        "drupal/media_directories": "2.1.x-dev@dev",
+        "drupal/maxlength": "^3.2",
+        "drupal/media_directories": "3.0.0-rc1",
         "drupal/media_embed_extra": "^1.0@beta",
         "drupal/media_entity_file_replace": "^1.3",
         "drupal/media_file_delete": "^1.3",
@@ -71,20 +76,20 @@
         "drupal/metatag": "^2.1",
         "drupal/moderation_scheduler": "^9.1",
         "drupal/noreqnewpass": "^1.4",
-        "drupal/openid_connect": "^1.5",
+        "drupal/openid_connect": "3.0.0-alpha9",
         "drupal/page_manager": "^4.0@RC",
         "drupal/paragraphs": "^1.12",
+        "drupal/paragraphs_asymmetric_translation_widgets": "^1.4",
         "drupal/password_policy": "^4.0",
         "drupal/pathauto": "^1.11",
         "drupal/pathologic": "^2.0@alpha",
         "drupal/redirect": "^1.6",
         "drupal/redis": "^1.6",
-        "drupal/reroute_email": "^2.2",
         "drupal/responsive_preview": "^2.0",
         "drupal/scheduler": "^2.0@RC",
         "drupal/scheduler_content_moderation_integration": "^3.0",
-        "drupal/search_api_attachments": "^9.0",
-        "drupal/search_api_solr": "^4.3",
+        "drupal/search_api_attachments": "^10.0",
+        "drupal/search_api_solr": "^4.3.12",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
         "drupal/security_review": "^3.1",
@@ -96,68 +101,49 @@
         "drupal/stage_file_proxy": "^3.1",
         "drupal/superfish": "^1.7",
         "drupal/svg_image": "^3.0",
+        "drupal/table_of_contents": "^2.1",
         "drupal/time_field": "^2.2",
         "drupal/tmgmt": "^1.15",
-        "drupal/tmgmt_diff": "^1.0@alpha",
         "drupal/token": "^1.11",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/ui_patterns": "^1.2",
         "drupal/username_enumeration_prevention": "^1.3",
-        "drupal/video_embed_field": "^2.5",
+        "drupal/video_embed_field": "^3.1",
         "drupal/views_ajax_history": "^1.7",
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_infinite_scroll": "^2.0",
         "drupal/views_menu_children_filter": "^4.0",
-        "drupal/views_tree": "^2.0@RC",
+        "drupal/views_tree": "^3.0",
         "drupal/views_year_filter": "^2.1",
-        "drupal/viewsreference": "^1.7",
-        "drupal/webform": "6.2.x-dev@dev",
+        "drupal/webform": "^6.3",
         "drupal/webform_views": "^5.4",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
         "drupal/workbench_email": "^3.0",
-        "enshrined/svg-sanitize": "^0.22.0",
+        "drush/drush": "*",
+        "enshrined/svg-sanitize": "^1.0",
         "evolvingweb/blinker_addons": "^2.4",
         "evolvingweb/blinker_core": "^2.0",
         "evolvingweb/glider": "^3.6",
-        "oomphinc/composer-installers-extender": "^2.0",
+        "mnsami/composer-custom-directory-installer": "^2.1",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "extra": {
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "2321071 - BaseFieldOverride fails to take into account ContentEntityInterface::bundleFieldDefinitions() when invoking onFieldDefinitionUpdate()": "https://www.drupal.org/files/issues/2023-11-02/2321071-71.patch",
-                "3233527 - Include file fields in File source plugin if file_entity module is enabled": "https://www.drupal.org/files/issues/2022-04-04/drupal_core-3233527-Include-file-fields-in-File-source-plugin-if-file_entity-module-is-enabled.patch",
-                "3154156 - Improve migration system performance: statically cache DrupalSqlBase::$systemData": "https://www.drupal.org/files/issues/2020-06-23/3154156-2.patch",
+                "3129874 - Base field override for moderation_state added by content_moderation causes config import failure": "https://git.drupalcode.org/project/drupal/-/merge_requests/10304.diff",
                 "3264843 - Add support for negating node type(content type) condition for block visibility": "https://www.drupal.org/files/issues/2024-01-08/drupal-3264843-21.patch",
-                "field config base": "https://www.drupal.org/files/issues/2024-04-25/remove_runtime_fieldsetting_11.patch",
-                "Uasort issue when add reference field": "https://www.drupal.org/files/issues/2024-10-29/3419074-uasort-plugin-manager.patch",
-                "url generator": "patches/urlgenerator.patch",
-                "Entity Reference Translation Deriver": "https://www.drupal.org/files/issues/2020-04-06/2984460-3.patch",
-                "View text issue": "https://www.drupal.org/files/issues/2024-02-15/3398734-10.x.patch",
-                "EntityStorageBase": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
-                "index.php issue": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch"
+                "3441962 - Call to a member function getSettings() on null in Drupal\\Core\\Field\\FieldConfigBase->getSettings()": "https://git.drupalcode.org/project/drupal/-/merge_requests/8456.diff",
+                "3145190 - PHP warnings in array_flip in Drupal\\Core\\Entity\\EntityStorageBase->loadMultiple()": "https://www.drupal.org/files/issues/2023-01-12/3145190-21.patch",
+                "3050261 - index.php randomly appears in friendly URLs": "https://www.drupal.org/files/issues/2023-10-12/3050261_htaccess_scaffold.patch"
             },
             "drupal/token": {
-                "1614456 - [current-page:query:?] should fall back to empty string": "https://www.drupal.org/files/issues/2022-11-30/token-empty_current_page_query-1614456-28.patch"
+                "1614456 - [current-page:query:?] should fall back to empty string": "https://git.drupalcode.org/project/token/-/merge_requests/135.diff"
             },
             "drupal/fontawesome": {
-                "fontawesome icon name": "patches/fontawesome.patch"
-            },
-            "drupal/classy": {
-                "3267438 - Add Classy ckeditor5-stylesheets config": "https://www.drupal.org/files/issues/2023-04-27/classy-ckeditor5-stylesheets-3267438-10.patch"
-            },
-            "drupal/field_group": {
-                "3111107 - Fix translations label/description": "https://www.drupal.org/files/issues/2025-02-25/3111107-59.patch"
-            },
-            "drupal/datetime_range": {
-                "Date time format": "https://www.drupal.org/files/issues/2796151-06.patch"
-            },
-            "drupal/paragraphs": {
-                "Paragraph translation": "https://www.drupal.org/files/issues/2024-09-12/2904705-148-1-18-fix.patch",
-                "Paragraph translation 2": "patches/paragraghs-buttons_do_not_appear_if_translated_node-3125638-15.patch"
+                "3515051 - Icons not displayed because of incorrect style class saved in Widget-Additional Settings": "https://git.drupalcode.org/project/fontawesome/-/merge_requests/56.diff"
             }
         },
         "installer-paths": {
@@ -206,7 +192,8 @@
                     "mode": "replace",
                     "path": "docroot/core/assets/scaffold/files/default.settings.php",
                     "overwrite": false
-                }
+                },
+                "[web-root]/sites/development.services.yml": false
             }
         },
         "installer-types": [
@@ -215,7 +202,8 @@
         ],
         "merge-plugin": {
             "include": [
-                "web/modules/contrib/media_directories/composer.libraries.json"
+                "docroot/modules/contrib/media_directories/composer.libraries.json",
+                "docroot/modules/contrib/webform/composer.libraries.json"
             ]
         },
         "composer-exit-on-patch-failure": true,
@@ -265,22 +253,17 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "acquia/blt": true,
-            "acquia/blt-phpcs": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "oomphinc/composer-installers-extender": true,
+            "mnsami/composer-custom-directory-installer": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
+            "symfony/runtime": true,
+            "tbachert/spi": true,
             "wikimedia/composer-merge-plugin": true
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Evolvingweb\\": "blt/src/"
         }
     },
     "autoload-dev": {
@@ -289,9 +272,6 @@
         }
     },
     "scripts": {
-        "post-create-project-cmd": [
-            "blt internal:create-project:init-repo"
-        ],
         "nuke": [
             "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
             "@composer clearcache --ansi",
@@ -299,9 +279,9 @@
         ]
     },
     "require-dev": {
-        "acquia/blt-phpcs": "^1.0",
-        "mglaman/phpstan-drupal": "^1.1",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0"
+        "drupal/composer_deploy": "^1.10",
+        "drupal/core-dev": "*",
+        "drupal/devel": "^5.1",
+        "drupal/upgrade_status": "^4.3"
     }
 }

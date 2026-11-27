@@ -40,7 +40,9 @@ hidden:
   field_editor_publisher: true
   field_meta_tags: true
   field_publisher: true
+  field_translation_status: true
   field_yukon_editorial_team: true
   langcode: true
   links: true
+  search_api_attachments: true
   search_api_excerpt: true

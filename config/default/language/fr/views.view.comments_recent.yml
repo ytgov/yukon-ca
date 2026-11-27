@@ -1,3 +1,11 @@
 display:
   default:
     display_title: 'Par défaut'
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'Aucun commentaire disponible.'
+  block_1:
+    display_title: Bloc
+    display_options:
+      block_category: 'Listes (Views)'

@@ -1,12 +1,14 @@
 display:
   default:
-    display_title: Principal
+    display_title: Master
     display_options:
       pager:
         options:
           tags:
-            next: 'Suivant ›'
-            previous: '‹ Précédent'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'

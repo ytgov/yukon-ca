@@ -13,16 +13,23 @@
 	& &__collapse {
 		@apply bg-transparent py-1.5 px-5 rounded-[100px] h-8 hover:text-white hover:bg-blue-600 text-sm leading-none transition-all duration-300 ease-in-out;
 
-		svg {
+		i {
 			@apply text-blue-icon;
 		}
 
 		&:hover {
-			svg {
+			i {
 				@apply text-white;
 			}
 		}
 	}
+}
+
+// Visual Inline diff view: all accordion panes are forced open (see
+// organisms/accordion/scss/styles.scss), so the expand/collapse-all
+// controls have nothing to do and shouldn't be shown.
+.diff-responsive-table-wrapper .yukon-accordion__buttons {
+	@apply hidden;
 }
 
 .accordion {
@@ -105,6 +112,32 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+// LPL2 submenu accordion: plus on the right when closed, chevron on the left
+// when open. Icons are <i class="fas ..."> markup from the menu template.
+.l2-accordion {
+	.accordion-item:not(.inner) .accordion-header .accordion-button {
+		@apply relative pl-10 pr-10;
+
+		&:focus-visible {
+			outline: 2px solid $color-blue200;
+			outline-offset: -2px;
+		}
+
+		.l2-accordion__open {
+			@apply absolute left-[15px];
+		}
+
+		.l2-accordion__closed {
+			@apply absolute right-[15px];
+		}
+
+		&.collapsed .l2-accordion__open,
+		&:not(.collapsed) .l2-accordion__closed {
+			@apply hidden;
 		}
 	}
 }

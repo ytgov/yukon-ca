@@ -397,7 +397,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   simple_sitemap:
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
