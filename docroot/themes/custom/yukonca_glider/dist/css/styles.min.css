@@ -6808,6 +6808,26 @@ aside .filters form .form-item .form-item{
   padding-bottom: 0.625rem;
 }
 
+.event-occurrence{
+  scroll-margin-top: 6rem;
+}
+
+.event-occurrence:target{
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  border-width: 0px;
+  border-left-width: 4px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 205 87 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 238 238 / var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .page-node-type-campaign-page{
   overflow-x: hidden;
 }
