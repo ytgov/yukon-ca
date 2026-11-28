@@ -1,0 +1,24 @@
+uuid: f3c9cb75-02b5-4796-90ee-a70629d9d57d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_individual_title
+    - paragraphs.paragraphs_type.contact_card_individual
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card_individual.field_individual_title
+field_name: field_individual_title
+entity_type: paragraph
+bundle: contact_card_individual
+label: Job title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

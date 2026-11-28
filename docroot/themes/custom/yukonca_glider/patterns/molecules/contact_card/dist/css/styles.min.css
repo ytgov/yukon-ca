@@ -48,6 +48,10 @@
   text-align: center;
   flex-shrink: 0;
 }
+.contact-card__detail .grow {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .contact-card__place {
   background-color: #005A65;
 }

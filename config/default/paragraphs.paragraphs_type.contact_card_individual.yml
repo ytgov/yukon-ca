@@ -1,0 +1,10 @@
+uuid: 880d09ba-5f28-470e-923d-f7f8898877c8
+langcode: en
+status: true
+dependencies: {  }
+id: contact_card_individual
+label: 'Contact Card for Individual'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

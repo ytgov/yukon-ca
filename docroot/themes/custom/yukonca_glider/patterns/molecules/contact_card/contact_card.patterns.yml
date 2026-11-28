@@ -5,7 +5,20 @@ contact_card:
     default:
       label: Default
       description: Contact details with a highlighted place panel.
+    individual:
+      label: Individual
+      description: A named person with job title, phone and email. Uses the name, title, phone and email fields only.
   fields:
+    name:
+      type: mixed
+      label: Name
+      description: Individual variant only. The person's name.
+      preview: 'Tim Kucharuk'
+    title:
+      type: mixed
+      label: Job title
+      description: Individual variant only. The person's job title.
+      preview: 'Press secretary, Cabinet Communications'
     heading:
       type: mixed
       label: Heading

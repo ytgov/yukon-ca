@@ -1,0 +1,24 @@
+uuid: 5558357a-0c97-4f49-80c0-dc13b2ce39a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_individual_email
+    - paragraphs.paragraphs_type.contact_card_individual
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card_individual.field_individual_email
+field_name: field_individual_email
+entity_type: paragraph
+bundle: contact_card_individual
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

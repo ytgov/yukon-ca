@@ -1,0 +1,24 @@
+uuid: 199d42c9-7af6-4b91-9b57-27db1c5dc52a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_individual_phone
+    - paragraphs.paragraphs_type.contact_card_individual
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card_individual.field_individual_phone
+field_name: field_individual_phone
+entity_type: paragraph
+bundle: contact_card_individual
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

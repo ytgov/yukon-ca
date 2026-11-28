@@ -1,0 +1,35 @@
+{% set prefix = 'contact-card' %}
+{% set classes = [
+  prefix,
+  prefix ~ '--' ~ variant,
+  'leading-none',
+] %}
+
+<div {{ attributes.addClass(classes) }}>
+  <div class="px-3 pt-3">
+    {% if name %}
+      <h2 class="text-h4-mobile md:text-h4 font-medium !pt-0 !my-0">{{ name }}</h2>
+    {% endif %}
+    {% if title %}
+      <div class="{{ prefix }}__title">{{ title }}</div>
+    {% endif %}
+  </div>
+  <div class="{{ prefix }}__info px-3 pb-3 pt-3">
+    <div class="{{ prefix }}__details !pl-0">
+      {% if phone %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Phone'|t }}:</span>
+          <span class="block grow">{{ phone }}</span>
+        </div>
+      {% endif %}
+      {% if email %}
+        <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span class="block font-medium">{{ 'Email'|t }}:</span>
+          <span class="block grow">{{ email }}</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

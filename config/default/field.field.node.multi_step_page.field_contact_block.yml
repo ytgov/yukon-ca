@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_contact_block
     - node.type.multi_step_page
     - paragraphs.paragraphs_type.contact_card
+    - paragraphs.paragraphs_type.contact_card_individual
   module:
     - entity_reference_revisions
     - tmgmt_content
@@ -27,6 +28,7 @@ settings:
   handler_settings:
     target_bundles:
       contact_card: contact_card
+      contact_card_individual: contact_card_individual
     negate: 0
     target_bundles_drag_drop:
       call_to_action:
@@ -43,6 +45,9 @@ settings:
         enabled: false
       contact_card:
         weight: 38
+        enabled: true
+      contact_card_individual:
+        weight: 39
         enabled: true
       contact_person:
         weight: 39

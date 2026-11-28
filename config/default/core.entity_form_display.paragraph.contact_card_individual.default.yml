@@ -1,0 +1,50 @@
+uuid: f303d899-f4df-4573-afde-b0663d6ce900
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_card_individual.field_individual_name
+    - field.field.paragraph.contact_card_individual.field_individual_title
+    - field.field.paragraph.contact_card_individual.field_individual_phone
+    - field.field.paragraph.contact_card_individual.field_individual_email
+    - paragraphs.paragraphs_type.contact_card_individual
+id: paragraph.contact_card_individual.default
+targetEntityType: paragraph
+bundle: contact_card_individual
+mode: default
+content:
+  field_individual_email:
+    type: email_default
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_individual_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_individual_phone:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_individual_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a contact card for an individual.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ pattern('contact_card', {
+  name:  content.field_individual_name.0,
+  title: content.field_individual_title.0,
+  phone: content.field_individual_phone.0,
+  email: content.field_individual_email.0,
+}, 'individual') }}
