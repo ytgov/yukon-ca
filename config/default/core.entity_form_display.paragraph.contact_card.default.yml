@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.contact_card.field_contact_address
     - field.field.paragraph.contact_card.field_contact_email
     - field.field.paragraph.contact_card.field_contact_fax
+    - field.field.paragraph.contact_card.field_contact_heading
     - field.field.paragraph.contact_card.field_contact_instructional_text
     - field.field.paragraph.contact_card.field_contact_link
     - field.field.paragraph.contact_card.field_contact_mail_address
@@ -84,6 +85,14 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_contact_heading:
+    type: string_textfield
+    weight: -1
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Contact us'
     third_party_settings: {  }
   field_contact_instructional_text:
     type: text_textarea

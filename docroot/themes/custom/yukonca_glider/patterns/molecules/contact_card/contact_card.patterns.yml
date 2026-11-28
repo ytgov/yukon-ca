@@ -6,6 +6,11 @@ contact_card:
       label: Default
       description: Contact details with a highlighted place panel.
   fields:
+    heading:
+      type: mixed
+      label: Heading
+      description: Card heading. Falls back to "Contact us" when empty.
+      preview: 'Contact us'
     instructional_text:
       type: mixed
       label: Instructional text

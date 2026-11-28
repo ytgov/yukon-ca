@@ -1,0 +1,24 @@
+uuid: ff99e936-0277-40fd-b9d8-92567746ef23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_heading
+    - paragraphs.paragraphs_type.contact_card
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.contact_card.field_contact_heading
+field_name: field_contact_heading
+entity_type: paragraph
+bundle: contact_card
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
