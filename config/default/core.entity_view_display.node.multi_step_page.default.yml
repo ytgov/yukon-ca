@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.multi_step_page.body
     - field.field.node.multi_step_page.field_click_to_call
     - field.field.node.multi_step_page.field_contact
+    - field.field.node.multi_step_page.field_contact_block
     - field.field.node.multi_step_page.field_department_term
     - field.field.node.multi_step_page.field_editor_publisher
     - field.field.node.multi_step_page.field_form_meta_description
@@ -60,6 +61,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 11
+    region: content
+  field_contact_block:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_full_width:
     type: boolean
