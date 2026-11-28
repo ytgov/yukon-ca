@@ -3,32 +3,43 @@
   prefix,
   prefix ~ '--' ~ variant,
   'leading-none',
+  'flex',
+  'flex-col',
+  'md:block',
 ] %}
 
 <div {{ attributes.addClass(classes) }}>
-  {# Heading and links #}
-  <div class="grid grid-cols-3">
-    <div class="col-span-3 md:col-span-2 pt-3 px-3">
+  {# Heading and links. Below md the wrapper is display: contents so the
+     children can be reordered with the details block: title, instructions,
+     details, place, link. From md up it is the original 3-column grid. #}
+  <div class="contents md:grid grid-cols-3">
+    <div class="order-1 md:order-none col-span-3 md:col-span-2 pt-3 px-3">
       <h2 class="text-h4-mobile md:text-h4 font-medium !pt-0 !my-0">{{ 'Contact us'|t }}</h2>
     </div>
-    <div class="{{ prefix }}__place">
+    <div class="{{ prefix }}__place order-4 md:order-none self-center max-w-full md:self-auto">
       {% if place_link %}
-        <a href="{{ place_link }}" class="block !text-white no-underline text-center p-3">{{ place_link_text }}</a>
+        <a href="{{ place_link }}" class="flex items-center justify-center gap-2 !text-white no-underline text-center p-3">
+          <i class="fas fa-location-dot" aria-hidden="true"></i>
+          <span>{{ place_link_text }}</span>
+        </a>
       {% else %}
-        <span class="text-white text-center">{{ place_link_text }}</span>
+        <span class="flex items-center justify-center gap-2 text-white text-center p-3">
+          <i class="fas fa-location-dot" aria-hidden="true"></i>
+          <span>{{ place_link_text }}</span>
+        </span>
       {% endif %}
     </div>
-    <div class="{{ prefix }}__instructions col-span-3 md:col-span-2 px-3">
+    <div class="{{ prefix }}__instructions order-2 md:order-none col-span-3 md:col-span-2 px-3">
       {{ instructional_text }}
     </div>
     {% if link %}
-      <div class="{{ prefix }}__link p-3">
+      <div class="{{ prefix }}__link order-5 md:order-none text-center md:text-left p-3">
         {{ link }}
       </div>
     {% endif %}
   </div>
   {# Contact Info #}
-  <div class="{{ prefix }}__info px-3 pb-3">
+  <div class="{{ prefix }}__info order-3 md:order-none px-3 pb-3">
     <div class="{{ prefix }}__details !pl-0">
       {% if email %}
         <div class="{{ prefix }}__detail flex items-center gap-2 mb-2">

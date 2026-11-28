@@ -15,8 +15,14 @@
   &__place {
     background-color: $color-blue200;
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       background-color: $blue-sherpa;
+    }
+
+    a:focus-visible {
+      outline: 3px solid $color-white;
+      outline-offset: -6px;
     }
   }
 }

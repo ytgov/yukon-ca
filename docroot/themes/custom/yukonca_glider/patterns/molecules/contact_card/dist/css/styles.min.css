@@ -51,7 +51,11 @@
 .contact-card__place {
   background-color: #005A65;
 }
-.contact-card__place:hover {
+.contact-card__place:hover, .contact-card__place:focus-within {
   background-color: #00454E;
+}
+.contact-card__place a:focus-visible {
+  outline: 3px solid #FFF;
+  outline-offset: -6px;
 }
 /*# sourceMappingURL=styles.min.css.map */

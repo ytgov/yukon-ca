@@ -1614,6 +1614,21 @@ h6,
 .z-10{
   z-index: 10;
 }
+.order-1{
+  order: 1;
+}
+.order-4{
+  order: 4;
+}
+.order-2{
+  order: 2;
+}
+.order-5{
+  order: 5;
+}
+.order-3{
+  order: 3;
+}
 .col-span-7{
   grid-column: span 7 / span 7;
 }
@@ -1812,6 +1827,9 @@ h6,
 .grid{
   display: grid;
 }
+.contents{
+  display: contents;
+}
 .hidden{
   display: none;
 }
@@ -1957,6 +1975,9 @@ h6,
 .gap-x-\[19px\]{
   -moz-column-gap: 19px;
   column-gap: 19px;
+}
+.self-center{
+  align-self: center;
 }
 .justify-self-end{
   justify-self: end;
@@ -8633,6 +8654,9 @@ button#backtotop:focus-visible {
   }
 }
 @media (min-width: 768px){
+  .md\:order-none{
+    order: 0;
+  }
   .md\:order-last{
     order: 9999;
   }
@@ -8683,6 +8707,9 @@ button#backtotop:focus-visible {
   }
   .md\:justify-between{
     justify-content: space-between;
+  }
+  .md\:self-auto{
+    align-self: auto;
   }
   .md\:px-20{
     padding-left: 5rem;
